@@ -848,8 +848,8 @@ export interface DeleteInstanceEventWindowRequest {
   DryRun?: boolean | undefined;
 
   /**
-   * <p>Specify <code>true</code> to force delete the event window. Use the force delete parameter
-   *          if the event window is currently associated with targets.</p>
+   * <p>Specify <code>true</code> to force delete the event window. Use the force delete
+   *          parameter if the event window is currently associated with targets.</p>
    * @public
    */
   ForceDelete?: boolean | undefined;
@@ -3293,15 +3293,16 @@ export interface DeregisterImageRequest {
 export interface DeregisterImageResult {}
 
 /**
- * <p>Information about the tag keys to deregister for the current Region. You can either specify
- *    		individual tag keys or deregister all tag keys in the current Region. You must specify either
- *    		<code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>
+ * <p>Information about the tag keys to deregister for the current Region. You can either
+ *          specify individual tag keys or deregister all tag keys in the current Region. You must
+ *          specify either <code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the
+ *          request</p>
  * @public
  */
 export interface DeregisterInstanceTagAttributeRequest {
   /**
-   * <p>Indicates whether to deregister all tag keys in the current Region. Specify <code>false</code>
-   *    		to deregister all tag keys.</p>
+   * <p>Indicates whether to deregister all tag keys in the current Region. Specify
+   *             <code>false</code> to deregister all tag keys.</p>
    * @public
    */
   IncludeAllTagsOfInstance?: boolean | undefined;
@@ -3344,8 +3345,9 @@ export interface InstanceTagNotificationAttribute {
   InstanceTagKeys?: string[] | undefined;
 
   /**
-   * <p>Indicates wheter all tag keys in the current Region are registered to appear in scheduled event notifications.
-   *       	<code>true</code> indicates that all tag keys in the current Region are registered.</p>
+   * <p>Indicates wheter all tag keys in the current Region are registered to appear in
+   *          scheduled event notifications. <code>true</code> indicates that all tag keys in the current
+   *          Region are registered.</p>
    * @public
    */
   IncludeAllTagsOfInstance?: boolean | undefined;
@@ -3867,7 +3869,8 @@ export interface DescribeAvailabilityZonesRequest {
    *             <li>
    *                <p>
    *                   <code>state</code> - The state of the Availability Zone, the Local Zone, or the
-   *           Wavelength Zone (<code>available</code>).</p>
+   *           Wavelength Zone (<code>available</code> | <code>unavailable</code> |
+   *             <code>constrained</code>).</p>
    *             </li>
    *             <li>
    *                <p>

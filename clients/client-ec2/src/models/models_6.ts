@@ -2224,24 +2224,34 @@ export interface GetCapacityReservationUsageResult {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>scheduled</code> - (<i>Future-dated Capacity Reservations only</i>) The
+   *                   <code>scheduled</code> - (<i>Future-dated Capacity Reservations</i>) The
    * 		future-dated Capacity Reservation request was approved and the Capacity Reservation is scheduled
    * 		for delivery on the requested start date.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>assessing</code> - (<i>Future-dated Capacity Reservations only</i>)
+   *                   <code>payment-pending</code> - (<i>Capacity Blocks</i>) The upfront
+   * 	    payment has not been processed yet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>payment-failed</code> - (<i>Capacity Blocks</i>) The upfront
+   * 	    payment was not processed in the 12-hour time frame. Your Capacity Block was released.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>assessing</code> - (<i>Future-dated Capacity Reservations</i>)
    * 		Amazon EC2 is assessing your request for a future-dated Capacity Reservation.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>delayed</code> - (<i>Future-dated Capacity Reservations only</i>) Amazon EC2
+   *                   <code>delayed</code> - (<i>Future-dated Capacity Reservations</i>) Amazon EC2
    * 		encountered a delay in provisioning the requested future-dated Capacity Reservation. Amazon EC2 is
    * 		unable to deliver the requested capacity by the requested start date and time.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>unsupported</code> - (<i>Future-dated Capacity Reservations only</i>) Amazon EC2
+   *                   <code>unsupported</code> - (<i>Future-dated Capacity Reservations</i>) Amazon EC2
    * 		can't support the future-dated Capacity Reservation request due to capacity constraints. You can view
    * 		unsupported requests for 30 days. The Capacity Reservation will not be delivered.</p>
    *             </li>
