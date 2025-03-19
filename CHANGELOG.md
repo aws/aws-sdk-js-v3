@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.771.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.770.0...v3.771.0) (2025-03-19)
+
+
+### Features
+
+* **client-bedrock:** Support custom prompt routers for evaluation jobs ([e85539f](https://github.com/aws/aws-sdk-js-v3/commit/e85539fa8e555f1695acb9e9856f24207102b28f))
+* **client-lambda:** Add Ruby 3.4 (ruby3.4) support to AWS Lambda. ([a9ecfb0](https://github.com/aws/aws-sdk-js-v3/commit/a9ecfb00319b86ddf3654a5fc1b6c135a1f15aa1))
+* **client-mediaconnect:** This release adds support for NDI flow outputs in AWS Elemental MediaConnect. You can now send content from your MediaConnect transport streams directly to your NDI environment using the new NDI output type. ([589ad11](https://github.com/aws/aws-sdk-js-v3/commit/589ad1130f868084e12da18f98d95f9e1f61f1c1))
+* **client-neptune-graph:** Update IAM Role ARN Validation to Support Role Paths ([8179df2](https://github.com/aws/aws-sdk-js-v3/commit/8179df2b488b378f562fd44286eded2dae6cc195))
+* **client-sagemaker:** Added support for g6, g6e, m6i, c6i instance types in SageMaker Processing Jobs. ([5715d11](https://github.com/aws/aws-sdk-js-v3/commit/5715d113c12066da8d99218b99ce7023a8d265e4))
+* **clients:** update client endpoints as of 2025-03-19 ([cbacd0c](https://github.com/aws/aws-sdk-js-v3/commit/cbacd0c48e50f559e9da38ab5b299d4faba18788))
+
+
+
+
+
 # [3.770.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.769.0...v3.770.0) (2025-03-18)
 
 

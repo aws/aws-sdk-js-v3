@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.771.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.770.0...v3.771.0) (2025-03-19)
+
+
+### Features
+
+* **client-sagemaker:** Added support for g6, g6e, m6i, c6i instance types in SageMaker Processing Jobs. ([5715d11](https://github.com/aws/aws-sdk-js-v3/commit/5715d113c12066da8d99218b99ce7023a8d265e4))
+
+
+
+
+
 # [3.760.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.759.0...v3.760.0) (2025-03-03)
 
 
