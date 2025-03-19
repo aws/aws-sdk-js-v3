@@ -10,6 +10,7 @@ import { MediaConnectServiceException as __BaseException } from "./MediaConnectS
 export const Protocol = {
   cdi: "cdi",
   fujitsu_qos: "fujitsu-qos",
+  ndi_speed_hq: "ndi-speed-hq",
   rist: "rist",
   rtp: "rtp",
   rtp_fec: "rtp-fec",
@@ -27,162 +28,202 @@ export const Protocol = {
 export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 /**
- * Add a network output to an existing bridge.
+ * <p>Add a network output to an existing bridge.
+ * </p>
  * @public
  */
 export interface AddBridgeNetworkOutputRequest {
   /**
-   * The network output IP Address.
+   * <p>
+   *    The network output IP Address.
+   * </p>
    * @public
    */
   IpAddress: string | undefined;
 
   /**
-   * The network output name. This name is used to reference the output and must be unique among outputs in this bridge.
+   * <p>
+   *    The network output name. This name is used to reference the output and must be unique among outputs in this bridge.
+   * </p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * The network output's gateway network name.
+   * <p>
+   *    The network output's gateway network name.
+   * </p>
    * @public
    */
   NetworkName: string | undefined;
 
   /**
-   * The network output port.
+   * <p>
+   *    The network output port.
+   * </p>
    * @public
    */
   Port: number | undefined;
 
   /**
-   * The network output protocol.
+   * <p>
+   *    The network output protocol.
+   * </p>
+   *          <note>
+   *             <p>Elemental MediaConnect no longer supports the Fujitsu QoS
+   *          protocol. This reference is maintained for legacy purposes only.</p>
+   *          </note>
    * @public
    */
   Protocol: Protocol | undefined;
 
   /**
-   * The network output TTL.
+   * <p>
+   *    The network output TTL.
+   * </p>
    * @public
    */
   Ttl: number | undefined;
 }
 
 /**
- * Add an output to a bridge.
+ * <p> Add outputs to the specified bridge.</p>
  * @public
  */
 export interface AddBridgeOutputRequest {
   /**
-   * Add a network output to an existing bridge.
+   * <p>
+   *    The network output of the bridge. A network output is delivered to your premises.
+   * </p>
    * @public
    */
   NetworkOutput?: AddBridgeNetworkOutputRequest | undefined;
 }
 
 /**
- * The settings for attaching a VPC interface to an resource.
+ * <p> The settings for attaching a VPC interface to an resource.
+ * </p>
  * @public
  */
 export interface VpcInterfaceAttachment {
   /**
-   * The name of the VPC interface to use for this resource.
+   * <p> The name of the VPC interface to use for this resource.</p>
    * @public
    */
   VpcInterfaceName?: string | undefined;
 }
 
 /**
- * Add a flow source to an existing bridge.
+ * <p>
+ *    Add a flow source to an existing bridge.
+ * </p>
  * @public
  */
 export interface AddBridgeFlowSourceRequest {
   /**
-   * The Amazon Resource Number (ARN) of the cloud flow to use as a source of this bridge.
+   * <p> The Amazon Resource Number (ARN) of the flow to use as a source of this bridge. </p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * The name of the VPC interface attachment to use for this source.
+   * <p>The name of the VPC interface attachment to use for this source.
+   * </p>
    * @public
    */
   FlowVpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
 
   /**
-   * The name of the flow source. This name is used to reference the source and must be unique among sources in this bridge.
+   * <p>
+   *    The name of the flow source. This name is used to reference the source and must be unique among sources in this bridge.
+   * </p>
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * The settings related to the multicast source.
+ * <p> The settings related to the multicast source.
+ * </p>
  * @public
  */
 export interface MulticastSourceSettings {
   /**
-   * The IP address of the source for source-specific multicast (SSM).
+   * <p> The IP address of the source for source-specific multicast (SSM).</p>
    * @public
    */
   MulticastSourceIp?: string | undefined;
 }
 
 /**
- * Add a network source to an existing bridge.
+ * <p>
+ *    Add a network source to an existing bridge.
+ * </p>
  * @public
  */
 export interface AddBridgeNetworkSourceRequest {
   /**
-   * The network source multicast IP.
+   * <p> The network source multicast IP.</p>
    * @public
    */
   MulticastIp: string | undefined;
 
   /**
-   * The settings related to the multicast source.
+   * <p>
+   *    The settings related to the multicast source.
+   * </p>
    * @public
    */
   MulticastSourceSettings?: MulticastSourceSettings | undefined;
 
   /**
-   * The name of the network source. This name is used to reference the source and must be unique among sources in this bridge.
+   * <p> The name of the network source. This name is used to reference the source and must be unique among sources in this bridge.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * The network source's gateway network name.
+   * <p> The network source's gateway network name.</p>
    * @public
    */
   NetworkName: string | undefined;
 
   /**
-   * The network source port.
+   * <p> The network source port.</p>
    * @public
    */
   Port: number | undefined;
 
   /**
-   * The network source protocol.
+   * <p> The network source protocol.</p>
+   *          <note>
+   *             <p>Elemental MediaConnect no longer supports the Fujitsu QoS
+   *          protocol. This reference is maintained for legacy purposes only.</p>
+   *          </note>
    * @public
    */
   Protocol: Protocol | undefined;
 }
 
 /**
- * Add a source to an existing bridge.
+ * <p>
+ *    Add an output to a bridge.
+ * </p>
  * @public
  */
 export interface AddBridgeSourceRequest {
   /**
-   * Add a flow source to an existing bridge.
+   * <p>
+   * The source of the flow.
+   * </p>
    * @public
    */
   FlowSource?: AddBridgeFlowSourceRequest | undefined;
 
   /**
-   * Add a network source to an existing bridge.
+   * <p>
+   * The source of the network.
+   * </p>
    * @public
    */
   NetworkSource?: AddBridgeNetworkSourceRequest | undefined;
@@ -259,66 +300,71 @@ export const Tcs = {
 export type Tcs = (typeof Tcs)[keyof typeof Tcs];
 
 /**
- * The settings that you want to use to define the media stream.
+ * <p> The settings that you want to use to define the media stream.</p>
  * @public
  */
 export interface FmtpRequest {
   /**
-   * The format of the audio channel.
+   * <p> The format of the audio channel.</p>
    * @public
    */
   ChannelOrder?: string | undefined;
 
   /**
-   * The format that is used for the representation of color.
+   * <p> The format that is used for the representation of color.</p>
    * @public
    */
   Colorimetry?: Colorimetry | undefined;
 
   /**
-   * The frame rate for the video stream, in frames/second. For example: 60000/1001. If you specify a whole number, MediaConnect uses a ratio of N/1. For example, if you specify 60, MediaConnect uses 60/1 as the exactFramerate.
+   * <p> The frame rate for the video stream, in frames/second. For example: 60000/1001. If you specify a whole number, MediaConnect uses a ratio of N/1. For example, if you specify 60, MediaConnect uses 60/1 as the <code>exactFramerate</code>.</p>
    * @public
    */
   ExactFramerate?: string | undefined;
 
   /**
-   * The pixel aspect ratio (PAR) of the video.
+   * <p> The pixel aspect ratio (PAR) of the video.</p>
    * @public
    */
   Par?: string | undefined;
 
   /**
-   * The encoding range of the video.
+   * <p> The encoding range of the video.</p>
    * @public
    */
   Range?: Range | undefined;
 
   /**
-   * The type of compression that was used to smooth the video’s appearance.
+   * <p> The type of compression that was used to smooth the video’s appearance.</p>
    * @public
    */
   ScanMode?: ScanMode | undefined;
 
   /**
-   * The transfer characteristic system (TCS) that is used in the video.
+   * <p> The transfer characteristic system (TCS) that is used in the video.</p>
    * @public
    */
   Tcs?: Tcs | undefined;
 }
 
 /**
- * Attributes that are related to the media stream.
+ * <p>Attributes that are related to the media stream.
+ * </p>
  * @public
  */
 export interface MediaStreamAttributesRequest {
   /**
-   * The settings that you want to use to define the media stream.
+   * <p>The settings that you want to use to define the media stream.
+   * </p>
    * @public
    */
   Fmtp?: FmtpRequest | undefined;
 
   /**
-   * The audio language, in a format that is recognized by the receiver.
+   * <p>The audio language, in a format that is recognized by the receiver.
+   *
+   *
+   * </p>
    * @public
    */
   Lang?: string | undefined;
@@ -340,48 +386,50 @@ export const MediaStreamType = {
 export type MediaStreamType = (typeof MediaStreamType)[keyof typeof MediaStreamType];
 
 /**
- * The media stream that you want to add to the flow.
+ * <p> The media stream that you want to add to the flow.
+ * </p>
  * @public
  */
 export interface AddMediaStreamRequest {
   /**
-   * The attributes that you want to assign to the new media stream.
+   * <p> The attributes that you want to assign to the new media stream.</p>
    * @public
    */
   Attributes?: MediaStreamAttributesRequest | undefined;
 
   /**
-   * The sample rate (in Hz) for the stream. If the media stream type is video or ancillary data, set this value to 90000. If the media stream type is audio, set this value to either 48000 or 96000.
+   * <p> The sample rate (in Hz) for the stream. If the media stream type is video or ancillary data, set this value to 90000. If the media stream type is audio, set this value to either 48000 or 96000.</p>
    * @public
    */
   ClockRate?: number | undefined;
 
   /**
-   * A description that can help you quickly identify what your media stream is used for.
+   * <p> A description that can help you quickly identify what your media stream is used for.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * A unique identifier for the media stream.
+   * <p> A unique identifier for the media stream.
+   * </p>
    * @public
    */
   MediaStreamId: number | undefined;
 
   /**
-   * A name that helps you distinguish one media stream from another.
+   * <p> A name that helps you distinguish one media stream from another.</p>
    * @public
    */
   MediaStreamName: string | undefined;
 
   /**
-   * The type of media stream.
+   * <p> The type of media stream.</p>
    * @public
    */
   MediaStreamType: MediaStreamType | undefined;
 
   /**
-   * The resolution of the video.
+   * <p> The resolution of the video.</p>
    * @public
    */
   VideoFormat?: string | undefined;
@@ -418,96 +466,97 @@ export const KeyType = {
 export type KeyType = (typeof KeyType)[keyof typeof KeyType];
 
 /**
- * Information about the encryption of the flow.
+ * <p> Information about the encryption of the flow.</p>
  * @public
  */
 export interface Encryption {
   /**
-   * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+   * <p> The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).</p>
    * @public
    */
   Algorithm?: Algorithm | undefined;
 
   /**
-   * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
+   * <p> A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.</p>
    * @public
    */
   ConstantInitializationVector?: string | undefined;
 
   /**
-   * The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   * <p> The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
    * @public
    */
   DeviceId?: string | undefined;
 
   /**
-   * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+   * <p> The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).</p>
    * @public
    */
   KeyType?: KeyType | undefined;
 
   /**
-   * The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   * <p> The Amazon Web Services Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
    * @public
    */
   Region?: string | undefined;
 
   /**
-   * An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   * <p> An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+   * <p> The ARN of the role that you created during setup (when you set up MediaConnect as a trusted entity).</p>
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+   * <p> The ARN of the secret that you created in Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.</p>
    * @public
    */
   SecretArn?: string | undefined;
 
   /**
-   * The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   * <p> The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
    * @public
    */
   Url?: string | undefined;
 }
 
 /**
- * The VPC interface that you want to designate where the media stream is coming from or going to.
+ * <p> The VPC interface that you want to designate where the media stream is coming from or going to.</p>
  * @public
  */
 export interface InterfaceRequest {
   /**
-   * The name of the VPC interface.
+   * <p> The name of the VPC interface.</p>
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * The transport parameters that you want to associate with an outbound media stream.
+ * <p>The definition of a media stream that you want to associate with the output.
+ * </p>
  * @public
  */
 export interface DestinationConfigurationRequest {
   /**
-   * The IP address where you want MediaConnect to send contents of the media stream.
+   * <p>The IP address where you want MediaConnect to send contents of the media stream.</p>
    * @public
    */
   DestinationIp: string | undefined;
 
   /**
-   * The port that you want MediaConnect to use when it distributes the media stream to the output.
+   * <p> The port that you want MediaConnect to use when it distributes the media stream to the output.</p>
    * @public
    */
   DestinationPort: number | undefined;
 
   /**
-   * The VPC interface that you want to use for the media stream associated with the output.
+   * <p> The VPC interface that you want to use for the media stream associated with the output.</p>
    * @public
    */
   Interface: InterfaceRequest | undefined;
@@ -544,48 +593,52 @@ export const EncoderProfile = {
 export type EncoderProfile = (typeof EncoderProfile)[keyof typeof EncoderProfile];
 
 /**
- * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+ * <p> A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.</p>
  * @public
  */
 export interface EncodingParametersRequest {
   /**
-   * A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are floating point numbers in the range of 3.0 to 10.0, inclusive.
+   * <p> A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are floating point numbers in the range of 3.0 to 10.0, inclusive.</p>
    * @public
    */
   CompressionFactor: number | undefined;
 
   /**
-   * A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, if at least one source on the flow uses the CDI protocol.
+   * <p> A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, if at least one source on the flow uses the CDI protocol.</p>
    * @public
    */
   EncoderProfile: EncoderProfile | undefined;
 }
 
 /**
- * The media stream that you want to associate with the output, and the parameters for that association.
+ * <p> The media stream that you want to associate with the output, and the parameters for that association.</p>
  * @public
  */
 export interface MediaStreamOutputConfigurationRequest {
   /**
-   * The transport parameters that you want to associate with the media stream.
+   * <p>
+   *    The media streams that you want to associate with the output.
+   * </p>
    * @public
    */
   DestinationConfigurations?: DestinationConfigurationRequest[] | undefined;
 
   /**
-   * The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+   * <p> The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.</p>
    * @public
    */
   EncodingName: EncodingName | undefined;
 
   /**
-   * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+   * <p>
+   *    A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+   * </p>
    * @public
    */
   EncodingParameters?: EncodingParametersRequest | undefined;
 
   /**
-   * The name of the media stream that is associated with the output.
+   * <p> The name of the media stream that is associated with the output.</p>
    * @public
    */
   MediaStreamName: string | undefined;
@@ -606,105 +659,124 @@ export const OutputStatus = {
 export type OutputStatus = (typeof OutputStatus)[keyof typeof OutputStatus];
 
 /**
- * The output that you want to add to this flow.
+ * <p> A request to add an output to a flow.</p>
  * @public
  */
 export interface AddOutputRequest {
   /**
-   * The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   * <p> The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
    * @public
    */
   CidrAllowList?: string[] | undefined;
 
   /**
-   * A description of the output. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the end user.
+   * <p> A description of the output. This description appears only on the Audit Manager console and will not be seen by the end user.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * The IP address from which video will be sent to output destinations.
+   * <p> The IP address from which video will be sent to output destinations.</p>
    * @public
    */
   Destination?: string | undefined;
 
   /**
-   * The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key). Allowable encryption types: static-key.
+   * <p> The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key). Allowable encryption types: static-key.</p>
    * @public
    */
   Encryption?: Encryption | undefined;
 
   /**
-   * The maximum latency in milliseconds. This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
+   * <p> The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.</p>
    * @public
    */
   MaxLatency?: number | undefined;
 
   /**
-   * The media streams that are associated with the output, and the parameters for those associations.
+   * <p> The media streams that are associated with the output, and the parameters for those associations.</p>
    * @public
    */
   MediaStreamOutputConfigurations?: MediaStreamOutputConfigurationRequest[] | undefined;
 
   /**
-   * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+   * <p> The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.</p>
    * @public
    */
   MinLatency?: number | undefined;
 
   /**
-   * The name of the output. This value must be unique within the current flow.
+   * <p> The name of the output. This value must be unique within the current flow.</p>
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * The port to use when content is distributed to this output.
+   * <p> The port to use when content is distributed to this output.</p>
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * The protocol to use for the output.
+   * <p> The protocol to use for the output.</p>
+   *          <note>
+   *             <p>Elemental MediaConnect no longer supports the Fujitsu QoS
+   *          protocol. This reference is maintained for legacy purposes only.</p>
+   *          </note>
    * @public
    */
   Protocol: Protocol | undefined;
 
   /**
-   * The remote ID for the Zixi-pull output stream.
+   * <p> The remote ID for the Zixi-pull output stream.</p>
    * @public
    */
   RemoteId?: string | undefined;
 
   /**
-   * The port that the flow uses to send outbound requests to initiate connection with the sender.
+   * <p> The port that the flow uses to send outbound requests to initiate connection with the sender.</p>
    * @public
    */
   SenderControlPort?: number | undefined;
 
   /**
-   * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
+   * <p> The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.</p>
    * @public
    */
   SmoothingLatency?: number | undefined;
 
   /**
-   * The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.
+   * <p> The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.</p>
    * @public
    */
   StreamId?: string | undefined;
 
   /**
-   * The name of the VPC interface attachment to use for this output.
+   * <p> The name of the VPC interface attachment to use for this output.</p>
    * @public
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
 
   /**
-   * An indication of whether the new output should be enabled or disabled as soon as it is created. If you don't specify the outputStatus field in your request, MediaConnect sets it to ENABLED.
+   * <p> An indication of whether the new output should be enabled or disabled as soon as it is created. If you don't specify the outputStatus field in your request, MediaConnect sets it to ENABLED.</p>
    * @public
    */
   OutputStatus?: OutputStatus | undefined;
+
+  /**
+   * <p>A quality setting for the NDI Speed HQ encoder.
+   * </p>
+   * @public
+   */
+  NdiSpeedHqQuality?: number | undefined;
+
+  /**
+   * <p>
+   *    A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
+   * </p>
+   * @public
+   */
+  NdiProgramName?: string | undefined;
 }
 
 /**
@@ -722,246 +794,269 @@ export const State = {
 export type State = (typeof State)[keyof typeof State];
 
 /**
- * Configures settings for the SilentAudio metric.
+ * <p>Configures settings for the <code>SilentAudio</code> metric.
+ * </p>
  * @public
  */
 export interface SilentAudio {
   /**
-   * Indicates whether the SilentAudio metric is enabled or disabled.
+   * <p>Indicates whether the <code>SilentAudio</code> metric is enabled or disabled.
+   * </p>
    * @public
    */
   State?: State | undefined;
 
   /**
-   * Specifies the number of consecutive seconds of silence that triggers an event or alert.
+   * <p>Specifies the number of consecutive seconds of silence that triggers an event or alert.
+   * </p>
    * @public
    */
   ThresholdSeconds?: number | undefined;
 }
 
 /**
- * Specifies the configuration for audio stream metrics monitoring.
+ * <p> Specifies the configuration for audio stream metrics monitoring.</p>
  * @public
  */
 export interface AudioMonitoringSetting {
   /**
-   * Detects periods of silence.
+   * <p> Detects periods of silence.
+   *
+   *    </p>
    * @public
    */
   SilentAudio?: SilentAudio | undefined;
 }
 
 /**
- * The output of the bridge. A flow output is delivered to the AWS cloud.
+ * <p> The output of the bridge. A flow output is delivered to the Amazon Web Services cloud. </p>
  * @public
  */
 export interface BridgeFlowOutput {
   /**
-   * The Amazon Resource Number (ARN) of the cloud flow.
+   * <p> The Amazon Resource Number (ARN) of the cloud flow.</p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * The Amazon Resource Number (ARN) of the flow source.
+   * <p> The Amazon Resource Number (ARN) of the flow source.</p>
    * @public
    */
   FlowSourceArn: string | undefined;
 
   /**
-   * The name of the bridge's output.
+   * <p> The name of the bridge's output.</p>
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * The output of the bridge. A network output is delivered to your premises.
+ * <p> The output of the bridge. A network output is delivered to your premises.</p>
  * @public
  */
 export interface BridgeNetworkOutput {
   /**
-   * The network output IP Address.
+   * <p> The network output IP address.</p>
    * @public
    */
   IpAddress: string | undefined;
 
   /**
-   * The network output name.
+   * <p> The network output name.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * The network output's gateway network name.
+   * <p> The network output's gateway network name.</p>
    * @public
    */
   NetworkName: string | undefined;
 
   /**
-   * The network output port.
+   * <p> The network output's port.</p>
    * @public
    */
   Port: number | undefined;
 
   /**
-   * The network output protocol.
+   * <p> The network output protocol.</p>
+   *          <note>
+   *             <p>Elemental MediaConnect no longer supports the Fujitsu QoS
+   *          protocol. This reference is maintained for legacy purposes only.</p>
+   *          </note>
    * @public
    */
   Protocol: Protocol | undefined;
 
   /**
-   * The network output TTL.
+   * <p> The network output TTL.</p>
    * @public
    */
   Ttl: number | undefined;
 }
 
 /**
- * The output of the bridge.
+ * <p> The output of the bridge.</p>
  * @public
  */
 export interface BridgeOutput {
   /**
-   * The output of the bridge. A flow output is delivered to the AWS cloud.
+   * <p>
+   * The output of the associated flow.
+   * </p>
    * @public
    */
   FlowOutput?: BridgeFlowOutput | undefined;
 
   /**
-   * The output of the bridge. A network output is delivered to your premises.
+   * <p>
+   * The network output for the bridge.
+   * </p>
    * @public
    */
   NetworkOutput?: BridgeNetworkOutput | undefined;
 }
 
 /**
- * The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+ * <p> The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.</p>
  * @public
  */
 export interface BridgeFlowSource {
   /**
-   * The ARN of the cloud flow used as a source of this bridge.
+   * <p> The ARN of the cloud flow used as a source of this bridge.</p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * The name of the VPC interface attachment to use for this source.
+   * <p> The name of the VPC interface attachment to use for this source.</p>
    * @public
    */
   FlowVpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
 
   /**
-   * The name of the flow source.
+   * <p> The name of the flow source.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * The Amazon Resource Number (ARN) of the output.
+   * <p> The Amazon Resource Number (ARN) of the output.</p>
    * @public
    */
   OutputArn?: string | undefined;
 }
 
 /**
- * The source of the bridge. A network source originates at your premises.
+ * <p> The source of the bridge. A network source originates at your premises.</p>
  * @public
  */
 export interface BridgeNetworkSource {
   /**
-   * The network source multicast IP.
+   * <p> The network source multicast IP.</p>
    * @public
    */
   MulticastIp: string | undefined;
 
   /**
-   * The settings related to the multicast source.
+   * <p>The settings related to the multicast source.
+   * </p>
    * @public
    */
   MulticastSourceSettings?: MulticastSourceSettings | undefined;
 
   /**
-   * The name of the network source.
+   * <p> The name of the network source.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * The network source's gateway network name.
+   * <p> The network source's gateway network name.</p>
    * @public
    */
   NetworkName: string | undefined;
 
   /**
-   * The network source port.
+   * <p> The network source port.</p>
    * @public
    */
   Port: number | undefined;
 
   /**
-   * The network source protocol.
+   * <p> The network source protocol.</p>
+   *          <note>
+   *             <p>Elemental MediaConnect no longer supports the Fujitsu QoS
+   *          protocol. This reference is maintained for legacy purposes only.</p>
+   *          </note>
    * @public
    */
   Protocol: Protocol | undefined;
 }
 
 /**
- * The bridge's source.
+ * <p> The bridge's source.</p>
  * @public
  */
 export interface BridgeSource {
   /**
-   * The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+   * <p>
+   *    The source of the associated flow.
+   * </p>
    * @public
    */
   FlowSource?: BridgeFlowSource | undefined;
 
   /**
-   * The source of the bridge. A network source originates at your premises.
+   * <p>
+   * The network source for the bridge.
+   * </p>
    * @public
    */
   NetworkSource?: BridgeNetworkSource | undefined;
 }
 
 /**
- * The VPC interface that is used for the media stream associated with the source or output.
+ * <p> The VPC interface that is used for the media stream associated with the source or output.</p>
  * @public
  */
 export interface Interface {
   /**
-   * The name of the VPC interface.
+   * <p> The name of the VPC interface.</p>
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * The transport parameters that are associated with an outbound media stream.
+ * <p> The transport parameters that you want to associate with an outbound media stream.</p>
  * @public
  */
 export interface DestinationConfiguration {
   /**
-   * The IP address where contents of the media stream will be sent.
+   * <p>The IP address where you want MediaConnect to send contents of the media stream.</p>
    * @public
    */
   DestinationIp: string | undefined;
 
   /**
-   * The port to use when the content of the media stream is distributed to the output.
+   * <p> The port that you want MediaConnect to use when it distributes the media stream to the output.</p>
    * @public
    */
   DestinationPort: number | undefined;
 
   /**
-   * The VPC interface that is used for the media stream associated with the output.
+   * <p> The VPC interface that you want to use for the media stream associated with the output.</p>
    * @public
    */
   Interface: Interface | undefined;
 
   /**
-   * The IP address that the receiver requires in order to establish a connection with the flow. This value is represented by the elastic network interface IP address of the VPC. This field applies only to outputs that use the CDI or ST 2110 JPEG XS protocol.
+   * <p>The IP address that the receiver requires in order to establish a connection with the flow. This value is represented by the elastic network interface IP address of the VPC. This field applies only to outputs that use the CDI or ST 2110 JPEG XS or protocol.
+   * </p>
    * @public
    */
   OutboundIp: string | undefined;
@@ -982,150 +1077,157 @@ export const EntitlementStatus = {
 export type EntitlementStatus = (typeof EntitlementStatus)[keyof typeof EntitlementStatus];
 
 /**
- * The settings for a flow entitlement.
+ * <p> The settings for a flow entitlement.</p>
  * @public
  */
 export interface Entitlement {
   /**
-   * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
+   * <p> Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>
    * @public
    */
   DataTransferSubscriberFeePercent?: number | undefined;
 
   /**
-   * A description of the entitlement.
+   * <p> A description of the entitlement.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * The type of encryption that will be used on the output that is associated with this entitlement.
+   * <p> The type of encryption that will be used on the output that is associated with this entitlement.</p>
    * @public
    */
   Encryption?: Encryption | undefined;
 
   /**
-   * The ARN of the entitlement.
+   * <p> The ARN of the entitlement.
+   * </p>
    * @public
    */
   EntitlementArn: string | undefined;
 
   /**
-   * An indication of whether the entitlement is enabled.
+   * <p> An indication of whether the entitlement is enabled.
+   * </p>
    * @public
    */
   EntitlementStatus?: EntitlementStatus | undefined;
 
   /**
-   * The name of the entitlement.
+   * <p> The name of the entitlement.
+   * </p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
+   * <p> The Amazon Web Services account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
+   * </p>
    * @public
    */
   Subscribers: string[] | undefined;
 }
 
 /**
- * The network settings for a gateway.
+ * <p>The network settings for a gateway.
+ * </p>
  * @public
  */
 export interface GatewayNetwork {
   /**
-   * A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   * <p>A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   * </p>
    * @public
    */
   CidrBlock: string | undefined;
 
   /**
-   * The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
+   * <p>The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
+   * </p>
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * The entitlements that you want to grant on a flow.
+ * <p> The entitlements that you want to grant on a flow.</p>
  * @public
  */
 export interface GrantEntitlementRequest {
   /**
-   * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
+   * <p> Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>
    * @public
    */
   DataTransferSubscriberFeePercent?: number | undefined;
 
   /**
-   * A description of the entitlement. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the subscriber or end user.
+   * <p> A description of the entitlement. This description appears only on the MediaConnect console and will not be seen by the subscriber or end user. </p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * The type of encryption that will be used on the output that is associated with this entitlement. Allowable encryption types: static-key, speke.
+   * <p> The type of encryption that will be used on the output that is associated with this entitlement. Allowable encryption types: static-key, speke.</p>
    * @public
    */
   Encryption?: Encryption | undefined;
 
   /**
-   * An indication of whether the new entitlement should be enabled or disabled as soon as it is created. If you don’t specify the entitlementStatus field in your request, MediaConnect sets it to ENABLED.
+   * <p> An indication of whether the new entitlement should be enabled or disabled as soon as it is created. If you don’t specify the entitlementStatus field in your request, MediaConnect sets it to ENABLED.</p>
    * @public
    */
   EntitlementStatus?: EntitlementStatus | undefined;
 
   /**
-   * The name of the entitlement. This value must be unique within the current flow.
+   * <p> The name of the entitlement. This value must be unique within the current flow.</p>
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flows using your content as the source.
+   * <p> The Amazon Web Services account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flows using your content as the source.</p>
    * @public
    */
   Subscribers: string[] | undefined;
 }
 
 /**
- * The transport parameters that are associated with an incoming media stream.
+ * <p> The transport parameters that are associated with an incoming media stream.</p>
  * @public
  */
 export interface InputConfiguration {
   /**
-   * The IP address that the flow listens on for incoming content for a media stream.
+   * <p> The IP address that the flow listens on for incoming content for a media stream.</p>
    * @public
    */
   InputIp: string | undefined;
 
   /**
-   * The port that the flow listens on for an incoming media stream.
+   * <p> The port that the flow listens on for an incoming media stream.</p>
    * @public
    */
   InputPort: number | undefined;
 
   /**
-   * The VPC interface where the media stream comes in from.
+   * <p> The VPC interface where the media stream comes in from.</p>
    * @public
    */
   Interface: Interface | undefined;
 }
 
 /**
- * The transport parameters that you want to associate with an incoming media stream.
+ * <p> The transport parameters that you want to associate with an incoming media stream.</p>
  * @public
  */
 export interface InputConfigurationRequest {
   /**
-   * The port that you want the flow to listen on for an incoming media stream.
+   * <p> The port that you want the flow to listen on for an incoming media stream.</p>
    * @public
    */
   InputPort: number | undefined;
 
   /**
-   * The VPC interface that you want to use for the incoming media stream.
+   * <p> The VPC interface that you want to use for the incoming media stream.</p>
    * @public
    */
   Interface: InterfaceRequest | undefined;
@@ -1156,55 +1258,61 @@ export const BridgeState = {
 export type BridgeState = (typeof BridgeState)[keyof typeof BridgeState];
 
 /**
- * Displays details of the selected bridge.
+ * <p> Displays details of the selected bridge.</p>
  * @public
  */
 export interface ListedBridge {
   /**
-   * The ARN of the bridge.
+   * <p> The ARN of the bridge.</p>
    * @public
    */
   BridgeArn: string | undefined;
 
-  BridgeState: BridgeState | undefined;
   /**
-   * The type of the bridge.
+   * <p>The state of the bridge.
+   * </p>
+   * @public
+   */
+  BridgeState: BridgeState | undefined;
+
+  /**
+   * <p> The type of the bridge.</p>
    * @public
    */
   BridgeType: string | undefined;
 
   /**
-   * The name of the bridge.
+   * <p> The name of the bridge.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * The ARN of the gateway associated with the bridge.
+   * <p> The ARN of the gateway associated with the bridge.</p>
    * @public
    */
   PlacementArn: string | undefined;
 }
 
 /**
- * An entitlement that has been granted to you from other AWS accounts.
+ * <p> An entitlement that has been granted to you from other Amazon Web Services accounts.</p>
  * @public
  */
 export interface ListedEntitlement {
   /**
-   * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
+   * <p> Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>
    * @public
    */
   DataTransferSubscriberFeePercent?: number | undefined;
 
   /**
-   * The ARN of the entitlement.
+   * <p> The ARN of the entitlement.</p>
    * @public
    */
   EntitlementArn: string | undefined;
 
   /**
-   * The name of the entitlement.
+   * <p> The name of the entitlement.</p>
    * @public
    */
   EntitlementName: string | undefined;
@@ -1230,30 +1338,30 @@ export const MaintenanceDay = {
 export type MaintenanceDay = (typeof MaintenanceDay)[keyof typeof MaintenanceDay];
 
 /**
- * The maintenance setting of a flow
+ * <p> The maintenance setting of a flow.</p>
  * @public
  */
 export interface Maintenance {
   /**
-   * A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+   * <p> A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.</p>
    * @public
    */
   MaintenanceDay?: MaintenanceDay | undefined;
 
   /**
-   * The Maintenance has to be performed before this deadline in ISO UTC format. Example: 2021-01-30T08:30:00Z.
+   * <p> The Maintenance has to be performed before this deadline in ISO UTC format. Example: 2021-01-30T08:30:00Z.</p>
    * @public
    */
   MaintenanceDeadline?: string | undefined;
 
   /**
-   * A scheduled date in ISO UTC format when the maintenance will happen. Use YYYY-MM-DD format. Example: 2021-01-30.
+   * <p> A scheduled date in ISO UTC format when the maintenance will happen. Use YYYY-MM-DD format. Example: 2021-01-30.</p>
    * @public
    */
   MaintenanceScheduledDate?: string | undefined;
 
   /**
-   * UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+   * <p> UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.</p>
    * @public
    */
   MaintenanceStartHour?: string | undefined;
@@ -1293,48 +1401,50 @@ export const Status = {
 export type Status = (typeof Status)[keyof typeof Status];
 
 /**
- * Provides a summary of a flow, including its ARN, Availability Zone, and source type.
+ * <p> A summary of a flow, including its ARN, Availability Zone, and source type.</p>
  * @public
  */
 export interface ListedFlow {
   /**
-   * The Availability Zone that the flow was created in.
+   * <p> The Availability Zone that the flow was created in.</p>
    * @public
    */
   AvailabilityZone: string | undefined;
 
   /**
-   * A description of the flow.
+   * <p> A description of the flow.</p>
    * @public
    */
   Description: string | undefined;
 
   /**
-   * The ARN of the flow.
+   * <p> The ARN of the flow.</p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * The name of the flow.
+   * <p> The name of the flow.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * The type of source. This value is either owned (originated somewhere other than an AWS Elemental MediaConnect flow owned by another AWS account) or entitled (originated at an AWS Elemental MediaConnect flow owned by another AWS account).
+   * <p> The type of source. This value is either owned (originated somewhere other than an MediaConnect flow owned by another Amazon Web Services account) or entitled (originated at a MediaConnect flow owned by another Amazon Web Services account).</p>
    * @public
    */
   SourceType: SourceType | undefined;
 
   /**
-   * The current status of the flow.
+   * <p> The current status of the flow.</p>
    * @public
    */
   Status: Status | undefined;
 
   /**
-   * The maintenance setting of a flow
+   * <p>
+   * The maintenance settings for the flow.
+   * </p>
    * @public
    */
   Maintenance?: Maintenance | undefined;
@@ -1359,19 +1469,24 @@ export const GatewayState = {
 export type GatewayState = (typeof GatewayState)[keyof typeof GatewayState];
 
 /**
- * Provides a summary of a gateway, including its name, ARN, and status.
+ * <p> A summary of a gateway, including its name, ARN, and status.</p>
  * @public
  */
 export interface ListedGateway {
   /**
-   * The Amazon Resource Name (ARN) of the gateway.
+   * <p> The Amazon Resource Name (ARN) of the gateway.</p>
    * @public
    */
   GatewayArn: string | undefined;
 
-  GatewayState: GatewayState | undefined;
   /**
-   * The name of the gateway.
+   * <p> The status of the gateway.</p>
+   * @public
+   */
+  GatewayState: GatewayState | undefined;
+
+  /**
+   * <p> The name of the gateway.</p>
    * @public
    */
   Name: string | undefined;
@@ -1396,272 +1511,328 @@ export const InstanceState = {
 export type InstanceState = (typeof InstanceState)[keyof typeof InstanceState];
 
 /**
- * Provides a summary of an instance.
+ * <p> A summary of an instance. </p>
  * @public
  */
 export interface ListedGatewayInstance {
   /**
-   * The Amazon Resource Name (ARN) of the gateway.
+   * <p> The Amazon Resource Name (ARN) of the gateway.</p>
    * @public
    */
   GatewayArn: string | undefined;
 
   /**
-   * The Amazon Resource Name (ARN) of the instance.
+   * <p> The Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   GatewayInstanceArn: string | undefined;
 
   /**
-   * The managed instance ID generated by the SSM install. This will begin with "mi-".
+   * <p> The managed instance ID generated by the SSM install. This will begin with "mi-".</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * The status of the instance.
+   * <p> The status of the instance.</p>
    * @public
    */
   InstanceState?: InstanceState | undefined;
 }
 
 /**
- * FMTP
+ * <p>
+ *    A set of parameters that define the media stream.
+ * </p>
  * @public
  */
 export interface Fmtp {
   /**
-   * The format of the audio channel.
+   * <p>
+   *
+   *    The format of the audio channel.
+   * </p>
    * @public
    */
   ChannelOrder?: string | undefined;
 
   /**
-   * The format that is used for the representation of color.
+   * <p>The format used for the representation of color.
+   * </p>
    * @public
    */
   Colorimetry?: Colorimetry | undefined;
 
   /**
-   * The frame rate for the video stream, in frames/second. For example: 60000/1001. If you specify a whole number, MediaConnect uses a ratio of N/1. For example, if you specify 60, MediaConnect uses 60/1 as the exactFramerate.
+   * <p>The frame rate for the video stream, in frames/second. For example: 60000/1001.
+   * </p>
    * @public
    */
   ExactFramerate?: string | undefined;
 
   /**
-   * The pixel aspect ratio (PAR) of the video.
+   * <p>The pixel aspect ratio (PAR) of the video.
+   * </p>
    * @public
    */
   Par?: string | undefined;
 
   /**
-   * The encoding range of the video.
+   * <p>The encoding range of the video.
+   * </p>
    * @public
    */
   Range?: Range | undefined;
 
   /**
-   * The type of compression that was used to smooth the video’s appearance
+   * <p>The type of compression that was used to smooth the video’s appearance.
+   * </p>
    * @public
    */
   ScanMode?: ScanMode | undefined;
 
   /**
-   * The transfer characteristic system (TCS) that is used in the video.
+   * <p>The transfer characteristic system (TCS) that is used in the video.
+   * </p>
    * @public
    */
   Tcs?: Tcs | undefined;
 }
 
 /**
- * Attributes that are related to the media stream.
+ * <p>Attributes that are related to the media stream.
+ * </p>
  * @public
  */
 export interface MediaStreamAttributes {
   /**
-   * A set of parameters that define the media stream.
+   * <p>The settings that you want to use to define the media stream.
+   * </p>
    * @public
    */
   Fmtp: Fmtp | undefined;
 
   /**
-   * The audio language, in a format that is recognized by the receiver.
+   * <p>The audio language, in a format that is recognized by the receiver.
+   * </p>
    * @public
    */
   Lang?: string | undefined;
 }
 
 /**
- * A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
+ * <p>
+ *    A media stream represents one component of your content, such as video, audio, or ancillary data. After you add a media stream to your flow, you can associate it with sources and outputs that use the ST 2110 JPEG XS or CDI protocol.
+ * </p>
  * @public
  */
 export interface MediaStream {
   /**
-   * Attributes that are related to the media stream.
+   * <p> Attributes that are related to the media stream.</p>
    * @public
    */
   Attributes?: MediaStreamAttributes | undefined;
 
   /**
-   * The sample rate for the stream. This value is measured in Hz.
+   * <p> The sample rate for the stream. This value is measured in Hz.</p>
    * @public
    */
   ClockRate?: number | undefined;
 
   /**
-   * A description that can help you quickly identify what your media stream is used for.
+   * <p> A description that can help you quickly identify what your media stream is used for.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
+   * <p> The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.</p>
    * @public
    */
   Fmt: number | undefined;
 
   /**
-   * A unique identifier for the media stream.
+   * <p> A unique identifier for the media stream. </p>
    * @public
    */
   MediaStreamId: number | undefined;
 
   /**
-   * A name that helps you distinguish one media stream from another.
+   * <p> A name that helps you distinguish one media stream from another. </p>
    * @public
    */
   MediaStreamName: string | undefined;
 
   /**
-   * The type of media stream.
+   * <p> The type of media stream. </p>
    * @public
    */
   MediaStreamType: MediaStreamType | undefined;
 
   /**
-   * The resolution of the video.
+   * <p> The resolution of the video. </p>
    * @public
    */
   VideoFormat?: string | undefined;
 }
 
 /**
- * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+ * <p> A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.</p>
  * @public
  */
 export interface EncodingParameters {
   /**
-   * A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are floating point numbers in the range of 3.0 to 10.0, inclusive.
+   * <p> A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are floating point numbers in the range of 3.0 to 10.0, inclusive.</p>
    * @public
    */
   CompressionFactor: number | undefined;
 
   /**
-   * A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+   * <p> A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.</p>
    * @public
    */
   EncoderProfile: EncoderProfile | undefined;
 }
 
 /**
- * The media stream that is associated with the output, and the parameters for that association.
+ * <p> The media stream that is associated with the output, and the parameters for that association.</p>
  * @public
  */
 export interface MediaStreamOutputConfiguration {
   /**
-   * The transport parameters that are associated with each outbound media stream.
+   * <p> The transport parameters that are associated with each outbound media stream.</p>
    * @public
    */
   DestinationConfigurations?: DestinationConfiguration[] | undefined;
 
   /**
-   * The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+   * <p> The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.</p>
    * @public
    */
   EncodingName: EncodingName | undefined;
 
   /**
-   * Encoding parameters
+   * <p>A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+   * </p>
    * @public
    */
   EncodingParameters?: EncodingParameters | undefined;
 
   /**
-   * The name of the media stream.
+   * <p> The name of the media stream.</p>
    * @public
    */
   MediaStreamName: string | undefined;
 }
 
 /**
- * The media stream that is associated with the source, and the parameters for that association.
+ * <p>The media stream that is associated with the source, and the parameters for that association.
+ * </p>
  * @public
  */
 export interface MediaStreamSourceConfiguration {
   /**
-   * The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+   * <p>
+   *    The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+   * </p>
    * @public
    */
   EncodingName: EncodingName | undefined;
 
   /**
-   * The transport parameters that are associated with an incoming media stream.
+   * <p>The media streams that you want to associate with the source.
+   * </p>
    * @public
    */
   InputConfigurations?: InputConfiguration[] | undefined;
 
   /**
-   * The name of the media stream.
+   * <p>A name that helps you distinguish one media stream from another.
+   * </p>
    * @public
    */
   MediaStreamName: string | undefined;
 }
 
 /**
- * The definition of a media stream that you want to associate with the source.
+ * <p>The media stream that you want to associate with the source, and the parameters for that association.
+ * </p>
  * @public
  */
 export interface MediaStreamSourceConfigurationRequest {
   /**
-   * The format you want to use to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+   * <p>The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+   * </p>
    * @public
    */
   EncodingName: EncodingName | undefined;
 
   /**
-   * The transport parameters that you want to associate with the media stream.
+   * <p>The media streams that you want to associate with the source.
+   * </p>
    * @public
    */
   InputConfigurations?: InputConfigurationRequest[] | undefined;
 
   /**
-   * The name of the media stream.
+   * <p>The name of the media stream.
+   * </p>
    * @public
    */
   MediaStreamName: string | undefined;
 }
 
 /**
+ * <p>The details of an error message.
+ * </p>
  * @public
  */
 export interface MessageDetail {
   /**
-   * The error code.
+   * <p> The error code.</p>
    * @public
    */
   Code: string | undefined;
 
   /**
-   * The specific error message that MediaConnect returns to help you understand the reason that the request did not succeed.
+   * <p> The specific error message that MediaConnect returns to help you understand the reason that the request did not succeed.</p>
    * @public
    */
   Message: string | undefined;
 
   /**
-   * The name of the resource.
+   * <p> The name of the resource.</p>
    * @public
    */
   ResourceName?: string | undefined;
+}
+
+/**
+ * <p>Specifies the configuration settings for individual NDI discovery servers. A maximum of 3 servers is allowed.
+ * </p>
+ * @public
+ */
+export interface NdiDiscoveryServerConfig {
+  /**
+   * <p>The unique network address of the NDI discovery server.
+   * </p>
+   * @public
+   */
+  DiscoveryServerAddress: string | undefined;
+
+  /**
+   * <p>The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
+   * </p>
+   * @public
+   */
+  DiscoveryServerPort?: number | undefined;
+
+  /**
+   * <p>The identifier for the Virtual Private Cloud (VPC) network interface used by the flow.
+   * </p>
+   * @public
+   */
+  VpcInterfaceAdapter: string | undefined;
 }
 
 /**
@@ -1704,258 +1875,277 @@ export const ResourceType = {
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
- * A definition of what is being billed for, including the type and amount.
+ * <p> A definition of what is being billed for, including the type and amount.</p>
  * @public
  */
 export interface ResourceSpecification {
   /**
-   * The amount of outbound bandwidth that is discounted in the offering.
+   * <p> The amount of outbound bandwidth that is discounted in the offering.</p>
    * @public
    */
   ReservedBitrate?: number | undefined;
 
   /**
-   * The type of resource and the unit that is being billed for.
+   * <p> The type of resource and the unit that is being billed for.</p>
    * @public
    */
   ResourceType: ResourceType | undefined;
 }
 
 /**
- * A savings plan that reserves a certain amount of outbound bandwidth usage at a discounted rate each month over a period of time.
+ * <p> A savings plan that reserves a certain amount of outbound bandwidth usage at a discounted rate each month over a period of time. </p>
  * @public
  */
 export interface Offering {
   /**
-   * The type of currency that is used for billing. The currencyCode used for all reservations is US dollars.
+   * <p> The type of currency that is used for billing. The currencyCode used for all reservations is US dollars.</p>
    * @public
    */
   CurrencyCode: string | undefined;
 
   /**
-   * The length of time that your reservation would be active.
+   * <p> The length of time that your reservation would be active.</p>
    * @public
    */
   Duration: number | undefined;
 
   /**
-   * The unit of measurement for the duration of the offering.
+   * <p> The unit of measurement for the duration of the offering.</p>
    * @public
    */
   DurationUnits: DurationUnits | undefined;
 
   /**
-   * The Amazon Resource Name (ARN) that MediaConnect assigns to the offering.
+   * <p> The Amazon Resource Name (ARN) that MediaConnect assigns to the offering.</p>
    * @public
    */
   OfferingArn: string | undefined;
 
   /**
-   * A description of the offering.
+   * <p> A description of the offering.</p>
    * @public
    */
   OfferingDescription: string | undefined;
 
   /**
-   * The cost of a single unit. This value, in combination with priceUnits, makes up the rate.
+   * <p> The cost of a single unit. This value, in combination with priceUnits, makes up the rate.</p>
    * @public
    */
   PricePerUnit: string | undefined;
 
   /**
-   * The unit of measurement that is used for billing. This value, in combination with pricePerUnit, makes up the rate.
+   * <p> The unit of measurement that is used for billing. This value, in combination with pricePerUnit, makes up the rate.</p>
    * @public
    */
   PriceUnits: PriceUnits | undefined;
 
   /**
-   * A definition of the amount of outbound bandwidth that you would be reserving if you purchase the offering.
+   * <p> A definition of the amount of outbound bandwidth that you would be reserving if you purchase the offering.</p>
    * @public
    */
   ResourceSpecification: ResourceSpecification | undefined;
 }
 
 /**
- * Attributes related to the transport stream that are used in a source or output.
+ * <p> Attributes related to the transport stream that are used in a source or output.</p>
  * @public
  */
 export interface Transport {
   /**
-   * The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   * <p> The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16</p>
    * @public
    */
   CidrAllowList?: string[] | undefined;
 
   /**
-   * The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.
+   * <p> The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.</p>
    * @public
    */
   MaxBitrate?: number | undefined;
 
   /**
-   * The maximum latency in milliseconds. This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
+   * <p> The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.</p>
    * @public
    */
   MaxLatency?: number | undefined;
 
   /**
-   * The size of the buffer (in milliseconds) to use to sync incoming source data.
+   * <p> The size of the buffer (in milliseconds) to use to sync incoming source data.</p>
    * @public
    */
   MaxSyncBuffer?: number | undefined;
 
   /**
-   * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+   * <p> The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.</p>
    * @public
    */
   MinLatency?: number | undefined;
 
   /**
-   * The protocol that is used by the source or output.
+   * <p> The protocol that is used by the source or output.</p>
+   *          <note>
+   *             <p>Elemental MediaConnect no longer supports the Fujitsu QoS
+   *          protocol. This reference is maintained for legacy purposes only.</p>
+   *          </note>
    * @public
    */
   Protocol: Protocol | undefined;
 
   /**
-   * The remote ID for the Zixi-pull stream.
+   * <p> The remote ID for the Zixi-pull stream.</p>
    * @public
    */
   RemoteId?: string | undefined;
 
   /**
-   * The port that the flow uses to send outbound requests to initiate connection with the sender.
+   * <p> The port that the flow uses to send outbound requests to initiate connection with the sender.</p>
    * @public
    */
   SenderControlPort?: number | undefined;
 
   /**
-   * The IP address that the flow communicates with to initiate connection with the sender.
+   * <p> The IP address that the flow communicates with to initiate connection with the sender.</p>
    * @public
    */
   SenderIpAddress?: string | undefined;
 
   /**
-   * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
+   * <p> The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.</p>
    * @public
    */
   SmoothingLatency?: number | undefined;
 
   /**
-   * Source IP or domain name for SRT-caller protocol.
+   * <p> Source IP or domain name for SRT-caller protocol.</p>
    * @public
    */
   SourceListenerAddress?: string | undefined;
 
   /**
-   * Source port for SRT-caller protocol.
+   * <p> Source port for SRT-caller protocol.</p>
    * @public
    */
   SourceListenerPort?: number | undefined;
 
   /**
-   * The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.
+   * <p> The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.</p>
    * @public
    */
   StreamId?: string | undefined;
+
+  /**
+   * <p>A quality setting for the NDI Speed HQ encoder.
+   * </p>
+   * @public
+   */
+  NdiSpeedHqQuality?: number | undefined;
+
+  /**
+   * <p>A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
+   * </p>
+   * @public
+   */
+  NdiProgramName?: string | undefined;
 }
 
 /**
- * The settings for an output.
+ * <p>The settings for an output.
+ * </p>
  * @public
  */
 export interface Output {
   /**
-   * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
+   * <p> Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>
    * @public
    */
   DataTransferSubscriberFeePercent?: number | undefined;
 
   /**
-   * A description of the output.
+   * <p> A description of the output.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * The address where you want to send the output.
+   * <p> The address where you want to send the output.</p>
    * @public
    */
   Destination?: string | undefined;
 
   /**
-   * The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+   * <p> The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).</p>
    * @public
    */
   Encryption?: Encryption | undefined;
 
   /**
-   * The ARN of the entitlement on the originator''s flow. This value is relevant only on entitled flows.
+   * <p> The ARN of the entitlement on the originator''s flow. This value is relevant only on entitled flows.</p>
    * @public
    */
   EntitlementArn?: string | undefined;
 
   /**
-   * The IP address that the receiver requires in order to establish a connection with the flow. For public networking, the ListenerAddress is represented by the elastic IP address of the flow. For private networking, the ListenerAddress is represented by the elastic network interface IP address of the VPC. This field applies only to outputs that use the Zixi pull or SRT listener protocol.
+   * <p> The IP address that the receiver requires in order to establish a connection with the flow. For public networking, the ListenerAddress is represented by the elastic IP address of the flow. For private networking, the ListenerAddress is represented by the elastic network interface IP address of the VPC. This field applies only to outputs that use the Zixi pull or SRT listener protocol.</p>
    * @public
    */
   ListenerAddress?: string | undefined;
 
   /**
-   * The input ARN of the AWS Elemental MediaLive channel. This parameter is relevant only for outputs that were added by creating a MediaLive input.
+   * <p> The input ARN of the MediaLive channel. This parameter is relevant only for outputs that were added by creating a MediaLive input.</p>
    * @public
    */
   MediaLiveInputArn?: string | undefined;
 
   /**
-   * The configuration for each media stream that is associated with the output.
+   * <p> The configuration for each media stream that is associated with the output.</p>
    * @public
    */
   MediaStreamOutputConfigurations?: MediaStreamOutputConfiguration[] | undefined;
 
   /**
-   * The name of the output. This value must be unique within the current flow.
+   * <p> The name of the output. This value must be unique within the current flow.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * The ARN of the output.
+   * <p> The ARN of the output.</p>
    * @public
    */
   OutputArn: string | undefined;
 
   /**
-   * The port to use when content is distributed to this output.
+   * <p> The port to use when content is distributed to this output.</p>
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * Attributes related to the transport stream that are used in the output.
+   * <p> Attributes related to the transport stream that are used in the output.</p>
    * @public
    */
   Transport?: Transport | undefined;
 
   /**
-   * The name of the VPC interface attachment to use for this output.
+   * <p> The name of the VPC interface attachment to use for this output.</p>
    * @public
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
 
   /**
-   * The ARN of the bridge that added this output.
+   * <p> The ARN of the bridge added to this output.</p>
    * @public
    */
   BridgeArn?: string | undefined;
 
   /**
-   * The bridge output ports currently in use.
+   * <p> The bridge output ports currently in use.</p>
    * @public
    */
   BridgePorts?: number[] | undefined;
 
   /**
-   * An indication of whether the output is transmitting data or not.
+   * <p> An indication of whether the output is transmitting data or not.</p>
    * @public
    */
   OutputStatus?: OutputStatus | undefined;
@@ -1978,498 +2168,507 @@ export const ReservationState = {
 export type ReservationState = (typeof ReservationState)[keyof typeof ReservationState];
 
 /**
- * A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate.
+ * <p> A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate.</p>
  * @public
  */
 export interface Reservation {
   /**
-   * The type of currency that is used for billing. The currencyCode used for your reservation is US dollars.
+   * <p> The type of currency that is used for billing. The currencyCode used for your reservation is US dollars.</p>
    * @public
    */
   CurrencyCode: string | undefined;
 
   /**
-   * The length of time that this reservation is active. MediaConnect defines this value in the offering.
+   * <p> The length of time that this reservation is active. MediaConnect defines this value in the offering.</p>
    * @public
    */
   Duration: number | undefined;
 
   /**
-   * The unit of measurement for the duration of the reservation. MediaConnect defines this value in the offering.
+   * <p> The unit of measurement for the duration of the reservation. MediaConnect defines this value in the offering.</p>
    * @public
    */
   DurationUnits: DurationUnits | undefined;
 
   /**
-   * The day and time that this reservation expires. This value is calculated based on the start date and time that you set and the offering's duration.
+   * <p> The day and time that this reservation expires. This value is calculated based on the start date and time that you set and the offering's duration.</p>
    * @public
    */
   End: string | undefined;
 
   /**
-   * The Amazon Resource Name (ARN) that MediaConnect assigns to the offering.
+   * <p> The Amazon Resource Name (ARN) that MediaConnect assigns to the offering.</p>
    * @public
    */
   OfferingArn: string | undefined;
 
   /**
-   * A description of the offering. MediaConnect defines this value in the offering.
+   * <p> A description of the offering. MediaConnect defines this value in the offering.</p>
    * @public
    */
   OfferingDescription: string | undefined;
 
   /**
-   * The cost of a single unit. This value, in combination with priceUnits, makes up the rate. MediaConnect defines this value in the offering.
+   * <p> The cost of a single unit. This value, in combination with priceUnits, makes up the rate. MediaConnect defines this value in the offering.</p>
    * @public
    */
   PricePerUnit: string | undefined;
 
   /**
-   * The unit of measurement that is used for billing. This value, in combination with pricePerUnit, makes up the rate. MediaConnect defines this value in the offering.
+   * <p> The unit of measurement that is used for billing. This value, in combination with pricePerUnit, makes up the rate. MediaConnect defines this value in the offering.</p>
    * @public
    */
   PriceUnits: PriceUnits | undefined;
 
   /**
-   * The Amazon Resource Name (ARN) that MediaConnect assigns to the reservation when you purchase an offering.
+   * <p> The Amazon Resource Name (ARN) that MediaConnect assigns to the reservation when you purchase an offering.</p>
    * @public
    */
   ReservationArn: string | undefined;
 
   /**
-   * The name that you assigned to the reservation when you purchased the offering.
+   * <p> The name that you assigned to the reservation when you purchased the offering.</p>
    * @public
    */
   ReservationName: string | undefined;
 
   /**
-   * The status of your reservation.
+   * <p> The status of your reservation.</p>
    * @public
    */
   ReservationState: ReservationState | undefined;
 
   /**
-   * A definition of the amount of outbound bandwidth that you would be reserving if you purchase the offering. MediaConnect defines the values that make up the resourceSpecification in the offering.
+   * <p> A definition of the amount of outbound bandwidth that you would be reserving if you purchase the offering. MediaConnect defines the values that make up the resourceSpecification in the offering.</p>
    * @public
    */
   ResourceSpecification: ResourceSpecification | undefined;
 
   /**
-   * The day and time that the reservation becomes active. You set this value when you purchase the offering.
+   * <p> The day and time that the reservation becomes active. You set this value when you purchase the offering.</p>
    * @public
    */
   Start: string | undefined;
 }
 
 /**
- * The source configuration for cloud flows receiving a stream from a bridge.
+ * <p> The source configuration for cloud flows receiving a stream from a bridge.</p>
  * @public
  */
 export interface SetGatewayBridgeSourceRequest {
   /**
-   * The ARN of the bridge feeding this flow.
+   * <p> The ARN of the bridge feeding this flow.</p>
    * @public
    */
   BridgeArn: string | undefined;
 
   /**
-   * The name of the VPC interface attachment to use for this bridge source.
+   * <p> The name of the VPC interface attachment to use for this bridge source.</p>
    * @public
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
 }
 
 /**
- * The settings for the source of the flow.
+ * <p> The settings for the source of the flow.</p>
  * @public
  */
 export interface SetSourceRequest {
   /**
-   * The type of encryption that is used on the content ingested from this source. Allowable encryption types: static-key.
+   * <p> The type of encryption that is used on the content ingested from this source. Allowable encryption types: static-key.</p>
    * @public
    */
   Decryption?: Encryption | undefined;
 
   /**
-   * A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
+   * <p> A description for the source. This value is not used or seen outside of the current MediaConnect account.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * The ARN of the entitlement that allows you to subscribe to this flow. The entitlement is set by the flow originator, and the ARN is generated as part of the originator's flow.
+   * <p> The ARN of the entitlement that allows you to subscribe to this flow. The entitlement is set by the flow originator, and the ARN is generated as part of the originator's flow.</p>
    * @public
    */
   EntitlementArn?: string | undefined;
 
   /**
-   * The port that the flow will be listening on for incoming content.
+   * <p> The port that the flow will be listening on for incoming content.</p>
    * @public
    */
   IngestPort?: number | undefined;
 
   /**
-   * The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.
+   * <p> The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.</p>
    * @public
    */
   MaxBitrate?: number | undefined;
 
   /**
-   * The maximum latency in milliseconds. This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
+   * <p> The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.</p>
    * @public
    */
   MaxLatency?: number | undefined;
 
   /**
-   * The size of the buffer (in milliseconds) to use to sync incoming source data.
+   * <p> The size of the buffer (in milliseconds) to use to sync incoming source data.</p>
    * @public
    */
   MaxSyncBuffer?: number | undefined;
 
   /**
-   * The media streams that are associated with the source, and the parameters for those associations.
+   * <p> The media streams that are associated with the source, and the parameters for those associations.</p>
    * @public
    */
   MediaStreamSourceConfigurations?: MediaStreamSourceConfigurationRequest[] | undefined;
 
   /**
-   * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+   * <p> The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.</p>
    * @public
    */
   MinLatency?: number | undefined;
 
   /**
-   * The name of the source.
+   * <p> The name of the source.</p>
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * The protocol that is used by the source.
+   * <p> The protocol that is used by the source.</p>
+   *          <note>
+   *             <p>Elemental MediaConnect no longer supports the Fujitsu QoS
+   *          protocol. This reference is maintained for legacy purposes only.</p>
+   *          </note>
    * @public
    */
   Protocol?: Protocol | undefined;
 
   /**
-   * The port that the flow uses to send outbound requests to initiate connection with the sender.
+   * <p> The port that the flow uses to send outbound requests to initiate connection with the sender.</p>
    * @public
    */
   SenderControlPort?: number | undefined;
 
   /**
-   * The IP address that the flow communicates with to initiate connection with the sender.
+   * <p> The IP address that the flow communicates with to initiate connection with the sender.</p>
    * @public
    */
   SenderIpAddress?: string | undefined;
 
   /**
-   * Source IP or domain name for SRT-caller protocol.
+   * <p> Source IP or domain name for SRT-caller protocol.</p>
    * @public
    */
   SourceListenerAddress?: string | undefined;
 
   /**
-   * Source port for SRT-caller protocol.
+   * <p> Source port for SRT-caller protocol.</p>
    * @public
    */
   SourceListenerPort?: number | undefined;
 
   /**
-   * The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.
+   * <p> The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.</p>
    * @public
    */
   StreamId?: string | undefined;
 
   /**
-   * The name of the VPC interface to use for this source.
+   * <p> The name of the VPC interface to use for this source.</p>
    * @public
    */
   VpcInterfaceName?: string | undefined;
 
   /**
-   * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   * <p> The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
    * @public
    */
   WhitelistCidr?: string | undefined;
 
   /**
-   * The source configuration for cloud flows receiving a stream from a bridge.
+   * <p> The source configuration for cloud flows receiving a stream from a bridge.</p>
    * @public
    */
   GatewayBridgeSource?: SetGatewayBridgeSourceRequest | undefined;
 }
 
 /**
- * The source configuration for cloud flows receiving a stream from a bridge.
+ * <p> The source configuration for cloud flows receiving a stream from a bridge.</p>
  * @public
  */
 export interface GatewayBridgeSource {
   /**
-   * The ARN of the bridge feeding this flow.
+   * <p> The ARN of the bridge feeding this flow.</p>
    * @public
    */
   BridgeArn: string | undefined;
 
   /**
-   * The name of the VPC interface attachment to use for this bridge source.
+   * <p> The name of the VPC interface attachment to use for this bridge source.</p>
    * @public
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
 }
 
 /**
- * The settings for the source of the flow.
+ * <p> The settings for the source of the flow.</p>
  * @public
  */
 export interface Source {
   /**
-   * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
+   * <p> Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>
    * @public
    */
   DataTransferSubscriberFeePercent?: number | undefined;
 
   /**
-   * The type of encryption that is used on the content ingested from this source.
+   * <p> The type of encryption that is used on the content ingested from this source.</p>
    * @public
    */
   Decryption?: Encryption | undefined;
 
   /**
-   * A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
+   * <p> A description for the source. This value is not used or seen outside of the current MediaConnect account.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
+   * <p> The ARN of the entitlement that allows you to subscribe to content that comes from another Amazon Web Services account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.</p>
    * @public
    */
   EntitlementArn?: string | undefined;
 
   /**
-   * The IP address that the flow will be listening on for incoming content.
+   * <p> The IP address that the flow will be listening on for incoming content.</p>
    * @public
    */
   IngestIp?: string | undefined;
 
   /**
-   * The port that the flow will be listening on for incoming content.
+   * <p> The port that the flow will be listening on for incoming content.</p>
    * @public
    */
   IngestPort?: number | undefined;
 
   /**
-   * The media streams that are associated with the source, and the parameters for those associations.
+   * <p> The media streams that are associated with the source, and the parameters for those associations.</p>
    * @public
    */
   MediaStreamSourceConfigurations?: MediaStreamSourceConfiguration[] | undefined;
 
   /**
-   * The name of the source.
+   * <p> The name of the source.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * The port that the flow uses to send outbound requests to initiate connection with the sender.
+   * <p> The IP address that the flow communicates with to initiate connection with the sender.</p>
    * @public
    */
   SenderControlPort?: number | undefined;
 
   /**
-   * The IP address that the flow communicates with to initiate connection with the sender.
+   * <p> The port that the flow uses to send outbound requests to initiate connection with the sender.</p>
    * @public
    */
   SenderIpAddress?: string | undefined;
 
   /**
-   * The ARN of the source.
+   * <p> The ARN of the source.</p>
    * @public
    */
   SourceArn: string | undefined;
 
   /**
-   * Attributes related to the transport stream that are used in the source.
+   * <p> Attributes related to the transport stream that are used in the source.</p>
    * @public
    */
   Transport?: Transport | undefined;
 
   /**
-   * The name of the VPC interface that is used for this source.
+   * <p> The name of the VPC interface that is used for this source.</p>
    * @public
    */
   VpcInterfaceName?: string | undefined;
 
   /**
-   * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   * <p> The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
    * @public
    */
   WhitelistCidr?: string | undefined;
 
   /**
-   * The source configuration for cloud flows receiving a stream from a bridge.
+   * <p> The source configuration for cloud flows receiving a stream from a bridge.</p>
    * @public
    */
   GatewayBridgeSource?: GatewayBridgeSource | undefined;
 }
 
 /**
- * The frame resolution used by the video stream.
+ * <p> The frame resolution used by the video stream.</p>
  * @public
  */
 export interface FrameResolution {
   /**
-   * The number of pixels in the height of the video frame.
+   * <p> The number of pixels in the height of the video frame.</p>
    * @public
    */
   FrameHeight: number | undefined;
 
   /**
-   * The number of pixels in the width of the video frame.
+   * <p> The number of pixels in the width of the video frame.</p>
    * @public
    */
   FrameWidth: number | undefined;
 }
 
 /**
- * The metadata of an elementary transport stream.
+ * <p> The metadata of an elementary transport stream.</p>
  * @public
  */
 export interface TransportStream {
   /**
-   * The number of channels in the audio stream.
+   * <p> The number of channels in the audio stream.</p>
    * @public
    */
   Channels?: number | undefined;
 
   /**
-   * The codec used by the stream.
+   * <p> The codec used by the stream.</p>
    * @public
    */
   Codec?: string | undefined;
 
   /**
-   * The frame rate used by the video stream.
+   * <p> The frame rate used by the video stream.</p>
    * @public
    */
   FrameRate?: string | undefined;
 
   /**
-   * The frame resolution used by the video stream.
+   * <p>The frame resolution used by the video stream.
+   * </p>
    * @public
    */
   FrameResolution?: FrameResolution | undefined;
 
   /**
-   * The Packet ID (PID) as it is reported in the Program Map Table.
+   * <p> The Packet ID (PID) as it is reported in the Program Map Table.</p>
    * @public
    */
   Pid: number | undefined;
 
   /**
-   * The sample rate used by the audio stream.
+   * <p> The sample rate used by the audio stream.</p>
    * @public
    */
   SampleRate?: number | undefined;
 
   /**
-   * The sample bit size used by the audio stream.
+   * <p> The sample bit size used by the audio stream.</p>
    * @public
    */
   SampleSize?: number | undefined;
 
   /**
-   * The Stream Type as it is reported in the Program Map Table.
+   * <p> The Stream Type as it is reported in the Program Map Table.</p>
    * @public
    */
   StreamType: string | undefined;
 }
 
 /**
- * The metadata of a single transport stream program.
+ * <p> The metadata of a single transport stream program.</p>
  * @public
  */
 export interface TransportStreamProgram {
   /**
-   * The Program Clock Reference (PCR) Packet ID (PID) as it is reported in the Program Association Table.
+   * <p> The Program Clock Reference (PCR) Packet ID (PID) as it is reported in the Program Association Table.</p>
    * @public
    */
   PcrPid: number | undefined;
 
   /**
-   * The program name as it is reported in the Program Association Table.
+   * <p> The program name as it is reported in the Program Association Table.</p>
    * @public
    */
   ProgramName?: string | undefined;
 
   /**
-   * The program number as it is reported in the Program Association Table.
+   * <p> The program number as it is reported in the Program Association Table.</p>
    * @public
    */
   ProgramNumber: number | undefined;
 
   /**
-   * The program Packet ID (PID) as it is reported in the Program Association Table.
+   * <p> The program Packet ID (PID) as it is reported in the Program Association Table.</p>
    * @public
    */
   ProgramPid: number | undefined;
 
   /**
-   * The list of elementary transport streams in the program. The list includes video, audio, and data streams.
+   * <p> The list of elementary transport streams in the program. The list includes video, audio, and data streams.</p>
    * @public
    */
   Streams: TransportStream[] | undefined;
 }
 
 /**
- * Configures settings for the BlackFrames metric.
+ * <p> Configures settings for the <code>BlackFrames</code> metric.</p>
  * @public
  */
 export interface BlackFrames {
   /**
-   * Indicates whether the BlackFrames metric is enabled or disabled.
+   * <p>
+   *       Indicates whether the <code>BlackFrames</code> metric is enabled or disabled..</p>
    * @public
    */
   State?: State | undefined;
 
   /**
-   * Specifies the number of consecutive seconds of black frames that triggers an event or alert.
+   * <p>
+   *       Specifies the number of consecutive seconds of black frames that triggers an event or alert.</p>
    * @public
    */
   ThresholdSeconds?: number | undefined;
 }
 
 /**
- * Configures settings for the FrozenFrames metric.
+ * <p> Configures settings for the <code>FrozenFrames</code> metric.</p>
  * @public
  */
 export interface FrozenFrames {
   /**
-   * Indicates whether the FrozenFrames metric is enabled or disabled.
+   * <p>Indicates whether the <code>FrozenFrames</code> metric is enabled or disabled.</p>
    * @public
    */
   State?: State | undefined;
 
   /**
-   * Specifies the number of consecutive seconds of a static image that triggers an event or alert.
+   * <p> Specifies the number of consecutive seconds of a static image that triggers an event or alert.</p>
    * @public
    */
   ThresholdSeconds?: number | undefined;
 }
 
 /**
- * Specifies the configuration for video stream metrics monitoring.
+ * <p>Specifies the configuration for video stream metrics monitoring.</p>
  * @public
  */
 export interface VideoMonitoringSetting {
   /**
-   * Detects video frames that are black.
+   * <p>Detects video frames that are black.
+   * </p>
    * @public
    */
   BlackFrames?: BlackFrames | undefined;
 
   /**
-   * Detects video frames that have not changed.
+   * <p>Detects video frames that have not changed.
+   * </p>
    * @public
    */
   FrozenFrames?: FrozenFrames | undefined;
@@ -2490,96 +2689,102 @@ export const NetworkInterfaceType = {
 export type NetworkInterfaceType = (typeof NetworkInterfaceType)[keyof typeof NetworkInterfaceType];
 
 /**
- * The settings for a VPC Source.
+ * <p> The settings for a VPC source.</p>
  * @public
  */
 export interface VpcInterface {
   /**
-   * Immutable and has to be a unique against other VpcInterfaces in this Flow.
+   * <p> Immutable and has to be a unique against other VpcInterfaces in this Flow.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * IDs of the network interfaces created in customer's account by MediaConnect.
+   * <p> IDs of the network interfaces created in customer's account by MediaConnect.</p>
    * @public
    */
   NetworkInterfaceIds: string[] | undefined;
 
   /**
-   * The type of network interface.
+   * <p> The type of network interface.</p>
    * @public
    */
   NetworkInterfaceType: NetworkInterfaceType | undefined;
 
   /**
-   * Role Arn MediaConnect can assumes to create ENIs in customer's account
+   * <p> A role Arn MediaConnect can assume to create ENIs in your account.</p>
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * Security Group IDs to be used on ENI.
+   * <p> Security Group IDs to be used on ENI.</p>
    * @public
    */
   SecurityGroupIds: string[] | undefined;
 
   /**
-   * Subnet must be in the AZ of the Flow
+   * <p> Subnet must be in the AZ of the Flow. </p>
    * @public
    */
   SubnetId: string | undefined;
 }
 
 /**
- * Desired VPC Interface for a Flow
+ * <p>The details of the VPC interfaces that you want to add to the flow.
+ * </p>
  * @public
  */
 export interface VpcInterfaceRequest {
   /**
-   * The name of the VPC Interface. This value must be unique within the current flow.
+   * <p>The name for the VPC interface. This name must be unique within the flow.
+   * </p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * The type of network interface. If this value is not included in the request, MediaConnect uses ENA as the networkInterfaceType.
+   * <p>The type of network interface.
+   * </p>
    * @public
    */
   NetworkInterfaceType?: NetworkInterfaceType | undefined;
 
   /**
-   * Role Arn MediaConnect can assumes to create ENIs in customer's account
+   * <p>The Amazon Resource Name (ARN) of the role that you created when you set up MediaConnect as a trusted service.
+   * </p>
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * Security Group IDs to be used on ENI.
+   * <p>A virtual firewall to control inbound and outbound traffic.
+   * </p>
    * @public
    */
   SecurityGroupIds: string[] | undefined;
 
   /**
-   * Subnet must be in the AZ of the Flow
+   * <p>
+   *    The subnet IDs that you want to use for your VPC interface. A range of IP addresses in your VPC. When you create your VPC, you specify a range of IPv4 addresses for the VPC in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16. This is the primary CIDR block for your VPC. When you create a subnet for your VPC, you specify the CIDR block for the subnet, which is a subset of the VPC CIDR block. The subnets that you use across all VPC interfaces on the flow must be in the same Availability Zone as the flow.
+   * </p>
    * @public
    */
   SubnetId: string | undefined;
 }
 
 /**
- * A request to add outputs to the specified bridge.
  * @public
  */
 export interface AddBridgeOutputsRequest {
   /**
-   * The ARN of the bridge that you want to update.
+   * <p> The Amazon Resource Name (ARN) of the bridge that you want to update.</p>
    * @public
    */
   BridgeArn: string | undefined;
 
   /**
-   * The outputs that you want to add to this bridge.
+   * <p> The outputs that you want to add to this bridge.</p>
    * @public
    */
   Outputs: AddBridgeOutputRequest[] | undefined;
@@ -2590,29 +2795,26 @@ export interface AddBridgeOutputsRequest {
  */
 export interface AddBridgeOutputsResponse {
   /**
-   * The Amazon Resource Number (ARN) of the bridge.
+   * <p> The ARN of the bridge that you added outputs to.</p>
    * @public
    */
   BridgeArn?: string | undefined;
 
   /**
-   * The outputs that you added to this bridge.
+   * <p> The outputs that you added to this bridge.</p>
    * @public
    */
   Outputs?: BridgeOutput[] | undefined;
 }
 
 /**
- * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ * <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message.
+ * </p>
  * @public
  */
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  /**
-   * The error message returned by AWS Elemental MediaConnect.
-   * @public
-   */
   Message: string | undefined;
   /**
    * @internal
@@ -2629,16 +2831,14 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ * <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
+ * </p>
  * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  /**
-   * The error message returned by AWS Elemental MediaConnect.
-   * @public
-   */
+  $retryable = {};
   Message: string | undefined;
   /**
    * @internal
@@ -2655,16 +2855,13 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ * <p>You do not have sufficient access to perform this action.
+ * </p>
  * @public
  */
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
-  /**
-   * The error message returned by AWS Elemental MediaConnect.
-   * @public
-   */
   Message: string | undefined;
   /**
    * @internal
@@ -2681,16 +2878,14 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ * <p>The server encountered an internal error and is unable to complete the request.
+ * </p>
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
   readonly name: "InternalServerErrorException" = "InternalServerErrorException";
   readonly $fault: "server" = "server";
-  /**
-   * The error message returned by AWS Elemental MediaConnect.
-   * @public
-   */
+  $retryable = {};
   Message: string | undefined;
   /**
    * @internal
@@ -2707,16 +2902,13 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
- * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ * <p>One or more of the resources in the request does not exist in the system.
+ * </p>
  * @public
  */
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
-  /**
-   * The error message returned by AWS Elemental MediaConnect.
-   * @public
-   */
   Message: string | undefined;
   /**
    * @internal
@@ -2733,16 +2925,14 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ * <p>The service is currently unavailable or busy.
+ * </p>
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  /**
-   * The error message returned by AWS Elemental MediaConnect.
-   * @public
-   */
+  $retryable = {};
   Message: string | undefined;
   /**
    * @internal
@@ -2759,16 +2949,14 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ * <p>The request was denied due to request throttling.
+ * </p>
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
   readonly $fault: "client" = "client";
-  /**
-   * The error message returned by AWS Elemental MediaConnect.
-   * @public
-   */
+  $retryable = {};
   Message: string | undefined;
   /**
    * @internal
@@ -2785,18 +2973,17 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * A request to add sources to the specified bridge.
  * @public
  */
 export interface AddBridgeSourcesRequest {
   /**
-   * The ARN of the bridge that you want to update.
+   * <p> The Amazon Resource Name (ARN) of the bridge that you want to update.</p>
    * @public
    */
   BridgeArn: string | undefined;
 
   /**
-   * The sources that you want to add to this bridge.
+   * <p> The sources that you want to add to this bridge.</p>
    * @public
    */
   Sources: AddBridgeSourceRequest[] | undefined;
@@ -2807,42 +2994,44 @@ export interface AddBridgeSourcesRequest {
  */
 export interface AddBridgeSourcesResponse {
   /**
-   * The Amazon Resource Number (ARN) of the bridge.
+   * <p> The ARN of the bridge that you added sources to.</p>
    * @public
    */
   BridgeArn?: string | undefined;
 
   /**
-   * The sources that you added to this bridge.
+   * <p> The sources that you added to this bridge.</p>
    * @public
    */
   Sources?: BridgeSource[] | undefined;
 }
 
 /**
+ * <p>
+ *    Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+ * </p>
  * @public
  */
 export interface AddEgressGatewayBridgeRequest {
   /**
-   * The maximum expected bitrate (in bps).
+   * <p> The maximum expected bitrate (in bps) of the egress bridge.</p>
    * @public
    */
   MaxBitrate: number | undefined;
 }
 
 /**
- * A request to add media streams to the flow.
  * @public
  */
 export interface AddFlowMediaStreamsRequest {
   /**
-   * The Amazon Resource Name (ARN) of the flow.
+   * <p> The Amazon Resource Name (ARN) of the flow.</p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * The media streams that you want to add to the flow.
+   * <p> The media streams that you want to add to the flow.</p>
    * @public
    */
   MediaStreams: AddMediaStreamRequest[] | undefined;
@@ -2853,29 +3042,26 @@ export interface AddFlowMediaStreamsRequest {
  */
 export interface AddFlowMediaStreamsResponse {
   /**
-   * The ARN of the flow that you added media streams to.
+   * <p> The ARN of the flow that you added media streams to.</p>
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * The media streams that you added to the flow.
+   * <p> The media streams that you added to the flow.</p>
    * @public
    */
   MediaStreams?: MediaStream[] | undefined;
 }
 
 /**
- * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ * <p>Exception raised by Elemental MediaConnect when adding the flow output. See the error message for the operation for more information on the cause of this exception.
+ *    </p>
  * @public
  */
 export class AddFlowOutputs420Exception extends __BaseException {
   readonly name: "AddFlowOutputs420Exception" = "AddFlowOutputs420Exception";
   readonly $fault: "client" = "client";
-  /**
-   * The error message returned by AWS Elemental MediaConnect.
-   * @public
-   */
   Message: string | undefined;
   /**
    * @internal
@@ -2892,18 +3078,17 @@ export class AddFlowOutputs420Exception extends __BaseException {
 }
 
 /**
- * A request to add outputs to the specified flow.
  * @public
  */
 export interface AddFlowOutputsRequest {
   /**
-   * The flow that you want to add outputs to.
+   * <p> The Amazon Resource Name (ARN) of the flow that you want to add outputs to.</p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * A list of outputs that you want to add.
+   * <p> A list of outputs that you want to add to the flow.</p>
    * @public
    */
   Outputs: AddOutputRequest[] | undefined;
@@ -2914,31 +3099,30 @@ export interface AddFlowOutputsRequest {
  */
 export interface AddFlowOutputsResponse {
   /**
-   * The ARN of the flow that these outputs were added to.
+   * <p> The ARN of the flow that these outputs were added to.</p>
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * The details of the newly added outputs.
+   * <p> The details of the newly added outputs.</p>
    * @public
    */
   Outputs?: Output[] | undefined;
 }
 
 /**
- * A request to add sources to the flow.
  * @public
  */
 export interface AddFlowSourcesRequest {
   /**
-   * The flow that you want to mutate.
+   * <p> The Amazon Resource Name (ARN) of the flow that you want to update.</p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * A list of sources that you want to add.
+   * <p> A list of sources that you want to add to the flow.</p>
    * @public
    */
   Sources: SetSourceRequest[] | undefined;
@@ -2949,31 +3133,30 @@ export interface AddFlowSourcesRequest {
  */
 export interface AddFlowSourcesResponse {
   /**
-   * The ARN of the flow that these sources were added to.
+   * <p> The ARN of the flow that these sources were added to.</p>
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * The details of the newly added sources.
+   * <p> The details of the newly added sources.</p>
    * @public
    */
   Sources?: Source[] | undefined;
 }
 
 /**
- * A request to add VPC interfaces to the flow.
  * @public
  */
 export interface AddFlowVpcInterfacesRequest {
   /**
-   * The flow that you want to mutate.
+   * <p> The Amazon Resource Name (ARN) of the flow that you want to update.</p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * A list of VPC interfaces that you want to add.
+   * <p> A list of VPC interfaces that you want to add to the flow.</p>
    * @public
    */
   VpcInterfaces: VpcInterfaceRequest[] | undefined;
@@ -2984,88 +3167,102 @@ export interface AddFlowVpcInterfacesRequest {
  */
 export interface AddFlowVpcInterfacesResponse {
   /**
-   * The ARN of the flow that these VPC interfaces were added to.
+   * <p> The ARN of the flow that these VPC interfaces were added to.</p>
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * The details of the newly added VPC interfaces.
+   * <p> The details of the newly added VPC interfaces.</p>
    * @public
    */
   VpcInterfaces?: VpcInterface[] | undefined;
 }
 
 /**
+ * <p>Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+ * </p>
  * @public
  */
 export interface AddIngressGatewayBridgeRequest {
   /**
-   * The maximum expected bitrate (in bps).
+   * <p> The maximum expected bitrate (in bps) of the ingress bridge. </p>
    * @public
    */
   MaxBitrate: number | undefined;
 
   /**
-   * The maximum number of expected outputs.
+   * <p> The maximum number of expected outputs on the ingress bridge. </p>
    * @public
    */
   MaxOutputs: number | undefined;
 }
 
 /**
- * Create maintenance setting for a flow
+ * <p> Create a maintenance setting for a flow.</p>
  * @public
  */
 export interface AddMaintenance {
   /**
-   * A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+   * <p> A day of a week when the maintenance will happen. </p>
    * @public
    */
   MaintenanceDay: MaintenanceDay | undefined;
 
   /**
-   * UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+   * <p> UTC time when the maintenance will happen. </p>
+   *          <p>Use 24-hour HH:MM format. </p>
+   *          <p>Minutes must be 00. </p>
+   *          <p>Example: 13:00. </p>
+   *          <p>The default value is 02:00.</p>
    * @public
    */
   MaintenanceStartHour: string | undefined;
 }
 
 /**
+ * <p>
+ *    Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+ * </p>
  * @public
  */
 export interface EgressGatewayBridge {
   /**
-   * The ID of the instance running this bridge.
+   * <p> The ID of the instance running this bridge.</p>
    * @public
    */
   InstanceId?: string | undefined;
 
   /**
-   * The maximum expected bitrate (in bps) of the egress bridge.
+   * <p> The maximum expected bitrate (in bps) of the egress bridge.</p>
    * @public
    */
   MaxBitrate: number | undefined;
 }
 
 /**
+ * <p>Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+ * </p>
  * @public
  */
 export interface IngressGatewayBridge {
   /**
-   * The ID of the instance running this bridge.
+   * <p>The ID of the instance running this bridge.
+   * </p>
    * @public
    */
   InstanceId?: string | undefined;
 
   /**
-   * The maximum expected bitrate (in bps) of the ingress bridge.
+   * <p>The maximum expected bitrate (in bps) of the ingress bridge.
+   * </p>
    * @public
    */
   MaxBitrate: number | undefined;
 
   /**
-   * The maximum number of outputs on the ingress bridge.
+   * <p>The maximum number of outputs on the ingress bridge.
+   * </p>
    * @public
    */
   MaxOutputs: number | undefined;
@@ -3086,84 +3283,118 @@ export const FailoverMode = {
 export type FailoverMode = (typeof FailoverMode)[keyof typeof FailoverMode];
 
 /**
- * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+ * <p> The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams. </p>
  * @public
  */
 export interface SourcePriority {
   /**
-   * The name of the source you choose as the primary source for this flow.
+   * <p> The name of the source you choose as the primary source for this flow.</p>
    * @public
    */
   PrimarySource?: string | undefined;
 }
 
 /**
- * The settings for source failover.
+ * <p> The settings for source failover.</p>
  * @public
  */
 export interface FailoverConfig {
   /**
-   * The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+   * <p> The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.</p>
    * @public
    */
   FailoverMode?: FailoverMode | undefined;
 
   /**
-   * Search window time to look for dash-7 packets
+   * <p> Search window time to look for dash-7 packets.</p>
    * @public
    */
   RecoveryWindow?: number | undefined;
 
   /**
-   * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+   * <p> The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.</p>
    * @public
    */
   SourcePriority?: SourcePriority | undefined;
 
+  /**
+   * <p>The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+   * </p>
+   * @public
+   */
   State?: State | undefined;
 }
 
 /**
- * A Bridge is the connection between your datacenter's Instances and the AWS cloud. A bridge can be used to send video from the AWS cloud to your datacenter or from your datacenter to the AWS cloud.
+ * <p> A Bridge is the connection between your data center's Instances and the Amazon Web Services cloud. A bridge can be used to send video from the Amazon Web Services cloud to your data center or from your data center to the Amazon Web Services cloud.</p>
  * @public
  */
 export interface Bridge {
   /**
-   * The Amazon Resource Number (ARN) of the bridge.
+   * <p> The Amazon Resource Number (ARN) of the bridge.</p>
    * @public
    */
   BridgeArn: string | undefined;
 
-  BridgeMessages?: MessageDetail[] | undefined;
-  BridgeState: BridgeState | undefined;
-  EgressGatewayBridge?: EgressGatewayBridge | undefined;
-  IngressGatewayBridge?: IngressGatewayBridge | undefined;
   /**
-   * The name of the bridge.
+   * <p>
+   * Messages with details about the bridge.
+   * </p>
+   * @public
+   */
+  BridgeMessages?: MessageDetail[] | undefined;
+
+  /**
+   * <p>The state of the bridge.
+   * </p>
+   * @public
+   */
+  BridgeState: BridgeState | undefined;
+
+  /**
+   * <p>
+   *    An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+   * </p>
+   * @public
+   */
+  EgressGatewayBridge?: EgressGatewayBridge | undefined;
+
+  /**
+   * <p>
+   *    An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+   * </p>
+   * @public
+   */
+  IngressGatewayBridge?: IngressGatewayBridge | undefined;
+
+  /**
+   * <p> The name of the bridge.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * The outputs on this bridge.
+   * <p> The outputs on this bridge.</p>
    * @public
    */
   Outputs?: BridgeOutput[] | undefined;
 
   /**
-   * The placement Amazon Resource Number (ARN) of the bridge.
+   * <p> The placement Amazon Resource Number (ARN) of the bridge.</p>
    * @public
    */
   PlacementArn: string | undefined;
 
   /**
+   * <p>
    * The settings for source failover.
+   * </p>
    * @public
    */
   SourceFailoverConfig?: FailoverConfig | undefined;
 
   /**
-   * The sources on this bridge.
+   * <p> The sources on this bridge.</p>
    * @public
    */
   Sources?: BridgeSource[] | undefined;
@@ -3182,6 +3413,638 @@ export const BridgePlacement = {
  * @public
  */
 export type BridgePlacement = (typeof BridgePlacement)[keyof typeof BridgePlacement];
+
+/**
+ * <p>Exception raised by Elemental MediaConnect when creating the bridge. See the error message for the operation for more information on the cause of this exception.
+ *    </p>
+ * @public
+ */
+export class CreateBridge420Exception extends __BaseException {
+  readonly name: "CreateBridge420Exception" = "CreateBridge420Exception";
+  readonly $fault: "client" = "client";
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CreateBridge420Exception, __BaseException>) {
+    super({
+      name: "CreateBridge420Exception",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CreateBridge420Exception.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateBridgeRequest {
+  /**
+   * <p>An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises. </p>
+   * @public
+   */
+  EgressGatewayBridge?: AddEgressGatewayBridgeRequest | undefined;
+
+  /**
+   * <p>An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and
+   *          is delivered to the cloud. </p>
+   * @public
+   */
+  IngressGatewayBridge?: AddIngressGatewayBridgeRequest | undefined;
+
+  /**
+   * <p> The name of the bridge. This name can not be modified after the bridge is created.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p> The outputs that you want to add to this bridge.</p>
+   * @public
+   */
+  Outputs?: AddBridgeOutputRequest[] | undefined;
+
+  /**
+   * <p> The bridge placement Amazon Resource Number (ARN).</p>
+   * @public
+   */
+  PlacementArn: string | undefined;
+
+  /**
+   * <p> The settings for source failover.</p>
+   * @public
+   */
+  SourceFailoverConfig?: FailoverConfig | undefined;
+
+  /**
+   * <p> The sources that you want to add to this bridge.</p>
+   * @public
+   */
+  Sources: AddBridgeSourceRequest[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateBridgeResponse {
+  /**
+   * <p> The name of the bridge that was created.</p>
+   * @public
+   */
+  Bridge?: Bridge | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBridgeRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the bridge that you want to delete.</p>
+   * @public
+   */
+  BridgeArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBridgeResponse {
+  /**
+   * <p> The ARN of the deleted bridge.</p>
+   * @public
+   */
+  BridgeArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBridgeRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the bridge that you want to describe.</p>
+   * @public
+   */
+  BridgeArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBridgeResponse {
+  /**
+   * <p>The bridge that you requested a description of. </p>
+   * @public
+   */
+  Bridge?: Bridge | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBridgesRequest {
+  /**
+   * <p> Filter the list results to display only the bridges associated with the selected
+   *          ARN.</p>
+   * @public
+   */
+  FilterArn?: string | undefined;
+
+  /**
+   * <p> The maximum number of results to return per API request. </p>
+   *          <p>For example, you submit a <code>ListBridges</code> request with <code>MaxResults</code>
+   *          set at 5. Although 20 items match your request, the service returns no more than the first
+   *          5 items. (The service also returns a <code>NextToken</code> value that you can use to fetch
+   *          the next batch of results.) </p>
+   *          <p>The service might return fewer results than the <code>MaxResults</code> value. If
+   *             <code>MaxResults</code> is not included in the request, the service defaults to
+   *          pagination with a maximum of 10 results per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p> The token that identifies the batch of results that you want to see. </p>
+   *          <p>For example, you submit a <code>ListBridges</code> request with <code>MaxResults</code>
+   *          set at 5. The service returns the first batch of results (up to 5) and a
+   *             <code>NextToken</code> value. To see the next batch of results, you can submit the
+   *             <code>ListBridges</code> request a second time and specify the <code>NextToken</code>
+   *          value.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBridgesResponse {
+  /**
+   * <p> A list of bridge summaries.</p>
+   * @public
+   */
+  Bridges?: ListedBridge[] | undefined;
+
+  /**
+   * <p> The token that identifies the batch of results that you want to see. </p>
+   *          <p>For example, you submit a <code>ListBridges</code> request with <code>MaxResults</code>
+   *          set at 5. The service returns the first batch of results (up to 5) and a
+   *             <code>NextToken</code> value. To see the next batch of results, you can submit the
+   *             <code>ListBridges</code> request a second time and specify the <code>NextToken</code>
+   *          value.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveBridgeOutputRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the bridge that you want to update.</p>
+   * @public
+   */
+  BridgeArn: string | undefined;
+
+  /**
+   * <p> The name of the bridge output that you want to remove.</p>
+   * @public
+   */
+  OutputName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveBridgeOutputResponse {
+  /**
+   * <p> The ARN of the bridge from which the output was removed. </p>
+   * @public
+   */
+  BridgeArn?: string | undefined;
+
+  /**
+   * <p>
+   *    The name of the bridge output that was removed.
+   * </p>
+   * @public
+   */
+  OutputName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveBridgeSourceRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the bridge that you want to update.</p>
+   * @public
+   */
+  BridgeArn: string | undefined;
+
+  /**
+   * <p> The name of the bridge source that you want to remove.</p>
+   * @public
+   */
+  SourceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveBridgeSourceResponse {
+  /**
+   * <p> The ARN of the bridge from which the source was removed. </p>
+   * @public
+   */
+  BridgeArn?: string | undefined;
+
+  /**
+   * <p>
+   *       The name of the bridge source that was removed.
+   *    </p>
+   * @public
+   */
+  SourceName?: string | undefined;
+}
+
+/**
+ * <p> Update an existing egress-type bridge.</p>
+ * @public
+ */
+export interface UpdateEgressGatewayBridgeRequest {
+  /**
+   * <p>The maximum expected bitrate (in bps).
+   * </p>
+   * @public
+   */
+  MaxBitrate?: number | undefined;
+}
+
+/**
+ * <p>
+ *    Update an existing ingress-type bridge.
+ * </p>
+ * @public
+ */
+export interface UpdateIngressGatewayBridgeRequest {
+  /**
+   * <p> The maximum expected bitrate (in bps).</p>
+   * @public
+   */
+  MaxBitrate?: number | undefined;
+
+  /**
+   * <p> The maximum number of expected outputs.</p>
+   * @public
+   */
+  MaxOutputs?: number | undefined;
+}
+
+/**
+ * <p> The settings for source failover.</p>
+ * @public
+ */
+export interface UpdateFailoverConfig {
+  /**
+   * <p> The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.</p>
+   * @public
+   */
+  FailoverMode?: FailoverMode | undefined;
+
+  /**
+   * <p> Recovery window time to look for dash-7 packets.</p>
+   * @public
+   */
+  RecoveryWindow?: number | undefined;
+
+  /**
+   * <p> The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.</p>
+   * @public
+   */
+  SourcePriority?: SourcePriority | undefined;
+
+  /**
+   * <p>The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+   * </p>
+   * @public
+   */
+  State?: State | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBridgeRequest {
+  /**
+   * <p> TheAmazon Resource Name (ARN) of the bridge that you want to update. </p>
+   * @public
+   */
+  BridgeArn: string | undefined;
+
+  /**
+   * <p>
+   *    A cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
+   * </p>
+   * @public
+   */
+  EgressGatewayBridge?: UpdateEgressGatewayBridgeRequest | undefined;
+
+  /**
+   * <p>
+   *    A ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
+   * </p>
+   * @public
+   */
+  IngressGatewayBridge?: UpdateIngressGatewayBridgeRequest | undefined;
+
+  /**
+   * <p>
+   * The settings for source failover.
+   * </p>
+   * @public
+   */
+  SourceFailoverConfig?: UpdateFailoverConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBridgeResponse {
+  /**
+   * <p>
+   * The bridge that was updated.
+   * </p>
+   * @public
+   */
+  Bridge?: Bridge | undefined;
+}
+
+/**
+ * <p>Update an existing network output.
+ * </p>
+ * @public
+ */
+export interface UpdateBridgeNetworkOutputRequest {
+  /**
+   * <p>The network output IP Address.
+   * </p>
+   * @public
+   */
+  IpAddress?: string | undefined;
+
+  /**
+   * <p>The network output's gateway network name.
+   * </p>
+   * @public
+   */
+  NetworkName?: string | undefined;
+
+  /**
+   * <p>The network output port.
+   * </p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>The network output protocol.
+   * </p>
+   *          <note>
+   *             <p>Elemental MediaConnect no longer supports the Fujitsu QoS
+   *          protocol. This reference is maintained for legacy purposes only.</p>
+   *          </note>
+   * @public
+   */
+  Protocol?: Protocol | undefined;
+
+  /**
+   * <p>The network output TTL.
+   * </p>
+   * @public
+   */
+  Ttl?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBridgeOutputRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the bridge that you want to update.</p>
+   * @public
+   */
+  BridgeArn: string | undefined;
+
+  /**
+   * <p>
+   * The network of the bridge output.
+   * </p>
+   * @public
+   */
+  NetworkOutput?: UpdateBridgeNetworkOutputRequest | undefined;
+
+  /**
+   * <p>
+   * Tname of the output that you want to update.
+   * </p>
+   * @public
+   */
+  OutputName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBridgeOutputResponse {
+  /**
+   * <p>
+   * The ARN of the bridge that was updated.
+   * </p>
+   * @public
+   */
+  BridgeArn?: string | undefined;
+
+  /**
+   * <p>
+   * The bridge output that was updated.
+   * </p>
+   * @public
+   */
+  Output?: BridgeOutput | undefined;
+}
+
+/**
+ * <p>
+ *    Update the flow source of the bridge.
+ * </p>
+ * @public
+ */
+export interface UpdateBridgeFlowSourceRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) that identifies the MediaConnect resource from which to delete tags.</p>
+   * @public
+   */
+  FlowArn?: string | undefined;
+
+  /**
+   * <p>The name of the VPC interface attachment to use for this source.
+   * </p>
+   * @public
+   */
+  FlowVpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
+}
+
+/**
+ * <p> Update the network source of the bridge.</p>
+ * @public
+ */
+export interface UpdateBridgeNetworkSourceRequest {
+  /**
+   * <p> The network source multicast IP.</p>
+   * @public
+   */
+  MulticastIp?: string | undefined;
+
+  /**
+   * <p>The settings related to the multicast source.
+   * </p>
+   * @public
+   */
+  MulticastSourceSettings?: MulticastSourceSettings | undefined;
+
+  /**
+   * <p>The network source's gateway network name.
+   * </p>
+   * @public
+   */
+  NetworkName?: string | undefined;
+
+  /**
+   * <p>The network source port.
+   * </p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>The network source protocol.
+   * </p>
+   *          <note>
+   *             <p>Elemental MediaConnect no longer supports the Fujitsu QoS
+   *          protocol. This reference is maintained for legacy purposes only.</p>
+   *          </note>
+   * @public
+   */
+  Protocol?: Protocol | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBridgeSourceRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the bridge that you want to update.</p>
+   * @public
+   */
+  BridgeArn: string | undefined;
+
+  /**
+   * <p> The name of the flow that you want to update.</p>
+   * @public
+   */
+  FlowSource?: UpdateBridgeFlowSourceRequest | undefined;
+
+  /**
+   * <p>
+   * The network for the bridge source.
+   * </p>
+   * @public
+   */
+  NetworkSource?: UpdateBridgeNetworkSourceRequest | undefined;
+
+  /**
+   * <p>
+   * The name of the source that you want to update.
+   * </p>
+   * @public
+   */
+  SourceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBridgeSourceResponse {
+  /**
+   * <p> The ARN of the updated bridge source. </p>
+   * @public
+   */
+  BridgeArn?: string | undefined;
+
+  /**
+   * <p>
+   * The updated bridge source.
+   * </p>
+   * @public
+   */
+  Source?: BridgeSource | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DesiredState = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  STANDBY: "STANDBY",
+} as const;
+
+/**
+ * @public
+ */
+export type DesiredState = (typeof DesiredState)[keyof typeof DesiredState];
+
+/**
+ * @public
+ */
+export interface UpdateBridgeStateRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the bridge that you want to update the state of. </p>
+   * @public
+   */
+  BridgeArn: string | undefined;
+
+  /**
+   * <p>
+   * The desired state for the bridge.
+   * </p>
+   * @public
+   */
+  DesiredState: DesiredState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBridgeStateResponse {
+  /**
+   * <p>The ARN of the updated bridge. </p>
+   * @public
+   */
+  BridgeArn?: string | undefined;
+
+  /**
+   * <p>
+   * The new state of the bridge.
+   * </p>
+   * @public
+   */
+  DesiredState?: DesiredState | undefined;
+}
 
 /**
  * @public
@@ -3213,101 +4076,13 @@ export type ContentQualityAnalysisState =
   (typeof ContentQualityAnalysisState)[keyof typeof ContentQualityAnalysisState];
 
 /**
- * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
- * @public
- */
-export class CreateBridge420Exception extends __BaseException {
-  readonly name: "CreateBridge420Exception" = "CreateBridge420Exception";
-  readonly $fault: "client" = "client";
-  /**
-   * The error message returned by AWS Elemental MediaConnect.
-   * @public
-   */
-  Message: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CreateBridge420Exception, __BaseException>) {
-    super({
-      name: "CreateBridge420Exception",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CreateBridge420Exception.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * Creates a new bridge. The request must include one source.
- * @public
- */
-export interface CreateBridgeRequest {
-  /**
-   * Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.
-   * @public
-   */
-  EgressGatewayBridge?: AddEgressGatewayBridgeRequest | undefined;
-
-  /**
-   * Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.
-   * @public
-   */
-  IngressGatewayBridge?: AddIngressGatewayBridgeRequest | undefined;
-
-  /**
-   * The name of the bridge. This name can not be modified after the bridge is created.
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * The outputs that you want to add to this bridge.
-   * @public
-   */
-  Outputs?: AddBridgeOutputRequest[] | undefined;
-
-  /**
-   * The bridge placement Amazon Resource Number (ARN).
-   * @public
-   */
-  PlacementArn: string | undefined;
-
-  /**
-   * The settings for source failover.
-   * @public
-   */
-  SourceFailoverConfig?: FailoverConfig | undefined;
-
-  /**
-   * The sources that you want to add to this bridge.
-   * @public
-   */
-  Sources: AddBridgeSourceRequest[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateBridgeResponse {
-  /**
-   * A Bridge is the connection between your datacenter's Instances and the AWS cloud. A bridge can be used to send video from the AWS cloud to your datacenter or from your datacenter to the AWS cloud.
-   * @public
-   */
-  Bridge?: Bridge | undefined;
-}
-
-/**
- * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ * <p>Exception raised by Elemental MediaConnect when creating the flow. See the error message for the operation for more information on the cause of this exception.
+ *    </p>
  * @public
  */
 export class CreateFlow420Exception extends __BaseException {
   readonly name: "CreateFlow420Exception" = "CreateFlow420Exception";
   readonly $fault: "client" = "client";
-  /**
-   * The error message returned by AWS Elemental MediaConnect.
-   * @public
-   */
   Message: string | undefined;
   /**
    * @internal
@@ -3327,6 +4102,62 @@ export class CreateFlow420Exception extends __BaseException {
  * @public
  * @enum
  */
+export const FlowSize = {
+  LARGE: "LARGE",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type FlowSize = (typeof FlowSize)[keyof typeof FlowSize];
+
+/**
+ * @public
+ * @enum
+ */
+export const NdiState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type NdiState = (typeof NdiState)[keyof typeof NdiState];
+
+/**
+ * <p>Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+ * </p>
+ * @public
+ */
+export interface NdiConfig {
+  /**
+   * <p>A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+   * </p>
+   * @public
+   */
+  NdiState?: NdiState | undefined;
+
+  /**
+   * <p>A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
+   * </p>
+   * @public
+   */
+  MachineName?: string | undefined;
+
+  /**
+   * <p>A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
+   * </p>
+   * @public
+   */
+  NdiDiscoveryServers?: NdiDiscoveryServerConfig[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ThumbnailState = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -3338,191 +4169,248 @@ export const ThumbnailState = {
 export type ThumbnailState = (typeof ThumbnailState)[keyof typeof ThumbnailState];
 
 /**
- * The settings for source monitoring.
+ * <p> The settings for source monitoring. </p>
  * @public
  */
 export interface MonitoringConfig {
   /**
-   * The state of thumbnail monitoring.
+   * <p> Indicates whether thumbnails are enabled or disabled.</p>
    * @public
    */
   ThumbnailState?: ThumbnailState | undefined;
 
   /**
-   * Contains the settings for audio stream metrics monitoring.
+   * <p> Contains the settings for audio stream metrics monitoring.</p>
    * @public
    */
   AudioMonitoringSettings?: AudioMonitoringSetting[] | undefined;
 
   /**
-   * Indicates whether content quality analysis is enabled or disabled.
+   * <p> Indicates whether content quality analysis is enabled or disabled.</p>
    * @public
    */
   ContentQualityAnalysisState?: ContentQualityAnalysisState | undefined;
 
   /**
-   * Contains the settings for video stream metrics monitoring.
+   * <p> Contains the settings for video stream metrics monitoring.</p>
    * @public
    */
   VideoMonitoringSettings?: VideoMonitoringSetting[] | undefined;
 }
 
 /**
- * Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50).
  * @public
  */
 export interface CreateFlowRequest {
   /**
-   * The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS Region.
+   * <p> The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current Amazon Web Services Region.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * The entitlements that you want to grant on a flow.
+   * <p> The entitlements that you want to grant on a flow.</p>
    * @public
    */
   Entitlements?: GrantEntitlementRequest[] | undefined;
 
   /**
-   * The media streams that you want to add to the flow. You can associate these media streams with sources and outputs on the flow.
+   * <p> The media streams that you want to add to the flow. You can associate these media streams with sources and outputs on the flow.</p>
    * @public
    */
   MediaStreams?: AddMediaStreamRequest[] | undefined;
 
   /**
-   * The name of the flow.
+   * <p> The name of the flow.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * The outputs that you want to add to this flow.
+   * <p> The outputs that you want to add to this flow.</p>
    * @public
    */
   Outputs?: AddOutputRequest[] | undefined;
 
   /**
-   * The settings for the source of the flow.
+   * <p>
+   *    The settings for the source that you want to use for the new flow.
+   * </p>
    * @public
    */
   Source?: SetSourceRequest | undefined;
 
   /**
-   * The settings for source failover.
+   * <p>
+   *    The settings for source failover.
+   * </p>
    * @public
    */
   SourceFailoverConfig?: FailoverConfig | undefined;
 
-  Sources?: SetSourceRequest[] | undefined;
   /**
-   * The VPC interfaces you want on the flow.
+   * <p>The sources that are assigned to the flow.
+   * </p>
+   * @public
+   */
+  Sources?: SetSourceRequest[] | undefined;
+
+  /**
+   * <p> The VPC interfaces you want on the flow.</p>
    * @public
    */
   VpcInterfaces?: VpcInterfaceRequest[] | undefined;
 
   /**
-   * Create maintenance setting for a flow
+   * <p>
+   *    The maintenance settings you want to use for the flow.
+   * </p>
    * @public
    */
   Maintenance?: AddMaintenance | undefined;
 
   /**
+   * <p>
    * The settings for source monitoring.
+   * </p>
    * @public
    */
   SourceMonitoringConfig?: MonitoringConfig | undefined;
+
+  /**
+   * <p> Determines the processing capacity and feature set of the flow. Set this optional parameter
+   *          to <code>LARGE</code> if you want to enable NDI outputs on the flow. </p>
+   * @public
+   */
+  FlowSize?: FlowSize | undefined;
+
+  /**
+   * <p>
+   *    Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+   * </p>
+   * @public
+   */
+  NdiConfig?: NdiConfig | undefined;
 }
 
 /**
- * The settings for a flow, including its source, outputs, and entitlements.
+ * <p> The settings for a flow, including its source, outputs, and entitlements.</p>
  * @public
  */
 export interface Flow {
   /**
-   * The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
+   * <p> The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current Amazon Web Services Region.</p>
    * @public
    */
   AvailabilityZone: string | undefined;
 
   /**
-   * A description of the flow. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
+   * <p> A description of the flow. This value is not used or seen outside of the current MediaConnect account.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * The IP address from which video will be sent to output destinations.
+   * <p> The IP address from which video will be sent to output destinations.</p>
    * @public
    */
   EgressIp?: string | undefined;
 
   /**
-   * The entitlements in this flow.
+   * <p> The entitlements in this flow.</p>
    * @public
    */
   Entitlements: Entitlement[] | undefined;
 
   /**
-   * The Amazon Resource Name (ARN) of the flow.
+   * <p> The Amazon Resource Name (ARN) of the flow.</p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * The media streams that are associated with the flow. After you associate a media stream with a source, you can also associate it with outputs on the flow.
+   * <p> The media streams that are associated with the flow. After you associate a media stream with a source, you can also associate it with outputs on the flow.</p>
    * @public
    */
   MediaStreams?: MediaStream[] | undefined;
 
   /**
-   * The name of the flow.
+   * <p> The name of the flow.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * The outputs in this flow.
+   * <p> The outputs in this flow.</p>
    * @public
    */
   Outputs: Output[] | undefined;
 
   /**
-   * The settings for the source of the flow.
+   * <p>
+   *    The source for the flow.
+   * </p>
    * @public
    */
   Source: Source | undefined;
 
   /**
-   * The settings for source failover.
+   * <p>
+   * The settings for the source failover.
+   * </p>
    * @public
    */
   SourceFailoverConfig?: FailoverConfig | undefined;
 
-  Sources?: Source[] | undefined;
   /**
-   * The current status of the flow.
+   * <p>The settings for the sources that are assigned to the flow.
+   * </p>
+   * @public
+   */
+  Sources?: Source[] | undefined;
+
+  /**
+   * <p> The current status of the flow.</p>
    * @public
    */
   Status: Status | undefined;
 
   /**
-   * The VPC Interfaces for this flow.
+   * <p> The VPC Interfaces for this flow.</p>
    * @public
    */
   VpcInterfaces?: VpcInterface[] | undefined;
 
   /**
-   * The maintenance setting of a flow
+   * <p>
+   *    The maintenance settings for the flow.
+   * </p>
    * @public
    */
   Maintenance?: Maintenance | undefined;
 
   /**
+   * <p>
    * The settings for source monitoring.
+   * </p>
    * @public
    */
   SourceMonitoringConfig?: MonitoringConfig | undefined;
+
+  /**
+   * <p>
+   *    Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+   * </p>
+   * @public
+   */
+  FlowSize?: FlowSize | undefined;
+
+  /**
+   * <p>Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+   * </p>
+   * @public
+   */
+  NdiConfig?: NdiConfig | undefined;
 }
 
 /**
@@ -3530,23 +4418,22 @@ export interface Flow {
  */
 export interface CreateFlowResponse {
   /**
-   * The settings for a flow, including its source, outputs, and entitlements.
+   * <p>
+   *    The flow that you created.
+   * </p>
    * @public
    */
   Flow?: Flow | undefined;
 }
 
 /**
- * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ * <p>Exception raised by Elemental MediaConnect when creating the gateway. See the error message for the operation for more information on the cause of this exception.
+ *    </p>
  * @public
  */
 export class CreateGateway420Exception extends __BaseException {
   readonly name: "CreateGateway420Exception" = "CreateGateway420Exception";
   readonly $fault: "client" = "client";
-  /**
-   * The error message returned by AWS Elemental MediaConnect.
-   * @public
-   */
   Message: string | undefined;
   /**
    * @internal
@@ -3563,61 +4450,69 @@ export class CreateGateway420Exception extends __BaseException {
 }
 
 /**
- * Creates a new gateway. The request must include at least one network (up to 4).
  * @public
  */
 export interface CreateGatewayRequest {
   /**
-   * The range of IP addresses that are allowed to contribute content or initiate output requests for flows communicating with this gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   * <p> The range of IP addresses that are allowed to contribute content or initiate output requests for flows communicating with this gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
    * @public
    */
   EgressCidrBlocks: string[] | undefined;
 
   /**
-   * The name of the gateway. This name can not be modified after the gateway is created.
+   * <p> The name of the gateway. This name can not be modified after the gateway is created.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * The list of networks that you want to add.
+   * <p> The list of networks that you want to add to the gateway.</p>
    * @public
    */
   Networks: GatewayNetwork[] | undefined;
 }
 
 /**
- * The settings for a gateway, including its networks.
+ * <p>The settings for a gateway, including its networks.
+ *
+ *
+ * </p>
  * @public
  */
 export interface Gateway {
   /**
-   * The range of IP addresses that contribute content or initiate output requests for flows communicating with this gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   * <p> The range of IP addresses that contribute content or initiate output requests for flows communicating with this gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
    * @public
    */
   EgressCidrBlocks: string[] | undefined;
 
   /**
-   * The Amazon Resource Name (ARN) of the gateway.
+   * <p> The Amazon Resource Name (ARN) of the gateway.</p>
    * @public
    */
   GatewayArn: string | undefined;
 
-  GatewayMessages?: MessageDetail[] | undefined;
   /**
-   * The current status of the gateway.
+   * <p>Messages with information about the gateway.
+   * </p>
+   * @public
+   */
+  GatewayMessages?: MessageDetail[] | undefined;
+
+  /**
+   * <p> The current status of the gateway.</p>
    * @public
    */
   GatewayState?: GatewayState | undefined;
 
   /**
-   * The name of the gateway. This name can not be modified after the gateway is created.
+   * <p> The name of the gateway. This name can not be modified after the gateway is created.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * The list of networks in the gateway.
+   * <p> The list of networks in the gateway.</p>
    * @public
    */
   Networks: GatewayNetwork[] | undefined;
@@ -3628,7 +4523,9 @@ export interface Gateway {
  */
 export interface CreateGatewayResponse {
   /**
-   * The settings for a gateway, including its networks.
+   * <p>
+   * The gateway that you created.
+   * </p>
    * @public
    */
   Gateway?: Gateway | undefined;
@@ -3637,31 +4534,9 @@ export interface CreateGatewayResponse {
 /**
  * @public
  */
-export interface DeleteBridgeRequest {
-  /**
-   * The ARN of the bridge that you want to delete.
-   * @public
-   */
-  BridgeArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteBridgeResponse {
-  /**
-   * The Amazon Resource Number (ARN) of the deleted bridge.
-   * @public
-   */
-  BridgeArn?: string | undefined;
-}
-
-/**
- * @public
- */
 export interface DeleteFlowRequest {
   /**
-   * The ARN of the flow that you want to delete.
+   * <p> The Amazon Resource Name (ARN) of the flow that you want to delete.</p>
    * @public
    */
   FlowArn: string | undefined;
@@ -3672,13 +4547,13 @@ export interface DeleteFlowRequest {
  */
 export interface DeleteFlowResponse {
   /**
-   * The ARN of the flow that was deleted.
+   * <p> The ARN of the flow that was deleted.</p>
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * The status of the flow when the DeleteFlow process begins.
+   * <p> The status of the flow when the <code>DeleteFlow</code> process begins.</p>
    * @public
    */
   Status?: Status | undefined;
@@ -3689,7 +4564,7 @@ export interface DeleteFlowResponse {
  */
 export interface DeleteGatewayRequest {
   /**
-   * The ARN of the gateway that you want to delete.
+   * <p> The Amazon Resource Name (ARN) of the gateway that you want to delete.</p>
    * @public
    */
   GatewayArn: string | undefined;
@@ -3700,7 +4575,7 @@ export interface DeleteGatewayRequest {
  */
 export interface DeleteGatewayResponse {
   /**
-   * The Amazon Resource Name (ARN) of the gateway that was deleted.
+   * <p> The ARN of the gateway that was deleted.</p>
    * @public
    */
   GatewayArn?: string | undefined;
@@ -3711,13 +4586,13 @@ export interface DeleteGatewayResponse {
  */
 export interface DeregisterGatewayInstanceRequest {
   /**
-   * Force the deregistration of an instance. Force will deregister an instance, even if there are bridges running on it.
+   * <p> Force the deregistration of an instance. Force will deregister an instance, even if there are bridges running on it.</p>
    * @public
    */
   Force?: boolean | undefined;
 
   /**
-   * The Amazon Resource Name (ARN) of the gateway that contains the instance that you want to deregister.
+   * <p> The Amazon Resource Name (ARN) of the gateway that contains the instance that you want to deregister.</p>
    * @public
    */
   GatewayInstanceArn: string | undefined;
@@ -3728,13 +4603,13 @@ export interface DeregisterGatewayInstanceRequest {
  */
 export interface DeregisterGatewayInstanceResponse {
   /**
-   * The Amazon Resource Name (ARN) of the instance.
+   * <p> The ARN of the instance.</p>
    * @public
    */
   GatewayInstanceArn?: string | undefined;
 
   /**
-   * The status of the instance.
+   * <p> The status of the instance.</p>
    * @public
    */
   InstanceState?: InstanceState | undefined;
@@ -3743,43 +4618,21 @@ export interface DeregisterGatewayInstanceResponse {
 /**
  * @public
  */
-export interface DescribeBridgeRequest {
-  /**
-   * The ARN of the bridge that you want to describe.
-   * @public
-   */
-  BridgeArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeBridgeResponse {
-  /**
-   * A Bridge is the connection between your datacenter's Instances and the AWS cloud. A bridge can be used to send video from the AWS cloud to your datacenter or from your datacenter to the AWS cloud.
-   * @public
-   */
-  Bridge?: Bridge | undefined;
-}
-
-/**
- * @public
- */
 export interface DescribeFlowRequest {
   /**
-   * The ARN of the flow that you want to describe.
+   * <p> The ARN of the flow that you want to describe.</p>
    * @public
    */
   FlowArn: string | undefined;
 }
 
 /**
- * Messages that provide the state of the flow.
+ * <p> Messages that provide the state of the flow.</p>
  * @public
  */
 export interface Messages {
   /**
-   * A list of errors that might have been generated from processes on this flow.
+   * <p> A list of errors that might have been generated from processes on this flow.</p>
    * @public
    */
   Errors: string[] | undefined;
@@ -3790,13 +4643,16 @@ export interface Messages {
  */
 export interface DescribeFlowResponse {
   /**
-   * The settings for a flow, including its source, outputs, and entitlements.
+   * <p>The flow that you requested a description of.
+   * </p>
    * @public
    */
   Flow?: Flow | undefined;
 
   /**
-   * Messages that provide the state of the flow.
+   * <p>
+   *    Any errors that apply currently to the flow. If there are no errors, MediaConnect will not include this field in the response.
+   * </p>
    * @public
    */
   Messages?: Messages | undefined;
@@ -3807,19 +4663,19 @@ export interface DescribeFlowResponse {
  */
 export interface DescribeFlowSourceMetadataRequest {
   /**
-   * The Amazon Resource Name (ARN) of the flow.
+   * <p> The Amazon Resource Name (ARN) of the flow.</p>
    * @public
    */
   FlowArn: string | undefined;
 }
 
 /**
- * The metadata of the transport stream in the current flow's source.
+ * <p> The metadata of the transport stream in the current flow's source.</p>
  * @public
  */
 export interface TransportMediaInfo {
   /**
-   * The list of transport stream programs in the current flow's source.
+   * <p> The list of transport stream programs in the current flow's source.</p>
    * @public
    */
   Programs: TransportStreamProgram[] | undefined;
@@ -3830,25 +4686,27 @@ export interface TransportMediaInfo {
  */
 export interface DescribeFlowSourceMetadataResponse {
   /**
-   * The ARN of the flow that DescribeFlowSourceMetadata was performed on.
+   * <p> The ARN of the flow that DescribeFlowSourceMetadata was performed on.</p>
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * Provides a status code and message regarding issues found with the flow source metadata.
+   * <p> Provides a status code and message regarding issues found with the flow source metadata.</p>
    * @public
    */
   Messages?: MessageDetail[] | undefined;
 
   /**
-   * The timestamp of the most recent change in metadata for this flow’s source.
+   * <p> The timestamp of the most recent change in metadata for this flow’s source.</p>
    * @public
    */
   Timestamp?: Date | undefined;
 
   /**
-   * The metadata of the transport stream in the current flow's source.
+   * <p>
+   * Information about the flow's transport media.
+   * </p>
    * @public
    */
   TransportMediaInfo?: TransportMediaInfo | undefined;
@@ -3859,43 +4717,44 @@ export interface DescribeFlowSourceMetadataResponse {
  */
 export interface DescribeFlowSourceThumbnailRequest {
   /**
-   * The Amazon Resource Name (ARN) of the flow.
+   * <p> The Amazon Resource Name (ARN) of the flow.</p>
    * @public
    */
   FlowArn: string | undefined;
 }
 
 /**
- * The details of the thumbnail, including thumbnail base64 string, timecode and the time when thumbnail was generated.
+ * <p> The details of the thumbnail, including thumbnail base64 string, timecode and the time when thumbnail was generated.</p>
  * @public
  */
 export interface ThumbnailDetails {
   /**
-   * The ARN of the flow that DescribeFlowSourceThumbnail was performed on.
+   * <p> The ARN of the flow that DescribeFlowSourceThumbnail was performed on.</p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * Thumbnail Base64 string.
+   * <p>Thumbnail Base64 string.
+   * </p>
    * @public
    */
   Thumbnail?: string | undefined;
 
   /**
-   * Status code and messages about the flow source thumbnail.
+   * <p> Status code and messages about the flow source thumbnail.</p>
    * @public
    */
   ThumbnailMessages: MessageDetail[] | undefined;
 
   /**
-   * Timecode of thumbnail.
+   * <p> Timecode of thumbnail.</p>
    * @public
    */
   Timecode?: string | undefined;
 
   /**
-   * The timestamp of when thumbnail was generated.
+   * <p> The timestamp of when thumbnail was generated.</p>
    * @public
    */
   Timestamp?: Date | undefined;
@@ -3906,7 +4765,8 @@ export interface ThumbnailDetails {
  */
 export interface DescribeFlowSourceThumbnailResponse {
   /**
-   * The details of the thumbnail, including thumbnail base64 string, timecode and the time when thumbnail was generated.
+   * <p>The details of the thumbnail, including thumbnail base64 string, timecode and the time when thumbnail was generated.
+   * </p>
    * @public
    */
   ThumbnailDetails?: ThumbnailDetails | undefined;
@@ -3917,7 +4777,7 @@ export interface DescribeFlowSourceThumbnailResponse {
  */
 export interface DescribeGatewayRequest {
   /**
-   * The Amazon Resource Name (ARN) of the gateway that you want to describe.
+   * <p> The ARN of the gateway that you want to describe.</p>
    * @public
    */
   GatewayArn: string | undefined;
@@ -3928,7 +4788,8 @@ export interface DescribeGatewayRequest {
  */
 export interface DescribeGatewayResponse {
   /**
-   * The settings for a gateway, including its networks.
+   * <p>The gateway that you wanted to describe.
+   * </p>
    * @public
    */
   Gateway?: Gateway | undefined;
@@ -3939,56 +4800,71 @@ export interface DescribeGatewayResponse {
  */
 export interface DescribeGatewayInstanceRequest {
   /**
-   * The Amazon Resource Name (ARN) of the gateway instance that you want to describe.
+   * <p> The Amazon Resource Name (ARN) of the gateway instance that you want to describe.</p>
    * @public
    */
   GatewayInstanceArn: string | undefined;
 }
 
 /**
- * The settings for an instance in a gateway.
+ * <p> The settings for an instance in a gateway.</p>
  * @public
  */
 export interface GatewayInstance {
   /**
-   * The availability of the instance to host new bridges. The bridgePlacement property can be LOCKED or AVAILABLE. If it is LOCKED, no new bridges can be deployed to this instance. If it is AVAILABLE, new bridges can be added to this instance.
+   * <p>The availability of the instance to host new bridges. The bridgePlacement property can be LOCKED or AVAILABLE. If it is LOCKED, no new bridges can be deployed to this instance. If it is AVAILABLE, new bridges can be deployed to this instance.
+   * </p>
    * @public
    */
   BridgePlacement: BridgePlacement | undefined;
 
   /**
-   * The connection state of the instance.
+   * <p>The connection state of the instance.
+   * </p>
    * @public
    */
   ConnectionStatus: ConnectionStatus | undefined;
 
   /**
-   * The Amazon Resource Name (ARN) of the instance.
+   * <p>The Amazon Resource Name (ARN) of the instance.
+   * </p>
    * @public
    */
   GatewayArn: string | undefined;
 
   /**
-   * The Amazon Resource Name (ARN) of the gateway.
+   * <p>The ARN of the gateway.
+   * </p>
    * @public
    */
   GatewayInstanceArn: string | undefined;
 
   /**
-   * The managed instance ID generated by the SSM install. This will begin with "mi-".
+   * <p>The instance ID generated by the SSM install. This will begin with "mi-".
+   * </p>
    * @public
    */
   InstanceId: string | undefined;
 
-  InstanceMessages?: MessageDetail[] | undefined;
   /**
-   * The status of the instance.
+   * <p>
+   * Messages with information about the gateway.
+   * </p>
+   * @public
+   */
+  InstanceMessages?: MessageDetail[] | undefined;
+
+  /**
+   * <p>The status of the instance.
+   * </p>
    * @public
    */
   InstanceState: InstanceState | undefined;
 
   /**
-   * The running bridge count.
+   * <p>
+   *       The running bridge count.
+   * </p>
    * @public
    */
   RunningBridgeCount: number | undefined;
@@ -3999,7 +4875,8 @@ export interface GatewayInstance {
  */
 export interface DescribeGatewayInstanceResponse {
   /**
-   * The settings for an instance in a gateway.
+   * <p>The gateway instance that you requested a description of.
+   * </p>
    * @public
    */
   GatewayInstance?: GatewayInstance | undefined;
@@ -4010,7 +4887,7 @@ export interface DescribeGatewayInstanceResponse {
  */
 export interface DescribeOfferingRequest {
   /**
-   * The Amazon Resource Name (ARN) of the offering.
+   * <p> The ARN of the offering.</p>
    * @public
    */
   OfferingArn: string | undefined;
@@ -4021,7 +4898,8 @@ export interface DescribeOfferingRequest {
  */
 export interface DescribeOfferingResponse {
   /**
-   * A savings plan that reserves a certain amount of outbound bandwidth usage at a discounted rate each month over a period of time.
+   * <p>The offering that you requested a description of.
+   * </p>
    * @public
    */
   Offering?: Offering | undefined;
@@ -4032,7 +4910,7 @@ export interface DescribeOfferingResponse {
  */
 export interface DescribeReservationRequest {
   /**
-   * The Amazon Resource Name (ARN) of the reservation.
+   * <p>The Amazon Resource Name (ARN) of the offering. </p>
    * @public
    */
   ReservationArn: string | undefined;
@@ -4043,38 +4921,22 @@ export interface DescribeReservationRequest {
  */
 export interface DescribeReservationResponse {
   /**
-   * A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate.
+   * <p>
+   *    A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate.
+   * </p>
    * @public
    */
   Reservation?: Reservation | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const DesiredState = {
-  ACTIVE: "ACTIVE",
-  DELETED: "DELETED",
-  STANDBY: "STANDBY",
-} as const;
-
-/**
- * @public
- */
-export type DesiredState = (typeof DesiredState)[keyof typeof DesiredState];
-
-/**
- * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ * <p>Exception raised by Elemental MediaConnect when granting the entitlement. See the error message for the operation for more information on the cause of this exception.
+ * </p>
  * @public
  */
 export class GrantFlowEntitlements420Exception extends __BaseException {
   readonly name: "GrantFlowEntitlements420Exception" = "GrantFlowEntitlements420Exception";
   readonly $fault: "client" = "client";
-  /**
-   * The error message returned by AWS Elemental MediaConnect.
-   * @public
-   */
   Message: string | undefined;
   /**
    * @internal
@@ -4091,18 +4953,17 @@ export class GrantFlowEntitlements420Exception extends __BaseException {
 }
 
 /**
- * A request to grant entitlements on a flow.
  * @public
  */
 export interface GrantFlowEntitlementsRequest {
   /**
-   * The list of entitlements that you want to grant.
+   * <p> The list of entitlements that you want to grant.</p>
    * @public
    */
   Entitlements: GrantEntitlementRequest[] | undefined;
 
   /**
-   * The flow that you want to grant entitlements on.
+   * <p> The Amazon Resource Name (ARN) of the flow that you want to grant entitlements on.</p>
    * @public
    */
   FlowArn: string | undefined;
@@ -4113,13 +4974,13 @@ export interface GrantFlowEntitlementsRequest {
  */
 export interface GrantFlowEntitlementsResponse {
   /**
-   * The entitlements that were just granted.
+   * <p> The entitlements that were just granted.</p>
    * @public
    */
   Entitlements?: Entitlement[] | undefined;
 
   /**
-   * The ARN of the flow that these entitlements were granted to.
+   * <p> The ARN of the flow that these entitlements were granted to.</p>
    * @public
    */
   FlowArn?: string | undefined;
@@ -4128,89 +4989,26 @@ export interface GrantFlowEntitlementsResponse {
 /**
  * @public
  */
-export interface ListBridgesRequest {
-  /**
-   * Filter the list results to display only the bridges associated with the selected Amazon Resource Name (ARN).
-   * @public
-   */
-  FilterArn?: string | undefined;
-
-  /**
-   * The maximum number of results to return per API request. For example, you submit a ListBridges request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * The token that identifies which batch of results that you want to see. For example, you submit a ListBridges request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListBridges request a second time and specify the NextToken value.
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListBridgesResponse {
-  /**
-   * A list of bridge summaries.
-   * @public
-   */
-  Bridges?: ListedBridge[] | undefined;
-
-  /**
-   * The token that identifies which batch of results that you want to see. For example, you submit a ListBridges request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListBridges request a second time and specify the NextToken value.
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEntitlementsRequest {
-  /**
-   * The maximum number of results to return per API request. For example, you submit a ListEntitlements request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 20 results per page.
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * The token that identifies which batch of results that you want to see. For example, you submit a ListEntitlements request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListEntitlements request a second time and specify the NextToken value.
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEntitlementsResponse {
-  /**
-   * A list of entitlements that have been granted to you from other AWS accounts.
-   * @public
-   */
-  Entitlements?: ListedEntitlement[] | undefined;
-
-  /**
-   * The token that identifies which batch of results that you want to see. For example, you submit a ListEntitlements request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListEntitlements request a second time and specify the NextToken value.
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
 export interface ListFlowsRequest {
   /**
-   * The maximum number of results to return per API request. For example, you submit a ListFlows request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.
+   * <p> The maximum number of results to return per API request. </p>
+   *          <p>For example, you submit a <code>ListFlows</code> request with MaxResults set at 5.
+   *          Although 20 items match your request, the service returns no more than the first 5 items.
+   *          (The service also returns a <code>NextToken</code> value that you can use to fetch the next
+   *          batch of results.) </p>
+   *          <p>The service might return fewer results than the <code>MaxResults</code> value. If
+   *             <code>MaxResults</code> is not included in the request, the service defaults to
+   *          pagination with a maximum of 10 results per page.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * The token that identifies which batch of results that you want to see. For example, you submit a ListFlows request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListFlows request a second time and specify the NextToken value.
+   * <p> The token that identifies the batch of results that you want to see. </p>
+   *          <p>For example, you submit a <code>ListFlows</code> request with MaxResults set at 5. The
+   *          service returns the first batch of results (up to 5) and a <code>NextToken</code> value. To
+   *          see the next batch of results, you can submit the <code>ListFlows</code> request a second
+   *          time and specify the <code>NextToken</code> value.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -4221,265 +5019,20 @@ export interface ListFlowsRequest {
  */
 export interface ListFlowsResponse {
   /**
-   * A list of flow summaries.
+   * <p> A list of flow summaries.</p>
    * @public
    */
   Flows?: ListedFlow[] | undefined;
 
   /**
-   * The token that identifies which batch of results that you want to see. For example, you submit a ListFlows request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListFlows request a second time and specify the NextToken value.
+   * <p> The token that identifies the batch of results that you want to see. </p>
+   *          <p>For example, you submit a <code>ListFlows</code> request with MaxResults set at 5. The
+   *          service returns the first batch of results (up to 5) and a <code>NextToken</code> value. To
+   *          see the next batch of results, you can submit the <code>ListFlows</code> request a second
+   *          time and specify the <code>NextToken</code> value.</p>
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGatewayInstancesRequest {
-  /**
-   * Filter the list results to display only the instances associated with the selected Gateway Amazon Resource Name (ARN).
-   * @public
-   */
-  FilterArn?: string | undefined;
-
-  /**
-   * The maximum number of results to return per API request. For example, you submit a ListInstances request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * The token that identifies which batch of results that you want to see. For example, you submit a ListInstances request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListInstances request a second time and specify the NextToken value.
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGatewayInstancesResponse {
-  /**
-   * A list of instance summaries.
-   * @public
-   */
-  Instances?: ListedGatewayInstance[] | undefined;
-
-  /**
-   * The token that identifies which batch of results that you want to see. For example, you submit a ListInstances request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListInstances request a second time and specify the NextToken value.
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGatewaysRequest {
-  /**
-   * The maximum number of results to return per API request. For example, you submit a ListGateways request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * The token that identifies which batch of results that you want to see. For example, you submit a ListGateways request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListGateways request a second time and specify the NextToken value.
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGatewaysResponse {
-  /**
-   * A list of gateway summaries.
-   * @public
-   */
-  Gateways?: ListedGateway[] | undefined;
-
-  /**
-   * The token that identifies which batch of results that you want to see. For example, you submit a ListGateways request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListGateways request a second time and specify the NextToken value.
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListOfferingsRequest {
-  /**
-   * The maximum number of results to return per API request. For example, you submit a ListOfferings request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * The token that identifies which batch of results that you want to see. For example, you submit a ListOfferings request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListOfferings request a second time and specify the NextToken value.
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListOfferingsResponse {
-  /**
-   * The token that identifies which batch of results that you want to see. For example, you submit a ListOfferings request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListOfferings request a second time and specify the NextToken value.
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * A list of offerings that are available to this account in the current AWS Region.
-   * @public
-   */
-  Offerings?: Offering[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListReservationsRequest {
-  /**
-   * The maximum number of results to return per API request. For example, you submit a ListReservations request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * The token that identifies which batch of results that you want to see. For example, you submit a ListReservations request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListOfferings request a second time and specify the NextToken value.
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListReservationsResponse {
-  /**
-   * The token that identifies which batch of results that you want to see. For example, you submit a ListReservations request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListReservations request a second time and specify the NextToken value.
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * A list of all reservations that have been purchased by this account in the current AWS Region.
-   * @public
-   */
-  Reservations?: Reservation[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource for which to list the tags.
-   * @public
-   */
-  ResourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * A request to purchase a offering.
- * @public
- */
-export interface PurchaseOfferingRequest {
-  /**
-   * The Amazon Resource Name (ARN) of the offering.
-   * @public
-   */
-  OfferingArn: string | undefined;
-
-  /**
-   * The name that you want to use for the reservation.
-   * @public
-   */
-  ReservationName: string | undefined;
-
-  /**
-   * The date and time that you want the reservation to begin, in Coordinated Universal Time (UTC). You can specify any date and time between 12:00am on the first day of the current month to the current time on today's date, inclusive. Specify the start in a 24-hour notation. Use the following format: YYYY-MM-DDTHH:mm:SSZ, where T and Z are literal characters. For example, to specify 11:30pm on March 5, 2020, enter 2020-03-05T23:30:00Z.
-   * @public
-   */
-  Start: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PurchaseOfferingResponse {
-  /**
-   * A pricing agreement for a discounted rate for a specific outbound bandwidth that your MediaConnect account will use each month over a specific time period. The discounted rate in the reservation applies to outbound bandwidth for all flows from your account until your account reaches the amount of bandwidth in your reservation. If you use more outbound bandwidth than the agreed upon amount in a single month, the overage is charged at the on-demand rate.
-   * @public
-   */
-  Reservation?: Reservation | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveBridgeOutputRequest {
-  /**
-   * The ARN of the bridge that you want to update.
-   * @public
-   */
-  BridgeArn: string | undefined;
-
-  /**
-   * The name of the bridge output that you want to remove.
-   * @public
-   */
-  OutputName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveBridgeOutputResponse {
-  BridgeArn?: string | undefined;
-  OutputName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveBridgeSourceRequest {
-  /**
-   * The ARN of the bridge that you want to update.
-   * @public
-   */
-  BridgeArn: string | undefined;
-
-  /**
-   * The name of the bridge source that you want to remove.
-   * @public
-   */
-  SourceName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveBridgeSourceResponse {
-  BridgeArn?: string | undefined;
-  SourceName?: string | undefined;
 }
 
 /**
@@ -4487,13 +5040,13 @@ export interface RemoveBridgeSourceResponse {
  */
 export interface RemoveFlowMediaStreamRequest {
   /**
-   * The Amazon Resource Name (ARN) of the flow.
+   * <p> The Amazon Resource Name (ARN) of the flow that you want to update.</p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * The name of the media stream that you want to remove.
+   * <p> The name of the media stream that you want to remove.</p>
    * @public
    */
   MediaStreamName: string | undefined;
@@ -4504,13 +5057,13 @@ export interface RemoveFlowMediaStreamRequest {
  */
 export interface RemoveFlowMediaStreamResponse {
   /**
-   * The Amazon Resource Name (ARN) of the flow.
+   * <p> The ARN of the flow that was updated.</p>
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * The name of the media stream that was removed.
+   * <p> The name of the media stream that was removed.</p>
    * @public
    */
   MediaStreamName?: string | undefined;
@@ -4521,13 +5074,14 @@ export interface RemoveFlowMediaStreamResponse {
  */
 export interface RemoveFlowOutputRequest {
   /**
-   * The flow that you want to remove an output from.
+   * <p> The Amazon Resource Name (ARN) of the flow that you want to remove an output from.</p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * The ARN of the output that you want to remove.
+   * <p> The ARN of the output that you want to remove.
+   * </p>
    * @public
    */
   OutputArn: string | undefined;
@@ -4538,13 +5092,15 @@ export interface RemoveFlowOutputRequest {
  */
 export interface RemoveFlowOutputResponse {
   /**
-   * The ARN of the flow that is associated with the output you removed.
+   * <p> The ARN of the flow that the output was removed from.
+   *    </p>
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * The ARN of the output that was removed.
+   * <p> The ARN of the output that was removed.
+   *    </p>
    * @public
    */
   OutputArn?: string | undefined;
@@ -4555,13 +5111,13 @@ export interface RemoveFlowOutputResponse {
  */
 export interface RemoveFlowSourceRequest {
   /**
-   * The flow that you want to remove a source from.
+   * <p> The Amazon Resource Name (ARN) of the flow that you want to remove a source from.</p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * The ARN of the source that you want to remove.
+   * <p> The ARN of the source that you want to remove.</p>
    * @public
    */
   SourceArn: string | undefined;
@@ -4572,13 +5128,15 @@ export interface RemoveFlowSourceRequest {
  */
 export interface RemoveFlowSourceResponse {
   /**
-   * The ARN of the flow that is associated with the source you removed.
+   * <p> The ARN of the flow that the source was removed from.
+   * </p>
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * The ARN of the source that was removed.
+   * <p> The ARN of the source that was removed.
+   * </p>
    * @public
    */
   SourceArn?: string | undefined;
@@ -4589,13 +5147,14 @@ export interface RemoveFlowSourceResponse {
  */
 export interface RemoveFlowVpcInterfaceRequest {
   /**
-   * The flow that you want to remove a VPC interface from.
+   * <p> The Amazon Resource Name (ARN) of the flow that you want to remove a VPC interface
+   *          from.</p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * The name of the VPC interface that you want to remove.
+   * <p> The name of the VPC interface that you want to remove.</p>
    * @public
    */
   VpcInterfaceName: string | undefined;
@@ -4606,19 +5165,19 @@ export interface RemoveFlowVpcInterfaceRequest {
  */
 export interface RemoveFlowVpcInterfaceResponse {
   /**
-   * The ARN of the flow that is associated with the VPC interface you removed.
+   * <p> The ARN of the flow that is associated with the VPC interface you removed.</p>
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * IDs of network interfaces associated with the removed VPC interface that Media Connect was unable to remove.
+   * <p> IDs of network interfaces associated with the removed VPC interface that MediaConnect was unable to remove.</p>
    * @public
    */
   NonDeletedNetworkInterfaceIds?: string[] | undefined;
 
   /**
-   * The name of the VPC interface that was removed.
+   * <p> The name of the VPC interface that was removed.</p>
    * @public
    */
   VpcInterfaceName?: string | undefined;
@@ -4629,13 +5188,13 @@ export interface RemoveFlowVpcInterfaceResponse {
  */
 export interface RevokeFlowEntitlementRequest {
   /**
-   * The ARN of the entitlement that you want to revoke.
+   * <p> The Amazon Resource Name (ARN) of the entitlement that you want to revoke.</p>
    * @public
    */
   EntitlementArn: string | undefined;
 
   /**
-   * The flow that you want to revoke an entitlement from.
+   * <p> The flow that you want to revoke an entitlement from.</p>
    * @public
    */
   FlowArn: string | undefined;
@@ -4646,13 +5205,13 @@ export interface RevokeFlowEntitlementRequest {
  */
 export interface RevokeFlowEntitlementResponse {
   /**
-   * The ARN of the entitlement that was revoked.
+   * <p> The ARN of the entitlement that was revoked.</p>
    * @public
    */
   EntitlementArn?: string | undefined;
 
   /**
-   * The ARN of the flow that the entitlement was revoked from.
+   * <p> The ARN of the flow that the entitlement was revoked from.</p>
    * @public
    */
   FlowArn?: string | undefined;
@@ -4663,7 +5222,7 @@ export interface RevokeFlowEntitlementResponse {
  */
 export interface StartFlowRequest {
   /**
-   * The ARN of the flow that you want to start.
+   * <p> The Amazon Resource Name (ARN) of the flow that you want to start.</p>
    * @public
    */
   FlowArn: string | undefined;
@@ -4674,13 +5233,13 @@ export interface StartFlowRequest {
  */
 export interface StartFlowResponse {
   /**
-   * The ARN of the flow that you started.
+   * <p> The ARN of the flow that you started.</p>
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * The status of the flow when the StartFlow process begins.
+   * <p> The status of the flow when the <code>StartFlow</code> process begins.</p>
    * @public
    */
   Status?: Status | undefined;
@@ -4691,7 +5250,7 @@ export interface StartFlowResponse {
  */
 export interface StopFlowRequest {
   /**
-   * The ARN of the flow that you want to stop.
+   * <p> The Amazon Resource Name (ARN) of the flow that you want to stop.</p>
    * @public
    */
   FlowArn: string | undefined;
@@ -4702,399 +5261,83 @@ export interface StopFlowRequest {
  */
 export interface StopFlowResponse {
   /**
-   * The ARN of the flow that you stopped.
+   * <p> The ARN of the flow that you stopped.</p>
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * The status of the flow when the StopFlow process begins.
+   * <p> The status of the flow when the <code>StopFlow</code> process begins.</p>
    * @public
    */
   Status?: Status | undefined;
 }
 
 /**
- * The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource to which to add tags.
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
-   * @public
-   */
-  Tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * The Amazon Resource Name (ARN) that identifies the AWS Elemental MediaConnect resource from which to delete tags.
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * The keys of the tags to be removed.
-   * @public
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateEgressGatewayBridgeRequest {
-  /**
-   * Update an existing egress-type bridge.
-   * @public
-   */
-  MaxBitrate?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateIngressGatewayBridgeRequest {
-  /**
-   * The maximum expected bitrate (in bps).
-   * @public
-   */
-  MaxBitrate?: number | undefined;
-
-  /**
-   * The maximum number of expected outputs.
-   * @public
-   */
-  MaxOutputs?: number | undefined;
-}
-
-/**
- * The settings for source failover.
- * @public
- */
-export interface UpdateFailoverConfig {
-  /**
-   * The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
-   * @public
-   */
-  FailoverMode?: FailoverMode | undefined;
-
-  /**
-   * Recovery window time to look for dash-7 packets
-   * @public
-   */
-  RecoveryWindow?: number | undefined;
-
-  /**
-   * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
-   * @public
-   */
-  SourcePriority?: SourcePriority | undefined;
-
-  State?: State | undefined;
-}
-
-/**
- * A request to update the bridge.
- * @public
- */
-export interface UpdateBridgeRequest {
-  /**
-   * The Amazon Resource Number (ARN) of the bridge that you want to update.
-   * @public
-   */
-  BridgeArn: string | undefined;
-
-  EgressGatewayBridge?: UpdateEgressGatewayBridgeRequest | undefined;
-  IngressGatewayBridge?: UpdateIngressGatewayBridgeRequest | undefined;
-  /**
-   * The settings for source failover.
-   * @public
-   */
-  SourceFailoverConfig?: UpdateFailoverConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateBridgeResponse {
-  /**
-   * A Bridge is the connection between your datacenter's Instances and the AWS cloud. A bridge can be used to send video from the AWS cloud to your datacenter or from your datacenter to the AWS cloud.
-   * @public
-   */
-  Bridge?: Bridge | undefined;
-}
-
-/**
- * Update an existing network output.
- * @public
- */
-export interface UpdateBridgeNetworkOutputRequest {
-  /**
-   * The network output IP Address.
-   * @public
-   */
-  IpAddress?: string | undefined;
-
-  /**
-   * The network output's gateway network name.
-   * @public
-   */
-  NetworkName?: string | undefined;
-
-  /**
-   * The network output port.
-   * @public
-   */
-  Port?: number | undefined;
-
-  /**
-   * The network output protocol.
-   * @public
-   */
-  Protocol?: Protocol | undefined;
-
-  /**
-   * The network output TTL.
-   * @public
-   */
-  Ttl?: number | undefined;
-}
-
-/**
- * The fields that you want to update in the bridge output.
- * @public
- */
-export interface UpdateBridgeOutputRequest {
-  /**
-   * The ARN of the bridge that you want to update.
-   * @public
-   */
-  BridgeArn: string | undefined;
-
-  /**
-   * Update an existing network output.
-   * @public
-   */
-  NetworkOutput?: UpdateBridgeNetworkOutputRequest | undefined;
-
-  /**
-   * The name of the bridge output that you want to update.
-   * @public
-   */
-  OutputName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateBridgeOutputResponse {
-  /**
-   * The Amazon Resource Number (ARN) of the bridge.
-   * @public
-   */
-  BridgeArn?: string | undefined;
-
-  /**
-   * The output that you updated.
-   * @public
-   */
-  Output?: BridgeOutput | undefined;
-}
-
-/**
- * Update the flow source of the bridge.
- * @public
- */
-export interface UpdateBridgeFlowSourceRequest {
-  /**
-   * The ARN of the cloud flow to use as a source of this bridge.
-   * @public
-   */
-  FlowArn?: string | undefined;
-
-  /**
-   * The name of the VPC interface attachment to use for this source.
-   * @public
-   */
-  FlowVpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
-}
-
-/**
- * Update the network source of the bridge.
- * @public
- */
-export interface UpdateBridgeNetworkSourceRequest {
-  /**
-   * The network source multicast IP.
-   * @public
-   */
-  MulticastIp?: string | undefined;
-
-  /**
-   * The settings related to the multicast source.
-   * @public
-   */
-  MulticastSourceSettings?: MulticastSourceSettings | undefined;
-
-  /**
-   * The network source's gateway network name.
-   * @public
-   */
-  NetworkName?: string | undefined;
-
-  /**
-   * The network source port.
-   * @public
-   */
-  Port?: number | undefined;
-
-  /**
-   * The network source protocol.
-   * @public
-   */
-  Protocol?: Protocol | undefined;
-}
-
-/**
- * The fields that you want to update in the bridge source.
- * @public
- */
-export interface UpdateBridgeSourceRequest {
-  /**
-   * The ARN of the bridge that you want to update.
-   * @public
-   */
-  BridgeArn: string | undefined;
-
-  /**
-   * Update the flow source of the bridge.
-   * @public
-   */
-  FlowSource?: UpdateBridgeFlowSourceRequest | undefined;
-
-  /**
-   * Update the network source of the bridge.
-   * @public
-   */
-  NetworkSource?: UpdateBridgeNetworkSourceRequest | undefined;
-
-  /**
-   * The name of the source that you want to update.
-   * @public
-   */
-  SourceName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateBridgeSourceResponse {
-  /**
-   * The Amazon Resource Number (ARN) of the bridge.
-   * @public
-   */
-  BridgeArn?: string | undefined;
-
-  /**
-   * The bridge's source.
-   * @public
-   */
-  Source?: BridgeSource | undefined;
-}
-
-/**
- * A request to update the bridge state.
- * @public
- */
-export interface UpdateBridgeStateRequest {
-  /**
-   * The ARN of the bridge that you want to update.
-   * @public
-   */
-  BridgeArn: string | undefined;
-
-  DesiredState: DesiredState | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateBridgeStateResponse {
-  /**
-   * The Amazon Resource Number (ARN) of the bridge.
-   * @public
-   */
-  BridgeArn?: string | undefined;
-
-  /**
-   * The state of the bridge. ACTIVE or STANDBY.
-   * @public
-   */
-  DesiredState?: DesiredState | undefined;
-}
-
-/**
- * Update maintenance setting for a flow
+ * <p> Update maintenance setting for a flow.</p>
  * @public
  */
 export interface UpdateMaintenance {
   /**
-   * A day of a week when the maintenance will happen. use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+   * <p> A day of a week when the maintenance will happen.</p>
    * @public
    */
   MaintenanceDay?: MaintenanceDay | undefined;
 
   /**
-   * A scheduled date in ISO UTC format when the maintenance will happen. Use YYYY-MM-DD format. Example: 2021-01-30.
+   * <p> A scheduled date in ISO UTC format when the maintenance will happen. Use YYYY-MM-DD format. Example: 2021-01-30.</p>
    * @public
    */
   MaintenanceScheduledDate?: string | undefined;
 
   /**
-   * UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+   * <p> UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.</p>
    * @public
    */
   MaintenanceStartHour?: string | undefined;
 }
 
 /**
- * A request to update flow.
  * @public
  */
 export interface UpdateFlowRequest {
   /**
-   * The flow that you want to update.
+   * <p> The Amazon Resource Name (ARN) of the flow that you want to update.</p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * The settings for source failover.
+   * <p>
+   *    The settings for source failover.
+   * </p>
    * @public
    */
   SourceFailoverConfig?: UpdateFailoverConfig | undefined;
 
   /**
-   * Update maintenance setting for a flow
+   * <p>
+   *    The maintenance setting of the flow.
+   * </p>
    * @public
    */
   Maintenance?: UpdateMaintenance | undefined;
 
   /**
+   * <p>
    * The settings for source monitoring.
+   * </p>
    * @public
    */
   SourceMonitoringConfig?: MonitoringConfig | undefined;
+
+  /**
+   * <p>
+   *    Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+   * </p>
+   * @public
+   */
+  NdiConfig?: NdiConfig | undefined;
 }
 
 /**
@@ -5102,109 +5345,115 @@ export interface UpdateFlowRequest {
  */
 export interface UpdateFlowResponse {
   /**
-   * The settings for a flow, including its source, outputs, and entitlements.
+   * <p>
+   * The updated flow.
+   * </p>
    * @public
    */
   Flow?: Flow | undefined;
 }
 
 /**
- * Information about the encryption of the flow.
+ * <p> Information about the encryption of the flow.</p>
  * @public
  */
 export interface UpdateEncryption {
   /**
-   * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+   * <p> The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).</p>
    * @public
    */
   Algorithm?: Algorithm | undefined;
 
   /**
-   * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
+   * <p> A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.</p>
    * @public
    */
   ConstantInitializationVector?: string | undefined;
 
   /**
-   * The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   * <p> The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
    * @public
    */
   DeviceId?: string | undefined;
 
   /**
-   * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+   * <p> The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).</p>
    * @public
    */
   KeyType?: KeyType | undefined;
 
   /**
-   * The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   * <p> The Amazon Web Services Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
    * @public
    */
   Region?: string | undefined;
 
   /**
-   * An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   * <p> An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   * </p>
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+   * <p> The ARN of the role that you created during setup (when you set up MediaConnect as a trusted entity).</p>
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+   * <p> The ARN of the secret that you created in Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.</p>
    * @public
    */
   SecretArn?: string | undefined;
 
   /**
-   * The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+   * <p> The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.</p>
    * @public
    */
   Url?: string | undefined;
 }
 
 /**
- * The entitlement fields that you want to update.
  * @public
  */
 export interface UpdateFlowEntitlementRequest {
   /**
-   * A description of the entitlement. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the subscriber or end user.
+   * <p> A description of the entitlement. This description appears only on the MediaConnect console and will not be seen by the subscriber or end user.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * The type of encryption that will be used on the output associated with this entitlement. Allowable encryption types: static-key, speke.
+   * <p> The type of encryption that will be used on the output associated with this entitlement. Allowable encryption types: static-key, speke.</p>
    * @public
    */
   Encryption?: UpdateEncryption | undefined;
 
   /**
-   * The ARN of the entitlement that you want to update.
+   * <p> The Amazon Resource Name (ARN) of the entitlement that you want to update.</p>
    * @public
    */
   EntitlementArn: string | undefined;
 
   /**
-   * An indication of whether you want to enable the entitlement to allow access, or disable it to stop streaming content to the subscriber’s flow temporarily. If you don’t specify the entitlementStatus field in your request, MediaConnect leaves the value unchanged.
+   * <p> An indication of whether you want to enable the entitlement to allow access, or disable it
+   *          to stop streaming content to the subscriber’s flow temporarily. If you don’t specify the
+   *             <code>entitlementStatus</code> field in your request, MediaConnect leaves the
+   *          value unchanged.</p>
    * @public
    */
   EntitlementStatus?: EntitlementStatus | undefined;
 
   /**
-   * The flow that is associated with the entitlement that you want to update.
+   * <p> The ARN of the flow that is associated with the entitlement that you want to
+   *          update.</p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
+   * <p> The Amazon Web Services account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.</p>
    * @public
    */
   Subscribers?: string[] | undefined;
@@ -5215,61 +5464,65 @@ export interface UpdateFlowEntitlementRequest {
  */
 export interface UpdateFlowEntitlementResponse {
   /**
-   * The new configuration of the entitlement that you updated.
+   * <p> The new configuration of the entitlement that you updated.</p>
    * @public
    */
   Entitlement?: Entitlement | undefined;
 
   /**
-   * The ARN of the flow that this entitlement was granted on.
+   * <p> The ARN of the flow that this entitlement was granted on.</p>
    * @public
    */
   FlowArn?: string | undefined;
 }
 
 /**
- * The fields that you want to update in the media stream.
  * @public
  */
 export interface UpdateFlowMediaStreamRequest {
   /**
-   * The attributes that you want to assign to the media stream.
+   * <p> The attributes that you want to assign to the media stream.</p>
    * @public
    */
   Attributes?: MediaStreamAttributesRequest | undefined;
 
   /**
-   * The sample rate (in Hz) for the stream. If the media stream type is video or ancillary data, set this value to 90000. If the media stream type is audio, set this value to either 48000 or 96000.
+   * <p>The sample rate for the stream. This value in measured in kHz.
+   * </p>
    * @public
    */
   ClockRate?: number | undefined;
 
   /**
-   * Description
+   * <p>A description that can help you quickly identify what your media stream is used for.
+   * </p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * The Amazon Resource Name (ARN) of the flow.
+   * <p> The Amazon Resource Name (ARN) of the flow that is associated with the media stream that
+   *          you updated.</p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * The name of the media stream that you want to update.
+   * <p> The media stream that you updated.</p>
    * @public
    */
   MediaStreamName: string | undefined;
 
   /**
-   * The type of media stream.
+   * <p>The type of media stream.
+   * </p>
    * @public
    */
   MediaStreamType?: MediaStreamType | undefined;
 
   /**
-   * The resolution of the video.
+   * <p>The resolution of the video.
+   * </p>
    * @public
    */
   VideoFormat?: string | undefined;
@@ -5280,130 +5533,155 @@ export interface UpdateFlowMediaStreamRequest {
  */
 export interface UpdateFlowMediaStreamResponse {
   /**
-   * The ARN of the flow that is associated with the media stream that you updated.
+   * <p>The ARN of the flow that is associated with the media stream that you updated.
+   * </p>
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * The media stream that you updated.
+   * <p>The media stream that you updated.
+   * </p>
    * @public
    */
   MediaStream?: MediaStream | undefined;
 }
 
 /**
- * The fields that you want to update in the output.
  * @public
  */
 export interface UpdateFlowOutputRequest {
   /**
-   * The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   * <p> The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.</p>
    * @public
    */
   CidrAllowList?: string[] | undefined;
 
   /**
-   * A description of the output. This description appears only on the AWS Elemental MediaConnect console and will not be seen by the end user.
+   * <p> A description of the output. This description appears only on the MediaConnect console and will not be seen by the end user.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * The IP address where you want to send the output.
+   * <p> The IP address where you want to send the output.</p>
    * @public
    */
   Destination?: string | undefined;
 
   /**
-   * The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key). Allowable encryption types: static-key.
+   * <p> The type of key used for the encryption. If no <code>keyType</code> is provided, the
+   *          service will use the default setting (static-key). Allowable encryption types:
+   *          static-key.</p>
    * @public
    */
   Encryption?: UpdateEncryption | undefined;
 
   /**
-   * The flow that is associated with the output that you want to update.
+   * <p> The Amazon Resource Name (ARN) of the flow that is associated with the output that you
+   *          want to update.</p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * The maximum latency in milliseconds. This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
+   * <p> The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.</p>
    * @public
    */
   MaxLatency?: number | undefined;
 
   /**
-   * The media streams that are associated with the output, and the parameters for those associations.
+   * <p> The media streams that are associated with the output, and the parameters for those associations.</p>
    * @public
    */
   MediaStreamOutputConfigurations?: MediaStreamOutputConfigurationRequest[] | undefined;
 
   /**
-   * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+   * <p> The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.</p>
    * @public
    */
   MinLatency?: number | undefined;
 
   /**
-   * The ARN of the output that you want to update.
+   * <p> The ARN of the output that you want to update.</p>
    * @public
    */
   OutputArn: string | undefined;
 
   /**
-   * The port to use when content is distributed to this output.
+   * <p> The port to use when content is distributed to this output.</p>
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * The protocol to use for the output.
+   * <p> The protocol to use for the output.</p>
+   *          <note>
+   *             <p>Elemental MediaConnect no longer supports the Fujitsu QoS
+   *          protocol. This reference is maintained for legacy purposes only.</p>
+   *          </note>
    * @public
    */
   Protocol?: Protocol | undefined;
 
   /**
-   * The remote ID for the Zixi-pull stream.
+   * <p> The remote ID for the Zixi-pull stream.</p>
    * @public
    */
   RemoteId?: string | undefined;
 
   /**
-   * The port that the flow uses to send outbound requests to initiate connection with the sender.
+   * <p> The port that the flow uses to send outbound requests to initiate connection with the sender.</p>
    * @public
    */
   SenderControlPort?: number | undefined;
 
   /**
-   * The IP address that the flow communicates with to initiate connection with the sender.
+   * <p> The IP address that the flow communicates with to initiate connection with the sender.</p>
    * @public
    */
   SenderIpAddress?: string | undefined;
 
   /**
-   * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
+   * <p> The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.</p>
    * @public
    */
   SmoothingLatency?: number | undefined;
 
   /**
-   * The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.
+   * <p> The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.</p>
    * @public
    */
   StreamId?: string | undefined;
 
   /**
-   * The name of the VPC interface attachment to use for this output.
+   * <p> The name of the VPC interface attachment to use for this output.</p>
    * @public
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
 
   /**
-   * An indication of whether the output should transmit data or not. If you don't specify the outputStatus field in your request, MediaConnect leaves the value unchanged.
+   * <p> An indication of whether the output should transmit data or not. If you don't specify the
+   *             <code>outputStatus</code> field in your request, MediaConnect leaves the value
+   *          unchanged.</p>
    * @public
    */
   OutputStatus?: OutputStatus | undefined;
+
+  /**
+   * <p>
+   *    A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
+   * </p>
+   * @public
+   */
+  NdiProgramName?: string | undefined;
+
+  /**
+   * <p>A quality setting for the NDI Speed HQ encoder.
+   * </p>
+   * @public
+   */
+  NdiSpeedHqQuality?: number | undefined;
 }
 
 /**
@@ -5411,157 +5689,181 @@ export interface UpdateFlowOutputRequest {
  */
 export interface UpdateFlowOutputResponse {
   /**
-   * The ARN of the flow that is associated with the updated output.
+   * <p> The ARN of the flow that is associated with the updated output.</p>
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * The new settings of the output that you updated.
+   * <p> The new settings of the output that you updated.</p>
    * @public
    */
   Output?: Output | undefined;
 }
 
 /**
- * The source configuration for cloud flows receiving a stream from a bridge.
+ * <p> The source configuration for cloud flows receiving a stream from a bridge.</p>
  * @public
  */
 export interface UpdateGatewayBridgeSourceRequest {
   /**
-   * The ARN of the bridge feeding this flow.
+   * <p> The ARN of the bridge feeding this flow.</p>
    * @public
    */
   BridgeArn?: string | undefined;
 
   /**
-   * The name of the VPC interface attachment to use for this bridge source.
+   * <p> The name of the VPC interface attachment to use for this bridge source.</p>
    * @public
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment | undefined;
 }
 
 /**
- * A request to update the source of a flow.
  * @public
  */
 export interface UpdateFlowSourceRequest {
   /**
-   * The type of encryption used on the content ingested from this source. Allowable encryption types: static-key.
+   * <p>The type of encryption that is used on the content ingested from the source.
+   * </p>
    * @public
    */
   Decryption?: UpdateEncryption | undefined;
 
   /**
-   * A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
+   * <p>A description of the source. This description is not visible outside of the current Amazon Web Services account.
+   * </p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * The ARN of the entitlement that allows you to subscribe to this flow. The entitlement is set by the flow originator, and the ARN is generated as part of the originator's flow.
+   * <p>The Amazon Resource Name (ARN) of the entitlement that allows you to subscribe to the flow.
+   *          The entitlement is set by the content originator, and the ARN is generated as part of the
+   *          originator's flow. </p>
    * @public
    */
   EntitlementArn?: string | undefined;
 
   /**
-   * The flow that is associated with the source that you want to update.
+   * <p>
+   * The ARN of the flow that you want to update.
+   * </p>
    * @public
    */
   FlowArn: string | undefined;
 
   /**
-   * The port that the flow will be listening on for incoming content.
+   * <p>The port that the flow listens on for incoming content. If the protocol of the source is Zixi, the port must be set to 2088.
+   * </p>
    * @public
    */
   IngestPort?: number | undefined;
 
   /**
-   * The smoothing max bitrate (in bps) for RIST, RTP, and RTP-FEC streams.
+   * <p>The maximum bitrate for RIST, RTP, and RTP-FEC streams.
+   * </p>
    * @public
    */
   MaxBitrate?: number | undefined;
 
   /**
-   * The maximum latency in milliseconds. This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.
+   * <p>The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+   * </p>
    * @public
    */
   MaxLatency?: number | undefined;
 
   /**
-   * The size of the buffer (in milliseconds) to use to sync incoming source data.
+   * <p>The size of the buffer (in milliseconds) to use to sync incoming source data.
+   * </p>
    * @public
    */
   MaxSyncBuffer?: number | undefined;
 
   /**
-   * The media streams that are associated with the source, and the parameters for those associations.
+   * <p>The media stream that is associated with the source, and the parameters for that association.
+   * </p>
    * @public
    */
   MediaStreamSourceConfigurations?: MediaStreamSourceConfigurationRequest[] | undefined;
 
   /**
-   * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+   * <p>The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
+   * </p>
    * @public
    */
   MinLatency?: number | undefined;
 
   /**
-   * The protocol that is used by the source.
+   * <p>The protocol that the source uses to deliver the content to MediaConnect.
+   * </p>
+   *          <note>
+   *             <p>Elemental MediaConnect no longer supports the Fujitsu QoS
+   *          protocol. This reference is maintained for legacy purposes only.</p>
+   *          </note>
    * @public
    */
   Protocol?: Protocol | undefined;
 
   /**
-   * The port that the flow uses to send outbound requests to initiate connection with the sender.
+   * <p>The port that the flow uses to send outbound requests to initiate connection with the sender.
+   * </p>
    * @public
    */
   SenderControlPort?: number | undefined;
 
   /**
-   * The IP address that the flow communicates with to initiate connection with the sender.
+   * <p>The IP address that the flow communicates with to initiate connection with the sender.
+   * </p>
    * @public
    */
   SenderIpAddress?: string | undefined;
 
   /**
-   * The ARN of the source that you want to update.
+   * <p>The ARN of the source that you want to update.
+   * </p>
    * @public
    */
   SourceArn: string | undefined;
 
   /**
-   * Source IP or domain name for SRT-caller protocol.
+   * <p>The source IP or domain name for SRT-caller protocol.
+   * </p>
    * @public
    */
   SourceListenerAddress?: string | undefined;
 
   /**
-   * Source port for SRT-caller protocol.
+   * <p>Source port for SRT-caller protocol.
+   * </p>
    * @public
    */
   SourceListenerPort?: number | undefined;
 
   /**
-   * The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.
+   * <p>The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.
+   * </p>
    * @public
    */
   StreamId?: string | undefined;
 
   /**
-   * The name of the VPC interface to use for this source.
+   * <p>The name of the VPC interface that you want to send your output to.</p>
    * @public
    */
   VpcInterfaceName?: string | undefined;
 
   /**
-   * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   * <p>The range of IP addresses that are allowed to contribute content to your source. Format the IP addresses as a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+   * </p>
    * @public
    */
   WhitelistCidr?: string | undefined;
 
   /**
-   * The source configuration for cloud flows receiving a stream from a bridge.
+   * <p>The source configuration for cloud flows receiving a stream from a bridge.
+   * </p>
    * @public
    */
   GatewayBridgeSource?: UpdateGatewayBridgeSourceRequest | undefined;
@@ -5572,31 +5874,89 @@ export interface UpdateFlowSourceRequest {
  */
 export interface UpdateFlowSourceResponse {
   /**
-   * The ARN of the flow that you want to update.
+   * <p>The ARN of the flow that you was updated.
+   * </p>
    * @public
    */
   FlowArn?: string | undefined;
 
   /**
-   * The settings for the source of the flow.
+   * <p>The details of the sources that are assigned to the flow.
+   * </p>
    * @public
    */
   Source?: Source | undefined;
 }
 
 /**
- * A request to update gateway instance state.
+ * @public
+ */
+export interface ListGatewayInstancesRequest {
+  /**
+   * <p> Filter the list results to display only the instances associated with the selected Gateway
+   *          ARN.</p>
+   * @public
+   */
+  FilterArn?: string | undefined;
+
+  /**
+   * <p> The maximum number of results to return per API request. </p>
+   *          <p>For example, you submit a ListInstances request with <code>MaxResults</code> set at 5.
+   *          Although 20 items match your request, the service returns no more than the first 5 items.
+   *          (The service also returns a <code>NextToken</code> value that you can use to fetch the next
+   *          batch of results.) </p>
+   *          <p>The service might return fewer results than the <code>MaxResults</code> value. If
+   *             <code>MaxResults</code> is not included in the request, the service defaults to
+   *          pagination with a maximum of 10 results per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p> The token that identifies the batch of results that you want to see. </p>
+   *          <p>For example, you submit a <code>ListInstances</code> request with
+   *             <code>MaxResults</code> set at 5. The service returns the first batch of results (up to
+   *          5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the
+   *             <code>ListInstances</code> request a second time and specify the <code>NextToken</code>
+   *          value.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGatewayInstancesResponse {
+  /**
+   * <p> A list of instance summaries.</p>
+   * @public
+   */
+  Instances?: ListedGatewayInstance[] | undefined;
+
+  /**
+   * <p> The token that identifies the batch of results that you want to see. </p>
+   *          <p>For example, you submit a <code>ListInstances</code> request with MaxResults set at 5.
+   *          The service returns the first batch of results (up to 5) and a <code>NextToken</code>
+   *          value. To see the next batch of results, you can submit the <code>ListInstances</code>
+   *          request a second time and specify the <code>NextToken</code> value.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdateGatewayInstanceRequest {
   /**
-   * The availability of the instance to host new bridges. The bridgePlacement property can be LOCKED or AVAILABLE. If it is LOCKED, no new bridges can be deployed to this instance. If it is AVAILABLE, new bridges can be added to this instance.
+   * <p>The state of the instance. <code>ACTIVE</code> or <code>INACTIVE</code>. </p>
    * @public
    */
   BridgePlacement?: BridgePlacement | undefined;
 
   /**
-   * The Amazon Resource Name (ARN) of the instance that you want to update.
+   * <p>The Amazon Resource Name (ARN) of the gateway instance that you want to update. </p>
    * @public
    */
   GatewayInstanceArn: string | undefined;
@@ -5607,14 +5967,317 @@ export interface UpdateGatewayInstanceRequest {
  */
 export interface UpdateGatewayInstanceResponse {
   /**
-   * The availability of the instance to host new bridges. The bridgePlacement property can be LOCKED or AVAILABLE. If it is LOCKED, no new bridges can be deployed to this instance. If it is AVAILABLE, new bridges can be added to this instance.
+   * <p>The state of the instance. <code>ACTIVE</code> or <code>INACTIVE</code>. </p>
    * @public
    */
   BridgePlacement?: BridgePlacement | undefined;
 
   /**
-   * The Amazon Resource Name (ARN) of the instance.
+   * <p>The ARN of the instance that was updated. </p>
    * @public
    */
   GatewayInstanceArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGatewaysRequest {
+  /**
+   * <p> The maximum number of results to return per API request. </p>
+   *          <p>For example, you submit a <code>ListGateways</code> request with <code>MaxResults</code>
+   *          set at 5. Although 20 items match your request, the service returns no more than the first
+   *          5 items. (The service also returns a <code>NextToken</code> value that you can use to fetch
+   *          the next batch of results.) </p>
+   *          <p>The service might return fewer results than the <code>MaxResults</code> value. If
+   *             <code>MaxResults</code> is not included in the request, the service defaults to
+   *          pagination with a maximum of 10 results per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p> The token that identifies the batch of results that you want to see. </p>
+   *          <p>For example, you submit a <code>ListGateways</code> request with <code>MaxResults</code>
+   *          set at 5. The service returns the first batch of results (up to 5) and a
+   *             <code>NextToken</code> value. To see the next batch of results, you can submit the
+   *             <code>ListGateways</code> request a second time and specify the <code>NextToken</code>
+   *          value.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGatewaysResponse {
+  /**
+   * <p> A list of gateway summaries.</p>
+   * @public
+   */
+  Gateways?: ListedGateway[] | undefined;
+
+  /**
+   * <p> The token that identifies the batch of results that you want to see. </p>
+   *          <p>For example, you submit a <code>ListGateways</code> request with <code>MaxResults</code>
+   *          set at 5. The service returns the first batch of results (up to 5) and a
+   *             <code>NextToken</code> value. To see the next batch of results, you can submit the
+   *             <code>ListGateways</code> request a second time and specify the <code>NextToken</code>
+   *          value.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEntitlementsRequest {
+  /**
+   * <p> The maximum number of results to return per API request. </p>
+   *          <p>For example, you submit a <code>ListEntitlements</code> request with set at 5. Although
+   *          20 items match your request, the service returns no more than the first 5 items. (The
+   *          service also returns a NextToken value that you can use to fetch the next batch of
+   *          results.) </p>
+   *          <p>The service might return fewer results than the <code>MaxResults</code> value. If
+   *             <code>MaxResults</code> is not included in the request, the service defaults to
+   *          pagination with a maximum of 20 results per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p> The token that identifies the batch of results that you want to see. </p>
+   *          <p>For example, you submit a <code>ListEntitlements</code> request with
+   *             <code>MaxResults</code> set at 5. The service returns the first batch of results (up to
+   *          5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the
+   *             <code>ListEntitlements</code> request a second time and specify the
+   *             <code>NextToken</code> value.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEntitlementsResponse {
+  /**
+   * <p>A list of entitlements that have been granted to you from other Amazon Web Services accounts.
+   * </p>
+   * @public
+   */
+  Entitlements?: ListedEntitlement[] | undefined;
+
+  /**
+   * <p>The token that identifies the batch of results that you want to see. </p>
+   *          <p>For example, you submit a ListEntitlements request with <code>MaxResults</code> set at
+   *          5. The service returns the first batch of results (up to 5) and a NextToken value. To see
+   *          the next batch of results, you can submit the <code>ListEntitlements</code> request a
+   *          second time and specify the <code>NextToken</code> value. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOfferingsRequest {
+  /**
+   * <p> The maximum number of results to return per API request. </p>
+   *          <p>For example, you submit a <code>ListOfferings</code> request with
+   *             <code>MaxResults</code> set at 5. Although 20 items match your request, the service
+   *          returns no more than the first 5 items. (The service also returns a <code>NextToken</code>
+   *          value that you can use to fetch the next batch of results.) </p>
+   *          <p>The service might return fewer results than the <code>MaxResults</code> value. If
+   *             <code>MaxResults</code> is not included in the request, the service defaults to
+   *          pagination with a maximum of 10 results per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p> The token that identifies the batch of results that you want to see. </p>
+   *          <p>For example, you submit a <code>ListOfferings</code> request with
+   *             <code>MaxResults</code> set at 5. The service returns the first batch of results (up to
+   *          5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the
+   *             <code>ListOfferings</code> request a second time and specify the <code>NextToken</code>
+   *          value.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOfferingsResponse {
+  /**
+   * <p> The token that identifies the batch of results that you want to see. </p>
+   *          <p>For example, you submit a <code>ListOfferings</code> request with
+   *             <code>MaxResults</code> set at 5. The service returns the first batch of results (up to
+   *          5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the
+   *             <code>ListOfferings</code> request a second time and specify the <code>NextToken</code>
+   *          value.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p> A list of offerings that are available to this account in the current Amazon Web Services Region.</p>
+   * @public
+   */
+  Offerings?: Offering[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListReservationsRequest {
+  /**
+   * <p> The maximum number of results to return per API request. </p>
+   *          <p>For example, you submit a <code>ListReservations</code> request with
+   *             <code>MaxResults</code> set at 5. Although 20 items match your request, the service
+   *          returns no more than the first 5 items. (The service also returns a NextToken value that
+   *          you can use to fetch the next batch of results.) </p>
+   *          <p>The service might return fewer results than the <code>MaxResults</code> value. If
+   *             <code>MaxResults</code> is not included in the request, the service defaults to
+   *          pagination with a maximum of 10 results per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p> The token that identifies the batch of results that you want to see. </p>
+   *          <p>For example, you submit a <code>ListReservations</code> request with
+   *             <code>MaxResults</code> set at 5. The service returns the first batch of results (up to
+   *          5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the
+   *             <code>ListOfferings</code> request a second time and specify the <code>NextToken</code>
+   *          value. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListReservationsResponse {
+  /**
+   * <p> The token that identifies the batch of results that you want to see. </p>
+   *          <p>For example, you submit a <code>ListReservations</code> request with
+   *             <code>MaxResults</code> set at 5. The service returns the first batch of results (up to
+   *          5) and a <code>NextToken</code> value. To see the next batch of results, you can submit the
+   *             <code>ListReservations</code> request a second time and specify the
+   *             <code>NextToken</code> value.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p> A list of all reservations that have been purchased by this account in the current Amazon Web Services Region.
+   * </p>
+   * @public
+   */
+  Reservations?: Reservation[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) that identifies the MediaConnect resource for which to list the tags.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p> A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PurchaseOfferingRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the offering.</p>
+   * @public
+   */
+  OfferingArn: string | undefined;
+
+  /**
+   * <p> The name that you want to use for the reservation.</p>
+   * @public
+   */
+  ReservationName: string | undefined;
+
+  /**
+   * <p> The date and time that you want the reservation to begin, in Coordinated Universal Time
+   *          (UTC). </p>
+   *          <p>You can specify any date and time between 12:00am on the first day of the current month
+   *          to the current time on today's date, inclusive. Specify the start in a 24-hour notation.
+   *          Use the following format: <code>YYYY-MM-DDTHH:mm:SSZ</code>, where <code>T</code> and
+   *             <code>Z</code> are literal characters. For example, to specify 11:30pm on March 5, 2020,
+   *          enter <code>2020-03-05T23:30:00Z</code>.</p>
+   * @public
+   */
+  Start: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PurchaseOfferingResponse {
+  /**
+   * <p>The details of the reservation that you just created when you purchased the offering.
+   * </p>
+   * @public
+   */
+  Reservation?: Reservation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) that identifies the MediaConnect resource to which to add tags.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p> A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+   * @public
+   */
+  Tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the resource that you want to untag. </p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The keys of the tags to be removed.
+   * </p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
 }

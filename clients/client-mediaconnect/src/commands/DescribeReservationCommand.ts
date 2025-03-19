@@ -28,7 +28,7 @@ export interface DescribeReservationCommandInput extends DescribeReservationRequ
 export interface DescribeReservationCommandOutput extends DescribeReservationResponse, __MetadataBearer {}
 
 /**
- * Displays the details of a reservation. The response includes the reservation name, state, start date and time, and the details of the offering that make up the rest of the reservation (such as price, duration, and outbound bandwidth).
+ * <p> Displays the details of a reservation. The response includes the reservation name, state, start date and time, and the details of the offering that make up the rest of the reservation (such as price, duration, and outbound bandwidth).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,19 +70,24 @@ export interface DescribeReservationCommandOutput extends DescribeReservationRes
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message.
+ * </p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The server encountered an internal error and is unable to complete the request.
+ * </p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>One or more of the resources in the request does not exist in the system.
+ * </p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The service is currently unavailable or busy.
+ * </p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The request was denied due to request throttling.
+ * </p>
  *
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>

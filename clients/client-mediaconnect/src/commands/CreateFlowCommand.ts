@@ -28,7 +28,7 @@ export interface CreateFlowCommandInput extends CreateFlowRequest {}
 export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataBearer {}
 
 /**
- * Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50).
+ * <p> Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,7 +54,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       },
  *       EntitlementStatus: "ENABLED" || "DISABLED",
  *       Name: "STRING_VALUE",
- *       Subscribers: [ // __listOf__string // required
+ *       Subscribers: [ // __listOfString // required
  *         "STRING_VALUE",
  *       ],
  *     },
@@ -123,7 +123,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       MinLatency: Number("int"),
  *       Name: "STRING_VALUE",
  *       Port: Number("int"),
- *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
+ *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq", // required
  *       RemoteId: "STRING_VALUE",
  *       SenderControlPort: Number("int"),
  *       SmoothingLatency: Number("int"),
@@ -132,6 +132,8 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *         VpcInterfaceName: "STRING_VALUE",
  *       },
  *       OutputStatus: "ENABLED" || "DISABLED",
+ *       NdiSpeedHqQuality: Number("int"),
+ *       NdiProgramName: "STRING_VALUE",
  *     },
  *   ],
  *   Source: { // SetSourceRequest
@@ -168,7 +170,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *     ],
  *     MinLatency: Number("int"),
  *     Name: "STRING_VALUE",
- *     Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp",
+ *     Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq",
  *     SenderControlPort: Number("int"),
  *     SenderIpAddress: "STRING_VALUE",
  *     SourceListenerAddress: "STRING_VALUE",
@@ -226,7 +228,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       ],
  *       MinLatency: Number("int"),
  *       Name: "STRING_VALUE",
- *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp",
+ *       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq",
  *       SenderControlPort: Number("int"),
  *       SenderIpAddress: "STRING_VALUE",
  *       SourceListenerAddress: "STRING_VALUE",
@@ -281,6 +283,18 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *       },
  *     ],
  *   },
+ *   FlowSize: "MEDIUM" || "LARGE",
+ *   NdiConfig: { // NdiConfig
+ *     NdiState: "ENABLED" || "DISABLED",
+ *     MachineName: "STRING_VALUE",
+ *     NdiDiscoveryServers: [ // __listOfNdiDiscoveryServerConfig
+ *       { // NdiDiscoveryServerConfig
+ *         DiscoveryServerAddress: "STRING_VALUE", // required
+ *         DiscoveryServerPort: Number("int"),
+ *         VpcInterfaceAdapter: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new CreateFlowCommand(input);
  * const response = await client.send(command);
@@ -307,7 +321,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //         EntitlementArn: "STRING_VALUE", // required
  * //         EntitlementStatus: "ENABLED" || "DISABLED",
  * //         Name: "STRING_VALUE", // required
- * //         Subscribers: [ // __listOf__string // required
+ * //         Subscribers: [ // __listOfString // required
  * //           "STRING_VALUE",
  * //         ],
  * //       },
@@ -387,7 +401,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //           MaxLatency: Number("int"),
  * //           MaxSyncBuffer: Number("int"),
  * //           MinLatency: Number("int"),
- * //           Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
+ * //           Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq", // required
  * //           RemoteId: "STRING_VALUE",
  * //           SenderControlPort: Number("int"),
  * //           SenderIpAddress: "STRING_VALUE",
@@ -395,12 +409,14 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //           SourceListenerAddress: "STRING_VALUE",
  * //           SourceListenerPort: Number("int"),
  * //           StreamId: "STRING_VALUE",
+ * //           NdiSpeedHqQuality: Number("int"),
+ * //           NdiProgramName: "STRING_VALUE",
  * //         },
  * //         VpcInterfaceAttachment: { // VpcInterfaceAttachment
  * //           VpcInterfaceName: "STRING_VALUE",
  * //         },
  * //         BridgeArn: "STRING_VALUE",
- * //         BridgePorts: [ // __listOf__integer
+ * //         BridgePorts: [ // __listOfInteger
  * //           Number("int"),
  * //         ],
  * //         OutputStatus: "ENABLED" || "DISABLED",
@@ -450,7 +466,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //         MaxLatency: Number("int"),
  * //         MaxSyncBuffer: Number("int"),
  * //         MinLatency: Number("int"),
- * //         Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
+ * //         Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq", // required
  * //         RemoteId: "STRING_VALUE",
  * //         SenderControlPort: Number("int"),
  * //         SenderIpAddress: "STRING_VALUE",
@@ -458,6 +474,8 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //         SourceListenerAddress: "STRING_VALUE",
  * //         SourceListenerPort: Number("int"),
  * //         StreamId: "STRING_VALUE",
+ * //         NdiSpeedHqQuality: Number("int"),
+ * //         NdiProgramName: "STRING_VALUE",
  * //       },
  * //       VpcInterfaceName: "STRING_VALUE",
  * //       WhitelistCidr: "STRING_VALUE",
@@ -521,7 +539,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //           MaxLatency: Number("int"),
  * //           MaxSyncBuffer: Number("int"),
  * //           MinLatency: Number("int"),
- * //           Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
+ * //           Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq", // required
  * //           RemoteId: "STRING_VALUE",
  * //           SenderControlPort: Number("int"),
  * //           SenderIpAddress: "STRING_VALUE",
@@ -529,6 +547,8 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //           SourceListenerAddress: "STRING_VALUE",
  * //           SourceListenerPort: Number("int"),
  * //           StreamId: "STRING_VALUE",
+ * //           NdiSpeedHqQuality: Number("int"),
+ * //           NdiProgramName: "STRING_VALUE",
  * //         },
  * //         VpcInterfaceName: "STRING_VALUE",
  * //         WhitelistCidr: "STRING_VALUE",
@@ -549,7 +569,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //         ],
  * //         NetworkInterfaceType: "ena" || "efa", // required
  * //         RoleArn: "STRING_VALUE", // required
- * //         SecurityGroupIds: "<__listOf__string>", // required
+ * //         SecurityGroupIds: "<__listOfString>", // required
  * //         SubnetId: "STRING_VALUE", // required
  * //       },
  * //     ],
@@ -583,6 +603,18 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * //         },
  * //       ],
  * //     },
+ * //     FlowSize: "MEDIUM" || "LARGE",
+ * //     NdiConfig: { // NdiConfig
+ * //       NdiState: "ENABLED" || "DISABLED",
+ * //       MachineName: "STRING_VALUE",
+ * //       NdiDiscoveryServers: [ // __listOfNdiDiscoveryServerConfig
+ * //         { // NdiDiscoveryServerConfig
+ * //           DiscoveryServerAddress: "STRING_VALUE", // required
+ * //           DiscoveryServerPort: Number("int"),
+ * //           VpcInterfaceAdapter: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -595,22 +627,28 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message.
+ * </p>
  *
  * @throws {@link CreateFlow420Exception} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>Exception raised by Elemental MediaConnect when creating the flow. See the error message for the operation for more information on the cause of this exception.
+ *    </p>
  *
  * @throws {@link ForbiddenException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>You do not have sufficient access to perform this action.
+ * </p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The server encountered an internal error and is unable to complete the request.
+ * </p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The service is currently unavailable or busy.
+ * </p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The request was denied due to request throttling.
+ * </p>
  *
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>

@@ -28,7 +28,9 @@ export interface DescribeFlowSourceMetadataCommandInput extends DescribeFlowSour
 export interface DescribeFlowSourceMetadataCommandOutput extends DescribeFlowSourceMetadataResponse, __MetadataBearer {}
 
 /**
- * Displays details of the flow's source stream. The response contains information about the contents of the stream and its programs.
+ * <p>
+ *    The <code>DescribeFlowSourceMetadata</code> API is used to view information about the flow's source transport stream and programs. This API displays status messages about the flow's source as well as details about the program's video, audio, and other data.
+ * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,22 +88,28 @@ export interface DescribeFlowSourceMetadataCommandOutput extends DescribeFlowSou
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message.
+ * </p>
  *
  * @throws {@link ForbiddenException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>You do not have sufficient access to perform this action.
+ * </p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The server encountered an internal error and is unable to complete the request.
+ * </p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>One or more of the resources in the request does not exist in the system.
+ * </p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The service is currently unavailable or busy.
+ * </p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The request was denied due to request throttling.
+ * </p>
  *
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>

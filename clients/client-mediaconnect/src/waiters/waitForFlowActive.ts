@@ -37,6 +37,14 @@ const checkState = async (client: MediaConnectClient, input: DescribeFlowCommand
       const returnComparator = () => {
         return result.Flow.Status;
       };
+      if (returnComparator() === "STANDBY") {
+        return { state: WaiterState.FAILURE, reason };
+      }
+    } catch (e) {}
+    try {
+      const returnComparator = () => {
+        return result.Flow.Status;
+      };
       if (returnComparator() === "ERROR") {
         return { state: WaiterState.FAILURE, reason };
       }
