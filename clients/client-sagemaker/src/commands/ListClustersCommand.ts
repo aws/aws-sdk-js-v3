@@ -48,7 +48,7 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
  * // { // ListClustersResponse
- * //   NextToken: "STRING_VALUE", // required
+ * //   NextToken: "STRING_VALUE",
  * //   ClusterSummaries: [ // ClusterSummaries // required
  * //     { // ClusterSummary
  * //       ClusterArn: "STRING_VALUE", // required

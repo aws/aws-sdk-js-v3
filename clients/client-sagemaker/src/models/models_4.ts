@@ -9020,9 +9020,9 @@ export interface PipelineExecution {
 }
 
 /**
- * <p>An Amazon SageMaker processing job that is used to analyze data and evaluate models. For more information,
- *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/processing-job.html">Process
- *                 Data and Evaluate Models</a>.</p>
+ * <p>An Amazon SageMaker processing job that is used to analyze data and evaluate models. For more
+ *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/processing-job.html">Process Data and Evaluate
+ *                 Models</a>.</p>
  * @public
  */
 export interface ProcessingJob {
@@ -9052,8 +9052,9 @@ export interface ProcessingJob {
   ProcessingResources?: ProcessingResources | undefined;
 
   /**
-   * <p>Configures conditions under which the processing job should be stopped, such as how long
-   *             the processing job has been running. After the condition is met, the processing job is stopped.</p>
+   * <p>Configures conditions under which the processing job should be stopped, such as how
+   *             long the processing job has been running. After the condition is met, the processing job
+   *             is stopped.</p>
    * @public
    */
   StoppingCondition?: ProcessingStoppingCondition | undefined;
@@ -9121,8 +9122,8 @@ export interface ProcessingJob {
   ProcessingJobStatus?: ProcessingJobStatus | undefined;
 
   /**
-   * <p>A string, up to one KB in size, that contains metadata from the processing
-   *             container when the processing job exits.</p>
+   * <p>A string, up to one KB in size, that contains metadata from the processing container
+   *             when the processing job exits.</p>
    * @public
    */
   ExitMessage?: string | undefined;
@@ -9166,7 +9167,8 @@ export interface ProcessingJob {
   MonitoringScheduleArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AutoML job associated with this processing job.</p>
+   * <p>The Amazon Resource Name (ARN) of the AutoML job associated with this processing
+   *             job.</p>
    * @public
    */
   AutoMLJobArn?: string | undefined;
@@ -9178,8 +9180,8 @@ export interface ProcessingJob {
   TrainingJobArn?: string | undefined;
 
   /**
-   * <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
-   *                 User Guide</i>.</p>
+   * <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and
+   *                 Cost Management User Guide</i>.</p>
    * @public
    */
   Tags?: Tag[] | undefined;

@@ -2515,6 +2515,14 @@ export const ProcessingInstanceType = {
   ML_C5_4XLARGE: "ml.c5.4xlarge",
   ML_C5_9XLARGE: "ml.c5.9xlarge",
   ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_C6I_12XLARGE: "ml.c6i.12xlarge",
+  ML_C6I_16XLARGE: "ml.c6i.16xlarge",
+  ML_C6I_24XLARGE: "ml.c6i.24xlarge",
+  ML_C6I_2XLARGE: "ml.c6i.2xlarge",
+  ML_C6I_32XLARGE: "ml.c6i.32xlarge",
+  ML_C6I_4XLARGE: "ml.c6i.4xlarge",
+  ML_C6I_8XLARGE: "ml.c6i.8xlarge",
+  ML_C6I_XLARGE: "ml.c6i.xlarge",
   ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
   ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
   ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
@@ -2529,6 +2537,22 @@ export const ProcessingInstanceType = {
   ML_G5_4XLARGE: "ml.g5.4xlarge",
   ML_G5_8XLARGE: "ml.g5.8xlarge",
   ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_G6E_12XLARGE: "ml.g6e.12xlarge",
+  ML_G6E_16XLARGE: "ml.g6e.16xlarge",
+  ML_G6E_24XLARGE: "ml.g6e.24xlarge",
+  ML_G6E_2XLARGE: "ml.g6e.2xlarge",
+  ML_G6E_48XLARGE: "ml.g6e.48xlarge",
+  ML_G6E_4XLARGE: "ml.g6e.4xlarge",
+  ML_G6E_8XLARGE: "ml.g6e.8xlarge",
+  ML_G6E_XLARGE: "ml.g6e.xlarge",
+  ML_G6_12XLARGE: "ml.g6.12xlarge",
+  ML_G6_16XLARGE: "ml.g6.16xlarge",
+  ML_G6_24XLARGE: "ml.g6.24xlarge",
+  ML_G6_2XLARGE: "ml.g6.2xlarge",
+  ML_G6_48XLARGE: "ml.g6.48xlarge",
+  ML_G6_4XLARGE: "ml.g6.4xlarge",
+  ML_G6_8XLARGE: "ml.g6.8xlarge",
+  ML_G6_XLARGE: "ml.g6.xlarge",
   ML_M4_10XLARGE: "ml.m4.10xlarge",
   ML_M4_16XLARGE: "ml.m4.16xlarge",
   ML_M4_2XLARGE: "ml.m4.2xlarge",
@@ -2540,6 +2564,15 @@ export const ProcessingInstanceType = {
   ML_M5_4XLARGE: "ml.m5.4xlarge",
   ML_M5_LARGE: "ml.m5.large",
   ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_M6I_12XLARGE: "ml.m6i.12xlarge",
+  ML_M6I_16XLARGE: "ml.m6i.16xlarge",
+  ML_M6I_24XLARGE: "ml.m6i.24xlarge",
+  ML_M6I_2XLARGE: "ml.m6i.2xlarge",
+  ML_M6I_32XLARGE: "ml.m6i.32xlarge",
+  ML_M6I_4XLARGE: "ml.m6i.4xlarge",
+  ML_M6I_8XLARGE: "ml.m6i.8xlarge",
+  ML_M6I_LARGE: "ml.m6i.large",
+  ML_M6I_XLARGE: "ml.m6i.xlarge",
   ML_P2_16XLARGE: "ml.p2.16xlarge",
   ML_P2_8XLARGE: "ml.p2.8xlarge",
   ML_P2_XLARGE: "ml.p2.xlarge",
@@ -12835,8 +12868,8 @@ export interface MonitoringInput {
 export interface NetworkConfig {
   /**
    * <p>Whether to encrypt all communications between distributed processing jobs. Choose
-   *             <code>True</code> to encrypt communications. Encryption provides greater security for distributed
-   *             processing jobs, but the processing might take longer.</p>
+   *                 <code>True</code> to encrypt communications. Encryption provides greater security
+   *             for distributed processing jobs, but the processing might take longer.</p>
    * @public
    */
   EnableInterContainerTrafficEncryption?: boolean | undefined;

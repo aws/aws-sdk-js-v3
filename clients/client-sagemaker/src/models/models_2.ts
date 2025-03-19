@@ -1356,7 +1356,8 @@ export interface RedshiftDatasetDefinition {
   QueryString: string | undefined;
 
   /**
-   * <p>The IAM role attached to your Redshift cluster that Amazon SageMaker uses to generate datasets.</p>
+   * <p>The IAM role attached to your Redshift cluster that Amazon SageMaker uses to generate
+   *             datasets.</p>
    * @public
    */
   ClusterRoleArn: string | undefined;
@@ -1368,8 +1369,8 @@ export interface RedshiftDatasetDefinition {
   OutputS3Uri: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data from a
-   *             Redshift execution.</p>
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker
+   *             uses to encrypt data from a Redshift execution.</p>
    * @public
    */
   KmsKeyId?: string | undefined;
@@ -1389,8 +1390,8 @@ export interface RedshiftDatasetDefinition {
 
 /**
  * <p>Configuration for Dataset Definition inputs. The Dataset Definition input must specify
- *             exactly one of either <code>AthenaDatasetDefinition</code> or <code>RedshiftDatasetDefinition</code>
- *             types.</p>
+ *             exactly one of either <code>AthenaDatasetDefinition</code> or
+ *                 <code>RedshiftDatasetDefinition</code> types.</p>
  * @public
  */
 export interface DatasetDefinition {
@@ -1408,25 +1409,25 @@ export interface DatasetDefinition {
 
   /**
    * <p>The local path where you want Amazon SageMaker to download the Dataset Definition inputs to run a
-   *             processing job. <code>LocalPath</code> is an absolute path to the input data. This is a required
-   *             parameter when <code>AppManaged</code> is <code>False</code> (default).</p>
+   *             processing job. <code>LocalPath</code> is an absolute path to the input data. This is a
+   *             required parameter when <code>AppManaged</code> is <code>False</code> (default).</p>
    * @public
    */
   LocalPath?: string | undefined;
 
   /**
    * <p>Whether the generated dataset is <code>FullyReplicated</code> or
-   *             <code>ShardedByS3Key</code> (default).</p>
+   *                 <code>ShardedByS3Key</code> (default).</p>
    * @public
    */
   DataDistributionType?: DataDistributionType | undefined;
 
   /**
-   * <p>Whether to use <code>File</code> or <code>Pipe</code> input mode. In <code>File</code> (default) mode,
-   *             Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store
-   *             (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used
-   *             input mode. In <code>Pipe</code> mode, Amazon SageMaker streams input data from the source directly to your
-   *             algorithm without using the EBS volume.</p>
+   * <p>Whether to use <code>File</code> or <code>Pipe</code> input mode. In <code>File</code>
+   *             (default) mode, Amazon SageMaker copies the data from the input source onto the local Amazon Elastic
+   *             Block Store (Amazon EBS) volumes before starting your training algorithm. This is the
+   *             most commonly used input mode. In <code>Pipe</code> mode, Amazon SageMaker streams input data from
+   *             the source directly to your algorithm without using the EBS volume.</p>
    * @public
    */
   InputMode?: InputMode | undefined;
@@ -1462,49 +1463,51 @@ export const ProcessingS3DataType = {
 export type ProcessingS3DataType = (typeof ProcessingS3DataType)[keyof typeof ProcessingS3DataType];
 
 /**
- * <p>Configuration for downloading input data from Amazon S3 into the processing container.</p>
+ * <p>Configuration for downloading input data from Amazon S3 into the processing
+ *             container.</p>
  * @public
  */
 export interface ProcessingS3Input {
   /**
-   * <p>The URI of the Amazon S3 prefix Amazon SageMaker downloads data required to run a processing job.</p>
+   * <p>The URI of the Amazon S3 prefix Amazon SageMaker downloads data required to run a processing
+   *             job.</p>
    * @public
    */
   S3Uri: string | undefined;
 
   /**
    * <p>The local path in your container where you want Amazon SageMaker to write input data to.
-   *             <code>LocalPath</code> is an absolute path to the input data and must begin with
-   *             <code>/opt/ml/processing/</code>. <code>LocalPath</code> is a required
-   *             parameter when <code>AppManaged</code> is <code>False</code> (default).</p>
+   *                 <code>LocalPath</code> is an absolute path to the input data and must begin with
+   *                 <code>/opt/ml/processing/</code>. <code>LocalPath</code> is a required parameter
+   *             when <code>AppManaged</code> is <code>False</code> (default).</p>
    * @public
    */
   LocalPath?: string | undefined;
 
   /**
-   * <p>Whether you use an <code>S3Prefix</code> or a <code>ManifestFile</code> for
-   *             the data type. If you choose <code>S3Prefix</code>, <code>S3Uri</code> identifies a key
-   *             name prefix. Amazon SageMaker uses all objects with the specified key name prefix for the processing
-   *             job. If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object
-   *             that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for
-   *             the processing job.</p>
+   * <p>Whether you use an <code>S3Prefix</code> or a <code>ManifestFile</code> for the data
+   *             type. If you choose <code>S3Prefix</code>, <code>S3Uri</code> identifies a key name
+   *             prefix. Amazon SageMaker uses all objects with the specified key name prefix for the processing job.
+   *             If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object that is
+   *             a manifest file containing a list of object keys that you want Amazon SageMaker to use for the
+   *             processing job.</p>
    * @public
    */
   S3DataType: ProcessingS3DataType | undefined;
 
   /**
-   * <p>Whether to use <code>File</code> or <code>Pipe</code> input mode. In File mode, Amazon SageMaker copies the data
-   *             from the input source onto the local ML storage volume before starting your processing
-   *             container. This is the most commonly used input mode. In <code>Pipe</code> mode, Amazon SageMaker
-   *             streams input data from the source directly to your processing container into named
-   *             pipes without using the ML storage volume.</p>
+   * <p>Whether to use <code>File</code> or <code>Pipe</code> input mode. In File mode, Amazon SageMaker
+   *             copies the data from the input source onto the local ML storage volume before starting
+   *             your processing container. This is the most commonly used input mode. In
+   *                 <code>Pipe</code> mode, Amazon SageMaker streams input data from the source directly to your
+   *             processing container into named pipes without using the ML storage volume.</p>
    * @public
    */
   S3InputMode?: ProcessingS3InputMode | undefined;
 
   /**
    * <p>Whether to distribute the data from Amazon S3 to all processing instances with
-   *             <code>FullyReplicated</code>, or whether the data from Amazon S3 is shared by Amazon S3 key,
+   *                 <code>FullyReplicated</code>, or whether the data from Amazon S3 is shared by Amazon S3 key,
    *             downloading one shard of data to each processing instance.</p>
    * @public
    */
@@ -1512,17 +1515,17 @@ export interface ProcessingS3Input {
 
   /**
    * <p>Whether to GZIP-decompress the data in Amazon S3 as it is streamed into the processing
-   *             container. <code>Gzip</code> can only be used when <code>Pipe</code> mode is
-   *             specified as the <code>S3InputMode</code>. In <code>Pipe</code> mode, Amazon SageMaker streams input
-   *             data from the source directly to your container without using the EBS volume.</p>
+   *             container. <code>Gzip</code> can only be used when <code>Pipe</code> mode is specified
+   *             as the <code>S3InputMode</code>. In <code>Pipe</code> mode, Amazon SageMaker streams input data from
+   *             the source directly to your container without using the EBS volume.</p>
    * @public
    */
   S3CompressionType?: ProcessingS3CompressionType | undefined;
 }
 
 /**
- * <p>The inputs for a processing job. The processing input must specify exactly one of either
- *             <code>S3Input</code> or <code>DatasetDefinition</code> types.</p>
+ * <p>The inputs for a processing job. The processing input must specify exactly one of
+ *             either <code>S3Input</code> or <code>DatasetDefinition</code> types.</p>
  * @public
  */
 export interface ProcessingInput {
@@ -1533,14 +1536,16 @@ export interface ProcessingInput {
   InputName: string | undefined;
 
   /**
-   * <p>When <code>True</code>, input operations such as data download are managed natively by the
-   *             processing job application. When <code>False</code> (default), input operations are managed by Amazon SageMaker.</p>
+   * <p>When <code>True</code>, input operations such as data download are managed natively by
+   *             the processing job application. When <code>False</code> (default), input operations are
+   *             managed by Amazon SageMaker.</p>
    * @public
    */
   AppManaged?: boolean | undefined;
 
   /**
-   * <p>Configuration for downloading input data from Amazon S3 into the processing container.</p>
+   * <p>Configuration for downloading input data from Amazon S3 into the processing
+   *             container.</p>
    * @public
    */
   S3Input?: ProcessingS3Input | undefined;
@@ -1558,8 +1563,9 @@ export interface ProcessingInput {
  */
 export interface ProcessingFeatureStoreOutput {
   /**
-   * <p>The name of the Amazon SageMaker FeatureGroup to use as the destination for processing job output. Note that your
-   *             processing script is responsible for putting records into your Feature Store.</p>
+   * <p>The name of the Amazon SageMaker FeatureGroup to use as the destination for processing job output.
+   *             Note that your processing script is responsible for putting records into your Feature
+   *             Store.</p>
    * @public
    */
   FeatureGroupName: string | undefined;
@@ -1579,7 +1585,7 @@ export interface ProcessingS3Output {
 
   /**
    * <p>The local path of a directory where you want Amazon SageMaker to upload its contents to Amazon S3.
-   *             <code>LocalPath</code> is an absolute path to a directory containing output files.
+   *                 <code>LocalPath</code> is an absolute path to a directory containing output files.
    *             This directory will be created by the platform and exist when your container's
    *             entrypoint is invoked.</p>
    * @public
@@ -1595,8 +1601,8 @@ export interface ProcessingS3Output {
 }
 
 /**
- * <p>Describes the results of a processing job. The processing output must specify exactly one of
- *             either <code>S3Output</code> or <code>FeatureStoreOutput</code> types.</p>
+ * <p>Describes the results of a processing job. The processing output must specify exactly
+ *             one of either <code>S3Output</code> or <code>FeatureStoreOutput</code> types.</p>
  * @public
  */
 export interface ProcessingOutput {
@@ -1620,9 +1626,9 @@ export interface ProcessingOutput {
   FeatureStoreOutput?: ProcessingFeatureStoreOutput | undefined;
 
   /**
-   * <p>When <code>True</code>, output operations such as data upload are managed natively by the
-   *             processing job application. When <code>False</code> (default), output operations are managed by
-   *             Amazon SageMaker.</p>
+   * <p>When <code>True</code>, output operations such as data upload are managed natively by
+   *             the processing job application. When <code>False</code> (default), output operations are
+   *             managed by Amazon SageMaker.</p>
    * @public
    */
   AppManaged?: boolean | undefined;
@@ -1634,16 +1640,17 @@ export interface ProcessingOutput {
  */
 export interface ProcessingOutputConfig {
   /**
-   * <p>An array of outputs configuring the data to upload from the processing container.</p>
+   * <p>An array of outputs configuring the data to upload from the processing
+   *             container.</p>
    * @public
    */
   Outputs: ProcessingOutput[] | undefined;
 
   /**
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the processing
-   *             job output. <code>KmsKeyId</code> can be an ID of a KMS key, ARN of a KMS key, alias of
-   *             a KMS key, or alias of a KMS key. The <code>KmsKeyId</code> is applied to all
-   *             outputs.</p>
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker
+   *             uses to encrypt the processing job output. <code>KmsKeyId</code> can be an ID of a KMS
+   *             key, ARN of a KMS key, or alias of a KMS key. The <code>KmsKeyId</code> is applied to
+   *             all outputs.</p>
    * @public
    */
   KmsKeyId?: string | undefined;
@@ -1672,9 +1679,9 @@ export interface ProcessingClusterConfig {
    *             specify sufficient ML storage for your scenario.</p>
    *          <note>
    *             <p>Certain Nitro-based instances include local storage with a fixed total size,
-   *                 dependent on the instance type. When using these instances for processing, Amazon SageMaker mounts
-   *                 the local instance storage instead of Amazon EBS gp2 storage. You can't request a
-   *                 <code>VolumeSizeInGB</code> greater than the total size of the local instance
+   *                 dependent on the instance type. When using these instances for processing, Amazon SageMaker
+   *                 mounts the local instance storage instead of Amazon EBS gp2 storage. You can't request a
+   *                     <code>VolumeSizeInGB</code> greater than the total size of the local instance
    *                 storage.</p>
    *             <p>For a list of instance types that support local instance storage, including the
    *                 total size per instance type, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
@@ -1684,9 +1691,9 @@ export interface ProcessingClusterConfig {
   VolumeSizeInGB: number | undefined;
 
   /**
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the
-   *             storage volume attached to the ML compute instance(s) that run the processing job.
-   *         </p>
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker
+   *             uses to encrypt data on the storage volume attached to the ML compute instance(s) that
+   *             run the processing job. </p>
    *          <note>
    *             <p>Certain Nitro-based instances include local storage, dependent on the instance
    *                 type. Local storage volumes are encrypted using a hardware module on the instance.
@@ -1694,7 +1701,7 @@ export interface ProcessingClusterConfig {
    *                 local storage.</p>
    *             <p>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
    *             <p>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
-   *                 Instance Store Volumes</a>.</p>
+   *                     Instance Store Volumes</a>.</p>
    *          </note>
    * @public
    */
@@ -1716,8 +1723,9 @@ export interface ProcessingResources {
 }
 
 /**
- * <p>Configures conditions under which the processing job should be stopped, such as how long
- *             the processing job has been running. After the condition is met, the processing job is stopped.</p>
+ * <p>Configures conditions under which the processing job should be stopped, such as how
+ *             long the processing job has been running. After the condition is met, the processing job
+ *             is stopped.</p>
  * @public
  */
 export interface ProcessingStoppingCondition {
@@ -1733,8 +1741,8 @@ export interface ProcessingStoppingCondition {
  */
 export interface CreateProcessingJobRequest {
   /**
-   * <p>An array of inputs configuring the data to download into the
-   *             processing container.</p>
+   * <p>An array of inputs configuring the data to download into the processing
+   *             container.</p>
    * @public
    */
   ProcessingInputs?: ProcessingInput[] | undefined;
@@ -1746,8 +1754,8 @@ export interface CreateProcessingJobRequest {
   ProcessingOutputConfig?: ProcessingOutputConfig | undefined;
 
   /**
-   * <p> The name of the processing job. The name must be unique within an Amazon Web Services Region in the
-   *             Amazon Web Services account.</p>
+   * <p> The name of the processing job. The name must be unique within an Amazon Web Services
+   *             Region in the Amazon Web Services account.</p>
    * @public
    */
   ProcessingJobName: string | undefined;
@@ -1772,16 +1780,16 @@ export interface CreateProcessingJobRequest {
   AppSpecification: AppSpecification | undefined;
 
   /**
-   * <p>The environment variables to set in the Docker container. Up to
-   *             100 key and values entries in the map are supported.</p>
+   * <p>The environment variables to set in the Docker container. Up to 100 key and values
+   *             entries in the map are supported.</p>
    * @public
    */
   Environment?: Record<string, string> | undefined;
 
   /**
-   * <p>Networking options for a processing job, such as whether to allow inbound and
-   *             outbound network calls to and from processing containers, and the VPC subnets and
-   *             security groups to use for VPC-enabled processing jobs.</p>
+   * <p>Networking options for a processing job, such as whether to allow inbound and outbound
+   *             network calls to and from processing containers, and the VPC subnets and security groups
+   *             to use for VPC-enabled processing jobs.</p>
    * @public
    */
   NetworkConfig?: NetworkConfig | undefined;
@@ -1794,8 +1802,8 @@ export interface CreateProcessingJobRequest {
   RoleArn: string | undefined;
 
   /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
-   *                 User Guide</i>.</p>
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and
+   *                 Cost Management User Guide</i>.</p>
    * @public
    */
   Tags?: Tag[] | undefined;

@@ -5404,8 +5404,8 @@ export interface AthenaDatasetDefinition {
   OutputS3Uri: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data generated from
-   *             an Athena query execution.</p>
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker
+   *             uses to encrypt data generated from an Athena query execution.</p>
    * @public
    */
   KmsKeyId?: string | undefined;
