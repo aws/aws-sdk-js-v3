@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
+
+
+### Features
+
+* **client-bedrock:** With this release, Bedrock Evaluation will now support bring your own inference responses. ([9515a90](https://github.com/aws/aws-sdk-js-v3/commit/9515a907b56bb7f54daca1a22efc39f71e5088eb))
+
+
+
+
+
 # [3.763.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.762.0...v3.763.0) (2025-03-06)
 
 

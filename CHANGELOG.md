@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
+
+
+### Bug Fixes
+
+* **cloudfront-signer:** parse date using Date constructor ([#6929](https://github.com/aws/aws-sdk-js-v3/issues/6929)) ([a07b850](https://github.com/aws/aws-sdk-js-v3/commit/a07b8500f1b56f9ff7ee98aa292f9e9d84764e19))
+* **middleware-recursion-detection:** case-insensitive trace ID header detection in middleware ([#6946](https://github.com/aws/aws-sdk-js-v3/issues/6946)) ([fcef09e](https://github.com/aws/aws-sdk-js-v3/commit/fcef09e80a77becbc5ca8354100b0f7b80b4ffd2))
+
+
+### Features
+
+* **client-amplify:** Added appId field to Webhook responses ([9a281ac](https://github.com/aws/aws-sdk-js-v3/commit/9a281acfdb10c779ee5b262aae0e64258282debb))
+* **client-bedrock:** With this release, Bedrock Evaluation will now support bring your own inference responses. ([9515a90](https://github.com/aws/aws-sdk-js-v3/commit/9515a907b56bb7f54daca1a22efc39f71e5088eb))
+* **client-mailmanager:** Amazon SES Mail Manager. Extended rule string and boolean expressions to support analysis in condition evaluation. Extended ingress point string expression to support analysis in condition evaluation ([a2b2570](https://github.com/aws/aws-sdk-js-v3/commit/a2b2570bbb0f39abc0e477c7d3749ba3d57c4023))
+* **client-network-firewall:** You can now use flow operations to either flush or capture traffic monitored in your firewall's flow table. ([a4ec1dd](https://github.com/aws/aws-sdk-js-v3/commit/a4ec1ddeb1a7b9c25f7a083e5691224269ead3fb))
+* **clients:** update client endpoints as of 2025-03-20 ([3a2fd16](https://github.com/aws/aws-sdk-js-v3/commit/3a2fd16b44bb3bd6deb07c5d6a21d23b6424cfcf))
+
+
+
+
+
 # [3.771.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.770.0...v3.771.0) (2025-03-19)
 
 
