@@ -68,6 +68,11 @@ import {
   DescribeFirewallPolicyCommandOutput,
 } from "./commands/DescribeFirewallPolicyCommand";
 import {
+  DescribeFlowOperationCommand,
+  DescribeFlowOperationCommandInput,
+  DescribeFlowOperationCommandOutput,
+} from "./commands/DescribeFlowOperationCommand";
+import {
   DescribeLoggingConfigurationCommand,
   DescribeLoggingConfigurationCommandInput,
   DescribeLoggingConfigurationCommandOutput,
@@ -118,6 +123,16 @@ import {
   ListFirewallsCommandOutput,
 } from "./commands/ListFirewallsCommand";
 import {
+  ListFlowOperationResultsCommand,
+  ListFlowOperationResultsCommandInput,
+  ListFlowOperationResultsCommandOutput,
+} from "./commands/ListFlowOperationResultsCommand";
+import {
+  ListFlowOperationsCommand,
+  ListFlowOperationsCommandInput,
+  ListFlowOperationsCommandOutput,
+} from "./commands/ListFlowOperationsCommand";
+import {
   ListRuleGroupsCommand,
   ListRuleGroupsCommandInput,
   ListRuleGroupsCommandOutput,
@@ -142,6 +157,16 @@ import {
   StartAnalysisReportCommandInput,
   StartAnalysisReportCommandOutput,
 } from "./commands/StartAnalysisReportCommand";
+import {
+  StartFlowCaptureCommand,
+  StartFlowCaptureCommandInput,
+  StartFlowCaptureCommandOutput,
+} from "./commands/StartFlowCaptureCommand";
+import {
+  StartFlowFlushCommand,
+  StartFlowFlushCommandInput,
+  StartFlowFlushCommandOutput,
+} from "./commands/StartFlowFlushCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -214,6 +239,7 @@ const commands = {
   DeleteTLSInspectionConfigurationCommand,
   DescribeFirewallCommand,
   DescribeFirewallPolicyCommand,
+  DescribeFlowOperationCommand,
   DescribeLoggingConfigurationCommand,
   DescribeResourcePolicyCommand,
   DescribeRuleGroupCommand,
@@ -224,11 +250,15 @@ const commands = {
   ListAnalysisReportsCommand,
   ListFirewallPoliciesCommand,
   ListFirewallsCommand,
+  ListFlowOperationResultsCommand,
+  ListFlowOperationsCommand,
   ListRuleGroupsCommand,
   ListTagsForResourceCommand,
   ListTLSInspectionConfigurationsCommand,
   PutResourcePolicyCommand,
   StartAnalysisReportCommand,
+  StartFlowCaptureCommand,
+  StartFlowFlushCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateFirewallAnalysisSettingsCommand,
@@ -460,6 +490,23 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link DescribeFlowOperationCommand}
+   */
+  describeFlowOperation(
+    args: DescribeFlowOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFlowOperationCommandOutput>;
+  describeFlowOperation(
+    args: DescribeFlowOperationCommandInput,
+    cb: (err: any, data?: DescribeFlowOperationCommandOutput) => void
+  ): void;
+  describeFlowOperation(
+    args: DescribeFlowOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFlowOperationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeLoggingConfigurationCommand}
    */
   describeLoggingConfiguration(): Promise<DescribeLoggingConfigurationCommandOutput>;
@@ -631,6 +678,40 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link ListFlowOperationResultsCommand}
+   */
+  listFlowOperationResults(
+    args: ListFlowOperationResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFlowOperationResultsCommandOutput>;
+  listFlowOperationResults(
+    args: ListFlowOperationResultsCommandInput,
+    cb: (err: any, data?: ListFlowOperationResultsCommandOutput) => void
+  ): void;
+  listFlowOperationResults(
+    args: ListFlowOperationResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFlowOperationResultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFlowOperationsCommand}
+   */
+  listFlowOperations(
+    args: ListFlowOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFlowOperationsCommandOutput>;
+  listFlowOperations(
+    args: ListFlowOperationsCommandInput,
+    cb: (err: any, data?: ListFlowOperationsCommandOutput) => void
+  ): void;
+  listFlowOperations(
+    args: ListFlowOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFlowOperationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListRuleGroupsCommand}
    */
   listRuleGroups(): Promise<ListRuleGroupsCommandOutput>;
@@ -712,6 +793,37 @@ export interface NetworkFirewall {
     args: StartAnalysisReportCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartAnalysisReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartFlowCaptureCommand}
+   */
+  startFlowCapture(
+    args: StartFlowCaptureCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartFlowCaptureCommandOutput>;
+  startFlowCapture(
+    args: StartFlowCaptureCommandInput,
+    cb: (err: any, data?: StartFlowCaptureCommandOutput) => void
+  ): void;
+  startFlowCapture(
+    args: StartFlowCaptureCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartFlowCaptureCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartFlowFlushCommand}
+   */
+  startFlowFlush(
+    args: StartFlowFlushCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartFlowFlushCommandOutput>;
+  startFlowFlush(args: StartFlowFlushCommandInput, cb: (err: any, data?: StartFlowFlushCommandOutput) => void): void;
+  startFlowFlush(
+    args: StartFlowFlushCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartFlowFlushCommandOutput) => void
   ): void;
 
   /**

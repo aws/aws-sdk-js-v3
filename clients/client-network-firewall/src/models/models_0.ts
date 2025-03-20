@@ -1903,10 +1903,9 @@ export interface Header {
   Source: string | undefined;
 
   /**
-   * <p>The source port to inspect for. You can specify an individual port, for
-   *            example <code>1994</code> and you can specify a port
-   *                range, for example <code>1990:1994</code>.
-   *           To match with any port, specify <code>ANY</code>. </p>
+   * <p>The source port to inspect for. You can specify an individual port,
+   *  for example <code>1994</code> and you can specify a port range, for example <code>1990:1994</code>.
+   *  To match with any port, specify <code>ANY</code>.</p>
    * @public
    */
   SourcePort: string | undefined;
@@ -1946,10 +1945,9 @@ export interface Header {
   Destination: string | undefined;
 
   /**
-   * <p>The destination port to inspect for. You can specify an individual port, for
-   *            example <code>1994</code> and you can specify
-   *          a port range, for example <code>1990:1994</code>.
-   *           To match with any port, specify <code>ANY</code>. </p>
+   * <p>The destination port to inspect for. You can specify an individual port,
+   *  for example <code>1994</code> and you can specify a port range, for example <code>1990:1994</code>.
+   *  To match with any port, specify <code>ANY</code>.</p>
    * @public
    */
   DestinationPort: string | undefined;
@@ -2118,26 +2116,27 @@ export interface MatchAttributes {
   Destinations?: Address[] | undefined;
 
   /**
-   * <p>The source ports to inspect for. If not specified, this matches with any source port.
-   *          This setting is only used for protocols 6 (TCP) and 17 (UDP). </p>
-   *          <p>You can specify individual ports, for example <code>1994</code> and you can specify port
-   *          ranges, for example <code>1990:1994</code>. </p>
+   * <p>The source port to inspect for. You can specify an individual port,
+   *  for example <code>1994</code> and you can specify a port range, for example <code>1990:1994</code>.
+   *  To match with any port, specify <code>ANY</code>.</p>
+   *          <p> If not specified, this matches with any source port.</p>
+   *          <p>This setting is only used for protocols 6 (TCP) and 17 (UDP).</p>
    * @public
    */
   SourcePorts?: PortRange[] | undefined;
 
   /**
-   * <p>The destination ports to inspect for. If not specified, this matches with any
-   *          destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP). </p>
-   *          <p>You can specify individual ports, for example <code>1994</code> and you can specify port
-   *          ranges, for example <code>1990:1994</code>. </p>
+   * <p>The destination port to inspect for. You can specify an individual port,
+   *  for example <code>1994</code> and you can specify a port range, for example <code>1990:1994</code>.
+   *  To match with any port, specify <code>ANY</code>.</p>
+   *          <p>This setting is only used for protocols 6 (TCP) and 17 (UDP). </p>
    * @public
    */
   DestinationPorts?: PortRange[] | undefined;
 
   /**
-   * <p>The protocols to inspect for, specified using each protocol's assigned internet protocol
-   *          number (IANA). If not specified, this matches with any protocol. </p>
+   * <p>The protocols to inspect for, specified using the assigned internet protocol number (IANA)
+   *  for each protocol. If not specified, this matches with any protocol.</p>
    * @public
    */
   Protocols?: number[] | undefined;
@@ -2704,8 +2703,9 @@ export interface ServerCertificateScope {
   DestinationPorts?: PortRange[] | undefined;
 
   /**
-   * <p>The protocols to decrypt for inspection, specified using each protocol's assigned internet protocol number
-   * (IANA). Network Firewall currently supports only TCP.</p>
+   * <p>The protocols to inspect for, specified using the assigned internet protocol number (IANA)
+   *  for each protocol. If not specified, this matches with any protocol.</p>
+   *          <p>Network Firewall currently supports only TCP.</p>
    * @public
    */
   Protocols?: number[] | undefined;
@@ -3200,6 +3200,181 @@ export interface DescribeFirewallPolicyResponse {
 /**
  * @public
  */
+export interface DescribeFlowOperationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
+   *          <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the flow operation. This ID is returned in the responses to start and list commands. You provide to describe commands.</p>
+   * @public
+   */
+  FlowOperationId: string | undefined;
+}
+
+/**
+ * <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
+ * @public
+ */
+export interface FlowFilter {
+  /**
+   * <p>A single IP address specification. This is used in the <a>MatchAttributes</a>
+   *          source and destination specifications.</p>
+   * @public
+   */
+  SourceAddress?: Address | undefined;
+
+  /**
+   * <p>A single IP address specification. This is used in the <a>MatchAttributes</a>
+   *          source and destination specifications.</p>
+   * @public
+   */
+  DestinationAddress?: Address | undefined;
+
+  /**
+   * <p>The source port to inspect for. You can specify an individual port,
+   *  for example <code>1994</code> and you can specify a port range, for example <code>1990:1994</code>.
+   *  To match with any port, specify <code>ANY</code>.</p>
+   * @public
+   */
+  SourcePort?: string | undefined;
+
+  /**
+   * <p>The destination port to inspect for. You can specify an individual port,
+   *  for example <code>1994</code> and you can specify a port range, for example <code>1990:1994</code>.
+   *  To match with any port, specify <code>ANY</code>.</p>
+   * @public
+   */
+  DestinationPort?: string | undefined;
+
+  /**
+   * <p>The protocols to inspect for, specified using the assigned internet protocol number (IANA)
+   *  for each protocol. If not specified, this matches with any protocol.</p>
+   * @public
+   */
+  Protocols?: string[] | undefined;
+}
+
+/**
+ * <p>Contains information about a flow operation, such as related statuses, unique identifiers, and all filters defined in the operation.</p>
+ *          <p>Flow operations let you manage the flows tracked in the flow table, also known as the firewall table.</p>
+ *          <p>A flow is network traffic that is monitored by a firewall, either by stateful or stateless rules.
+ * For traffic to be considered part of a flow, it must share Destination, DestinationPort, Direction, Protocol, Source, and SourcePort. </p>
+ * @public
+ */
+export interface FlowOperation {
+  /**
+   * <p>The reqested <code>FlowOperation</code> ignores flows with an age (in seconds) lower than <code>MinimumFlowAgeInSeconds</code>.
+   * You provide this for start commands.</p>
+   * @public
+   */
+  MinimumFlowAgeInSeconds?: number | undefined;
+
+  /**
+   * <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
+   * @public
+   */
+  FlowFilters?: FlowFilter[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FlowOperationStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type FlowOperationStatus = (typeof FlowOperationStatus)[keyof typeof FlowOperationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const FlowOperationType = {
+  FLOW_CAPTURE: "FLOW_CAPTURE",
+  FLOW_FLUSH: "FLOW_FLUSH",
+} as const;
+
+/**
+ * @public
+ */
+export type FlowOperationType = (typeof FlowOperationType)[keyof typeof FlowOperationType];
+
+/**
+ * @public
+ */
+export interface DescribeFlowOperationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
+   *          <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the flow operation. This ID is returned in the responses to start and list commands. You provide to describe commands.</p>
+   * @public
+   */
+  FlowOperationId?: string | undefined;
+
+  /**
+   * <p>Defines the type of <code>FlowOperation</code>.</p>
+   * @public
+   */
+  FlowOperationType?: FlowOperationType | undefined;
+
+  /**
+   * <p>Returns the status of the flow operation. This string is returned in the responses to start, list, and describe commands.</p>
+   *          <p>If the status is <code>COMPLETED_WITH_ERRORS</code>, results may be returned with any number of <code>Flows</code> missing from the response.
+   * If the status is <code>FAILED</code>, <code>Flows</code> returned will be empty.</p>
+   * @public
+   */
+  FlowOperationStatus?: FlowOperationStatus | undefined;
+
+  /**
+   * <p>If the asynchronous operation fails, Network Firewall populates this with the reason for the error or failure. Options include <code>Flow operation error</code> and <code>Flow timeout</code>.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>A timestamp indicating when the Suricata engine identified flows impacted by an operation. </p>
+   * @public
+   */
+  FlowRequestTimestamp?: Date | undefined;
+
+  /**
+   * <p>Returns key information about a flow operation, such as related statuses, unique identifiers, and all filters defined in the operation.</p>
+   * @public
+   */
+  FlowOperation?: FlowOperation | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeLoggingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -3673,6 +3848,100 @@ export interface FirewallPolicyMetadata {
 }
 
 /**
+ * <p>Any number of arrays, where each array is a single flow identified in the scope of the operation.
+ * If multiple flows were in the scope of the operation, multiple <code>Flows</code> arrays are returned.</p>
+ * @public
+ */
+export interface Flow {
+  /**
+   * <p>A single IP address specification. This is used in the <a>MatchAttributes</a>
+   *          source and destination specifications.</p>
+   * @public
+   */
+  SourceAddress?: Address | undefined;
+
+  /**
+   * <p>A single IP address specification. This is used in the <a>MatchAttributes</a>
+   *          source and destination specifications.</p>
+   * @public
+   */
+  DestinationAddress?: Address | undefined;
+
+  /**
+   * <p>The source port to inspect for. You can specify an individual port,
+   *  for example <code>1994</code> and you can specify a port range, for example <code>1990:1994</code>.
+   *  To match with any port, specify <code>ANY</code>.</p>
+   * @public
+   */
+  SourcePort?: string | undefined;
+
+  /**
+   * <p>The destination port to inspect for. You can specify an individual port,
+   *  for example <code>1994</code> and you can specify a port range, for example <code>1990:1994</code>.
+   *  To match with any port, specify <code>ANY</code>.</p>
+   * @public
+   */
+  DestinationPort?: string | undefined;
+
+  /**
+   * <p>The protocols to inspect for, specified using the assigned internet protocol number (IANA)
+   *  for each protocol. If not specified, this matches with any protocol.</p>
+   * @public
+   */
+  Protocol?: string | undefined;
+
+  /**
+   * <p>Returned as info about age of the flows identified by the flow operation.</p>
+   * @public
+   */
+  Age?: number | undefined;
+
+  /**
+   * <p>Returns the total number of data packets received or transmitted in a flow.</p>
+   * @public
+   */
+  PacketCount?: number | undefined;
+
+  /**
+   * <p>Returns the number of bytes received or transmitted in a specific flow.</p>
+   * @public
+   */
+  ByteCount?: number | undefined;
+}
+
+/**
+ * <p>An array of objects with metadata about the requested <code>FlowOperation</code>.</p>
+ * @public
+ */
+export interface FlowOperationMetadata {
+  /**
+   * <p>A unique identifier for the flow operation. This ID is returned in the responses to start and list commands. You provide to describe commands.</p>
+   * @public
+   */
+  FlowOperationId?: string | undefined;
+
+  /**
+   * <p>Defines the type of <code>FlowOperation</code>.</p>
+   * @public
+   */
+  FlowOperationType?: FlowOperationType | undefined;
+
+  /**
+   * <p>A timestamp indicating when the Suricata engine identified flows impacted by an operation. </p>
+   * @public
+   */
+  FlowRequestTimestamp?: Date | undefined;
+
+  /**
+   * <p>Returns the status of the flow operation. This string is returned in the responses to start, list, and describe commands.</p>
+   *          <p>If the status is <code>COMPLETED_WITH_ERRORS</code>, results may be returned with any number of <code>Flows</code> missing from the response.
+   * If the status is <code>FAILED</code>, <code>Flows</code> returned will be empty.</p>
+   * @public
+   */
+  FlowOperationStatus?: FlowOperationStatus | undefined;
+}
+
+/**
  * @public
  */
 export interface GetAnalysisReportResultsRequest {
@@ -3906,6 +4175,167 @@ export interface ListFirewallsResponse {
    * @public
    */
   Firewalls?: FirewallMetadata[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFlowOperationResultsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn: string | undefined;
+
+  /**
+   * <p>A unique identifier for the flow operation. This ID is returned in the responses to start and list commands. You provide to describe commands.</p>
+   * @public
+   */
+  FlowOperationId: string | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of objects that you want Network Firewall to return for this request. If more
+   *           objects are available, in the response, Network Firewall provides a
+   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
+   *          <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFlowOperationResultsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
+   *          <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the flow operation. This ID is returned in the responses to start and list commands. You provide to describe commands.</p>
+   * @public
+   */
+  FlowOperationId?: string | undefined;
+
+  /**
+   * <p>Returns the status of the flow operation. This string is returned in the responses to start, list, and describe commands.</p>
+   *          <p>If the status is <code>COMPLETED_WITH_ERRORS</code>, results may be returned with any number of <code>Flows</code> missing from the response.
+   * If the status is <code>FAILED</code>, <code>Flows</code> returned will be empty.</p>
+   * @public
+   */
+  FlowOperationStatus?: FlowOperationStatus | undefined;
+
+  /**
+   * <p>If the asynchronous operation fails, Network Firewall populates this with the reason for the error or failure.
+   *          Options include <code>Flow operation error</code> and <code>Flow timeout</code>.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>A timestamp indicating when the Suricata engine identified flows impacted by an operation. </p>
+   * @public
+   */
+  FlowRequestTimestamp?: Date | undefined;
+
+  /**
+   * <p>Any number of arrays, where each array is a single flow identified in the scope of the operation.
+   * If multiple flows were in the scope of the operation, multiple <code>Flows</code> arrays are returned.</p>
+   * @public
+   */
+  Flows?: Flow[] | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFlowOperationsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
+   *          <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>An optional string that defines whether any or all operation types are returned.</p>
+   * @public
+   */
+  FlowOperationType?: FlowOperationType | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of objects that you want Network Firewall to return for this request. If more
+   *           objects are available, in the response, Network Firewall provides a
+   *          <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFlowOperationsResponse {
+  /**
+   * <p>Flow operations let you manage the flows tracked in the flow table, also known as the firewall table.</p>
+   *          <p>A flow is network traffic that is monitored by a firewall, either by stateful or stateless rules.
+   * For traffic to be considered part of a flow, it must share Destination, DestinationPort, Direction, Protocol, Source, and SourcePort. </p>
+   * @public
+   */
+  FlowOperations?: FlowOperationMetadata[] | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the maximum you requested, Network Firewall returns a <code>NextToken</code>
+   *          value in the response. To retrieve the next batch of objects, use the token returned from the prior request in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4222,6 +4652,121 @@ export interface StartAnalysisReportResponse {
    * @public
    */
   AnalysisReportId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartFlowCaptureRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
+   *          <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The reqested <code>FlowOperation</code> ignores flows with an age (in seconds) lower than <code>MinimumFlowAgeInSeconds</code>.
+   * You provide this for start commands.</p>
+   *          <note>
+   *             <p>We recommend setting this value to at least 1 minute (60 seconds) to reduce chance of capturing flows that are not yet established.</p>
+   *          </note>
+   * @public
+   */
+  MinimumFlowAgeInSeconds?: number | undefined;
+
+  /**
+   * <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
+   * @public
+   */
+  FlowFilters: FlowFilter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartFlowCaptureResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the flow operation. This ID is returned in the responses to start and list commands. You provide to describe commands.</p>
+   * @public
+   */
+  FlowOperationId?: string | undefined;
+
+  /**
+   * <p>Returns the status of the flow operation. This string is returned in the responses to start, list, and describe commands.</p>
+   *          <p>If the status is <code>COMPLETED_WITH_ERRORS</code>, results may be returned with any number of <code>Flows</code> missing from the response.
+   * If the status is <code>FAILED</code>, <code>Flows</code> returned will be empty.</p>
+   * @public
+   */
+  FlowOperationStatus?: FlowOperationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartFlowFlushRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone where the firewall is located. For example, <code>us-east-2a</code>.</p>
+   *          <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The reqested <code>FlowOperation</code> ignores flows with an age (in seconds) lower than <code>MinimumFlowAgeInSeconds</code>.
+   * You provide this for start commands.</p>
+   * @public
+   */
+  MinimumFlowAgeInSeconds?: number | undefined;
+
+  /**
+   * <p>Defines the scope a flow operation. You can use up to 20 filters to configure a single flow operation.</p>
+   * @public
+   */
+  FlowFilters: FlowFilter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartFlowFlushResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the flow operation. This ID is returned in the responses to start and list commands. You provide to describe commands.</p>
+   * @public
+   */
+  FlowOperationId?: string | undefined;
+
+  /**
+   * <p>Returns the status of the flow operation. This string is returned in the responses to start, list, and describe commands.</p>
+   *          <p>If the status is <code>COMPLETED_WITH_ERRORS</code>, results may be returned with any number of <code>Flows</code> missing from the response.
+   * If the status is <code>FAILED</code>, <code>Flows</code> returned will be empty.</p>
+   * @public
+   */
+  FlowOperationStatus?: FlowOperationStatus | undefined;
 }
 
 /**
