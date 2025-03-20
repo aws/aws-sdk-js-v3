@@ -219,6 +219,10 @@ import {
   EvaluationInferenceConfig,
   EvaluationModelConfig,
   EvaluationOutputDataConfig,
+  EvaluationPrecomputedInferenceSource,
+  EvaluationPrecomputedRagSourceConfig,
+  EvaluationPrecomputedRetrieveAndGenerateSourceConfig,
+  EvaluationPrecomputedRetrieveSourceConfig,
   EvaluationSummary,
   EvaluatorModelConfig,
   ExternalSource,
@@ -3196,6 +3200,14 @@ const se_EvaluationInferenceConfig = (input: EvaluationInferenceConfig, context:
 
 // se_EvaluationOutputDataConfig omitted.
 
+// se_EvaluationPrecomputedInferenceSource omitted.
+
+// se_EvaluationPrecomputedRagSourceConfig omitted.
+
+// se_EvaluationPrecomputedRetrieveAndGenerateSourceConfig omitted.
+
+// se_EvaluationPrecomputedRetrieveSourceConfig omitted.
+
 // se_EvaluatorModelConfig omitted.
 
 /**
@@ -3467,6 +3479,7 @@ const se_KnowledgeBaseVectorSearchConfiguration = (
 const se_RAGConfig = (input: RAGConfig, context: __SerdeContext): any => {
   return RAGConfig.visit(input, {
     knowledgeBaseConfig: (value) => ({ knowledgeBaseConfig: se_KnowledgeBaseConfig(value, context) }),
+    precomputedRagSourceConfig: (value) => ({ precomputedRagSourceConfig: _json(value) }),
     _: (name, value) => ({ [name]: value } as any),
   });
 };
@@ -3679,7 +3692,11 @@ const de_CustomModelSummaryList = (output: any, context: __SerdeContext): Custom
 
 // de_ErrorMessages omitted.
 
+// de_EvaluationBedrockKnowledgeBaseIdentifiers omitted.
+
 // de_EvaluationBedrockModel omitted.
+
+// de_EvaluationBedrockModelIdentifiers omitted.
 
 // de_EvaluationConfig omitted.
 
@@ -3708,15 +3725,31 @@ const de_EvaluationInferenceConfig = (output: any, context: __SerdeContext): Eva
   return { $unknown: Object.entries(output)[0] };
 };
 
+// de_EvaluationInferenceConfigSummary omitted.
+
 // de_EvaluationMetricNames omitted.
 
 // de_EvaluationModelConfig omitted.
 
 // de_EvaluationModelConfigs omitted.
 
-// de_EvaluationModelIdentifiers omitted.
+// de_EvaluationModelConfigSummary omitted.
 
 // de_EvaluationOutputDataConfig omitted.
+
+// de_EvaluationPrecomputedInferenceSource omitted.
+
+// de_EvaluationPrecomputedInferenceSourceIdentifiers omitted.
+
+// de_EvaluationPrecomputedRagSourceConfig omitted.
+
+// de_EvaluationPrecomputedRagSourceIdentifiers omitted.
+
+// de_EvaluationPrecomputedRetrieveAndGenerateSourceConfig omitted.
+
+// de_EvaluationPrecomputedRetrieveSourceConfig omitted.
+
+// de_EvaluationRagConfigSummary omitted.
 
 /**
  * deserializeAws_restJson1EvaluationSummaries
@@ -3739,6 +3772,7 @@ const de_EvaluationSummary = (output: any, context: __SerdeContext): EvaluationS
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     evaluationTaskTypes: _json,
     evaluatorModelIdentifiers: _json,
+    inferenceConfigSummary: _json,
     jobArn: __expectString,
     jobName: __expectString,
     jobType: __expectString,
@@ -4366,6 +4400,11 @@ const de_RAGConfig = (output: any, context: __SerdeContext): RAGConfig => {
       knowledgeBaseConfig: de_KnowledgeBaseConfig(__expectUnion(output.knowledgeBaseConfig), context),
     };
   }
+  if (output.precomputedRagSourceConfig != null) {
+    return {
+      precomputedRagSourceConfig: _json(__expectUnion(output.precomputedRagSourceConfig)),
+    };
+  }
   return { $unknown: Object.entries(output)[0] };
 };
 
@@ -4380,8 +4419,6 @@ const de_RagConfigs = (output: any, context: __SerdeContext): RAGConfig[] => {
     });
   return retVal;
 };
-
-// de_RAGIdentifiers omitted.
 
 // de_RAGStopSequences omitted.
 

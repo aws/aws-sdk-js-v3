@@ -114,6 +114,9 @@ export interface CreateEvaluationJobCommandOutput extends CreateEvaluationJobRes
  *             latency: "standard" || "optimized",
  *           },
  *         },
+ *         precomputedInferenceSource: { // EvaluationPrecomputedInferenceSource
+ *           inferenceSourceIdentifier: "STRING_VALUE", // required
+ *         },
  *       },
  *     ],
  *     ragConfigs: [ // RagConfigs
@@ -258,6 +261,14 @@ export interface CreateEvaluationJobCommandOutput extends CreateEvaluationJobRes
  *                 },
  *               },
  *             },
+ *           },
+ *         },
+ *         precomputedRagSourceConfig: { // EvaluationPrecomputedRagSourceConfig Union: only one key present
+ *           retrieveSourceConfig: { // EvaluationPrecomputedRetrieveSourceConfig
+ *             ragSourceIdentifier: "STRING_VALUE", // required
+ *           },
+ *           retrieveAndGenerateSourceConfig: { // EvaluationPrecomputedRetrieveAndGenerateSourceConfig
+ *             ragSourceIdentifier: "STRING_VALUE", // required
  *           },
  *         },
  *       },

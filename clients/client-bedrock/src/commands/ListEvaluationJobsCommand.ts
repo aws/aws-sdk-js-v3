@@ -60,15 +60,33 @@ export interface ListEvaluationJobsCommandOutput extends ListEvaluationJobsRespo
  * //       evaluationTaskTypes: [ // EvaluationTaskTypes // required
  * //         "Summarization" || "Classification" || "QuestionAndAnswer" || "Generation" || "Custom",
  * //       ],
- * //       modelIdentifiers: [ // EvaluationModelIdentifiers
+ * //       modelIdentifiers: [ // EvaluationBedrockModelIdentifiers
  * //         "STRING_VALUE",
  * //       ],
- * //       ragIdentifiers: [ // RAGIdentifiers
+ * //       ragIdentifiers: [ // EvaluationBedrockKnowledgeBaseIdentifiers
  * //         "STRING_VALUE",
  * //       ],
  * //       evaluatorModelIdentifiers: [ // EvaluatorModelIdentifiers
  * //         "STRING_VALUE",
  * //       ],
+ * //       inferenceConfigSummary: { // EvaluationInferenceConfigSummary
+ * //         modelConfigSummary: { // EvaluationModelConfigSummary
+ * //           bedrockModelIdentifiers: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           precomputedInferenceSourceIdentifiers: [ // EvaluationPrecomputedInferenceSourceIdentifiers
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         ragConfigSummary: { // EvaluationRagConfigSummary
+ * //           bedrockKnowledgeBaseIdentifiers: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           precomputedRagSourceIdentifiers: [ // EvaluationPrecomputedRagSourceIdentifiers
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
  * //       applicationType: "ModelEvaluation" || "RagEvaluation",
  * //     },
  * //   ],
