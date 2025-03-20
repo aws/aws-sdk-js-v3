@@ -370,7 +370,7 @@ class CloudfrontSignBuilder {
   private parseDateWindow(expiration: string | number | Date, start?: string | number | Date): PolicyDates {
     const dateLessThan = this.parseDate(expiration);
     if (!dateLessThan) {
-      throw new Error("dateLessThan is invalid. Ensure the date string is compatible with the Date constructor.");
+      throw new Error("dateLessThan is invalid. Ensure the date value is compatible with the Date constructor.");
     }
     return {
       dateLessThan,
