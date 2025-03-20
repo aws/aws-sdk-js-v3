@@ -50,6 +50,10 @@ export interface CreateRuleSetCommandOutput extends CreateRuleSetResponse, __Met
  *           BooleanExpression: { // RuleBooleanExpression
  *             Evaluate: { // RuleBooleanToEvaluate Union: only one key present
  *               Attribute: "READ_RECEIPT_REQUESTED" || "TLS" || "TLS_WRAPPED",
+ *               Analysis: { // Analysis
+ *                 Analyzer: "STRING_VALUE", // required
+ *                 ResultField: "STRING_VALUE", // required
+ *               },
  *               IsInAddressList: { // RuleIsInAddressList
  *                 Attribute: "RECIPIENT" || "MAIL_FROM" || "SENDER" || "FROM" || "TO" || "CC", // required
  *                 AddressLists: [ // RuleAddressListArnList // required
@@ -63,6 +67,10 @@ export interface CreateRuleSetCommandOutput extends CreateRuleSetResponse, __Met
  *             Evaluate: { // RuleStringToEvaluate Union: only one key present
  *               Attribute: "MAIL_FROM" || "HELO" || "RECIPIENT" || "SENDER" || "FROM" || "SUBJECT" || "TO" || "CC",
  *               MimeHeaderAttribute: "STRING_VALUE",
+ *               Analysis: {
+ *                 Analyzer: "STRING_VALUE", // required
+ *                 ResultField: "STRING_VALUE", // required
+ *               },
  *             },
  *             Operator: "EQUALS" || "NOT_EQUALS" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS", // required
  *             Values: [ // RuleStringList // required
@@ -88,7 +96,7 @@ export interface CreateRuleSetCommandOutput extends CreateRuleSetResponse, __Met
  *           VerdictExpression: { // RuleVerdictExpression
  *             Evaluate: { // RuleVerdictToEvaluate Union: only one key present
  *               Attribute: "SPF" || "DKIM",
- *               Analysis: { // Analysis
+ *               Analysis: {
  *                 Analyzer: "STRING_VALUE", // required
  *                 ResultField: "STRING_VALUE", // required
  *               },
@@ -111,6 +119,10 @@ export interface CreateRuleSetCommandOutput extends CreateRuleSetResponse, __Met
  *           BooleanExpression: {
  *             Evaluate: {//  Union: only one key present
  *               Attribute: "READ_RECEIPT_REQUESTED" || "TLS" || "TLS_WRAPPED",
+ *               Analysis: {
+ *                 Analyzer: "STRING_VALUE", // required
+ *                 ResultField: "STRING_VALUE", // required
+ *               },
  *               IsInAddressList: {
  *                 Attribute: "RECIPIENT" || "MAIL_FROM" || "SENDER" || "FROM" || "TO" || "CC", // required
  *                 AddressLists: [ // required
@@ -124,6 +136,10 @@ export interface CreateRuleSetCommandOutput extends CreateRuleSetResponse, __Met
  *             Evaluate: {//  Union: only one key present
  *               Attribute: "MAIL_FROM" || "HELO" || "RECIPIENT" || "SENDER" || "FROM" || "SUBJECT" || "TO" || "CC",
  *               MimeHeaderAttribute: "STRING_VALUE",
+ *               Analysis: {
+ *                 Analyzer: "STRING_VALUE", // required
+ *                 ResultField: "STRING_VALUE", // required
+ *               },
  *             },
  *             Operator: "EQUALS" || "NOT_EQUALS" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS", // required
  *             Values: [ // required
@@ -149,10 +165,7 @@ export interface CreateRuleSetCommandOutput extends CreateRuleSetResponse, __Met
  *           VerdictExpression: {
  *             Evaluate: {//  Union: only one key present
  *               Attribute: "SPF" || "DKIM",
- *               Analysis: {
- *                 Analyzer: "STRING_VALUE", // required
- *                 ResultField: "STRING_VALUE", // required
- *               },
+ *               Analysis: "<Analysis>",
  *             },
  *             Operator: "EQUALS" || "NOT_EQUALS", // required
  *             Values: [ // required

@@ -51,6 +51,10 @@ export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse,
  * //           StringExpression: { // IngressStringExpression
  * //             Evaluate: { // IngressStringToEvaluate Union: only one key present
  * //               Attribute: "RECIPIENT",
+ * //               Analysis: { // IngressAnalysis
+ * //                 Analyzer: "STRING_VALUE", // required
+ * //                 ResultField: "STRING_VALUE", // required
+ * //               },
  * //             },
  * //             Operator: "EQUALS" || "NOT_EQUALS" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS", // required
  * //             Values: [ // StringList // required
@@ -75,7 +79,7 @@ export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse,
  * //           },
  * //           BooleanExpression: { // IngressBooleanExpression
  * //             Evaluate: { // IngressBooleanToEvaluate Union: only one key present
- * //               Analysis: { // IngressAnalysis
+ * //               Analysis: {
  * //                 Analyzer: "STRING_VALUE", // required
  * //                 ResultField: "STRING_VALUE", // required
  * //               },

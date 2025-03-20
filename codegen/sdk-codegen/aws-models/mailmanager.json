@@ -1344,8 +1344,7 @@
           "target": "com.amazonaws.mailmanager#IngressPointName",
           "traits": {
             "smithy.api#documentation": "<p>A user friendly name for an ingress endpoint resource.</p>",
-            "smithy.api#required": {},
-            "smithy.api#resourceIdentifier": "IngressPointId"
+            "smithy.api#required": {}
           }
         },
         "Type": {
@@ -1629,8 +1628,7 @@
           "target": "com.amazonaws.mailmanager#TrafficPolicyName",
           "traits": {
             "smithy.api#documentation": "<p>A user-friendly name for the traffic policy resource.</p>",
-            "smithy.api#required": {},
-            "smithy.api#resourceIdentifier": "TrafficPolicyId"
+            "smithy.api#required": {}
           }
         },
         "PolicyStatements": {
@@ -4233,7 +4231,7 @@
           "target": "com.amazonaws.mailmanager#IngressPointId"
         }
       },
-      "put": {
+      "create": {
         "target": "com.amazonaws.mailmanager#CreateIngressPoint"
       },
       "read": {
@@ -4251,8 +4249,7 @@
       "traits": {
         "aws.cloudformation#cfnResource": {
           "name": "MailManagerIngressPoint"
-        },
-        "smithy.api#noReplace": {}
+        }
       }
     },
     "com.amazonaws.mailmanager#IngressPointStatus": {
@@ -4418,6 +4415,12 @@
           "target": "com.amazonaws.mailmanager#IngressStringEmailAttribute",
           "traits": {
             "smithy.api#documentation": "<p>The enum type representing the allowed attribute types for a string condition.</p>"
+          }
+        },
+        "Analysis": {
+          "target": "com.amazonaws.mailmanager#IngressAnalysis",
+          "traits": {
+            "smithy.api#documentation": "<p>The structure type for a string condition stating the Add On ARN and its returned value.</p>"
           }
         }
       },
@@ -6915,7 +6918,7 @@
           "min": 1,
           "max": 256
         },
-        "smithy.api#pattern": "^[\\sa-zA-Z0-9_]+$"
+        "smithy.api#pattern": "^(addon\\.)?[\\sa-zA-Z0-9_]+$"
       }
     },
     "com.amazonaws.mailmanager#RetentionPeriod": {
@@ -7377,6 +7380,12 @@
           "target": "com.amazonaws.mailmanager#RuleBooleanEmailAttribute",
           "traits": {
             "smithy.api#documentation": "<p>The boolean type representing the allowed attribute types for an email.</p>"
+          }
+        },
+        "Analysis": {
+          "target": "com.amazonaws.mailmanager#Analysis",
+          "traits": {
+            "smithy.api#documentation": "<p>The Add On ARN and its returned value to evaluate in a boolean condition expression.</p>"
           }
         },
         "IsInAddressList": {
@@ -7987,6 +7996,12 @@
           "target": "com.amazonaws.mailmanager#MimeHeaderAttribute",
           "traits": {
             "smithy.api#documentation": "<p>The email MIME X-Header attribute to evaluate in a string condition expression.</p>"
+          }
+        },
+        "Analysis": {
+          "target": "com.amazonaws.mailmanager#Analysis",
+          "traits": {
+            "smithy.api#documentation": "<p>The Add On ARN and its returned value to evaluate in a string condition expression.</p>"
           }
         }
       },
@@ -9051,7 +9066,7 @@
           "target": "com.amazonaws.mailmanager#TrafficPolicyId"
         }
       },
-      "put": {
+      "create": {
         "target": "com.amazonaws.mailmanager#CreateTrafficPolicy"
       },
       "read": {
@@ -9069,8 +9084,7 @@
       "traits": {
         "aws.cloudformation#cfnResource": {
           "name": "MailManagerTrafficPolicy"
-        },
-        "smithy.api#noReplace": {}
+        }
       }
     },
     "com.amazonaws.mailmanager#UntagResource": {
