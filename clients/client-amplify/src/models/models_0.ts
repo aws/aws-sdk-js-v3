@@ -1720,6 +1720,12 @@ export interface Webhook {
   webhookUrl: string | undefined;
 
   /**
+   * <p>The unique ID of an Amplify app.</p>
+   * @public
+   */
+  appId?: string | undefined;
+
+  /**
    * <p>The name for a branch that is part of an Amplify app. </p>
    * @public
    */
@@ -2309,7 +2315,7 @@ export interface Step {
   logUrl?: string | undefined;
 
   /**
-   * <p> The URL to the artifact for the execution step. </p>
+   * <p> The URL to the build artifact for the execution step. </p>
    * @public
    */
   artifactsUrl?: string | undefined;

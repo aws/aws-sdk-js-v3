@@ -2186,6 +2186,7 @@ const de_Steps = (output: any, context: __SerdeContext): Step[] => {
  */
 const de_Webhook = (output: any, context: __SerdeContext): Webhook => {
   return take(output, {
+    appId: __expectString,
     branchName: __expectString,
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,

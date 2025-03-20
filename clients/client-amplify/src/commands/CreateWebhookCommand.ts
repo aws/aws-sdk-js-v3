@@ -47,6 +47,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookResult, __Metad
  * //     webhookArn: "STRING_VALUE", // required
  * //     webhookId: "STRING_VALUE", // required
  * //     webhookUrl: "STRING_VALUE", // required
+ * //     appId: "STRING_VALUE",
  * //     branchName: "STRING_VALUE", // required
  * //     description: "STRING_VALUE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
