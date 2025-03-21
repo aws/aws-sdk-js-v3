@@ -22634,11 +22634,13 @@ __metadata:
     "@aws-sdk/credential-provider-process": "npm:*"
     "@aws-sdk/credential-provider-sso": "npm:*"
     "@aws-sdk/credential-provider-web-identity": "npm:*"
+    "@aws-sdk/ec2-metadata-service": "npm:*"
     "@aws-sdk/nested-clients": "npm:*"
     "@aws-sdk/types": "npm:*"
     "@smithy/core": "npm:^3.1.5"
     "@smithy/credential-provider-imds": "npm:^4.0.1"
     "@smithy/property-provider": "npm:^4.0.1"
+    "@smithy/shared-ini-file-loader": "npm:^4.0.1"
     "@smithy/types": "npm:^4.1.0"
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^18.19.69"
@@ -22689,11 +22691,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/ec2-metadata-service@workspace:packages/ec2-metadata-service":
+"@aws-sdk/ec2-metadata-service@npm:*, @aws-sdk/ec2-metadata-service@workspace:packages/ec2-metadata-service":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/ec2-metadata-service@workspace:packages/ec2-metadata-service"
   dependencies:
-    "@aws-sdk/credential-providers": "npm:*"
     "@aws-sdk/types": "npm:*"
     "@smithy/node-config-provider": "npm:^4.0.1"
     "@smithy/node-http-handler": "npm:^4.0.3"
