@@ -185,6 +185,7 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                         .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
                         .addDependency(AwsDependency.AWS_SDK_CORE)
                         .build())
+                    .addArgs(List.of("client"))
                     .inputConfig(Symbol.builder()
                         .name("AwsSdkSigV4AuthInputConfig")
                         .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
