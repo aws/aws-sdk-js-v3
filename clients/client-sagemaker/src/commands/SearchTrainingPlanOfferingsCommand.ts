@@ -56,7 +56,7 @@ export interface SearchTrainingPlanOfferingsCommandOutput
  *   InstanceCount: Number("int"), // required
  *   StartTimeAfter: new Date("TIMESTAMP"),
  *   EndTimeBefore: new Date("TIMESTAMP"),
- *   DurationHours: Number("long"),
+ *   DurationHours: Number("long"), // required
  *   TargetResources: [ // SageMakerResourceNames // required
  *     "training-job" || "hyperpod-cluster",
  *   ],

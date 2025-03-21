@@ -10637,7 +10637,7 @@ export interface SearchTrainingPlanOfferingsRequest {
    * <p>The desired duration in hours for the training plan offerings.</p>
    * @public
    */
-  DurationHours?: number | undefined;
+  DurationHours: number | undefined;
 
   /**
    * <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod) to search for in the
