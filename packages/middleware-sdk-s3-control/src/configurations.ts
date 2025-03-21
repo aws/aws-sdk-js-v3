@@ -52,8 +52,7 @@ export function resolveS3ControlConfig<T>(
   input: T & PreviouslyResolved & S3ControlInputConfig
 ): T & S3ControlResolvedConfig {
   const { useArnRegion = false } = input;
-  return {
-    ...input,
+  return Object.assign(input, {
     useArnRegion: typeof useArnRegion === "function" ? useArnRegion : () => Promise.resolve(useArnRegion),
-  };
+  });
 }

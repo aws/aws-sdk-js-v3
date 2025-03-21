@@ -9,4 +9,9 @@ describe(resolveAwsSdkSigV4AConfig.name, () => {
     expect(typeof config.sigv4aSigningRegionSet).toEqual("function");
     expect(await config.sigv4aSigningRegionSet()).toEqual(undefined);
   });
+
+  it("maintains object custody", () => {
+    const input = {};
+    expect(resolveAwsSdkSigV4AConfig(input)).toBe(input);
+  });
 });

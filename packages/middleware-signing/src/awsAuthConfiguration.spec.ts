@@ -12,7 +12,7 @@ describe("AuthConfig", () => {
   };
 
   describe("resolveAwsAuthConfig", () => {
-    const inputParams = {
+    const inputParams = () => ({
       credentialDefaultProvider: () => () => Promise.resolve({ accessKeyId: "key", secretAccessKey: "secret" }),
       region: vi.fn().mockImplementation(() => Promise.resolve("us-foo-1")),
       regionInfoProvider: () => Promise.resolve({ hostname: "foo.com", partition: "aws" }),
@@ -24,27 +24,29 @@ describe("AuthConfig", () => {
       credentials: vi.fn().mockResolvedValue({ accessKeyId: "key", secretAccessKey: "secret" }),
       useFipsEndpoint: () => Promise.resolve(false),
       useDualstackEndpoint: () => Promise.resolve(false),
-    };
+    });
 
     beforeEach(() => {
       vi.clearAllMocks();
     });
 
     it("should memoize custom credential provider", async () => {
-      const { signer: signerProvider } = resolveAwsAuthConfig(inputParams);
+      const input = inputParams();
+      const spy = input.credentials;
+      const { signer: signerProvider } = resolveAwsAuthConfig(input);
       const signer = await signerProvider(authScheme);
       const request = new HttpRequest({});
       const repeats = 10;
       for (let i = 0; i < repeats; i++) {
         await signer.sign(request);
       }
-      expect(inputParams.credentials).toBeCalledTimes(1);
+      expect(spy).toBeCalledTimes(1);
     });
 
     it("should refresh custom credential provider if expired", async () => {
       const FOUR_MINUTES_AND_59_SEC = 299 * 1000;
       const input = {
-        ...inputParams,
+        ...inputParams(),
         credentials: vi
           .fn()
           .mockResolvedValueOnce({
@@ -54,6 +56,7 @@ describe("AuthConfig", () => {
           })
           .mockResolvedValue({ accessKeyId: "key", secretAccessKey: "secret" }),
       };
+      const spy = input.credentials;
       const { signer: signerProvider } = resolveAwsAuthConfig(input);
       const signer = await signerProvider(authScheme);
       const request = new HttpRequest({});
@@ -61,12 +64,12 @@ describe("AuthConfig", () => {
       for (let i = 0; i < repeats; i++) {
         await signer.sign(request);
       }
-      expect(input.credentials).toBeCalledTimes(2);
+      expect(spy).toBeCalledTimes(2);
     });
   });
 
   describe("resolveSigV4AuthConfig", () => {
-    const inputParams = {
+    const inputParams = () => ({
       credentialDefaultProvider: () => () => Promise.resolve({ accessKeyId: "key", secretAccessKey: "secret" }),
       region: vi.fn().mockImplementation(() => Promise.resolve("us-foo-1")),
       signingName: "foo",
@@ -75,27 +78,29 @@ describe("AuthConfig", () => {
         digest: vi.fn().mockReturnValue("SHA256 hash"),
       }),
       credentials: vi.fn().mockResolvedValue({ accessKeyId: "key", secretAccessKey: "secret" }),
-    };
+    });
 
     beforeEach(() => {
       vi.clearAllMocks();
     });
 
     it("should memoize custom credential provider", async () => {
-      const { signer: signerProvider } = resolveSigV4AuthConfig(inputParams);
+      const input = inputParams();
+      const spy = input.credentials;
+      const { signer: signerProvider } = resolveSigV4AuthConfig(input);
       const signer = await signerProvider(authScheme);
       const request = new HttpRequest({});
       const repeats = 10;
       for (let i = 0; i < repeats; i++) {
         await signer.sign(request);
       }
-      expect(inputParams.credentials).toBeCalledTimes(1);
+      expect(spy).toBeCalledTimes(1);
     });
 
     it("should refresh custom credential provider if expired", async () => {
       const FOUR_MINUTES_AND_59_SEC = 299 * 1000;
       const input = {
-        ...inputParams,
+        ...inputParams(),
         credentials: vi
           .fn()
           .mockResolvedValueOnce({
@@ -105,14 +110,16 @@ describe("AuthConfig", () => {
           })
           .mockResolvedValue({ accessKeyId: "key", secretAccessKey: "secret" }),
       };
-      const { signer: signerProvider } = resolveSigV4AuthConfig(input);
+      const spy = input.credentials;
+      const { signer: signerProvider, credentials } = resolveSigV4AuthConfig(input);
       const signer = await signerProvider(authScheme);
       const request = new HttpRequest({});
       const repeats = 10;
       for (let i = 0; i < repeats; i++) {
         await signer.sign(request);
       }
-      expect(input.credentials).toBeCalledTimes(2);
+      console.log("what is credentials", credentials);
+      expect(spy).toBeCalledTimes(2);
     });
   });
 });

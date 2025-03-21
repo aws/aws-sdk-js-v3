@@ -22,6 +22,13 @@ describe("RegionConfig", () => {
     vi.clearAllMocks();
   });
 
+  it("maintains object custody", () => {
+    const input = {
+      region: "mockRegion",
+    };
+    expect(resolveRegionConfig(input)).toBe(input);
+  });
+
   describe("region", () => {
     it("return normalized value with real region if passed as a string", async () => {
       const resolvedRegionConfig = resolveRegionConfig({ region: mockRegion, useFipsEndpoint: mockUseFipsEndpoint });

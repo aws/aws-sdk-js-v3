@@ -221,8 +221,7 @@ export const resolveAwsSdkSigV4Config = <T>(
     };
   }
 
-  return {
-    ...config,
+  return Object.assign(config, {
     systemClockOffset,
     signingEscapePath,
     credentials: isUserSupplied
@@ -232,7 +231,7 @@ export const resolveAwsSdkSigV4Config = <T>(
           )
       : boundCredentialsProvider!,
     signer,
-  };
+  });
 };
 
 /**
