@@ -3,9 +3,8 @@ import type { Client, Command } from "@smithy/types";
 import { S3ExpressIdentityProvider, S3ExpressIdentityProviderImpl } from "./s3-express";
 
 /**
- * @public
- *
  * All endpoint parameters with built-in bindings of AWS::S3::*
+ * @public
  */
 export interface S3InputConfig {
   /**
@@ -28,7 +27,7 @@ export interface S3InputConfig {
    * This feature should only be used as a last resort if you do not know the region of your bucket(s) ahead of time.
    */
   followRegionRedirects?: boolean;
-  /*
+  /**
    * Identity provider for an S3 feature.
    */
   s3ExpressIdentityProvider?: S3ExpressIdentityProvider;
@@ -39,16 +38,16 @@ export interface S3InputConfig {
 }
 
 /**
- * @internal
  * This is a placeholder for the actual
  * S3Client type from \@aws-sdk/client-s3. It is not explicitly
  * imported to avoid a circular dependency.
+ * @internal
  */
 type PlaceholderS3Client = Client<any, any, any> & any;
 
 /**
- * @internal
  * Placeholder for the constructor for CreateSessionCommand.
+ * @internal
  */
 type PlaceholderCreateSessionCommandCtor = { new (args: any): Command<any, any, any, any, any> };
 
@@ -70,14 +69,22 @@ export const resolveS3Config = <T>(
   }
 ): T & S3ResolvedConfig => {
   const [s3ClientProvider, CreateSessionCommandCtor] = session;
-  return {
-    ...input,
-    forcePathStyle: input.forcePathStyle ?? false,
-    useAccelerateEndpoint: input.useAccelerateEndpoint ?? false,
-    disableMultiregionAccessPoints: input.disableMultiregionAccessPoints ?? false,
-    followRegionRedirects: input.followRegionRedirects ?? false,
+  const {
+    forcePathStyle,
+    useAccelerateEndpoint,
+    disableMultiregionAccessPoints,
+    followRegionRedirects,
+    s3ExpressIdentityProvider,
+    bucketEndpoint,
+  } = input;
+
+  return Object.assign(input, {
+    forcePathStyle: forcePathStyle ?? false,
+    useAccelerateEndpoint: useAccelerateEndpoint ?? false,
+    disableMultiregionAccessPoints: disableMultiregionAccessPoints ?? false,
+    followRegionRedirects: followRegionRedirects ?? false,
     s3ExpressIdentityProvider:
-      input.s3ExpressIdentityProvider ??
+      s3ExpressIdentityProvider ??
       new S3ExpressIdentityProviderImpl(async (key: string) =>
         s3ClientProvider().send(
           new CreateSessionCommandCtor({
@@ -85,6 +92,6 @@ export const resolveS3Config = <T>(
           })
         )
       ),
-    bucketEndpoint: input.bucketEndpoint ?? false,
-  };
+    bucketEndpoint: bucketEndpoint ?? false,
+  });
 };

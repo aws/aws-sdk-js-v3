@@ -20,6 +20,11 @@ describe(resolveFlexibleChecksumsConfig.name, () => {
     vi.clearAllMocks();
   });
 
+  it("maintains object custody", () => {
+    const input = {};
+    expect(resolveFlexibleChecksumsConfig(input)).toBe(input);
+  });
+
   it("returns default client checksums configuration, if not provided", () => {
     const resolvedConfig = resolveFlexibleChecksumsConfig({});
     expect(resolvedConfig).toEqual({

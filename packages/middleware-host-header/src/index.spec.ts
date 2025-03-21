@@ -1,12 +1,19 @@
 import { HttpRequest } from "@smithy/protocol-http";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { hostHeaderMiddleware } from "./index";
+import { hostHeaderMiddleware, resolveHostHeaderConfig } from "./index";
 describe("hostHeaderMiddleware", () => {
   const mockNextHandler = vi.fn();
 
   beforeEach(() => {
     vi.clearAllMocks();
+  });
+
+  it("maintains object custody", () => {
+    const input = {
+      requestHandler: vi.fn() as any,
+    };
+    expect(resolveHostHeaderConfig(input)).toBe(input);
   });
 
   it("should set host header if not already set", async () => {

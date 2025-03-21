@@ -40,9 +40,8 @@ export function resolveEventStreamConfig<T>(
     ...input,
     messageSigner,
   });
-  return {
-    ...input,
+  return Object.assign(input, {
     eventSigner,
     eventStreamPayloadHandler,
-  };
+  });
 }

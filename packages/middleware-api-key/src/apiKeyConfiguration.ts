@@ -31,8 +31,8 @@ export interface ApiKeyResolvedConfig {
 export const resolveApiKeyConfig = <T>(
   input: T & ApiKeyPreviouslyResolved & ApiKeyInputConfig
 ): T & ApiKeyResolvedConfig => {
-  return {
-    ...input,
-    apiKey: input.apiKey ? normalizeProvider(input.apiKey) : undefined,
-  };
+  const { apiKey } = input;
+  return Object.assign(input, {
+    apiKey: apiKey ? normalizeProvider(apiKey) : undefined,
+  });
 };

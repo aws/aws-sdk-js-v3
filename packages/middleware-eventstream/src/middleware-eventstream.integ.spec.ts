@@ -1,9 +1,11 @@
 import { LexRuntimeV2 } from "@aws-sdk/client-lex-runtime-v2";
 import { RekognitionStreaming } from "@aws-sdk/client-rekognitionstreaming";
 import { TranscribeStreaming } from "@aws-sdk/client-transcribe-streaming";
-import { describe, expect, test as it } from "vitest";
+import { Decoder, Encoder, EventStreamPayloadHandlerProvider } from "@smithy/types";
+import { describe, expect, test as it, vi } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
+import { resolveEventStreamConfig } from "./eventStreamConfiguration";
 
 describe("middleware-eventstream", () => {
   const logger = {
@@ -13,6 +15,18 @@ describe("middleware-eventstream", () => {
     warn() {},
     error() {},
   };
+
+  describe("config resolver", () => {
+    it("maintains object custody", () => {
+      const input = {
+        utf8Encoder: vi.fn(),
+        utf8Decoder: vi.fn(),
+        signer: vi.fn(),
+        eventStreamPayloadHandlerProvider: vi.fn(),
+      };
+      expect(resolveEventStreamConfig(input)).toBe(input);
+    });
+  });
 
   // TODO: http2 in CI
   describe.skip(LexRuntimeV2.name, () => {
