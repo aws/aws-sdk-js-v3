@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeTableInput, DescribeTableOutput } from "../models/models_0";
-import { de_DescribeTableCommand, se_DescribeTableCommand } from "../protocols/Aws_json1_0";
+import { DescribeTable } from "../schemas/com.amazonaws.dynamodb";
 
 /**
  * @public
@@ -308,16 +307,12 @@ export class DescribeTableCommand extends $Command
     ResourceArn: { type: "contextParams", name: "TableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DynamoDB_20120810", "DescribeTable", {})
   .n("DynamoDBClient", "DescribeTableCommand")
   .f(void 0, void 0)
-  .ser(se_DescribeTableCommand)
-  .de(de_DescribeTableCommand)
+  .sc(DescribeTable)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { XmlListsRequest, XmlListsResponse } from "../models/models_0";
-import { de_XmlListsCommand, se_XmlListsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
+import { XmlLists } from "../schemas/aws.protocoltests.restxml";
 
 /**
  * @public
@@ -179,13 +178,12 @@ export class XmlListsCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestXml", "XmlLists", {})
   .n("RestXmlProtocolClient", "XmlListsCommand")
   .f(void 0, void 0)
-  .ser(se_XmlListsCommand)
-  .de(de_XmlListsCommand)
+  .sc(XmlLists)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
