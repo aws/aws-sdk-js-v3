@@ -41,6 +41,7 @@ export interface CreateDomainCommandOutput extends CreateDomainOutput, __Metadat
  *   singleSignOn: { // SingleSignOn
  *     type: "IAM_IDC" || "DISABLED",
  *     userAssignment: "AUTOMATIC" || "MANUAL",
+ *     idcInstanceArn: "STRING_VALUE",
  *   },
  *   domainExecutionRole: "STRING_VALUE", // required
  *   kmsKeyIdentifier: "STRING_VALUE",
@@ -61,6 +62,7 @@ export interface CreateDomainCommandOutput extends CreateDomainOutput, __Metadat
  * //   singleSignOn: { // SingleSignOn
  * //     type: "IAM_IDC" || "DISABLED",
  * //     userAssignment: "AUTOMATIC" || "MANUAL",
+ * //     idcInstanceArn: "STRING_VALUE",
  * //   },
  * //   domainExecutionRole: "STRING_VALUE",
  * //   arn: "STRING_VALUE",

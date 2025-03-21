@@ -41,6 +41,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainOutput, __Metadat
  *   singleSignOn: { // SingleSignOn
  *     type: "IAM_IDC" || "DISABLED",
  *     userAssignment: "AUTOMATIC" || "MANUAL",
+ *     idcInstanceArn: "STRING_VALUE",
  *   },
  *   domainExecutionRole: "STRING_VALUE",
  *   serviceRole: "STRING_VALUE",
@@ -56,6 +57,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainOutput, __Metadat
  * //   singleSignOn: { // SingleSignOn
  * //     type: "IAM_IDC" || "DISABLED",
  * //     userAssignment: "AUTOMATIC" || "MANUAL",
+ * //     idcInstanceArn: "STRING_VALUE",
  * //   },
  * //   domainExecutionRole: "STRING_VALUE",
  * //   serviceRole: "STRING_VALUE",

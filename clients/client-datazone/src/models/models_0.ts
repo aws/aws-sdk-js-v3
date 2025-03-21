@@ -7674,6 +7674,12 @@ export interface SingleSignOn {
    * @public
    */
   userAssignment?: UserAssignment | undefined;
+
+  /**
+   * <p>The ARN of the IDC instance.</p>
+   * @public
+   */
+  idcInstanceArn?: string | undefined;
 }
 
 /**

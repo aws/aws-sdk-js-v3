@@ -48,6 +48,7 @@ export interface GetDomainCommandOutput extends GetDomainOutput, __MetadataBeare
  * //   singleSignOn: { // SingleSignOn
  * //     type: "IAM_IDC" || "DISABLED",
  * //     userAssignment: "AUTOMATIC" || "MANUAL",
+ * //     idcInstanceArn: "STRING_VALUE",
  * //   },
  * //   domainExecutionRole: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE",
