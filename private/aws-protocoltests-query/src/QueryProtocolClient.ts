@@ -419,7 +419,7 @@ export class QueryProtocolClient extends __Client<
     const _config_3 = resolveRegionConfig(_config_2);
     const _config_4 = resolveHostHeaderConfig(_config_3);
     const _config_5 = resolveEndpointsConfig(_config_4);
-    const _config_6 = resolveHttpAuthSchemeConfig(_config_5);
+    const _config_6 = resolveHttpAuthSchemeConfig(_config_5, { client: () => this });
     const _config_7 = resolveCompressionConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
     super(_config_8);

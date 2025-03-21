@@ -622,7 +622,7 @@ export class CodeDeployClient extends __Client<
     const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveEndpointConfig(_config_5);
-    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
+    const _config_7 = resolveHttpAuthSchemeConfig(_config_6, { client: () => this });
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
     super(_config_8);
     this.config = _config_8;

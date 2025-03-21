@@ -310,7 +310,7 @@ export class WeatherClient extends __Client<
     let _config_3 = resolveRetryConfig(_config_2);
     let _config_4 = resolveRegionConfig(_config_3);
     let _config_5 = resolveHostHeaderConfig(_config_4);
-    let _config_6 = resolveHttpAuthSchemeConfig(_config_5);
+    let _config_6 = resolveHttpAuthSchemeConfig(_config_5, { client: () => this });
     let _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
     super(_config_7);
     this.config = _config_7;

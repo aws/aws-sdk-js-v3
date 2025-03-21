@@ -104,7 +104,7 @@ export interface AwsSdkSigV4AuthResolvedConfig {
 export const resolveAwsSdkSigV4Config = <T>(
   config: T & AwsSdkSigV4AuthInputConfig & AwsSdkSigV4PreviouslyResolved,
   client?: () => {
-    config: AwsSdkSigV4AuthResolvedConfig;
+    config: Pick<AwsSdkSigV4AuthInputConfig, "credentials">;
   }
 ): T & AwsSdkSigV4AuthResolvedConfig => {
   let isUserSupplied = false;
