@@ -64,6 +64,7 @@ import {
 } from "../commands/ListTagsForResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "../commands/UpdateClusterCommand";
 import { UpdateControlPanelCommandInput, UpdateControlPanelCommandOutput } from "../commands/UpdateControlPanelCommand";
 import {
   UpdateRoutingControlCommandInput,
@@ -103,6 +104,7 @@ export const se_CreateClusterCommand = async (
     take(input, {
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ClusterName: [],
+      NetworkType: [],
       Tags: (_) => _json(_),
     })
   );
@@ -483,6 +485,29 @@ export const se_UntagResourceCommand = async (
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateClusterCommand
+ */
+export const se_UpdateClusterCommand = async (
+  input: UpdateClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cluster");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClusterArn: [],
+      NetworkType: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -976,6 +1001,27 @@ export const de_UntagResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateClusterCommand
+ */
+export const de_UpdateClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateClusterCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Cluster: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 

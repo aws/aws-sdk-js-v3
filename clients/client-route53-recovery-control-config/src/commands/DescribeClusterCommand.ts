@@ -56,6 +56,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //     Name: "STRING_VALUE",
  * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
  * //     Owner: "STRING_VALUE",
+ * //     NetworkType: "IPV4" || "DUALSTACK",
  * //   },
  * // };
  *

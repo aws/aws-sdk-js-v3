@@ -95,6 +95,7 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
 import { UpdateControlPanelCommandInput, UpdateControlPanelCommandOutput } from "./commands/UpdateControlPanelCommand";
 import {
   UpdateRoutingControlCommandInput,
@@ -137,6 +138,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateClusterCommandInput
   | UpdateControlPanelCommandInput
   | UpdateRoutingControlCommandInput
   | UpdateSafetyRuleCommandInput;
@@ -166,6 +168,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateClusterCommandOutput
   | UpdateControlPanelCommandOutput
   | UpdateRoutingControlCommandOutput
   | UpdateSafetyRuleCommandOutput;

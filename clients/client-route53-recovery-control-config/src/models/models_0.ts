@@ -25,6 +25,20 @@ export interface ClusterEndpoint {
  * @public
  * @enum
  */
+export const NetworkType = {
+  DUALSTACK: "DUALSTACK",
+  IPV4: "IPV4",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
+
+/**
+ * @public
+ * @enum
+ */
 export const Status = {
   DEPLOYED: "DEPLOYED",
   PENDING: "PENDING",
@@ -70,6 +84,12 @@ export interface Cluster {
    * @public
    */
   Owner?: string | undefined;
+
+  /**
+   * <p>The network type of the cluster. NetworkType can be one of the following: IPV4, DUALSTACK.</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
 }
 
 /**
@@ -417,6 +437,12 @@ export interface CreateClusterRequest {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The network type of the cluster. NetworkType can be one of the following: IPV4, DUALSTACK.</p>
+   * @public
+   */
+  NetworkType?: NetworkType | undefined;
 }
 
 /**
@@ -1211,6 +1237,35 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * <p>The details of the cluster that you're updating.</p>
+ * @public
+ */
+export interface UpdateClusterRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The network type of the cluster. NetworkType can be one of the following: IPV4, DUALSTACK.</p>
+   * @public
+   */
+  NetworkType: NetworkType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClusterResponse {
+  /**
+   * <p>The cluster that was updated.</p>
+   * @public
+   */
+  Cluster?: Cluster | undefined;
+}
 
 /**
  * <p>The details of the control panel that you're updating.</p>

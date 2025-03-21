@@ -45,6 +45,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *   Tags: { // __mapOf__stringMin0Max256PatternS
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   NetworkType: "IPV4" || "DUALSTACK",
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -60,6 +61,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //     Name: "STRING_VALUE",
  * //     Status: "PENDING" || "DEPLOYED" || "PENDING_DELETION",
  * //     Owner: "STRING_VALUE",
+ * //     NetworkType: "IPV4" || "DUALSTACK",
  * //   },
  * // };
  *
