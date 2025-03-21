@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.773.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.772.0...v3.773.0) (2025-03-21)
+
+
+### Bug Fixes
+
+* **core:** revert "use credentials provided by extensions when instantiating sigv4 signer ([#6956](https://github.com/aws/aws-sdk-js-v3/issues/6956))" ([#6958](https://github.com/aws/aws-sdk-js-v3/issues/6958)) ([9df52d1](https://github.com/aws/aws-sdk-js-v3/commit/9df52d1369e7d008ad825cb04788f257dc2f49e2))
+* **core:** use credentials provided by extensions when instantiating sigv4 signer ([#6956](https://github.com/aws/aws-sdk-js-v3/issues/6956)) ([6288dff](https://github.com/aws/aws-sdk-js-v3/commit/6288dff8d104bc7f773390376b391b1e63243b3a))
+
+
+### Features
+
+* **client-datazone:** Add support for overriding selection of default AWS IAM Identity Center instance as part of Amazon DataZone domain APIs. ([ebb76ad](https://github.com/aws/aws-sdk-js-v3/commit/ebb76add2182fd81ffdeb1286f5165192821cbfb))
+
+
+
+
+
 # [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone

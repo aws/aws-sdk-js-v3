@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.773.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.772.0...v3.773.0) (2025-03-21)
+
+
+### Bug Fixes
+
+* **core:** revert "use credentials provided by extensions when instantiating sigv4 signer ([#6956](https://github.com/aws/aws-sdk-js-v3/issues/6956))" ([#6958](https://github.com/aws/aws-sdk-js-v3/issues/6958)) ([9df52d1](https://github.com/aws/aws-sdk-js-v3/commit/9df52d1369e7d008ad825cb04788f257dc2f49e2))
+* **core:** use credentials provided by extensions when instantiating sigv4 signer ([#6956](https://github.com/aws/aws-sdk-js-v3/issues/6956)) ([6288dff](https://github.com/aws/aws-sdk-js-v3/commit/6288dff8d104bc7f773390376b391b1e63243b3a))
+
+
+### Features
+
+* **client-bedrock:** A CustomModelUnit(CMU) is an abstract view of the hardware utilization that Bedrock needs to host a a single copy of your custom imported model. Bedrock determines the number of CMUs that a model copy needs when you import the custom model. You can use CMUs to estimate the cost of Inference's. ([8aac7ca](https://github.com/aws/aws-sdk-js-v3/commit/8aac7ca75a76eb0ea6dc768fd2db024bdb849f37))
+* **client-datazone:** Add support for overriding selection of default AWS IAM Identity Center instance as part of Amazon DataZone domain APIs. ([ebb76ad](https://github.com/aws/aws-sdk-js-v3/commit/ebb76add2182fd81ffdeb1286f5165192821cbfb))
+* **client-route53-recovery-control-config:** Adds dual-stack (IPv4 and IPv6) endpoint support for route53-recovery-control-config operations, opt-in dual-stack addresses for cluster endpoints, and UpdateCluster API to update the network-type of clusters between IPv4 and dual-stack. ([47d0c4e](https://github.com/aws/aws-sdk-js-v3/commit/47d0c4e02aae1903a2d27bc56505ab8dc2c5f08f))
+* **client-sagemaker:** This release does the following: 1.) Adds DurationHours as a required field to the SearchTrainingPlanOfferings action in the SageMaker AI API; 2.) Adds support for G6e instance types for SageMaker AI inference optimization jobs. ([c908352](https://github.com/aws/aws-sdk-js-v3/commit/c9083529c990493d6abb63bb3d1c8f2d8417fb66))
+* **clients:** update client endpoints as of 2025-03-21 ([d31dbd8](https://github.com/aws/aws-sdk-js-v3/commit/d31dbd846f29ac916ca591088d5451391941215b))
+
+
+
+
+
 # [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
 
 

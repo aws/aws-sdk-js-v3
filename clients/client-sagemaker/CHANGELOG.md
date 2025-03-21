@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.773.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.772.0...v3.773.0) (2025-03-21)
+
+
+### Bug Fixes
+
+* **core:** revert "use credentials provided by extensions when instantiating sigv4 signer ([#6956](https://github.com/aws/aws-sdk-js-v3/issues/6956))" ([#6958](https://github.com/aws/aws-sdk-js-v3/issues/6958)) ([9df52d1](https://github.com/aws/aws-sdk-js-v3/commit/9df52d1369e7d008ad825cb04788f257dc2f49e2))
+* **core:** use credentials provided by extensions when instantiating sigv4 signer ([#6956](https://github.com/aws/aws-sdk-js-v3/issues/6956)) ([6288dff](https://github.com/aws/aws-sdk-js-v3/commit/6288dff8d104bc7f773390376b391b1e63243b3a))
+
+
+### Features
+
+* **client-sagemaker:** This release does the following: 1.) Adds DurationHours as a required field to the SearchTrainingPlanOfferings action in the SageMaker AI API; 2.) Adds support for G6e instance types for SageMaker AI inference optimization jobs. ([c908352](https://github.com/aws/aws-sdk-js-v3/commit/c9083529c990493d6abb63bb3d1c8f2d8417fb66))
+
+
+
+
+
 # [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.773.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.772.0...v3.773.0) (2025-03-21)
+
+
+### Bug Fixes
+
+* **core:** revert "use credentials provided by extensions when instantiating sigv4 signer ([#6956](https://github.com/aws/aws-sdk-js-v3/issues/6956))" ([#6958](https://github.com/aws/aws-sdk-js-v3/issues/6958)) ([9df52d1](https://github.com/aws/aws-sdk-js-v3/commit/9df52d1369e7d008ad825cb04788f257dc2f49e2))
+* **core:** use credentials provided by extensions when instantiating sigv4 signer ([#6956](https://github.com/aws/aws-sdk-js-v3/issues/6956)) ([6288dff](https://github.com/aws/aws-sdk-js-v3/commit/6288dff8d104bc7f773390376b391b1e63243b3a))
+
+
+### Features
+
+* **client-route53-recovery-control-config:** Adds dual-stack (IPv4 and IPv6) endpoint support for route53-recovery-control-config operations, opt-in dual-stack addresses for cluster endpoints, and UpdateCluster API to update the network-type of clusters between IPv4 and dual-stack. ([47d0c4e](https://github.com/aws/aws-sdk-js-v3/commit/47d0c4e02aae1903a2d27bc56505ab8dc2c5f08f))
+
+
+
+
+
 # [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
 
 **Note:** Version bump only for package @aws-sdk/client-route53-recovery-control-config
