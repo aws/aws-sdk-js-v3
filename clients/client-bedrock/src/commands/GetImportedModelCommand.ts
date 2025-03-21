@@ -54,6 +54,10 @@ export interface GetImportedModelCommandOutput extends GetImportedModelResponse,
  * //   modelArchitecture: "STRING_VALUE",
  * //   modelKmsKeyArn: "STRING_VALUE",
  * //   instructSupported: true || false,
+ * //   customModelUnits: { // CustomModelUnits
+ * //     customModelUnitsPerModelCopy: Number("int"),
+ * //     customModelUnitsVersion: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

@@ -2123,6 +2123,7 @@ export const de_GetImportedModelCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customModelUnits: _json,
     instructSupported: __expectBoolean,
     jobArn: __expectString,
     jobName: __expectString,
@@ -3685,6 +3686,8 @@ const de_CustomModelSummaryList = (output: any, context: __SerdeContext): Custom
     });
   return retVal;
 };
+
+// de_CustomModelUnits omitted.
 
 // de_DistillationConfig omitted.
 
