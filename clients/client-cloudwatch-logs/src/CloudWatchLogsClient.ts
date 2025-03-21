@@ -713,7 +713,7 @@ export class CloudWatchLogsClient extends __Client<
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveEventStreamSerdeConfig(_config_6);
-    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
+    const _config_8 = resolveHttpAuthSchemeConfig(_config_7, { client: () => this });
     const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
     super(_config_9);
     this.config = _config_9;

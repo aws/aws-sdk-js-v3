@@ -835,7 +835,7 @@ export class S3Client extends __Client<
     const _config_6 = resolveHostHeaderConfig(_config_5);
     const _config_7 = resolveEndpointConfig(_config_6);
     const _config_8 = resolveEventStreamSerdeConfig(_config_7);
-    const _config_9 = resolveHttpAuthSchemeConfig(_config_8);
+    const _config_9 = resolveHttpAuthSchemeConfig(_config_8, { client: () => this });
     const _config_10 = resolveS3Config(_config_9, { session: [() => this, CreateSessionCommand] });
     const _config_11 = resolveRuntimeExtensions(_config_10, configuration?.extensions || []);
     super(_config_11);

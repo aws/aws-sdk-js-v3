@@ -297,7 +297,7 @@ export class RpcV2ProtocolClient extends __Client<
     const _config_2 = resolveCustomEndpointsConfig(_config_1);
     const _config_3 = resolveRetryConfig(_config_2);
     const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveHttpAuthSchemeConfig(_config_4);
+    const _config_5 = resolveHttpAuthSchemeConfig(_config_4, { client: () => this });
     const _config_6 = resolveRuntimeExtensions(_config_5, configuration?.extensions || []);
     super(_config_6);
     this.config = _config_6;
