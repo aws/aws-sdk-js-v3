@@ -5,7 +5,9 @@ import { tokenDefaultProvider } from "./tokenDefaultProvider";
 /**
  * @internal
  */
-export const resolveTokenConfig = <T>(input: T & TokenInputConfig): T & TokenResolvedConfig => ({
-  ...input,
-  token: input.token ? normalizeTokenProvider(input.token) : tokenDefaultProvider(input as any),
-});
+export const resolveTokenConfig = <T>(input: T & TokenInputConfig): T & TokenResolvedConfig => {
+  const { token } = input;
+  return Object.assign(input, {
+    token: token ? normalizeTokenProvider(token) : tokenDefaultProvider(input as any),
+  });
+};

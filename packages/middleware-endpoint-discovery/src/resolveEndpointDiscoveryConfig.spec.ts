@@ -17,6 +17,14 @@ describe(resolveEndpointDiscoveryConfig.name, () => {
     vi.clearAllMocks();
   });
 
+  it("maintains object custody", () => {
+    const input = {
+      credentials: vi.fn(),
+      endpointDiscoveryEnabledProvider: async () => false,
+    };
+    expect(resolveEndpointDiscoveryConfig(input, { endpointDiscoveryCommandCtor })).toBe(input);
+  });
+
   it("assigns endpointDiscoveryCommandCtor in resolvedConfig", () => {
     const resolvedConfig = resolveEndpointDiscoveryConfig(mockInput, { endpointDiscoveryCommandCtor });
     expect(resolvedConfig.endpointDiscoveryCommandCtor).toStrictEqual(endpointDiscoveryCommandCtor);

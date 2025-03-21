@@ -47,8 +47,10 @@ export interface StsAuthConfigOptions {
 export const resolveStsAuthConfig = <T>(
   input: T & PreviouslyResolved & StsAuthInputConfig,
   { stsClientCtor }: StsAuthConfigOptions
-): T & StsAuthResolvedConfig =>
-  resolveAwsAuthConfig({
-    ...input,
-    stsClientCtor,
-  });
+): T & StsAuthResolvedConfig => {
+  return resolveAwsAuthConfig(
+    Object.assign(input, {
+      stsClientCtor,
+    })
+  );
+};

@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { locationConstraintMiddleware } from "./";
+import { resolveLocationConstraintConfig } from "./configuration";
 
 describe("locationConstrainMiddleware", () => {
   const next = vi.fn();
@@ -10,6 +11,13 @@ describe("locationConstrainMiddleware", () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
+  });
+
+  describe("config resolver", () => {
+    it("maintains object custody", () => {
+      const input = {} as any;
+      expect(resolveLocationConstraintConfig(input)).toBe(input);
+    });
   });
 
   describe("for region us-east-1", () => {

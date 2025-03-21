@@ -246,13 +246,12 @@ export const resolveAwsAuthConfig = <T>(
     };
   }
 
-  return {
-    ...input,
+  return Object.assign(input, {
     systemClockOffset,
     signingEscapePath,
     credentials: normalizedCreds,
     signer,
-  };
+  });
 };
 
 /**
@@ -279,13 +278,12 @@ export const resolveSigV4AuthConfig = <T>(
       })
     );
   }
-  return {
-    ...input,
+  return Object.assign(input, {
     systemClockOffset,
     signingEscapePath,
     credentials: normalizedCreds,
     signer,
-  };
+  });
 };
 
 /**
