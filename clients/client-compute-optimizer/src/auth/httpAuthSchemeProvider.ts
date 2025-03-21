@@ -130,11 +130,10 @@ export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedCon
 /**
  * @internal
  */
-export const resolveHttpAuthSchemeConfig = <T, R extends object>(
-  config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved,
-  { client }: { client: () => { config: R } }
+export const resolveHttpAuthSchemeConfig = <T>(
+  config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved
 ): T & HttpAuthSchemeResolvedConfig => {
-  const config_0 = resolveAwsSdkSigV4Config(config, client);
+  const config_0 = resolveAwsSdkSigV4Config(config);
   return {
     ...config_0,
   } as T & HttpAuthSchemeResolvedConfig;

@@ -102,10 +102,7 @@ export interface AwsSdkSigV4AuthResolvedConfig {
  * @internal
  */
 export const resolveAwsSdkSigV4Config = <T>(
-  config: T & AwsSdkSigV4AuthInputConfig & AwsSdkSigV4PreviouslyResolved,
-  client?: () => {
-    config: Pick<AwsSdkSigV4AuthInputConfig, "credentials">;
-  }
+  config: T & AwsSdkSigV4AuthInputConfig & AwsSdkSigV4PreviouslyResolved
 ): T & AwsSdkSigV4AuthResolvedConfig => {
   let isUserSupplied = false;
   // Normalize credentials
@@ -211,7 +208,7 @@ export const resolveAwsSdkSigV4Config = <T>(
 
       const params: SignatureV4Init & SignatureV4CryptoInit = {
         ...config,
-        credentials: client?.().config.credentials ?? boundCredentialsProvider,
+        credentials: boundCredentialsProvider,
         region: config.signingRegion,
         service: config.signingName,
         sha256,

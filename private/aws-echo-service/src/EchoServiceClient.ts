@@ -244,7 +244,7 @@ export class EchoServiceClient extends __Client<
     let _config_2 = resolveCustomEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);
     let _config_4 = resolveHostHeaderConfig(_config_3);
-    let _config_5 = resolveHttpAuthSchemeConfig(_config_4, { client: () => this });
+    let _config_5 = resolveHttpAuthSchemeConfig(_config_4);
     let _config_6 = resolveRuntimeExtensions(_config_5, configuration?.extensions || []);
     super(_config_6);
     this.config = _config_6;
