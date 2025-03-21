@@ -735,6 +735,18 @@ export interface AuditContext {
 }
 
 /**
+ * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
+ * @public
+ */
+export interface Condition {
+  /**
+   * <p>An expression written based on the Cedar Policy Language used to match the principal attributes.</p>
+   * @public
+   */
+  Expression?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -803,6 +815,12 @@ export interface BatchPermissionsRequestEntry {
    * @public
    */
   Permissions?: Permission[] | undefined;
+
+  /**
+   * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
+   * @public
+   */
+  Condition?: Condition | undefined;
 
   /**
    * <p>Indicates if the option to pass permissions is granted.</p>
@@ -1232,6 +1250,12 @@ export interface CreateLakeFormationOptInRequest {
    * @public
    */
   Resource: Resource | undefined;
+
+  /**
+   * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
+   * @public
+   */
+  Condition?: Condition | undefined;
 }
 
 /**
@@ -1369,6 +1393,12 @@ export interface DeleteLakeFormationOptInRequest {
    * @public
    */
   Resource: Resource | undefined;
+
+  /**
+   * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
+   * @public
+   */
+  Condition?: Condition | undefined;
 }
 
 /**
@@ -1623,6 +1653,12 @@ export interface ResourceInfo {
    * @public
    */
   HybridAccessEnabled?: boolean | undefined;
+
+  /**
+   * <p>Grants the calling principal the permissions to perform all supported Lake Formation operations on the registered data location. </p>
+   * @public
+   */
+  WithPrivilegedAccess?: boolean | undefined;
 }
 
 /**
@@ -1916,18 +1952,6 @@ export interface DetailsMap {
    * @public
    */
   ResourceShare?: string[] | undefined;
-}
-
-/**
- * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
- * @public
- */
-export interface Condition {
-  /**
-   * <p>An expression written based on the Cedar Policy Language used to match the principal attributes.</p>
-   * @public
-   */
-  Expression?: string | undefined;
 }
 
 /**
@@ -2933,6 +2957,12 @@ export interface GrantPermissionsRequest {
   Permissions: Permission[] | undefined;
 
   /**
+   * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
+   * @public
+   */
+  Condition?: Condition | undefined;
+
+  /**
    * <p>Indicates a list of the granted permissions that the principal may pass to other users. These permissions may only be a subset of the permissions granted in the <code>Privileges</code>.</p>
    * @public
    */
@@ -3618,6 +3648,12 @@ export interface RegisterResourceRequest {
    * @public
    */
   HybridAccessEnabled?: boolean | undefined;
+
+  /**
+   * <p>Grants the calling principal the permissions to perform all supported Lake Formation operations on the registered data location. </p>
+   * @public
+   */
+  WithPrivilegedAccess?: boolean | undefined;
 }
 
 /**
@@ -3687,6 +3723,12 @@ export interface RevokePermissionsRequest {
    * @public
    */
   Permissions: Permission[] | undefined;
+
+  /**
+   * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
+   * @public
+   */
+  Condition?: Condition | undefined;
 
   /**
    * <p>Indicates a list of permissions for which to revoke the grant option allowing the principal to pass permissions to other principals.</p>

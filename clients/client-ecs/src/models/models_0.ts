@@ -476,6 +476,7 @@ export interface CreateCapacityProviderResponse {
 /**
  * <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service event messages</a>. </p>
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -788,8 +789,8 @@ export interface ClusterServiceConnectDefaultsRequest {
   /**
    * <p>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace that's used when you create a service and don't specify
    * 			a Service Connect configuration. The namespace name can include up to 1024 characters.
-   * 			The name is case-sensitive. The name can't include hyphens (-), tilde (~), greater than
-   * 			(>), less than (<), or slash (/).</p>
+   * 			The name is case-sensitive. The name can't include greater than
+   * 			(>), less than (<), double quotation marks ("), or slash (/).</p>
    *          <p>If you enter an existing namespace name or ARN, then that namespace will be used.
    * 			Any namespace type is supported. The namespace must be in this account and this Amazon Web Services
    * 			Region.</p>
@@ -1750,10 +1751,6 @@ export interface AwsVpcConfiguration {
    *             <li>
    *                <p>When the service <code>deploymentController</code> is <code>ECS</code>, the value must be
    * 						<code>DISABLED</code>. </p>
-   *             </li>
-   *             <li>
-   *                <p>When you use <code>create-service</code> or <code>update-service</code>, the
-   * 					default is <code>ENABLED</code>. </p>
    *             </li>
    *          </ul>
    * @public
@@ -7431,11 +7428,8 @@ export interface TaskDefinition {
    *          <p>If you're using the EC2 launch type or the external launch type, this
    * 			field is optional. Supported values are between <code>128</code> CPU units
    * 				(<code>0.125</code> vCPUs) and <code>196608</code> CPU units (<code>192</code>
-   * 			vCPUs). </p>
-   *          <p>If you're using the Fargate launch type, this field is required and you
-   * 				must use one of the following values, which determines your range of supported values
-   * 				for the <code>memory</code> parameter. The CPU units cannot be less than 1 vCPU when you use Windows containers on
-   * 				Fargate.</p>
+   * 			vCPUs). The CPU units cannot be less than 1 vCPU when you use Windows containers on
+   * 			Fargate.</p>
    *          <ul>
    *             <li>
    *                <p>256 (.25 vCPU) - Available <code>memory</code> values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)</p>

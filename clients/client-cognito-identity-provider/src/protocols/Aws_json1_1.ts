@@ -444,6 +444,7 @@ import {
   DescribeUserPoolRequest,
   DescribeUserPoolResponse,
   DeviceConfigurationType,
+  DeviceKeyExistsException,
   DeviceSecretVerifierConfigType,
   DeviceType,
   DuplicateProviderException,
@@ -4439,6 +4440,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "WebAuthnRelyingPartyMismatchException":
     case "com.amazonaws.cognitoidentityprovider#WebAuthnRelyingPartyMismatchException":
       throw await de_WebAuthnRelyingPartyMismatchExceptionRes(parsedOutput, context);
+    case "DeviceKeyExistsException":
+    case "com.amazonaws.cognitoidentityprovider#DeviceKeyExistsException":
+      throw await de_DeviceKeyExistsExceptionRes(parsedOutput, context);
     case "GroupExistsException":
     case "com.amazonaws.cognitoidentityprovider#GroupExistsException":
       throw await de_GroupExistsExceptionRes(parsedOutput, context);
@@ -4549,6 +4553,22 @@ const de_ConcurrentModificationExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ConcurrentModificationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1DeviceKeyExistsExceptionRes
+ */
+const de_DeviceKeyExistsExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DeviceKeyExistsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new DeviceKeyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -6179,6 +6199,8 @@ const de_DescribeUserPoolResponse = (output: any, context: __SerdeContext): Desc
 };
 
 // de_DeviceConfigurationType omitted.
+
+// de_DeviceKeyExistsException omitted.
 
 /**
  * deserializeAws_json1_1DeviceListType

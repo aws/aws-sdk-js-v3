@@ -4037,7 +4037,8 @@ export interface OAuth2ClientApplication {
   userManagedClientApplicationClientId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services managed client application reference in the OAuth2Client application.</p>
+   * <p>The Amazon Web Services managed client application reference in the OAuth2Client
+   *          application.</p>
    * @public
    */
   aWSManagedClientApplicationReference?: string | undefined;
@@ -4686,13 +4687,15 @@ export interface GlueConnectionInput {
   matchCriteria?: string | undefined;
 
   /**
-   * <p>Speciefies whether to validate credentials of the Amazon Web Services Glue connection.</p>
+   * <p>Speciefies whether to validate credentials of the Amazon Web Services Glue
+   *          connection.</p>
    * @public
    */
   validateCredentials?: boolean | undefined;
 
   /**
-   * <p>Speciefies whether to validate for compute environments of the Amazon Web Services Glue connection.</p>
+   * <p>Speciefies whether to validate for compute environments of the Amazon Web Services Glue
+   *          connection.</p>
    * @public
    */
   validateForComputeEnvironments?: ComputeEnvironments[] | undefined;
@@ -4752,7 +4755,8 @@ export interface HyperPodPropertiesInput {
  */
 export interface IamPropertiesInput {
   /**
-   * <p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a connection.</p>
+   * <p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a
+   *          connection.</p>
    * @public
    */
   glueLineageSyncEnabled?: boolean | undefined;
@@ -5030,13 +5034,15 @@ export interface SparkGluePropertiesInput {
   additionalArgs?: SparkGlueArgs | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue connection name in the Spark Amazon Web Services Glue properties.</p>
+   * <p>The Amazon Web Services Glue connection name in the Spark Amazon Web Services Glue
+   *          properties.</p>
    * @public
    */
   glueConnectionName?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue version in the Spark Amazon Web Services Glue properties.</p>
+   * <p>The Amazon Web Services Glue version in the Spark Amazon Web Services Glue
+   *          properties.</p>
    * @public
    */
   glueVersion?: string | undefined;
@@ -5320,7 +5326,8 @@ export interface IamPropertiesOutput {
   environmentId?: string | undefined;
 
   /**
-   * <p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a connection.</p>
+   * <p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a
+   *          connection.</p>
    * @public
    */
   glueLineageSyncEnabled?: boolean | undefined;
@@ -5508,13 +5515,15 @@ export interface SparkGluePropertiesOutput {
   additionalArgs?: SparkGlueArgs | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue connection name in the Spark Amazon Web Services Glue properties. </p>
+   * <p>The Amazon Web Services Glue connection name in the Spark Amazon Web Services Glue
+   *          properties. </p>
    * @public
    */
   glueConnectionName?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Glue version in the Spark Amazon Web Services Glue properties. </p>
+   * <p>The Amazon Web Services Glue version in the Spark Amazon Web Services Glue properties.
+   *       </p>
    * @public
    */
   glueVersion?: string | undefined;
@@ -5752,7 +5761,8 @@ export interface GluePropertiesPatch {
  */
 export interface IamPropertiesPatch {
   /**
-   * <p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a connection.</p>
+   * <p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a
+   *          connection.</p>
    * @public
    */
   glueLineageSyncEnabled?: boolean | undefined;
@@ -7158,7 +7168,10 @@ export interface CreateDataSourceInput {
   connectionIdentifier?: string | undefined;
 
   /**
-   * <p>The type of the data source.</p>
+   * <p>The type of the data source. In Amazon DataZone, you can use data sources to import
+   *          technical metadata of assets (data) from the source databases or data warehouses into
+   *          Amazon DataZone. In the current release of Amazon DataZone, you can create and run data
+   *          sources for Amazon Web Services Glue and Amazon Redshift.</p>
    * @public
    */
   type: string | undefined;
@@ -8477,6 +8490,12 @@ export interface CreateEnvironmentOutput {
    * @public
    */
   environmentBlueprintId?: string | undefined;
+
+  /**
+   * <p>The configuration ID of the environment.</p>
+   * @public
+   */
+  environmentConfigurationId?: string | undefined;
 }
 
 /**
@@ -9218,6 +9237,12 @@ export interface CreateListingChangeSetOutput {
  */
 export interface EnvironmentConfigurationUserParameter {
   /**
+   * <p>The ID of the environment.</p>
+   * @public
+   */
+  environmentId?: string | undefined;
+
+  /**
    * <p>The environment configuration name.</p>
    * @public
    */
@@ -9340,6 +9365,8 @@ export const ProjectStatus = {
   ACTIVE: "ACTIVE",
   DELETE_FAILED: "DELETE_FAILED",
   DELETING: "DELETING",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
 } as const;
 
 /**
@@ -11190,6 +11217,7 @@ export const CreateEnvironmentOutputFilterSensitiveLog = (obj: CreateEnvironment
     userParameters: obj.userParameters.map((item) => CustomParameterFilterSensitiveLog(item)),
   }),
   ...(obj.provisioningProperties && { provisioningProperties: obj.provisioningProperties }),
+  ...(obj.environmentConfigurationId && { environmentConfigurationId: SENSITIVE_STRING }),
 });
 
 /**

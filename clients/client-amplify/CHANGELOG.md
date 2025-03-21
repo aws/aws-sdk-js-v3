@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
+
+
+### Features
+
+* **client-amplify:** Added appId field to Webhook responses ([9a281ac](https://github.com/aws/aws-sdk-js-v3/commit/9a281acfdb10c779ee5b262aae0e64258282debb))
+
+
+
+
+
+# [3.767.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.766.0...v3.767.0) (2025-03-13)
+
+
+### Features
+
+* **client-amplify:** Introduced support for Skew Protection. Added enableSkewProtection field to createBranch and updateBranch API. ([d50c022](https://github.com/aws/aws-sdk-js-v3/commit/d50c02271ed57faddc668eb10b09b83bead6c8c6))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-amplify

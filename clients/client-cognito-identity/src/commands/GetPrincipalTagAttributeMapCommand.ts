@@ -30,7 +30,8 @@ export interface GetPrincipalTagAttributeMapCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Use <code>GetPrincipalTagAttributeMap</code> to list all mappings between <code>PrincipalTags</code> and user attributes.</p>
+ * <p>Use <code>GetPrincipalTagAttributeMap</code> to list all mappings between
+ *             <code>PrincipalTags</code> and user attributes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

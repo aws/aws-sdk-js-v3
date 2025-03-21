@@ -47,6 +47,8 @@ export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThrou
  * //   createdAt: new Date("TIMESTAMP"),
  * //   registryId: "STRING_VALUE",
  * //   credentialArn: "STRING_VALUE",
+ * //   customRoleArn: "STRING_VALUE",
+ * //   upstreamRepositoryPrefix: "STRING_VALUE",
  * // };
  *
  * ```

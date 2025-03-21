@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
+
+**Note:** Version bump only for package @aws-sdk/client-elastic-load-balancing-v2
+
+
+
+
+
+# [3.764.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.763.0...v3.764.0) (2025-03-07)
+
+
+### Features
+
+* **client-elastic-load-balancing-v2:** This release adds support for assigning IP addresses to Application Load Balancers from VPC IP Address Manager pools. ([a57cb5b](https://github.com/aws/aws-sdk-js-v3/commit/a57cb5be7e79f5a18feef5baabbb8ca9148019c1))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-elastic-load-balancing-v2

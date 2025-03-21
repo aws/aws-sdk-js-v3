@@ -41,8 +41,8 @@ export interface CognitoIdentityProvider {
    *          token.</p>
    *          <p>Once you set <code>ServerSideTokenCheck</code> to TRUE for an identity pool, that
    *          identity pool will check with the integrated user pools to make sure that the user has not
-   *          been globally signed out or deleted before the identity pool provides an OIDC token or AWS
-   *          credentials for the user.</p>
+   *          been globally signed out or deleted before the identity pool provides an OIDC token or
+   *             Amazon Web Services credentials for the user.</p>
    *          <p>If the user is signed out or deleted, the identity pool will return a 400 Not
    *          Authorized error.</p>
    * @public
@@ -69,7 +69,8 @@ export interface CreateIdentityPoolInput {
 
   /**
    * <p>Enables or disables the Basic (Classic) authentication flow. For more information, see
-   *       <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html">Identity Pools (Federated Identities) Authentication Flow</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html">Identity Pools (Federated Identities) Authentication Flow</a> in the
+   *             <i>Amazon Cognito Developer Guide</i>.</p>
    * @public
    */
   AllowClassicFlow?: boolean | undefined;
@@ -145,7 +146,8 @@ export interface IdentityPool {
 
   /**
    * <p>Enables or disables the Basic (Classic) authentication flow. For more information, see
-   *       <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html">Identity Pools (Federated Identities) Authentication Flow</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html">Identity Pools (Federated Identities) Authentication Flow</a> in the
+   *             <i>Amazon Cognito Developer Guide</i>.</p>
    * @public
    */
   AllowClassicFlow?: boolean | undefined;
@@ -497,8 +499,8 @@ export interface GetCredentialsForIdentityInput {
    *          identity.</p>
    *          <p>The Logins parameter is required when using identities associated with external
    *          identity providers such as Facebook. For examples of <code>Logins</code> maps, see the code
-   *          examples in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/external-identity-providers.html">External Identity Providers</a> section of the Amazon Cognito Developer
-   *          Guide.</p>
+   *          examples in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/external-identity-providers.html">External Identity
+   *             Providers</a> section of the Amazon Cognito Developer Guide.</p>
    * @public
    */
   Logins?: Record<string, string> | undefined;
@@ -563,8 +565,13 @@ export interface GetCredentialsForIdentityResponse {
 }
 
 /**
- * <p>Thrown if the identity pool has no role associated for the given auth type
- *          (auth/unauth) or if the AssumeRole fails.</p>
+ * <p>If you provided authentication information in the request, the identity pool has no
+ *          authenticated role configured, or STS returned an error response to the
+ *          request to assume the authenticated role from the identity pool. If you provided no
+ *          authentication information in the request, the identity pool has no unauthenticated role
+ *          configured, or STS returned an error response to the request to assume the
+ *          unauthenticated role from the identity pool.</p>
+ *          <p>Your role trust policy must grant <code>AssumeRoleWithWebIdentity</code> permissions to <code>cognito-identity.amazonaws.com</code>.</p>
  * @public
  */
 export class InvalidIdentityPoolConfigurationException extends __BaseException {
@@ -589,7 +596,7 @@ export class InvalidIdentityPoolConfigurationException extends __BaseException {
  */
 export interface GetIdInput {
   /**
-   * <p>A standard AWS account ID (9+ digits).</p>
+   * <p>A standard Amazon Web Services account ID (9+ digits).</p>
    * @public
    */
   AccountId?: string | undefined;
@@ -792,8 +799,8 @@ export interface GetIdentityPoolRolesResponse {
   /**
    * <p>How users for a specific identity provider are to mapped to roles. This is a
    *             String-to-<a>RoleMapping</a> object map. The string identifies the identity
-   *          provider, for example, "graph.facebook.com" or
-   *          "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".</p>
+   *          provider, for example, <code>graph.facebook.com</code> or
+   *             <code>cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id</code>.</p>
    * @public
    */
   RoleMappings?: Record<string, RoleMapping> | undefined;
@@ -899,13 +906,14 @@ export interface GetOpenIdTokenForDeveloperIdentityInput {
   /**
    * <p>The expiration time of the token, in seconds. You can specify a custom expiration
    *          time for the token so that you can cache it. If you don't provide an expiration time, the
-   *          token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS
-   *          credentials, which are valid for a maximum of one hour. The maximum token duration you can
-   *          set is 24 hours. You should take care in setting the expiration time for a token, as there
-   *          are significant security implications: an attacker could use a leaked token to access your
-   *          AWS resources for the token's duration.</p>
+   *          token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary
+   *             Amazon Web Services credentials, which are valid for a maximum of one hour. The maximum
+   *          token duration you can set is 24 hours. You should take care in setting the expiration time
+   *          for a token, as there are significant security implications: an attacker could use a leaked
+   *          token to access your Amazon Web Services resources for the token's duration.</p>
    *          <note>
-   *             <p>Please provide for a small grace period, usually no more than 5 minutes, to account for clock skew.</p>
+   *             <p>Please provide for a small grace period, usually no more than 5 minutes, to
+   *             account for clock skew.</p>
    *          </note>
    * @public
    */
@@ -936,7 +944,8 @@ export interface GetOpenIdTokenForDeveloperIdentityResponse {
  */
 export interface GetPrincipalTagAttributeMapInput {
   /**
-   * <p>You can use this operation to get the ID of the Identity Pool you setup attribute mappings for.</p>
+   * <p>You can use this operation to get the ID of the Identity Pool you setup attribute
+   *          mappings for.</p>
    * @public
    */
   IdentityPoolId: string | undefined;
@@ -953,7 +962,8 @@ export interface GetPrincipalTagAttributeMapInput {
  */
 export interface GetPrincipalTagAttributeMapResponse {
   /**
-   * <p>You can use this operation to get the ID of the Identity Pool you setup attribute mappings for.</p>
+   * <p>You can use this operation to get the ID of the Identity Pool you setup attribute
+   *          mappings for.</p>
    * @public
    */
   IdentityPoolId?: string | undefined;
@@ -971,7 +981,9 @@ export interface GetPrincipalTagAttributeMapResponse {
   UseDefaults?: boolean | undefined;
 
   /**
-   * <p>You can use this operation to add principal tags. The <code>PrincipalTags</code>operation enables you to reference user attributes in your IAM permissions policy.</p>
+   * <p>You can use this operation to add principal tags. The
+   *          <code>PrincipalTags</code>operation enables you to reference user attributes in your
+   *             IAM permissions policy.</p>
    * @public
    */
   PrincipalTags?: Record<string, string> | undefined;
@@ -1274,8 +1286,8 @@ export interface SetIdentityPoolRolesInput {
   /**
    * <p>How users for a specific identity provider are to mapped to roles. This is a string
    *          to <a>RoleMapping</a> object map. The string identifies the identity provider,
-   *          for example, "graph.facebook.com" or
-   *          "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".</p>
+   *          for example, <code>graph.facebook.com</code> or
+   *             <code>cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id</code>.</p>
    *          <p>Up to 25 rules can be specified per identity provider.</p>
    * @public
    */
@@ -1299,7 +1311,8 @@ export interface SetPrincipalTagAttributeMapInput {
   IdentityProviderName: string | undefined;
 
   /**
-   * <p>You can use this operation to use default (username and clientID) attribute mappings.</p>
+   * <p>You can use this operation to use default (username and clientID) attribute
+   *          mappings.</p>
    * @public
    */
   UseDefaults?: boolean | undefined;
@@ -1328,13 +1341,16 @@ export interface SetPrincipalTagAttributeMapResponse {
   IdentityProviderName?: string | undefined;
 
   /**
-   * <p>You can use this operation to select default (username and clientID) attribute mappings.</p>
+   * <p>You can use this operation to select default (username and clientID) attribute
+   *          mappings.</p>
    * @public
    */
   UseDefaults?: boolean | undefined;
 
   /**
-   * <p>You can use this operation to add principal tags. The <code>PrincipalTags</code>operation enables you to reference user attributes in your IAM permissions policy.</p>
+   * <p>You can use this operation to add principal tags. The
+   *          <code>PrincipalTags</code>operation enables you to reference user attributes in your
+   *             IAM permissions policy.</p>
    * @public
    */
   PrincipalTags?: Record<string, string> | undefined;

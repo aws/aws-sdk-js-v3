@@ -451,6 +451,7 @@ export const se_CreateDomainNameCommand = async (
       certificateArn: [],
       description: [],
       domainName: [],
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);

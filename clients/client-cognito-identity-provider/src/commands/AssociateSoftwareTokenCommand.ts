@@ -43,18 +43,6 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  *             the user's access token, or a session string from a challenge response that you received
  *             from Amazon Cognito.</p>
  *          <note>
- *             <p>Amazon Cognito disassociates an existing software token when you verify the new token in a
- *                     <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifySoftwareToken.html"> VerifySoftwareToken</a> API request. If you don't verify the software
- *                 token and your user pool doesn't require MFA, the user can then authenticate with
- *                 user name and password credentials alone. If your user pool requires TOTP MFA, Amazon Cognito
- *                 generates an <code>MFA_SETUP</code> or <code>SOFTWARE_TOKEN_SETUP</code> challenge
- *                 each time your user signs in. Complete setup with
- *                     <code>AssociateSoftwareToken</code> and <code>VerifySoftwareToken</code>.</p>
- *             <p>After you set up software token MFA for your user, Amazon Cognito generates a
- *                     <code>SOFTWARE_TOKEN_MFA</code> challenge when they authenticate. Respond to
- *                 this challenge with your user's TOTP.</p>
- *          </note>
- *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you can't use IAM credentials to authorize requests, and you can't
  *     grant IAM permissions in policies. For more information about authorization models in

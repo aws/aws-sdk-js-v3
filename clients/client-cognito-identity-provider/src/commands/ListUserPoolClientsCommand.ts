@@ -36,7 +36,8 @@ export interface ListUserPoolClientsCommandInput extends ListUserPoolClientsRequ
 export interface ListUserPoolClientsCommandOutput extends ListUserPoolClientsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the clients that have been created for the specified user pool.</p>
+ * <p>Given a user pool ID, lists app clients. App clients are sets of rules for the access
+ *             that you want a user pool to grant to one application. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html">App clients</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

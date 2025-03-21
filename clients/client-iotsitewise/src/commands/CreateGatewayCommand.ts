@@ -45,11 +45,13 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *     },
  *     greengrassV2: { // GreengrassV2
  *       coreDeviceThingName: "STRING_VALUE", // required
+ *       coreDeviceOperatingSystem: "LINUX_AARCH64" || "LINUX_AMD64" || "WINDOWS_AMD64",
  *     },
  *     siemensIE: { // SiemensIE
  *       iotCoreThingName: "STRING_VALUE", // required
  *     },
  *   },
+ *   gatewayVersion: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },

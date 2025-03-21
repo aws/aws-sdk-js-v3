@@ -16,5 +16,6 @@ export * from "./ListMembersPaginator";
 export * from "./ListMembershipsPaginator";
 export * from "./ListPrivacyBudgetTemplatesPaginator";
 export * from "./ListPrivacyBudgetsPaginator";
+export * from "./ListProtectedJobsPaginator";
 export * from "./ListProtectedQueriesPaginator";
 export * from "./ListSchemasPaginator";

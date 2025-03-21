@@ -50,7 +50,7 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * //       status: "STRING_VALUE", // required
  * //       displayName: "STRING_VALUE", // required
  * //       abilities: [ // MemberAbilities // required
- * //         "CAN_QUERY" || "CAN_RECEIVE_RESULTS",
+ * //         "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
  * //       ],
  * //       mlAbilities: { // MLMemberAbilities
  * //         customMLMemberAbilities: [ // CustomMLMemberAbilities // required
@@ -72,6 +72,9 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
  * //           modelInference: { // ModelInferencePaymentConfig
  * //             isResponsible: true || false, // required
  * //           },
+ * //         },
+ * //         jobCompute: { // JobComputePaymentConfig
+ * //           isResponsible: true || false, // required
  * //         },
  * //       },
  * //     },

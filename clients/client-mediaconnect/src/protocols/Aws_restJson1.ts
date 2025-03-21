@@ -195,6 +195,8 @@ import {
   Messages,
   MonitoringConfig,
   MulticastSourceSettings,
+  NdiConfig,
+  NdiDiscoveryServerConfig,
   NotFoundException,
   Offering,
   Output,
@@ -410,9 +412,11 @@ export const se_CreateFlowCommand = async (
     take(input, {
       availabilityZone: [, , `AvailabilityZone`],
       entitlements: [, (_) => se___listOfGrantEntitlementRequest(_, context), `Entitlements`],
+      flowSize: [, , `FlowSize`],
       maintenance: [, (_) => se_AddMaintenance(_, context), `Maintenance`],
       mediaStreams: [, (_) => se___listOfAddMediaStreamRequest(_, context), `MediaStreams`],
       name: [, , `Name`],
+      ndiConfig: [, (_) => se_NdiConfig(_, context), `NdiConfig`],
       outputs: [, (_) => se___listOfAddOutputRequest(_, context), `Outputs`],
       source: [, (_) => se_SetSourceRequest(_, context), `Source`],
       sourceFailoverConfig: [, (_) => se_FailoverConfig(_, context), `SourceFailoverConfig`],
@@ -1149,6 +1153,7 @@ export const se_UpdateFlowCommand = async (
   body = JSON.stringify(
     take(input, {
       maintenance: [, (_) => se_UpdateMaintenance(_, context), `Maintenance`],
+      ndiConfig: [, (_) => se_NdiConfig(_, context), `NdiConfig`],
       sourceFailoverConfig: [, (_) => se_UpdateFailoverConfig(_, context), `SourceFailoverConfig`],
       sourceMonitoringConfig: [, (_) => se_MonitoringConfig(_, context), `SourceMonitoringConfig`],
     })
@@ -1240,6 +1245,8 @@ export const se_UpdateFlowOutputCommand = async (
         `MediaStreamOutputConfigurations`,
       ],
       minLatency: [, , `MinLatency`],
+      ndiProgramName: [, , `NdiProgramName`],
+      ndiSpeedHqQuality: [, , `NdiSpeedHqQuality`],
       outputStatus: [, , `OutputStatus`],
       port: [, , `Port`],
       protocol: [, , `Protocol`],
@@ -2730,8 +2737,6 @@ const de_TooManyRequestsExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
-// se___listOf__string omitted.
-
 /**
  * serializeAws_restJson1__listOfAddBridgeOutputRequest
  */
@@ -2863,6 +2868,17 @@ const se___listOfMediaStreamSourceConfigurationRequest = (
 };
 
 /**
+ * serializeAws_restJson1__listOfNdiDiscoveryServerConfig
+ */
+const se___listOfNdiDiscoveryServerConfig = (input: NdiDiscoveryServerConfig[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_NdiDiscoveryServerConfig(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1__listOfSetSourceRequest
  */
 const se___listOfSetSourceRequest = (input: SetSourceRequest[], context: __SerdeContext): any => {
@@ -2872,6 +2888,8 @@ const se___listOfSetSourceRequest = (input: SetSourceRequest[], context: __Serde
       return se_SetSourceRequest(entry, context);
     });
 };
+
+// se___listOfString omitted.
 
 /**
  * serializeAws_restJson1__listOfVideoMonitoringSetting
@@ -2895,7 +2913,7 @@ const se___listOfVpcInterfaceRequest = (input: VpcInterfaceRequest[], context: _
     });
 };
 
-// se___mapOf__string omitted.
+// se___mapOfString omitted.
 
 /**
  * serializeAws_restJson1AddBridgeFlowSourceRequest
@@ -3016,6 +3034,8 @@ const se_AddOutputRequest = (input: AddOutputRequest, context: __SerdeContext): 
     ],
     minLatency: [, , `MinLatency`],
     name: [, , `Name`],
+    ndiProgramName: [, , `NdiProgramName`],
+    ndiSpeedHqQuality: [, , `NdiSpeedHqQuality`],
     outputStatus: [, , `OutputStatus`],
     port: [, , `Port`],
     protocol: [, , `Protocol`],
@@ -3229,6 +3249,28 @@ const se_MulticastSourceSettings = (input: MulticastSourceSettings, context: __S
 };
 
 /**
+ * serializeAws_restJson1NdiConfig
+ */
+const se_NdiConfig = (input: NdiConfig, context: __SerdeContext): any => {
+  return take(input, {
+    machineName: [, , `MachineName`],
+    ndiDiscoveryServers: [, (_) => se___listOfNdiDiscoveryServerConfig(_, context), `NdiDiscoveryServers`],
+    ndiState: [, , `NdiState`],
+  });
+};
+
+/**
+ * serializeAws_restJson1NdiDiscoveryServerConfig
+ */
+const se_NdiDiscoveryServerConfig = (input: NdiDiscoveryServerConfig, context: __SerdeContext): any => {
+  return take(input, {
+    discoveryServerAddress: [, , `DiscoveryServerAddress`],
+    discoveryServerPort: [, , `DiscoveryServerPort`],
+    vpcInterfaceAdapter: [, , `VpcInterfaceAdapter`],
+  });
+};
+
+/**
  * serializeAws_restJson1SetGatewayBridgeSourceRequest
  */
 const se_SetGatewayBridgeSourceRequest = (input: SetGatewayBridgeSourceRequest, context: __SerdeContext): any => {
@@ -3428,10 +3470,6 @@ const se_VpcInterfaceRequest = (input: VpcInterfaceRequest, context: __SerdeCont
   });
 };
 
-// de___listOf__integer omitted.
-
-// de___listOf__string omitted.
-
 /**
  * deserializeAws_restJson1__listOfAudioMonitoringSetting
  */
@@ -3515,6 +3553,8 @@ const de___listOfInputConfiguration = (output: any, context: __SerdeContext): In
     });
   return retVal;
 };
+
+// de___listOfInteger omitted.
 
 /**
  * deserializeAws_restJson1__listOfListedBridge
@@ -3631,6 +3671,18 @@ const de___listOfMessageDetail = (output: any, context: __SerdeContext): Message
 };
 
 /**
+ * deserializeAws_restJson1__listOfNdiDiscoveryServerConfig
+ */
+const de___listOfNdiDiscoveryServerConfig = (output: any, context: __SerdeContext): NdiDiscoveryServerConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_NdiDiscoveryServerConfig(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfOffering
  */
 const de___listOfOffering = (output: any, context: __SerdeContext): Offering[] => {
@@ -3677,6 +3729,8 @@ const de___listOfSource = (output: any, context: __SerdeContext): Source[] => {
     });
   return retVal;
 };
+
+// de___listOfString omitted.
 
 /**
  * deserializeAws_restJson1__listOfTransportStream
@@ -3726,7 +3780,7 @@ const de___listOfVpcInterface = (output: any, context: __SerdeContext): VpcInter
   return retVal;
 };
 
-// de___mapOf__string omitted.
+// de___mapOfString omitted.
 
 /**
  * deserializeAws_restJson1AudioMonitoringSetting
@@ -3922,9 +3976,11 @@ const de_Flow = (output: any, context: __SerdeContext): Flow => {
     EgressIp: [, __expectString, `egressIp`],
     Entitlements: [, (_: any) => de___listOfEntitlement(_, context), `entitlements`],
     FlowArn: [, __expectString, `flowArn`],
+    FlowSize: [, __expectString, `flowSize`],
     Maintenance: [, (_: any) => de_Maintenance(_, context), `maintenance`],
     MediaStreams: [, (_: any) => de___listOfMediaStream(_, context), `mediaStreams`],
     Name: [, __expectString, `name`],
+    NdiConfig: [, (_: any) => de_NdiConfig(_, context), `ndiConfig`],
     Outputs: [, (_: any) => de___listOfOutput(_, context), `outputs`],
     Source: [, (_: any) => de_Source(_, context), `source`],
     SourceFailoverConfig: [, (_: any) => de_FailoverConfig(_, context), `sourceFailoverConfig`],
@@ -4220,6 +4276,28 @@ const de_MulticastSourceSettings = (output: any, context: __SerdeContext): Multi
 };
 
 /**
+ * deserializeAws_restJson1NdiConfig
+ */
+const de_NdiConfig = (output: any, context: __SerdeContext): NdiConfig => {
+  return take(output, {
+    MachineName: [, __expectString, `machineName`],
+    NdiDiscoveryServers: [, (_: any) => de___listOfNdiDiscoveryServerConfig(_, context), `ndiDiscoveryServers`],
+    NdiState: [, __expectString, `ndiState`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1NdiDiscoveryServerConfig
+ */
+const de_NdiDiscoveryServerConfig = (output: any, context: __SerdeContext): NdiDiscoveryServerConfig => {
+  return take(output, {
+    DiscoveryServerAddress: [, __expectString, `discoveryServerAddress`],
+    DiscoveryServerPort: [, __expectInt32, `discoveryServerPort`],
+    VpcInterfaceAdapter: [, __expectString, `vpcInterfaceAdapter`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Offering
  */
 const de_Offering = (output: any, context: __SerdeContext): Offering => {
@@ -4363,6 +4441,8 @@ const de_Transport = (output: any, context: __SerdeContext): Transport => {
     MaxLatency: [, __expectInt32, `maxLatency`],
     MaxSyncBuffer: [, __expectInt32, `maxSyncBuffer`],
     MinLatency: [, __expectInt32, `minLatency`],
+    NdiProgramName: [, __expectString, `ndiProgramName`],
+    NdiSpeedHqQuality: [, __expectInt32, `ndiSpeedHqQuality`],
     Protocol: [, __expectString, `protocol`],
     RemoteId: [, __expectString, `remoteId`],
     SenderControlPort: [, __expectInt32, `senderControlPort`],

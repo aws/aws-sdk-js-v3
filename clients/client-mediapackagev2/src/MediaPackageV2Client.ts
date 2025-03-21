@@ -100,6 +100,11 @@ import {
   PutOriginEndpointPolicyCommandInput,
   PutOriginEndpointPolicyCommandOutput,
 } from "./commands/PutOriginEndpointPolicyCommand";
+import { ResetChannelStateCommandInput, ResetChannelStateCommandOutput } from "./commands/ResetChannelStateCommand";
+import {
+  ResetOriginEndpointStateCommandInput,
+  ResetOriginEndpointStateCommandOutput,
+} from "./commands/ResetOriginEndpointStateCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
@@ -146,6 +151,8 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | PutChannelPolicyCommandInput
   | PutOriginEndpointPolicyCommandInput
+  | ResetChannelStateCommandInput
+  | ResetOriginEndpointStateCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateChannelCommandInput
@@ -179,6 +186,8 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | PutChannelPolicyCommandOutput
   | PutOriginEndpointPolicyCommandOutput
+  | ResetChannelStateCommandOutput
+  | ResetOriginEndpointStateCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateChannelCommandOutput

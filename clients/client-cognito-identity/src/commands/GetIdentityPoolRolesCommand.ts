@@ -29,7 +29,8 @@ export interface GetIdentityPoolRolesCommandOutput extends GetIdentityPoolRolesR
 
 /**
  * <p>Gets the roles for an identity pool.</p>
- *          <p>You must use AWS Developer credentials to call this API.</p>
+ *          <p>You must use Amazon Web Services developer credentials to call this
+ *          operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

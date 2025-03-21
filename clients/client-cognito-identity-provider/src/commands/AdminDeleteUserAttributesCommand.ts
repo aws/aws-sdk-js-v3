@@ -37,8 +37,8 @@ export interface AdminDeleteUserAttributesCommandOutput extends AdminDeleteUserA
 
 /**
  * <p>Deletes attribute values from a user. This operation doesn't affect tokens for
- *             existing user sessions. The next ID token that the user receives will no longer have
- *             this attribute.</p>
+ *             existing user sessions. The next ID token that the user receives will no longer have the
+ *             deleted attributes.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

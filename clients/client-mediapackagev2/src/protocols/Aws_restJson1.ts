@@ -76,6 +76,11 @@ import {
   PutOriginEndpointPolicyCommandInput,
   PutOriginEndpointPolicyCommandOutput,
 } from "../commands/PutOriginEndpointPolicyCommand";
+import { ResetChannelStateCommandInput, ResetChannelStateCommandOutput } from "../commands/ResetChannelStateCommand";
+import {
+  ResetOriginEndpointStateCommandInput,
+  ResetOriginEndpointStateCommandOutput,
+} from "../commands/ResetOriginEndpointStateCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "../commands/UpdateChannelCommand";
@@ -614,6 +619,41 @@ export const se_PutOriginEndpointPolicyCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ResetChannelStateCommand
+ */
+export const se_ResetChannelStateCommand = async (
+  input: ResetChannelStateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}/reset");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ResetOriginEndpointStateCommand
+ */
+export const se_ResetOriginEndpointStateCommand = async (
+  input: ResetOriginEndpointStateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}/reset");
+  b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
+  b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
+  b.p("OriginEndpointName", () => input.OriginEndpointName!, "{OriginEndpointName}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -998,6 +1038,7 @@ export const de_GetChannelCommand = async (
     InputType: __expectString,
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     OutputHeaderConfiguration: _json,
+    ResetAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Tags: _json,
   });
   Object.assign(contents, doc);
@@ -1118,6 +1159,7 @@ export const de_GetOriginEndpointCommand = async (
     LowLatencyHlsManifests: (_) => de_GetLowLatencyHlsManifests(_, context),
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     OriginEndpointName: __expectString,
+    ResetAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Segment: _json,
     StartoverWindowSeconds: __expectInt32,
     Tags: _json,
@@ -1290,6 +1332,55 @@ export const de_PutOriginEndpointPolicyCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ResetChannelStateCommand
+ */
+export const de_ResetChannelStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetChannelStateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    ChannelGroupName: __expectString,
+    ChannelName: __expectString,
+    ResetAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ResetOriginEndpointStateCommand
+ */
+export const de_ResetOriginEndpointStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetOriginEndpointStateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    ChannelGroupName: __expectString,
+    ChannelName: __expectString,
+    OriginEndpointName: __expectString,
+    ResetAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1641,6 +1732,7 @@ const se_CreateHlsManifestConfiguration = (input: CreateHlsManifestConfiguration
     ProgramDateTimeIntervalSeconds: [],
     ScteHls: _json,
     StartTag: (_) => se_StartTag(_, context),
+    UrlEncodeChildManifest: [],
   });
 };
 
@@ -1670,6 +1762,7 @@ const se_CreateLowLatencyHlsManifestConfiguration = (
     ProgramDateTimeIntervalSeconds: [],
     ScteHls: _json,
     StartTag: (_) => se_StartTag(_, context),
+    UrlEncodeChildManifest: [],
   });
 };
 
@@ -1900,6 +1993,7 @@ const de_GetHlsManifestConfiguration = (output: any, context: __SerdeContext): G
     ScteHls: _json,
     StartTag: (_: any) => de_StartTag(_, context),
     Url: __expectString,
+    UrlEncodeChildManifest: __expectBoolean,
   }) as any;
 };
 
@@ -1931,6 +2025,7 @@ const de_GetLowLatencyHlsManifestConfiguration = (
     ScteHls: _json,
     StartTag: (_: any) => de_StartTag(_, context),
     Url: __expectString,
+    UrlEncodeChildManifest: __expectBoolean,
   }) as any;
 };
 

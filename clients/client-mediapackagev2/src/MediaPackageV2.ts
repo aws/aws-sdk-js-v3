@@ -113,6 +113,16 @@ import {
   PutOriginEndpointPolicyCommandInput,
   PutOriginEndpointPolicyCommandOutput,
 } from "./commands/PutOriginEndpointPolicyCommand";
+import {
+  ResetChannelStateCommand,
+  ResetChannelStateCommandInput,
+  ResetChannelStateCommandOutput,
+} from "./commands/ResetChannelStateCommand";
+import {
+  ResetOriginEndpointStateCommand,
+  ResetOriginEndpointStateCommandInput,
+  ResetOriginEndpointStateCommandOutput,
+} from "./commands/ResetOriginEndpointStateCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -160,6 +170,8 @@ const commands = {
   ListTagsForResourceCommand,
   PutChannelPolicyCommand,
   PutOriginEndpointPolicyCommand,
+  ResetChannelStateCommand,
+  ResetOriginEndpointStateCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateChannelCommand,
@@ -522,6 +534,40 @@ export interface MediaPackageV2 {
     args: PutOriginEndpointPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutOriginEndpointPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ResetChannelStateCommand}
+   */
+  resetChannelState(
+    args: ResetChannelStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResetChannelStateCommandOutput>;
+  resetChannelState(
+    args: ResetChannelStateCommandInput,
+    cb: (err: any, data?: ResetChannelStateCommandOutput) => void
+  ): void;
+  resetChannelState(
+    args: ResetChannelStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResetChannelStateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ResetOriginEndpointStateCommand}
+   */
+  resetOriginEndpointState(
+    args: ResetOriginEndpointStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResetOriginEndpointStateCommandOutput>;
+  resetOriginEndpointState(
+    args: ResetOriginEndpointStateCommandInput,
+    cb: (err: any, data?: ResetOriginEndpointStateCommandOutput) => void
+  ): void;
+  resetOriginEndpointState(
+    args: ResetOriginEndpointStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResetOriginEndpointStateCommandOutput) => void
   ): void;
 
   /**

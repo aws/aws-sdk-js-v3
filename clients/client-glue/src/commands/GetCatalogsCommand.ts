@@ -98,6 +98,7 @@ export interface GetCatalogsCommandOutput extends GetCatalogsResponse, __Metadat
  * //           ],
  * //         },
  * //       ],
+ * //       AllowFullTableExternalDataAccess: "True" || "False",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

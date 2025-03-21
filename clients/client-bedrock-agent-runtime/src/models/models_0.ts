@@ -223,6 +223,9 @@ export interface ActionGroupInvocationOutput {
 export const ActionGroupSignature = {
   AMAZON_CODEINTERPRETER: "AMAZON.CodeInterpreter",
   AMAZON_USERINPUT: "AMAZON.UserInput",
+  ANTHROPIC_BASH: "ANTHROPIC.Bash",
+  ANTHROPIC_COMPUTER: "ANTHROPIC.Computer",
+  ANTHROPIC_TEXTEDITOR: "ANTHROPIC.TextEditor",
 } as const;
 
 /**
@@ -497,14 +500,41 @@ export interface AgentActionGroup {
   description?: string | undefined;
 
   /**
-   * <p>
-   *             To allow your agent to request the user for additional information when trying to complete a task, set this field to <code>AMAZON.UserInput</code>.
-   *             You must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields blank for this action group.
-   *         </p>
-   *          <p>To allow your agent to generate, run, and troubleshoot code when trying to complete a task, set this field to <code>AMAZON.CodeInterpreter</code>. You must
-   *             leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields blank for this action group.</p>
-   *          <p>During orchestration, if your agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request,
-   *             it will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a> reprompting the user for more information.</p>
+   * <p>Specify a built-in or computer use action for this action group. If you specify a value, you must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields empty for this action group. </p>
+   *          <ul>
+   *             <li>
+   *                <p>To allow your agent to request the user for additional information when trying to complete a task, set this field to <code>AMAZON.UserInput</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>To allow your agent to generate, run, and troubleshoot code when trying to complete a task, set this field to <code>AMAZON.CodeInterpreter</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To allow your agent to use an Anthropic computer use tool, specify one of the following values. </p>
+   *                <important>
+   *                   <p>
+   *             Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only.
+   *             When operating computer use functionality, we recommend taking additional security precautions,
+   *             such as executing computer actions in virtual environments with restricted data access and limited internet connectivity.
+   *              For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *           </p>
+   *                </important>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>ANTHROPIC.Computer</code> - Gives the agent permission to use the mouse and keyboard and
+   *               take screenshots.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>ANTHROPIC.TextEditor</code> - Gives the agent permission to view, create and edit files.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>ANTHROPIC.Bash</code> - Gives the agent permission to run commands in a bash shell.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
    * @public
    */
   parentActionGroupSignature?: ActionGroupSignature | undefined;
@@ -534,7 +564,33 @@ export interface AgentActionGroup {
    * @public
    */
   functionSchema?: FunctionSchema | undefined;
+
+  /**
+   * <p>
+   *             The configuration settings for a computer use action.
+   *         </p>
+   *          <important>
+   *             <p>Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.</p>
+   *          </important>
+   * @public
+   */
+  parentActionGroupSignatureParams?: Record<string, string> | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentCollaboration = {
+  DISABLED: "DISABLED",
+  SUPERVISOR: "SUPERVISOR",
+  SUPERVISOR_ROUTER: "SUPERVISOR_ROUTER",
+} as const;
+
+/**
+ * @public
+ */
+export type AgentCollaboration = (typeof AgentCollaboration)[keyof typeof AgentCollaboration];
 
 /**
  * @public
@@ -549,6 +605,79 @@ export const ConfirmationState = {
  * @public
  */
 export type ConfirmationState = (typeof ConfirmationState)[keyof typeof ConfirmationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageInputFormat = {
+  GIF: "gif",
+  JPEG: "jpeg",
+  PNG: "png",
+  WEBP: "webp",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageInputFormat = (typeof ImageInputFormat)[keyof typeof ImageInputFormat];
+
+/**
+ * <p>Details about the source of an input image in the result from a function in the action group invocation.</p>
+ * @public
+ */
+export type ImageInputSource = ImageInputSource.BytesMember | ImageInputSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ImageInputSource {
+  /**
+   * <p> The raw image bytes for the image. If you use an Amazon Web Services SDK, you don't need to encode the image bytes in base64.</p>
+   * @public
+   */
+  export interface BytesMember {
+    bytes: Uint8Array;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    bytes?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    bytes: (value: Uint8Array) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ImageInputSource, visitor: Visitor<T>): T => {
+    if (value.bytes !== undefined) return visitor.bytes(value.bytes);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Details about an image in the result from a function in the action group invocation. You can specify images only when the function
+ *       is a computer use action. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.</p>
+ * @public
+ */
+export interface ImageInput {
+  /**
+   * <p>The type of image in the result.</p>
+   * @public
+   */
+  format: ImageInputFormat | undefined;
+
+  /**
+   * <p>The source of the image in the result.</p>
+   * @public
+   */
+  source: ImageInputSource | undefined;
+}
 
 /**
  * <p>Contains the body of the API response.</p>
@@ -567,6 +696,15 @@ export interface ContentBody {
    * @public
    */
   body?: string | undefined;
+
+  /**
+   * <p>Lists details, including format and source, for the image in the response from the function call. You can specify only one image and the function in the <code>returnControlInvocationResults</code>
+   *       must be a computer use action.
+   *       For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *     </p>
+   * @public
+   */
+  images?: ImageInput[] | undefined;
 }
 
 /**
@@ -675,7 +813,10 @@ export interface FunctionResult {
   function?: string | undefined;
 
   /**
-   * <p>The response from the function call using the parameters. The key of the object is the content type (currently, only <code>TEXT</code> is supported). The response may be returned directly or from the Lambda function.</p>
+   * <p>The response from the function call using the parameters. The response might be returned directly or from the Lambda function.
+   *       Specify <code>TEXT</code> or <code>IMAGES</code>. The key of the object is the content type. You can only specify one type. If you
+   *       specify <code>IMAGES</code>, you can specify only one image. You can specify images only when the function in the <code>returnControlInvocationResults</code>
+   *       is a computer use action. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.</p>
    * @public
    */
   responseBody?: Record<string, ContentBody> | undefined;
@@ -5336,6 +5477,14 @@ export interface TracePart {
   callerChain?: Caller[] | undefined;
 
   /**
+   * <p>
+   *             The time of the trace.
+   *         </p>
+   * @public
+   */
+  eventTime?: Date | undefined;
+
+  /**
    * <p>The part's collaborator name.</p>
    * @public
    */
@@ -5784,6 +5933,60 @@ export interface InlineBedrockModelConfigurations {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const RelayConversationHistory = {
+  DISABLED: "DISABLED",
+  TO_COLLABORATOR: "TO_COLLABORATOR",
+} as const;
+
+/**
+ * @public
+ */
+export type RelayConversationHistory = (typeof RelayConversationHistory)[keyof typeof RelayConversationHistory];
+
+/**
+ * <p>
+ *             Settings of an inline collaborator agent.
+ *         </p>
+ * @public
+ */
+export interface CollaboratorConfiguration {
+  /**
+   * <p>
+   *             Name of the inline collaborator agent which must be the same name as specified for <code>agentName</code>.
+   *         </p>
+   * @public
+   */
+  collaboratorName: string | undefined;
+
+  /**
+   * <p>
+   *             Instructions that tell the inline collaborator agent what it should do and how it should interact with users.
+   *         </p>
+   * @public
+   */
+  collaboratorInstruction: string | undefined;
+
+  /**
+   * <p>
+   *             The Amazon Resource Name (ARN) of the inline collaborator agent.
+   *         </p>
+   * @public
+   */
+  agentAliasArn?: string | undefined;
+
+  /**
+   * <p>
+   *             A relay conversation history for the inline collaborator agent.
+   *         </p>
+   * @public
+   */
+  relayConversationHistory?: RelayConversationHistory | undefined;
+}
+
+/**
  * <p>
  *             The configuration details for the guardrail.
  *         </p>
@@ -5805,61 +6008,6 @@ export interface GuardrailConfigurationWithArn {
    * @public
    */
   guardrailVersion: string | undefined;
-}
-
-/**
- * <p>
- *             Contains parameters that specify various attributes that persist across a session or prompt. You can define session state
- *             attributes as key-value pairs when writing a <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-lambda.html">Lambda function</a> for an action group or pass them when making an <code>InvokeInlineAgent</code> request.
- *             Use session state attributes to control and provide conversational context for your inline agent and to help customize your agent's behavior.
- *             For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>
- *          </p>
- * @public
- */
-export interface InlineSessionState {
-  /**
-   * <p>
-   *             Contains attributes that persist across a session and the values of those attributes.
-   *         </p>
-   * @public
-   */
-  sessionAttributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>
-   *             Contains attributes that persist across a session and the values of those attributes.
-   *         </p>
-   * @public
-   */
-  promptSessionAttributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>
-   *             Contains information about the results from the action group invocation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a>.
-   *         </p>
-   *          <note>
-   *             <p>If you include this field in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
-   *          </note>
-   * @public
-   */
-  returnControlInvocationResults?: InvocationResultMember[] | undefined;
-
-  /**
-   * <p>
-   *             The identifier of the invocation of an action. This value must match the <code>invocationId</code> returned in the <code>InvokeInlineAgent</code> response for the action
-   *             whose results are provided in the <code>returnControlInvocationResults</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a>.
-   *         </p>
-   * @public
-   */
-  invocationId?: string | undefined;
-
-  /**
-   * <p>
-   *             Contains information about the files used by code interpreter.
-   *         </p>
-   * @public
-   */
-  files?: InputFile[] | undefined;
 }
 
 /**
@@ -5944,6 +6092,14 @@ export interface PromptConfiguration {
   parserMode?: CreationMode | undefined;
 
   /**
+   * <p>
+   *             The foundation model to use.
+   *         </p>
+   * @public
+   */
+  foundationModel?: string | undefined;
+
+  /**
    * <p>If the Converse or ConverseStream operations support the model,
    *             <code>additionalModelRequestFields</code> contains additional inference parameters,
    *             beyond the base set of inference parameters in the <code>inferenceConfiguration</code>
@@ -5975,6 +6131,69 @@ export interface PromptOverrideConfiguration {
    * @public
    */
   overrideLambda?: string | undefined;
+}
+
+/**
+ * <p>
+ *             Contains parameters that specify various attributes that persist across a session or prompt. You can define session state
+ *             attributes as key-value pairs when writing a <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-lambda.html">Lambda function</a> for an action group or pass them when making an <code>InvokeInlineAgent</code> request.
+ *             Use session state attributes to control and provide conversational context for your inline agent and to help customize your agent's behavior.
+ *             For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>
+ *          </p>
+ * @public
+ */
+export interface InlineSessionState {
+  /**
+   * <p>
+   *             Contains attributes that persist across a session and the values of those attributes.
+   *         </p>
+   * @public
+   */
+  sessionAttributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>
+   *             Contains attributes that persist across a session and the values of those attributes.
+   *         </p>
+   * @public
+   */
+  promptSessionAttributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>
+   *             Contains information about the results from the action group invocation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a>.
+   *         </p>
+   *          <note>
+   *             <p>If you include this field in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
+   *          </note>
+   * @public
+   */
+  returnControlInvocationResults?: InvocationResultMember[] | undefined;
+
+  /**
+   * <p>
+   *             The identifier of the invocation of an action. This value must match the <code>invocationId</code> returned in the <code>InvokeInlineAgent</code> response for the action
+   *             whose results are provided in the <code>returnControlInvocationResults</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a>.
+   *         </p>
+   * @public
+   */
+  invocationId?: string | undefined;
+
+  /**
+   * <p>
+   *             Contains information about the files used by code interpreter.
+   *         </p>
+   * @public
+   */
+  files?: InputFile[] | undefined;
+
+  /**
+   * <p>
+   *             Contains the conversation history that persist across sessions.
+   *         </p>
+   * @public
+   */
+  conversationHistory?: ConversationHistory | undefined;
 }
 
 /**
@@ -8940,72 +9159,6 @@ export interface UpdateSessionResponse {
 }
 
 /**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which to list tags.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>The key-value pairs for the tags associated with the resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>An object containing key-value pairs that define the tags to attach to the resource.</p>
-   * @public
-   */
-  tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource from which to remove tags.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>A list of keys of the tags to remove from the resource.</p>
-   * @public
-   */
-  tagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceResponse {}
-
-/**
  * @internal
  */
 export const ActionGroupInvocationInputFilterSensitiveLog = (obj: ActionGroupInvocationInput): any => ({
@@ -9068,6 +9221,12 @@ export const AgentActionGroupFilterSensitiveLog = (obj: AgentActionGroup): any =
 export const ApiResultFilterSensitiveLog = (obj: ApiResult): any => ({
   ...obj,
   ...(obj.apiPath && { apiPath: SENSITIVE_STRING }),
+  ...(obj.responseBody && {
+    responseBody: Object.entries(obj.responseBody).reduce(
+      (acc: any, [key, value]: [string, ContentBody]) => ((acc[key] = value), acc),
+      {}
+    ),
+  }),
 });
 
 /**
@@ -9954,14 +10113,10 @@ export const InvokeAgentResponseFilterSensitiveLog = (obj: InvokeAgentResponse):
 /**
  * @internal
  */
-export const InlineSessionStateFilterSensitiveLog = (obj: InlineSessionState): any => ({
+export const CollaboratorConfigurationFilterSensitiveLog = (obj: CollaboratorConfiguration): any => ({
   ...obj,
-  ...(obj.returnControlInvocationResults && {
-    returnControlInvocationResults: obj.returnControlInvocationResults.map((item) =>
-      InvocationResultMemberFilterSensitiveLog(item)
-    ),
-  }),
-  ...(obj.files && { files: obj.files.map((item) => InputFileFilterSensitiveLog(item)) }),
+  ...(obj.collaboratorName && { collaboratorName: SENSITIVE_STRING }),
+  ...(obj.collaboratorInstruction && { collaboratorInstruction: SENSITIVE_STRING }),
 });
 
 /**
@@ -9979,6 +10134,22 @@ export const PromptOverrideConfigurationFilterSensitiveLog = (obj: PromptOverrid
   ...obj,
   ...(obj.promptConfigurations && {
     promptConfigurations: obj.promptConfigurations.map((item) => PromptConfigurationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const InlineSessionStateFilterSensitiveLog = (obj: InlineSessionState): any => ({
+  ...obj,
+  ...(obj.returnControlInvocationResults && {
+    returnControlInvocationResults: obj.returnControlInvocationResults.map((item) =>
+      InvocationResultMemberFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.files && { files: obj.files.map((item) => InputFileFilterSensitiveLog(item)) }),
+  ...(obj.conversationHistory && {
+    conversationHistory: ConversationHistoryFilterSensitiveLog(obj.conversationHistory),
   }),
 });
 

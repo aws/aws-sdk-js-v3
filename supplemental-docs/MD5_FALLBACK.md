@@ -2,13 +2,13 @@
 
 ## Background
 
-In AWS SDK for JavaScript [v3.729.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.729.0),
-we shipped a feature that [changed default object integrity in
-S3](https://github.com/aws/aws-sdk-js-v3/issues/6810). The SDKs now default to using more modern
-checksums (like CRC32) to ensure object integrity, whereas previously MD5 checksums were being used.
-Some third-party S3-compatible services currently do not support these checksums. To our knowledge,
-this affects only the S3 `DeleteObjects` operation.
-
+In AWS SDK for JavaScript [v3.729.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.729.0), we
+shipped a feature that [changed default object integrity in S3](https://github.com/aws/aws-sdk-js-v3/issues/6810).
+The SDKs now default to using more modern checksums (like CRC32) to ensure object integrity, whereas
+previously MD5 checksums were being used. Some third-party S3-compatible services currently do not
+support these checksums and require MD5 checksums. Furthermore, the [DeleteObjects operation in S3
+requires a Content-MD5 request header](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjects.html)
+in which case too, you should use the MD5 fallback as noted below.
 If you wish to fallback to the old behavior of sending MD5 checksums, for operations like
 `DeleteObjectsCommand` this is how you can do it in AWS SDK for JavaScript v3:
 

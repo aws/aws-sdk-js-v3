@@ -2854,6 +2854,20 @@ export const DomainType = {
 export type DomainType = (typeof DomainType)[keyof typeof DomainType];
 
 /**
+ * @public
+ * @enum
+ */
+export const ServiceManaged = {
+  alb: "alb",
+  nlb: "nlb",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceManaged = (typeof ServiceManaged)[keyof typeof ServiceManaged];
+
+/**
  * <p>Describes an Elastic IP address, or a carrier IP address.</p>
  * @public
  */
@@ -2931,6 +2945,15 @@ export interface Address {
    * @public
    */
   CarrierIp?: string | undefined;
+
+  /**
+   * <p>The service that manages the elastic IP address.</p>
+   *          <note>
+   *             <p>The only option supported today is <code>alb</code>.</p>
+   *          </note>
+   * @public
+   */
+  ServiceManaged?: ServiceManaged | undefined;
 
   /**
    * <p>The ID of the instance that the address is associated with (if any).</p>
@@ -4554,6 +4577,9 @@ export interface InstanceEventWindowAssociationRequest {
   /**
    * <p>The instance tags to associate with the event window. Any instances associated with the
    *          tags will be associated with the event window.</p>
+   *          <p>Note that while you can't create tag keys beginning with <code>aws:</code>, you can
+   *          specify existing Amazon Web Services managed tag keys (with the <code>aws:</code> prefix) when specifying
+   *          them as targets to associate with the event window.</p>
    * @public
    */
   InstanceTags?: Tag[] | undefined;
@@ -4602,8 +4628,11 @@ export interface InstanceEventWindowAssociationTarget {
   InstanceIds?: string[] | undefined;
 
   /**
-   * <p>The instance tags associated with the event window. Any instances associated with the tags
-   *          will be associated with the event window.</p>
+   * <p>The instance tags associated with the event window. Any instances associated with the
+   *          tags will be associated with the event window.</p>
+   *          <p>Note that while you can't create tag keys beginning with <code>aws:</code>, you can
+   *          specify existing Amazon Web Services managed tag keys (with the <code>aws:</code> prefix) when specifying
+   *          them as targets to associate with the event window.</p>
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -8550,21 +8579,6 @@ export interface CopySnapshotResult {
    */
   SnapshotId?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CapacityReservationDeliveryPreference = {
-  FIXED: "fixed",
-  INCREMENTAL: "incremental",
-} as const;
-
-/**
- * @public
- */
-export type CapacityReservationDeliveryPreference =
-  (typeof CapacityReservationDeliveryPreference)[keyof typeof CapacityReservationDeliveryPreference];
 
 /**
  * @internal

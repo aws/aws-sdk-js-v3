@@ -88,6 +88,43 @@
           "traits": {
             "smithy.api#enumValue": "AMAZON.CodeInterpreter"
           }
+        },
+        "ANTHROPIC_COMPUTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ANTHROPIC.Computer"
+          }
+        },
+        "ANTHROPIC_BASH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ANTHROPIC.Bash"
+          }
+        },
+        "ANTHROPIC_TEXTEDITOR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ANTHROPIC.TextEditor"
+          }
+        }
+      }
+    },
+    "com.amazonaws.bedrockagent#ActionGroupSignatureParams": {
+      "type": "map",
+      "key": {
+        "target": "smithy.api#String",
+        "traits": {
+          "smithy.api#length": {
+            "max": 100
+          }
+        }
+      },
+      "value": {
+        "target": "smithy.api#String",
+        "traits": {
+          "smithy.api#length": {
+            "max": 100
+          }
         }
       }
     },
@@ -377,6 +414,12 @@
           "target": "com.amazonaws.bedrockagent#ActionGroupSignature",
           "traits": {
             "smithy.api#documentation": "<p>If this field is set as <code>AMAZON.UserInput</code>, the agent can request the user for additional information when trying to complete a task. The <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields must be blank for this action group.</p>\n         <p>During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html\">Observation</a> reprompting the user for more information.</p>"
+          }
+        },
+        "parentActionGroupSignatureParams": {
+          "target": "com.amazonaws.bedrockagent#ActionGroupSignatureParams",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration settings for a computer use action.</p>\n         <important>\n            <p>\n        Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html\">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.\n      </p>\n         </important>"
           }
         },
         "actionGroupExecutor": {
@@ -2470,6 +2513,28 @@
         "smithy.api#documentation": "<p>Settings for a foundation model used to parse documents for a data source.</p>"
       }
     },
+    "com.amazonaws.bedrockagent#BedrockFoundationModelContextEnrichmentConfiguration": {
+      "type": "structure",
+      "members": {
+        "enrichmentStrategyConfiguration": {
+          "target": "com.amazonaws.bedrockagent#EnrichmentStrategyConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The enrichment stategy used to provide additional context. For example, Neptune GraphRAG uses\n      Amazon Bedrock foundation models to perform chunk entity extraction.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "modelArn": {
+          "target": "com.amazonaws.bedrockagent#BedrockModelArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the foundation model used for context enrichment.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Context enrichment configuration is used to provide additional context to the RAG application\n      using Amazon Bedrock foundation models.</p>"
+      }
+    },
     "com.amazonaws.bedrockagent#BedrockModelArn": {
       "type": "string",
       "traits": {
@@ -2852,6 +2917,38 @@
         }
       }
     },
+    "com.amazonaws.bedrockagent#ContextEnrichmentConfiguration": {
+      "type": "structure",
+      "members": {
+        "type": {
+          "target": "com.amazonaws.bedrockagent#ContextEnrichmentType",
+          "traits": {
+            "smithy.api#documentation": "<p>The method used for context enrichment. It must be Amazon Bedrock foundation models.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "bedrockFoundationModelConfiguration": {
+          "target": "com.amazonaws.bedrockagent#BedrockFoundationModelContextEnrichmentConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration of the Amazon Bedrock foundation model used for context enrichment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Context enrichment configuration is used to provide additional context to the RAG application.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagent#ContextEnrichmentType": {
+      "type": "enum",
+      "members": {
+        "BEDROCK_FOUNDATION_MODEL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BEDROCK_FOUNDATION_MODEL"
+          }
+        }
+      }
+    },
     "com.amazonaws.bedrockagent#ConversationRole": {
       "type": "enum",
       "members": {
@@ -3024,7 +3121,13 @@
         "parentActionGroupSignature": {
           "target": "com.amazonaws.bedrockagent#ActionGroupSignature",
           "traits": {
-            "smithy.api#documentation": "<p>To allow your agent to request the user for additional information when trying to complete a task, set this field to <code>AMAZON.UserInput</code>. You must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields blank for this action group.</p>\n         <p>To allow your agent to generate, run, and troubleshoot code when trying to complete a task, set this field to <code>AMAZON.CodeInterpreter</code>. You must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields blank for this action group.</p>\n         <p>During orchestration, if your agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html\">Observation</a> reprompting the user for more information.</p>"
+            "smithy.api#documentation": "<p>Specify a built-in or computer use action for this action group. If you specify a value, you must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields empty for this action group. </p>\n         <ul>\n            <li>\n               <p>To allow your agent to request the user for additional information when trying to complete a task, set this field to <code>AMAZON.UserInput</code>. </p>\n            </li>\n            <li>\n               <p>To allow your agent to generate, run, and troubleshoot code when trying to complete a task, set this field to <code>AMAZON.CodeInterpreter</code>.</p>\n            </li>\n            <li>\n               <p>To allow your agent to use an Anthropic computer use tool, specify one of the following values. </p>\n               <important>\n                  <p>\n            Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only.          \n            When operating computer use functionality, we recommend taking additional security precautions,\n            such as executing computer actions in virtual environments with restricted data access and limited internet connectivity. \n             For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html\">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.\n          </p>\n               </important>\n               <ul>\n                  <li>\n                     <p>\n                        <code>ANTHROPIC.Computer</code> - Gives the agent permission to use the mouse and keyboard and\n              take screenshots.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>ANTHROPIC.TextEditor</code> - Gives the agent permission to view, create and edit files.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>ANTHROPIC.Bash</code> - Gives the agent permission to run commands in a bash shell.</p>\n                  </li>\n               </ul>\n            </li>\n         </ul>"
+          }
+        },
+        "parentActionGroupSignatureParams": {
+          "target": "com.amazonaws.bedrockagent#ActionGroupSignatureParams",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration settings for a computer use action.</p>\n         <important>\n            <p>\n        Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html\">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.\n      </p>\n         </important>"
           }
         },
         "actionGroupExecutor": {
@@ -6240,6 +6343,32 @@
         }
       }
     },
+    "com.amazonaws.bedrockagent#EnrichmentStrategyConfiguration": {
+      "type": "structure",
+      "members": {
+        "method": {
+          "target": "com.amazonaws.bedrockagent#EnrichmentStrategyMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>The method used for the context enrichment strategy.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The strategy used for performing context enrichment.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagent#EnrichmentStrategyMethod": {
+      "type": "enum",
+      "members": {
+        "CHUNK_ENTITY_EXTRACTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CHUNK_ENTITY_EXTRACTION"
+          }
+        }
+      }
+    },
     "com.amazonaws.bedrockagent#ErrorMessage": {
       "type": "string",
       "traits": {
@@ -9073,6 +9202,18 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.bedrockagent#GraphArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "ARN for Neptune Analytics graph database",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^arn:aws(|-cn|-us-gov):neptune-graph:[a-zA-Z0-9-]*:[0-9]{12}:graph/g-[a-zA-Z0-9]{10}$",
+        "smithy.api#sensitive": {}
+      }
+    },
     "com.amazonaws.bedrockagent#GuardrailConfiguration": {
       "type": "structure",
       "members": {
@@ -10256,6 +10397,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "MONGO_DB_ATLAS"
+          }
+        },
+        "NEPTUNE_ANALYTICS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NEPTUNE_ANALYTICS"
           }
         }
       }
@@ -12379,6 +12526,50 @@
         }
       }
     },
+    "com.amazonaws.bedrockagent#NeptuneAnalyticsConfiguration": {
+      "type": "structure",
+      "members": {
+        "graphArn": {
+          "target": "com.amazonaws.bedrockagent#GraphArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Neptune Analytics vector store.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "fieldMapping": {
+          "target": "com.amazonaws.bedrockagent#NeptuneAnalyticsFieldMapping",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains the names of the fields to which to map information about the vector store.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains details about the storage configuration of the knowledge base in \n      Amazon Neptune Analytics. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html\">Create a vector index \n      in Amazon Neptune Analytics</a>.</p>"
+      }
+    },
+    "com.amazonaws.bedrockagent#NeptuneAnalyticsFieldMapping": {
+      "type": "structure",
+      "members": {
+        "textField": {
+          "target": "com.amazonaws.bedrockagent#FieldName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text\n     is split according to the chunking strategy you choose.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "metadataField": {
+          "target": "com.amazonaws.bedrockagent#FieldName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains the names of the fields to which to map information about the vector store.</p>"
+      }
+    },
     "com.amazonaws.bedrockagent#NextToken": {
       "type": "string",
       "traits": {
@@ -13019,7 +13210,7 @@
         "parserMode": {
           "target": "com.amazonaws.bedrockagent#CreationMode",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the <code>promptType</code>. If you set the field as <code>OVERRIDEN</code>, the <code>overrideLambda</code> field in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html\">PromptOverrideConfiguration</a> must be specified with the ARN of a Lambda function.</p>"
+            "smithy.api#documentation": "<p>Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the <code>promptType</code>. If you set the field as <code>OVERRIDDEN</code>, the <code>overrideLambda</code> field in the <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html\">PromptOverrideConfiguration</a> must be specified with the ARN of a Lambda function.</p>"
           }
         },
         "foundationModel": {
@@ -15176,6 +15367,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Contains the storage configuration of the knowledge base in MongoDB Atlas.</p>"
           }
+        },
+        "neptuneAnalyticsConfiguration": {
+          "target": "com.amazonaws.bedrockagent#NeptuneAnalyticsConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, \n    see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html\">Create a\n    vector index in Amazon Neptune Analytics.</a>.</p>"
+          }
         }
       },
       "traits": {
@@ -16164,7 +16361,13 @@
         "parentActionGroupSignature": {
           "target": "com.amazonaws.bedrockagent#ActionGroupSignature",
           "traits": {
-            "smithy.api#documentation": "<p>To allow your agent to request the user for additional information when trying to complete a task, set this field to <code>AMAZON.UserInput</code>. You must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields blank for this action group.</p>\n         <p>During orchestration, if your agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html\">Observation</a> reprompting the user for more information.</p>"
+            "smithy.api#documentation": "<p>Update the built-in or computer use action for this action group. If you specify a value, you must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields empty for this action group. </p>\n         <ul>\n            <li>\n               <p>To allow your agent to request the user for additional information when trying to complete a task, set this field to <code>AMAZON.UserInput</code>. </p>\n            </li>\n            <li>\n               <p>To allow your agent to generate, run, and troubleshoot code when trying to complete a task, set this field to <code>AMAZON.CodeInterpreter</code>.</p>\n            </li>\n            <li>\n               <p>To allow your agent to use an Anthropic computer use tool, specify one of the following values. </p>\n               <important>\n                  <p>\n            Computer use is a new Anthropic Claude model capability (in beta) available with Anthropic Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only.          \n            When operating computer use functionality, we recommend taking additional security precautions,\n            such as executing computer actions in virtual environments with restricted data access and limited internet connectivity. \n             For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html\">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.\n          </p>\n               </important>\n               <ul>\n                  <li>\n                     <p>\n                        <code>ANTHROPIC.Computer</code> - Gives the agent permission to use the mouse and keyboard and\n              take screenshots.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>ANTHROPIC.TextEditor</code> - Gives the agent permission to view, create and edit files.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>ANTHROPIC.Bash</code> - Gives the agent permission to run commands in a bash shell.</p>\n                  </li>\n               </ul>\n            </li>\n         </ul>\n         <p>During orchestration, if your agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an <a href=\"https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html\">Observation</a> reprompting the user for more information.</p>"
+          }
+        },
+        "parentActionGroupSignatureParams": {
+          "target": "com.amazonaws.bedrockagent#ActionGroupSignatureParams",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration settings for a computer use action.</p>\n         <important>\n            <p>\n        Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 and Claude 3.5 Sonnet v2 only. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html\">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.\n      </p>\n         </important>"
           }
         },
         "actionGroupExecutor": {
@@ -17510,6 +17713,12 @@
           "target": "com.amazonaws.bedrockagent#ParsingConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.</p>"
+          }
+        },
+        "contextEnrichmentConfiguration": {
+          "target": "com.amazonaws.bedrockagent#ContextEnrichmentConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The context enrichment configuration used for ingestion of the data into the vector\n      store.</p>"
           }
         }
       },

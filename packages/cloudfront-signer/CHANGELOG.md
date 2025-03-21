@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
+
+
+### Bug Fixes
+
+* **cloudfront-signer:** parse date using Date constructor ([#6929](https://github.com/aws/aws-sdk-js-v3/issues/6929)) ([a07b850](https://github.com/aws/aws-sdk-js-v3/commit/a07b8500f1b56f9ff7ee98aa292f9e9d84764e19))
+
+
+
+
+
 # [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
 
 **Note:** Version bump only for package @aws-sdk/cloudfront-signer

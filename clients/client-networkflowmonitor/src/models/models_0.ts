@@ -1687,7 +1687,11 @@ export interface StartQueryMonitorTopContributorsInput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>AWS_SERVICES</code>: Top contributor network flows to or from Amazon Web Services services</p>
+   *                   <code>AMAZON_S3</code>: Top contributor network flows to or from Amazon S3</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AMAZON_DYNAMODB</code>: Top contributor network flows to or from Amazon Dynamo DB</p>
    *             </li>
    *             <li>
    *                <p>

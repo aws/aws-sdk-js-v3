@@ -1078,7 +1078,8 @@ export interface CreateContactRequest {
   ClientToken?: string | undefined;
 
   /**
-   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * <p>The unique identifier for an Amazon Connect contact. This identifier is related to the
+   *    contact starting.</p>
    * @public
    */
   RelatedContactId?: string | undefined;
@@ -1165,6 +1166,15 @@ export interface CreateContactRequest {
    * @public
    */
   SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
+
+  /**
+   * <p>The ID of the previous contact when creating a transfer contact. This value can be provided
+   *    only for external audio contacts. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html">Integrate Amazon Connect Contact Lens
+   *     with external voice systems</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
+   * @public
+   */
+  PreviousContactId?: string | undefined;
 }
 
 /**
@@ -3159,7 +3169,9 @@ export interface Contact {
   InitiationTimestamp?: Date | undefined;
 
   /**
-   * <p>The timestamp when the customer endpoint disconnected from Amazon Connect.</p>
+   * <p>The date and time that the customer endpoint disconnected from the current contact, in UTC
+   *    time. In transfer scenarios, the DisconnectTimestamp of the previous contact indicates the date
+   *    and time when that contact ended.</p>
    * @public
    */
   DisconnectTimestamp?: Date | undefined;

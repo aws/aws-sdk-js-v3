@@ -166,6 +166,11 @@ import {
   ModifyCapacityReservationCommandOutput,
 } from "./commands/ModifyCapacityReservationCommand";
 import {
+  ModifyIpPoolsCommand,
+  ModifyIpPoolsCommandInput,
+  ModifyIpPoolsCommandOutput,
+} from "./commands/ModifyIpPoolsCommand";
+import {
   ModifyListenerAttributesCommand,
   ModifyListenerAttributesCommandInput,
   ModifyListenerAttributesCommandOutput,
@@ -266,6 +271,7 @@ const commands = {
   GetTrustStoreCaCertificatesBundleCommand,
   GetTrustStoreRevocationContentCommand,
   ModifyCapacityReservationCommand,
+  ModifyIpPoolsCommand,
   ModifyListenerCommand,
   ModifyListenerAttributesCommand,
   ModifyLoadBalancerAttributesCommand,
@@ -848,6 +854,17 @@ export interface ElasticLoadBalancingV2 {
     args: ModifyCapacityReservationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyCapacityReservationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyIpPoolsCommand}
+   */
+  modifyIpPools(args: ModifyIpPoolsCommandInput, options?: __HttpHandlerOptions): Promise<ModifyIpPoolsCommandOutput>;
+  modifyIpPools(args: ModifyIpPoolsCommandInput, cb: (err: any, data?: ModifyIpPoolsCommandOutput) => void): void;
+  modifyIpPools(
+    args: ModifyIpPoolsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIpPoolsCommandOutput) => void
   ): void;
 
   /**

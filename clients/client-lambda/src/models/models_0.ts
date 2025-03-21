@@ -926,7 +926,7 @@ export interface EventSourceMappingMetricsConfig {
 
 /**
  * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">
- *       Provisioned Mode</a> configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers
+ *       provisioned mode</a> configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers
  *       for your event source. An event poller is a compute unit that provides approximately 5 MBps of throughput.</p>
  * @public
  */
@@ -1346,8 +1346,8 @@ export interface CreateEventSourceMappingRequest {
   MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
 
   /**
-   * <p>(Amazon MSK and self-managed Apache Kafka only) The Provisioned Mode configuration for the event source.
-   *   For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">Provisioned Mode</a>.</p>
+   * <p>(Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source.
+   *   For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
    * @public
    */
   ProvisionedPollerConfig?: ProvisionedPollerConfig | undefined;
@@ -1587,8 +1587,8 @@ export interface EventSourceMappingConfiguration {
   MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
 
   /**
-   * <p>(Amazon MSK and self-managed Apache Kafka only) The Provisioned Mode configuration for the event source.
-   *   For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">Provisioned Mode</a>.</p>
+   * <p>(Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source.
+   *   For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
    * @public
    */
   ProvisionedPollerConfig?: ProvisionedPollerConfig | undefined;
@@ -1923,6 +1923,7 @@ export const Runtime = {
   ruby27: "ruby2.7",
   ruby32: "ruby3.2",
   ruby33: "ruby3.3",
+  ruby34: "ruby3.4",
 } as const;
 
 /**
@@ -4527,7 +4528,8 @@ export class ENILimitReachedException extends __BaseException {
 }
 
 /**
- * <p>The request body could not be parsed as JSON.</p>
+ * <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId'
+ *       header is not a valid UUID string.</p>
  * @public
  */
 export class InvalidRequestContentException extends __BaseException {
@@ -7257,8 +7259,8 @@ export interface UpdateEventSourceMappingRequest {
   MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
 
   /**
-   * <p>(Amazon MSK and self-managed Apache Kafka only) The Provisioned Mode configuration for the event source.
-   *   For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">Provisioned Mode</a>.</p>
+   * <p>(Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source.
+   *   For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
    * @public
    */
   ProvisionedPollerConfig?: ProvisionedPollerConfig | undefined;

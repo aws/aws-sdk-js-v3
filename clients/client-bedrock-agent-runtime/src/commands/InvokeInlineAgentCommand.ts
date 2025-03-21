@@ -65,66 +65,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * // const { BedrockAgentRuntimeClient, InvokeInlineAgentCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
  * const client = new BedrockAgentRuntimeClient(config);
  * const input = { // InvokeInlineAgentRequest
- *   sessionId: "STRING_VALUE", // required
  *   customerEncryptionKeyArn: "STRING_VALUE",
- *   endSession: true || false,
- *   enableTrace: true || false,
- *   inputText: "STRING_VALUE",
- *   inlineSessionState: { // InlineSessionState
- *     sessionAttributes: { // SessionAttributesMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     promptSessionAttributes: { // PromptSessionAttributesMap
- *       "<keys>": "STRING_VALUE",
- *     },
- *     returnControlInvocationResults: [ // ReturnControlInvocationResults
- *       { // InvocationResultMember Union: only one key present
- *         apiResult: { // ApiResult
- *           actionGroup: "STRING_VALUE", // required
- *           httpMethod: "STRING_VALUE",
- *           apiPath: "STRING_VALUE",
- *           confirmationState: "CONFIRM" || "DENY",
- *           responseState: "FAILURE" || "REPROMPT",
- *           httpStatusCode: Number("int"),
- *           responseBody: { // ResponseBody
- *             "<keys>": { // ContentBody
- *               body: "STRING_VALUE",
- *             },
- *           },
- *           agentId: "STRING_VALUE",
- *         },
- *         functionResult: { // FunctionResult
- *           actionGroup: "STRING_VALUE", // required
- *           confirmationState: "CONFIRM" || "DENY",
- *           function: "STRING_VALUE",
- *           responseBody: {
- *             "<keys>": {
- *               body: "STRING_VALUE",
- *             },
- *           },
- *           responseState: "FAILURE" || "REPROMPT",
- *           agentId: "STRING_VALUE",
- *         },
- *       },
- *     ],
- *     invocationId: "STRING_VALUE",
- *     files: [ // InputFiles
- *       { // InputFile
- *         name: "STRING_VALUE", // required
- *         source: { // FileSource
- *           sourceType: "S3" || "BYTE_CONTENT", // required
- *           s3Location: { // S3ObjectFile
- *             uri: "STRING_VALUE", // required
- *           },
- *           byteContent: { // ByteContentFile
- *             mediaType: "STRING_VALUE", // required
- *             data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")             // required
- *           },
- *         },
- *         useCase: "CODE_INTERPRETER" || "CHAT", // required
- *       },
- *     ],
- *   },
  *   foundationModel: "STRING_VALUE", // required
  *   instruction: "STRING_VALUE", // required
  *   idleSessionTTLInSeconds: Number("int"),
@@ -132,7 +73,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  *     { // AgentActionGroup
  *       actionGroupName: "STRING_VALUE", // required
  *       description: "STRING_VALUE",
- *       parentActionGroupSignature: "AMAZON.UserInput" || "AMAZON.CodeInterpreter",
+ *       parentActionGroupSignature: "AMAZON.UserInput" || "AMAZON.CodeInterpreter" || "ANTHROPIC.Computer" || "ANTHROPIC.Bash" || "ANTHROPIC.TextEditor",
  *       actionGroupExecutor: { // ActionGroupExecutor Union: only one key present
  *         lambda: "STRING_VALUE",
  *         customControl: "RETURN_CONTROL",
@@ -159,6 +100,9 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  *             requireConfirmation: "ENABLED" || "DISABLED",
  *           },
  *         ],
+ *       },
+ *       parentActionGroupSignatureParams: { // ActionGroupSignatureParams
+ *         "<keys>": "STRING_VALUE",
  *       },
  *     },
  *   ],
@@ -284,19 +228,248 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  *           ],
  *         },
  *         parserMode: "DEFAULT" || "OVERRIDDEN",
+ *         foundationModel: "STRING_VALUE",
  *         additionalModelRequestFields: "DOCUMENT_VALUE",
  *       },
  *     ],
  *     overrideLambda: "STRING_VALUE",
  *   },
+ *   agentCollaboration: "SUPERVISOR" || "SUPERVISOR_ROUTER" || "DISABLED",
+ *   collaboratorConfigurations: [ // CollaboratorConfigurations
+ *     { // CollaboratorConfiguration
+ *       collaboratorName: "STRING_VALUE", // required
+ *       collaboratorInstruction: "STRING_VALUE", // required
+ *       agentAliasArn: "STRING_VALUE",
+ *       relayConversationHistory: "TO_COLLABORATOR" || "DISABLED",
+ *     },
+ *   ],
+ *   sessionId: "STRING_VALUE", // required
+ *   endSession: true || false,
+ *   enableTrace: true || false,
+ *   inputText: "STRING_VALUE",
+ *   streamingConfigurations: { // StreamingConfigurations
+ *     streamFinalResponse: true || false,
+ *     applyGuardrailInterval: Number("int"),
+ *   },
+ *   inlineSessionState: { // InlineSessionState
+ *     sessionAttributes: { // SessionAttributesMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     promptSessionAttributes: { // PromptSessionAttributesMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     returnControlInvocationResults: [ // ReturnControlInvocationResults
+ *       { // InvocationResultMember Union: only one key present
+ *         apiResult: { // ApiResult
+ *           actionGroup: "STRING_VALUE", // required
+ *           httpMethod: "STRING_VALUE",
+ *           apiPath: "STRING_VALUE",
+ *           confirmationState: "CONFIRM" || "DENY",
+ *           responseState: "FAILURE" || "REPROMPT",
+ *           httpStatusCode: Number("int"),
+ *           responseBody: { // ResponseBody
+ *             "<keys>": { // ContentBody
+ *               body: "STRING_VALUE",
+ *               images: [ // ImageInputs
+ *                 { // ImageInput
+ *                   format: "png" || "jpeg" || "gif" || "webp", // required
+ *                   source: { // ImageInputSource Union: only one key present
+ *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *                   },
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *           agentId: "STRING_VALUE",
+ *         },
+ *         functionResult: { // FunctionResult
+ *           actionGroup: "STRING_VALUE", // required
+ *           confirmationState: "CONFIRM" || "DENY",
+ *           function: "STRING_VALUE",
+ *           responseBody: {
+ *             "<keys>": {
+ *               body: "STRING_VALUE",
+ *               images: [
+ *                 {
+ *                   format: "png" || "jpeg" || "gif" || "webp", // required
+ *                   source: {//  Union: only one key present
+ *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *                   },
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *           responseState: "FAILURE" || "REPROMPT",
+ *           agentId: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
+ *     invocationId: "STRING_VALUE",
+ *     files: [ // InputFiles
+ *       { // InputFile
+ *         name: "STRING_VALUE", // required
+ *         source: { // FileSource
+ *           sourceType: "S3" || "BYTE_CONTENT", // required
+ *           s3Location: { // S3ObjectFile
+ *             uri: "STRING_VALUE", // required
+ *           },
+ *           byteContent: { // ByteContentFile
+ *             mediaType: "STRING_VALUE", // required
+ *             data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")             // required
+ *           },
+ *         },
+ *         useCase: "CODE_INTERPRETER" || "CHAT", // required
+ *       },
+ *     ],
+ *     conversationHistory: { // ConversationHistory
+ *       messages: [ // Messages
+ *         { // Message
+ *           role: "user" || "assistant", // required
+ *           content: [ // ContentBlocks // required
+ *             { // ContentBlock Union: only one key present
+ *               text: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
+ *   },
+ *   collaborators: [ // Collaborators
+ *     { // Collaborator
+ *       customerEncryptionKeyArn: "STRING_VALUE",
+ *       foundationModel: "STRING_VALUE", // required
+ *       instruction: "STRING_VALUE", // required
+ *       idleSessionTTLInSeconds: Number("int"),
+ *       actionGroups: [
+ *         {
+ *           actionGroupName: "STRING_VALUE", // required
+ *           description: "STRING_VALUE",
+ *           parentActionGroupSignature: "AMAZON.UserInput" || "AMAZON.CodeInterpreter" || "ANTHROPIC.Computer" || "ANTHROPIC.Bash" || "ANTHROPIC.TextEditor",
+ *           actionGroupExecutor: {//  Union: only one key present
+ *             lambda: "STRING_VALUE",
+ *             customControl: "RETURN_CONTROL",
+ *           },
+ *           apiSchema: {//  Union: only one key present
+ *             s3: {
+ *               s3BucketName: "STRING_VALUE",
+ *               s3ObjectKey: "STRING_VALUE",
+ *             },
+ *             payload: "STRING_VALUE",
+ *           },
+ *           functionSchema: {//  Union: only one key present
+ *             functions: [
+ *               {
+ *                 name: "STRING_VALUE", // required
+ *                 description: "STRING_VALUE",
+ *                 parameters: {
+ *                   "<keys>": {
+ *                     description: "STRING_VALUE",
+ *                     type: "string" || "number" || "integer" || "boolean" || "array", // required
+ *                     required: true || false,
+ *                   },
+ *                 },
+ *                 requireConfirmation: "ENABLED" || "DISABLED",
+ *               },
+ *             ],
+ *           },
+ *           parentActionGroupSignatureParams: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *         },
+ *       ],
+ *       knowledgeBases: [
+ *         {
+ *           knowledgeBaseId: "STRING_VALUE", // required
+ *           description: "STRING_VALUE", // required
+ *           retrievalConfiguration: {
+ *             vectorSearchConfiguration: {
+ *               numberOfResults: Number("int"),
+ *               overrideSearchType: "HYBRID" || "SEMANTIC",
+ *               filter: "<RetrievalFilter>",
+ *               rerankingConfiguration: {
+ *                 type: "BEDROCK_RERANKING_MODEL", // required
+ *                 bedrockRerankingConfiguration: {
+ *                   modelConfiguration: {
+ *                     modelArn: "STRING_VALUE", // required
+ *                     additionalModelRequestFields: {
+ *                       "<keys>": "DOCUMENT_VALUE",
+ *                     },
+ *                   },
+ *                   numberOfRerankedResults: Number("int"),
+ *                   metadataConfiguration: {
+ *                     selectionMode: "SELECTIVE" || "ALL", // required
+ *                     selectiveModeConfiguration: {//  Union: only one key present
+ *                       fieldsToInclude: [
+ *                         {
+ *                           fieldName: "STRING_VALUE", // required
+ *                         },
+ *                       ],
+ *                       fieldsToExclude: [
+ *                         {
+ *                           fieldName: "STRING_VALUE", // required
+ *                         },
+ *                       ],
+ *                     },
+ *                   },
+ *                 },
+ *               },
+ *               implicitFilterConfiguration: {
+ *                 metadataAttributes: [ // required
+ *                   {
+ *                     key: "STRING_VALUE", // required
+ *                     type: "STRING" || "NUMBER" || "BOOLEAN" || "STRING_LIST", // required
+ *                     description: "STRING_VALUE", // required
+ *                   },
+ *                 ],
+ *                 modelArn: "STRING_VALUE", // required
+ *               },
+ *             },
+ *           },
+ *         },
+ *       ],
+ *       guardrailConfiguration: {
+ *         guardrailIdentifier: "STRING_VALUE", // required
+ *         guardrailVersion: "STRING_VALUE", // required
+ *       },
+ *       promptOverrideConfiguration: {
+ *         promptConfigurations: [ // required
+ *           {
+ *             promptType: "PRE_PROCESSING" || "ORCHESTRATION" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "POST_PROCESSING" || "ROUTING_CLASSIFIER",
+ *             promptCreationMode: "DEFAULT" || "OVERRIDDEN",
+ *             promptState: "ENABLED" || "DISABLED",
+ *             basePromptTemplate: "STRING_VALUE",
+ *             inferenceConfiguration: {
+ *               temperature: Number("float"),
+ *               topP: Number("float"),
+ *               topK: Number("int"),
+ *               maximumLength: Number("int"),
+ *               stopSequences: [
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *             parserMode: "DEFAULT" || "OVERRIDDEN",
+ *             foundationModel: "STRING_VALUE",
+ *             additionalModelRequestFields: "DOCUMENT_VALUE",
+ *           },
+ *         ],
+ *         overrideLambda: "STRING_VALUE",
+ *       },
+ *       agentCollaboration: "SUPERVISOR" || "SUPERVISOR_ROUTER" || "DISABLED",
+ *       collaboratorConfigurations: [
+ *         {
+ *           collaboratorName: "STRING_VALUE", // required
+ *           collaboratorInstruction: "STRING_VALUE", // required
+ *           agentAliasArn: "STRING_VALUE",
+ *           relayConversationHistory: "TO_COLLABORATOR" || "DISABLED",
+ *         },
+ *       ],
+ *       agentName: "STRING_VALUE",
+ *     },
+ *   ],
  *   bedrockModelConfigurations: { // InlineBedrockModelConfigurations
  *     performanceConfig: { // PerformanceConfiguration
  *       latency: "standard" || "optimized",
  *     },
- *   },
- *   streamingConfigurations: { // StreamingConfigurations
- *     streamFinalResponse: true || false,
- *     applyGuardrailInterval: Number("int"),
  *   },
  * };
  * const command = new InvokeInlineAgentCommand(input);
@@ -589,6 +762,14 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //                         responseBody: { // ResponseBody
  * //                           "<keys>": { // ContentBody
  * //                             body: "STRING_VALUE",
+ * //                             images: [ // ImageInputs
+ * //                               { // ImageInput
+ * //                                 format: "png" || "jpeg" || "gif" || "webp", // required
+ * //                                 source: { // ImageInputSource Union: only one key present
+ * //                                   bytes: new Uint8Array(),
+ * //                                 },
+ * //                               },
+ * //                             ],
  * //                           },
  * //                         },
  * //                         agentId: "STRING_VALUE",
@@ -600,6 +781,14 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //                         responseBody: {
  * //                           "<keys>": {
  * //                             body: "STRING_VALUE",
+ * //                             images: [
+ * //                               {
+ * //                                 format: "png" || "jpeg" || "gif" || "webp", // required
+ * //                                 source: {//  Union: only one key present
+ * //                                   bytes: new Uint8Array(),
+ * //                                 },
+ * //                               },
+ * //                             ],
  * //                           },
  * //                         },
  * //                         responseState: "FAILURE" || "REPROMPT",
@@ -866,6 +1055,14 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //                         responseBody: {
  * //                           "<keys>": {
  * //                             body: "STRING_VALUE",
+ * //                             images: [
+ * //                               {
+ * //                                 format: "png" || "jpeg" || "gif" || "webp", // required
+ * //                                 source: {//  Union: only one key present
+ * //                                   bytes: new Uint8Array(),
+ * //                                 },
+ * //                               },
+ * //                             ],
  * //                           },
  * //                         },
  * //                         agentId: "STRING_VALUE",
@@ -877,6 +1074,14 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //                         responseBody: {
  * //                           "<keys>": {
  * //                             body: "STRING_VALUE",
+ * //                             images: [
+ * //                               {
+ * //                                 format: "png" || "jpeg" || "gif" || "webp", // required
+ * //                                 source: {//  Union: only one key present
+ * //                                   bytes: new Uint8Array(),
+ * //                                 },
+ * //                               },
+ * //                             ],
  * //                           },
  * //                         },
  * //                         responseState: "FAILURE" || "REPROMPT",

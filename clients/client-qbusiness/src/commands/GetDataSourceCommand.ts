@@ -137,6 +137,12 @@ export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __Met
  * //     imageExtractionConfiguration: { // ImageExtractionConfiguration
  * //       imageExtractionStatus: "ENABLED" || "DISABLED", // required
  * //     },
+ * //     audioExtractionConfiguration: { // AudioExtractionConfiguration
+ * //       audioExtractionStatus: "ENABLED" || "DISABLED", // required
+ * //     },
+ * //     videoExtractionConfiguration: { // VideoExtractionConfiguration
+ * //       videoExtractionStatus: "ENABLED" || "DISABLED", // required
+ * //     },
  * //   },
  * // };
  *

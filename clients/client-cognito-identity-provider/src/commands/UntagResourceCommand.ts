@@ -32,8 +32,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the specified tags from an Amazon Cognito user pool. You can use this action up to 5
- *             times per second, per account.</p>
+ * <p>Given tag IDs that you previously assigned to a user pool, removes them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

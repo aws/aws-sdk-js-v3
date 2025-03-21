@@ -95,6 +95,9 @@ export interface StartCompositionCommandOutput extends StartCompositionResponse,
  *           "STRING_VALUE",
  *         ],
  *         recordingConfiguration: { // RecordingConfiguration
+ *           hlsConfiguration: { // CompositionRecordingHlsConfiguration
+ *             targetSegmentDurationSeconds: Number("int"),
+ *           },
  *           format: "STRING_VALUE",
  *         },
  *         thumbnailConfigurations: [ // CompositionThumbnailConfigurationList
@@ -158,6 +161,9 @@ export interface StartCompositionCommandOutput extends StartCompositionResponse,
  * //               "STRING_VALUE",
  * //             ],
  * //             recordingConfiguration: { // RecordingConfiguration
+ * //               hlsConfiguration: { // CompositionRecordingHlsConfiguration
+ * //                 targetSegmentDurationSeconds: Number("int"),
+ * //               },
  * //               format: "STRING_VALUE",
  * //             },
  * //             thumbnailConfigurations: [ // CompositionThumbnailConfigurationList

@@ -214,6 +214,15 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *         parsingModality: "MULTIMODAL",
  *       },
  *     },
+ *     contextEnrichmentConfiguration: { // ContextEnrichmentConfiguration
+ *       type: "BEDROCK_FOUNDATION_MODEL", // required
+ *       bedrockFoundationModelConfiguration: { // BedrockFoundationModelContextEnrichmentConfiguration
+ *         enrichmentStrategyConfiguration: { // EnrichmentStrategyConfiguration
+ *           method: "CHUNK_ENTITY_EXTRACTION", // required
+ *         },
+ *         modelArn: "STRING_VALUE", // required
+ *       },
+ *     },
  *   },
  * };
  * const command = new CreateDataSourceCommand(input);
@@ -388,6 +397,15 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * //         },
  * //         bedrockDataAutomationConfiguration: { // BedrockDataAutomationConfiguration
  * //           parsingModality: "MULTIMODAL",
+ * //         },
+ * //       },
+ * //       contextEnrichmentConfiguration: { // ContextEnrichmentConfiguration
+ * //         type: "BEDROCK_FOUNDATION_MODEL", // required
+ * //         bedrockFoundationModelConfiguration: { // BedrockFoundationModelContextEnrichmentConfiguration
+ * //           enrichmentStrategyConfiguration: { // EnrichmentStrategyConfiguration
+ * //             method: "CHUNK_ENTITY_EXTRACTION", // required
+ * //           },
+ * //           modelArn: "STRING_VALUE", // required
  * //         },
  * //       },
  * //     },

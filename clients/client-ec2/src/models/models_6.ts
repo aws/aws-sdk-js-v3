@@ -13,11 +13,14 @@ import {
   HostRecovery,
   IpamPoolAllocation,
   SubnetAssociation,
+  SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
   TargetConfigurationRequest,
+  TransitGatewayAssociation,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
+  TransitGatewayMulticastDomainAssociations,
   TransitGatewayPolicyTableAssociation,
   UnsuccessfulItem,
   UserTrustProviderType,
@@ -65,9 +68,6 @@ import {
   ExportTaskS3Location,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchResourceType,
-  FastLaunchSnapshotConfigurationResponse,
-  FastLaunchStateCode,
-  FastSnapshotRestoreStateCode,
   Filter,
   IpamPoolCidr,
   MetricType,
@@ -81,6 +81,9 @@ import {
   ArchitectureValues,
   AttributeBooleanValue,
   BootModeValues,
+  FastLaunchSnapshotConfigurationResponse,
+  FastLaunchStateCode,
+  FastSnapshotRestoreStateCode,
   FpgaImageAttribute,
   FpgaImageAttributeName,
   HttpTokensState,
@@ -105,6 +108,137 @@ import {
   TransitGatewayPropagation,
   TransitGatewayPropagationState,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface DisassociateSubnetCidrBlockResult {
+  /**
+   * <p>Information about the IPv6 CIDR block association.</p>
+   * @public
+   */
+  Ipv6CidrBlockAssociation?: SubnetIpv6CidrBlockAssociation | undefined;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateTransitGatewayMulticastDomainRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
+   */
+  TransitGatewayMulticastDomainId: string | undefined;
+
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>The IDs of the subnets;</p>
+   * @public
+   */
+  SubnetIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateTransitGatewayMulticastDomainResult {
+  /**
+   * <p>Information about the association.</p>
+   * @public
+   */
+  Associations?: TransitGatewayMulticastDomainAssociations | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateTransitGatewayPolicyTableRequest {
+  /**
+   * <p>The ID of the disassociated policy table.</p>
+   * @public
+   */
+  TransitGatewayPolicyTableId: string | undefined;
+
+  /**
+   * <p>The ID of the transit gateway attachment to disassociate from the policy table.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateTransitGatewayPolicyTableResult {
+  /**
+   * <p>Returns details about the transit gateway policy table disassociation.</p>
+   * @public
+   */
+  Association?: TransitGatewayPolicyTableAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateTransitGatewayRouteTableRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateTransitGatewayRouteTableResult {
+  /**
+   * <p>Information about the association.</p>
+   * @public
+   */
+  Association?: TransitGatewayAssociation | undefined;
+}
 
 /**
  * @public
@@ -2090,24 +2224,34 @@ export interface GetCapacityReservationUsageResult {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>scheduled</code> - (<i>Future-dated Capacity Reservations only</i>) The
+   *                   <code>scheduled</code> - (<i>Future-dated Capacity Reservations</i>) The
    * 		future-dated Capacity Reservation request was approved and the Capacity Reservation is scheduled
    * 		for delivery on the requested start date.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>assessing</code> - (<i>Future-dated Capacity Reservations only</i>)
+   *                   <code>payment-pending</code> - (<i>Capacity Blocks</i>) The upfront
+   * 	    payment has not been processed yet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>payment-failed</code> - (<i>Capacity Blocks</i>) The upfront
+   * 	    payment was not processed in the 12-hour time frame. Your Capacity Block was released.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>assessing</code> - (<i>Future-dated Capacity Reservations</i>)
    * 		Amazon EC2 is assessing your request for a future-dated Capacity Reservation.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>delayed</code> - (<i>Future-dated Capacity Reservations only</i>) Amazon EC2
+   *                   <code>delayed</code> - (<i>Future-dated Capacity Reservations</i>) Amazon EC2
    * 		encountered a delay in provisioning the requested future-dated Capacity Reservation. Amazon EC2 is
    * 		unable to deliver the requested capacity by the requested start date and time.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>unsupported</code> - (<i>Future-dated Capacity Reservations only</i>) Amazon EC2
+   *                   <code>unsupported</code> - (<i>Future-dated Capacity Reservations</i>) Amazon EC2
    * 		can't support the future-dated Capacity Reservation request due to capacity constraints. You can view
    * 		unsupported requests for 30 days. The Capacity Reservation will not be delivered.</p>
    *             </li>
@@ -8846,152 +8990,6 @@ export interface ModifyInstanceCapacityReservationAttributesRequest {
    */
   DryRun?: boolean | undefined;
 }
-
-/**
- * @public
- */
-export interface ModifyInstanceCapacityReservationAttributesResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyInstanceCpuOptionsRequest {
-  /**
-   * <p>The ID of the instance to update.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The number of CPU cores to activate for the specified instance.</p>
-   * @public
-   */
-  CoreCount: number | undefined;
-
-  /**
-   * <p>The number of threads to run for each CPU core.</p>
-   * @public
-   */
-  ThreadsPerCore: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyInstanceCpuOptionsResult {
-  /**
-   * <p>The ID of the instance that was updated.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The number of CPU cores that are running for the specified instance after the
-   * 			update.</p>
-   * @public
-   */
-  CoreCount?: number | undefined;
-
-  /**
-   * <p>The number of threads that are running per CPU core for the specified
-   * 			instance after the update.</p>
-   * @public
-   */
-  ThreadsPerCore?: number | undefined;
-}
-
-/**
- * <p>Describes the credit option for CPU usage of a burstable performance instance.</p>
- * @public
- */
-export interface InstanceCreditSpecificationRequest {
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The credit option for CPU usage of the instance.</p>
-   *          <p>Valid values: <code>standard</code> | <code>unlimited</code>
-   *          </p>
-   *          <p>T3 instances with <code>host</code> tenancy do not support the <code>unlimited</code>
-   *             CPU credit option.</p>
-   * @public
-   */
-  CpuCredits?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyInstanceCreditSpecificationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *                 Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Information about the credit option for CPU usage.</p>
-   * @public
-   */
-  InstanceCreditSpecifications: InstanceCreditSpecificationRequest[] | undefined;
-}
-
-/**
- * <p>Describes the burstable performance instance whose credit option for CPU usage was
- *             successfully modified.</p>
- * @public
- */
-export interface SuccessfulInstanceCreditSpecificationItem {
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const UnsuccessfulInstanceCreditSpecificationErrorCode = {
-  INCORRECT_INSTANCE_STATE: "IncorrectInstanceState",
-  INSTANCE_CREDIT_SPECIFICATION_NOT_SUPPORTED: "InstanceCreditSpecification.NotSupported",
-  INSTANCE_NOT_FOUND: "InvalidInstanceID.NotFound",
-  INVALID_INSTANCE_ID: "InvalidInstanceID.Malformed",
-} as const;
-
-/**
- * @public
- */
-export type UnsuccessfulInstanceCreditSpecificationErrorCode =
-  (typeof UnsuccessfulInstanceCreditSpecificationErrorCode)[keyof typeof UnsuccessfulInstanceCreditSpecificationErrorCode];
 
 /**
  * @internal

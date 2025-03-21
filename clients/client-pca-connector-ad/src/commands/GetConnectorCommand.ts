@@ -48,12 +48,13 @@ export interface GetConnectorCommandOutput extends GetConnectorResponse, __Metad
  * //     CertificateEnrollmentPolicyServerEndpoint: "STRING_VALUE",
  * //     DirectoryId: "STRING_VALUE",
  * //     VpcInformation: { // VpcInformation
+ * //       IpAddressType: "IPV4" || "DUALSTACK",
  * //       SecurityGroupIds: [ // SecurityGroupIdList // required
  * //         "STRING_VALUE",
  * //       ],
  * //     },
  * //     Status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED",
- * //     StatusReason: "DIRECTORY_ACCESS_DENIED" || "INTERNAL_FAILURE" || "PRIVATECA_ACCESS_DENIED" || "PRIVATECA_RESOURCE_NOT_FOUND" || "SECURITY_GROUP_NOT_IN_VPC" || "VPC_ACCESS_DENIED" || "VPC_ENDPOINT_LIMIT_EXCEEDED" || "VPC_RESOURCE_NOT_FOUND",
+ * //     StatusReason: "CA_CERTIFICATE_REGISTRATION_FAILED" || "DIRECTORY_ACCESS_DENIED" || "INTERNAL_FAILURE" || "INSUFFICIENT_FREE_ADDRESSES" || "INVALID_SUBNET_IP_PROTOCOL" || "PRIVATECA_ACCESS_DENIED" || "PRIVATECA_RESOURCE_NOT_FOUND" || "SECURITY_GROUP_NOT_IN_VPC" || "VPC_ACCESS_DENIED" || "VPC_ENDPOINT_LIMIT_EXCEEDED" || "VPC_RESOURCE_NOT_FOUND",
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     UpdatedAt: new Date("TIMESTAMP"),
  * //   },

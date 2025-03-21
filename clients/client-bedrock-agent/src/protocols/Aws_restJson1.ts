@@ -204,6 +204,7 @@ import {
   AutoToolChoice,
   BedrockDataAutomationConfiguration,
   BedrockFoundationModelConfiguration,
+  BedrockFoundationModelContextEnrichmentConfiguration,
   CachePointBlock,
   ChatPromptTemplateConfiguration,
   ChunkingConfiguration,
@@ -214,6 +215,7 @@ import {
   ConfluenceDataSourceConfiguration,
   ConfluenceSourceConfiguration,
   ContentBlock,
+  ContextEnrichmentConfiguration,
   CrawlFilterConfiguration,
   CustomDocumentIdentifier,
   CustomOrchestration,
@@ -221,7 +223,7 @@ import {
   DataSource,
   DataSourceConfiguration,
   DataSourceSummary,
-  DocumentIdentifier,
+  EnrichmentStrategyConfiguration,
   FixedSizeChunkingConfiguration,
   FlowAliasRoutingConfigurationListItem,
   FlowAliasSummary,
@@ -251,7 +253,6 @@ import {
   IntermediateStorage,
   InternalServerException,
   IteratorFlowNodeConfiguration,
-  KnowledgeBaseDocumentDetail,
   KnowledgeBaseFlowNodeConfiguration,
   LambdaFunctionFlowNodeConfiguration,
   LexFlowNodeConfiguration,
@@ -323,6 +324,7 @@ import {
   CustomContent,
   CustomS3Location,
   DocumentContent,
+  DocumentIdentifier,
   DocumentMetadata,
   EmbeddingModelConfiguration,
   InlineContent,
@@ -330,11 +332,14 @@ import {
   KnowledgeBase,
   KnowledgeBaseConfiguration,
   KnowledgeBaseDocument,
+  KnowledgeBaseDocumentDetail,
   KnowledgeBaseSummary,
   MetadataAttribute,
   MetadataAttributeValue,
   MongoDbAtlasConfiguration,
   MongoDbAtlasFieldMapping,
+  NeptuneAnalyticsConfiguration,
+  NeptuneAnalyticsFieldMapping,
   OpenSearchServerlessConfiguration,
   OpenSearchServerlessFieldMapping,
   PineconeConfiguration,
@@ -485,6 +490,7 @@ export const se_CreateAgentActionGroupCommand = async (
       description: [],
       functionSchema: (_) => _json(_),
       parentActionGroupSignature: [],
+      parentActionGroupSignatureParams: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -1743,6 +1749,7 @@ export const se_UpdateAgentActionGroupCommand = async (
       description: [],
       functionSchema: (_) => _json(_),
       parentActionGroupSignature: [],
+      parentActionGroupSignatureParams: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -3790,6 +3797,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ActionGroupExecutor omitted.
 
+// se_ActionGroupSignatureParams omitted.
+
 // se_AgentAliasRoutingConfiguration omitted.
 
 // se_AgentAliasRoutingConfigurationListItem omitted.
@@ -3811,6 +3820,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_BedrockEmbeddingModelConfiguration omitted.
 
 // se_BedrockFoundationModelConfiguration omitted.
+
+// se_BedrockFoundationModelContextEnrichmentConfiguration omitted.
 
 /**
  * serializeAws_restJson1ByteContentDoc
@@ -3851,6 +3862,8 @@ const se_ChatPromptTemplateConfiguration = (input: ChatPromptTemplateConfigurati
 // se_ContentBlock omitted.
 
 // se_ContentBlocks omitted.
+
+// se_ContextEnrichmentConfiguration omitted.
 
 // se_CrawlFilterConfiguration omitted.
 
@@ -3909,6 +3922,8 @@ const se_DocumentMetadata = (input: DocumentMetadata, context: __SerdeContext): 
 // se_EmbeddingModelConfiguration omitted.
 
 // se_EnabledMemoryTypes omitted.
+
+// se_EnrichmentStrategyConfiguration omitted.
 
 // se_FilterList omitted.
 
@@ -4121,6 +4136,10 @@ const se_MetadataAttributeValue = (input: MetadataAttributeValue, context: __Ser
 // se_MongoDbAtlasConfiguration omitted.
 
 // se_MongoDbAtlasFieldMapping omitted.
+
+// se_NeptuneAnalyticsConfiguration omitted.
+
+// se_NeptuneAnalyticsFieldMapping omitted.
 
 // se_OpenSearchServerlessConfiguration omitted.
 
@@ -4500,6 +4519,8 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 
 // de_ActionGroupExecutor omitted.
 
+// de_ActionGroupSignatureParams omitted.
+
 /**
  * deserializeAws_restJson1ActionGroupSummaries
  */
@@ -4572,6 +4593,7 @@ const de_AgentActionGroup = (output: any, context: __SerdeContext): AgentActionG
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     description: __expectString,
     functionSchema: (_: any) => _json(__expectUnion(_)),
+    parentActionGroupSignatureParams: _json,
     parentActionSignature: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
@@ -4836,6 +4858,8 @@ const de_AgentVersionSummary = (output: any, context: __SerdeContext): AgentVers
 
 // de_BedrockFoundationModelConfiguration omitted.
 
+// de_BedrockFoundationModelContextEnrichmentConfiguration omitted.
+
 // de_CachePointBlock omitted.
 
 /**
@@ -4865,6 +4889,8 @@ const de_ChatPromptTemplateConfiguration = (output: any, context: __SerdeContext
 // de_ContentBlock omitted.
 
 // de_ContentBlocks omitted.
+
+// de_ContextEnrichmentConfiguration omitted.
 
 // de_CrawlFilterConfiguration omitted.
 
@@ -4937,6 +4963,8 @@ const de_DataSourceSummary = (output: any, context: __SerdeContext): DataSourceS
 // de_EmbeddingModelConfiguration omitted.
 
 // de_EnabledMemoryTypes omitted.
+
+// de_EnrichmentStrategyConfiguration omitted.
 
 // de_FailureReasons omitted.
 
@@ -5354,6 +5382,10 @@ const de_KnowledgeBaseSummary = (output: any, context: __SerdeContext): Knowledg
 // de_MongoDbAtlasFieldMapping omitted.
 
 // de_MultipleNodeInputConnectionsFlowValidationDetails omitted.
+
+// de_NeptuneAnalyticsConfiguration omitted.
+
+// de_NeptuneAnalyticsFieldMapping omitted.
 
 // de_OpenSearchServerlessConfiguration omitted.
 

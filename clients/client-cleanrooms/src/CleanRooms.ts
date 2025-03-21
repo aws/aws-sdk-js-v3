@@ -209,6 +209,11 @@ import {
   GetPrivacyBudgetTemplateCommandOutput,
 } from "./commands/GetPrivacyBudgetTemplateCommand";
 import {
+  GetProtectedJobCommand,
+  GetProtectedJobCommandInput,
+  GetProtectedJobCommandOutput,
+} from "./commands/GetProtectedJobCommand";
+import {
   GetProtectedQueryCommand,
   GetProtectedQueryCommandInput,
   GetProtectedQueryCommandOutput,
@@ -296,6 +301,11 @@ import {
   ListPrivacyBudgetTemplatesCommandOutput,
 } from "./commands/ListPrivacyBudgetTemplatesCommand";
 import {
+  ListProtectedJobsCommand,
+  ListProtectedJobsCommandInput,
+  ListProtectedJobsCommandOutput,
+} from "./commands/ListProtectedJobsCommand";
+import {
   ListProtectedQueriesCommand,
   ListProtectedQueriesCommandInput,
   ListProtectedQueriesCommandOutput,
@@ -316,6 +326,11 @@ import {
   PreviewPrivacyImpactCommandInput,
   PreviewPrivacyImpactCommandOutput,
 } from "./commands/PreviewPrivacyImpactCommand";
+import {
+  StartProtectedJobCommand,
+  StartProtectedJobCommandInput,
+  StartProtectedJobCommandOutput,
+} from "./commands/StartProtectedJobCommand";
 import {
   StartProtectedQueryCommand,
   StartProtectedQueryCommandInput,
@@ -383,6 +398,11 @@ import {
   UpdatePrivacyBudgetTemplateCommandOutput,
 } from "./commands/UpdatePrivacyBudgetTemplateCommand";
 import {
+  UpdateProtectedJobCommand,
+  UpdateProtectedJobCommandInput,
+  UpdateProtectedJobCommandOutput,
+} from "./commands/UpdateProtectedJobCommand";
+import {
   UpdateProtectedQueryCommand,
   UpdateProtectedQueryCommandInput,
   UpdateProtectedQueryCommandOutput,
@@ -430,6 +450,7 @@ const commands = {
   GetIdNamespaceAssociationCommand,
   GetMembershipCommand,
   GetPrivacyBudgetTemplateCommand,
+  GetProtectedJobCommand,
   GetProtectedQueryCommand,
   GetSchemaCommand,
   GetSchemaAnalysisRuleCommand,
@@ -449,11 +470,13 @@ const commands = {
   ListMembershipsCommand,
   ListPrivacyBudgetsCommand,
   ListPrivacyBudgetTemplatesCommand,
+  ListProtectedJobsCommand,
   ListProtectedQueriesCommand,
   ListSchemasCommand,
   ListTagsForResourceCommand,
   PopulateIdMappingTableCommand,
   PreviewPrivacyImpactCommand,
+  StartProtectedJobCommand,
   StartProtectedQueryCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -468,6 +491,7 @@ const commands = {
   UpdateIdNamespaceAssociationCommand,
   UpdateMembershipCommand,
   UpdatePrivacyBudgetTemplateCommand,
+  UpdateProtectedJobCommand,
   UpdateProtectedQueryCommand,
 };
 
@@ -1155,6 +1179,20 @@ export interface CleanRooms {
   ): void;
 
   /**
+   * @see {@link GetProtectedJobCommand}
+   */
+  getProtectedJob(
+    args: GetProtectedJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProtectedJobCommandOutput>;
+  getProtectedJob(args: GetProtectedJobCommandInput, cb: (err: any, data?: GetProtectedJobCommandOutput) => void): void;
+  getProtectedJob(
+    args: GetProtectedJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProtectedJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetProtectedQueryCommand}
    */
   getProtectedQuery(
@@ -1466,6 +1504,23 @@ export interface CleanRooms {
   ): void;
 
   /**
+   * @see {@link ListProtectedJobsCommand}
+   */
+  listProtectedJobs(
+    args: ListProtectedJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProtectedJobsCommandOutput>;
+  listProtectedJobs(
+    args: ListProtectedJobsCommandInput,
+    cb: (err: any, data?: ListProtectedJobsCommandOutput) => void
+  ): void;
+  listProtectedJobs(
+    args: ListProtectedJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProtectedJobsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListProtectedQueriesCommand}
    */
   listProtectedQueries(
@@ -1542,6 +1597,23 @@ export interface CleanRooms {
     args: PreviewPrivacyImpactCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PreviewPrivacyImpactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartProtectedJobCommand}
+   */
+  startProtectedJob(
+    args: StartProtectedJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartProtectedJobCommandOutput>;
+  startProtectedJob(
+    args: StartProtectedJobCommandInput,
+    cb: (err: any, data?: StartProtectedJobCommandOutput) => void
+  ): void;
+  startProtectedJob(
+    args: StartProtectedJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartProtectedJobCommandOutput) => void
   ): void;
 
   /**
@@ -1771,6 +1843,23 @@ export interface CleanRooms {
   ): void;
 
   /**
+   * @see {@link UpdateProtectedJobCommand}
+   */
+  updateProtectedJob(
+    args: UpdateProtectedJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProtectedJobCommandOutput>;
+  updateProtectedJob(
+    args: UpdateProtectedJobCommandInput,
+    cb: (err: any, data?: UpdateProtectedJobCommandOutput) => void
+  ): void;
+  updateProtectedJob(
+    args: UpdateProtectedJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProtectedJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateProtectedQueryCommand}
    */
   updateProtectedQuery(
@@ -1792,7 +1881,7 @@ export interface CleanRooms {
  * <p>Welcome to the <i>Clean Rooms API Reference</i>.</p>
  *          <p>Clean Rooms is an Amazon Web Services service that helps multiple parties to join
  *          their data together in a secure collaboration workspace. In the collaboration, members who
- *          can query and receive results can get insights into the collective datasets without either
+ *          can run queries and jobs and receive results can get insights into the collective datasets without either
  *          party getting access to the other party's raw data.</p>
  *          <p>To learn more about Clean Rooms concepts, procedures, and best practices, see the
  *             <a href="https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html">Clean Rooms User Guide</a>.</p>

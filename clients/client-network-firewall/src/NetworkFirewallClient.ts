@@ -88,6 +88,10 @@ import {
   DescribeFirewallPolicyCommandOutput,
 } from "./commands/DescribeFirewallPolicyCommand";
 import {
+  DescribeFlowOperationCommandInput,
+  DescribeFlowOperationCommandOutput,
+} from "./commands/DescribeFlowOperationCommand";
+import {
   DescribeLoggingConfigurationCommandInput,
   DescribeLoggingConfigurationCommandOutput,
 } from "./commands/DescribeLoggingConfigurationCommand";
@@ -121,6 +125,11 @@ import {
   ListFirewallPoliciesCommandOutput,
 } from "./commands/ListFirewallPoliciesCommand";
 import { ListFirewallsCommandInput, ListFirewallsCommandOutput } from "./commands/ListFirewallsCommand";
+import {
+  ListFlowOperationResultsCommandInput,
+  ListFlowOperationResultsCommandOutput,
+} from "./commands/ListFlowOperationResultsCommand";
+import { ListFlowOperationsCommandInput, ListFlowOperationsCommandOutput } from "./commands/ListFlowOperationsCommand";
 import { ListRuleGroupsCommandInput, ListRuleGroupsCommandOutput } from "./commands/ListRuleGroupsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -135,6 +144,8 @@ import {
   StartAnalysisReportCommandInput,
   StartAnalysisReportCommandOutput,
 } from "./commands/StartAnalysisReportCommand";
+import { StartFlowCaptureCommandInput, StartFlowCaptureCommandOutput } from "./commands/StartFlowCaptureCommand";
+import { StartFlowFlushCommandInput, StartFlowFlushCommandOutput } from "./commands/StartFlowFlushCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -202,6 +213,7 @@ export type ServiceInputTypes =
   | DeleteTLSInspectionConfigurationCommandInput
   | DescribeFirewallCommandInput
   | DescribeFirewallPolicyCommandInput
+  | DescribeFlowOperationCommandInput
   | DescribeLoggingConfigurationCommandInput
   | DescribeResourcePolicyCommandInput
   | DescribeRuleGroupCommandInput
@@ -212,11 +224,15 @@ export type ServiceInputTypes =
   | ListAnalysisReportsCommandInput
   | ListFirewallPoliciesCommandInput
   | ListFirewallsCommandInput
+  | ListFlowOperationResultsCommandInput
+  | ListFlowOperationsCommandInput
   | ListRuleGroupsCommandInput
   | ListTLSInspectionConfigurationsCommandInput
   | ListTagsForResourceCommandInput
   | PutResourcePolicyCommandInput
   | StartAnalysisReportCommandInput
+  | StartFlowCaptureCommandInput
+  | StartFlowFlushCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateFirewallAnalysisSettingsCommandInput
@@ -247,6 +263,7 @@ export type ServiceOutputTypes =
   | DeleteTLSInspectionConfigurationCommandOutput
   | DescribeFirewallCommandOutput
   | DescribeFirewallPolicyCommandOutput
+  | DescribeFlowOperationCommandOutput
   | DescribeLoggingConfigurationCommandOutput
   | DescribeResourcePolicyCommandOutput
   | DescribeRuleGroupCommandOutput
@@ -257,11 +274,15 @@ export type ServiceOutputTypes =
   | ListAnalysisReportsCommandOutput
   | ListFirewallPoliciesCommandOutput
   | ListFirewallsCommandOutput
+  | ListFlowOperationResultsCommandOutput
+  | ListFlowOperationsCommandOutput
   | ListRuleGroupsCommandOutput
   | ListTLSInspectionConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutResourcePolicyCommandOutput
   | StartAnalysisReportCommandOutput
+  | StartFlowCaptureCommandOutput
+  | StartFlowFlushCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateFirewallAnalysisSettingsCommandOutput

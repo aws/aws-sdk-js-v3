@@ -39,8 +39,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *          other.</p>
  *          <p>Tags are useful for cost tracking and access control. You can activate your tags so that
  *          they appear on the Billing and Cost Management console, where you can track the costs
- *          associated with your identity pools. In an IAM policy, you can constrain permissions for
- *          identity pools based on specific tags or tag values.</p>
+ *          associated with your identity pools. In an IAM policy, you can constrain
+ *          permissions for identity pools based on specific tags or tag values.</p>
  *          <p>You can use this action up to 5 times per second, per account. An identity pool can have
  *          as many as 50 tags.</p>
  * @example

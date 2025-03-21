@@ -30,7 +30,8 @@ export interface DescribeIdentityCommandOutput extends IdentityDescription, __Me
 /**
  * <p>Returns metadata related to the given identity, including when the identity was
  *          created and any associated linked logins.</p>
- *          <p>You must use AWS Developer credentials to call this API.</p>
+ *          <p>You must use Amazon Web Services developer credentials to call this
+ *          operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -488,8 +488,11 @@ export type ConnectorStatus = (typeof ConnectorStatus)[keyof typeof ConnectorSta
  * @enum
  */
 export const ConnectorStatusReason = {
+  CA_CERTIFICATE_REGISTRATION_FAILED: "CA_CERTIFICATE_REGISTRATION_FAILED",
   DIRECTORY_ACCESS_DENIED: "DIRECTORY_ACCESS_DENIED",
+  INSUFFICIENT_FREE_ADDRESSES: "INSUFFICIENT_FREE_ADDRESSES",
   INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  INVALID_SUBNET_IP_PROTOCOL: "INVALID_SUBNET_IP_PROTOCOL",
   PRIVATECA_ACCESS_DENIED: "PRIVATECA_ACCESS_DENIED",
   PRIVATECA_RESOURCE_NOT_FOUND: "PRIVATECA_RESOURCE_NOT_FOUND",
   SECURITY_GROUP_NOT_IN_VPC: "SECURITY_GROUP_NOT_IN_VPC",
@@ -504,10 +507,30 @@ export const ConnectorStatusReason = {
 export type ConnectorStatusReason = (typeof ConnectorStatusReason)[keyof typeof ConnectorStatusReason];
 
 /**
+ * @public
+ * @enum
+ */
+export const IpAddressType = {
+  DUALSTACK: "DUALSTACK",
+  IPV4: "IPV4",
+} as const;
+
+/**
+ * @public
+ */
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
  * <p>Information about your VPC and security groups used with the connector.</p>
  * @public
  */
 export interface VpcInformation {
+  /**
+   * <p>The VPC IP address type.</p>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
+
   /**
    * <p>The security groups used with the connector. You can use a maximum of 4 security groups
    *          with a connector.</p>
@@ -658,7 +681,7 @@ export interface CreateConnectorRequest {
   CertificateAuthorityArn: string | undefined;
 
   /**
-   * <p>Security group IDs that describe the inbound and outbound rules.</p>
+   * <p>Information about your VPC and security groups used with the connector.</p>
    * @public
    */
   VpcInformation: VpcInformation | undefined;
@@ -840,6 +863,7 @@ export class ThrottlingException extends __BaseException {
  */
 export const ValidationExceptionReason = {
   FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
+  INVALID_CA_SUBJECT: "INVALID_CA_SUBJECT",
   INVALID_PERMISSION: "INVALID_PERMISSION",
   INVALID_STATE: "INVALID_STATE",
   MISMATCHED_CONNECTOR: "MISMATCHED_CONNECTOR",
@@ -2539,6 +2563,7 @@ export const ServicePrincipalNameStatusReason = {
   DIRECTORY_RESOURCE_NOT_FOUND: "DIRECTORY_RESOURCE_NOT_FOUND",
   INTERNAL_FAILURE: "INTERNAL_FAILURE",
   SPN_EXISTS_ON_DIFFERENT_AD_OBJECT: "SPN_EXISTS_ON_DIFFERENT_AD_OBJECT",
+  SPN_LIMIT_EXCEEDED: "SPN_LIMIT_EXCEEDED",
 } as const;
 
 /**

@@ -2987,6 +2987,7 @@ const se_UpdateLocationObjectStorageRequest = (
     LocationArn: [],
     SecretKey: [],
     ServerCertificate: context.base64Encoder,
+    ServerHostname: [],
     ServerPort: [],
     ServerProtocol: [],
     Subdirectory: [],
@@ -3010,6 +3011,7 @@ const se_UpdateLocationSmbRequest = (input: UpdateLocationSmbRequest, context: _
     LocationArn: [],
     MountOptions: _json,
     Password: [],
+    ServerHostname: [],
     Subdirectory: [],
     User: [],
   });

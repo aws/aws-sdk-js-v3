@@ -32,7 +32,9 @@ export interface StopUserImportJobCommandInput extends StopUserImportJobRequest 
 export interface StopUserImportJobCommandOutput extends StopUserImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Stops the user import job.</p>
+ * <p>Instructs your user pool to stop a running job that's importing users from a CSV
+ *             file that contains their usernames and attributes. For more information about importing
+ *             users from a CSV file, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html">Importing users from a CSV file</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

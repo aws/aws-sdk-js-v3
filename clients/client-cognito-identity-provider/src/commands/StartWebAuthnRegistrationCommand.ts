@@ -36,12 +36,10 @@ export interface StartWebAuthnRegistrationCommandInput extends StartWebAuthnRegi
 export interface StartWebAuthnRegistrationCommandOutput extends StartWebAuthnRegistrationResponse, __MetadataBearer {}
 
 /**
- * <p>Requests credential creation options from your user pool for registration of a passkey
- *             authenticator. Returns information about the user pool, the user profile, and
- *             authentication requirements. Users must provide this information in their request to
- *             enroll your application with their passkey provider.</p>
- *          <p>After users present this data and register with their passkey provider, return the
- *             response to your user pool in a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CompleteWebAuthnRegistration.html"> CompleteWebAuthnRegistration</a> API request.</p>
+ * <p>Requests credential creation options from your user pool for the currently signed-in
+ *             user. Returns information about the user pool, the user profile, and authentication
+ *             requirements. Users must provide this information in their request to enroll your
+ *             application with their passkey provider.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

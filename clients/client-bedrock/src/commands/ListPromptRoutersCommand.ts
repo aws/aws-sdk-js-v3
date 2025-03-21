@@ -42,6 +42,7 @@ export interface ListPromptRoutersCommandOutput extends ListPromptRoutersRespons
  * const input = { // ListPromptRoutersRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   type: "custom" || "default",
  * };
  * const command = new ListPromptRoutersCommand(input);
  * const response = await client.send(command);
@@ -58,11 +59,11 @@ export interface ListPromptRoutersCommandOutput extends ListPromptRoutersRespons
  * //       promptRouterArn: "STRING_VALUE", // required
  * //       models: [ // PromptRouterTargetModels // required
  * //         { // PromptRouterTargetModel
- * //           modelArn: "STRING_VALUE",
+ * //           modelArn: "STRING_VALUE", // required
  * //         },
  * //       ],
  * //       fallbackModel: {
- * //         modelArn: "STRING_VALUE",
+ * //         modelArn: "STRING_VALUE", // required
  * //       },
  * //       status: "AVAILABLE", // required
  * //       type: "custom" || "default", // required

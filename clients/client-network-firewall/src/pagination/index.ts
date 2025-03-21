@@ -4,6 +4,8 @@ export * from "./Interfaces";
 export * from "./ListAnalysisReportsPaginator";
 export * from "./ListFirewallPoliciesPaginator";
 export * from "./ListFirewallsPaginator";
+export * from "./ListFlowOperationResultsPaginator";
+export * from "./ListFlowOperationsPaginator";
 export * from "./ListRuleGroupsPaginator";
 export * from "./ListTLSInspectionConfigurationsPaginator";
 export * from "./ListTagsForResourcePaginator";

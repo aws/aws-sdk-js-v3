@@ -49,7 +49,7 @@ export interface ListServicePrincipalNamesCommandOutput extends ListServicePrinc
  * //       DirectoryRegistrationArn: "STRING_VALUE",
  * //       ConnectorArn: "STRING_VALUE",
  * //       Status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED",
- * //       StatusReason: "DIRECTORY_ACCESS_DENIED" || "DIRECTORY_NOT_REACHABLE" || "DIRECTORY_RESOURCE_NOT_FOUND" || "SPN_EXISTS_ON_DIFFERENT_AD_OBJECT" || "INTERNAL_FAILURE",
+ * //       StatusReason: "DIRECTORY_ACCESS_DENIED" || "DIRECTORY_NOT_REACHABLE" || "DIRECTORY_RESOURCE_NOT_FOUND" || "SPN_EXISTS_ON_DIFFERENT_AD_OBJECT" || "SPN_LIMIT_EXCEEDED" || "INTERNAL_FAILURE",
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       UpdatedAt: new Date("TIMESTAMP"),
  * //     },

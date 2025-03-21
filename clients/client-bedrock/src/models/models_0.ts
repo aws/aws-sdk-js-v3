@@ -1085,10 +1085,25 @@ export interface EvaluationBedrockModel {
 }
 
 /**
+ * <p>A summary of a model used for a model evaluation job where you provide your own inference response data.</p>
+ * @public
+ */
+export interface EvaluationPrecomputedInferenceSource {
+  /**
+   * <p>A label that identifies a model used in a model evaluation job where you provide your own inference response data.</p>
+   * @public
+   */
+  inferenceSourceIdentifier: string | undefined;
+}
+
+/**
  * <p>Defines the models used in the model evaluation job.</p>
  * @public
  */
-export type EvaluationModelConfig = EvaluationModelConfig.BedrockModelMember | EvaluationModelConfig.$UnknownMember;
+export type EvaluationModelConfig =
+  | EvaluationModelConfig.BedrockModelMember
+  | EvaluationModelConfig.PrecomputedInferenceSourceMember
+  | EvaluationModelConfig.$UnknownMember;
 
 /**
  * @public
@@ -1100,6 +1115,17 @@ export namespace EvaluationModelConfig {
    */
   export interface BedrockModelMember {
     bedrockModel: EvaluationBedrockModel;
+    precomputedInferenceSource?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Defines the model used to generate inference response data for a model evaluation job where you provide your own inference response data.</p>
+   * @public
+   */
+  export interface PrecomputedInferenceSourceMember {
+    bedrockModel?: never;
+    precomputedInferenceSource: EvaluationPrecomputedInferenceSource;
     $unknown?: never;
   }
 
@@ -1108,16 +1134,20 @@ export namespace EvaluationModelConfig {
    */
   export interface $UnknownMember {
     bedrockModel?: never;
+    precomputedInferenceSource?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     bedrockModel: (value: EvaluationBedrockModel) => T;
+    precomputedInferenceSource: (value: EvaluationPrecomputedInferenceSource) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: EvaluationModelConfig, visitor: Visitor<T>): T => {
     if (value.bedrockModel !== undefined) return visitor.bedrockModel(value.bedrockModel);
+    if (value.precomputedInferenceSource !== undefined)
+      return visitor.precomputedInferenceSource(value.precomputedInferenceSource);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1465,6 +1495,86 @@ export const RetrieveAndGenerateType = {
 export type RetrieveAndGenerateType = (typeof RetrieveAndGenerateType)[keyof typeof RetrieveAndGenerateType];
 
 /**
+ * <p>A summary of a RAG source used for a retrieve-and-generate Knowledge Base evaluation job where you provide your own inference response data.</p>
+ * @public
+ */
+export interface EvaluationPrecomputedRetrieveAndGenerateSourceConfig {
+  /**
+   * <p>A label that identifies the RAG source used for a retrieve-and-generate Knowledge Base evaluation job where you provide your own inference response data.</p>
+   * @public
+   */
+  ragSourceIdentifier: string | undefined;
+}
+
+/**
+ * <p>A summary of a RAG source used for a retrieve-only Knowledge Base evaluation job where you provide your own inference response data.</p>
+ * @public
+ */
+export interface EvaluationPrecomputedRetrieveSourceConfig {
+  /**
+   * <p>A label that identifies the RAG source used for a retrieve-only Knowledge Base evaluation job where you provide your own inference response data.</p>
+   * @public
+   */
+  ragSourceIdentifier: string | undefined;
+}
+
+/**
+ * <p>A summary of a RAG source used for a Knowledge Base evaluation job where you provide your own inference response data.</p>
+ * @public
+ */
+export type EvaluationPrecomputedRagSourceConfig =
+  | EvaluationPrecomputedRagSourceConfig.RetrieveAndGenerateSourceConfigMember
+  | EvaluationPrecomputedRagSourceConfig.RetrieveSourceConfigMember
+  | EvaluationPrecomputedRagSourceConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EvaluationPrecomputedRagSourceConfig {
+  /**
+   * <p>A summary of a RAG source used for a retrieve-only Knowledge Base evaluation job where you provide your own inference response data.</p>
+   * @public
+   */
+  export interface RetrieveSourceConfigMember {
+    retrieveSourceConfig: EvaluationPrecomputedRetrieveSourceConfig;
+    retrieveAndGenerateSourceConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A summary of a RAG source used for a retrieve-and-generate Knowledge Base evaluation job where you provide your own inference response data.</p>
+   * @public
+   */
+  export interface RetrieveAndGenerateSourceConfigMember {
+    retrieveSourceConfig?: never;
+    retrieveAndGenerateSourceConfig: EvaluationPrecomputedRetrieveAndGenerateSourceConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    retrieveSourceConfig?: never;
+    retrieveAndGenerateSourceConfig?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    retrieveSourceConfig: (value: EvaluationPrecomputedRetrieveSourceConfig) => T;
+    retrieveAndGenerateSourceConfig: (value: EvaluationPrecomputedRetrieveAndGenerateSourceConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EvaluationPrecomputedRagSourceConfig, visitor: Visitor<T>): T => {
+    if (value.retrieveSourceConfig !== undefined) return visitor.retrieveSourceConfig(value.retrieveSourceConfig);
+    if (value.retrieveAndGenerateSourceConfig !== undefined)
+      return visitor.retrieveAndGenerateSourceConfig(value.retrieveAndGenerateSourceConfig);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>The  Amazon S3 location where the results of your evaluation job are saved.</p>
  * @public
  */
@@ -1599,6 +1709,64 @@ export interface ListEvaluationJobsRequest {
 }
 
 /**
+ * <p>A summary of the models used in an Amazon Bedrock model evaluation job. These resources can be models in Amazon Bedrock
+ *          or models outside of Amazon Bedrock that you use to generate your own inference response data.</p>
+ * @public
+ */
+export interface EvaluationModelConfigSummary {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the models used for the evaluation job.</p>
+   * @public
+   */
+  bedrockModelIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>A label that identifies the models used for a model evaluation job where you provide your own inference response data.</p>
+   * @public
+   */
+  precomputedInferenceSourceIdentifiers?: string[] | undefined;
+}
+
+/**
+ * <p>A summary of the RAG resources used in an Amazon Bedrock Knowledge Base evaluation job. These resources can be Knowledge Bases in Amazon Bedrock
+ *          or RAG sources outside of Amazon Bedrock that you use to generate your own inference response data.</p>
+ * @public
+ */
+export interface EvaluationRagConfigSummary {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the Knowledge Base resources used for a Knowledge Base evaluation job where Amazon Bedrock invokes the Knowledge Base for you.</p>
+   * @public
+   */
+  bedrockKnowledgeBaseIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>A label that identifies the RAG sources used for a Knowledge Base evaluation job where you provide your own inference response data.</p>
+   * @public
+   */
+  precomputedRagSourceIdentifiers?: string[] | undefined;
+}
+
+/**
+ * <p>Identifies the models, Knowledge Bases, or other RAG sources evaluated in a model or Knowledge Base evaluation job.</p>
+ * @public
+ */
+export interface EvaluationInferenceConfigSummary {
+  /**
+   * <p>A summary of the models used in an Amazon Bedrock model evaluation job. These resources can be models in Amazon Bedrock
+   *          or models outside of Amazon Bedrock that you use to generate your own inference response data.</p>
+   * @public
+   */
+  modelConfigSummary?: EvaluationModelConfigSummary | undefined;
+
+  /**
+   * <p>A summary of the RAG resources used in an Amazon Bedrock Knowledge Base evaluation job. These resources can be Knowledge Bases in
+   *          Amazon Bedrock or RAG sources outside of Amazon Bedrock that you use to generate your own inference response data.</p>
+   * @public
+   */
+  ragConfigSummary?: EvaluationRagConfigSummary | undefined;
+}
+
+/**
  * <p>Summary information of an evaluation job.</p>
  * @public
  */
@@ -1641,12 +1809,16 @@ export interface EvaluationSummary {
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the model(s) used for the evaluation job.</p>
+   *
+   * @deprecated
    * @public
    */
   modelIdentifiers?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the knowledge base resources used for a knowledge base evaluation job.</p>
+   *
+   * @deprecated
    * @public
    */
   ragIdentifiers?: string[] | undefined;
@@ -1656,6 +1828,12 @@ export interface EvaluationSummary {
    * @public
    */
   evaluatorModelIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>Identifies the models, Knowledge Bases, or other RAG sources evaluated in a model or Knowledge Base evaluation job.</p>
+   * @public
+   */
+  inferenceConfigSummary?: EvaluationInferenceConfigSummary | undefined;
 
   /**
    * <p>Specifies whether the evaluation job is for evaluating a model or evaluating a knowledge base (retrieval and response generation).</p>
@@ -6123,17 +6301,6 @@ export interface ListFoundationModelsResponse {
 }
 
 /**
- * @public
- */
-export interface GetPromptRouterRequest {
-  /**
-   * <p>The prompt router's ARN</p>
-   * @public
-   */
-  promptRouterArn: string | undefined;
-}
-
-/**
  * <p>The target model for a prompt router.</p>
  * @public
  */
@@ -6142,7 +6309,7 @@ export interface PromptRouterTargetModel {
    * <p>The target model's ARN.</p>
    * @public
    */
-  modelArn?: string | undefined;
+  modelArn: string | undefined;
 }
 
 /**
@@ -6155,6 +6322,92 @@ export interface RoutingCriteria {
    * @public
    */
   responseQualityDifference: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePromptRouterRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure idempotency of your requests. If not specified, the Amazon Web Services SDK
+   *             automatically generates one for you.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+
+  /**
+   * <p>The name of the prompt router. The name must be unique within your Amazon Web Services account in the current region.</p>
+   * @public
+   */
+  promptRouterName: string | undefined;
+
+  /**
+   * <p>A list of foundation models that the prompt router can route requests to. At least one model must be specified.</p>
+   * @public
+   */
+  models: PromptRouterTargetModel[] | undefined;
+
+  /**
+   * <p>An optional description of the prompt router to help identify its purpose.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The criteria, which is the response quality difference, used to determine how incoming requests are routed to different models.</p>
+   * @public
+   */
+  routingCriteria: RoutingCriteria | undefined;
+
+  /**
+   * <p>The default model to use when the routing criteria is not met.</p>
+   * @public
+   */
+  fallbackModel: PromptRouterTargetModel | undefined;
+
+  /**
+   * <p>An array of key-value pairs to apply to this resource as tags. You can use tags to categorize and manage your Amazon Web Services resources.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePromptRouterResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the prompt router.</p>
+   * @public
+   */
+  promptRouterArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePromptRouterRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the prompt router to delete.</p>
+   * @public
+   */
+  promptRouterArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePromptRouterResponse {}
+
+/**
+ * @public
+ */
+export interface GetPromptRouterRequest {
+  /**
+   * <p>The prompt router's ARN</p>
+   * @public
+   */
+  promptRouterArn: string | undefined;
 }
 
 /**
@@ -6264,6 +6517,12 @@ export interface ListPromptRoutersRequest {
    * @public
    */
   nextToken?: string | undefined;
+
+  /**
+   * <p>The type of the prompt routers, such as whether it's default or custom.</p>
+   * @public
+   */
+  type?: PromptRouterType | undefined;
 }
 
 /**
@@ -7859,7 +8118,10 @@ export namespace KnowledgeBaseConfig {
  * <p>Contains configuration details for retrieval of information and response generation.</p>
  * @public
  */
-export type RAGConfig = RAGConfig.KnowledgeBaseConfigMember | RAGConfig.$UnknownMember;
+export type RAGConfig =
+  | RAGConfig.KnowledgeBaseConfigMember
+  | RAGConfig.PrecomputedRagSourceConfigMember
+  | RAGConfig.$UnknownMember;
 
 /**
  * @public
@@ -7871,6 +8133,17 @@ export namespace RAGConfig {
    */
   export interface KnowledgeBaseConfigMember {
     knowledgeBaseConfig: KnowledgeBaseConfig;
+    precomputedRagSourceConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains configuration details about the RAG source used to generate inference response data for a Knowledge Base evaluation job.</p>
+   * @public
+   */
+  export interface PrecomputedRagSourceConfigMember {
+    knowledgeBaseConfig?: never;
+    precomputedRagSourceConfig: EvaluationPrecomputedRagSourceConfig;
     $unknown?: never;
   }
 
@@ -7879,16 +8152,20 @@ export namespace RAGConfig {
    */
   export interface $UnknownMember {
     knowledgeBaseConfig?: never;
+    precomputedRagSourceConfig?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     knowledgeBaseConfig: (value: KnowledgeBaseConfig) => T;
+    precomputedRagSourceConfig: (value: EvaluationPrecomputedRagSourceConfig) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: RAGConfig, visitor: Visitor<T>): T => {
     if (value.knowledgeBaseConfig !== undefined) return visitor.knowledgeBaseConfig(value.knowledgeBaseConfig);
+    if (value.precomputedRagSourceConfig !== undefined)
+      return visitor.precomputedRagSourceConfig(value.precomputedRagSourceConfig);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -8237,6 +8514,8 @@ export const EvaluationBedrockModelFilterSensitiveLog = (obj: EvaluationBedrockM
 export const EvaluationModelConfigFilterSensitiveLog = (obj: EvaluationModelConfig): any => {
   if (obj.bedrockModel !== undefined)
     return { bedrockModel: EvaluationBedrockModelFilterSensitiveLog(obj.bedrockModel) };
+  if (obj.precomputedInferenceSource !== undefined)
+    return { precomputedInferenceSource: obj.precomputedInferenceSource };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -8582,6 +8861,14 @@ export const GetCustomModelResponseFilterSensitiveLog = (obj: GetCustomModelResp
 /**
  * @internal
  */
+export const CreatePromptRouterRequestFilterSensitiveLog = (obj: CreatePromptRouterRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const GetPromptRouterResponseFilterSensitiveLog = (obj: GetPromptRouterResponse): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
@@ -8727,6 +9014,8 @@ export const KnowledgeBaseConfigFilterSensitiveLog = (obj: KnowledgeBaseConfig):
 export const RAGConfigFilterSensitiveLog = (obj: RAGConfig): any => {
   if (obj.knowledgeBaseConfig !== undefined)
     return { knowledgeBaseConfig: KnowledgeBaseConfigFilterSensitiveLog(obj.knowledgeBaseConfig) };
+  if (obj.precomputedRagSourceConfig !== undefined)
+    return { precomputedRagSourceConfig: obj.precomputedRagSourceConfig };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 

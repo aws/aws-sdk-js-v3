@@ -80,6 +80,7 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  *       ValueInteger: Number("int"),
  *     },
  *   },
+ *   PreviousContactId: "STRING_VALUE",
  * };
  * const command = new CreateContactCommand(input);
  * const response = await client.send(command);

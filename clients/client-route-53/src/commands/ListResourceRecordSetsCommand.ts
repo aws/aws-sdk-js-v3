@@ -74,6 +74,9 @@ export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordS
  *                <p>The results begin with the first resource record set in the list whose
  * 						name is greater than or equal to <code>Name</code>, and whose type is
  * 						greater than or equal to <code>Type</code>.</p>
+ *                <note>
+ *                   <p>Type is only used to sort between records with the same record Name.</p>
+ *                </note>
  *             </dd>
  *          </dl>
  *          <p>

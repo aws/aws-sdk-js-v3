@@ -37,19 +37,9 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
 
 /**
  * <p>Resets the specified user's password in a user pool. This operation doesn't
- *             change the user's password, but sends a password-reset code. This operation is the
- *             administrative authentication API equivalent to <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.html">ForgotPassword</a>.</p>
- *          <p>This operation deactivates a user's password, requiring them to change it. If a user
- *             tries to sign in after the API request, Amazon Cognito responds with a
- *                 <code>PasswordResetRequiredException</code> error. Your app must then complete the
- *             forgot-password flow by prompting the user for their code and a new password, then
- *             submitting those values in a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html">ConfirmForgotPassword</a> request. In addition, if the user
- *             pool has phone verification selected and a verified phone number exists for the user, or
- *             if email verification is selected and a verified email exists for the user, calling this
- *             API will also result in sending a message to the end user with the code to change their
- *             password.</p>
+ *             change the user's password, but sends a password-reset code.</p>
  *          <p>To use this API operation, your user pool must have self-service account recovery
- *             configured. Use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserPassword.html">AdminSetUserPassword</a> if you manage passwords as an administrator.</p>
+ *             configured.</p>
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *             require you to register an origination phone number before you can send SMS messages

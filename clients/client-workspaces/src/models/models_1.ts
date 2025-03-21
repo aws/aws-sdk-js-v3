@@ -22,6 +22,40 @@ import {
 import { WorkSpacesServiceException as __BaseException } from "./WorkSpacesServiceException";
 
 /**
+ * <p>Describes the information used to rebuild a WorkSpace.</p>
+ * @public
+ */
+export interface RebuildRequest {
+  /**
+   * <p>The identifier of the WorkSpace.</p>
+   * @public
+   */
+  WorkspaceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RebuildWorkspacesRequest {
+  /**
+   * <p>The WorkSpace to rebuild. You can specify a single WorkSpace.</p>
+   * @public
+   */
+  RebuildWorkspaceRequests: RebuildRequest[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RebuildWorkspacesResult {
+  /**
+   * <p>Information about the WorkSpace that could not be rebuilt.</p>
+   * @public
+   */
+  FailedRequests?: FailedWorkspaceChangeRequest[] | undefined;
+}
+
+/**
  * @public
  */
 export interface RegisterWorkspaceDirectoryRequest {

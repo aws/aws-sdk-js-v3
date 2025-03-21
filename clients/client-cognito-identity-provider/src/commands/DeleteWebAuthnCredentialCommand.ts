@@ -36,7 +36,7 @@ export interface DeleteWebAuthnCredentialCommandInput extends DeleteWebAuthnCred
 export interface DeleteWebAuthnCredentialCommandOutput extends DeleteWebAuthnCredentialResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a registered passkey, or webauthN, authenticator for the currently signed-in
+ * <p>Deletes a registered passkey, or WebAuthn, authenticator for the currently signed-in
  *             user.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>

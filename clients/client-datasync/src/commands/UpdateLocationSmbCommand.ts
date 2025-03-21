@@ -44,6 +44,7 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
  * const input = { // UpdateLocationSmbRequest
  *   LocationArn: "STRING_VALUE", // required
  *   Subdirectory: "STRING_VALUE",
+ *   ServerHostname: "STRING_VALUE",
  *   User: "STRING_VALUE",
  *   Domain: "STRING_VALUE",
  *   Password: "STRING_VALUE",

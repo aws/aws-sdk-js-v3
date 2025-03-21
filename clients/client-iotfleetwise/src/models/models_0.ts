@@ -2355,6 +2355,20 @@ export interface CanInterface {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const SignalValueType = {
+  FLOATING_POINT: "FLOATING_POINT",
+  INTEGER: "INTEGER",
+} as const;
+
+/**
+ * @public
+ */
+export type SignalValueType = (typeof SignalValueType)[keyof typeof SignalValueType];
+
+/**
  * <p>Information about a single controller area network (CAN) signal and the messages it
  *             receives and transmits.</p>
  * @public
@@ -2373,7 +2387,7 @@ export interface CanSignal {
   isBigEndian: boolean | undefined;
 
   /**
-   * <p>Whether the message data is specified as a signed value.</p>
+   * <p>Determines whether the message is signed (<code>true</code>) or not (<code>false</code>). If it's signed, the message can represent both positive and negative numbers. The <code>isSigned</code> parameter only applies to the <code>INTEGER</code> raw signal type, and it doesn't affect the <code>FLOATING_POINT</code> raw signal type.</p>
    * @public
    */
   isSigned: boolean | undefined;
@@ -2413,6 +2427,12 @@ export interface CanSignal {
    * @public
    */
   name?: string | undefined;
+
+  /**
+   * <p>The value type of the signal. The default value is <code>INTEGER</code>.</p>
+   * @public
+   */
+  signalValueType?: SignalValueType | undefined;
 }
 
 /**
@@ -2819,6 +2839,18 @@ export interface ObdSignal {
    * @public
    */
   bitMaskLength?: number | undefined;
+
+  /**
+   * <p>Determines whether the message is signed (<code>true</code>) or not (<code>false</code>). If it's signed, the message can represent both positive and negative numbers. The <code>isSigned</code> parameter only applies to the <code>INTEGER</code> raw signal type, and it doesn't affect the <code>FLOATING_POINT</code> raw signal type. The default value is <code>false</code>.</p>
+   * @public
+   */
+  isSigned?: boolean | undefined;
+
+  /**
+   * <p>The value type of the signal. The default value is <code>INTEGER</code>.</p>
+   * @public
+   */
+  signalValueType?: SignalValueType | undefined;
 }
 
 /**

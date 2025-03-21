@@ -47,6 +47,7 @@ export interface UpdateLocationObjectStorageCommandOutput
  *   ServerPort: Number("int"),
  *   ServerProtocol: "HTTPS" || "HTTP",
  *   Subdirectory: "STRING_VALUE",
+ *   ServerHostname: "STRING_VALUE",
  *   AccessKey: "STRING_VALUE",
  *   SecretKey: "STRING_VALUE",
  *   AgentArns: [ // AgentArnList

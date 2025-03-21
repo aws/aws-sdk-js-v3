@@ -99,6 +99,7 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * //         DeviceTypeChromeOs: "ALLOW" || "DENY",
  * //         DeviceTypeZeroClient: "ALLOW" || "DENY",
  * //         DeviceTypeLinux: "ALLOW" || "DENY",
+ * //         DeviceTypeWorkSpacesThinClient: "ALLOW" || "DENY",
  * //       },
  * //       Tenancy: "DEDICATED" || "SHARED",
  * //       SelfservicePermissions: { // SelfservicePermissions
@@ -117,6 +118,7 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * //         Status: "DISABLED" || "ENABLED",
  * //         CertificateAuthorityArn: "STRING_VALUE",
  * //       },
+ * //       EndpointEncryptionMode: "STANDARD_TLS" || "FIPS_VALIDATED",
  * //       MicrosoftEntraConfig: { // MicrosoftEntraConfig
  * //         TenantId: "STRING_VALUE",
  * //         ApplicationConfigSecretArn: "STRING_VALUE",

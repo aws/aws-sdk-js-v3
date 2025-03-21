@@ -36,8 +36,15 @@ export interface ListWebAuthnCredentialsCommandInput extends ListWebAuthnCredent
 export interface ListWebAuthnCredentialsCommandOutput extends ListWebAuthnCredentialsResponse, __MetadataBearer {}
 
 /**
- * <p>Generates a list of the current user's registered passkey, or webauthN,
- *             credentials.</p>
+ * <p>Generates a list of the currently signed-in user's registered passkey, or
+ *             WebAuthn, credentials.</p>
+ *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
+ *          <note>
+ *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ *     this operation, you can't use IAM credentials to authorize requests, and you can't
+ *     grant IAM permissions in policies. For more information about authorization models in
+ *     Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

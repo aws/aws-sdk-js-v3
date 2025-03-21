@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeRegionsRequest } from "../models/models_4";
-import { DescribeRegionsResult } from "../models/models_5";
+import { DescribeRegionsRequest, DescribeRegionsResult } from "../models/models_5";
 import { de_DescribeRegionsCommand, se_DescribeRegionsCommand } from "../protocols/Aws_ec2";
 
 /**

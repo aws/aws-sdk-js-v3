@@ -36,7 +36,10 @@ export type GetTileCommandOutputType = Omit<GetTileResponse, "Blob"> & {
 export interface GetTileCommandOutput extends GetTileCommandOutputType, __MetadataBearer {}
 
 /**
- * <p>Returns a tile. Map tiles are used by clients to render a map. they're addressed using a grid arrangement with an X coordinate, Y coordinate, and Z (zoom) level.</p>
+ * <p>
+ *             <code>GetTile</code> returns a tile. Map tiles are used by clients to render a map.
+ *          they're addressed using a grid arrangement with an X coordinate, Y coordinate, and Z (zoom)
+ *          level.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,10 +72,12 @@ export interface GetTileCommandOutput extends GetTileCommandOutputType, __Metada
  * @see {@link GeoMapsClientResolvedConfig | config} for GeoMapsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *          administrator to verify your permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *          failure.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

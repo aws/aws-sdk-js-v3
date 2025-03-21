@@ -40,6 +40,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *   DirectoryId: "STRING_VALUE", // required
  *   CertificateAuthorityArn: "STRING_VALUE", // required
  *   VpcInformation: { // VpcInformation
+ *     IpAddressType: "IPV4" || "DUALSTACK",
  *     SecurityGroupIds: [ // SecurityGroupIdList // required
  *       "STRING_VALUE",
  *     ],

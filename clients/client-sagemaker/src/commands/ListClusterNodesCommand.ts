@@ -49,7 +49,7 @@ export interface ListClusterNodesCommandOutput extends ListClusterNodesResponse,
  * const command = new ListClusterNodesCommand(input);
  * const response = await client.send(command);
  * // { // ListClusterNodesResponse
- * //   NextToken: "STRING_VALUE", // required
+ * //   NextToken: "STRING_VALUE",
  * //   ClusterNodeSummaries: [ // ClusterNodeSummaries // required
  * //     { // ClusterNodeSummary
  * //       InstanceGroupName: "STRING_VALUE", // required

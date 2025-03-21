@@ -69,6 +69,7 @@ import {
   CreateModelInvocationJobCommandInput,
   CreateModelInvocationJobCommandOutput,
 } from "../commands/CreateModelInvocationJobCommand";
+import { CreatePromptRouterCommandInput, CreatePromptRouterCommandOutput } from "../commands/CreatePromptRouterCommand";
 import {
   CreateProvisionedModelThroughputCommandInput,
   CreateProvisionedModelThroughputCommandOutput,
@@ -91,6 +92,7 @@ import {
   DeleteModelInvocationLoggingConfigurationCommandInput,
   DeleteModelInvocationLoggingConfigurationCommandOutput,
 } from "../commands/DeleteModelInvocationLoggingConfigurationCommand";
+import { DeletePromptRouterCommandInput, DeletePromptRouterCommandOutput } from "../commands/DeletePromptRouterCommand";
 import {
   DeleteProvisionedModelThroughputCommandInput,
   DeleteProvisionedModelThroughputCommandOutput,
@@ -217,6 +219,10 @@ import {
   EvaluationInferenceConfig,
   EvaluationModelConfig,
   EvaluationOutputDataConfig,
+  EvaluationPrecomputedInferenceSource,
+  EvaluationPrecomputedRagSourceConfig,
+  EvaluationPrecomputedRetrieveAndGenerateSourceConfig,
+  EvaluationPrecomputedRetrieveSourceConfig,
   EvaluationSummary,
   EvaluatorModelConfig,
   ExternalSource,
@@ -271,6 +277,7 @@ import {
   OutputDataConfig,
   PerformanceConfiguration,
   PromptRouterSummary,
+  PromptRouterTargetModel,
   PromptTemplate,
   ProvisionedModelSummary,
   QueryTransformationConfiguration,
@@ -588,6 +595,34 @@ export const se_CreateModelInvocationJobCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreatePromptRouterCommand
+ */
+export const se_CreatePromptRouterCommand = async (
+  input: CreatePromptRouterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prompt-routers");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      fallbackModel: (_) => _json(_),
+      models: (_) => _json(_),
+      promptRouterName: [],
+      routingCriteria: (_) => se_RoutingCriteria(_, context),
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateProvisionedModelThroughputCommand
  */
 export const se_CreateProvisionedModelThroughputCommand = async (
@@ -707,6 +742,22 @@ export const se_DeleteModelInvocationLoggingConfigurationCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/logging/modelinvocations");
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeletePromptRouterCommand
+ */
+export const se_DeletePromptRouterCommand = async (
+  input: DeletePromptRouterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prompt-routers/{promptRouterArn}");
+  b.p("promptRouterArn", () => input.promptRouterArn!, "{promptRouterArn}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -1243,6 +1294,7 @@ export const se_ListPromptRoutersCommand = async (
   const query: any = map({
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
+    [_t]: [, input[_t]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1733,6 +1785,27 @@ export const de_CreateModelInvocationJobCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreatePromptRouterCommand
+ */
+export const de_CreatePromptRouterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePromptRouterCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    promptRouterArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateProvisionedModelThroughputCommand
  */
 export const de_CreateProvisionedModelThroughputCommand = async (
@@ -1845,6 +1918,23 @@ export const de_DeleteModelInvocationLoggingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteModelInvocationLoggingConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeletePromptRouterCommand
+ */
+export const de_DeletePromptRouterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePromptRouterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -3110,6 +3200,14 @@ const se_EvaluationInferenceConfig = (input: EvaluationInferenceConfig, context:
 
 // se_EvaluationOutputDataConfig omitted.
 
+// se_EvaluationPrecomputedInferenceSource omitted.
+
+// se_EvaluationPrecomputedRagSourceConfig omitted.
+
+// se_EvaluationPrecomputedRetrieveAndGenerateSourceConfig omitted.
+
+// se_EvaluationPrecomputedRetrieveSourceConfig omitted.
+
 // se_EvaluatorModelConfig omitted.
 
 /**
@@ -3367,6 +3465,10 @@ const se_KnowledgeBaseVectorSearchConfiguration = (
 
 // se_PerformanceConfiguration omitted.
 
+// se_PromptRouterTargetModel omitted.
+
+// se_PromptRouterTargetModels omitted.
+
 // se_PromptTemplate omitted.
 
 // se_QueryTransformationConfiguration omitted.
@@ -3377,6 +3479,7 @@ const se_KnowledgeBaseVectorSearchConfiguration = (
 const se_RAGConfig = (input: RAGConfig, context: __SerdeContext): any => {
   return RAGConfig.visit(input, {
     knowledgeBaseConfig: (value) => ({ knowledgeBaseConfig: se_KnowledgeBaseConfig(value, context) }),
+    precomputedRagSourceConfig: (value) => ({ precomputedRagSourceConfig: _json(value) }),
     _: (name, value) => ({ [name]: value } as any),
   });
 };
@@ -3453,6 +3556,15 @@ const se_RetrieveConfig = (input: RetrieveConfig, context: __SerdeContext): any 
   return take(input, {
     knowledgeBaseId: [],
     knowledgeBaseRetrievalConfiguration: (_) => se_KnowledgeBaseRetrievalConfiguration(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1RoutingCriteria
+ */
+const se_RoutingCriteria = (input: RoutingCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    responseQualityDifference: __serializeFloat,
   });
 };
 
@@ -3580,7 +3692,11 @@ const de_CustomModelSummaryList = (output: any, context: __SerdeContext): Custom
 
 // de_ErrorMessages omitted.
 
+// de_EvaluationBedrockKnowledgeBaseIdentifiers omitted.
+
 // de_EvaluationBedrockModel omitted.
+
+// de_EvaluationBedrockModelIdentifiers omitted.
 
 // de_EvaluationConfig omitted.
 
@@ -3609,15 +3725,31 @@ const de_EvaluationInferenceConfig = (output: any, context: __SerdeContext): Eva
   return { $unknown: Object.entries(output)[0] };
 };
 
+// de_EvaluationInferenceConfigSummary omitted.
+
 // de_EvaluationMetricNames omitted.
 
 // de_EvaluationModelConfig omitted.
 
 // de_EvaluationModelConfigs omitted.
 
-// de_EvaluationModelIdentifiers omitted.
+// de_EvaluationModelConfigSummary omitted.
 
 // de_EvaluationOutputDataConfig omitted.
+
+// de_EvaluationPrecomputedInferenceSource omitted.
+
+// de_EvaluationPrecomputedInferenceSourceIdentifiers omitted.
+
+// de_EvaluationPrecomputedRagSourceConfig omitted.
+
+// de_EvaluationPrecomputedRagSourceIdentifiers omitted.
+
+// de_EvaluationPrecomputedRetrieveAndGenerateSourceConfig omitted.
+
+// de_EvaluationPrecomputedRetrieveSourceConfig omitted.
+
+// de_EvaluationRagConfigSummary omitted.
 
 /**
  * deserializeAws_restJson1EvaluationSummaries
@@ -3640,6 +3772,7 @@ const de_EvaluationSummary = (output: any, context: __SerdeContext): EvaluationS
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     evaluationTaskTypes: _json,
     evaluatorModelIdentifiers: _json,
+    inferenceConfigSummary: _json,
     jobArn: __expectString,
     jobName: __expectString,
     jobType: __expectString,
@@ -4267,6 +4400,11 @@ const de_RAGConfig = (output: any, context: __SerdeContext): RAGConfig => {
       knowledgeBaseConfig: de_KnowledgeBaseConfig(__expectUnion(output.knowledgeBaseConfig), context),
     };
   }
+  if (output.precomputedRagSourceConfig != null) {
+    return {
+      precomputedRagSourceConfig: _json(__expectUnion(output.precomputedRagSourceConfig)),
+    };
+  }
   return { $unknown: Object.entries(output)[0] };
 };
 
@@ -4281,8 +4419,6 @@ const de_RagConfigs = (output: any, context: __SerdeContext): RAGConfig[] => {
     });
   return retVal;
 };
-
-// de_RAGIdentifiers omitted.
 
 // de_RAGStopSequences omitted.
 

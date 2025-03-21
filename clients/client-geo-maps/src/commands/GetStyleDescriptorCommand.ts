@@ -40,7 +40,8 @@ export type GetStyleDescriptorCommandOutputType = Omit<GetStyleDescriptorRespons
 export interface GetStyleDescriptorCommandOutput extends GetStyleDescriptorCommandOutputType, __MetadataBearer {}
 
 /**
- * <p>Returns information about the style.</p>
+ * <p>
+ *             <code>GetStyleDescriptor</code> returns information about the style.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

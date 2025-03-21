@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
+
+**Note:** Version bump only for package @aws-sdk/client-ivs-realtime
+
+
+
+
+
+# [3.767.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.766.0...v3.767.0) (2025-03-13)
+
+
+### Features
+
+* **client-ivs-realtime:** IVS Real-Time now offers customers the ability to adjust the participant & composition recording segment duration ([22ff2bf](https://github.com/aws/aws-sdk-js-v3/commit/22ff2bfd073861182437c730fe794841bdbc7d20))
+
+
+
+
+
+# [3.763.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.762.0...v3.763.0) (2025-03-06)
+
+
+### Features
+
+* **client-ivs-realtime:** IVS Real-Time now offers customers the ability to merge fragmented recordings in the event of a participant disconnect. ([ad76edc](https://github.com/aws/aws-sdk-js-v3/commit/ad76edc0539dd0938145aa6cc9e1bb31b557fbad))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-ivs-realtime

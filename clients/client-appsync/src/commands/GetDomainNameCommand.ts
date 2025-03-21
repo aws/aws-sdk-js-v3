@@ -47,6 +47,10 @@ export interface GetDomainNameCommandOutput extends GetDomainNameResponse, __Met
  * //     certificateArn: "STRING_VALUE",
  * //     appsyncDomainName: "STRING_VALUE",
  * //     hostedZoneId: "STRING_VALUE",
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     domainNameArn: "STRING_VALUE",
  * //   },
  * // };
  *

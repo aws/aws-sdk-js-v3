@@ -79,6 +79,9 @@ export interface GetScopeCommandOutput extends GetScopeOutput, __MetadataBearer 
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal error occurred.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request specifies a resource that doesn't exist.</p>
+ *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request exceeded a service quota.</p>
  *

@@ -2359,6 +2359,13 @@ export interface CreateDomainNameRequest {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>A map with keys of <code>TagKey</code> objects and values of <code>TagValue</code>
+   *          objects.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2397,6 +2404,19 @@ export interface DomainNameConfig {
    * @public
    */
   hostedZoneId?: string | undefined;
+
+  /**
+   * <p>A map with keys of <code>TagKey</code> objects and values of <code>TagValue</code>
+   *          objects.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain name.</p>
+   * @public
+   */
+  domainNameArn?: string | undefined;
 }
 
 /**

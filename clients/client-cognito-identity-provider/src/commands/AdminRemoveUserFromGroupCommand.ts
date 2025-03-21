@@ -32,7 +32,7 @@ export interface AdminRemoveUserFromGroupCommandInput extends AdminRemoveUserFro
 export interface AdminRemoveUserFromGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Given a username and a group name. removes them from the group. User pool groups are
+ * <p>Given a username and a group name, removes them from the group. User pool groups are
  *             identifiers that you can reference from the contents of ID and access tokens, and set
  *             preferred IAM roles for identity-pool authentication. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html">Adding groups to a user pool</a>.</p>
  *          <note>

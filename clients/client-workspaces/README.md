@@ -718,6 +718,14 @@ ModifyClientProperties
 </details>
 <details>
 <summary>
+ModifyEndpointEncryptionMode
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/ModifyEndpointEncryptionModeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ModifyEndpointEncryptionModeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ModifyEndpointEncryptionModeCommandOutput/)
+
+</details>
+<details>
+<summary>
 ModifySamlProperties
 </summary>
 

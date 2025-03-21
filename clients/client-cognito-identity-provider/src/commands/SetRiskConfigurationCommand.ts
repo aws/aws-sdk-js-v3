@@ -37,11 +37,30 @@ export interface SetRiskConfigurationCommandInput extends SetRiskConfigurationRe
 export interface SetRiskConfigurationCommandOutput extends SetRiskConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Configures actions on detected risks. To delete the risk configuration for
- *                 <code>UserPoolId</code> or <code>ClientId</code>, pass null values for all four
- *             configuration types.</p>
- *          <p>To activate Amazon Cognito advanced security features, update the user pool to include the
- *                 <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.</p>
+ * <p>Configures threat protection for a user pool or app client. Sets configuration for the
+ *             following.</p>
+ *          <ul>
+ *             <li>
+ *                <p>Responses to risks with adaptive authentication</p>
+ *             </li>
+ *             <li>
+ *                <p>Responses to vulnerable passwords with compromised-credentials
+ *                     detection</p>
+ *             </li>
+ *             <li>
+ *                <p>Notifications to users who have had risky activity detected</p>
+ *             </li>
+ *             <li>
+ *                <p>IP-address denylist and allowlist</p>
+ *             </li>
+ *          </ul>
+ *          <p>To set the risk configuration for the user pool to defaults, send this request with
+ *             only the <code>UserPoolId</code> parameter. To reset the threat protection settings of
+ *             an app client to be inherited from the user pool, send <code>UserPoolId</code> and
+ *                 <code>ClientId</code> parameters only. To change threat protection to audit-only or
+ *             off, update the value of <code>UserPoolAddOns</code> in an <code>UpdateUserPool</code>
+ *             request. To activate this setting, your user pool must be on the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html">
+ *                      Plus tier</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

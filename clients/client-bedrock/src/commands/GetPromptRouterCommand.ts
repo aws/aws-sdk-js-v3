@@ -55,11 +55,11 @@ export interface GetPromptRouterCommandOutput extends GetPromptRouterResponse, _
  * //   promptRouterArn: "STRING_VALUE", // required
  * //   models: [ // PromptRouterTargetModels // required
  * //     { // PromptRouterTargetModel
- * //       modelArn: "STRING_VALUE",
+ * //       modelArn: "STRING_VALUE", // required
  * //     },
  * //   ],
  * //   fallbackModel: {
- * //     modelArn: "STRING_VALUE",
+ * //     modelArn: "STRING_VALUE", // required
  * //   },
  * //   status: "AVAILABLE", // required
  * //   type: "custom" || "default", // required

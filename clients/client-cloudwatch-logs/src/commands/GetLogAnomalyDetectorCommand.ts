@@ -28,7 +28,7 @@ export interface GetLogAnomalyDetectorCommandInput extends GetLogAnomalyDetector
 export interface GetLogAnomalyDetectorCommandOutput extends GetLogAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the log anomaly detector that you specify.</p>
+ * <p>Retrieves information about the log anomaly detector that you specify. The KMS key ARN detected is valid.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

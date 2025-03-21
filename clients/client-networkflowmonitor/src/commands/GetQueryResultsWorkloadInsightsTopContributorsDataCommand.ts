@@ -43,9 +43,10 @@ export interface GetQueryResultsWorkloadInsightsTopContributorsDataCommandOutput
 /**
  * <p>Return the data for a query with the Network Flow Monitor query interface.
  *    		Specify the query that you want to return results for by providing a query ID
- *    		and a scope ID. This query returns data for the top contributors for workload insights.
+ *    		and a scope ID.</p>
+ *          <p>This query returns the data for top contributors for workload insights for a specific scope.
  *    		Workload insights provide a high level view of network flow performance data collected by agents
- *    		for a scope.</p>
+ *    		for a scope. To return just the top contributors, see <code>GetQueryResultsWorkloadInsightsTopContributors</code>.</p>
  *          <p>Create a query ID for this call by calling the corresponding API call to start the query,
  *    		<code>StartQueryWorkloadInsightsTopContributorsData</code>. Use the scope ID that was returned
  *    		for your account by <code>CreateScope</code>.</p>

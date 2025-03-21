@@ -35,7 +35,9 @@ export interface SetLogDeliveryConfigurationCommandOutput
 
 /**
  * <p>Sets up or modifies the logging configuration of a user pool. User pools can export
- *             user notification logs and advanced security features user activity logs.</p>
+ *             user notification logs and, when threat protection is active, user-activity logs. For
+ *             more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/exporting-quotas-and-usage.html">Exporting user
+ *                 pool logs</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

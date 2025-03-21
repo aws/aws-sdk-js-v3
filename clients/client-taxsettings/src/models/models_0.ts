@@ -725,25 +725,25 @@ export interface UkraineAdditionalInfo {
  */
 export interface VietnamAdditionalInfo {
   /**
-   * <p>The enterprise identification number for tax registration.</p>
+   * <p>The enterprise identification number for tax registration. This field must be provided for successful API operation.</p>
    * @public
    */
   enterpriseIdentificationNumber?: string | undefined;
 
   /**
-   * <p>The electronic transaction code number on the tax return document.</p>
+   * <p>The electronic transaction code number on the tax return document. This field must be provided for successful API operation.</p>
    * @public
    */
   electronicTransactionCodeNumber?: string | undefined;
 
   /**
-   * <p>The payment voucher number on the tax return payment document.</p>
+   * <p>The payment voucher number on the tax return payment document. This field must be provided for successful API operation.</p>
    * @public
    */
   paymentVoucherNumber?: string | undefined;
 
   /**
-   * <p>The date on the tax return payment document.</p>
+   * <p>The date on the tax return payment document. This field must be provided for successful API operation.</p>
    * @public
    */
   paymentVoucherNumberDate?: string | undefined;
@@ -1968,7 +1968,7 @@ export interface TaxRegistration {
   registrationId: string | undefined;
 
   /**
-   * <p>Type of your tax registration. This can be either <code>VAT</code> or <code>GST</code>.
+   * <p>Type of your tax registration.
    *     </p>
    * @public
    */
@@ -2338,7 +2338,7 @@ export interface PutTaxExemptionRequest {
   authority: Authority | undefined;
 
   /**
-   * <p>The exemption type.
+   * <p>The exemption type. Use the supported tax exemption type description.
    *     </p>
    * @public
    */

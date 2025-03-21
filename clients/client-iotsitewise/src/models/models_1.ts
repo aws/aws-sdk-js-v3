@@ -12,6 +12,7 @@ import {
   AssetModelStatus,
   AssetModelVersionType,
   AssetStatus,
+  AssetSummary,
   AssociatedAssetsSummary,
   CapabilitySyncStatus,
   ColumnInfo,
@@ -40,6 +41,23 @@ import {
   WarmTierRetentionPeriod,
   WarmTierState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListAssetsResponse {
+  /**
+   * <p>A list that summarizes each asset.</p>
+   * @public
+   */
+  assetSummaries: AssetSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -512,6 +530,13 @@ export interface GatewaySummary {
    * @public
    */
   gatewayPlatform?: GatewayPlatform | undefined;
+
+  /**
+   * <p>The version of the gateway. A value of <code>3</code> indicates an MQTT-enabled, V3
+   *       gateway, while <code>2</code> indicates a Classic streams, V2 gateway.</p>
+   * @public
+   */
+  gatewayVersion?: string | undefined;
 
   /**
    * <p>A list of gateway capability summaries that each contain a namespace and status. Each

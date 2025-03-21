@@ -316,6 +316,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *         AudioPids: [ // __listOf__integerMin32Max8182
  *           Number("int"),
  *         ],
+ *         AudioPtsOffsetDelta: Number("int"),
  *         Bitrate: Number("int"),
  *         BufferModel: "MULTIPLEX" || "NONE",
  *         DataPTSControl: "AUTO" || "ALIGN_TO_VIDEO",
@@ -356,7 +357,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *         PrivateMetadataPid: Number("int"),
  *         ProgramNumber: Number("int"),
  *         PtsOffset: Number("int"),
- *         PtsOffsetMode: "AUTO" || "SECONDS",
+ *         PtsOffsetMode: "AUTO" || "SECONDS" || "MILLISECONDS",
  *         RateMode: "VBR" || "CBR",
  *         Scte35Esam: { // M2tsScte35Esam
  *           Scte35EsamPid: Number("int"),
@@ -376,6 +377,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *         AudioPids: [
  *           Number("int"),
  *         ],
+ *         AudioPtsOffsetDelta: Number("int"),
  *         DataPTSControl: "AUTO" || "ALIGN_TO_VIDEO",
  *         MaxPcrInterval: Number("int"),
  *         NielsenId3: "INSERT" || "NONE",
@@ -387,7 +389,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *         PrivateMetadataPid: Number("int"),
  *         ProgramNumber: Number("int"),
  *         PtsOffset: Number("int"),
- *         PtsOffsetMode: "AUTO" || "SECONDS",
+ *         PtsOffsetMode: "AUTO" || "SECONDS" || "MILLISECONDS",
  *         Scte35Pid: Number("int"),
  *         Scte35Source: "PASSTHROUGH" || "NONE",
  *         TimedMetadata: "PASSTHROUGH" || "NONE",
@@ -1148,6 +1150,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //           AudioPids: [ // __listOf__integerMin32Max8182
  * //             Number("int"),
  * //           ],
+ * //           AudioPtsOffsetDelta: Number("int"),
  * //           Bitrate: Number("int"),
  * //           BufferModel: "MULTIPLEX" || "NONE",
  * //           DataPTSControl: "AUTO" || "ALIGN_TO_VIDEO",
@@ -1188,7 +1191,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //           PrivateMetadataPid: Number("int"),
  * //           ProgramNumber: Number("int"),
  * //           PtsOffset: Number("int"),
- * //           PtsOffsetMode: "AUTO" || "SECONDS",
+ * //           PtsOffsetMode: "AUTO" || "SECONDS" || "MILLISECONDS",
  * //           RateMode: "VBR" || "CBR",
  * //           Scte35Esam: { // M2tsScte35Esam
  * //             Scte35EsamPid: Number("int"),
@@ -1208,6 +1211,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //           AudioPids: [
  * //             Number("int"),
  * //           ],
+ * //           AudioPtsOffsetDelta: Number("int"),
  * //           DataPTSControl: "AUTO" || "ALIGN_TO_VIDEO",
  * //           MaxPcrInterval: Number("int"),
  * //           NielsenId3: "INSERT" || "NONE",
@@ -1219,7 +1223,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //           PrivateMetadataPid: Number("int"),
  * //           ProgramNumber: Number("int"),
  * //           PtsOffset: Number("int"),
- * //           PtsOffsetMode: "AUTO" || "SECONDS",
+ * //           PtsOffsetMode: "AUTO" || "SECONDS" || "MILLISECONDS",
  * //           Scte35Pid: Number("int"),
  * //           Scte35Source: "PASSTHROUGH" || "NONE",
  * //           TimedMetadata: "PASSTHROUGH" || "NONE",

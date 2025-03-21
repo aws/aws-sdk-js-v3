@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.771.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.770.0...v3.771.0) (2025-03-19)
+
+
+### Features
+
+* **client-sagemaker:** Added support for g6, g6e, m6i, c6i instance types in SageMaker Processing Jobs. ([5715d11](https://github.com/aws/aws-sdk-js-v3/commit/5715d113c12066da8d99218b99ce7023a8d265e4))
+
+
+
+
+
+# [3.760.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.759.0...v3.760.0) (2025-03-03)
+
+
+### Features
+
+* **client-sagemaker:** Add DomainId to CreateDomainResponse ([49499b1](https://github.com/aws/aws-sdk-js-v3/commit/49499b1a563f60e6b79a6a876b948d678d73e797))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 

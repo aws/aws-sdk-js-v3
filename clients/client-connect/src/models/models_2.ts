@@ -904,7 +904,12 @@ export type RealTimeContactAnalysisStatus =
  */
 export interface ListRealtimeContactAnalysisSegmentsV2Response {
   /**
-   * <p>The channel of the contact. <code>Voice</code> will not be returned. </p>
+   * <p>The channel of the contact. </p>
+   *          <important>
+   *             <p>Only <code>CHAT</code> is supported. This API does not support <code>VOICE</code>. If you
+   *     attempt to use it for the VOICE channel, an <code>InvalidRequestException</code> error
+   *     occurs.</p>
+   *          </important>
    * @public
    */
   Channel: RealTimeContactAnalysisSupportedChannel | undefined;

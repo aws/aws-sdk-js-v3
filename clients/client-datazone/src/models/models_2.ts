@@ -1131,6 +1131,19 @@ export interface UpdateEnvironmentInput {
    * @public
    */
   glossaryTerms?: string[] | undefined;
+
+  /**
+   * <p>The blueprint version to which the environment should be updated. You can only specify
+   *          the following string for this parameter: <code>latest</code>.</p>
+   * @public
+   */
+  blueprintVersion?: string | undefined;
+
+  /**
+   * <p>The user parameters of the environment.</p>
+   * @public
+   */
+  userParameters?: EnvironmentParameter[] | undefined;
 }
 
 /**
@@ -1270,6 +1283,12 @@ export interface UpdateEnvironmentOutput {
    * @public
    */
   environmentBlueprintId?: string | undefined;
+
+  /**
+   * <p>The configuration ID of the environment.</p>
+   * @public
+   */
+  environmentConfigurationId?: string | undefined;
 }
 
 /**
@@ -1582,6 +1601,19 @@ export interface UpdateProjectInput {
    * @public
    */
   environmentDeploymentDetails?: EnvironmentDeploymentDetails | undefined;
+
+  /**
+   * <p>The user parameters of the project.</p>
+   * @public
+   */
+  userParameters?: EnvironmentConfigurationUserParameter[] | undefined;
+
+  /**
+   * <p>The project profile version to which the project should be updated. You can only specify
+   *          the following string for this parameter: <code>latest</code>.</p>
+   * @public
+   */
+  projectProfileVersion?: string | undefined;
 }
 
 /**
@@ -3158,6 +3190,7 @@ export const UpdateEnvironmentOutputFilterSensitiveLog = (obj: UpdateEnvironment
     userParameters: obj.userParameters.map((item) => CustomParameterFilterSensitiveLog(item)),
   }),
   ...(obj.provisioningProperties && { provisioningProperties: obj.provisioningProperties }),
+  ...(obj.environmentConfigurationId && { environmentConfigurationId: SENSITIVE_STRING }),
 });
 
 /**
@@ -3195,6 +3228,9 @@ export const UpdateProjectInputFilterSensitiveLog = (obj: UpdateProjectInput): a
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.userParameters && {
+    userParameters: obj.userParameters.map((item) => EnvironmentConfigurationUserParameterFilterSensitiveLog(item)),
+  }),
 });
 
 /**

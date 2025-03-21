@@ -254,6 +254,10 @@ import {
   ModifyClientPropertiesCommandOutput,
 } from "./commands/ModifyClientPropertiesCommand";
 import {
+  ModifyEndpointEncryptionModeCommandInput,
+  ModifyEndpointEncryptionModeCommandOutput,
+} from "./commands/ModifyEndpointEncryptionModeCommand";
+import {
   ModifySamlPropertiesCommandInput,
   ModifySamlPropertiesCommandOutput,
 } from "./commands/ModifySamlPropertiesCommand";
@@ -413,6 +417,7 @@ export type ServiceInputTypes =
   | ModifyAccountCommandInput
   | ModifyCertificateBasedAuthPropertiesCommandInput
   | ModifyClientPropertiesCommandInput
+  | ModifyEndpointEncryptionModeCommandInput
   | ModifySamlPropertiesCommandInput
   | ModifySelfservicePermissionsCommandInput
   | ModifyStreamingPropertiesCommandInput
@@ -506,6 +511,7 @@ export type ServiceOutputTypes =
   | ModifyAccountCommandOutput
   | ModifyCertificateBasedAuthPropertiesCommandOutput
   | ModifyClientPropertiesCommandOutput
+  | ModifyEndpointEncryptionModeCommandOutput
   | ModifySamlPropertiesCommandOutput
   | ModifySelfservicePermissionsCommandOutput
   | ModifyStreamingPropertiesCommandOutput

@@ -4308,6 +4308,21 @@ export interface Greengrass {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const CoreDeviceOperatingSystem = {
+  LINUX_AARCH64: "LINUX_AARCH64",
+  LINUX_AMD64: "LINUX_AMD64",
+  WINDOWS_AMD64: "WINDOWS_AMD64",
+} as const;
+
+/**
+ * @public
+ */
+export type CoreDeviceOperatingSystem = (typeof CoreDeviceOperatingSystem)[keyof typeof CoreDeviceOperatingSystem];
+
+/**
  * <p>Contains details for a gateway that runs on IoT Greengrass V2. To create a gateway that runs on IoT Greengrass V2,
  *       you must deploy the IoT SiteWise Edge component to your gateway device. Your <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/device-service-role.html">Greengrass
  *         device role</a> must use the <code>AWSIoTSiteWiseEdgeAccess</code> policy. For more
@@ -4321,6 +4336,12 @@ export interface GreengrassV2 {
    * @public
    */
   coreDeviceThingName: string | undefined;
+
+  /**
+   * <p>The operating system of the core device in IoT Greengrass V2.</p>
+   * @public
+   */
+  coreDeviceOperatingSystem?: CoreDeviceOperatingSystem | undefined;
 }
 
 /**
@@ -4375,6 +4396,18 @@ export interface CreateGatewayRequest {
    * @public
    */
   gatewayPlatform: GatewayPlatform | undefined;
+
+  /**
+   * <p>The version of the gateway to create. Specify <code>3</code> to create an MQTT-enabled, V3
+   *       gateway and <code>2</code> To create a Classic streams, V2 gateway. If the version isn't
+   *       specified, a Classic streams, V2 gateway is created by default.</p>
+   *          <p> We recommend creating an MQTT-enabled, V3 gateway for self-hosted gateways. SiteWise Edge
+   *       gateways on Siemens Industrial Edge should use gateway version <code>2</code>. For more information on
+   *       gateway versions, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gw-self-host-gg2.html"> Self-host a SiteWise Edge
+   *         gateway with IoT Greengrass V2</a>.</p>
+   * @public
+   */
+  gatewayVersion?: string | undefined;
 
   /**
    * <p>A list of key-value pairs that contain metadata for the gateway. For more information, see
@@ -6245,6 +6278,13 @@ export interface DescribeGatewayResponse {
    * @public
    */
   gatewayPlatform?: GatewayPlatform | undefined;
+
+  /**
+   * <p>The version of the gateway. A value of <code>3</code> indicates an MQTT-enabled, V3
+   *       gateway, while <code>2</code> indicates a Classic streams, V2 gateway.</p>
+   * @public
+   */
+  gatewayVersion?: string | undefined;
 
   /**
    * <p>A list of gateway capability summaries that each contain a namespace and status. Each
@@ -8476,23 +8516,6 @@ export interface ListAssetsRequest {
    * @public
    */
   filter?: ListAssetsFilter | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetsResponse {
-  /**
-   * <p>A list that summarizes each asset.</p>
-   * @public
-   */
-  assetSummaries: AssetSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
 }
 
 /**

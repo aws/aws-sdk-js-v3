@@ -32,7 +32,8 @@ export interface ListIdentityProvidersCommandInput extends ListIdentityProviders
 export interface ListIdentityProvidersCommandOutput extends ListIdentityProvidersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists information about all IdPs for a user pool.</p>
+ * <p>Given a user pool ID, returns information about configured identity providers (IdPs).
+ *             For more information about IdPs, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html">Third-party IdP sign-in</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

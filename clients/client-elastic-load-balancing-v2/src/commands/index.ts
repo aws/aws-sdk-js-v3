@@ -34,6 +34,7 @@ export * from "./GetResourcePolicyCommand";
 export * from "./GetTrustStoreCaCertificatesBundleCommand";
 export * from "./GetTrustStoreRevocationContentCommand";
 export * from "./ModifyCapacityReservationCommand";
+export * from "./ModifyIpPoolsCommand";
 export * from "./ModifyListenerAttributesCommand";
 export * from "./ModifyListenerCommand";
 export * from "./ModifyLoadBalancerAttributesCommand";

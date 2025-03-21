@@ -39,6 +39,10 @@ export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTabl
  *   configuredTableIdentifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
+ *   analysisMethod: "DIRECT_QUERY" || "DIRECT_JOB" || "MULTIPLE",
+ *   selectedAnalysisMethods: [ // SelectedAnalysisMethods
+ *     "DIRECT_QUERY" || "DIRECT_JOB",
+ *   ],
  * };
  * const command = new UpdateConfiguredTableCommand(input);
  * const response = await client.send(command);
@@ -80,9 +84,12 @@ export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTabl
  * //     analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required
  * //       "AGGREGATION" || "LIST" || "CUSTOM",
  * //     ],
- * //     analysisMethod: "DIRECT_QUERY", // required
+ * //     analysisMethod: "DIRECT_QUERY" || "DIRECT_JOB" || "MULTIPLE", // required
  * //     allowedColumns: [ // AllowedColumnList // required
  * //       "STRING_VALUE",
+ * //     ],
+ * //     selectedAnalysisMethods: [ // SelectedAnalysisMethods
+ * //       "DIRECT_QUERY" || "DIRECT_JOB",
  * //     ],
  * //   },
  * // };

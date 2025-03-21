@@ -3,21 +3,1154 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   AnalysisType,
-  ComputeConfiguration,
-  ConfigurationDetails,
   DifferentialPrivacyAggregationType,
+  MemberAbility,
   Membership,
+  MembershipJobLogStatus,
+  MembershipPaymentConfiguration,
+  MembershipProtectedJobResultConfiguration,
   MembershipProtectedQueryResultConfiguration,
   MembershipQueryLogStatus,
+  MembershipStatus,
+  MLMemberAbilities,
+  PrivacyBudget,
   PrivacyBudgetTemplateAutoRefresh,
   PrivacyBudgetTemplateParametersOutput,
   PrivacyBudgetType,
-  ProtectedQuery,
-  ProtectedQueryFilterSensitiveLog,
-  ProtectedQueryResultConfiguration,
-  ProtectedQuerySQLParameters,
-  ProtectedQueryStatus,
+  ProtectedJobError,
+  ProtectedJobOutputConfigurationOutput,
+  ProtectedJobParameters,
+  ProtectedJobResult,
+  ProtectedQueryS3OutputConfiguration,
 } from "./models_0";
+
+/**
+ * <p>The output configuration for a protected job result.</p>
+ * @public
+ */
+export interface ProtectedJobResultConfigurationOutput {
+  /**
+   * <p>The output configuration.</p>
+   * @public
+   */
+  outputConfiguration: ProtectedJobOutputConfigurationOutput | undefined;
+}
+
+/**
+ * <p> Information related to the utilization of resources that have been billed
+ *    or charged for in a given context, such as a protected job.</p>
+ * @public
+ */
+export interface BilledJobResourceUtilization {
+  /**
+   * <p> The number of Clean Rooms Processing Unit (CRPU) hours that have been billed.</p>
+   * @public
+   */
+  units: number | undefined;
+}
+
+/**
+ * <p>Contains statistics about the execution of the protected job.</p>
+ * @public
+ */
+export interface ProtectedJobStatistics {
+  /**
+   * <p>The duration of the protected job, from creation until job completion, in milliseconds.</p>
+   * @public
+   */
+  totalDurationInMillis?: number | undefined;
+
+  /**
+   * <p> The billed resource utilization for the protected job.</p>
+   * @public
+   */
+  billedResourceUtilization?: BilledJobResourceUtilization | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProtectedJobStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  FAILED: "FAILED",
+  STARTED: "STARTED",
+  SUBMITTED: "SUBMITTED",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtectedJobStatus = (typeof ProtectedJobStatus)[keyof typeof ProtectedJobStatus];
+
+/**
+ * <p>The parameters for an Clean Rooms protected job.</p>
+ * @public
+ */
+export interface ProtectedJob {
+  /**
+   * <p>The identifier for a protected job instance.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>he identifier for the membership.</p>
+   * @public
+   */
+  membershipId: string | undefined;
+
+  /**
+   * <p>The ARN of the membership.</p>
+   * @public
+   */
+  membershipArn: string | undefined;
+
+  /**
+   * <p> The creation time of the protected job.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p> The job parameters for the protected job.</p>
+   * @public
+   */
+  jobParameters?: ProtectedJobParameters | undefined;
+
+  /**
+   * <p> The status of the protected job.</p>
+   * @public
+   */
+  status: ProtectedJobStatus | undefined;
+
+  /**
+   * <p>Contains any details needed to write the job results.</p>
+   * @public
+   */
+  resultConfiguration?: ProtectedJobResultConfigurationOutput | undefined;
+
+  /**
+   * <p> The statistics of the protected job.</p>
+   * @public
+   */
+  statistics?: ProtectedJobStatistics | undefined;
+
+  /**
+   * <p> The result of the protected job.</p>
+   * @public
+   */
+  result?: ProtectedJobResult | undefined;
+
+  /**
+   * <p> The error from the protected job.</p>
+   * @public
+   */
+  error?: ProtectedJobError | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProtectedJobOutput {
+  /**
+   * <p> The protected job metadata.</p>
+   * @public
+   */
+  protectedJob: ProtectedJob | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProtectedQueryInput {
+  /**
+   * <p>The identifier for a membership in a protected query instance.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier for a protected query instance.</p>
+   * @public
+   */
+  protectedQueryIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkerComputeType = {
+  CR1X: "CR.1X",
+  CR4X: "CR.4X",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkerComputeType = (typeof WorkerComputeType)[keyof typeof WorkerComputeType];
+
+/**
+ * <p> The configuration of the compute resources for workers running an analysis with the
+ *             Clean Rooms SQL analytics engine.</p>
+ * @public
+ */
+export interface WorkerComputeConfiguration {
+  /**
+   * <p> The worker compute configuration type.</p>
+   * @public
+   */
+  type?: WorkerComputeType | undefined;
+
+  /**
+   * <p> The number of workers.</p>
+   * @public
+   */
+  number?: number | undefined;
+}
+
+/**
+ * <p> The configuration of the compute resources for an analysis with the Spark analytics engine.</p>
+ * @public
+ */
+export type ComputeConfiguration = ComputeConfiguration.WorkerMember | ComputeConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ComputeConfiguration {
+  /**
+   * <p> The worker configuration for the compute environment.</p>
+   * @public
+   */
+  export interface WorkerMember {
+    worker: WorkerComputeConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    worker?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    worker: (value: WorkerComputeConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ComputeConfiguration, visitor: Visitor<T>): T => {
+    if (value.worker !== undefined) return visitor.worker(value.worker);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Provides the sensitivity parameters.</p>
+ * @public
+ */
+export interface DifferentialPrivacySensitivityParameters {
+  /**
+   * <p>The type of aggregation function that was run.</p>
+   * @public
+   */
+  aggregationType: DifferentialPrivacyAggregationType | undefined;
+
+  /**
+   * <p>The aggregation expression that was run.</p>
+   * @public
+   */
+  aggregationExpression: string | undefined;
+
+  /**
+   * <p>The maximum number of rows contributed by a user in a SQL query.</p>
+   * @public
+   */
+  userContributionLimit: number | undefined;
+
+  /**
+   * <p>The lower bound of the aggregation expression.</p>
+   * @public
+   */
+  minColumnValue?: number | undefined;
+
+  /**
+   * <p>The upper bound of the aggregation expression.</p>
+   * @public
+   */
+  maxColumnValue?: number | undefined;
+}
+
+/**
+ * <p>An array that contains the sensitivity parameters.</p>
+ * @public
+ */
+export interface DifferentialPrivacyParameters {
+  /**
+   * <p>Provides the sensitivity parameters that you can use to better understand the total amount of noise in query results.</p>
+   * @public
+   */
+  sensitivityParameters: DifferentialPrivacySensitivityParameters[] | undefined;
+}
+
+/**
+ * <p>Details of errors thrown by the protected query.</p>
+ * @public
+ */
+export interface ProtectedQueryError {
+  /**
+   * <p>A description of why the query failed.</p>
+   * @public
+   */
+  message: string | undefined;
+
+  /**
+   * <p>An error code for the error.</p>
+   * @public
+   */
+  code: string | undefined;
+}
+
+/**
+ * <p>Details about the member who received the query result.</p>
+ * @public
+ */
+export interface ProtectedQuerySingleMemberOutput {
+  /**
+   * <p>The Amazon Web Services account ID of the member in the collaboration who can receive results for the
+   *          query.</p>
+   * @public
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * <p>Contains output information for protected queries with an S3 output type.</p>
+ * @public
+ */
+export interface ProtectedQueryS3Output {
+  /**
+   * <p>The S3 location of the result.</p>
+   * @public
+   */
+  location: string | undefined;
+}
+
+/**
+ * <p>Contains details about the protected query output.</p>
+ * @public
+ */
+export type ProtectedQueryOutput =
+  | ProtectedQueryOutput.MemberListMember
+  | ProtectedQueryOutput.S3Member
+  | ProtectedQueryOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedQueryOutput {
+  /**
+   * <p>If present, the output for a protected query with an `S3` output type.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedQueryS3Output;
+    memberList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The list of member Amazon Web Services account(s) that received the results of the query. </p>
+   * @public
+   */
+  export interface MemberListMember {
+    s3?: never;
+    memberList: ProtectedQuerySingleMemberOutput[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    memberList?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3: (value: ProtectedQueryS3Output) => T;
+    memberList: (value: ProtectedQuerySingleMemberOutput[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ProtectedQueryOutput, visitor: Visitor<T>): T => {
+    if (value.s3 !== undefined) return visitor.s3(value.s3);
+    if (value.memberList !== undefined) return visitor.memberList(value.memberList);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Details about the query results.</p>
+ * @public
+ */
+export interface ProtectedQueryResult {
+  /**
+   * <p>The output of the protected query.</p>
+   * @public
+   */
+  output: ProtectedQueryOutput | undefined;
+}
+
+/**
+ * <p> Contains configuration details for the protected query member output.</p>
+ * @public
+ */
+export interface ProtectedQueryMemberOutputConfiguration {
+  /**
+   * <p>The unique identifier for the account.</p>
+   * @public
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * <p>Contains configuration details for protected query output.</p>
+ * @public
+ */
+export type ProtectedQueryOutputConfiguration =
+  | ProtectedQueryOutputConfiguration.MemberMember
+  | ProtectedQueryOutputConfiguration.S3Member
+  | ProtectedQueryOutputConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedQueryOutputConfiguration {
+  /**
+   * <p>Required configuration for a protected query with an <code>s3</code> output type.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: ProtectedQueryS3OutputConfiguration;
+    member?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> Required configuration for a protected query with a <code>member</code> output type.</p>
+   * @public
+   */
+  export interface MemberMember {
+    s3?: never;
+    member: ProtectedQueryMemberOutputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    member?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3: (value: ProtectedQueryS3OutputConfiguration) => T;
+    member: (value: ProtectedQueryMemberOutputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ProtectedQueryOutputConfiguration, visitor: Visitor<T>): T => {
+    if (value.s3 !== undefined) return visitor.s3(value.s3);
+    if (value.member !== undefined) return visitor.member(value.member);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains configurations for protected query results.</p>
+ * @public
+ */
+export interface ProtectedQueryResultConfiguration {
+  /**
+   * <p>Configuration for protected query results.</p>
+   * @public
+   */
+  outputConfiguration: ProtectedQueryOutputConfiguration | undefined;
+}
+
+/**
+ * <p>The parameters for the SQL type Protected Query.</p>
+ * @public
+ */
+export interface ProtectedQuerySQLParameters {
+  /**
+   * <p>The query string to be submitted.</p>
+   * @public
+   */
+  queryString?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the analysis template within a
+   *          collaboration.</p>
+   * @public
+   */
+  analysisTemplateArn?: string | undefined;
+
+  /**
+   * <p>The protected query SQL parameters.</p>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
+}
+
+/**
+ * <p> Information related to the utilization of resources that have been billed or charged for in a given context, such as a protected query.</p>
+ * @public
+ */
+export interface BilledResourceUtilization {
+  /**
+   * <p> The number of Clean Rooms Processing Unit (CRPU) hours that have been billed.</p>
+   * @public
+   */
+  units: number | undefined;
+}
+
+/**
+ * <p>Contains statistics about the execution of the protected query.</p>
+ * @public
+ */
+export interface ProtectedQueryStatistics {
+  /**
+   * <p>The duration of the protected query, from creation until query completion, in milliseconds.</p>
+   * @public
+   */
+  totalDurationInMillis?: number | undefined;
+
+  /**
+   * <p> The billed resource utilization.</p>
+   * @public
+   */
+  billedResourceUtilization?: BilledResourceUtilization | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProtectedQueryStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  FAILED: "FAILED",
+  STARTED: "STARTED",
+  SUBMITTED: "SUBMITTED",
+  SUCCESS: "SUCCESS",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtectedQueryStatus = (typeof ProtectedQueryStatus)[keyof typeof ProtectedQueryStatus];
+
+/**
+ * <p>The parameters for an Clean Rooms protected query.</p>
+ * @public
+ */
+export interface ProtectedQuery {
+  /**
+   * <p>The identifier for a protected query instance.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The identifier for the membership.</p>
+   * @public
+   */
+  membershipId: string | undefined;
+
+  /**
+   * <p>The ARN of the membership.</p>
+   * @public
+   */
+  membershipArn: string | undefined;
+
+  /**
+   * <p>The time at which the protected query was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The protected query SQL parameters.</p>
+   * @public
+   */
+  sqlParameters?: ProtectedQuerySQLParameters | undefined;
+
+  /**
+   * <p>The status of the query.</p>
+   * @public
+   */
+  status: ProtectedQueryStatus | undefined;
+
+  /**
+   * <p>Contains any details needed to write the query results.</p>
+   * @public
+   */
+  resultConfiguration?: ProtectedQueryResultConfiguration | undefined;
+
+  /**
+   * <p>Statistics about protected query execution.</p>
+   * @public
+   */
+  statistics?: ProtectedQueryStatistics | undefined;
+
+  /**
+   * <p>The result of the protected query.</p>
+   * @public
+   */
+  result?: ProtectedQueryResult | undefined;
+
+  /**
+   * <p>An error thrown by the protected query.</p>
+   * @public
+   */
+  error?: ProtectedQueryError | undefined;
+
+  /**
+   * <p>The sensitivity parameters of the differential privacy results of the protected query.</p>
+   * @public
+   */
+  differentialPrivacy?: DifferentialPrivacyParameters | undefined;
+
+  /**
+   * <p> The compute configuration for the protected query.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProtectedQueryOutput {
+  /**
+   * <p>The query processing metadata.</p>
+   * @public
+   */
+  protectedQuery: ProtectedQuery | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMembershipsInput {
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the
+   * `maxResults` value has not been met.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A filter which will return only memberships in the specified status.</p>
+   * @public
+   */
+  status?: MembershipStatus | undefined;
+}
+
+/**
+ * <p>The membership object listed by the request.</p>
+ * @public
+ */
+export interface MembershipSummary {
+  /**
+   * <p>The unique ID for the membership's collaboration.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique ARN for the membership.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The unique ARN for the membership's associated collaboration.</p>
+   * @public
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * <p>The unique ID for the membership's collaboration.</p>
+   * @public
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Web Services principal that created the collaboration. Currently only
+   *          supports Amazon Web Services account ID.</p>
+   * @public
+   */
+  collaborationCreatorAccountId: string | undefined;
+
+  /**
+   * <p>The display name of the collaboration creator.</p>
+   * @public
+   */
+  collaborationCreatorDisplayName: string | undefined;
+
+  /**
+   * <p>The name for the membership's collaboration.</p>
+   * @public
+   */
+  collaborationName: string | undefined;
+
+  /**
+   * <p>The time when the membership was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The time the membership metadata was last updated.</p>
+   * @public
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * <p>The status of the membership.</p>
+   * @public
+   */
+  status: MembershipStatus | undefined;
+
+  /**
+   * <p>The abilities granted to the collaboration member.</p>
+   * @public
+   */
+  memberAbilities: MemberAbility[] | undefined;
+
+  /**
+   * <p>Provides a summary of the ML abilities for the collaboration member.</p>
+   * @public
+   */
+  mlMemberAbilities?: MLMemberAbilities | undefined;
+
+  /**
+   * <p>The payment responsibilities accepted by the collaboration member.</p>
+   * @public
+   */
+  paymentConfiguration: MembershipPaymentConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMembershipsOutput {
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of memberships returned from the ListMemberships operation.</p>
+   * @public
+   */
+  membershipSummaries: MembershipSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPrivacyBudgetsInput {
+  /**
+   * <p>A unique identifier for one of your memberships for a collaboration. The privacy budget is retrieved from the collaboration that this membership belongs to. Accepts a membership ID.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The privacy budget type.</p>
+   * @public
+   */
+  privacyBudgetType: PrivacyBudgetType | undefined;
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the
+   * `maxResults` value has not been met.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>An array that summaries the specified privacy budget. This summary includes collaboration information, creation information, membership information, and privacy budget information.</p>
+ * @public
+ */
+export interface PrivacyBudgetSummary {
+  /**
+   * <p>The unique identifier of the privacy budget.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique identifier of the privacy budget template.</p>
+   * @public
+   */
+  privacyBudgetTemplateId: string | undefined;
+
+  /**
+   * <p>The ARN of the privacy budget template.</p>
+   * @public
+   */
+  privacyBudgetTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier for a membership resource.</p>
+   * @public
+   */
+  membershipId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the member who created the privacy budget summary.</p>
+   * @public
+   */
+  membershipArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the collaboration that contains this privacy budget.</p>
+   * @public
+   */
+  collaborationId: string | undefined;
+
+  /**
+   * <p>The ARN of the collaboration that contains this privacy budget.</p>
+   * @public
+   */
+  collaborationArn: string | undefined;
+
+  /**
+   * <p>Specifies the type of the privacy budget.</p>
+   * @public
+   */
+  type: PrivacyBudgetType | undefined;
+
+  /**
+   * <p>The time at which the privacy budget was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The most recent time at which the privacy budget was updated.</p>
+   * @public
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * <p>The provided privacy budget.</p>
+   * @public
+   */
+  budget: PrivacyBudget | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPrivacyBudgetsOutput {
+  /**
+   * <p>An array that summarizes the privacy budgets. The summary includes collaboration information, membership information, privacy budget template information, and privacy budget details.</p>
+   * @public
+   */
+  privacyBudgetSummaries: PrivacyBudgetSummary[] | undefined;
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProtectedJobsInput {
+  /**
+   * <p>The identifier for the membership in the collaboration.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>A filter on the status of the protected job.</p>
+   * @public
+   */
+  status?: ProtectedJobStatus | undefined;
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned for an API request call.
+   *          The service chooses a default number if you don't set one. The service might
+   *          return a `nextToken` even if the `maxResults` value has not been met. </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProtectedJobAnalysisType = {
+  DIRECT_ANALYSIS: "DIRECT_ANALYSIS",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtectedJobAnalysisType = (typeof ProtectedJobAnalysisType)[keyof typeof ProtectedJobAnalysisType];
+
+/**
+ * <p>The protected job direct analysis configuration details.</p>
+ * @public
+ */
+export interface ProtectedJobDirectAnalysisConfigurationDetails {
+  /**
+   * <p> The receiver account IDs.</p>
+   * @public
+   */
+  receiverAccountIds?: string[] | undefined;
+}
+
+/**
+ * <p>The protected job configuration details.</p>
+ * @public
+ */
+export type ProtectedJobConfigurationDetails =
+  | ProtectedJobConfigurationDetails.DirectAnalysisConfigurationDetailsMember
+  | ProtectedJobConfigurationDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedJobConfigurationDetails {
+  /**
+   * <p>The details needed to configure the direct analysis.</p>
+   * @public
+   */
+  export interface DirectAnalysisConfigurationDetailsMember {
+    directAnalysisConfigurationDetails: ProtectedJobDirectAnalysisConfigurationDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    directAnalysisConfigurationDetails?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    directAnalysisConfigurationDetails: (value: ProtectedJobDirectAnalysisConfigurationDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ProtectedJobConfigurationDetails, visitor: Visitor<T>): T => {
+    if (value.directAnalysisConfigurationDetails !== undefined)
+      return visitor.directAnalysisConfigurationDetails(value.directAnalysisConfigurationDetails);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The protected job receiver configuration.</p>
+ * @public
+ */
+export interface ProtectedJobReceiverConfiguration {
+  /**
+   * <p> The analysis type for the protected job receiver configuration.</p>
+   * @public
+   */
+  analysisType: ProtectedJobAnalysisType | undefined;
+
+  /**
+   * <p> The configuration details for the protected job receiver.</p>
+   * @public
+   */
+  configurationDetails?: ProtectedJobConfigurationDetails | undefined;
+}
+
+/**
+ * <p>The protected job summary for the objects listed by the request.</p>
+ * @public
+ */
+export interface ProtectedJobSummary {
+  /**
+   * <p> The ID of the protected job.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique ID for the membership that initiated the protected job.</p>
+   * @public
+   */
+  membershipId: string | undefined;
+
+  /**
+   * <p>The unique ARN for the membership that initiated the protected job.</p>
+   * @public
+   */
+  membershipArn: string | undefined;
+
+  /**
+   * <p>The time the protected job was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The status of the protected job.</p>
+   * @public
+   */
+  status: ProtectedJobStatus | undefined;
+
+  /**
+   * <p> The receiver configurations for the protected job.</p>
+   * @public
+   */
+  receiverConfigurations: ProtectedJobReceiverConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProtectedJobsOutput {
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>A list of protected job summaries.</p>
+   * @public
+   */
+  protectedJobs: ProtectedJobSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProtectedQueriesInput {
+  /**
+   * <p>The identifier for the membership in the collaboration.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>A filter on the status of the protected query.</p>
+   * @public
+   */
+  status?: ProtectedQueryStatus | undefined;
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the
+   *          `maxResults` value has not been met. </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p> The direct analysis configuration details.</p>
+ * @public
+ */
+export interface DirectAnalysisConfigurationDetails {
+  /**
+   * <p> The account IDs for the member who received the results of a protected query.</p>
+   * @public
+   */
+  receiverAccountIds?: string[] | undefined;
+}
+
+/**
+ * <p> The configuration details.</p>
+ * @public
+ */
+export type ConfigurationDetails =
+  | ConfigurationDetails.DirectAnalysisConfigurationDetailsMember
+  | ConfigurationDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ConfigurationDetails {
+  /**
+   * <p> The direct analysis configuration details.</p>
+   * @public
+   */
+  export interface DirectAnalysisConfigurationDetailsMember {
+    directAnalysisConfigurationDetails: DirectAnalysisConfigurationDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    directAnalysisConfigurationDetails?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    directAnalysisConfigurationDetails: (value: DirectAnalysisConfigurationDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ConfigurationDetails, visitor: Visitor<T>): T => {
+    if (value.directAnalysisConfigurationDetails !== undefined)
+      return visitor.directAnalysisConfigurationDetails(value.directAnalysisConfigurationDetails);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
 
 /**
  * <p> The receiver configuration for a protected query.</p>
@@ -251,6 +1384,124 @@ export interface PreviewPrivacyImpactOutput {
 }
 
 /**
+ * <p> The protected job member output configuration input.</p>
+ * @public
+ */
+export interface ProtectedJobMemberOutputConfigurationInput {
+  /**
+   * <p> The account ID.</p>
+   * @public
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * <p> The protected job output configuration input.</p>
+ * @public
+ */
+export type ProtectedJobOutputConfigurationInput =
+  | ProtectedJobOutputConfigurationInput.MemberMember
+  | ProtectedJobOutputConfigurationInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProtectedJobOutputConfigurationInput {
+  /**
+   * <p> The member of the protected job output configuration input.</p>
+   * @public
+   */
+  export interface MemberMember {
+    member: ProtectedJobMemberOutputConfigurationInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    member?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    member: (value: ProtectedJobMemberOutputConfigurationInput) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ProtectedJobOutputConfigurationInput, visitor: Visitor<T>): T => {
+    if (value.member !== undefined) return visitor.member(value.member);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The protected job result configuration input.</p>
+ * @public
+ */
+export interface ProtectedJobResultConfigurationInput {
+  /**
+   * <p> The output configuration for a protected job result.</p>
+   * @public
+   */
+  outputConfiguration: ProtectedJobOutputConfigurationInput | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProtectedJobType = {
+  PYSPARK: "PYSPARK",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtectedJobType = (typeof ProtectedJobType)[keyof typeof ProtectedJobType];
+
+/**
+ * @public
+ */
+export interface StartProtectedJobInput {
+  /**
+   * <p> The type of protected job to start.</p>
+   * @public
+   */
+  type: ProtectedJobType | undefined;
+
+  /**
+   * <p>A unique identifier for the membership to run this job against.
+   *          Currently accepts a membership ID.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p> The job parameters.</p>
+   * @public
+   */
+  jobParameters: ProtectedJobParameters | undefined;
+
+  /**
+   * <p>The details needed to write the job results.</p>
+   * @public
+   */
+  resultConfiguration?: ProtectedJobResultConfigurationInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartProtectedJobOutput {
+  /**
+   * <p> The protected job.</p>
+   * @public
+   */
+  protectedJob: ProtectedJob | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -323,9 +1574,22 @@ export interface UpdateMembershipInput {
   /**
    * <p>An indicator as to whether query logging has been enabled or disabled for the
    *          membership.</p>
+   *          <p>When <code>ENABLED</code>, Clean Rooms logs details about queries run within this
+   *          collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is
+   *          <code>DISABLED</code>.</p>
    * @public
    */
   queryLogStatus?: MembershipQueryLogStatus | undefined;
+
+  /**
+   * <p>An indicator as to whether job logging has been enabled or disabled
+   *          for the collaboration. </p>
+   *          <p>When <code>ENABLED</code>, Clean Rooms logs details about jobs run within this
+   *          collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is
+   *          <code>DISABLED</code>.</p>
+   * @public
+   */
+  jobLogStatus?: MembershipJobLogStatus | undefined;
 
   /**
    * <p>The default protected query result configuration as specified by the member who can
@@ -333,6 +1597,12 @@ export interface UpdateMembershipInput {
    * @public
    */
   defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration | undefined;
+
+  /**
+   * <p> The default job result configuration.</p>
+   * @public
+   */
+  defaultJobResultConfiguration?: MembershipProtectedJobResultConfiguration | undefined;
 }
 
 /**
@@ -344,6 +1614,54 @@ export interface UpdateMembershipOutput {
    * @public
    */
   membership: Membership | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetProtectedJobStatus = {
+  CANCELLED: "CANCELLED",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetProtectedJobStatus = (typeof TargetProtectedJobStatus)[keyof typeof TargetProtectedJobStatus];
+
+/**
+ * @public
+ */
+export interface UpdateProtectedJobInput {
+  /**
+   * <p>The identifier for a member of a protected job instance.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p> The identifier of the protected job to update.</p>
+   * @public
+   */
+  protectedJobIdentifier: string | undefined;
+
+  /**
+   * <p>The target status of a protected job. Used to update the execution status
+   *          of a currently running job.</p>
+   * @public
+   */
+  targetStatus: TargetProtectedJobStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProtectedJobOutput {
+  /**
+   * <p>The protected job output.</p>
+   * @public
+   */
+  protectedJob: ProtectedJob | undefined;
 }
 
 /**
@@ -872,6 +2190,32 @@ export interface UntagResourceInput {
  * @public
  */
 export interface UntagResourceOutput {}
+
+/**
+ * @internal
+ */
+export const ProtectedQuerySQLParametersFilterSensitiveLog = (obj: ProtectedQuerySQLParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProtectedQueryFilterSensitiveLog = (obj: ProtectedQuery): any => ({
+  ...obj,
+  ...(obj.sqlParameters && { sqlParameters: SENSITIVE_STRING }),
+  ...(obj.resultConfiguration && { resultConfiguration: obj.resultConfiguration }),
+  ...(obj.result && { result: obj.result }),
+  ...(obj.computeConfiguration && { computeConfiguration: obj.computeConfiguration }),
+});
+
+/**
+ * @internal
+ */
+export const GetProtectedQueryOutputFilterSensitiveLog = (obj: GetProtectedQueryOutput): any => ({
+  ...obj,
+  ...(obj.protectedQuery && { protectedQuery: ProtectedQueryFilterSensitiveLog(obj.protectedQuery) }),
+});
 
 /**
  * @internal

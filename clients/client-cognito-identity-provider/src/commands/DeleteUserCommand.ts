@@ -32,8 +32,8 @@ export interface DeleteUserCommandInput extends DeleteUserRequest {}
 export interface DeleteUserCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Self-deletes a user profile. A deleted user profile can no longer be used to sign in
- *             and can't be restored.</p>
+ * <p>Deletes the profile of the currently signed-in user. A deleted user profile can no
+ *             longer be used to sign in and can't be restored.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For

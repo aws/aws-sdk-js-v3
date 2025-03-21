@@ -36,7 +36,10 @@ export type GetStaticMapCommandOutputType = Omit<GetStaticMapResponse, "Blob"> &
 export interface GetStaticMapCommandOutput extends GetStaticMapCommandOutputType, __MetadataBearer {}
 
 /**
- * <p>Provides high-quality static map images with customizable options. You can modify the map's appearance and overlay additional information. It's an ideal solution for applications requiring tailored static map snapshots.</p>
+ * <p>
+ *             <code>GetStaticMap</code> provides high-quality static map images with customizable
+ *          options. You can modify the map's appearance and overlay additional information. It's an
+ *          ideal solution for applications requiring tailored static map snapshots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,11 +50,17 @@ export interface GetStaticMapCommandOutput extends GetStaticMapCommandOutputType
  *   BoundingBox: "STRING_VALUE",
  *   BoundedPositions: "STRING_VALUE",
  *   Center: "STRING_VALUE",
+ *   ColorScheme: "STRING_VALUE",
  *   CompactOverlay: "STRING_VALUE",
+ *   CropLabels: true || false,
  *   GeoJsonOverlay: "STRING_VALUE",
  *   Height: Number("int"), // required
  *   Key: "STRING_VALUE",
+ *   LabelSize: "STRING_VALUE",
+ *   Language: "STRING_VALUE",
  *   Padding: Number("int"),
+ *   PoliticalView: "STRING_VALUE",
+ *   PointsOfInterests: "STRING_VALUE",
  *   Radius: Number("long"),
  *   FileName: "STRING_VALUE", // required
  *   ScaleBarUnit: "STRING_VALUE",
@@ -78,10 +87,12 @@ export interface GetStaticMapCommandOutput extends GetStaticMapCommandOutputType
  * @see {@link GeoMapsClientResolvedConfig | config} for GeoMapsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+ *  <p>The request was denied because of insufficient access or permissions. Check with an
+ *          administrator to verify your permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *          failure.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>

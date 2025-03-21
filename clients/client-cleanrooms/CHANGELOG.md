@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
+
+**Note:** Version bump only for package @aws-sdk/client-cleanrooms
+
+
+
+
+
+# [3.770.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.769.0...v3.770.0) (2025-03-18)
+
+
+### Features
+
+* **client-cleanrooms:** This release adds support for PySpark jobs. Customers can now analyze data by running jobs using approved PySpark analysis templates. ([06fd603](https://github.com/aws/aws-sdk-js-v3/commit/06fd603624a5a59a6044568f74cda8e603cf6077))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanrooms

@@ -708,6 +708,7 @@ export type M2tsPreventBufferUnderflow = (typeof M2tsPreventBufferUnderflow)[key
  */
 export const TsPtsOffset = {
   AUTO: "AUTO",
+  MILLISECONDS: "MILLISECONDS",
   SECONDS: "SECONDS",
 } as const;
 
@@ -816,6 +817,12 @@ export interface M2tsSettings {
    * @public
    */
   AudioPids?: number[] | undefined;
+
+  /**
+   * Manually specify the difference in PTS offset that will be applied to the audio track, in seconds or milliseconds, when you set PTS offset to Seconds or Milliseconds. Enter an integer from -10000 to 10000. Leave blank to keep the default value 0.
+   * @public
+   */
+  AudioPtsOffsetDelta?: number | undefined;
 
   /**
    * Specify the output bitrate of the transport stream in bits per second. Setting to 0 lets the muxer automatically determine the appropriate bitrate. Other common values are 3750000, 7500000, and 15000000.
@@ -980,7 +987,7 @@ export interface M2tsSettings {
   PtsOffset?: number | undefined;
 
   /**
-   * Specify the initial presentation timestamp (PTS) offset for your transport stream output. To let MediaConvert automatically determine the initial PTS offset: Keep the default value, Auto. We recommend that you choose Auto for the widest player compatibility. The initial PTS will be at least two seconds and vary depending on your output's bitrate, HRD buffer size and HRD buffer initial fill percentage. To manually specify an initial PTS offset: Choose Seconds. Then specify the number of seconds with PTS offset.
+   * Specify the initial presentation timestamp (PTS) offset for your transport stream output. To let MediaConvert automatically determine the initial PTS offset: Keep the default value, Auto. We recommend that you choose Auto for the widest player compatibility. The initial PTS will be at least two seconds and vary depending on your output's bitrate, HRD buffer size and HRD buffer initial fill percentage. To manually specify an initial PTS offset: Choose Seconds or Milliseconds. Then specify the number of seconds or milliseconds with PTS offset.
    * @public
    */
   PtsOffsetMode?: TsPtsOffset | undefined;
@@ -1154,6 +1161,12 @@ export interface M3u8Settings {
   AudioPids?: number[] | undefined;
 
   /**
+   * Manually specify the difference in PTS offset that will be applied to the audio track, in seconds or milliseconds, when you set PTS offset to Seconds or Milliseconds. Enter an integer from -10000 to 10000. Leave blank to keep the default value 0.
+   * @public
+   */
+  AudioPtsOffsetDelta?: number | undefined;
+
+  /**
    * If you select ALIGN_TO_VIDEO, MediaConvert writes captions and data packets with Presentation Timestamp (PTS) values greater than or equal to the first video packet PTS (MediaConvert drops captions and data packets with lesser PTS values). Keep the default value AUTO to allow all PTS values.
    * @public
    */
@@ -1220,7 +1233,7 @@ export interface M3u8Settings {
   PtsOffset?: number | undefined;
 
   /**
-   * Specify the initial presentation timestamp (PTS) offset for your transport stream output. To let MediaConvert automatically determine the initial PTS offset: Keep the default value, Auto. We recommend that you choose Auto for the widest player compatibility. The initial PTS will be at least two seconds and vary depending on your output's bitrate, HRD buffer size and HRD buffer initial fill percentage. To manually specify an initial PTS offset: Choose Seconds. Then specify the number of seconds with PTS offset.
+   * Specify the initial presentation timestamp (PTS) offset for your transport stream output. To let MediaConvert automatically determine the initial PTS offset: Keep the default value, Auto. We recommend that you choose Auto for the widest player compatibility. The initial PTS will be at least two seconds and vary depending on your output's bitrate, HRD buffer size and HRD buffer initial fill percentage. To manually specify an initial PTS offset: Choose Seconds or Milliseconds. Then specify the number of seconds or milliseconds with PTS offset.
    * @public
    */
   PtsOffsetMode?: TsPtsOffset | undefined;

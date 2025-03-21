@@ -36,8 +36,11 @@ export interface ResendConfirmationCodeCommandInput extends ResendConfirmationCo
 export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationCodeResponse, __MetadataBearer {}
 
 /**
- * <p>Resends the confirmation (for confirmation of registration) to a specific user in the
- *             user pool.</p>
+ * <p>Resends the code that confirms a new account for a user who has signed up in your user
+ *             pool. Amazon Cognito sends confirmation codes to the user attribute in the
+ *                 <code>AutoVerifiedAttributes</code> property of your user pool. When you prompt new
+ *             users for the confirmation code, include a "Resend code" option that generates a call to
+ *             this API operation.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you can't use IAM credentials to authorize requests, and you can't

@@ -37,18 +37,31 @@ export interface SetUICustomizationCommandInput extends SetUICustomizationReques
 export interface SetUICustomizationCommandOutput extends SetUICustomizationResponse, __MetadataBearer {}
 
 /**
- * <p>Sets the user interface (UI) customization information for a user pool's built-in app
- *             UI.</p>
- *          <p>You can specify app UI customization settings for a single client (with a specific
- *                 <code>clientId</code>) or for all clients (by setting the <code>clientId</code> to
- *                 <code>ALL</code>). If you specify <code>ALL</code>, the default configuration is
- *             used for every client that has no previously set UI customization. If you specify UI
- *             customization settings for a particular client, it will no longer return to the
+ * <p>Configures UI branding settings for domains with the hosted UI (classic) branding
+ *             version. Your user pool must have a domain. Configure a domain with .</p>
+ *          <p>Set the default configuration for all clients with a <code>ClientId</code> of
+ *                 <code>ALL</code>. When the <code>ClientId</code> value is an app client ID, the
+ *             settings you pass in this request apply to that app client and override the default
  *                 <code>ALL</code> configuration.</p>
  *          <note>
- *             <p>To use this API, your user pool must have a domain associated with it. Otherwise,
- *                 there is no place to host the app's pages, and the service will throw an
- *                 error.</p>
+ *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ *     this operation, you must use IAM credentials to authorize requests, and you must
+ *     grant yourself the corresponding IAM permission in a policy.</p>
+ *             <p class="title">
+ *                <b>Learn more</b>
+ *             </p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
+ *                   </p>
+ *                </li>
+ *             </ul>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

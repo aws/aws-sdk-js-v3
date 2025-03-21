@@ -464,7 +464,7 @@ export interface AnomalyDetector {
   anomalyDetectorStatus?: AnomalyDetectorStatus | undefined;
 
   /**
-   * <p>The ID of the KMS key assigned to this anomaly detector, if any.</p>
+   * <p>The ARN of the KMS key assigned to this anomaly detector, if any.</p>
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -1195,7 +1195,7 @@ export interface CreateLogAnomalyDetectorRequest {
    *        assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If
    *        a key is assigned to an anomaly detector, a user must have permissions for both this key and for the
    *        anomaly detector to retrieve information about the anomalies that it finds.</p>
-   *          <p>For more information about using a KMS key and to see the required IAM
+   *          <p> Make sure the value provided is a valid KMS key ARN. For more information about using a KMS key and to see the required IAM
    *        policy, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/LogsAnomalyDetection-KMS.html">Use a KMS key with an anomaly detector</a>.</p>
    * @public
    */
@@ -3805,6 +3805,7 @@ export interface FilterLogEventsResponse {
 
   /**
    * <p>The token to use when requesting the next set of items. The token expires after 24 hours.</p>
+   *          <p>If the results don't include a <code>nextToken</code>, then pagination is finished. </p>
    * @public
    */
   nextToken?: string | undefined;
@@ -4422,7 +4423,7 @@ export interface GetLogAnomalyDetectorResponse {
   anomalyDetectorStatus?: AnomalyDetectorStatus | undefined;
 
   /**
-   * <p>The ID of the KMS key assigned to this anomaly detector, if any.</p>
+   * <p>The ARN of the KMS key assigned to this anomaly detector, if any.</p>
    * @public
    */
   kmsKeyId?: string | undefined;

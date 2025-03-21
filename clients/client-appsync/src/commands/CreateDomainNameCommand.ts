@@ -39,6 +39,9 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  *   domainName: "STRING_VALUE", // required
  *   certificateArn: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateDomainNameCommand(input);
  * const response = await client.send(command);
@@ -49,6 +52,10 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  * //     certificateArn: "STRING_VALUE",
  * //     appsyncDomainName: "STRING_VALUE",
  * //     hostedZoneId: "STRING_VALUE",
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     domainNameArn: "STRING_VALUE",
  * //   },
  * // };
  *

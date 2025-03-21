@@ -27,14 +27,16 @@ export const recursionDetectionMiddleware =
   <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> =>
   async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
     const { request } = args;
-    if (
-      !HttpRequest.isInstance(request) ||
-      options.runtime !== "node" ||
-      request.headers.hasOwnProperty(TRACE_ID_HEADER_NAME)
-    ) {
+    if (!HttpRequest.isInstance(request) || options.runtime !== "node") {
       return next(args);
     }
+    const traceIdHeader =
+      Object.keys(request.headers ?? {}).find((h) => h.toLowerCase() === TRACE_ID_HEADER_NAME.toLowerCase()) ??
+      TRACE_ID_HEADER_NAME;
 
+    if (request.headers.hasOwnProperty(traceIdHeader)) {
+      return next(args);
+    }
     const functionName = process.env[ENV_LAMBDA_FUNCTION_NAME];
     const traceId = process.env[ENV_TRACE_ID];
     const nonEmptyString = (str: unknown): str is string => typeof str === "string" && str.length > 0;

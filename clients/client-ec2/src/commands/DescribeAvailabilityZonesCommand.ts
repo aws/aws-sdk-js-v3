@@ -29,8 +29,7 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
 
 /**
  * <p>Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to
- *       you. If there is an event impacting a zone, you can use this request to view the state and any
- *       provided messages for that zone.</p>
+ *       you.</p>
  *          <p>For more information about Availability Zones, Local Zones, and Wavelength Zones, see
  *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions and zones</a>
  *       in the <i>Amazon EC2 User Guide</i>.</p>
@@ -82,6 +81,7 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * //       ZoneType: "STRING_VALUE",
  * //       ParentZoneName: "STRING_VALUE",
  * //       ParentZoneId: "STRING_VALUE",
+ * //       GroupLongName: "STRING_VALUE",
  * //       State: "available" || "information" || "impaired" || "unavailable" || "constrained",
  * //     },
  * //   ],

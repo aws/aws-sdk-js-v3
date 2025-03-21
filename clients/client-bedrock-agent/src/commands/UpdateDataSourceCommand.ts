@@ -214,6 +214,15 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *         parsingModality: "MULTIMODAL",
  *       },
  *     },
+ *     contextEnrichmentConfiguration: { // ContextEnrichmentConfiguration
+ *       type: "BEDROCK_FOUNDATION_MODEL", // required
+ *       bedrockFoundationModelConfiguration: { // BedrockFoundationModelContextEnrichmentConfiguration
+ *         enrichmentStrategyConfiguration: { // EnrichmentStrategyConfiguration
+ *           method: "CHUNK_ENTITY_EXTRACTION", // required
+ *         },
+ *         modelArn: "STRING_VALUE", // required
+ *       },
+ *     },
  *   },
  * };
  * const command = new UpdateDataSourceCommand(input);
@@ -388,6 +397,15 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * //         },
  * //         bedrockDataAutomationConfiguration: { // BedrockDataAutomationConfiguration
  * //           parsingModality: "MULTIMODAL",
+ * //         },
+ * //       },
+ * //       contextEnrichmentConfiguration: { // ContextEnrichmentConfiguration
+ * //         type: "BEDROCK_FOUNDATION_MODEL", // required
+ * //         bedrockFoundationModelConfiguration: { // BedrockFoundationModelContextEnrichmentConfiguration
+ * //           enrichmentStrategyConfiguration: { // EnrichmentStrategyConfiguration
+ * //             method: "CHUNK_ENTITY_EXTRACTION", // required
+ * //           },
+ * //           modelArn: "STRING_VALUE", // required
  * //         },
  * //       },
  * //     },

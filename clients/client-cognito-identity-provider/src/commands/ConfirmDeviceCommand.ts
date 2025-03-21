@@ -76,6 +76,10 @@ export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __Met
  * @see {@link ConfirmDeviceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
+ * @throws {@link DeviceKeyExistsException} (client fault)
+ *  <p>This exception is thrown when a user attempts to confirm a device with a device key
+ *             that already exists.</p>
+ *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>This exception is thrown when WAF doesn't allow your request based on a web
  *             ACL that's associated with your user pool.</p>

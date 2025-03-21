@@ -52,11 +52,13 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * //         },
  * //         greengrassV2: { // GreengrassV2
  * //           coreDeviceThingName: "STRING_VALUE", // required
+ * //           coreDeviceOperatingSystem: "LINUX_AARCH64" || "LINUX_AMD64" || "WINDOWS_AMD64",
  * //         },
  * //         siemensIE: { // SiemensIE
  * //           iotCoreThingName: "STRING_VALUE", // required
  * //         },
  * //       },
+ * //       gatewayVersion: "STRING_VALUE",
  * //       gatewayCapabilitySummaries: [ // GatewayCapabilitySummaries
  * //         { // GatewayCapabilitySummary
  * //           capabilityNamespace: "STRING_VALUE", // required

@@ -1886,6 +1886,20 @@ export const IpAddressType = {
 export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
 
 /**
+ * <p>An IPAM pool is a collection of IP address CIDRs.
+ *       IPAM pools enable you to organize your IP addresses
+ *       according to your routing and security needs.</p>
+ * @public
+ */
+export interface IpamPools {
+  /**
+   * <p>The ID of the IPv4 IPAM pool.</p>
+   * @public
+   */
+  Ipv4IpamPoolId?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -2059,6 +2073,12 @@ export interface CreateLoadBalancerInput {
    * @public
    */
   EnablePrefixForIpv6SourceNat?: EnablePrefixForIpv6SourceNatEnum | undefined;
+
+  /**
+   * <p>[Application Load Balancers] The IPAM pools to use with the load balancer.</p>
+   * @public
+   */
+  IpamPools?: IpamPools | undefined;
 }
 
 /**
@@ -2209,6 +2229,12 @@ export interface LoadBalancer {
    * @public
    */
   EnablePrefixForIpv6SourceNat?: EnablePrefixForIpv6SourceNatEnum | undefined;
+
+  /**
+   * <p>[Application Load Balancers] The IPAM pool in use by the load balancer, if configured.</p>
+   * @public
+   */
+  IpamPools?: IpamPools | undefined;
 }
 
 /**
@@ -4715,7 +4741,8 @@ export interface TargetGroupAttribute {
    *                <p>
    *                   <code>target_health_state.unhealthy.connection_termination.enabled</code> - Indicates whether
    *           the load balancer terminates connections to unhealthy targets. The value is <code>true</code>
-   *           or <code>false</code>. The default is <code>true</code>.</p>
+   *           or <code>false</code>. The default is <code>true</code>. This attribute can't be enabled for UDP and
+   *           TCP_UDP target groups.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5478,6 +5505,53 @@ export class PriorRequestNotCompleteException extends __BaseException {
     Object.setPrototypeOf(this, PriorRequestNotCompleteException.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RemoveIpamPoolEnum = {
+  ipv4: "ipv4",
+} as const;
+
+/**
+ * @public
+ */
+export type RemoveIpamPoolEnum = (typeof RemoveIpamPoolEnum)[keyof typeof RemoveIpamPoolEnum];
+
+/**
+ * @public
+ */
+export interface ModifyIpPoolsInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * @public
+   */
+  LoadBalancerArn: string | undefined;
+
+  /**
+   * <p>The IPAM pools to be modified.</p>
+   * @public
+   */
+  IpamPools?: IpamPools | undefined;
+
+  /**
+   * <p>Remove the IP pools in use by the load balancer.</p>
+   * @public
+   */
+  RemoveIpamPools?: RemoveIpamPoolEnum[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpPoolsOutput {
+  /**
+   * <p>The IPAM pool ID.</p>
+   * @public
+   */
+  IpamPools?: IpamPools | undefined;
 }
 
 /**

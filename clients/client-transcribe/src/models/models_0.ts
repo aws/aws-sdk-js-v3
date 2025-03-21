@@ -1552,11 +1552,12 @@ export interface ClinicalNoteGenerationSettings {
    * <p>Specify one of the following templates to use for the clinical note summary. The default is <code>HISTORY_AND_PHYSICAL</code>.</p>
    *          <ul>
    *             <li>
-   *                <p>HISTORY_AND_PHYSICAL: Provides summaries for key sections of the clinical documentation. Sections include Chief Complaint,
-   *                 History of Present Illness, Review of Systems, Past Medical History, Assessment, and Plan.</p>
+   *                <p>HISTORY_AND_PHYSICAL: Provides summaries for key sections of the clinical documentation. Examples of sections include Chief Complaint, History of Present Illness, Review of Systems, Past Medical History, Assessment, and Plan.
+   *                 </p>
    *             </li>
    *             <li>
-   *                <p>GIRPP: Provides summaries based on the patients progress toward goals. Sections include Goal, Intervention, Response, Progress, and Plan.</p>
+   *                <p>GIRPP: Provides summaries based on the patients progress toward goals. Examples of sections include Goal, Intervention,
+   *                     Response, Progress, and Plan.</p>
    *             </li>
    *          </ul>
    * @public

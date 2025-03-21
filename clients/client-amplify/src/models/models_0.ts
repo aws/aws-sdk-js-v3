@@ -253,7 +253,7 @@ export interface CreateAppRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to assign to an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
    *             based on the role's permissions. For more information about the SSR Compute role, see
-   *                 <a href="https://docs.aws.amazon.com/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *                 <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
    *                 Guide</i>.</p>
    * @public
    */
@@ -544,7 +544,7 @@ export interface App {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
    *             based on the role's permissions. For more information about the SSR Compute role, see
-   *             <a href="https://docs.aws.amazon.com/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
    *                     Guide</i>.</p>
    * @public
    */
@@ -943,6 +943,17 @@ export interface CreateBranchRequest {
   enableAutoBuild?: boolean | undefined;
 
   /**
+   * <p>Specifies whether the skew protection feature is enabled for the branch.</p>
+   *          <p>Deployment skew protection is available to Amplify applications to eliminate version skew
+   *             issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version
+   *             of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see
+   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html">Skew protection for Amplify deployments</a> in the <i>Amplify User
+   *                     Guide</i>.</p>
+   * @public
+   */
+  enableSkewProtection?: boolean | undefined;
+
+  /**
    * <p> The environment variables for the branch. </p>
    * @public
    */
@@ -1030,7 +1041,7 @@ export interface CreateBranchRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
    *             based on the role's permissions. For more information about the SSR Compute role, see
-   *             <a href="https://docs.aws.amazon.com/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
    *                     Guide</i>.</p>
    * @public
    */
@@ -1107,6 +1118,17 @@ export interface Branch {
    * @public
    */
   enableAutoBuild: boolean | undefined;
+
+  /**
+   * <p>Specifies whether the skew protection feature is enabled for the branch.</p>
+   *          <p>Deployment skew protection is available to Amplify applications to eliminate version skew
+   *             issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version
+   *             of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see
+   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html">Skew protection for Amplify deployments</a> in the <i>Amplify User
+   *                     Guide</i>.</p>
+   * @public
+   */
+  enableSkewProtection?: boolean | undefined;
 
   /**
    * <p> The custom domains for a branch of an Amplify app. </p>
@@ -1226,7 +1248,7 @@ export interface Branch {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role for a branch of an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
    *             based on the role's permissions. For more information about the SSR Compute role, see
-   *             <a href="https://docs.aws.amazon.com/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
    *                     Guide</i>.</p>
    * @public
    */
@@ -1696,6 +1718,12 @@ export interface Webhook {
    * @public
    */
   webhookUrl: string | undefined;
+
+  /**
+   * <p>The unique ID of an Amplify app.</p>
+   * @public
+   */
+  appId?: string | undefined;
 
   /**
    * <p>The name for a branch that is part of an Amplify app. </p>
@@ -2287,7 +2315,7 @@ export interface Step {
   logUrl?: string | undefined;
 
   /**
-   * <p> The URL to the artifact for the execution step. </p>
+   * <p> The URL to the build artifact for the execution step. </p>
    * @public
    */
   artifactsUrl?: string | undefined;
@@ -3018,7 +3046,7 @@ export interface UpdateAppRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to assign to an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
    *             based on the role's permissions. For more information about the SSR Compute role, see
-   *             <a href="https://docs.aws.amazon.com/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
    *                     Guide</i>.</p>
    * @public
    */
@@ -3207,6 +3235,17 @@ export interface UpdateBranchRequest {
   enableAutoBuild?: boolean | undefined;
 
   /**
+   * <p>Specifies whether the skew protection feature is enabled for the branch.</p>
+   *          <p>Deployment skew protection is available to Amplify applications to eliminate version skew
+   *             issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version
+   *             of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see
+   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html">Skew protection for Amplify deployments</a> in the <i>Amplify User
+   *                     Guide</i>.</p>
+   * @public
+   */
+  enableSkewProtection?: boolean | undefined;
+
+  /**
    * <p> The environment variables for the branch. </p>
    * @public
    */
@@ -3288,7 +3327,7 @@ export interface UpdateBranchRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific Amazon Web Services resources
    *             based on the role's permissions. For more information about the SSR Compute role, see
-   *             <a href="https://docs.aws.amazon.com/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
+   *             <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html">Adding an SSR Compute role</a> in the <i>Amplify User
    *                     Guide</i>.</p>
    * @public
    */

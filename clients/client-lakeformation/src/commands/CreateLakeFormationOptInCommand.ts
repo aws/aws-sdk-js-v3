@@ -101,6 +101,9 @@ export interface CreateLakeFormationOptInCommandOutput extends CreateLakeFormati
  *       Name: "STRING_VALUE", // required
  *     },
  *   },
+ *   Condition: { // Condition
+ *     Expression: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateLakeFormationOptInCommand(input);
  * const response = await client.send(command);
@@ -131,6 +134,9 @@ export interface CreateLakeFormationOptInCommandOutput extends CreateLakeFormati
  *
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
+ *
+ * @throws {@link ResourceNumberLimitExceededException} (client fault)
+ *  <p>A resource numerical limit was exceeded.</p>
  *
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>

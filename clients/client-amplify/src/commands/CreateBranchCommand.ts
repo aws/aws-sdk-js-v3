@@ -48,6 +48,7 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  *   framework: "STRING_VALUE",
  *   enableNotification: true || false,
  *   enableAutoBuild: true || false,
+ *   enableSkewProtection: true || false,
  *   environmentVariables: { // EnvironmentVariables
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -87,6 +88,7 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     enableAutoBuild: true || false, // required
+ * //     enableSkewProtection: true || false,
  * //     customDomains: [ // CustomDomains // required
  * //       "STRING_VALUE",
  * //     ],

@@ -44,11 +44,17 @@ export interface GetUserAuthFactorsCommandOutput extends GetUserAuthFactorsRespo
  *                <p>The user's multi-factor authentication (MFA) preferences.</p>
  *             </li>
  *             <li>
- *                <p>The user's options in the <code>USER_AUTH</code> flow that they can
- *                     select in a <code>SELECT_CHALLENGE</code> response or request in a
- *                         <code>PREFERRED_CHALLENGE</code>request.</p>
+ *                <p>The user's options for choice-based authentication with the
+ *                         <code>USER_AUTH</code> flow.</p>
  *             </li>
  *          </ol>
+ *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
+ *          <note>
+ *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
+ *     this operation, you can't use IAM credentials to authorize requests, and you can't
+ *     grant IAM permissions in policies. For more information about authorization models in
+ *     Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

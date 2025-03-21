@@ -32,16 +32,15 @@ import {
   VerifiedAccessTrustProvider,
   VerifiedAccessTrustProviderFilterSensitiveLog,
   VolumeAttachment,
-  VpcAttachment,
   VpcPeeringConnection,
 } from "./models_0";
 
 import {
   ConnectionTrackingSpecificationRequest,
-  GatewayType,
   InstanceIpv6Address,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
+  LocalGatewayRoute,
   OperatorRequest,
   OperatorResponse,
   PrivateIpAddressSpecification,
@@ -50,6 +49,261 @@ import {
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateLocalGatewayRouteResult {
+  /**
+   * <p>Information about the route.</p>
+   * @public
+   */
+  Route?: LocalGatewayRoute | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LocalGatewayRouteTableMode = {
+  coip: "coip",
+  direct_vpc_routing: "direct-vpc-routing",
+} as const;
+
+/**
+ * @public
+ */
+export type LocalGatewayRouteTableMode = (typeof LocalGatewayRouteTableMode)[keyof typeof LocalGatewayRouteTableMode];
+
+/**
+ * @public
+ */
+export interface CreateLocalGatewayRouteTableRequest {
+  /**
+   * <p>
+   *       The ID of the local gateway.
+   *       </p>
+   * @public
+   */
+  LocalGatewayId: string | undefined;
+
+  /**
+   * <p>
+   *       The mode of the local gateway route table.
+   *       </p>
+   * @public
+   */
+  Mode?: LocalGatewayRouteTableMode | undefined;
+
+  /**
+   * <p>
+   *       The tags assigned to the local gateway route table.
+   *       </p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a state change.</p>
+ * @public
+ */
+export interface StateReason {
+  /**
+   * <p>The reason code for the state change.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>The message for the state change.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Server.InsufficientInstanceCapacity</code>: There was insufficient
+   *                     capacity available to satisfy the launch request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Server.InternalError</code>: An internal error caused the instance to
+   *                     terminate during launch.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Server.ScheduledStop</code>: The instance was stopped due to a scheduled
+   *                     retirement.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Server.SpotInstanceShutdown</code>: The instance was stopped because the
+   *                     number of Spot requests with a maximum price equal to or higher than the Spot
+   *                     price exceeded available capacity or because of an increase in the Spot
+   *                     price.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Server.SpotInstanceTermination</code>: The instance was terminated
+   *                     because the number of Spot requests with a maximum price equal to or higher than
+   *                     the Spot price exceeded available capacity or because of an increase in the Spot
+   *                     price.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Client.InstanceInitiatedShutdown</code>: The instance was shut down
+   *                     from the operating system of the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Client.InstanceTerminated</code>: The instance was terminated or
+   *                     rebooted during AMI creation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Client.InternalError</code>: A client error caused the instance to
+   *                     terminate during launch.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Client.InvalidSnapshot.NotFound</code>: The specified snapshot was not
+   *                     found.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Client.UserInitiatedHibernate</code>: Hibernation was initiated on the
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Client.UserInitiatedShutdown</code>: The instance was shut down using
+   *                     the Amazon EC2 API.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Client.VolumeLimitExceeded</code>: The limit on the number of EBS
+   *                     volumes or total storage was exceeded. Decrease usage or request an increase in
+   *                     your account limits.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>Describes a local gateway route table.</p>
+ * @public
+ */
+export interface LocalGatewayRouteTable {
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   * @public
+   */
+  LocalGatewayRouteTableId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the local gateway route table.</p>
+   * @public
+   */
+  LocalGatewayRouteTableArn?: string | undefined;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   * @public
+   */
+  LocalGatewayId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   * @public
+   */
+  OutpostArn?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the local gateway route table.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The state of the local gateway route table.</p>
+   * @public
+   */
+  State?: string | undefined;
+
+  /**
+   * <p>The tags assigned to the local gateway route table.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The mode of the local gateway route table.</p>
+   * @public
+   */
+  Mode?: LocalGatewayRouteTableMode | undefined;
+
+  /**
+   * <p>Information about the state change.</p>
+   * @public
+   */
+  StateReason?: StateReason | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLocalGatewayRouteTableResult {
+  /**
+   * <p>Information about the local gateway route table.</p>
+   * @public
+   */
+  LocalGatewayRouteTable?: LocalGatewayRouteTable | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {
+  /**
+   * <p>
+   *       The ID of the local gateway route table.
+   *       </p>
+   * @public
+   */
+  LocalGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>
+   *       The ID of the local gateway route table virtual interface group association.
+   *       </p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceGroupId: string | undefined;
+
+  /**
+   * <p>
+   *       The tags assigned to the local gateway route table virtual interface group association.
+   *       </p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * <p>Describes an association between a local gateway route table and a virtual interface group.</p>
@@ -3110,8 +3364,8 @@ export interface CreateSecurityGroupRequest {
   Description: string | undefined;
 
   /**
-   * <p>The name of the security group.</p>
-   *          <p>Constraints: Up to 255 characters in length. Cannot start with <code>sg-</code>.</p>
+   * <p>The name of the security group. Names are case-insensitive and must be unique within the VPC.</p>
+   *          <p>Constraints: Up to 255 characters in length. Can't start with <code>sg-</code>.</p>
    *          <p>Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;\{\}!$*</p>
    * @public
    */
@@ -10170,284 +10424,6 @@ export const TelemetryStatus = {
 export type TelemetryStatus = (typeof TelemetryStatus)[keyof typeof TelemetryStatus];
 
 /**
- * <p>Describes telemetry for a VPN tunnel.</p>
- * @public
- */
-export interface VgwTelemetry {
-  /**
-   * <p>The number of accepted routes.</p>
-   * @public
-   */
-  AcceptedRouteCount?: number | undefined;
-
-  /**
-   * <p>The date and time of the last change in status. This field is updated when changes in IKE (Phase 1), IPSec (Phase 2), or BGP status are detected.</p>
-   * @public
-   */
-  LastStatusChange?: Date | undefined;
-
-  /**
-   * <p>The Internet-routable IP address of the virtual private gateway's outside
-   *             interface.</p>
-   * @public
-   */
-  OutsideIpAddress?: string | undefined;
-
-  /**
-   * <p>The status of the VPN tunnel.</p>
-   * @public
-   */
-  Status?: TelemetryStatus | undefined;
-
-  /**
-   * <p>If an error occurs, a description of the error.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.</p>
-   * @public
-   */
-  CertificateArn?: string | undefined;
-}
-
-/**
- * <p>Describes a VPN connection.</p>
- * @public
- */
-export interface VpnConnection {
-  /**
-   * <p>The category of the VPN connection. A value of <code>VPN</code> indicates an Amazon Web Services VPN connection. A value of <code>VPN-Classic</code> indicates an Amazon Web Services Classic VPN connection.</p>
-   * @public
-   */
-  Category?: string | undefined;
-
-  /**
-   * <p>The ID of the transit gateway associated with the VPN connection.</p>
-   * @public
-   */
-  TransitGatewayId?: string | undefined;
-
-  /**
-   * <p>The ARN of the core network.</p>
-   * @public
-   */
-  CoreNetworkArn?: string | undefined;
-
-  /**
-   * <p>The ARN of the core network attachment.</p>
-   * @public
-   */
-  CoreNetworkAttachmentArn?: string | undefined;
-
-  /**
-   * <p>The current state of the gateway association.</p>
-   * @public
-   */
-  GatewayAssociationState?: GatewayAssociationState | undefined;
-
-  /**
-   * <p>The VPN connection options.</p>
-   * @public
-   */
-  Options?: VpnConnectionOptions | undefined;
-
-  /**
-   * <p>The static routes associated with the VPN connection.</p>
-   * @public
-   */
-  Routes?: VpnStaticRoute[] | undefined;
-
-  /**
-   * <p>Any tags assigned to the VPN connection.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>Information about the VPN tunnel.</p>
-   * @public
-   */
-  VgwTelemetry?: VgwTelemetry[] | undefined;
-
-  /**
-   * <p>The ID of the VPN connection.</p>
-   * @public
-   */
-  VpnConnectionId?: string | undefined;
-
-  /**
-   * <p>The current state of the VPN connection.</p>
-   * @public
-   */
-  State?: VpnState | undefined;
-
-  /**
-   * <p>The configuration information for the VPN connection's customer gateway (in the native
-   *             XML format). This element is always present in the <a>CreateVpnConnection</a>
-   *             response; however, it's present in the <a>DescribeVpnConnections</a> response
-   *             only if the VPN connection is in the <code>pending</code> or <code>available</code>
-   *             state.</p>
-   * @public
-   */
-  CustomerGatewayConfiguration?: string | undefined;
-
-  /**
-   * <p>The type of VPN connection.</p>
-   * @public
-   */
-  Type?: GatewayType | undefined;
-
-  /**
-   * <p>The ID of the customer gateway at your end of the VPN connection.</p>
-   * @public
-   */
-  CustomerGatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of the virtual private gateway at the Amazon Web Services side of the VPN
-   *             connection.</p>
-   * @public
-   */
-  VpnGatewayId?: string | undefined;
-}
-
-/**
- * <p>Contains the output of CreateVpnConnection.</p>
- * @public
- */
-export interface CreateVpnConnectionResult {
-  /**
-   * <p>Information about the VPN connection.</p>
-   * @public
-   */
-  VpnConnection?: VpnConnection | undefined;
-}
-
-/**
- * <p>Contains the parameters for CreateVpnConnectionRoute.</p>
- * @public
- */
-export interface CreateVpnConnectionRouteRequest {
-  /**
-   * <p>The CIDR block associated with the local subnet of the customer network.</p>
-   * @public
-   */
-  DestinationCidrBlock: string | undefined;
-
-  /**
-   * <p>The ID of the VPN connection.</p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-}
-
-/**
- * <p>Contains the parameters for CreateVpnGateway.</p>
- * @public
- */
-export interface CreateVpnGatewayRequest {
-  /**
-   * <p>The Availability Zone for the virtual private gateway.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The type of VPN connection this virtual private gateway supports.</p>
-   * @public
-   */
-  Type: GatewayType | undefined;
-
-  /**
-   * <p>The tags to apply to the virtual private gateway.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. If
-   *             you're using a 16-bit ASN, it must be in the 64512 to 65534 range. If you're using a
-   *             32-bit ASN, it must be in the 4200000000 to 4294967294 range.</p>
-   *          <p>Default: 64512</p>
-   * @public
-   */
-  AmazonSideAsn?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes a virtual private gateway.</p>
- * @public
- */
-export interface VpnGateway {
-  /**
-   * <p>The private Autonomous System Number (ASN) for the Amazon side of a BGP
-   *             session.</p>
-   * @public
-   */
-  AmazonSideAsn?: number | undefined;
-
-  /**
-   * <p>Any tags assigned to the virtual private gateway.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The ID of the virtual private gateway.</p>
-   * @public
-   */
-  VpnGatewayId?: string | undefined;
-
-  /**
-   * <p>The current state of the virtual private gateway.</p>
-   * @public
-   */
-  State?: VpnState | undefined;
-
-  /**
-   * <p>The type of VPN connection the virtual private gateway supports.</p>
-   * @public
-   */
-  Type?: GatewayType | undefined;
-
-  /**
-   * <p>The Availability Zone where the virtual private gateway was created, if applicable.
-   *             This field may be empty or not returned.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>Any VPCs attached to the virtual private gateway.</p>
-   * @public
-   */
-  VpcAttachments?: VpcAttachment[] | undefined;
-}
-
-/**
- * <p>Contains the output of CreateVpnGateway.</p>
- * @public
- */
-export interface CreateVpnGatewayResult {
-  /**
-   * <p>Information about the virtual private gateway.</p>
-   * @public
-   */
-  VpnGateway?: VpnGateway | undefined;
-}
-
-/**
  * @internal
  */
 export const CreateVerifiedAccessNativeApplicationOidcOptionsFilterSensitiveLog = (
@@ -10536,21 +10512,4 @@ export const TunnelOptionFilterSensitiveLog = (obj: TunnelOption): any => ({
 export const VpnConnectionOptionsFilterSensitiveLog = (obj: VpnConnectionOptions): any => ({
   ...obj,
   ...(obj.TunnelOptions && { TunnelOptions: obj.TunnelOptions.map((item) => TunnelOptionFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const VpnConnectionFilterSensitiveLog = (obj: VpnConnection): any => ({
-  ...obj,
-  ...(obj.Options && { Options: VpnConnectionOptionsFilterSensitiveLog(obj.Options) }),
-  ...(obj.CustomerGatewayConfiguration && { CustomerGatewayConfiguration: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateVpnConnectionResultFilterSensitiveLog = (obj: CreateVpnConnectionResult): any => ({
-  ...obj,
-  ...(obj.VpnConnection && { VpnConnection: VpnConnectionFilterSensitiveLog(obj.VpnConnection) }),
 });

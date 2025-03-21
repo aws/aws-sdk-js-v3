@@ -44,4 +44,6 @@ export interface EndpointParameters extends __EndpointParameters {
   Endpoint?: string;
   AccountId?: string;
   AccountIdEndpointMode?: string;
+  ResourceArn?: string;
+  ResourceArnList?: string[];
 }

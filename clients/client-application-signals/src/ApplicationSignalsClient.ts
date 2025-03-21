@@ -58,6 +58,10 @@ import {
   BatchGetServiceLevelObjectiveBudgetReportCommandOutput,
 } from "./commands/BatchGetServiceLevelObjectiveBudgetReportCommand";
 import {
+  BatchUpdateExclusionWindowsCommandInput,
+  BatchUpdateExclusionWindowsCommandOutput,
+} from "./commands/BatchUpdateExclusionWindowsCommand";
+import {
   CreateServiceLevelObjectiveCommandInput,
   CreateServiceLevelObjectiveCommandOutput,
 } from "./commands/CreateServiceLevelObjectiveCommand";
@@ -78,6 +82,10 @@ import {
   ListServiceDependentsCommandInput,
   ListServiceDependentsCommandOutput,
 } from "./commands/ListServiceDependentsCommand";
+import {
+  ListServiceLevelObjectiveExclusionWindowsCommandInput,
+  ListServiceLevelObjectiveExclusionWindowsCommandOutput,
+} from "./commands/ListServiceLevelObjectiveExclusionWindowsCommand";
 import {
   ListServiceLevelObjectivesCommandInput,
   ListServiceLevelObjectivesCommandOutput,
@@ -114,12 +122,14 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | BatchGetServiceLevelObjectiveBudgetReportCommandInput
+  | BatchUpdateExclusionWindowsCommandInput
   | CreateServiceLevelObjectiveCommandInput
   | DeleteServiceLevelObjectiveCommandInput
   | GetServiceCommandInput
   | GetServiceLevelObjectiveCommandInput
   | ListServiceDependenciesCommandInput
   | ListServiceDependentsCommandInput
+  | ListServiceLevelObjectiveExclusionWindowsCommandInput
   | ListServiceLevelObjectivesCommandInput
   | ListServiceOperationsCommandInput
   | ListServicesCommandInput
@@ -134,12 +144,14 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | BatchGetServiceLevelObjectiveBudgetReportCommandOutput
+  | BatchUpdateExclusionWindowsCommandOutput
   | CreateServiceLevelObjectiveCommandOutput
   | DeleteServiceLevelObjectiveCommandOutput
   | GetServiceCommandOutput
   | GetServiceLevelObjectiveCommandOutput
   | ListServiceDependenciesCommandOutput
   | ListServiceDependentsCommandOutput
+  | ListServiceLevelObjectiveExclusionWindowsCommandOutput
   | ListServiceLevelObjectivesCommandOutput
   | ListServiceOperationsCommandOutput
   | ListServicesCommandOutput

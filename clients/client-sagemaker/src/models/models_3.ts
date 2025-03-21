@@ -4439,8 +4439,8 @@ export interface DescribePipelineExecutionResponse {
  */
 export interface DescribeProcessingJobRequest {
   /**
-   * <p>The name of the processing job. The name must be unique within an Amazon Web Services Region in the
-   *             Amazon Web Services account.</p>
+   * <p>The name of the processing job. The name must be unique within an Amazon Web Services
+   *             Region in the Amazon Web Services account.</p>
    * @public
    */
   ProcessingJobName: string | undefined;
@@ -4480,8 +4480,8 @@ export interface DescribeProcessingJobResponse {
   ProcessingOutputConfig?: ProcessingOutputConfig | undefined;
 
   /**
-   * <p>The name of the processing job. The name must be unique within an Amazon Web Services Region in the
-   *             Amazon Web Services account.</p>
+   * <p>The name of the processing job. The name must be unique within an Amazon Web Services
+   *             Region in the Amazon Web Services account.</p>
    * @public
    */
   ProcessingJobName: string | undefined;
@@ -11324,7 +11324,7 @@ export interface ListClusterNodesResponse {
    * <p>The next token specified for listing instances in a SageMaker HyperPod cluster.</p>
    * @public
    */
-  NextToken: string | undefined;
+  NextToken?: string | undefined;
 
   /**
    * <p>The summaries of listed instances in a SageMaker HyperPod cluster</p>
@@ -11432,7 +11432,7 @@ export interface ListClustersResponse {
    *          token in the next request.</p>
    * @public
    */
-  NextToken: string | undefined;
+  NextToken?: string | undefined;
 
   /**
    * <p>The summaries of listed SageMaker HyperPod clusters.</p>

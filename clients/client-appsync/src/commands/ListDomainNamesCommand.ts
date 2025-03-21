@@ -49,6 +49,10 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * //       certificateArn: "STRING_VALUE",
  * //       appsyncDomainName: "STRING_VALUE",
  * //       hostedZoneId: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       domainNameArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

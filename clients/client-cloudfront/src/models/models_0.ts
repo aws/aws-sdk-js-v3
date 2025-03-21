@@ -215,7 +215,7 @@ export interface AliasICPRecordal {
 
   /**
    * <p>The Internet Content Provider (ICP) recordal status for a CNAME. The ICPRecordalStatus
-   * 			is set to APPROVED for all CNAMEs (aliases) in regions outside of China.</p>
+   * 			is set to APPROVED for all CNAMEs (aliases) in Amazon Web Services Regions outside of China.</p>
    *          <p>The status values returned are the following:</p>
    *          <ul>
    *             <li>
@@ -223,7 +223,7 @@ export interface AliasICPRecordal {
    *                   <b>APPROVED</b> indicates that the associated CNAME
    * 					has a valid ICP recordal number. Multiple CNAMEs can be associated with a
    * 					distribution, and CNAMEs can correspond to different ICP recordals. To be marked
-   * 					as APPROVED, that is, valid to use with China region, a CNAME must have one ICP
+   * 					as APPROVED, that is, valid to use with the China Regions, a CNAME must have one ICP
    * 					recordal number associated with it.</p>
    *             </li>
    *             <li>
@@ -5320,7 +5320,7 @@ export class InvalidTagging extends __BaseException {
 }
 
 /**
- * <p>This operation is not supported in this region.</p>
+ * <p>This operation is not supported in this Amazon Web Services Region.</p>
  * @public
  */
 export class UnsupportedOperation extends __BaseException {
@@ -7537,8 +7537,8 @@ export interface CreateMonitoringSubscriptionRequest {
   DistributionId: string | undefined;
 
   /**
-   * <p>A monitoring subscription. This structure contains information about whether
-   * 			additional CloudWatch metrics are enabled for a given CloudFront distribution.</p>
+   * <p>A monitoring subscription. This structure contains information about whether additional CloudWatch
+   * 			metrics are enabled for a given CloudFront distribution.</p>
    * @public
    */
   MonitoringSubscription: MonitoringSubscription | undefined;

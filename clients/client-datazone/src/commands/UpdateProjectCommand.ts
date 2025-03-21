@@ -59,6 +59,19 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  *       ],
  *     },
  *   },
+ *   userParameters: [ // EnvironmentConfigurationUserParametersList
+ *     { // EnvironmentConfigurationUserParameter
+ *       environmentId: "STRING_VALUE",
+ *       environmentConfigurationName: "STRING_VALUE",
+ *       environmentParameters: [ // EnvironmentParametersList
+ *         { // EnvironmentParameter
+ *           name: "STRING_VALUE",
+ *           value: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   ],
+ *   projectProfileVersion: "STRING_VALUE",
  * };
  * const command = new UpdateProjectCommand(input);
  * const response = await client.send(command);
@@ -67,7 +80,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * //   id: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
- * //   projectStatus: "ACTIVE" || "DELETING" || "DELETE_FAILED",
+ * //   projectStatus: "ACTIVE" || "DELETING" || "DELETE_FAILED" || "UPDATING" || "UPDATE_FAILED",
  * //   failureReasons: [ // FailureReasons
  * //     { // ProjectDeletionError
  * //       code: "STRING_VALUE",
@@ -84,6 +97,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * //   projectProfileId: "STRING_VALUE",
  * //   userParameters: [ // EnvironmentConfigurationUserParametersList
  * //     { // EnvironmentConfigurationUserParameter
+ * //       environmentId: "STRING_VALUE",
  * //       environmentConfigurationName: "STRING_VALUE",
  * //       environmentParameters: [ // EnvironmentParametersList
  * //         { // EnvironmentParameter

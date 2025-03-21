@@ -484,6 +484,41 @@ export interface JA3Fingerprint {
 }
 
 /**
+ * <p>Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. WAF calculates and logs this fingerprint for each
+ * 						request that has enough TLS Client Hello information for the calculation. Almost
+ *                         all web requests include this information.</p>
+ *          <note>
+ *             <p>You can use this choice only with a string match <code>ByteMatchStatement</code> with the <code>PositionalConstraint</code> set to
+ *        <code>EXACTLY</code>.  </p>
+ *          </note>
+ *          <p>You can obtain the JA4 fingerprint for client requests from the web ACL logs.
+ * 						If WAF is able to calculate the fingerprint, it includes it in the logs.
+ * 						For information about the logging fields,
+ * see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html">Log fields</a> in the <i>WAF Developer Guide</i>. </p>
+ *          <p>Provide the JA4 fingerprint string from the logs in your string match statement
+ * 							specification, to match with any future requests that have the same TLS configuration.</p>
+ * @public
+ */
+export interface JA4Fingerprint {
+  /**
+   * <p>The match status to assign to the web request if the request doesn't have a JA4 fingerprint. </p>
+   *          <p>You can specify the following fallback behaviors:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MATCH</code> - Treat the web request as matching the rule statement. WAF applies the rule action to the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO_MATCH</code> - Treat the web request as not matching the rule statement.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FallbackBehavior: FallbackBehavior | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -712,6 +747,54 @@ export interface SingleQueryArgument {
 }
 
 /**
+ * <p>Inspect fragments of the request URI. You can specify the parts of the URI fragment to
+ *          inspect and you can narrow the set of URI fragments to inspect by including or excluding specific
+ *          keys.
+ *       </p>
+ *          <p>This is used to indicate the web request component to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *          <p>Example JSON: <code>"UriFragment": \{ "MatchPattern": \{ "All": \{\} \}, "MatchScope": "KEY",
+ *                "OversizeHandling": "MATCH" \}</code>
+ *          </p>
+ * @public
+ */
+export interface UriFragment {
+  /**
+   * <p>What WAF should do if it fails to completely parse the JSON body. The options are
+   *             the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EVALUATE_AS_STRING</code> - Inspect the body as plain text. WAF
+   *                   applies the text transformations and inspection criteria that you defined for the
+   *                   JSON inspection to the body text string.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MATCH</code> - Treat the web request as matching the rule statement.
+   *                   WAF applies the rule action to the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO_MATCH</code> - Treat the web request as not matching the rule
+   *                   statement.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't provide this setting, WAF parses and evaluates the content only up to the
+   *             first parsing failure that it encounters. </p>
+   *          <p>Example JSON: <code>\{ "UriFragment": \{ "FallbackBehavior": "MATCH"\} \}</code>
+   *          </p>
+   *          <note>
+   *             <p>WAF parsing doesn't fully validate the input JSON string, so parsing can succeed even for invalid JSON. When
+   *                parsing succeeds, WAF doesn't apply the fallback behavior. For more information,
+   *                see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-fields-list.html#waf-rule-statement-request-component-json-body">JSON body</a>
+   *                in the <i>WAF Developer Guide</i>.</p>
+   *          </note>
+   * @public
+   */
+  FallbackBehavior?: FallbackBehavior | undefined;
+}
+
+/**
  * <p>Inspect the path component of the URI of the web request. This is the part of the web
  *          request that identifies a resource. For example, <code>/images/daily-ad.jpg</code>.</p>
  *          <p>This is used in the <a>FieldToMatch</a> specification for some web request component types. </p>
@@ -908,6 +991,36 @@ export interface FieldToMatch {
    * @public
    */
   JA3Fingerprint?: JA3Fingerprint | undefined;
+
+  /**
+   * <p>Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. WAF calculates and logs this fingerprint for each
+   * 						request that has enough TLS Client Hello information for the calculation. Almost
+   *                         all web requests include this information.</p>
+   *          <note>
+   *             <p>You can use this choice only with a string match <code>ByteMatchStatement</code> with the <code>PositionalConstraint</code> set to
+   *        <code>EXACTLY</code>.  </p>
+   *          </note>
+   *          <p>You can obtain the JA4 fingerprint for client requests from the web ACL logs.
+   * 						If WAF is able to calculate the fingerprint, it includes it in the logs.
+   * 						For information about the logging fields,
+   * see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html">Log fields</a> in the <i>WAF Developer Guide</i>. </p>
+   *          <p>Provide the JA4 fingerprint string from the logs in your string match statement
+   * 							specification, to match with any future requests that have the same TLS configuration.</p>
+   * @public
+   */
+  JA4Fingerprint?: JA4Fingerprint | undefined;
+
+  /**
+   * <p>Inspect fragments of the request URI. You must configure scope and pattern matching filters in
+   *          the <code>UriFragment</code> object, to define the fragment of a URI that WAF inspects. </p>
+   *          <p>Only the first 8 KB (8192 bytes) of a request's URI fragments and only the first 200 URI fragments
+   *          are forwarded to WAF for inspection by the underlying host service. You must
+   *          configure how to handle any oversize URI fragment content in the <code>UriFragment</code> object.
+   *          WAF applies the pattern matching filters to the cookies that it receives from the
+   *          underlying host service. </p>
+   * @public
+   */
+  UriFragment?: UriFragment | undefined;
 }
 
 /**
@@ -2645,6 +2758,56 @@ export interface RateLimitHTTPMethod {}
 export interface RateLimitIP {}
 
 /**
+ * <p>
+ *          Use the request's JA3 fingerprint derived from the TLS Client Hello of an incoming request as an aggregate key. If you use a single
+ *     JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+ *       </p>
+ * @public
+ */
+export interface RateLimitJA3Fingerprint {
+  /**
+   * <p>The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA3 fingerprint.</p>
+   *          <p>You can specify the following fallback behaviors:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MATCH</code> - Treat the web request as matching the rule statement. WAF applies the rule action to the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO_MATCH</code> - Treat the web request as not matching the rule statement.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FallbackBehavior: FallbackBehavior | undefined;
+}
+
+/**
+ * <p>Use the request's JA4 fingerprint derived from the TLS Client Hello of an incoming request as an aggregate key. If you use a single
+ *     JA4 fingerprint as your custom key, then each value fully defines an aggregation instance.</p>
+ * @public
+ */
+export interface RateLimitJA4Fingerprint {
+  /**
+   * <p>The match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint.</p>
+   *          <p>You can specify the following fallback behaviors:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MATCH</code> - Treat the web request as matching the rule statement. WAF applies the rule action to the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO_MATCH</code> - Treat the web request as not matching the rule statement.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FallbackBehavior: FallbackBehavior | undefined;
+}
+
+/**
  * <p>Specifies a label namespace to use as an aggregate key for a rate-based rule. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.  </p>
  *          <p>This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL. </p>
  *          <p>For information about label namespaces and names, see
@@ -2780,6 +2943,22 @@ export interface RateBasedStatementCustomKey {
    * @public
    */
   UriPath?: RateLimitUriPath | undefined;
+
+  /**
+   * <p>
+   *          Use the request's JA3 fingerprint as an aggregate key. If you use a single
+   *     JA3 fingerprint as your custom key, then each value fully defines an aggregation instance.
+   *       </p>
+   * @public
+   */
+  JA3Fingerprint?: RateLimitJA3Fingerprint | undefined;
+
+  /**
+   * <p>Use the request's JA4 fingerprint as an aggregate key. If you use a single
+   *     JA4 fingerprint as your custom key, then each value fully defines an aggregation instance. </p>
+   * @public
+   */
+  JA4Fingerprint?: RateLimitJA4Fingerprint | undefined;
 }
 
 /**
@@ -4230,7 +4409,7 @@ export interface DataProtection {
   Action: DataProtectionAction | undefined;
 
   /**
-   * <p>Specifies whether to also protect any rule match details from the web ACL logs when applying data protection this field type and keys. WAF logs these details for non-terminating
+   * <p>Specifies whether to also exclude any rule match details from the data protection you have enabled for a given field.  WAF logs these details for non-terminating
    *            matching rules and for the terminating matching rule. For additional information, see
    *             <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html">Log fields for web ACL traffic</a> in the
    *             <i>WAF Developer Guide</i>.</p>
@@ -4241,7 +4420,7 @@ export interface DataProtection {
   ExcludeRuleMatchDetails?: boolean | undefined;
 
   /**
-   * <p>Specifies whether to also protect any rate-based rule details from the web ACL logs when applying data protection for this field type and keys.
+   * <p>Specifies whether to also exclude any rate-based rule details from the data protection you have enabled for a given field. If you specify this exception, RateBasedDetails will show the value of the field.
    *            For additional information, see the log field <code>rateBasedRuleList</code> at
    *             <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html">Log fields for web ACL traffic</a> in the
    *             <i>WAF Developer Guide</i>.</p>
@@ -4253,9 +4432,9 @@ export interface DataProtection {
 }
 
 /**
- * <p>Specifies data protection to apply to the web request data that WAF stores for the web ACL. This is a web ACL level data protection option. </p>
+ * <p>Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. </p>
  *          <p>The data protection that you configure for the web ACL alters the data that's available for any other data collection activity,
- *   including WAF logging, web ACL request sampling, Amazon Web Services Managed Rules, and Amazon Security Lake data collection and management. Your other option for data protection is in the logging configuration, which only affects logging. </p>
+ *   including your WAF logging destinations, web ACL request sampling, and Amazon Security Lake data collection and management. Your other option for data protection is in the logging configuration, which only affects logging. </p>
  *          <p>This is part of the data protection configuration for a web ACL. </p>
  * @public
  */
@@ -8647,9 +8826,9 @@ export interface CreateWebACLRequest {
   VisibilityConfig: VisibilityConfig | undefined;
 
   /**
-   * <p>Specifies data protection to apply to the web request data that WAF stores for the web ACL. This is a web ACL level data protection option. </p>
+   * <p>Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. </p>
    *          <p>The data protection that you configure for the web ACL alters the data that's available for any other data collection activity,
-   *   including WAF logging, web ACL request sampling, Amazon Web Services Managed Rules, and Amazon Security Lake data collection and management. Your other option for data protection is in the logging configuration, which only affects logging. </p>
+   *   including your WAF logging destinations, web ACL request sampling, and Amazon Security Lake data collection and management. Your other option for data protection is in the logging configuration, which only affects logging. </p>
    * @public
    */
   DataProtectionConfig?: DataProtectionConfig | undefined;
@@ -8940,9 +9119,9 @@ export interface UpdateWebACLRequest {
   VisibilityConfig: VisibilityConfig | undefined;
 
   /**
-   * <p>Specifies data protection to apply to the web request data that WAF stores for the web ACL. This is a web ACL level data protection option. </p>
+   * <p>Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. </p>
    *          <p>The data protection that you configure for the web ACL alters the data that's available for any other data collection activity,
-   *   including WAF logging, web ACL request sampling, Amazon Web Services Managed Rules, and Amazon Security Lake data collection and management. Your other option for data protection is in the logging configuration, which only affects logging. </p>
+   *   including your WAF logging destinations, web ACL request sampling, and Amazon Security Lake data collection and management. Your other option for data protection is in the logging configuration, which only affects logging. </p>
    * @public
    */
   DataProtectionConfig?: DataProtectionConfig | undefined;
@@ -9070,9 +9249,9 @@ export interface WebACL {
   VisibilityConfig: VisibilityConfig | undefined;
 
   /**
-   * <p>Specifies data protection to apply to the web request data that WAF stores for the web ACL. This is a web ACL level data protection option. </p>
+   * <p>Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. </p>
    *          <p>The data protection that you configure for the web ACL alters the data that's available for any other data collection activity,
-   *   including WAF logging, web ACL request sampling, Amazon Web Services Managed Rules, and Amazon Security Lake data collection and management. Your other option for data protection is in the logging configuration, which only affects logging. </p>
+   *   including your WAF logging destinations, web ACL request sampling, and Amazon Security Lake data collection and management. Your other option for data protection is in the logging configuration, which only affects logging. </p>
    * @public
    */
   DataProtectionConfig?: DataProtectionConfig | undefined;

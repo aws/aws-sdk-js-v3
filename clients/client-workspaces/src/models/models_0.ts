@@ -4555,6 +4555,20 @@ export const WorkspaceDirectoryType = {
 export type WorkspaceDirectoryType = (typeof WorkspaceDirectoryType)[keyof typeof WorkspaceDirectoryType];
 
 /**
+ * @public
+ * @enum
+ */
+export const EndpointEncryptionMode = {
+  FIPS_VALIDATED: "FIPS_VALIDATED",
+  STANDARD_TLS: "STANDARD_TLS",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointEncryptionMode = (typeof EndpointEncryptionMode)[keyof typeof EndpointEncryptionMode];
+
+/**
  * <p>Specifies the configurations of the identity center.</p>
  * @public
  */
@@ -4952,6 +4966,12 @@ export interface WorkspaceAccessProperties {
    * @public
    */
   DeviceTypeLinux?: AccessPropertyValue | undefined;
+
+  /**
+   * <p>Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.</p>
+   * @public
+   */
+  DeviceTypeWorkSpacesThinClient?: AccessPropertyValue | undefined;
 }
 
 /**
@@ -5091,6 +5111,13 @@ export interface WorkspaceDirectory {
    * @public
    */
   CertificateBasedAuthProperties?: CertificateBasedAuthProperties | undefined;
+
+  /**
+   * <p>Endpoint encryption mode that allows you to configure the specified directory between
+   *          Standard TLS and FIPS 140-2 validated mode.</p>
+   * @public
+   */
+  EndpointEncryptionMode?: EndpointEncryptionMode | undefined;
 
   /**
    * <p>Specifies details about Microsoft Entra configurations.</p>
@@ -5779,7 +5806,8 @@ export interface DescribeWorkspacesPoolSessionsRequest {
   UserId?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return.</p>
+   * <p>The maximum size of each page of results. The default value is 20 and the maximum value
+   *          is 50.</p>
    * @public
    */
   Limit?: number | undefined;
@@ -6528,6 +6556,29 @@ export interface ModifyClientPropertiesResult {}
 /**
  * @public
  */
+export interface ModifyEndpointEncryptionModeRequest {
+  /**
+   * <p> The identifier of the directory.</p>
+   * @public
+   */
+  DirectoryId: string | undefined;
+
+  /**
+   * <p>The encryption mode used for endpoint connections when streaming to WorkSpaces Personal
+   *          or WorkSpace Pools.</p>
+   * @public
+   */
+  EndpointEncryptionMode: EndpointEncryptionMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyEndpointEncryptionModeResponse {}
+
+/**
+ * @public
+ */
 export interface ModifySamlPropertiesRequest {
   /**
    * <p>The directory identifier for which you want to configure SAML properties.</p>
@@ -6849,40 +6900,6 @@ export interface RebootWorkspacesRequest {
 export interface RebootWorkspacesResult {
   /**
    * <p>Information about the WorkSpaces that could not be rebooted.</p>
-   * @public
-   */
-  FailedRequests?: FailedWorkspaceChangeRequest[] | undefined;
-}
-
-/**
- * <p>Describes the information used to rebuild a WorkSpace.</p>
- * @public
- */
-export interface RebuildRequest {
-  /**
-   * <p>The identifier of the WorkSpace.</p>
-   * @public
-   */
-  WorkspaceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RebuildWorkspacesRequest {
-  /**
-   * <p>The WorkSpace to rebuild. You can specify a single WorkSpace.</p>
-   * @public
-   */
-  RebuildWorkspaceRequests: RebuildRequest[] | undefined;
-}
-
-/**
- * @public
- */
-export interface RebuildWorkspacesResult {
-  /**
-   * <p>Information about the WorkSpace that could not be rebuilt.</p>
    * @public
    */
   FailedRequests?: FailedWorkspaceChangeRequest[] | undefined;

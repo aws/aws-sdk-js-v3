@@ -2607,10 +2607,6 @@ import {
   CreateLaunchTemplateVersionRequest,
   CreateLaunchTemplateVersionResult,
   CreateLocalGatewayRouteRequest,
-  CreateLocalGatewayRouteResult,
-  CreateLocalGatewayRouteTableRequest,
-  CreateLocalGatewayRouteTableResult,
-  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
   CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
@@ -2708,7 +2704,6 @@ import {
   LaunchTemplateTagSpecificationRequest,
   LaunchTemplateVersion,
   LocalGatewayRoute,
-  LocalGatewayRouteTable,
   LocalStorageType,
   MemoryGiBPerVCpu,
   MemoryGiBPerVCpuRequest,
@@ -2733,7 +2728,6 @@ import {
   ReservationFleetInstanceSpecification,
   ResponseLaunchTemplateData,
   SpotOptionsRequest,
-  StateReason,
   StorageLocation,
   Subnet,
   TargetCapacitySpecificationRequest,
@@ -2744,6 +2738,9 @@ import {
   VCpuCountRange,
   VCpuCountRangeRequest,
   Vpc,
+  VpcEncryptionControl,
+  VpcEncryptionControlExclusion,
+  VpcEncryptionControlExclusions,
 } from "../models/models_1";
 import {
   AttachmentEnaSrdSpecification,
@@ -2752,6 +2749,10 @@ import {
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
   ConnectionTrackingConfiguration,
+  CreateLocalGatewayRouteResult,
+  CreateLocalGatewayRouteTableRequest,
+  CreateLocalGatewayRouteTableResult,
+  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
   CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult,
   CreateLocalGatewayRouteTableVpcAssociationRequest,
   CreateLocalGatewayRouteTableVpcAssociationResult,
@@ -2862,10 +2863,6 @@ import {
   CreateVpcRequest,
   CreateVpcResult,
   CreateVpnConnectionRequest,
-  CreateVpnConnectionResult,
-  CreateVpnConnectionRouteRequest,
-  CreateVpnGatewayRequest,
-  CreateVpnGatewayResult,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2877,6 +2874,7 @@ import {
   InstanceSpecification,
   Ipv6PrefixSpecification,
   LastError,
+  LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
@@ -2927,6 +2925,7 @@ import {
   SnapshotInfo,
   SpotDatafeedSubscription,
   SpotInstanceStateFault,
+  StateReason,
   SubnetCidrReservation,
   SubnetConfiguration,
   SubnetIpPrefixes,
@@ -2966,14 +2965,11 @@ import {
   VerifiedAccessEndpointStatus,
   VerifiedAccessGroup,
   VerifiedAccessSseSpecificationRequest,
-  VgwTelemetry,
   Volume,
   VpcBlockPublicAccessExclusion,
   VpcEndpoint,
-  VpnConnection,
   VpnConnectionOptions,
   VpnConnectionOptionsSpecification,
-  VpnGateway,
   VpnStaticRoute,
   VpnTunnelLogOptions,
   VpnTunnelLogOptionsSpecification,
@@ -3003,6 +2999,10 @@ import {
   ClientVpnRoute,
   ConnectionLogResponseOptions,
   ConversionTask,
+  CreateVpnConnectionResult,
+  CreateVpnConnectionRouteRequest,
+  CreateVpnGatewayRequest,
+  CreateVpnGatewayResult,
   DeclarativePoliciesReport,
   DeleteCarrierGatewayRequest,
   DeleteCarrierGatewayResult,
@@ -3224,10 +3224,6 @@ import {
   DescribeExportTasksRequest,
   DescribeExportTasksResult,
   DescribeFastLaunchImagesRequest,
-  DescribeFastLaunchImagesResult,
-  DescribeFastLaunchImagesSuccessItem,
-  DescribeFastSnapshotRestoresRequest,
-  DescribeFastSnapshotRestoreSuccessItem,
   DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
@@ -3237,7 +3233,6 @@ import {
   ExportTaskS3Location,
   FailedQueuedPurchaseDeletion,
   FastLaunchLaunchTemplateSpecificationResponse,
-  FastLaunchSnapshotConfigurationResponse,
   FederatedAuthentication,
   Filter,
   IdFormat,
@@ -3254,6 +3249,9 @@ import {
   TargetNetwork,
   TransitGatewayMulticastDeregisteredGroupMembers,
   TransitGatewayMulticastDeregisteredGroupSources,
+  VgwTelemetry,
+  VpnConnection,
+  VpnGateway,
 } from "../models/models_3";
 import {
   ArchitectureType,
@@ -3265,7 +3263,11 @@ import {
   CapacityReservationSpecificationResponse,
   ConnectionTrackingSpecificationResponse,
   CpuOptions,
+  DescribeFastLaunchImagesResult,
+  DescribeFastLaunchImagesSuccessItem,
+  DescribeFastSnapshotRestoresRequest,
   DescribeFastSnapshotRestoresResult,
+  DescribeFastSnapshotRestoreSuccessItem,
   DescribeFleetError,
   DescribeFleetHistoryRequest,
   DescribeFleetHistoryResult,
@@ -3387,10 +3389,6 @@ import {
   DescribePrefixListsRequest,
   DescribePrefixListsResult,
   DescribePrincipalIdFormatRequest,
-  DescribePrincipalIdFormatResult,
-  DescribePublicIpv4PoolsRequest,
-  DescribePublicIpv4PoolsResult,
-  DescribeRegionsRequest,
   DestinationOptionsResponse,
   DiskInfo,
   EbsInfo,
@@ -3403,6 +3401,7 @@ import {
   ElasticInferenceAcceleratorAssociation,
   EnclaveOptions,
   EventInformation,
+  FastLaunchSnapshotConfigurationResponse,
   FleetData,
   FleetLaunchTemplateConfig,
   FleetSpotCapacityRebalance,
@@ -3490,12 +3489,9 @@ import {
   PlacementGroupStrategy,
   PoolCidrBlock,
   PrefixList,
-  PrincipalIdFormat,
   PrivateDnsNameOptionsResponse,
   ProcessorInfo,
   ProductCode,
-  PublicIpv4Pool,
-  PublicIpv4PoolRange,
   Reservation,
   RootDeviceType,
   SnapshotDetail,
@@ -3513,6 +3509,10 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribePrincipalIdFormatResult,
+  DescribePublicIpv4PoolsRequest,
+  DescribePublicIpv4PoolsResult,
+  DescribeRegionsRequest,
   DescribeRegionsResult,
   DescribeReplaceRootVolumeTasksRequest,
   DescribeReplaceRootVolumeTasksResult,
@@ -3710,13 +3710,6 @@ import {
   DisassociateSecurityGroupVpcRequest,
   DisassociateSecurityGroupVpcResult,
   DisassociateSubnetCidrBlockRequest,
-  DisassociateSubnetCidrBlockResult,
-  DisassociateTransitGatewayMulticastDomainRequest,
-  DisassociateTransitGatewayMulticastDomainResult,
-  DisassociateTransitGatewayPolicyTableRequest,
-  DisassociateTransitGatewayPolicyTableResult,
-  DisassociateTransitGatewayRouteTableRequest,
-  DisassociateTransitGatewayRouteTableResult,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceNetworkInterfaceSpecification,
@@ -3725,7 +3718,10 @@ import {
   LaunchTemplateOverrides,
   LoadBalancersConfig,
   PricingDetail,
+  PrincipalIdFormat,
   PrivateDnsDetails,
+  PublicIpv4Pool,
+  PublicIpv4PoolRange,
   RecurringCharge,
   Region,
   ReservedInstances,
@@ -3796,6 +3792,13 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DisassociateSubnetCidrBlockResult,
+  DisassociateTransitGatewayMulticastDomainRequest,
+  DisassociateTransitGatewayMulticastDomainResult,
+  DisassociateTransitGatewayPolicyTableRequest,
+  DisassociateTransitGatewayPolicyTableResult,
+  DisassociateTransitGatewayRouteTableRequest,
+  DisassociateTransitGatewayRouteTableResult,
   DisassociateTrunkInterfaceRequest,
   DisassociateTrunkInterfaceResult,
   DisassociateVpcCidrBlockRequest,
@@ -3979,7 +3982,6 @@ import {
   ImportVolumeRequest,
   ImportVolumeResult,
   InstanceBlockDeviceMappingSpecification,
-  InstanceCreditSpecificationRequest,
   InstanceFamilyCreditSpecification,
   InstanceMetadataDefaultsResponse,
   InstanceRequirementsWithMetadataRequest,
@@ -4032,10 +4034,6 @@ import {
   ModifyImageAttributeRequest,
   ModifyInstanceAttributeRequest,
   ModifyInstanceCapacityReservationAttributesRequest,
-  ModifyInstanceCapacityReservationAttributesResult,
-  ModifyInstanceCpuOptionsRequest,
-  ModifyInstanceCpuOptionsResult,
-  ModifyInstanceCreditSpecificationRequest,
   PrefixListAssociation,
   PrefixListEntry,
   Purchase,
@@ -4046,7 +4044,6 @@ import {
   SnapshotDiskContainer,
   SnapshotRecycleBinInfo,
   SpotPlacementScore,
-  SuccessfulInstanceCreditSpecificationItem,
   TargetConfiguration,
   TargetReservationValue,
   TransitGatewayAttachmentPropagation,
@@ -4074,6 +4071,7 @@ import {
   EnclaveOptionsRequest,
   HibernationOptionsRequest,
   ImageCriterionRequest,
+  InstanceCreditSpecificationRequest,
   InstanceMaintenanceOptionsRequest,
   InstanceMarketOptionsRequest,
   InstanceMetadataOptionsRequest,
@@ -4083,6 +4081,10 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyInstanceCapacityReservationAttributesResult,
+  ModifyInstanceCpuOptionsRequest,
+  ModifyInstanceCpuOptionsResult,
+  ModifyInstanceCreditSpecificationRequest,
   ModifyInstanceCreditSpecificationResult,
   ModifyInstanceEventStartTimeRequest,
   ModifyInstanceEventStartTimeResult,
@@ -4336,13 +4338,7 @@ import {
   StartNetworkInsightsAnalysisResult,
   StartVpcEndpointServicePrivateDnsVerificationRequest,
   StartVpcEndpointServicePrivateDnsVerificationResult,
-  StopInstancesRequest,
-  StopInstancesResult,
-  TerminateClientVpnConnectionsRequest,
-  TerminateClientVpnConnectionsResult,
-  TerminateConnectionStatus,
-  TerminateInstancesRequest,
-  TerminateInstancesResult,
+  SuccessfulInstanceCreditSpecificationItem,
   TrafficMirrorFilterRuleField,
   TrafficMirrorSessionField,
   TransitGatewayMulticastGroup,
@@ -4357,6 +4353,13 @@ import {
 } from "../models/models_7";
 import {
   SecurityGroupRuleDescription,
+  StopInstancesRequest,
+  StopInstancesResult,
+  TerminateClientVpnConnectionsRequest,
+  TerminateClientVpnConnectionsResult,
+  TerminateConnectionStatus,
+  TerminateInstancesRequest,
+  TerminateInstancesResult,
   UnassignIpv6AddressesRequest,
   UnassignIpv6AddressesResult,
   UnassignPrivateIpAddressesRequest,
@@ -32194,6 +32197,9 @@ const se_CreateLaunchTemplateRequest = (input: CreateLaunchTemplateRequest, cont
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
   if (input[_CTl] != null) {
     entries[_CTl] = input[_CTl];
   }
@@ -32237,6 +32243,9 @@ const se_CreateLaunchTemplateVersionRequest = (
   const entries: any = {};
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
   }
   if (input[_CTl] != null) {
     entries[_CTl] = input[_CTl];
@@ -48816,6 +48825,9 @@ const se_ModifyLaunchTemplateRequest = (input: ModifyLaunchTemplateRequest, cont
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
   if (input[_CTl] != null) {
     entries[_CTl] = input[_CTl];
   }
@@ -57659,6 +57671,9 @@ const de_Address = (output: any, context: __SerdeContext): Address => {
   if (output[_cI] != null) {
     contents[_CIa] = __expectString(output[_cI]);
   }
+  if (output[_sM] != null) {
+    contents[_SM] = __expectString(output[_sM]);
+  }
   if (output[_iI] != null) {
     contents[_IIn] = __expectString(output[_iI]);
   }
@@ -58130,8 +58145,8 @@ const de_AsnAssociation = (output: any, context: __SerdeContext): AsnAssociation
   if (output[_ci] != null) {
     contents[_C] = __expectString(output[_ci]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
@@ -58811,6 +58826,9 @@ const de_AvailabilityZone = (output: any, context: __SerdeContext): Availability
   if (output[_pZI] != null) {
     contents[_PZI] = __expectString(output[_pZI]);
   }
+  if (output[_gLN] != null) {
+    contents[_GLN] = __expectString(output[_gLN]);
+  }
   if (output[_zS] != null) {
     contents[_Stat] = __expectString(output[_zS]);
   }
@@ -59076,8 +59094,8 @@ const de_Byoasn = (output: any, context: __SerdeContext): Byoasn => {
   if (output[_iIp] != null) {
     contents[_IIp] = __expectString(output[_iIp]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
@@ -59112,8 +59130,8 @@ const de_ByoipCidr = (output: any, context: __SerdeContext): ByoipCidr => {
   } else if (output[_aAS] != null && output[_aAS][_i] != null) {
     contents[_AAsns] = de_AsnAssociationSet(__getArrayIfSingleItem(output[_aAS][_i]), context);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
@@ -59709,8 +59727,8 @@ const de_CapacityReservationBillingRequest = (
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_cRIa] != null) {
     contents[_CRIap] = de_CapacityReservationInfo(output[_cRIa], context);
@@ -60739,8 +60757,8 @@ const de_ConversionTask = (output: any, context: __SerdeContext): ConversionTask
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -67286,8 +67304,8 @@ const de_Ec2InstanceConnectEndpoint = (output: any, context: __SerdeContext): Ec
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sMt] != null) {
-    contents[_SMt] = __expectString(output[_sMt]);
+  if (output[_sMta] != null) {
+    contents[_SMta] = __expectString(output[_sMta]);
   }
   if (output[_dNn] != null) {
     contents[_DNn] = __expectString(output[_dNn]);
@@ -68245,8 +68263,8 @@ const de_ExportImageResult = (output: any, context: __SerdeContext): ExportImage
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -68279,8 +68297,8 @@ const de_ExportImageTask = (output: any, context: __SerdeContext): ExportImageTa
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -68321,8 +68339,8 @@ const de_ExportTask = (output: any, context: __SerdeContext): ExportTask => {
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -71032,8 +71050,8 @@ const de_ImportImageResult = (output: any, context: __SerdeContext): ImportImage
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output.licenseSpecifications === "") {
     contents[_LSi] = [];
@@ -71094,8 +71112,8 @@ const de_ImportImageTask = (output: any, context: __SerdeContext): ImportImageTa
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -71180,8 +71198,8 @@ const de_ImportInstanceVolumeDetailItem = (output: any, context: __SerdeContext)
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_vol] != null) {
     contents[_Vo] = de_DiskImageVolumeDescription(output[_vol], context);
@@ -73180,8 +73198,8 @@ const de_Ipam = (output: any, context: __SerdeContext): Ipam => {
   if (output[_rDAC] != null) {
     contents[_RDAC] = __strictParseInt32(output[_rDAC]) as number;
   }
-  if (output[_sMt] != null) {
-    contents[_SMt] = __expectString(output[_sMt]);
+  if (output[_sMta] != null) {
+    contents[_SMta] = __expectString(output[_sMta]);
   }
   if (output[_tie] != null) {
     contents[_Ti] = __expectString(output[_tie]);
@@ -73581,8 +73599,8 @@ const de_IpamPool = (output: any, context: __SerdeContext): IpamPool => {
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sMt] != null) {
-    contents[_SMt] = __expectString(output[_sMt]);
+  if (output[_sMta] != null) {
+    contents[_SMta] = __expectString(output[_sMta]);
   }
   if (output[_de] != null) {
     contents[_De] = __expectString(output[_de]);
@@ -75906,8 +75924,8 @@ const de_ManagedPrefixList = (output: any, context: __SerdeContext): ManagedPref
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sMt] != null) {
-    contents[_SMt] = __expectString(output[_sMt]);
+  if (output[_sMta] != null) {
+    contents[_SMta] = __expectString(output[_sMta]);
   }
   if (output[_pLA] != null) {
     contents[_PLAr] = __expectString(output[_pLA]);
@@ -77371,8 +77389,8 @@ const de_NetworkInsightsAccessScopeAnalysis = (
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_wM] != null) {
     contents[_WM] = __expectString(output[_wM]);
@@ -77476,8 +77494,8 @@ const de_NetworkInsightsAnalysis = (output: any, context: __SerdeContext): Netwo
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_wM] != null) {
     contents[_WM] = __expectString(output[_wM]);
@@ -77866,8 +77884,8 @@ const de_NetworkInterfacePermissionState = (output: any, context: __SerdeContext
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   return contents;
 };
@@ -80021,8 +80039,8 @@ const de_ReservedInstancesListing = (output: any, context: __SerdeContext): Rese
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -80076,8 +80094,8 @@ const de_ReservedInstancesModification = (output: any, context: __SerdeContext):
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_uDpd] != null) {
     contents[_UDpd] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_uDpd]));
@@ -80799,8 +80817,8 @@ const de_RouteTableAssociationState = (output: any, context: __SerdeContext): Ro
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   return contents;
 };
@@ -81645,8 +81663,8 @@ const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   if (output[_sta] != null) {
     contents[_Stat] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SMt] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMta] = __expectString(output[_sMt]);
   }
   if (output[_sT] != null) {
     contents[_STt] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_sT]));
@@ -81701,8 +81719,8 @@ const de_SnapshotDetail = (output: any, context: __SerdeContext): SnapshotDetail
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_ur] != null) {
     contents[_U] = __expectString(output[_ur]);
@@ -81858,8 +81876,8 @@ const de_SnapshotTaskDetail = (output: any, context: __SerdeContext): SnapshotTa
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_ur] != null) {
     contents[_U] = __expectString(output[_ur]);
@@ -82790,8 +82808,8 @@ const de_SubnetCidrBlockState = (output: any, context: __SerdeContext): SubnetCi
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   return contents;
 };
@@ -86175,8 +86193,8 @@ const de_VgwTelemetry = (output: any, context: __SerdeContext): VgwTelemetry => 
   if (output[_sta] != null) {
     contents[_Statu] = __expectString(output[_sta]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_cAe] != null) {
     contents[_CA] = __expectString(output[_cAe]);
@@ -86337,8 +86355,8 @@ const de_VolumeModification = (output: any, context: __SerdeContext): VolumeModi
   if (output[_mSod] != null) {
     contents[_MSod] = __expectString(output[_mSod]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   if (output[_tSar] != null) {
     contents[_TSar] = __strictParseInt32(output[_tSar]) as number;
@@ -86597,6 +86615,9 @@ const de_Vpc = (output: any, context: __SerdeContext): Vpc => {
   if (output[_iDs] != null) {
     contents[_IDs] = __parseBoolean(output[_iDs]);
   }
+  if (output[_eCn] != null) {
+    contents[_ECn] = de_VpcEncryptionControl(output[_eCn], context);
+  }
   if (output.tagSet === "") {
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
@@ -86764,8 +86785,8 @@ const de_VpcCidrBlockState = (output: any, context: __SerdeContext): VpcCidrBloc
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sM] != null) {
-    contents[_SM] = __expectString(output[_sM]);
+  if (output[_sMt] != null) {
+    contents[_SMt] = __expectString(output[_sMt]);
   }
   return contents;
 };
@@ -86798,6 +86819,74 @@ const de_VpcClassicLinkList = (output: any, context: __SerdeContext): VpcClassic
     .map((entry: any) => {
       return de_VpcClassicLink(entry, context);
     });
+};
+
+/**
+ * deserializeAws_ec2VpcEncryptionControl
+ */
+const de_VpcEncryptionControl = (output: any, context: __SerdeContext): VpcEncryptionControl => {
+  const contents: any = {};
+  if (output[_vI] != null) {
+    contents[_VI] = __expectString(output[_vI]);
+  }
+  if (output[_vECI] != null) {
+    contents[_VECI] = __expectString(output[_vECI]);
+  }
+  if (output[_mod] != null) {
+    contents[_Mo] = __expectString(output[_mod]);
+  }
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
+  }
+  if (output[_sMta] != null) {
+    contents[_SMta] = __expectString(output[_sMta]);
+  }
+  if (output[_rEes] != null) {
+    contents[_REeso] = de_VpcEncryptionControlExclusions(output[_rEes], context);
+  }
+  if (output.tagSet === "") {
+    contents[_Ta] = [];
+  } else if (output[_tS] != null && output[_tS][_i] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2VpcEncryptionControlExclusion
+ */
+const de_VpcEncryptionControlExclusion = (output: any, context: __SerdeContext): VpcEncryptionControlExclusion => {
+  const contents: any = {};
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
+  }
+  if (output[_sMta] != null) {
+    contents[_SMta] = __expectString(output[_sMta]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2VpcEncryptionControlExclusions
+ */
+const de_VpcEncryptionControlExclusions = (output: any, context: __SerdeContext): VpcEncryptionControlExclusions => {
+  const contents: any = {};
+  if (output[_iG] != null) {
+    contents[_IGn] = de_VpcEncryptionControlExclusion(output[_iG], context);
+  }
+  if (output[_eOIG] != null) {
+    contents[_EOIG] = de_VpcEncryptionControlExclusion(output[_eOIG], context);
+  }
+  if (output[_nG] != null) {
+    contents[_NG] = de_VpcEncryptionControlExclusion(output[_nG], context);
+  }
+  if (output[_vPG] != null) {
+    contents[_VPG] = de_VpcEncryptionControlExclusion(output[_vPG], context);
+  }
+  if (output[_vPpc] != null) {
+    contents[_VPpc] = de_VpcEncryptionControlExclusion(output[_vPpc], context);
+  }
+  return contents;
 };
 
 /**
@@ -86994,8 +87083,8 @@ const de_VpcEndpointConnection = (output: any, context: __SerdeContext): VpcEndp
   if (output[_iAT] != null) {
     contents[_IAT] = __expectString(output[_iAT]);
   }
-  if (output[_vECI] != null) {
-    contents[_VECI] = __expectString(output[_vECI]);
+  if (output[_vECIp] != null) {
+    contents[_VECIp] = __expectString(output[_vECIp]);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -88408,6 +88497,7 @@ const _EC = "ErrorCode";
 const _ECTP = "ExcessCapacityTerminationPolicy";
 const _ECVCC = "ExportClientVpnClientConfiguration";
 const _ECVCCRL = "ExportClientVpnClientCertificateRevocationList";
+const _ECn = "EncryptionControl";
 const _ECx = "ExplanationCode";
 const _ED = "EndDate";
 const _EDH = "EnableDnsHostnames";
@@ -88626,6 +88716,7 @@ const _GIro = "GroupIds";
 const _GK = "GreKey";
 const _GLBA = "GatewayLoadBalancerArns";
 const _GLBEI = "GatewayLoadBalancerEndpointId";
+const _GLN = "GroupLongName";
 const _GLTD = "GetLaunchTemplateData";
 const _GM = "GroupMember";
 const _GMPLA = "GetManagedPrefixListAssociations";
@@ -89510,6 +89601,7 @@ const _REDKKI = "ResetEbsDefaultKmsKeyId";
 const _RET = "RestoreExpiryTime";
 const _REe = "RemoveEntries";
 const _REes = "ResponseError";
+const _REeso = "ResourceExclusions";
 const _RF = "RemoveFields";
 const _RFIA = "ResetFpgaImageAttribute";
 const _RFP = "RekeyFuzzPercentage";
@@ -89766,11 +89858,12 @@ const _SKo = "S3objectKey";
 const _SL = "SpreadLevel";
 const _SLGR = "SearchLocalGatewayRoutes";
 const _SLo = "S3Location";
-const _SM = "StatusMessage";
+const _SM = "ServiceManaged";
 const _SMPPOLP = "SpotMaxPricePercentageOverLowestPrice";
 const _SMS = "SpotMaintenanceStrategies";
 const _SMTP = "SpotMaxTotalPrice";
-const _SMt = "StateMessage";
+const _SMt = "StatusMessage";
+const _SMta = "StateMessage";
 const _SN = "SessionNumber";
 const _SNA = "ServiceNetworkArn";
 const _SNIA = "StartNetworkInsightsAnalysis";
@@ -90108,7 +90201,8 @@ const _VD = "VersionDescription";
 const _VE = "VpcEndpoint";
 const _VEA = "VpcEndpointAssociations";
 const _VEC = "VpcEndpointConnections";
-const _VECI = "VpcEndpointConnectionId";
+const _VECI = "VpcEncryptionControlId";
+const _VECIp = "VpcEndpointConnectionId";
 const _VEI = "VpcEndpointIds";
 const _VEIp = "VpcEndpointId";
 const _VEO = "VpcEndpointOwner";
@@ -90144,7 +90238,9 @@ const _VPC = "VpcPeeringConnection";
 const _VPCI = "VpcPeeringConnectionId";
 const _VPCIp = "VpcPeeringConnectionIds";
 const _VPCp = "VpcPeeringConnections";
+const _VPG = "VirtualPrivateGateway";
 const _VPp = "VpnProtocol";
+const _VPpc = "VpcPeering";
 const _VS = "VolumeSize";
 const _VSo = "VolumeStatuses";
 const _VSol = "VolumeStatus";
@@ -90602,6 +90698,7 @@ const _eAn = "enableAcceleration";
 const _eB = "egressBytes";
 const _eC = "errorCode";
 const _eCTP = "excessCapacityTerminationPolicy";
+const _eCn = "encryptionControl";
 const _eCx = "explanationCode";
 const _eD = "endDate";
 const _eDH = "enableDnsHostnames";
@@ -90750,6 +90847,7 @@ const _gIr = "groupId";
 const _gK = "greKey";
 const _gLBAS = "gatewayLoadBalancerArnSet";
 const _gLBEI = "gatewayLoadBalancerEndpointId";
+const _gLN = "groupLongName";
 const _gM = "groupMember";
 const _gN = "groupName";
 const _gOI = "groupOwnerId";
@@ -91409,6 +91507,7 @@ const _rE = "responseError";
 const _rET = "restoreExpiryTime";
 const _rEd = "rdsEndpoint";
 const _rEe = "regionEndpoint";
+const _rEes = "resourceExclusions";
 const _rFP = "rekeyFuzzPercentage";
 const _rGA = "ruleGroupArn";
 const _rGI = "referencedGroupId";
@@ -91585,11 +91684,12 @@ const _sK = "s3Key";
 const _sKo = "s3objectKey";
 const _sL = "s3Location";
 const _sLp = "spreadLevel";
-const _sM = "statusMessage";
+const _sM = "serviceManaged";
 const _sMPPOLP = "spotMaxPricePercentageOverLowestPrice";
 const _sMS = "spotMaintenanceStrategies";
 const _sMTP = "spotMaxTotalPrice";
-const _sMt = "stateMessage";
+const _sMt = "statusMessage";
+const _sMta = "stateMessage";
 const _sN = "serviceName";
 const _sNA = "serviceNetworkArn";
 const _sNN = "serviceNetworkName";
@@ -91867,7 +91967,8 @@ const _vCa = "validCores";
 const _vD = "versionDescription";
 const _vE = "vpcEndpoint";
 const _vEAS = "vpcEndpointAssociationSet";
-const _vECI = "vpcEndpointConnectionId";
+const _vECI = "vpcEncryptionControlId";
+const _vECIp = "vpcEndpointConnectionId";
 const _vECS = "vpcEndpointConnectionSet";
 const _vEI = "vpcEndpointId";
 const _vEO = "vpcEndpointOwner";
@@ -91897,7 +91998,9 @@ const _vP = "vpnProtocol";
 const _vPC = "vpcPeeringConnection";
 const _vPCI = "vpcPeeringConnectionId";
 const _vPCS = "vpcPeeringConnectionSet";
+const _vPG = "virtualPrivateGateway";
 const _vPp = "vpnPort";
+const _vPpc = "vpcPeering";
 const _vS = "volumeSet";
 const _vSS = "volumeStatusSet";
 const _vSa = "valueSet";

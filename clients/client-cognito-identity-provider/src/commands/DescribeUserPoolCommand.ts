@@ -99,7 +99,7 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  * //       PreTokenGeneration: "STRING_VALUE",
  * //       UserMigration: "STRING_VALUE",
  * //       PreTokenGenerationConfig: { // PreTokenGenerationVersionConfigType
- * //         LambdaVersion: "V1_0" || "V2_0", // required
+ * //         LambdaVersion: "V1_0" || "V2_0" || "V3_0", // required
  * //         LambdaArn: "STRING_VALUE", // required
  * //       },
  * //       CustomSMSSender: { // CustomSMSLambdaVersionConfigType

@@ -37,8 +37,9 @@ export interface RegisterInstanceEventNotificationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Registers a set of tag keys to include in scheduled event notifications for your resources.
- *    		</p>
+ * <p>Registers a set of tag keys to include in scheduled event notifications for your
+ *          resources.
+ *          </p>
  *          <p>To remove tags, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html">DeregisterInstanceEventNotificationAttributes</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

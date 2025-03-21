@@ -90,6 +90,9 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  *   IpAddressType: "ipv4" || "dualstack" || "dualstack-without-public-ipv4",
  *   CustomerOwnedIpv4Pool: "STRING_VALUE",
  *   EnablePrefixForIpv6SourceNat: "on" || "off",
+ *   IpamPools: { // IpamPools
+ *     Ipv4IpamPoolId: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateLoadBalancerCommand(input);
  * const response = await client.send(command);
@@ -133,6 +136,9 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  * //       CustomerOwnedIpv4Pool: "STRING_VALUE",
  * //       EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic: "STRING_VALUE",
  * //       EnablePrefixForIpv6SourceNat: "on" || "off",
+ * //       IpamPools: { // IpamPools
+ * //         Ipv4IpamPoolId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };

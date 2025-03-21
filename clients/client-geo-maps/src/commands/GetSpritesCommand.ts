@@ -36,7 +36,8 @@ export type GetSpritesCommandOutputType = Omit<GetSpritesResponse, "Blob"> & {
 export interface GetSpritesCommandOutput extends GetSpritesCommandOutputType, __MetadataBearer {}
 
 /**
- * <p>Returns the map's sprites.</p>
+ * <p>
+ *             <code>GetSprites</code> returns the map's sprites.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

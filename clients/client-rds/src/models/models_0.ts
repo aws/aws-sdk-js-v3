@@ -4984,19 +4984,19 @@ export interface CreateDBClusterMessage {
    *          <p>The following values are valid for each DB engine:</p>
    *          <ul>
    *             <li>
-   *                <p>Aurora MySQL - <code>audit | error | general | instance | slowquery</code>
+   *                <p>Aurora MySQL - <code>audit | error | general | instance | slowquery | iam-db-auth-error</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Aurora PostgreSQL - <code>instance | postgresql</code>
+   *                <p>Aurora PostgreSQL - <code>instance | postgresql | iam-db-auth-error</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>RDS for MySQL - <code>error | general | slowquery</code>
+   *                <p>RDS for MySQL - <code>error | general | slowquery | iam-db-auth-error</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>RDS for PostgreSQL - <code>postgresql | upgrade</code>
+   *                <p>RDS for PostgreSQL - <code>postgresql | upgrade | iam-db-auth-error</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -8207,8 +8207,8 @@ export interface CreateDBInstanceMessage {
    *          <p>This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.</p>
    *          <p>Valid Values: <code>gp2 | gp3 | io1 | io2 | standard</code>
    *          </p>
-   *          <p>Default: <code>io1</code>, if the <code>Iops</code> parameter
-   *           is specified. Otherwise, <code>gp2</code>.</p>
+   *          <p>Default: <code>io1</code>, if the <code>Iops</code> parameter is specified. Otherwise,
+   *                 <code>gp3</code>.</p>
    * @public
    */
   StorageType?: string | undefined;
@@ -8484,11 +8484,11 @@ export interface CreateDBInstanceMessage {
    *          <p>The following values are valid for each DB engine:</p>
    *          <ul>
    *             <li>
-   *                <p>RDS for Db2 - <code>diag.log | notify.log</code>
+   *                <p>RDS for Db2 - <code>diag.log | notify.log | iam-db-auth-error</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>RDS for MariaDB - <code>audit | error | general | slowquery</code>
+   *                <p>RDS for MariaDB - <code>audit | error | general | slowquery | iam-db-auth-error</code>
    *                </p>
    *             </li>
    *             <li>
@@ -8496,7 +8496,7 @@ export interface CreateDBInstanceMessage {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>RDS for MySQL - <code>audit | error | general | slowquery</code>
+   *                <p>RDS for MySQL - <code>audit | error | general | slowquery | iam-db-auth-error</code>
    *                </p>
    *             </li>
    *             <li>
@@ -8504,7 +8504,7 @@ export interface CreateDBInstanceMessage {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>RDS for PostgreSQL - <code>postgresql | upgrade</code>
+   *                <p>RDS for PostgreSQL - <code>postgresql | upgrade | iam-db-auth-error</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -10273,8 +10273,8 @@ export interface CreateDBInstanceReadReplicaMessage {
    *             <code>Iops</code> parameter.</p>
    *          <p>Valid Values: <code>gp2 | gp3 | io1 | io2 | standard</code>
    *          </p>
-   *          <p>Default: <code>io1</code> if the <code>Iops</code> parameter
-   *             is specified. Otherwise, <code>gp2</code>.</p>
+   *          <p>Default: <code>io1</code> if the <code>Iops</code> parameter is specified. Otherwise,
+   *                 <code>gp3</code>.</p>
    * @public
    */
   StorageType?: string | undefined;
@@ -11121,8 +11121,7 @@ export interface UserAuthConfigInfo {
   SecretArn?: string | undefined;
 
   /**
-   * <p>Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy.
-   *         The <code>ENABLED</code> value is valid only for proxies with RDS for Microsoft SQL Server.</p>
+   * <p>Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. </p>
    * @public
    */
   IAMAuth?: IAMAuthMode | undefined;

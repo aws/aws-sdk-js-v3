@@ -1,13 +1,21 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.27.0 (2025-03-04)
+
+## Features
+- Upgraded to smithy-typescript 0.27.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0270-2025-03-04))
+- Upgraded to smithy 1.54.0 ([#6913](https://github.com/aws/aws-sdk-js-v3/pull/6913))
+- Upgraded to smithy 1.53.0 ([#6906](https://github.com/aws/aws-sdk-js-v3/pull/6906))
+
+### Bug Fixes
+- Fixed union member serialization in JSON ([#6892](https://github.com/aws/aws-sdk-js-v3/pull/6892))
+
 ## 0.26.0 (2025-01-22)
 
 ### Features
 - Upgraded to 0.26.0 of smithy-typescript ([Release Notes](https://github.com/kuhe/smithy-typescript/blob/main/CHANGELOG.md#0260-2025-01-22))
 - Enabled profile configuration for clients ([#6728](https://github.com/aws/aws-sdk-js-v3/pull/6728))
 - Created nested clients for internal use ([#6791](https://github.com/aws/aws-sdk-js-v3/pull/6791))
-
-### Bug Fixes
 
 ## 0.25.0 (2024-11-18)
 

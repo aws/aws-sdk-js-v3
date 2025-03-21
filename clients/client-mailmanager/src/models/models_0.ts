@@ -2110,6 +2110,7 @@ export interface RuleIsInAddressList {
  * @public
  */
 export type RuleBooleanToEvaluate =
+  | RuleBooleanToEvaluate.AnalysisMember
   | RuleBooleanToEvaluate.AttributeMember
   | RuleBooleanToEvaluate.IsInAddressListMember
   | RuleBooleanToEvaluate.$UnknownMember;
@@ -2124,6 +2125,18 @@ export namespace RuleBooleanToEvaluate {
    */
   export interface AttributeMember {
     Attribute: RuleBooleanEmailAttribute;
+    Analysis?: never;
+    IsInAddressList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Add On ARN and its returned value to evaluate in a boolean condition expression.</p>
+   * @public
+   */
+  export interface AnalysisMember {
+    Attribute?: never;
+    Analysis: Analysis;
     IsInAddressList?: never;
     $unknown?: never;
   }
@@ -2134,6 +2147,7 @@ export namespace RuleBooleanToEvaluate {
    */
   export interface IsInAddressListMember {
     Attribute?: never;
+    Analysis?: never;
     IsInAddressList: RuleIsInAddressList;
     $unknown?: never;
   }
@@ -2143,18 +2157,21 @@ export namespace RuleBooleanToEvaluate {
    */
   export interface $UnknownMember {
     Attribute?: never;
+    Analysis?: never;
     IsInAddressList?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     Attribute: (value: RuleBooleanEmailAttribute) => T;
+    Analysis: (value: Analysis) => T;
     IsInAddressList: (value: RuleIsInAddressList) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: RuleBooleanToEvaluate, visitor: Visitor<T>): T => {
     if (value.Attribute !== undefined) return visitor.Attribute(value.Attribute);
+    if (value.Analysis !== undefined) return visitor.Analysis(value.Analysis);
     if (value.IsInAddressList !== undefined) return visitor.IsInAddressList(value.IsInAddressList);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
@@ -2459,6 +2476,7 @@ export type RuleStringEmailAttribute = (typeof RuleStringEmailAttribute)[keyof t
  * @public
  */
 export type RuleStringToEvaluate =
+  | RuleStringToEvaluate.AnalysisMember
   | RuleStringToEvaluate.AttributeMember
   | RuleStringToEvaluate.MimeHeaderAttributeMember
   | RuleStringToEvaluate.$UnknownMember;
@@ -2474,6 +2492,7 @@ export namespace RuleStringToEvaluate {
   export interface AttributeMember {
     Attribute: RuleStringEmailAttribute;
     MimeHeaderAttribute?: never;
+    Analysis?: never;
     $unknown?: never;
   }
 
@@ -2484,6 +2503,18 @@ export namespace RuleStringToEvaluate {
   export interface MimeHeaderAttributeMember {
     Attribute?: never;
     MimeHeaderAttribute: string;
+    Analysis?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Add On ARN and its returned value to evaluate in a string condition expression.</p>
+   * @public
+   */
+  export interface AnalysisMember {
+    Attribute?: never;
+    MimeHeaderAttribute?: never;
+    Analysis: Analysis;
     $unknown?: never;
   }
 
@@ -2493,18 +2524,21 @@ export namespace RuleStringToEvaluate {
   export interface $UnknownMember {
     Attribute?: never;
     MimeHeaderAttribute?: never;
+    Analysis?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     Attribute: (value: RuleStringEmailAttribute) => T;
     MimeHeaderAttribute: (value: string) => T;
+    Analysis: (value: Analysis) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: RuleStringToEvaluate, visitor: Visitor<T>): T => {
     if (value.Attribute !== undefined) return visitor.Attribute(value.Attribute);
     if (value.MimeHeaderAttribute !== undefined) return visitor.MimeHeaderAttribute(value.MimeHeaderAttribute);
+    if (value.Analysis !== undefined) return visitor.Analysis(value.Analysis);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -3149,7 +3183,10 @@ export type IngressStringEmailAttribute =
  *             condition.</p>
  * @public
  */
-export type IngressStringToEvaluate = IngressStringToEvaluate.AttributeMember | IngressStringToEvaluate.$UnknownMember;
+export type IngressStringToEvaluate =
+  | IngressStringToEvaluate.AnalysisMember
+  | IngressStringToEvaluate.AttributeMember
+  | IngressStringToEvaluate.$UnknownMember;
 
 /**
  * @public
@@ -3161,6 +3198,17 @@ export namespace IngressStringToEvaluate {
    */
   export interface AttributeMember {
     Attribute: IngressStringEmailAttribute;
+    Analysis?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The structure type for a string condition stating the Add On ARN and its returned value.</p>
+   * @public
+   */
+  export interface AnalysisMember {
+    Attribute?: never;
+    Analysis: IngressAnalysis;
     $unknown?: never;
   }
 
@@ -3169,16 +3217,19 @@ export namespace IngressStringToEvaluate {
    */
   export interface $UnknownMember {
     Attribute?: never;
+    Analysis?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     Attribute: (value: IngressStringEmailAttribute) => T;
+    Analysis: (value: IngressAnalysis) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: IngressStringToEvaluate, visitor: Visitor<T>): T => {
     if (value.Attribute !== undefined) return visitor.Attribute(value.Attribute);
+    if (value.Analysis !== undefined) return visitor.Analysis(value.Analysis);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }

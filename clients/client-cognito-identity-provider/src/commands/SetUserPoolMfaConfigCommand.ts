@@ -32,7 +32,8 @@ export interface SetUserPoolMfaConfigCommandInput extends SetUserPoolMfaConfigRe
 export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Sets the user pool multi-factor authentication (MFA) and passkey configuration.</p>
+ * <p>Sets user pool multi-factor authentication (MFA) and passkey configuration. For more
+ *             information about user pool MFA, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-mfa.html">Adding MFA</a>. For more information about WebAuthn passkeys see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html#amazon-cognito-user-pools-authentication-flow-methods-passkey">Authentication flows</a>.</p>
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *             require you to register an origination phone number before you can send SMS messages

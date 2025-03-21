@@ -13,7 +13,6 @@ import {
   AddressFamily,
   AllocationType,
   AttachmentStatus,
-  CapacityReservationDeliveryPreference,
   CapacityReservationFleetState,
   InstanceEventWindow,
   ResourceType,
@@ -25,6 +24,21 @@ import {
   VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationDeliveryPreference = {
+  FIXED: "fixed",
+  INCREMENTAL: "incremental",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationDeliveryPreference =
+  (typeof CapacityReservationDeliveryPreference)[keyof typeof CapacityReservationDeliveryPreference];
 
 /**
  * @public
@@ -542,24 +556,34 @@ export interface CapacityReservation {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>scheduled</code> - (<i>Future-dated Capacity Reservations only</i>) The
+   *                   <code>scheduled</code> - (<i>Future-dated Capacity Reservations</i>) The
    * 		future-dated Capacity Reservation request was approved and the Capacity Reservation is scheduled
    * 		for delivery on the requested start date.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>assessing</code> - (<i>Future-dated Capacity Reservations only</i>)
+   *                   <code>payment-pending</code> - (<i>Capacity Blocks</i>) The upfront
+   * 	    payment has not been processed yet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>payment-failed</code> - (<i>Capacity Blocks</i>) The upfront
+   * 	    payment was not processed in the 12-hour time frame. Your Capacity Block was released.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>assessing</code> - (<i>Future-dated Capacity Reservations</i>)
    * 		Amazon EC2 is assessing your request for a future-dated Capacity Reservation.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>delayed</code> - (<i>Future-dated Capacity Reservations only</i>) Amazon EC2
+   *                   <code>delayed</code> - (<i>Future-dated Capacity Reservations</i>) Amazon EC2
    * 		encountered a delay in provisioning the requested future-dated Capacity Reservation. Amazon EC2 is
    * 		unable to deliver the requested capacity by the requested start date and time.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>unsupported</code> - (<i>Future-dated Capacity Reservations only</i>) Amazon EC2
+   *                   <code>unsupported</code> - (<i>Future-dated Capacity Reservations</i>) Amazon EC2
    * 		can't support the future-dated Capacity Reservation request due to capacity constraints. You can view
    * 		unsupported requests for 30 days. The Capacity Reservation will not be delivered.</p>
    *             </li>
@@ -3254,6 +3278,88 @@ export interface CreateDefaultVpcRequest {
  * @public
  * @enum
  */
+export const VpcEncryptionControlMode = {
+  enforce: "enforce",
+  monitor: "monitor",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcEncryptionControlMode = (typeof VpcEncryptionControlMode)[keyof typeof VpcEncryptionControlMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcEncryptionControlExclusionState = {
+  disabled: "disabled",
+  disabling: "disabling",
+  enabled: "enabled",
+  enabling: "enabling",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcEncryptionControlExclusionState =
+  (typeof VpcEncryptionControlExclusionState)[keyof typeof VpcEncryptionControlExclusionState];
+
+/**
+ * @public
+ */
+export interface VpcEncryptionControlExclusion {
+  State?: VpcEncryptionControlExclusionState | undefined;
+  StateMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface VpcEncryptionControlExclusions {
+  InternetGateway?: VpcEncryptionControlExclusion | undefined;
+  EgressOnlyInternetGateway?: VpcEncryptionControlExclusion | undefined;
+  NatGateway?: VpcEncryptionControlExclusion | undefined;
+  VirtualPrivateGateway?: VpcEncryptionControlExclusion | undefined;
+  VpcPeering?: VpcEncryptionControlExclusion | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcEncryptionControlState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  enforce_failed: "enforce-failed",
+  enforce_in_progress: "enforce-in-progress",
+  monitor_failed: "monitor-failed",
+  monitor_in_progress: "monitor-in-progress",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcEncryptionControlState = (typeof VpcEncryptionControlState)[keyof typeof VpcEncryptionControlState];
+
+/**
+ * @public
+ */
+export interface VpcEncryptionControl {
+  VpcId?: string | undefined;
+  VpcEncryptionControlId?: string | undefined;
+  Mode?: VpcEncryptionControlMode | undefined;
+  State?: VpcEncryptionControlState | undefined;
+  StateMessage?: string | undefined;
+  ResourceExclusions?: VpcEncryptionControlExclusions | undefined;
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const Tenancy = {
   dedicated: "dedicated",
   default: "default",
@@ -3314,6 +3420,7 @@ export interface Vpc {
    */
   IsDefault?: boolean | undefined;
 
+  EncryptionControl?: VpcEncryptionControl | undefined;
   /**
    * <p>Any tags assigned to the VPC.</p>
    * @public
@@ -3734,8 +3841,7 @@ export interface FleetEbsBlockDeviceRequest {
    * <p>Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key
    *          to use for EBS encryption.</p>
    *          <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by
-   *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>,
-   *          and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.html">CreateFleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
    * @public
    */
   KmsKeyId?: string | undefined;
@@ -4486,9 +4592,6 @@ export interface InstanceRequirementsRequest {
    *             <li>
    *                <p>For instance types with GPU accelerators, specify <code>gpu</code>.</p>
    *             </li>
-   *             <li>
-   *                <p>For instance types with Inference accelerators, specify <code>inference</code>.</p>
-   *             </li>
    *          </ul>
    *          <p>Default: Any accelerator type</p>
    * @public
@@ -4809,34 +4912,12 @@ export interface FleetLaunchTemplateOverridesRequest {
   Placement?: Placement | undefined;
 
   /**
-   * <p>The block device mapping, which defines the EBS volumes and instance store volumes to
-   *          attach to the instance at launch. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block device mappings
+   * <p>The block device mappings, which define the EBS volumes and instance store volumes to
+   *          attach to the instance at launch.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block device mappings
    *             for volumes on Amazon EC2 instances</a> in the <i>Amazon EC2 User
    *          Guide</i>.</p>
-   *          <p>To override a block device mapping specified in the launch template:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Specify the exact same <code>DeviceName</code> here as specified in the launch
-   *                template.</p>
-   *             </li>
-   *             <li>
-   *                <p>Only specify the parameters you want to change.</p>
-   *             </li>
-   *             <li>
-   *                <p>Any parameters you don't specify here will keep their original launch template
-   *                values.</p>
-   *             </li>
-   *          </ul>
-   *          <p>To add a new block device mapping:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Specify a <code>DeviceName</code> that doesn't exist in the launch
-   *                template.</p>
-   *             </li>
-   *             <li>
-   *                <p>Specify all desired parameters here.</p>
-   *             </li>
-   *          </ul>
    * @public
    */
   BlockDeviceMappings?: FleetBlockDeviceMappingRequest[] | undefined;
@@ -6201,12 +6282,6 @@ export interface InstanceRequirements {
    *             <li>
    *                <p>For instance types with GPU accelerators, specify <code>gpu</code>.</p>
    *             </li>
-   *             <li>
-   *                <p>For instance types with Inference accelerators, specify <code>inference</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with Inference accelerators, specify <code>inference</code>.</p>
-   *             </li>
    *          </ul>
    *          <p>Default: Any accelerator type</p>
    * @public
@@ -6539,8 +6614,10 @@ export interface FleetLaunchTemplateOverrides {
   ImageId?: string | undefined;
 
   /**
-   * <p>The block device mapping, which defines the EBS volumes and instance store volumes to
-   *          attach to the instance at launch. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block device mappings
+   * <p>The block device mappings, which define the EBS volumes and instance store volumes to
+   *          attach to the instance at launch.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block device mappings
    *             for volumes on Amazon EC2 instances</a> in the <i>Amazon EC2 User
    *          Guide</i>.</p>
    * @public
@@ -7581,15 +7658,15 @@ export interface CreateInstanceEventWindowRequest {
   Name?: string | undefined;
 
   /**
-   * <p>The time range for the event window. If you specify a time range, you can't specify a cron
-   *          expression.</p>
+   * <p>The time range for the event window. If you specify a time range, you can't specify a
+   *          cron expression.</p>
    * @public
    */
   TimeRanges?: InstanceEventWindowTimeRangeRequest[] | undefined;
 
   /**
-   * <p>The cron expression for the event window, for example, <code>* 0-4,20-23 * * 1,5</code>. If
-   *          you specify a cron expression, you can't specify a time range.</p>
+   * <p>The cron expression for the event window, for example, <code>* 0-4,20-23 * * 1,5</code>.
+   *          If you specify a cron expression, you can't specify a time range.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -7605,11 +7682,11 @@ export interface CreateInstanceEventWindowRequest {
    *             </li>
    *             <li>
    *                <p>The hour value must be one or a multiple range, for example, <code>0-4</code> or
-   *             <code>0-4,20-23</code>.</p>
+   *                   <code>0-4,20-23</code>.</p>
    *             </li>
    *             <li>
    *                <p>Each hour range must be >= 2 hours, for example, <code>0-2</code> or
-   *             <code>20-23</code>.</p>
+   *                   <code>20-23</code>.</p>
    *             </li>
    *             <li>
    *                <p>The event window must be >= 4 hours. The combined total time ranges in the event
@@ -10618,9 +10695,7 @@ export interface RequestLaunchTemplateData {
   /**
    * <p>Deprecated.</p>
    *          <note>
-   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
-   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
-   *                 G4dn, or G5 instances.</p>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
    *          </note>
    * @public
    */
@@ -10634,15 +10709,6 @@ export interface RequestLaunchTemplateData {
    *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
    *             your Deep Learning (DL) inference workloads.</p>
    *          <p>You cannot specify accelerators from different generations in the same request.</p>
-   *          <note>
-   *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon
-   *                 Elastic Inference (EI), and will help current customers migrate their workloads to
-   *                 options that offer better price and performance. After April 15, 2023, new customers
-   *                 will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker,
-   *                 Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during
-   *                 the past 30-day period are considered current customers and will be able to continue
-   *                 using the service.</p>
-   *          </note>
    * @public
    */
   ElasticInferenceAccelerators?: LaunchTemplateElasticInferenceAccelerator[] | undefined;
@@ -10811,7 +10877,8 @@ export interface CreateLaunchTemplateRequest {
 
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *             request. If a client token isn't specified, a randomly generated token is used in the request to ensure idempotency.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
    *                 idempotency</a>.</p>
    *          <p>Constraint: Maximum 128 ASCII characters.</p>
    * @public
@@ -10853,13 +10920,13 @@ export interface CreateLaunchTemplateRequest {
 }
 
 /**
- * <p>Describes whether the resource is managed by an service provider and, if so, describes
+ * <p>Describes whether the resource is managed by a service provider and, if so, describes
  *             the service provider that manages it.</p>
  * @public
  */
 export interface OperatorResponse {
   /**
-   * <p>If <code>true</code>, the resource is managed by an service provider.</p>
+   * <p>If <code>true</code>, the resource is managed by a service provider.</p>
    * @public
    */
   Managed?: boolean | undefined;
@@ -10996,7 +11063,8 @@ export interface CreateLaunchTemplateVersionRequest {
 
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *             request. If a client token isn't specified, a randomly generated token is used in the request to ensure idempotency.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
    *                 idempotency</a>.</p>
    *          <p>Constraint: Maximum 128 ASCII characters.</p>
    * @public
@@ -11235,9 +11303,7 @@ export interface CreditSpecification {
 /**
  * <p>Deprecated.</p>
  *          <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
- *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
- *                 G4dn, or G5 instances.</p>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
  *          </note>
  * @public
  */
@@ -11245,9 +11311,7 @@ export interface ElasticGpuSpecificationResponse {
   /**
    * <p>Deprecated.</p>
    *          <note>
-   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
-   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
-   *                 G4dn, or G5 instances.</p>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
    *          </note>
    * @public
    */
@@ -12030,9 +12094,7 @@ export interface ResponseLaunchTemplateData {
   /**
    * <p>Deprecated.</p>
    *          <note>
-   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
-   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
-   *                 G4dn, or G5 instances.</p>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
    *          </note>
    * @public
    */
@@ -12046,15 +12108,6 @@ export interface ResponseLaunchTemplateData {
    *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
    *             your Deep Learning (DL) inference workloads.</p>
    *          <p>You cannot specify accelerators from different generations in the same request.</p>
-   *          <note>
-   *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon
-   *                 Elastic Inference (EI), and will help current customers migrate their workloads to
-   *                 options that offer better price and performance. After April 15, 2023, new customers
-   *                 will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker,
-   *                 Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during
-   *                 the past 30-day period are considered current customers and will be able to continue
-   *                 using the service.</p>
-   *          </note>
    * @public
    */
   ElasticInferenceAccelerators?: LaunchTemplateElasticInferenceAcceleratorResponse[] | undefined;
@@ -12396,261 +12449,6 @@ export interface LocalGatewayRoute {
    * @public
    */
   DestinationPrefixListId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateLocalGatewayRouteResult {
-  /**
-   * <p>Information about the route.</p>
-   * @public
-   */
-  Route?: LocalGatewayRoute | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const LocalGatewayRouteTableMode = {
-  coip: "coip",
-  direct_vpc_routing: "direct-vpc-routing",
-} as const;
-
-/**
- * @public
- */
-export type LocalGatewayRouteTableMode = (typeof LocalGatewayRouteTableMode)[keyof typeof LocalGatewayRouteTableMode];
-
-/**
- * @public
- */
-export interface CreateLocalGatewayRouteTableRequest {
-  /**
-   * <p>
-   *       The ID of the local gateway.
-   *       </p>
-   * @public
-   */
-  LocalGatewayId: string | undefined;
-
-  /**
-   * <p>
-   *       The mode of the local gateway route table.
-   *       </p>
-   * @public
-   */
-  Mode?: LocalGatewayRouteTableMode | undefined;
-
-  /**
-   * <p>
-   *       The tags assigned to the local gateway route table.
-   *       </p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes a state change.</p>
- * @public
- */
-export interface StateReason {
-  /**
-   * <p>The reason code for the state change.</p>
-   * @public
-   */
-  Code?: string | undefined;
-
-  /**
-   * <p>The message for the state change.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Server.InsufficientInstanceCapacity</code>: There was insufficient
-   *                     capacity available to satisfy the launch request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Server.InternalError</code>: An internal error caused the instance to
-   *                     terminate during launch.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Server.ScheduledStop</code>: The instance was stopped due to a scheduled
-   *                     retirement.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Server.SpotInstanceShutdown</code>: The instance was stopped because the
-   *                     number of Spot requests with a maximum price equal to or higher than the Spot
-   *                     price exceeded available capacity or because of an increase in the Spot
-   *                     price.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Server.SpotInstanceTermination</code>: The instance was terminated
-   *                     because the number of Spot requests with a maximum price equal to or higher than
-   *                     the Spot price exceeded available capacity or because of an increase in the Spot
-   *                     price.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.InstanceInitiatedShutdown</code>: The instance was shut down
-   *                     from the operating system of the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.InstanceTerminated</code>: The instance was terminated or
-   *                     rebooted during AMI creation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.InternalError</code>: A client error caused the instance to
-   *                     terminate during launch.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.InvalidSnapshot.NotFound</code>: The specified snapshot was not
-   *                     found.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.UserInitiatedHibernate</code>: Hibernation was initiated on the
-   *                     instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.UserInitiatedShutdown</code>: The instance was shut down using
-   *                     the Amazon EC2 API.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.VolumeLimitExceeded</code>: The limit on the number of EBS
-   *                     volumes or total storage was exceeded. Decrease usage or request an increase in
-   *                     your account limits.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>Describes a local gateway route table.</p>
- * @public
- */
-export interface LocalGatewayRouteTable {
-  /**
-   * <p>The ID of the local gateway route table.</p>
-   * @public
-   */
-  LocalGatewayRouteTableId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the local gateway route table.</p>
-   * @public
-   */
-  LocalGatewayRouteTableArn?: string | undefined;
-
-  /**
-   * <p>The ID of the local gateway.</p>
-   * @public
-   */
-  LocalGatewayId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   * @public
-   */
-  OutpostArn?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the local gateway route table.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The state of the local gateway route table.</p>
-   * @public
-   */
-  State?: string | undefined;
-
-  /**
-   * <p>The tags assigned to the local gateway route table.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The mode of the local gateway route table.</p>
-   * @public
-   */
-  Mode?: LocalGatewayRouteTableMode | undefined;
-
-  /**
-   * <p>Information about the state change.</p>
-   * @public
-   */
-  StateReason?: StateReason | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateLocalGatewayRouteTableResult {
-  /**
-   * <p>Information about the local gateway route table.</p>
-   * @public
-   */
-  LocalGatewayRouteTable?: LocalGatewayRouteTable | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {
-  /**
-   * <p>
-   *       The ID of the local gateway route table.
-   *       </p>
-   * @public
-   */
-  LocalGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>
-   *       The ID of the local gateway route table virtual interface group association.
-   *       </p>
-   * @public
-   */
-  LocalGatewayVirtualInterfaceGroupId: string | undefined;
-
-  /**
-   * <p>
-   *       The tags assigned to the local gateway route table virtual interface group association.
-   *       </p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

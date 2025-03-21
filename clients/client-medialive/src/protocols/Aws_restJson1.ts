@@ -7443,6 +7443,8 @@ const se_Eac3Settings = (input: Eac3Settings, context: __SerdeContext): any => {
 const se_EbuTtDDestinationSettings = (input: EbuTtDDestinationSettings, context: __SerdeContext): any => {
   return take(input, {
     copyrightHolder: [, , `CopyrightHolder`],
+    defaultFontSize: [, , `DefaultFontSize`],
+    defaultLineHeight: [, , `DefaultLineHeight`],
     fillLineGap: [, , `FillLineGap`],
     fontFamily: [, , `FontFamily`],
     styleControl: [, , `StyleControl`],
@@ -11452,6 +11454,8 @@ const de_Eac3Settings = (output: any, context: __SerdeContext): Eac3Settings => 
 const de_EbuTtDDestinationSettings = (output: any, context: __SerdeContext): EbuTtDDestinationSettings => {
   return take(output, {
     CopyrightHolder: [, __expectString, `copyrightHolder`],
+    DefaultFontSize: [, __expectInt32, `defaultFontSize`],
+    DefaultLineHeight: [, __expectInt32, `defaultLineHeight`],
     FillLineGap: [, __expectString, `fillLineGap`],
     FontFamily: [, __expectString, `fontFamily`],
     StyleControl: [, __expectString, `styleControl`],

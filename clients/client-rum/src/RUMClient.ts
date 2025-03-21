@@ -68,11 +68,16 @@ import {
 import { CreateAppMonitorCommandInput, CreateAppMonitorCommandOutput } from "./commands/CreateAppMonitorCommand";
 import { DeleteAppMonitorCommandInput, DeleteAppMonitorCommandOutput } from "./commands/DeleteAppMonitorCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeleteRumMetricsDestinationCommandInput,
   DeleteRumMetricsDestinationCommandOutput,
 } from "./commands/DeleteRumMetricsDestinationCommand";
 import { GetAppMonitorCommandInput, GetAppMonitorCommandOutput } from "./commands/GetAppMonitorCommand";
 import { GetAppMonitorDataCommandInput, GetAppMonitorDataCommandOutput } from "./commands/GetAppMonitorDataCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import { ListAppMonitorsCommandInput, ListAppMonitorsCommandOutput } from "./commands/ListAppMonitorsCommand";
 import {
   ListRumMetricsDestinationsCommandInput,
@@ -82,6 +87,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { PutRumEventsCommandInput, PutRumEventsCommandOutput } from "./commands/PutRumEventsCommand";
 import {
   PutRumMetricsDestinationCommandInput,
@@ -114,12 +120,15 @@ export type ServiceInputTypes =
   | BatchGetRumMetricDefinitionsCommandInput
   | CreateAppMonitorCommandInput
   | DeleteAppMonitorCommandInput
+  | DeleteResourcePolicyCommandInput
   | DeleteRumMetricsDestinationCommandInput
   | GetAppMonitorCommandInput
   | GetAppMonitorDataCommandInput
+  | GetResourcePolicyCommandInput
   | ListAppMonitorsCommandInput
   | ListRumMetricsDestinationsCommandInput
   | ListTagsForResourceCommandInput
+  | PutResourcePolicyCommandInput
   | PutRumEventsCommandInput
   | PutRumMetricsDestinationCommandInput
   | TagResourceCommandInput
@@ -136,12 +145,15 @@ export type ServiceOutputTypes =
   | BatchGetRumMetricDefinitionsCommandOutput
   | CreateAppMonitorCommandOutput
   | DeleteAppMonitorCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DeleteRumMetricsDestinationCommandOutput
   | GetAppMonitorCommandOutput
   | GetAppMonitorDataCommandOutput
+  | GetResourcePolicyCommandOutput
   | ListAppMonitorsCommandOutput
   | ListRumMetricsDestinationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutResourcePolicyCommandOutput
   | PutRumEventsCommandOutput
   | PutRumMetricsDestinationCommandOutput
   | TagResourceCommandOutput

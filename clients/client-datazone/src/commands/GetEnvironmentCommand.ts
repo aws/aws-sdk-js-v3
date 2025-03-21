@@ -111,6 +111,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * //     endTimeoutMinutes: Number("int"),
  * //   },
  * //   environmentBlueprintId: "STRING_VALUE",
+ * //   environmentConfigurationId: "STRING_VALUE",
  * // };
  *
  * ```

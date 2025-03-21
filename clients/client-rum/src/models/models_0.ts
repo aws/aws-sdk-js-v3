@@ -227,6 +227,60 @@ export interface DataStorage {
  * @public
  * @enum
  */
+export const DeobfuscationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DeobfuscationStatus = (typeof DeobfuscationStatus)[keyof typeof DeobfuscationStatus];
+
+/**
+ * <p>
+ *          A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
+ *       </p>
+ * @public
+ */
+export interface JavaScriptSourceMaps {
+  /**
+   * <p>
+   *          Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be <code>DISABLED</code>.
+   *       </p>
+   * @public
+   */
+  Status: DeobfuscationStatus | undefined;
+
+  /**
+   * <p>
+   *          The S3Uri of the bucket or folder that stores the source map files. It is required if status is ENABLED.
+   *       </p>
+   * @public
+   */
+  S3Uri?: string | undefined;
+}
+
+/**
+ * <p>
+ *          A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+ *       </p>
+ * @public
+ */
+export interface DeobfuscationConfiguration {
+  /**
+   * <p>
+   *          A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
+   *       </p>
+   * @public
+   */
+  JavaScriptSourceMaps?: JavaScriptSourceMaps | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const StateEnum = {
   ACTIVE: "ACTIVE",
   CREATED: "CREATED",
@@ -256,6 +310,14 @@ export interface AppMonitor {
    * @public
    */
   Domain?: string | undefined;
+
+  /**
+   * <p>
+   *          List the domain names for which your application has administrative authority.
+   *       </p>
+   * @public
+   */
+  DomainList?: string[] | undefined;
 
   /**
    * <p>The unique ID of this app monitor.</p>
@@ -308,6 +370,14 @@ export interface AppMonitor {
    * @public
    */
   CustomEvents?: CustomEvents | undefined;
+
+  /**
+   * <p>
+   *          A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+   *       </p>
+   * @public
+   */
+  DeobfuscationConfiguration?: DeobfuscationConfiguration | undefined;
 }
 
 /**
@@ -1251,7 +1321,15 @@ export interface CreateAppMonitorRequest {
    * <p>The top-level internet domain name for which your application has administrative authority.</p>
    * @public
    */
-  Domain: string | undefined;
+  Domain?: string | undefined;
+
+  /**
+   * <p>
+   *          List the domain names for which your application has administrative authority. The <code>CreateAppMonitor</code> requires either the domain or the domain list.
+   *       </p>
+   * @public
+   */
+  DomainList?: string[] | undefined;
 
   /**
    * <p>Assigns one or more tags (key-value pairs) to the app monitor.</p>
@@ -1295,6 +1373,14 @@ export interface CreateAppMonitorRequest {
    * @public
    */
   CustomEvents?: CustomEvents | undefined;
+
+  /**
+   * <p>
+   *          A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+   *       </p>
+   * @public
+   */
+  DeobfuscationConfiguration?: DeobfuscationConfiguration | undefined;
 }
 
 /**
@@ -1323,6 +1409,75 @@ export interface DeleteAppMonitorRequest {
  * @public
  */
 export interface DeleteAppMonitorResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>The app monitor that you want to remove the resource policy from.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Specifies a specific policy revision to delete. Provide a <code>PolicyRevisionId</code> to ensure an atomic delete operation.
+   *          If the revision ID that you provide doesn't match the latest policy revision ID, the request will be rejected with an <code>InvalidPolicyRevisionIdException</code> error.</p>
+   * @public
+   */
+  PolicyRevisionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyResponse {
+  /**
+   * <p>The revision ID of the policy that was removed, if it had one.</p>
+   * @public
+   */
+  PolicyRevisionId?: string | undefined;
+}
+
+/**
+ * <p>The policy revision ID that you provided doeesn't match the latest policy revision ID.</p>
+ * @public
+ */
+export class InvalidPolicyRevisionIdException extends __BaseException {
+  readonly name: "InvalidPolicyRevisionIdException" = "InvalidPolicyRevisionIdException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPolicyRevisionIdException, __BaseException>) {
+    super({
+      name: "InvalidPolicyRevisionIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPolicyRevisionIdException.prototype);
+  }
+}
+
+/**
+ * <p>The resource-based policy doesn't exist on this app monitor.</p>
+ * @public
+ */
+export class PolicyNotFoundException extends __BaseException {
+  readonly name: "PolicyNotFoundException" = "PolicyNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicyNotFoundException, __BaseException>) {
+    super({
+      name: "PolicyNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyNotFoundException.prototype);
+  }
+}
 
 /**
  * @public
@@ -1485,6 +1640,34 @@ export interface GetAppMonitorDataResponse {
 /**
  * @public
  */
+export interface GetResourcePolicyRequest {
+  /**
+   * <p>The name of the app monitor that is associated with the resource-based policy that you want to view.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyResponse {
+  /**
+   * <p>The JSON policy document that you requested.</p>
+   * @public
+   */
+  PolicyDocument?: string | undefined;
+
+  /**
+   * <p>The revision ID information for this version of the policy document that you requested.</p>
+   * @public
+   */
+  PolicyRevisionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListAppMonitorsRequest {
   /**
    * <p>The maximum number of results to return in one operation. The default is 50. The maximum that you can
@@ -1627,6 +1810,90 @@ export interface ListRumMetricsDestinationsResponse {
 }
 
 /**
+ * <p>The policy document that you specified is not formatted correctly.</p>
+ * @public
+ */
+export class MalformedPolicyDocumentException extends __BaseException {
+  readonly name: "MalformedPolicyDocumentException" = "MalformedPolicyDocumentException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MalformedPolicyDocumentException, __BaseException>) {
+    super({
+      name: "MalformedPolicyDocumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MalformedPolicyDocumentException.prototype);
+  }
+}
+
+/**
+ * <p>The policy document is too large. The limit is 4 KB.</p>
+ * @public
+ */
+export class PolicySizeLimitExceededException extends __BaseException {
+  readonly name: "PolicySizeLimitExceededException" = "PolicySizeLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicySizeLimitExceededException, __BaseException>) {
+    super({
+      name: "PolicySizeLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicySizeLimitExceededException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>The name of the app monitor that you want to apply this resource-based policy to. To find the names of your app monitors, you can use
+   *          the <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListAppMonitors.html">ListAppMonitors</a> operation.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The JSON to use as the resource policy. The document can be up to 4 KB in size. For more information about the contents and syntax
+   *          for this policy, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html">Using resource-based policies with CloudWatch RUM</a>.</p>
+   * @public
+   */
+  PolicyDocument: string | undefined;
+
+  /**
+   * <p>A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.</p>
+   *          <p>When you assign a policy revision ID, then later requests about that policy will be rejected with an <code>InvalidPolicyRevisionIdException</code> error
+   *          if they don't provide the correct current revision ID.</p>
+   * @public
+   */
+  PolicyRevisionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyResponse {
+  /**
+   * <p>The JSON policy document that you specified.</p>
+   * @public
+   */
+  PolicyDocument?: string | undefined;
+
+  /**
+   * <p>The policy revision ID information that you specified.</p>
+   * @public
+   */
+  PolicyRevisionId?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface PutRumMetricsDestinationRequest {
@@ -1690,6 +1957,14 @@ export interface UpdateAppMonitorRequest {
   Domain?: string | undefined;
 
   /**
+   * <p>
+   *          List the domain names for which your application has administrative authority. The <code>UpdateAppMonitor</code> allows either the domain or the domain list.
+   *       </p>
+   * @public
+   */
+  DomainList?: string[] | undefined;
+
+  /**
    * <p>A structure that contains much of the configuration data for the app monitor. If you are using
    *          Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the
    *          Amazon Cognito identity pool to use for authorization. If you don't include <code>AppMonitorConfiguration</code>, you must set up your own
@@ -1717,6 +1992,14 @@ export interface UpdateAppMonitorRequest {
    * @public
    */
   CustomEvents?: CustomEvents | undefined;
+
+  /**
+   * <p>
+   *          A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+   *       </p>
+   * @public
+   */
+  DeobfuscationConfiguration?: DeobfuscationConfiguration | undefined;
 }
 
 /**
@@ -1889,6 +2172,13 @@ export interface PutRumEventsRequest {
    * @public
    */
   RumEvents: RumEvent[] | undefined;
+
+  /**
+   * <p>If the app monitor uses a resource-based policy that requires <code>PutRumEvents</code> requests to specify a certain alias,
+   *          specify that alias here. This alias will be compared to the <code>rum:alias</code> context key in the resource-based policy.  For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html">Using resource-based policies with CloudWatch RUM</a>.</p>
+   * @public
+   */
+  Alias?: string | undefined;
 }
 
 /**

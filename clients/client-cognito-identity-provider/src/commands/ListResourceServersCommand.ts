@@ -32,7 +32,8 @@ export interface ListResourceServersCommandInput extends ListResourceServersRequ
 export interface ListResourceServersCommandOutput extends ListResourceServersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the resource servers for a user pool.</p>
+ * <p>Given a user pool ID, returns all resource servers and their details. For more
+ *             information about resource servers, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html">Access control with resource servers</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

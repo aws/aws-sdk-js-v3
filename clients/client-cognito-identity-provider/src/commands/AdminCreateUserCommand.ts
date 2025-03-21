@@ -40,6 +40,18 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  * <p>Creates a new user in the specified user pool.</p>
  *          <p>If <code>MessageAction</code> isn't set, the default is to send a welcome message via
  *             email or phone (SMS).</p>
+ *          <p>This message is based on a template that you configured in your call to create or
+ *             update a user pool. This template includes your custom sign-up instructions and
+ *             placeholders for user name and temporary password.</p>
+ *          <p>Alternatively, you can call <code>AdminCreateUser</code> with <code>SUPPRESS</code>
+ *             for the <code>MessageAction</code> parameter, and Amazon Cognito won't send any email. </p>
+ *          <p>In either case, if the user has a password, they will be in the
+ *                 <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and set their password.
+ *             Your invitation message template must have the <code>\{####\}</code> password placeholder
+ *             if your users have passwords. If your template doesn't have this placeholder, Amazon Cognito
+ *             doesn't deliver the invitation message. In this case, you must update your message
+ *             template and resend the password with a new <code>AdminCreateUser</code> request with a
+ *                 <code>MessageAction</code> value of <code>RESEND</code>.</p>
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *             require you to register an origination phone number before you can send SMS messages
@@ -57,18 +69,6 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  *             of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
  *                 Developer Guide</i>.</p>
  *          </note>
- *          <p>This message is based on a template that you configured in your call to create or
- *             update a user pool. This template includes your custom sign-up instructions and
- *             placeholders for user name and temporary password.</p>
- *          <p>Alternatively, you can call <code>AdminCreateUser</code> with <code>SUPPRESS</code>
- *             for the <code>MessageAction</code> parameter, and Amazon Cognito won't send any email. </p>
- *          <p>In either case, if the user has a password, they will be in the
- *                 <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and set their password.
- *             Your invitation message template must have the <code>\{####\}</code> password placeholder
- *             if your users have passwords. If your template doesn't have this placeholder, Amazon Cognito
- *             doesn't deliver the invitation message. In this case, you must update your message
- *             template and resend the password with a new <code>AdminCreateUser</code> request with a
- *                 <code>MessageAction</code> value of <code>RESEND</code>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

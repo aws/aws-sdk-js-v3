@@ -37,7 +37,9 @@ export interface GetIdentityProviderByIdentifierCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets the specified IdP.</p>
+ * <p>Given the identifier of an identity provider (IdP), for example
+ *                 <code>examplecorp</code>, returns information about the user pool configuration for
+ *             that IdP. For more information about IdPs, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html">Third-party IdP sign-in</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

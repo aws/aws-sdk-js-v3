@@ -142,7 +142,8 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  *  <p>One of the parameters in the request is not valid.</p>
  *
  * @throws {@link InvalidRequestContentException} (client fault)
- *  <p>The request body could not be parsed as JSON.</p>
+ *  <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId'
+ *       header is not a valid UUID string.</p>
  *
  * @throws {@link InvalidRuntimeException} (server fault)
  *  <p>The runtime or runtime version specified is not supported.</p>

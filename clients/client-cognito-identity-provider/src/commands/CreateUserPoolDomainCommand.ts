@@ -33,9 +33,9 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
 
 /**
  * <p>A user pool domain hosts managed login, an authorization server and web server for
- *             authentication in your application. This operation creates a new user pool prefix or
- *             custom domain and sets the managed login branding version. Set the branding version to
- *                 <code>1</code> for hosted UI (classic) or <code>2</code> for managed login. When you
+ *             authentication in your application. This operation creates a new user pool prefix domain
+ *             or custom domain and sets the managed login branding version. Set the branding version
+ *             to <code>1</code> for hosted UI (classic) or <code>2</code> for managed login. When you
  *             choose a custom domain, you must provide an SSL certificate in the US East (N. Virginia)
  *             Amazon Web Services Region in your request.</p>
  *          <p>Your prefix domain might take up to one minute to take effect. Your custom domain is

@@ -37,9 +37,10 @@ export interface AdminGetUserCommandInput extends AdminGetUserRequest {}
 export interface AdminGetUserCommandOutput extends AdminGetUserResponse, __MetadataBearer {}
 
 /**
- * <p>Given the username, returns details about a user profile in a user pool. This
- *             operation contributes to your monthly active user (MAU) count for the purpose of
- *             billing. You can specify alias attributes in the <code>Username</code> parameter.</p>
+ * <p>Given a username, returns details about a user profile in a user pool. You can specify
+ *             alias attributes in the <code>Username</code> request parameter.</p>
+ *          <p>This operation contributes to your monthly active user (MAU) count for the purpose of
+ *             billing.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

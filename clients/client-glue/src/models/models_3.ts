@@ -131,9 +131,9 @@ import {
 
 import {
   ColumnRowFilter,
+  Comparator,
   DataQualityEvaluationRunAdditionalRunOptions,
   FederatedTable,
-  PropertyPredicate,
   ResourceAction,
   ResourceShareType,
   ResourceState,
@@ -141,6 +141,30 @@ import {
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * <p>Defines a property predicate.</p>
+ * @public
+ */
+export interface PropertyPredicate {
+  /**
+   * <p>The key of the property.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The value of the property.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>The comparator used to compare this property to others.</p>
+   * @public
+   */
+  Comparator?: Comparator | undefined;
+}
 
 /**
  * @public

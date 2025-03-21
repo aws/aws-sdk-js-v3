@@ -2097,6 +2097,32 @@ export interface DocumentEnrichmentConfiguration {
  * @public
  * @enum
  */
+export const AudioExtractionStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioExtractionStatus = (typeof AudioExtractionStatus)[keyof typeof AudioExtractionStatus];
+
+/**
+ * <p>Configuration settings for audio content extraction and processing.</p>
+ * @public
+ */
+export interface AudioExtractionConfiguration {
+  /**
+   * <p>The status of audio extraction (ENABLED or DISABLED) for processing audio content from files.</p>
+   * @public
+   */
+  audioExtractionStatus: AudioExtractionStatus | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ImageExtractionStatus = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -2120,6 +2146,32 @@ export interface ImageExtractionConfiguration {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const VideoExtractionStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type VideoExtractionStatus = (typeof VideoExtractionStatus)[keyof typeof VideoExtractionStatus];
+
+/**
+ * <p>Configuration settings for video content extraction and processing.</p>
+ * @public
+ */
+export interface VideoExtractionConfiguration {
+  /**
+   * <p>The status of video extraction (ENABLED or DISABLED) for processing video content from files.</p>
+   * @public
+   */
+  videoExtractionStatus: VideoExtractionStatus | undefined;
+}
+
+/**
  * <p>The configuration for extracting information from media in documents.</p>
  * @public
  */
@@ -2130,6 +2182,18 @@ export interface MediaExtractionConfiguration {
    * @public
    */
   imageExtractionConfiguration?: ImageExtractionConfiguration | undefined;
+
+  /**
+   * <p>Configuration settings for extracting and processing audio content from media files.</p>
+   * @public
+   */
+  audioExtractionConfiguration?: AudioExtractionConfiguration | undefined;
+
+  /**
+   * <p>Configuration settings for extracting and processing video content from media files.</p>
+   * @public
+   */
+  videoExtractionConfiguration?: VideoExtractionConfiguration | undefined;
 }
 
 /**
@@ -5445,6 +5509,56 @@ export interface AttachmentOutput {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AudioExtractionType = {
+  SUMMARY: "SUMMARY",
+  TRANSCRIPT: "TRANSCRIPT",
+} as const;
+
+/**
+ * @public
+ */
+export type AudioExtractionType = (typeof AudioExtractionType)[keyof typeof AudioExtractionType];
+
+/**
+ * <p>Details about an audio source, including its identifier, format, and time information.</p>
+ * @public
+ */
+export interface AudioSourceDetails {
+  /**
+   * <p>Unique identifier for the audio media file.</p>
+   * @public
+   */
+  mediaId?: string | undefined;
+
+  /**
+   * <p>The MIME type of the audio file (e.g., audio/mp3, audio/wav).</p>
+   * @public
+   */
+  mediaMimeType?: string | undefined;
+
+  /**
+   * <p>The starting timestamp in milliseconds for the relevant audio segment.</p>
+   * @public
+   */
+  startTimeMilliseconds?: number | undefined;
+
+  /**
+   * <p>The ending timestamp in milliseconds for the relevant audio segment.</p>
+   * @public
+   */
+  endTimeMilliseconds?: number | undefined;
+
+  /**
+   * <p>The type of audio extraction performed on the content.</p>
+   * @public
+   */
+  audioExtractionType?: AudioExtractionType | undefined;
+}
+
+/**
  * <p>A request made by Amazon Q Business to a third paty authentication server to authenticate
  *             a custom plugin user.</p>
  * @public
@@ -6003,6 +6117,146 @@ export interface SnippetExcerpt {
 }
 
 /**
+ * <p>Details about an image source, including its identifier and format.</p>
+ * @public
+ */
+export interface ImageSourceDetails {
+  /**
+   * <p>Unique identifier for the image file.</p>
+   * @public
+   */
+  mediaId?: string | undefined;
+
+  /**
+   * <p>The MIME type of the image file.</p>
+   * @public
+   */
+  mediaMimeType?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VideoExtractionType = {
+  SUMMARY: "SUMMARY",
+  TRANSCRIPT: "TRANSCRIPT",
+} as const;
+
+/**
+ * @public
+ */
+export type VideoExtractionType = (typeof VideoExtractionType)[keyof typeof VideoExtractionType];
+
+/**
+ * <p>Details about a video source, including its identifier, format, and time information.</p>
+ * @public
+ */
+export interface VideoSourceDetails {
+  /**
+   * <p>Unique identifier for the video media file.</p>
+   * @public
+   */
+  mediaId?: string | undefined;
+
+  /**
+   * <p>The MIME type of the video file (e.g., video/mp4, video/avi).</p>
+   * @public
+   */
+  mediaMimeType?: string | undefined;
+
+  /**
+   * <p>The starting timestamp in milliseconds for the relevant video segment.</p>
+   * @public
+   */
+  startTimeMilliseconds?: number | undefined;
+
+  /**
+   * <p>The ending timestamp in milliseconds for the relevant video segment.</p>
+   * @public
+   */
+  endTimeMilliseconds?: number | undefined;
+
+  /**
+   * <p>The type of video extraction performed on the content.</p>
+   * @public
+   */
+  videoExtractionType?: VideoExtractionType | undefined;
+}
+
+/**
+ * <p>Container for details about different types of media sources (image, audio, or video).</p>
+ * @public
+ */
+export type SourceDetails =
+  | SourceDetails.AudioSourceDetailsMember
+  | SourceDetails.ImageSourceDetailsMember
+  | SourceDetails.VideoSourceDetailsMember
+  | SourceDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SourceDetails {
+  /**
+   * <p>Details specific to image content within the source.</p>
+   * @public
+   */
+  export interface ImageSourceDetailsMember {
+    imageSourceDetails: ImageSourceDetails;
+    audioSourceDetails?: never;
+    videoSourceDetails?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details specific to audio content within the source.</p>
+   * @public
+   */
+  export interface AudioSourceDetailsMember {
+    imageSourceDetails?: never;
+    audioSourceDetails: AudioSourceDetails;
+    videoSourceDetails?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details specific to video content within the source.</p>
+   * @public
+   */
+  export interface VideoSourceDetailsMember {
+    imageSourceDetails?: never;
+    audioSourceDetails?: never;
+    videoSourceDetails: VideoSourceDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    imageSourceDetails?: never;
+    audioSourceDetails?: never;
+    videoSourceDetails?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    imageSourceDetails: (value: ImageSourceDetails) => T;
+    audioSourceDetails: (value: AudioSourceDetails) => T;
+    videoSourceDetails: (value: VideoSourceDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: SourceDetails, visitor: Visitor<T>): T => {
+    if (value.imageSourceDetails !== undefined) return visitor.imageSourceDetails(value.imageSourceDetails);
+    if (value.audioSourceDetails !== undefined) return visitor.audioSourceDetails(value.audioSourceDetails);
+    if (value.videoSourceDetails !== undefined) return visitor.videoSourceDetails(value.videoSourceDetails);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>Provides information about a text extract in a chat response that can be attributed to
  *             a source document.</p>
  * @public
@@ -6031,15 +6285,25 @@ export interface TextSegment {
 
   /**
    * <p>The identifier of the media object associated with the text segment in the source attribution.</p>
+   *
+   * @deprecated
    * @public
    */
   mediaId?: string | undefined;
 
   /**
    * <p>The MIME type (image/png) of the media object associated with the text segment in the source attribution.</p>
+   *
+   * @deprecated
    * @public
    */
   mediaMimeType?: string | undefined;
+
+  /**
+   * <p>Source information for a segment of extracted text, including its media type.</p>
+   * @public
+   */
+  sourceDetails?: SourceDetails | undefined;
 }
 
 /**
@@ -8011,219 +8275,6 @@ export interface ListPluginTypeActionsResponse {
    */
   items?: ActionSummary[] | undefined;
 }
-
-/**
- * @public
- */
-export interface ListPluginTypeMetadataRequest {
-  /**
-   * <p>If the metadata returned exceeds <code>maxResults</code>, Amazon Q Business
-   *             returns a next token as a pagination token to retrieve the next set of metadata.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of plugin metadata items to return.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const PluginTypeCategory = {
-  COMMUNICATION: "Communication",
-  CRM: "Customer relationship management (CRM)",
-  PRODUCTIVITY: "Productivity",
-  PROJECT_MANAGEMENT: "Project management",
-  TICKETING_MANAGEMENT: "Ticketing and incident management",
-} as const;
-
-/**
- * @public
- */
-export type PluginTypeCategory = (typeof PluginTypeCategory)[keyof typeof PluginTypeCategory];
-
-/**
- * <p>Summary metadata information for a Amazon Q Business plugin.</p>
- * @public
- */
-export interface PluginTypeMetadataSummary {
-  /**
-   * <p>The type of the plugin.</p>
-   * @public
-   */
-  type?: PluginType | undefined;
-
-  /**
-   * <p>The category of the plugin type.</p>
-   * @public
-   */
-  category?: PluginTypeCategory | undefined;
-
-  /**
-   * <p>The description assigned by Amazon Q Business to a plugin. You can't
-   *             modify this value.</p>
-   * @public
-   */
-  description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPluginTypeMetadataResponse {
-  /**
-   * <p>If the response is truncated, Amazon Q Business returns this token, which you
-   *             can use in a later request to list the next set of plugin metadata.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>An array of information on plugin metadata.</p>
-   * @public
-   */
-  items?: PluginTypeMetadataSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSubscriptionsRequest {
-  /**
-   * <p>The identifier of the Amazon Q Business application linked to the subscription.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>If the <code>maxResults</code> response was incomplete because there is more data to
-   *             retrieve, Amazon Q Business returns a pagination token in the response. You can use this
-   *             pagination token to retrieve the next set of Amazon Q Business subscriptions.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of Amazon Q Business subscriptions to return.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>Information about an Amazon Q Business subscription.</p>
- *          <p>Subscriptions are used to provide access for an IAM Identity Center user or a group to
- *             an Amazon Q Business application.</p>
- *          <p>Amazon Q Business offers two subscription tiers: <code>Q_LITE</code> and
- *                 <code>Q_BUSINESS</code>. Subscription tier determines feature access for the user.
- *             For more information on subscriptions and pricing tiers, see <a href="https://aws.amazon.com/q/business/pricing/">Amazon Q Business
- *             pricing</a>.</p>
- * @public
- */
-export interface Subscription {
-  /**
-   * <p>The identifier of the Amazon Q Business subscription to be updated.</p>
-   * @public
-   */
-  subscriptionId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business subscription that was
-   *             updated.</p>
-   * @public
-   */
-  subscriptionArn?: string | undefined;
-
-  /**
-   * <p>The IAM Identity Center <code>UserId</code> or <code>GroupId</code> of a user or group
-   *             in the IAM Identity Center instance connected to the Amazon Q Business application.</p>
-   * @public
-   */
-  principal?: SubscriptionPrincipal | undefined;
-
-  /**
-   * <p>The type of your current Amazon Q Business subscription.</p>
-   * @public
-   */
-  currentSubscription?: SubscriptionDetails | undefined;
-
-  /**
-   * <p>The type of the Amazon Q Business subscription for the next month.</p>
-   * @public
-   */
-  nextSubscription?: SubscriptionDetails | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSubscriptionsResponse {
-  /**
-   * <p>If the response is truncated, Amazon Q Business returns this token. You can use this token
-   *             in a subsequent request to retrieve the next set of subscriptions.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>An array of summary information on the subscriptions configured for an Amazon Q Business
-   *             application.</p>
-   * @public
-   */
-  subscriptions?: Subscription[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Q Business application or data source to get
-   *             a list of tags for.</p>
-   * @public
-   */
-  resourceARN: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>A list of tags associated with the Amazon Q Business application or data source.</p>
-   * @public
-   */
-  tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MessageUsefulnessReason = {
-  COMPLETE: "COMPLETE",
-  FACTUALLY_CORRECT: "FACTUALLY_CORRECT",
-  HARMFUL_OR_UNSAFE: "HARMFUL_OR_UNSAFE",
-  HELPFUL: "HELPFUL",
-  INCORRECT_OR_MISSING_SOURCES: "INCORRECT_OR_MISSING_SOURCES",
-  NOT_BASED_ON_DOCUMENTS: "NOT_BASED_ON_DOCUMENTS",
-  NOT_COMPLETE: "NOT_COMPLETE",
-  NOT_CONCISE: "NOT_CONCISE",
-  NOT_FACTUALLY_CORRECT: "NOT_FACTUALLY_CORRECT",
-  NOT_HELPFUL: "NOT_HELPFUL",
-  OTHER: "OTHER",
-  RELEVANT_SOURCES: "RELEVANT_SOURCES",
-} as const;
-
-/**
- * @public
- */
-export type MessageUsefulnessReason = (typeof MessageUsefulnessReason)[keyof typeof MessageUsefulnessReason];
 
 /**
  * @internal

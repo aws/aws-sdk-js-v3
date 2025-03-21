@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
+
+
+### Bug Fixes
+
+* **middleware-recursion-detection:** case-insensitive trace ID header detection in middleware ([#6946](https://github.com/aws/aws-sdk-js-v3/issues/6946)) ([fcef09e](https://github.com/aws/aws-sdk-js-v3/commit/fcef09e80a77becbc5ca8354100b0f7b80b4ffd2))
+
+
+
+
+
 # [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
 
 **Note:** Version bump only for package @aws-sdk/middleware-recursion-detection

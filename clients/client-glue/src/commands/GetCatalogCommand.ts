@@ -93,6 +93,7 @@ export interface GetCatalogCommandOutput extends GetCatalogResponse, __MetadataB
  * //         ],
  * //       },
  * //     ],
+ * //     AllowFullTableExternalDataAccess: "True" || "False",
  * //   },
  * // };
  *

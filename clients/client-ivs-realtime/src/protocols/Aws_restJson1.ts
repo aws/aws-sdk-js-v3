@@ -120,6 +120,7 @@ import {
   AutoParticipantRecordingConfiguration,
   ChannelDestinationConfiguration,
   Composition,
+  CompositionRecordingHlsConfiguration,
   CompositionSummary,
   CompositionThumbnailConfiguration,
   ConflictException,
@@ -132,6 +133,7 @@ import {
   InternalServerException,
   LayoutConfiguration,
   Participant,
+  ParticipantRecordingHlsConfiguration,
   ParticipantRecordingMediaType,
   ParticipantSummary,
   ParticipantThumbnailConfiguration,
@@ -1770,7 +1772,16 @@ const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_aCAO]: [, parsedOutput.headers[_acao]],
+    [_aCEH]: [, parsedOutput.headers[_aceh]],
+    [_cC]: [, parsedOutput.headers[_cc]],
+    [_cSP]: [, parsedOutput.headers[_csp]],
+    [_sTS]: [, parsedOutput.headers[_sts]],
+    [_xCTO]: [, parsedOutput.headers[_xcto]],
+    [_xFO]: [, parsedOutput.headers[_xfo]],
+    [_xAET]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     exceptionMessage: __expectString,
@@ -1787,7 +1798,16 @@ const de_AccessDeniedExceptionRes = async (
  * deserializeAws_restJson1ConflictExceptionRes
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_aCAO]: [, parsedOutput.headers[_acao]],
+    [_aCEH]: [, parsedOutput.headers[_aceh]],
+    [_cC]: [, parsedOutput.headers[_cc]],
+    [_cSP]: [, parsedOutput.headers[_csp]],
+    [_sTS]: [, parsedOutput.headers[_sts]],
+    [_xCTO]: [, parsedOutput.headers[_xcto]],
+    [_xFO]: [, parsedOutput.headers[_xfo]],
+    [_xAET]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     exceptionMessage: __expectString,
@@ -1807,7 +1827,16 @@ const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_aCAO]: [, parsedOutput.headers[_acao]],
+    [_aCEH]: [, parsedOutput.headers[_aceh]],
+    [_cC]: [, parsedOutput.headers[_cc]],
+    [_cSP]: [, parsedOutput.headers[_csp]],
+    [_sTS]: [, parsedOutput.headers[_sts]],
+    [_xCTO]: [, parsedOutput.headers[_xcto]],
+    [_xFO]: [, parsedOutput.headers[_xfo]],
+    [_xAET]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     exceptionMessage: __expectString,
@@ -1824,7 +1853,16 @@ const de_InternalServerExceptionRes = async (
  * deserializeAws_restJson1PendingVerificationRes
  */
 const de_PendingVerificationRes = async (parsedOutput: any, context: __SerdeContext): Promise<PendingVerification> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_aCAO]: [, parsedOutput.headers[_acao]],
+    [_aCEH]: [, parsedOutput.headers[_aceh]],
+    [_cC]: [, parsedOutput.headers[_cc]],
+    [_cSP]: [, parsedOutput.headers[_csp]],
+    [_sTS]: [, parsedOutput.headers[_sts]],
+    [_xCTO]: [, parsedOutput.headers[_xcto]],
+    [_xFO]: [, parsedOutput.headers[_xfo]],
+    [_xAET]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     exceptionMessage: __expectString,
@@ -1844,7 +1882,16 @@ const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_aCAO]: [, parsedOutput.headers[_acao]],
+    [_aCEH]: [, parsedOutput.headers[_aceh]],
+    [_cC]: [, parsedOutput.headers[_cc]],
+    [_cSP]: [, parsedOutput.headers[_csp]],
+    [_sTS]: [, parsedOutput.headers[_sts]],
+    [_xCTO]: [, parsedOutput.headers[_xcto]],
+    [_xFO]: [, parsedOutput.headers[_xfo]],
+    [_xAET]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     exceptionMessage: __expectString,
@@ -1864,7 +1911,16 @@ const de_ServiceQuotaExceededExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_aCAO]: [, parsedOutput.headers[_acao]],
+    [_aCEH]: [, parsedOutput.headers[_aceh]],
+    [_cC]: [, parsedOutput.headers[_cc]],
+    [_cSP]: [, parsedOutput.headers[_csp]],
+    [_sTS]: [, parsedOutput.headers[_sts]],
+    [_xCTO]: [, parsedOutput.headers[_xcto]],
+    [_xFO]: [, parsedOutput.headers[_xfo]],
+    [_xAET]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     exceptionMessage: __expectString,
@@ -1881,7 +1937,16 @@ const de_ServiceQuotaExceededExceptionRes = async (
  * deserializeAws_restJson1ValidationExceptionRes
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_aCAO]: [, parsedOutput.headers[_acao]],
+    [_aCEH]: [, parsedOutput.headers[_aceh]],
+    [_cC]: [, parsedOutput.headers[_cc]],
+    [_cSP]: [, parsedOutput.headers[_csp]],
+    [_sTS]: [, parsedOutput.headers[_sts]],
+    [_xCTO]: [, parsedOutput.headers[_xcto]],
+    [_xFO]: [, parsedOutput.headers[_xfo]],
+    [_xAET]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     exceptionMessage: __expectString,
@@ -1898,6 +1963,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ChannelDestinationConfiguration omitted.
 
+// se_CompositionRecordingHlsConfiguration omitted.
+
 // se_CompositionThumbnailConfiguration omitted.
 
 // se_CompositionThumbnailConfigurationList omitted.
@@ -1913,6 +1980,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_LayoutConfiguration omitted.
 
 // se_ParticipantAttributes omitted.
+
+// se_ParticipantRecordingHlsConfiguration omitted.
 
 // se_ParticipantRecordingMediaTypeList omitted.
 
@@ -1969,6 +2038,8 @@ const de_Composition = (output: any, context: __SerdeContext): Composition => {
     tags: _json,
   }) as any;
 };
+
+// de_CompositionRecordingHlsConfiguration omitted.
 
 /**
  * deserializeAws_restJson1CompositionSummary
@@ -2146,6 +2217,8 @@ const de_ParticipantList = (output: any, context: __SerdeContext): ParticipantSu
   return retVal;
 };
 
+// de_ParticipantRecordingHlsConfiguration omitted.
+
 // de_ParticipantRecordingMediaTypeList omitted.
 
 /**
@@ -2287,4 +2360,20 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _aCAO = "accessControlAllowOrigin";
+const _aCEH = "accessControlExposeHeaders";
+const _acao = "access-control-allow-origin";
+const _aceh = "access-control-expose-headers";
+const _cC = "cacheControl";
+const _cSP = "contentSecurityPolicy";
+const _cc = "cache-control";
+const _csp = "content-security-policy";
+const _sTS = "strictTransportSecurity";
+const _sts = "strict-transport-security";
 const _tK = "tagKeys";
+const _xAET = "xAmznErrorType";
+const _xCTO = "xContentTypeOptions";
+const _xFO = "xFrameOptions";
+const _xae = "x-amzn-errortype";
+const _xcto = "x-content-type-options";
+const _xfo = "x-frame-options";

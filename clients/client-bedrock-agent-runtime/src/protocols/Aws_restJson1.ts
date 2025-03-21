@@ -77,6 +77,8 @@ import {
   AccessDeniedException,
   ActionGroupExecutor,
   AgentActionGroup,
+  AgentCollaboratorInputPayload,
+  AgentCollaboratorInvocationInput,
   AgentCollaboratorInvocationOutput,
   AnalyzePromptEvent,
   ApiResult,
@@ -91,6 +93,7 @@ import {
   ByteContentFile,
   Citation,
   CitationEvent,
+  CollaboratorConfiguration,
   ConflictException,
   ContentBlock,
   ContentBody,
@@ -128,6 +131,8 @@ import {
   GuardrailConfigurationWithArn,
   GuardrailEvent,
   ImageBlock,
+  ImageInput,
+  ImageInputSource,
   ImageSource,
   ImplicitFilterConfiguration,
   InferenceConfig,
@@ -142,6 +147,7 @@ import {
   InputFile,
   InputPrompt,
   InternalServerException,
+  InvocationInput,
   InvocationResultMember,
   InvocationStep,
   InvocationStepPayload,
@@ -193,6 +199,7 @@ import {
   RetrieveAndGenerateStreamResponseOutput,
   RetrievedReference,
   ReturnControlPayload,
+  ReturnControlResults,
   RoutingClassifierTrace,
   S3Identifier,
   S3Location,
@@ -215,6 +222,7 @@ import {
   VectorSearchRerankingConfiguration,
 } from "../models/models_0";
 import {
+  Collaborator,
   KnowledgeBase,
   KnowledgeBaseConfiguration,
   KnowledgeBaseRetrievalConfiguration,
@@ -488,7 +496,10 @@ export const se_InvokeInlineAgentCommand = async (
   body = JSON.stringify(
     take(input, {
       actionGroups: (_) => _json(_),
+      agentCollaboration: [],
       bedrockModelConfigurations: (_) => _json(_),
+      collaboratorConfigurations: (_) => _json(_),
+      collaborators: (_) => se_Collaborators(_, context),
       customerEncryptionKeyArn: [],
       enableTrace: [],
       endSession: [],
@@ -2169,6 +2180,8 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
 };
 // se_ActionGroupExecutor omitted.
 
+// se_ActionGroupSignatureParams omitted.
+
 /**
  * serializeAws_restJson1AdditionalModelRequestFields
  */
@@ -2193,7 +2206,21 @@ const se_AdditionalModelRequestFieldsValue = (input: __DocumentType, context: __
 
 // se_AgentActionGroups omitted.
 
-// se_ApiResult omitted.
+/**
+ * serializeAws_restJson1ApiResult
+ */
+const se_ApiResult = (input: ApiResult, context: __SerdeContext): any => {
+  return take(input, {
+    actionGroup: [],
+    agentId: [],
+    apiPath: [],
+    confirmationState: [],
+    httpMethod: [],
+    httpStatusCode: [],
+    responseBody: (_) => se_ResponseBody(_, context),
+    responseState: [],
+  });
+};
 
 // se_APISchema omitted.
 
@@ -2265,11 +2292,53 @@ const se_ByteContentFile = (input: ByteContentFile, context: __SerdeContext): an
   });
 };
 
+/**
+ * serializeAws_restJson1Collaborator
+ */
+const se_Collaborator = (input: Collaborator, context: __SerdeContext): any => {
+  return take(input, {
+    actionGroups: _json,
+    agentCollaboration: [],
+    agentName: [],
+    collaboratorConfigurations: _json,
+    customerEncryptionKeyArn: [],
+    foundationModel: [],
+    guardrailConfiguration: _json,
+    idleSessionTTLInSeconds: [],
+    instruction: [],
+    knowledgeBases: (_) => se_KnowledgeBases(_, context),
+    promptOverrideConfiguration: (_) => se_PromptOverrideConfiguration(_, context),
+  });
+};
+
+// se_CollaboratorConfiguration omitted.
+
+// se_CollaboratorConfigurations omitted.
+
+/**
+ * serializeAws_restJson1Collaborators
+ */
+const se_Collaborators = (input: Collaborator[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_Collaborator(entry, context);
+    });
+};
+
 // se_ContentBlock omitted.
 
 // se_ContentBlocks omitted.
 
-// se_ContentBody omitted.
+/**
+ * serializeAws_restJson1ContentBody
+ */
+const se_ContentBody = (input: ContentBody, context: __SerdeContext): any => {
+  return take(input, {
+    body: [],
+    images: (_) => se_ImageInputs(_, context),
+  });
+};
 
 // se_ConversationHistory omitted.
 
@@ -2392,7 +2461,19 @@ const se_FlowInputs = (input: FlowInput[], context: __SerdeContext): any => {
 
 // se_FunctionDefinition omitted.
 
-// se_FunctionResult omitted.
+/**
+ * serializeAws_restJson1FunctionResult
+ */
+const se_FunctionResult = (input: FunctionResult, context: __SerdeContext): any => {
+  return take(input, {
+    actionGroup: [],
+    agentId: [],
+    confirmationState: [],
+    function: [],
+    responseBody: (_) => se_ResponseBody(_, context),
+    responseState: [],
+  });
+};
 
 // se_Functions omitted.
 
@@ -2422,6 +2503,37 @@ const se_ImageBlock = (input: ImageBlock, context: __SerdeContext): any => {
   return take(input, {
     format: [],
     source: (_) => se_ImageSource(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1ImageInput
+ */
+const se_ImageInput = (input: ImageInput, context: __SerdeContext): any => {
+  return take(input, {
+    format: [],
+    source: (_) => se_ImageInputSource(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1ImageInputs
+ */
+const se_ImageInputs = (input: ImageInput[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ImageInput(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1ImageInputSource
+ */
+const se_ImageInputSource = (input: ImageInputSource, context: __SerdeContext): any => {
+  return ImageInputSource.visit(input, {
+    bytes: (value) => ({ bytes: context.base64Encoder(value) }),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2467,10 +2579,11 @@ const se_InferenceConfiguration = (input: InferenceConfiguration, context: __Ser
  */
 const se_InlineSessionState = (input: InlineSessionState, context: __SerdeContext): any => {
   return take(input, {
+    conversationHistory: _json,
     files: (_) => se_InputFiles(_, context),
     invocationId: [],
     promptSessionAttributes: _json,
-    returnControlInvocationResults: _json,
+    returnControlInvocationResults: (_) => se_ReturnControlInvocationResults(_, context),
     sessionAttributes: _json,
   });
 };
@@ -2499,7 +2612,16 @@ const se_InputFiles = (input: InputFile[], context: __SerdeContext): any => {
 
 // se_InputPrompt omitted.
 
-// se_InvocationResultMember omitted.
+/**
+ * serializeAws_restJson1InvocationResultMember
+ */
+const se_InvocationResultMember = (input: InvocationResultMember, context: __SerdeContext): any => {
+  return InvocationResultMember.visit(input, {
+    apiResult: (value) => ({ apiResult: se_ApiResult(value, context) }),
+    functionResult: (value) => ({ functionResult: se_FunctionResult(value, context) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
 
 /**
  * serializeAws_restJson1InvocationStepPayload
@@ -2638,6 +2760,7 @@ const se_PromptConfiguration = (input: PromptConfiguration, context: __SerdeCont
   return take(input, {
     additionalModelRequestFields: (_) => se_Document(_, context),
     basePromptTemplate: [],
+    foundationModel: [],
     inferenceConfiguration: (_) => se_InferenceConfiguration(_, context),
     parserMode: [],
     promptCreationMode: [],
@@ -2727,7 +2850,18 @@ const se_RerankSourcesList = (input: RerankSource[], context: __SerdeContext): a
 
 // se_RerankTextDocument omitted.
 
-// se_ResponseBody omitted.
+/**
+ * serializeAws_restJson1ResponseBody
+ */
+const se_ResponseBody = (input: Record<string, ContentBody>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_ContentBody(value, context);
+    return acc;
+  }, {});
+};
 
 /**
  * serializeAws_restJson1RetrievalFilter
@@ -2777,7 +2911,16 @@ const se_RetrieveAndGenerateConfiguration = (input: RetrieveAndGenerateConfigura
 
 // se_RetrieveAndGenerateSessionConfiguration omitted.
 
-// se_ReturnControlInvocationResults omitted.
+/**
+ * serializeAws_restJson1ReturnControlInvocationResults
+ */
+const se_ReturnControlInvocationResults = (input: InvocationResultMember[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_InvocationResultMember(entry, context);
+    });
+};
 
 // se_S3Identifier omitted.
 
@@ -2801,7 +2944,7 @@ const se_SessionState = (input: SessionState, context: __SerdeContext): any => {
     invocationId: [],
     knowledgeBaseConfigurations: (_) => se_KnowledgeBaseConfigurations(_, context),
     promptSessionAttributes: _json,
-    returnControlInvocationResults: _json,
+    returnControlInvocationResults: (_) => se_ReturnControlInvocationResults(_, context),
     sessionAttributes: _json,
   });
 };
@@ -2883,9 +3026,30 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 
 // de_ActionGroupInvocationOutput omitted.
 
-// de_AgentCollaboratorInputPayload omitted.
+/**
+ * deserializeAws_restJson1AgentCollaboratorInputPayload
+ */
+const de_AgentCollaboratorInputPayload = (output: any, context: __SerdeContext): AgentCollaboratorInputPayload => {
+  return take(output, {
+    returnControlResults: (_: any) => de_ReturnControlResults(_, context),
+    text: __expectString,
+    type: __expectString,
+  }) as any;
+};
 
-// de_AgentCollaboratorInvocationInput omitted.
+/**
+ * deserializeAws_restJson1AgentCollaboratorInvocationInput
+ */
+const de_AgentCollaboratorInvocationInput = (
+  output: any,
+  context: __SerdeContext
+): AgentCollaboratorInvocationInput => {
+  return take(output, {
+    agentCollaboratorAliasArn: __expectString,
+    agentCollaboratorName: __expectString,
+    input: (_: any) => de_AgentCollaboratorInputPayload(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1AgentCollaboratorInvocationOutput
@@ -2915,7 +3079,21 @@ const de_AgentCollaboratorInvocationOutput = (
 
 // de_ApiRequestBody omitted.
 
-// de_ApiResult omitted.
+/**
+ * deserializeAws_restJson1ApiResult
+ */
+const de_ApiResult = (output: any, context: __SerdeContext): ApiResult => {
+  return take(output, {
+    actionGroup: __expectString,
+    agentId: __expectString,
+    apiPath: __expectString,
+    confirmationState: __expectString,
+    httpMethod: __expectString,
+    httpStatusCode: __expectInt32,
+    responseBody: (_: any) => de_ResponseBody(_, context),
+    responseState: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1Attribution
@@ -2994,7 +3172,15 @@ const de_Citations = (output: any, context: __SerdeContext): Citation[] => {
 
 // de_CodeInterpreterInvocationOutput omitted.
 
-// de_ContentBody omitted.
+/**
+ * deserializeAws_restJson1ContentBody
+ */
+const de_ContentBody = (output: any, context: __SerdeContext): ContentBody => {
+  return take(output, {
+    body: __expectString,
+    images: (_: any) => de_ImageInputs(_, context),
+  }) as any;
+};
 
 // de_ContentMap omitted.
 
@@ -3210,7 +3396,19 @@ const de_FlowTraceNodeOutputFields = (output: any, context: __SerdeContext): Flo
 
 // de_FunctionParameters omitted.
 
-// de_FunctionResult omitted.
+/**
+ * deserializeAws_restJson1FunctionResult
+ */
+const de_FunctionResult = (output: any, context: __SerdeContext): FunctionResult => {
+  return take(output, {
+    actionGroup: __expectString,
+    agentId: __expectString,
+    confirmationState: __expectString,
+    function: __expectString,
+    responseBody: (_: any) => de_ResponseBody(_, context),
+    responseState: __expectString,
+  }) as any;
+};
 
 // de_GeneratedQueries omitted.
 
@@ -3266,6 +3464,40 @@ const de_ImageBlock = (output: any, context: __SerdeContext): ImageBlock => {
     format: __expectString,
     source: (_: any) => de_ImageSource(__expectUnion(_), context),
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ImageInput
+ */
+const de_ImageInput = (output: any, context: __SerdeContext): ImageInput => {
+  return take(output, {
+    format: __expectString,
+    source: (_: any) => de_ImageInputSource(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ImageInputs
+ */
+const de_ImageInputs = (output: any, context: __SerdeContext): ImageInput[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ImageInput(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ImageInputSource
+ */
+const de_ImageInputSource = (output: any, context: __SerdeContext): ImageInputSource => {
+  if (output.bytes != null) {
+    return {
+      bytes: context.base64Decoder(output.bytes),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 /**
@@ -3329,13 +3561,40 @@ const de_InlineAgentTracePart = (output: any, context: __SerdeContext): InlineAg
   }) as any;
 };
 
-// de_InvocationInput omitted.
+/**
+ * deserializeAws_restJson1InvocationInput
+ */
+const de_InvocationInput = (output: any, context: __SerdeContext): InvocationInput => {
+  return take(output, {
+    actionGroupInvocationInput: _json,
+    agentCollaboratorInvocationInput: (_: any) => de_AgentCollaboratorInvocationInput(_, context),
+    codeInterpreterInvocationInput: _json,
+    invocationType: __expectString,
+    knowledgeBaseLookupInput: _json,
+    traceId: __expectString,
+  }) as any;
+};
 
 // de_InvocationInputMember omitted.
 
 // de_InvocationInputs omitted.
 
-// de_InvocationResultMember omitted.
+/**
+ * deserializeAws_restJson1InvocationResultMember
+ */
+const de_InvocationResultMember = (output: any, context: __SerdeContext): InvocationResultMember => {
+  if (output.apiResult != null) {
+    return {
+      apiResult: de_ApiResult(output.apiResult, context),
+    };
+  }
+  if (output.functionResult != null) {
+    return {
+      functionResult: de_FunctionResult(output.functionResult, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 /**
  * deserializeAws_restJson1InvocationStep
@@ -3540,7 +3799,7 @@ const de_OrchestrationModelInvocationOutput = (
 const de_OrchestrationTrace = (output: any, context: __SerdeContext): OrchestrationTrace => {
   if (output.invocationInput != null) {
     return {
-      invocationInput: _json(output.invocationInput),
+      invocationInput: de_InvocationInput(output.invocationInput, context),
     };
   }
   if (output.modelInvocationInput != null) {
@@ -3740,7 +3999,18 @@ const de_RerankResultsList = (output: any, context: __SerdeContext): RerankResul
 
 // de_RerankTextDocument omitted.
 
-// de_ResponseBody omitted.
+/**
+ * deserializeAws_restJson1ResponseBody
+ */
+const de_ResponseBody = (output: any, context: __SerdeContext): Record<string, ContentBody> => {
+  return Object.entries(output).reduce((acc: Record<string, ContentBody>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_ContentBody(value, context);
+    return acc;
+  }, {} as Record<string, ContentBody>);
+};
 
 // de_RetrievalResultConfluenceLocation omitted.
 
@@ -3813,11 +4083,29 @@ const de_RetrievedReferences = (output: any, context: __SerdeContext): Retrieved
   return retVal;
 };
 
-// de_ReturnControlInvocationResults omitted.
+/**
+ * deserializeAws_restJson1ReturnControlInvocationResults
+ */
+const de_ReturnControlInvocationResults = (output: any, context: __SerdeContext): InvocationResultMember[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InvocationResultMember(__expectUnion(entry), context);
+    });
+  return retVal;
+};
 
 // de_ReturnControlPayload omitted.
 
-// de_ReturnControlResults omitted.
+/**
+ * deserializeAws_restJson1ReturnControlResults
+ */
+const de_ReturnControlResults = (output: any, context: __SerdeContext): ReturnControlResults => {
+  return take(output, {
+    invocationId: __expectString,
+    returnControlInvocationResults: (_: any) => de_ReturnControlInvocationResults(_, context),
+  }) as any;
+};
 
 // de_RoutingClassifierModelInvocationOutput omitted.
 
@@ -3827,7 +4115,7 @@ const de_RetrievedReferences = (output: any, context: __SerdeContext): Retrieved
 const de_RoutingClassifierTrace = (output: any, context: __SerdeContext): RoutingClassifierTrace => {
   if (output.invocationInput != null) {
     return {
-      invocationInput: _json(output.invocationInput),
+      invocationInput: de_InvocationInput(output.invocationInput, context),
     };
   }
   if (output.modelInvocationInput != null) {
@@ -3939,6 +4227,7 @@ const de_TracePart = (output: any, context: __SerdeContext): TracePart => {
     agentVersion: __expectString,
     callerChain: _json,
     collaboratorName: __expectString,
+    eventTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     sessionId: __expectString,
     trace: (_: any) => de_Trace(__expectUnion(_), context),
   }) as any;

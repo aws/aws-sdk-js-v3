@@ -4714,6 +4714,9 @@ export const de_GetDataAccessCommand = async (
   if (data[_Cr] != null) {
     contents[_Cr] = de_Credentials(data[_Cr], context);
   }
+  if (data[_G] != null) {
+    contents[_G] = de_Grantee(data[_G], context);
+  }
   if (data[_MGT] != null) {
     contents[_MGT] = __expectString(data[_MGT]);
   }

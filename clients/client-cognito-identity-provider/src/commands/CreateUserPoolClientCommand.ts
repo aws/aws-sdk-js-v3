@@ -37,11 +37,10 @@ export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientR
 
 /**
  * <p>Creates an app client in a user pool. This operation sets basic and advanced
- *             configuration options. You can create an app client in the Amazon Cognito console to your
- *             preferences and use the output of <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html">DescribeUserPoolClient</a> to generate requests from that
- *             baseline.</p>
- *          <p>New app clients activate token revocation by default. For more information about
- *             revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
+ *             configuration options.</p>
+ *          <p>Unlike app clients created in the console, Amazon Cognito doesn't automatically assign a
+ * branding style to app clients that you configure with this API operation. Managed login and classic hosted UI pages aren't
+ * available for your client until after you apply a branding style.</p>
  *          <important>
  *             <p>If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p>
  *          </important>

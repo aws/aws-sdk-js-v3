@@ -102,8 +102,6 @@ import {
   VerifiedAccessGroup,
   VerifiedAccessSseSpecificationRequest,
   VpcBlockPublicAccessExclusion,
-  VpnConnection,
-  VpnConnectionFilterSensitiveLog,
   VpnEcmpSupportValue,
   VpnTunnelLogOptionsSpecification,
 } from "./models_2";
@@ -111,10 +109,11 @@ import {
 import {
   Byoasn,
   CapacityBlockExtension,
-  ClientVpnConnectionStatus,
   Filter,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
+  VpnConnection,
+  VpnConnectionFilterSensitiveLog,
 } from "./models_3";
 
 import {
@@ -134,7 +133,6 @@ import {
   Monitoring,
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
-  PublicIpv4PoolRange,
   TpmSupportValues,
 } from "./models_4";
 
@@ -144,6 +142,7 @@ import {
   InstanceNetworkInterfaceSpecification,
   InternetGatewayBlockMode,
   LaunchTemplateConfig,
+  PublicIpv4PoolRange,
   ReservedInstancesConfiguration,
   RunInstancesMonitoringEnabled,
   ScheduledInstance,
@@ -158,14 +157,153 @@ import {
   VpcBlockPublicAccessOptions,
 } from "./models_5";
 
-import {
-  CapacityReservationSpecification,
-  IpamResourceCidr,
-  OperationType,
-  Purchase,
-  SuccessfulInstanceCreditSpecificationItem,
-  UnsuccessfulInstanceCreditSpecificationErrorCode,
-} from "./models_6";
+import { CapacityReservationSpecification, IpamResourceCidr, OperationType, Purchase } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyInstanceCapacityReservationAttributesResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceCpuOptionsRequest {
+  /**
+   * <p>The ID of the instance to update.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The number of CPU cores to activate for the specified instance.</p>
+   * @public
+   */
+  CoreCount: number | undefined;
+
+  /**
+   * <p>The number of threads to run for each CPU core.</p>
+   * @public
+   */
+  ThreadsPerCore: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceCpuOptionsResult {
+  /**
+   * <p>The ID of the instance that was updated.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The number of CPU cores that are running for the specified instance after the
+   * 			update.</p>
+   * @public
+   */
+  CoreCount?: number | undefined;
+
+  /**
+   * <p>The number of threads that are running per CPU core for the specified
+   * 			instance after the update.</p>
+   * @public
+   */
+  ThreadsPerCore?: number | undefined;
+}
+
+/**
+ * <p>Describes the credit option for CPU usage of a burstable performance instance.</p>
+ * @public
+ */
+export interface InstanceCreditSpecificationRequest {
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The credit option for CPU usage of the instance.</p>
+   *          <p>Valid values: <code>standard</code> | <code>unlimited</code>
+   *          </p>
+   *          <p>T3 instances with <code>host</code> tenancy do not support the <code>unlimited</code>
+   *             CPU credit option.</p>
+   * @public
+   */
+  CpuCredits?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyInstanceCreditSpecificationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *                 Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Information about the credit option for CPU usage.</p>
+   * @public
+   */
+  InstanceCreditSpecifications: InstanceCreditSpecificationRequest[] | undefined;
+}
+
+/**
+ * <p>Describes the burstable performance instance whose credit option for CPU usage was
+ *             successfully modified.</p>
+ * @public
+ */
+export interface SuccessfulInstanceCreditSpecificationItem {
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UnsuccessfulInstanceCreditSpecificationErrorCode = {
+  INCORRECT_INSTANCE_STATE: "IncorrectInstanceState",
+  INSTANCE_CREDIT_SPECIFICATION_NOT_SUPPORTED: "InstanceCreditSpecification.NotSupported",
+  INSTANCE_NOT_FOUND: "InvalidInstanceID.NotFound",
+  INVALID_INSTANCE_ID: "InvalidInstanceID.Malformed",
+} as const;
+
+/**
+ * @public
+ */
+export type UnsuccessfulInstanceCreditSpecificationErrorCode =
+  (typeof UnsuccessfulInstanceCreditSpecificationErrorCode)[keyof typeof UnsuccessfulInstanceCreditSpecificationErrorCode];
 
 /**
  * <p>Information about the error for the burstable performance instance whose credit option
@@ -298,7 +436,8 @@ export interface ModifyInstanceEventWindowRequest {
   TimeRanges?: InstanceEventWindowTimeRangeRequest[] | undefined;
 
   /**
-   * <p>The cron expression of the event window, for example, <code>* 0-4,20-23 * * 1,5</code>.</p>
+   * <p>The cron expression of the event window, for example, <code>* 0-4,20-23 * *
+   *          1,5</code>.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -1152,8 +1291,9 @@ export interface ModifyLaunchTemplateRequest {
 
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency
-   *                 in Amazon EC2 API requests</a>.</p>
+   *             request. If a client token isn't specified, a randomly generated token is used in the request to ensure idempotency.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *                 idempotency</a>.</p>
    *          <p>Constraint: Maximum 128 ASCII characters.</p>
    * @public
    */
@@ -5388,15 +5528,16 @@ export interface RegisterImageResult {
 }
 
 /**
- * <p>Information about the tag keys to register for the current Region. You can either specify
- *       	individual tag keys or register all tag keys in the current Region. You must specify either
- *       	<code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>
+ * <p>Information about the tag keys to register for the current Region. You can either
+ *          specify individual tag keys or register all tag keys in the current Region. You must
+ *          specify either <code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the
+ *          request</p>
  * @public
  */
 export interface RegisterInstanceTagAttributeRequest {
   /**
-   * <p>Indicates whether to register all tag keys in the current Region. Specify <code>true</code>
-   *       	to register all tag keys.</p>
+   * <p>Indicates whether to register all tag keys in the current Region. Specify
+   *             <code>true</code> to register all tag keys.</p>
    * @public
    */
   IncludeAllTagsOfInstance?: boolean | undefined;
@@ -9368,167 +9509,6 @@ export interface StartVpcEndpointServicePrivateDnsVerificationResult {
    * @public
    */
   ReturnValue?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface StopInstancesRequest {
-  /**
-   * <p>The IDs of the instances.</p>
-   * @public
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>Hibernates the instance if the instance was enabled for hibernation at launch. If the
-   *             instance cannot hibernate successfully, a normal shutdown occurs. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
-   *                 your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <p> Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  Hibernate?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Forces the instances to stop. The instances do not have an opportunity to flush file
-   *             system caches or file system metadata. If you use this option, you must perform file
-   *             system check and repair procedures. This option is not recommended for Windows
-   *             instances.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  Force?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface StopInstancesResult {
-  /**
-   * <p>Information about the stopped instances.</p>
-   * @public
-   */
-  StoppingInstances?: InstanceStateChange[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TerminateClientVpnConnectionsRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint to which the client is connected.</p>
-   * @public
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The ID of the client connection to be terminated.</p>
-   * @public
-   */
-  ConnectionId?: string | undefined;
-
-  /**
-   * <p>The name of the user who initiated the connection. Use this option to terminate all active connections for
-   * 			the specified user. This option can only be used if the user has established up to five connections.</p>
-   * @public
-   */
-  Username?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Information about a terminated Client VPN endpoint client connection.</p>
- * @public
- */
-export interface TerminateConnectionStatus {
-  /**
-   * <p>The ID of the client connection.</p>
-   * @public
-   */
-  ConnectionId?: string | undefined;
-
-  /**
-   * <p>The state of the client connection.</p>
-   * @public
-   */
-  PreviousStatus?: ClientVpnConnectionStatus | undefined;
-
-  /**
-   * <p>A message about the status of the client connection, if applicable.</p>
-   * @public
-   */
-  CurrentStatus?: ClientVpnConnectionStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface TerminateClientVpnConnectionsResult {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   * @public
-   */
-  ClientVpnEndpointId?: string | undefined;
-
-  /**
-   * <p>The user who established the terminated client connections.</p>
-   * @public
-   */
-  Username?: string | undefined;
-
-  /**
-   * <p>The current state of the client connections.</p>
-   * @public
-   */
-  ConnectionStatuses?: TerminateConnectionStatus[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TerminateInstancesRequest {
-  /**
-   * <p>The IDs of the instances.</p>
-   *          <p>Constraints: Up to 1000 instance IDs. We recommend breaking up this request into
-   *             smaller batches.</p>
-   * @public
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface TerminateInstancesResult {
-  /**
-   * <p>Information about the terminated instances.</p>
-   * @public
-   */
-  TerminatingInstances?: InstanceStateChange[] | undefined;
 }
 
 /**

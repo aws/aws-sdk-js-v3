@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
+
+**Note:** Version bump only for package @aws-sdk/client-workspaces
+
+
+
+
+
+# [3.763.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.762.0...v3.763.0) (2025-03-06)
+
+
+### Features
+
+* **client-workspaces:** Added a new ModifyEndpointEncryptionMode API for managing endpoint encryption settings. ([84a664c](https://github.com/aws/aws-sdk-js-v3/commit/84a664ccfa9c45d1fb9ffdb4d5e6aeace6b7543a))
+
+
+
+
+
+# [3.762.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.761.0...v3.762.0) (2025-03-05)
+
+
+### Features
+
+* **client-workspaces:** Added DeviceTypeWorkSpacesThinClient type to allow users to access their WorkSpaces through a WorkSpaces Thin Client. ([0c829af](https://github.com/aws/aws-sdk-js-v3/commit/0c829af4957337ebf07c97373d5d22cd942b3222))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces

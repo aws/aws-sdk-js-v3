@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
+
+**Note:** Version bump only for package @aws-sdk/client-datasync
+
+
+
+
+
+# [3.762.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.761.0...v3.762.0) (2025-03-05)
+
+
+### Features
+
+* **client-datasync:** AWS DataSync now supports modifying ServerHostname while updating locations SMB, NFS, and ObjectStorage. ([fdaf7bc](https://github.com/aws/aws-sdk-js-v3/commit/fdaf7bc9222a456d484568d0bd2edfc366346a2a))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-datasync

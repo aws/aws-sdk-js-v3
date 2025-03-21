@@ -60,6 +60,7 @@ export interface ListBranchesCommandOutput extends ListBranchesResult, __Metadat
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       enableAutoBuild: true || false, // required
+ * //       enableSkewProtection: true || false,
  * //       customDomains: [ // CustomDomains // required
  * //         "STRING_VALUE",
  * //       ],

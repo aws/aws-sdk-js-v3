@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
+
+
+### Features
+
+* **client-network-firewall:** You can now use flow operations to either flush or capture traffic monitored in your firewall's flow table. ([a4ec1dd](https://github.com/aws/aws-sdk-js-v3/commit/a4ec1ddeb1a7b9c25f7a083e5691224269ead3fb))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-network-firewall

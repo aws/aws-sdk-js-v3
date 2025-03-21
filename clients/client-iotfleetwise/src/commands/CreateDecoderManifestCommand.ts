@@ -68,6 +68,7 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *         factor: Number("double"), // required
  *         length: Number("int"), // required
  *         name: "STRING_VALUE",
+ *         signalValueType: "INTEGER" || "FLOATING_POINT",
  *       },
  *       obdSignal: { // ObdSignal
  *         pidResponseLength: Number("int"), // required
@@ -79,6 +80,8 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *         byteLength: Number("int"), // required
  *         bitRightShift: Number("int"),
  *         bitMaskLength: Number("int"),
+ *         isSigned: true || false,
+ *         signalValueType: "INTEGER" || "FLOATING_POINT",
  *       },
  *       messageSignal: { // MessageSignal
  *         topicName: "STRING_VALUE", // required

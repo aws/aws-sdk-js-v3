@@ -36,6 +36,7 @@ export interface ListStandardsControlAssociationsCommandOutput
  * <p>
  *          Specifies whether a control is currently enabled or disabled in each enabled standard in the calling account.
  *       </p>
+ *          <p>This operation omits standards control associations for standard subscriptions where <code>StandardsControlsUpdatable</code> has value <code>NOT_READY_FOR_UPDATES</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -51,7 +51,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  *   filterGroups: [ // FilterGroups
  *     [ // FilterGroup
  *       { // WebhookFilter
- *         type: "EVENT" || "BASE_REF" || "HEAD_REF" || "ACTOR_ACCOUNT_ID" || "FILE_PATH" || "COMMIT_MESSAGE" || "WORKFLOW_NAME" || "TAG_NAME" || "RELEASE_NAME" || "REPOSITORY_NAME", // required
+ *         type: "EVENT" || "BASE_REF" || "HEAD_REF" || "ACTOR_ACCOUNT_ID" || "FILE_PATH" || "COMMIT_MESSAGE" || "WORKFLOW_NAME" || "TAG_NAME" || "RELEASE_NAME" || "REPOSITORY_NAME" || "ORGANIZATION_NAME", // required
  *         pattern: "STRING_VALUE", // required
  *         excludeMatchedPattern: true || false,
  *       },
@@ -76,7 +76,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  * //     filterGroups: [ // FilterGroups
  * //       [ // FilterGroup
  * //         { // WebhookFilter
- * //           type: "EVENT" || "BASE_REF" || "HEAD_REF" || "ACTOR_ACCOUNT_ID" || "FILE_PATH" || "COMMIT_MESSAGE" || "WORKFLOW_NAME" || "TAG_NAME" || "RELEASE_NAME" || "REPOSITORY_NAME", // required
+ * //           type: "EVENT" || "BASE_REF" || "HEAD_REF" || "ACTOR_ACCOUNT_ID" || "FILE_PATH" || "COMMIT_MESSAGE" || "WORKFLOW_NAME" || "TAG_NAME" || "RELEASE_NAME" || "REPOSITORY_NAME" || "ORGANIZATION_NAME", // required
  * //           pattern: "STRING_VALUE", // required
  * //           excludeMatchedPattern: true || false,
  * //         },

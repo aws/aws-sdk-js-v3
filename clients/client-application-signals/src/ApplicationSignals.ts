@@ -9,6 +9,11 @@ import {
   BatchGetServiceLevelObjectiveBudgetReportCommandOutput,
 } from "./commands/BatchGetServiceLevelObjectiveBudgetReportCommand";
 import {
+  BatchUpdateExclusionWindowsCommand,
+  BatchUpdateExclusionWindowsCommandInput,
+  BatchUpdateExclusionWindowsCommandOutput,
+} from "./commands/BatchUpdateExclusionWindowsCommand";
+import {
   CreateServiceLevelObjectiveCommand,
   CreateServiceLevelObjectiveCommandInput,
   CreateServiceLevelObjectiveCommandOutput,
@@ -34,6 +39,11 @@ import {
   ListServiceDependentsCommandInput,
   ListServiceDependentsCommandOutput,
 } from "./commands/ListServiceDependentsCommand";
+import {
+  ListServiceLevelObjectiveExclusionWindowsCommand,
+  ListServiceLevelObjectiveExclusionWindowsCommandInput,
+  ListServiceLevelObjectiveExclusionWindowsCommandOutput,
+} from "./commands/ListServiceLevelObjectiveExclusionWindowsCommand";
 import {
   ListServiceLevelObjectivesCommand,
   ListServiceLevelObjectivesCommandInput,
@@ -73,12 +83,14 @@ import {
 
 const commands = {
   BatchGetServiceLevelObjectiveBudgetReportCommand,
+  BatchUpdateExclusionWindowsCommand,
   CreateServiceLevelObjectiveCommand,
   DeleteServiceLevelObjectiveCommand,
   GetServiceCommand,
   GetServiceLevelObjectiveCommand,
   ListServiceDependenciesCommand,
   ListServiceDependentsCommand,
+  ListServiceLevelObjectiveExclusionWindowsCommand,
   ListServiceLevelObjectivesCommand,
   ListServiceOperationsCommand,
   ListServicesCommand,
@@ -105,6 +117,23 @@ export interface ApplicationSignals {
     args: BatchGetServiceLevelObjectiveBudgetReportCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetServiceLevelObjectiveBudgetReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchUpdateExclusionWindowsCommand}
+   */
+  batchUpdateExclusionWindows(
+    args: BatchUpdateExclusionWindowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateExclusionWindowsCommandOutput>;
+  batchUpdateExclusionWindows(
+    args: BatchUpdateExclusionWindowsCommandInput,
+    cb: (err: any, data?: BatchUpdateExclusionWindowsCommandOutput) => void
+  ): void;
+  batchUpdateExclusionWindows(
+    args: BatchUpdateExclusionWindowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateExclusionWindowsCommandOutput) => void
   ): void;
 
   /**
@@ -201,6 +230,23 @@ export interface ApplicationSignals {
     args: ListServiceDependentsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListServiceDependentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListServiceLevelObjectiveExclusionWindowsCommand}
+   */
+  listServiceLevelObjectiveExclusionWindows(
+    args: ListServiceLevelObjectiveExclusionWindowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServiceLevelObjectiveExclusionWindowsCommandOutput>;
+  listServiceLevelObjectiveExclusionWindows(
+    args: ListServiceLevelObjectiveExclusionWindowsCommandInput,
+    cb: (err: any, data?: ListServiceLevelObjectiveExclusionWindowsCommandOutput) => void
+  ): void;
+  listServiceLevelObjectiveExclusionWindows(
+    args: ListServiceLevelObjectiveExclusionWindowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServiceLevelObjectiveExclusionWindowsCommandOutput) => void
   ): void;
 
   /**

@@ -82,6 +82,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //   },
  * //   CreatedAt: new Date("TIMESTAMP"), // required
  * //   ModifiedAt: new Date("TIMESTAMP"), // required
+ * //   ResetAt: new Date("TIMESTAMP"),
  * //   Description: "STRING_VALUE",
  * //   StartoverWindowSeconds: Number("int"),
  * //   HlsManifests: [ // GetHlsManifests
@@ -105,6 +106,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //         TimeOffset: Number("float"), // required
  * //         Precise: true || false,
  * //       },
+ * //       UrlEncodeChildManifest: true || false,
  * //     },
  * //   ],
  * //   LowLatencyHlsManifests: [ // GetLowLatencyHlsManifests
@@ -128,6 +130,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //         TimeOffset: Number("float"), // required
  * //         Precise: true || false,
  * //       },
+ * //       UrlEncodeChildManifest: true || false,
  * //     },
  * //   ],
  * //   DashManifests: [ // GetDashManifests

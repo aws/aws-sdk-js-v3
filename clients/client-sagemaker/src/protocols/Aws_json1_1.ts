@@ -20022,6 +20022,7 @@ const de_CreateDataQualityJobDefinitionResponse = (
 const de_CreateDomainResponse = (output: any, context: __SerdeContext): CreateDomainResponse => {
   return take(output, {
     DomainArn: __expectString,
+    DomainId: __expectString,
     Url: __expectString,
   }) as any;
 };

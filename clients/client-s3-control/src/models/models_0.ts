@@ -6043,6 +6043,13 @@ export interface GetDataAccessResult {
    * @public
    */
   MatchedGrantTarget?: string | undefined;
+
+  /**
+   * <p>The user, group, or role that was granted access to the S3 location scope. For directory identities, this API also returns the grants of the IAM role used for the identity-aware request. For more information on identity-aware sessions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_sts-setcontext.html">Granting permissions to use identity-aware console sessions</a>.
+   *       </p>
+   * @public
+   */
+  Grantee?: Grantee | undefined;
 }
 
 /**
