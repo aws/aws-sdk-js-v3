@@ -386,7 +386,7 @@ export class TimestreamWriteClient extends __Client<
     const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveEndpointConfig(_config_5);
-    const _config_7 = resolveHttpAuthSchemeConfig(_config_6, { client: () => this });
+    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveEndpointDiscoveryConfig(_config_7, {
       endpointDiscoveryCommandCtor: DescribeEndpointsCommand,
     });

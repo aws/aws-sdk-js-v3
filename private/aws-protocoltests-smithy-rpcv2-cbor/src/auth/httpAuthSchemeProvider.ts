@@ -102,9 +102,8 @@ export interface HttpAuthSchemeResolvedConfig {
 /**
  * @internal
  */
-export const resolveHttpAuthSchemeConfig = <T, R extends object>(
-  config: T & HttpAuthSchemeInputConfig,
-  { client }: { client: () => { config: R } }
+export const resolveHttpAuthSchemeConfig = <T>(
+  config: T & HttpAuthSchemeInputConfig
 ): T & HttpAuthSchemeResolvedConfig => {
   return {
     ...config,
