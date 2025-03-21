@@ -9,6 +9,7 @@ import { chain, CredentialsProviderError, memoize } from "@smithy/property-provi
 import { ENV_PROFILE } from "@smithy/shared-ini-file-loader";
 import { AwsCredentialIdentity, MemoizedProvider } from "@smithy/types";
 
+import { memoizeGlobal } from "./memoizeGlobal";
 import { remoteProvider } from "./remoteProvider";
 
 /**
@@ -25,11 +26,6 @@ export type DefaultProviderInit = FromIniInit &
  * @internal
  */
 let multipleCredentialSourceWarningEmitted = false;
-
-/**
- * @internal
- */
-const credentialCache = new WeakMap<() => Promise<AwsCredentialIdentity>, AwsCredentialIdentity>();
 
 /**
  * Creates a credential provider that will attempt to find credentials from the
@@ -66,7 +62,7 @@ const credentialCache = new WeakMap<() => Promise<AwsCredentialIdentity>, AwsCre
  *                                      ECS Container Metadata Service.
  */
 export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvider<AwsCredentialIdentity> => {
-  const providerChain = chain(
+  const provider = chain(
     async () => {
       const profile = init.profile ?? process.env[ENV_PROFILE];
       if (profile) {
@@ -136,22 +132,19 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedProvide
     }
   );
 
-  return memoize(
-    providerChain,
-    (credentials) => {
-      const cached = credentialCache.get(providerChain);
-      if (cached && !credentialsTreatedAsExpired(cached)) {
-        return true;
+  return memoizeGlobal(
+    async () => {
+      try {
+        return await provider();
+      } catch (error) {
+        if (error instanceof CredentialsProviderError) {
+          throw error;
+        }
+        throw new CredentialsProviderError(error.message, { tryNextLink: true });
       }
-      return credentialsTreatedAsExpired(credentials);
     },
-    (credentials) => {
-      const needsRefresh = credentialsWillNeedRefresh(credentials);
-      if (!needsRefresh) {
-        credentialCache.set(providerChain, credentials);
-      }
-      return needsRefresh;
-    }
+    credentialsTreatedAsExpired,
+    credentialsWillNeedRefresh
   );
 };
 
