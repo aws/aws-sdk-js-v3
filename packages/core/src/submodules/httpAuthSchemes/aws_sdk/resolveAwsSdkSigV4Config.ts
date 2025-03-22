@@ -129,7 +129,7 @@ export const resolveAwsSdkSigV4Config = <T>(
     }
   }
 
-  const boundCredentialsProvider = async () => credentialsProvider!({ callerClientConfig: config });
+  const boundCredentialsProvider = async (params) => credentialsProvider!({ ...params, callerClientConfig: config });
 
   // Populate sigv4 arguments
   const {
@@ -225,8 +225,8 @@ export const resolveAwsSdkSigV4Config = <T>(
     systemClockOffset,
     signingEscapePath,
     credentials: isUserSupplied
-      ? async () =>
-          boundCredentialsProvider!().then((creds: AttributedAwsCredentialIdentity) =>
+      ? async (params) =>
+          boundCredentialsProvider!(params).then((creds: AttributedAwsCredentialIdentity) =>
             setCredentialFeature(creds, "CREDENTIALS_CODE", "e")
           )
       : boundCredentialsProvider!,
