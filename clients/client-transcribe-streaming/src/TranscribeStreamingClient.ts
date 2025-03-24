@@ -370,6 +370,8 @@ export class TranscribeStreamingClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<TranscribeStreamingClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveUserAgentConfig(_config_1);
     const _config_3 = resolveRetryConfig(_config_2);
@@ -381,7 +383,6 @@ export class TranscribeStreamingClient extends __Client<
     const _config_9 = resolveEventStreamConfig(_config_8);
     const _config_10 = resolveWebSocketConfig(_config_9);
     const _config_11 = resolveRuntimeExtensions(_config_10, configuration?.extensions || []);
-    super(_config_11);
     this.config = _config_11;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));

@@ -17,11 +17,10 @@ export type ClientResolvedEndpointParameters = ClientInputEndpointParameters & {
 export const resolveClientEndpointParameters = <T>(
   options: T & ClientInputEndpointParameters
 ): T & ClientResolvedEndpointParameters => {
-  return {
-    ...options,
+  return Object.assign(options, {
     useFipsEndpoint: options.useFipsEndpoint ?? false,
     defaultSigningName: "networkflowmonitor",
-  };
+  });
 };
 
 export const commonParams = {

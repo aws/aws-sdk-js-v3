@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 // Please do not touch this file. It's generated from a template in:
-// https://github.com/awslabs/smithy-typescript/blob/main/smithy-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/integration/http-api-key-auth.ts
+// https://github.com/smithy-lang/smithy-typescript/blob/main/smithy-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/integration/http-api-key-auth.ts
 // derived from https://github.com/aws/aws-sdk-js-v3/blob/e35f78c97fa6710ff9c444351893f0f06755e771/packages/middleware-endpoint-discovery/src/endpointDiscoveryMiddleware.ts
 
 import { HttpRequest } from "@smithy/protocol-http";

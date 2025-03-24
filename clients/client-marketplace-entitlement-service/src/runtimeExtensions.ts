@@ -23,26 +23,24 @@ export interface RuntimeExtensionsConfig {
   extensions: RuntimeExtension[];
 }
 
-const asPartial = <T extends Partial<MarketplaceEntitlementServiceExtensionConfiguration>>(t: T) => t;
-
 /**
  * @internal
  */
 export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: RuntimeExtension[]) => {
-  const extensionConfiguration: MarketplaceEntitlementServiceExtensionConfiguration = {
-    ...asPartial(getAwsRegionExtensionConfiguration(runtimeConfig)),
-    ...asPartial(getDefaultExtensionConfiguration(runtimeConfig)),
-    ...asPartial(getHttpHandlerExtensionConfiguration(runtimeConfig)),
-    ...asPartial(getHttpAuthExtensionConfiguration(runtimeConfig)),
-  };
+  const extensionConfiguration: MarketplaceEntitlementServiceExtensionConfiguration = Object.assign(
+    getAwsRegionExtensionConfiguration(runtimeConfig),
+    getDefaultExtensionConfiguration(runtimeConfig),
+    getHttpHandlerExtensionConfiguration(runtimeConfig),
+    getHttpAuthExtensionConfiguration(runtimeConfig)
+  );
 
   extensions.forEach((extension) => extension.configure(extensionConfiguration));
 
-  return {
-    ...runtimeConfig,
-    ...resolveAwsRegionExtensionConfiguration(extensionConfiguration),
-    ...resolveDefaultRuntimeConfig(extensionConfiguration),
-    ...resolveHttpHandlerRuntimeConfig(extensionConfiguration),
-    ...resolveHttpAuthRuntimeConfig(extensionConfiguration),
-  };
+  return Object.assign(
+    runtimeConfig,
+    resolveAwsRegionExtensionConfiguration(extensionConfiguration),
+    resolveDefaultRuntimeConfig(extensionConfiguration),
+    resolveHttpHandlerRuntimeConfig(extensionConfiguration),
+    resolveHttpAuthRuntimeConfig(extensionConfiguration)
+  );
 };

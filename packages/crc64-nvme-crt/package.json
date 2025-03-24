@@ -25,7 +25,7 @@
   "dependencies": {
     "@aws-sdk/crt-loader": "*",
     "@aws-sdk/middleware-flexible-checksums": "*",
-    "@smithy/types": "^4.1.0",
+    "@smithy/types": "^4.2.0",
     "@smithy/util-utf8": "^4.0.0",
     "tslib": "^2.6.2"
   },

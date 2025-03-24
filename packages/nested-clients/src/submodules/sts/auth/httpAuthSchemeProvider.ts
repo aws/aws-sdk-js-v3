@@ -111,10 +111,10 @@ export interface StsAuthResolvedConfig {
   stsClientCtor: new (clientConfig: any) => Client<any, any, any>;
 }
 
-export const resolveStsAuthConfig = <T>(input: T & StsAuthInputConfig): T & StsAuthResolvedConfig => ({
-  ...input,
-  stsClientCtor: STSClient,
-});
+export const resolveStsAuthConfig = <T>(input: T & StsAuthInputConfig): T & StsAuthResolvedConfig =>
+  Object.assign(input, {
+    stsClientCtor: STSClient,
+  });
 
 /**
  * @internal
@@ -158,7 +158,5 @@ export const resolveHttpAuthSchemeConfig = <T>(
 ): T & HttpAuthSchemeResolvedConfig => {
   const config_0 = resolveStsAuthConfig(config);
   const config_1 = resolveAwsSdkSigV4Config(config_0);
-  return {
-    ...config_1,
-  } as T & HttpAuthSchemeResolvedConfig;
+  return Object.assign(config_1, {}) as T & HttpAuthSchemeResolvedConfig;
 };

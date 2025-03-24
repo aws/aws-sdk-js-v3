@@ -105,7 +105,5 @@ export interface HttpAuthSchemeResolvedConfig {
 export const resolveHttpAuthSchemeConfig = <T>(
   config: T & HttpAuthSchemeInputConfig
 ): T & HttpAuthSchemeResolvedConfig => {
-  return {
-    ...config,
-  } as T & HttpAuthSchemeResolvedConfig;
+  return Object.assign(config, {}) as T & HttpAuthSchemeResolvedConfig;
 };

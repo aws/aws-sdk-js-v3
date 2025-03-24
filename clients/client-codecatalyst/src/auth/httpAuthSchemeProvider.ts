@@ -136,8 +136,7 @@ export const resolveHttpAuthSchemeConfig = <T>(
   config: T & HttpAuthSchemeInputConfig
 ): T & HttpAuthSchemeResolvedConfig => {
   const token = memoizeIdentityProvider(config.token, isIdentityExpired, doesIdentityRequireRefresh);
-  return {
-    ...config,
+  return Object.assign(config, {
     token,
-  } as T & HttpAuthSchemeResolvedConfig;
+  }) as T & HttpAuthSchemeResolvedConfig;
 };

@@ -33,9 +33,9 @@
     "@aws-sdk/token-providers": "*",
     "@aws-sdk/types": "*",
     "@smithy/property-provider": "^4.0.1",
-    "@smithy/protocol-http": "^5.0.1",
-    "@smithy/types": "^4.1.0",
-    "@smithy/util-middleware": "^4.0.1",
+    "@smithy/protocol-http": "^5.1.0",
+    "@smithy/types": "^4.2.0",
+    "@smithy/util-middleware": "^4.0.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

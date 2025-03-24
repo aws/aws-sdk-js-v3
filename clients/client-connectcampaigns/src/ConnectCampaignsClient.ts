@@ -377,6 +377,8 @@ export class ConnectCampaignsClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<ConnectCampaignsClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveUserAgentConfig(_config_1);
     const _config_3 = resolveRetryConfig(_config_2);
@@ -385,7 +387,6 @@ export class ConnectCampaignsClient extends __Client<
     const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
