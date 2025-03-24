@@ -23,6 +23,18 @@ for (const submodulePackage of submodulePackages) {
   for (const submodule of submodules) {
     const submodulePath = path.join(root, "src", "submodules", submodule);
     if (fs.existsSync(submodulePath) && fs.lstatSync(submodulePath).isDirectory()) {
+      // api extractor type index
+      const apiExtractorAggregateTypeIndexPath = path.join(root, "src", "api-extractor-type-index.d.ts");
+      if (fs.existsSync(apiExtractorAggregateTypeIndexPath)) {
+        const fileContents = fs.readFileSync(apiExtractorAggregateTypeIndexPath, "utf-8");
+        if (!fileContents.includes(`export * from "../dist-types/submodules/${submodule}";`)) {
+          fs.writeFileSync(
+            apiExtractorAggregateTypeIndexPath,
+            fileContents + `export * from "../dist-types/submodules/${submodule}";`
+          );
+          errors.push(`${submodule} not exported from src/api-extractor-type-index.d.ts`);
+        }
+      }
       // package.json metadata.
       if (!pkgJson.exports[`./${submodule}`]) {
         errors.push(`${submodule} submodule is missing exports statement in package.json`);

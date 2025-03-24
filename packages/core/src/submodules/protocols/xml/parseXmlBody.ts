@@ -4,6 +4,9 @@ import { XMLParser } from "fast-xml-parser";
 
 import { collectBodyString } from "../common";
 
+/**
+ * @internal
+ */
 export const parseXmlBody = (streamBody: any, context: SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -43,6 +46,9 @@ export const parseXmlBody = (streamBody: any, context: SerdeContext): any =>
     return {};
   });
 
+/**
+ * @internal
+ */
 export const parseXmlErrorBody = async (errorBody: any, context: SerdeContext) => {
   const value = await parseXmlBody(errorBody, context);
   if (value.Error) {
@@ -51,6 +57,9 @@ export const parseXmlErrorBody = async (errorBody: any, context: SerdeContext) =
   return value;
 };
 
+/**
+ * @internal
+ */
 export const loadRestXmlErrorCode = (output: HttpResponse, data: any): string | undefined => {
   if (data?.Error?.Code !== undefined) {
     return data.Error.Code;
