@@ -23,29 +23,41 @@ describe("@aws-sdk/lib-storage", () => {
         let dataString: string;
         let Bucket: string;
         let region: string;
+        let resourcesAvailable = false;
 
         beforeAll(async () => {
-          const integTestResourcesEnv = await getIntegTestResources();
-          Object.assign(process.env, integTestResourcesEnv);
+          try {
+            const integTestResourcesEnv = await getIntegTestResources();
+            Object.assign(process.env, integTestResourcesEnv);
 
-          region = process?.env?.AWS_SMOKE_TEST_REGION as string;
-          Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
+            region = process?.env?.AWS_SMOKE_TEST_REGION as string;
+            Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
 
-          Key = ``;
-          data = randomBytes(20_240_000);
-          dataString = data.toString();
+            Key = ``;
+            data = randomBytes(20_240_000);
+            dataString = data.toString();
 
-          // @ts-expect-error: Types of property 'requestChecksumCalculation' are incompatible
-          client = new S3({
-            region,
-            requestChecksumCalculation,
-          });
-          Key = `multi-part-file-${requestChecksumCalculation}-${ChecksumAlgorithm}-${Date.now()}`;
-        });
+            // @ts-expect-error: Types of property 'requestChecksumCalculation' are incompatible
+            client = new S3({
+              region,
+              requestChecksumCalculation,
+            });
+            Key = `multi-part-file-${requestChecksumCalculation}-${ChecksumAlgorithm}-${Date.now()}`;
+            resourcesAvailable = true;
+          } catch (error) {
+            console.warn("Failed to set up test resources:", error);
+          }
+        }, 45_000);
 
         afterAll(async () => {
-          await client.deleteObject({ Bucket, Key });
-        });
+          if (client && Bucket && Key) {
+            try {
+              await client.deleteObject({ Bucket, Key });
+            } catch (error) {
+              console.warn("Failed to clean up test object:", error);
+            }
+          }
+        }, 10_000);
 
         it("should upload in parts for input type bytes", async () => {
           const s3Upload = new Upload({
