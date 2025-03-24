@@ -7,23 +7,12 @@ export type RegionExtensionRuntimeConfigType = Partial<{ region: string | Provid
  * @internal
  */
 export const getAwsRegionExtensionConfiguration = (runtimeConfig: RegionExtensionRuntimeConfigType) => {
-  let runtimeConfigRegion: Provider<string> = async () => {
-    if (runtimeConfig.region === undefined) {
-      throw new Error("Region is missing from runtimeConfig");
-    }
-    const region = runtimeConfig.region!;
-    if (typeof region === "string") {
-      return region;
-    }
-    return region();
-  };
-
   return {
     setRegion(region: Provider<string>): void {
-      runtimeConfigRegion = region;
+      runtimeConfig.region = region;
     },
     region(): Provider<string> {
-      return runtimeConfigRegion;
+      return runtimeConfig.region as Provider<string>;
     },
   };
 };

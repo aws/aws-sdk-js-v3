@@ -36,10 +36,9 @@ export interface PreviouslyResolved {
 export const resolveQueueUrlConfig = <T>(
   config: T & PreviouslyResolved & QueueUrlInputConfig
 ): T & QueueUrlResolvedConfig => {
-  return {
-    ...config,
+  return Object.assign(config, {
     useQueueUrlAsEndpoint: config.useQueueUrlAsEndpoint ?? true,
-  };
+  });
 };
 
 /**

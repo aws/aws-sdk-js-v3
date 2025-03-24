@@ -26,15 +26,18 @@ export interface WebSocketResolvedConfig {
 
 export const resolveWebSocketConfig = <T>(
   input: T & WebSocketInputConfig & PreviouslyResolved
-): T & WebSocketResolvedConfig => ({
-  ...input,
-  signer: async (authScheme: AuthScheme) => {
-    const signerObj = await input.signer(authScheme);
-    if (validateSigner(signerObj)) {
-      return new WebsocketSignatureV4({ signer: signerObj });
-    }
-    throw new Error("Expected WebsocketSignatureV4 signer, please check the client constructor.");
-  },
-});
+): T & WebSocketResolvedConfig => {
+  const { signer } = input;
+
+  return Object.assign(input, {
+    signer: async (authScheme: AuthScheme) => {
+      const signerObj = await signer(authScheme);
+      if (validateSigner(signerObj)) {
+        return new WebsocketSignatureV4({ signer: signerObj });
+      }
+      throw new Error("Expected WebsocketSignatureV4 signer, please check the client constructor.");
+    },
+  });
+};
 
 const validateSigner = (signer: any): signer is BaseSignatureV4 => !!signer;

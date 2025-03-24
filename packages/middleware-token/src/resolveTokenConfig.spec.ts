@@ -21,6 +21,11 @@ describe(resolveTokenConfig.name, () => {
     vi.clearAllMocks();
   });
 
+  it("maintains object custody", () => {
+    const input = {};
+    expect(resolveTokenConfig(input)).toBe(input);
+  });
+
   describe("sets token from normalizeTokenProvider if token is provided", () => {
     beforeEach(() => {
       vi.mocked(normalizeTokenProvider).mockReturnValue(mockOutputToken);

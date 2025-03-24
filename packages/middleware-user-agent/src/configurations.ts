@@ -57,9 +57,11 @@ export function resolveUserAgentConfig<T>(
   input: T & PreviouslyResolved & UserAgentInputConfig
 ): T & UserAgentResolvedConfig {
   const normalizedAppIdProvider = normalizeProvider(input.userAgentAppId ?? DEFAULT_UA_APP_ID);
-  return {
-    ...input,
-    customUserAgent: typeof input.customUserAgent === "string" ? [[input.customUserAgent]] : input.customUserAgent,
+  const { customUserAgent } = input;
+
+  return Object.assign(input, {
+    customUserAgent:
+      typeof customUserAgent === "string" ? ([[customUserAgent]] as [string, string?][]) : customUserAgent,
     userAgentAppId: async () => {
       const appId = await normalizedAppIdProvider();
       if (!isValidUserAgentAppId(appId)) {
@@ -72,5 +74,5 @@ export function resolveUserAgentConfig<T>(
       }
       return appId;
     },
-  };
+  });
 }

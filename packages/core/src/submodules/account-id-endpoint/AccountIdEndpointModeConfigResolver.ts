@@ -35,11 +35,9 @@ export interface AccountIdEndpointModeResolvedConfig {
 export const resolveAccountIdEndpointModeConfig = <T>(
   input: T & AccountIdEndpointModeInputConfig & PreviouslyResolved
 ): T & AccountIdEndpointModeResolvedConfig => {
-  const accountIdEndpointModeProvider = normalizeProvider(
-    input.accountIdEndpointMode ?? DEFAULT_ACCOUNT_ID_ENDPOINT_MODE
-  );
-  return {
-    ...input,
+  const { accountIdEndpointMode } = input;
+  const accountIdEndpointModeProvider = normalizeProvider(accountIdEndpointMode ?? DEFAULT_ACCOUNT_ID_ENDPOINT_MODE);
+  return Object.assign(input, {
     accountIdEndpointMode: async () => {
       const accIdMode = await accountIdEndpointModeProvider();
       if (!validateAccountIdEndpointMode(accIdMode)) {
@@ -49,5 +47,5 @@ export const resolveAccountIdEndpointModeConfig = <T>(
       }
       return accIdMode;
     },
-  };
+  });
 };
