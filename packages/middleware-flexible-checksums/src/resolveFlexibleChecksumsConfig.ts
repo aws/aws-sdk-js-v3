@@ -8,6 +8,9 @@ import {
   ResponseChecksumValidation,
 } from "./constants";
 
+/**
+ * @public
+ */
 export interface FlexibleChecksumsInputConfig {
   /**
    * Determines when a checksum will be calculated for request payloads.
@@ -37,12 +40,18 @@ export interface FlexibleChecksumsInputConfig {
   requestStreamBufferSize?: number | false;
 }
 
+/**
+ * @internal
+ */
 export interface FlexibleChecksumsResolvedConfig {
   requestChecksumCalculation: Provider<RequestChecksumCalculation>;
   responseChecksumValidation: Provider<ResponseChecksumValidation>;
   requestStreamBufferSize: number;
 }
 
+/**
+ * @internal
+ */
 export const resolveFlexibleChecksumsConfig = <T>(
   input: T & FlexibleChecksumsInputConfig
 ): T & FlexibleChecksumsResolvedConfig => ({

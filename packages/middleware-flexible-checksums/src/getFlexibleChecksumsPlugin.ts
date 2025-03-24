@@ -17,11 +17,17 @@ import {
   flexibleChecksumsResponseMiddlewareOptions,
 } from "./flexibleChecksumsResponseMiddleware";
 
+/**
+ * @internal
+ */
 export interface FlexibleChecksumsMiddlewareConfig
   extends FlexibleChecksumsRequestMiddlewareConfig,
     FlexibleChecksumsInputMiddlewareConfig,
     FlexibleChecksumsResponseMiddlewareConfig {}
 
+/**
+ * @internal
+ */
 export const getFlexibleChecksumsPlugin = (
   config: PreviouslyResolved,
   middlewareConfig: FlexibleChecksumsMiddlewareConfig

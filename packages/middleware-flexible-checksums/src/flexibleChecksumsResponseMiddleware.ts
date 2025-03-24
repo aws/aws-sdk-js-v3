@@ -16,6 +16,9 @@ import { getChecksumLocationName } from "./getChecksumLocationName";
 import { isChecksumWithPartNumber } from "./isChecksumWithPartNumber";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
+/**
+ * @internal
+ */
 export interface FlexibleChecksumsResponseMiddlewareConfig {
   /**
    * Defines a top-level operation input member used to opt-in to best-effort validation
