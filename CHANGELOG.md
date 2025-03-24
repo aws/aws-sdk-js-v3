@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.774.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.773.0...v3.774.0) (2025-03-24)
+
+
+### Bug Fixes
+
+* pass through credentials parameters when wrapping the provider ([#6961](https://github.com/aws/aws-sdk-js-v3/issues/6961)) ([3f9fdc0](https://github.com/aws/aws-sdk-js-v3/commit/3f9fdc07a6201b8d2e3e3dff4415981e5417d7be))
+
+
+### Features
+
+* **client-iot-wireless:** Mark EutranCid under LteNmr optional. ([fb3f980](https://github.com/aws/aws-sdk-js-v3/commit/fb3f9805a0f776acda50bbfe589f2f1f70add4f6))
+* **client-pcs:** ClusterName/ClusterIdentifier, ComputeNodeGroupName/ComputeNodeGroupIdentifier, and QueueName/QueueIdentifier can now have 10 characters, and a minimum of 3 characters. The TagResource API action can now return ServiceQuotaExceededException. ([31b766e](https://github.com/aws/aws-sdk-js-v3/commit/31b766e5b7a0b829e1c2f1ebf4d7a712003c2407))
+* **client-ssm:** This release adds the AvailableSecurityUpdatesComplianceStatus field to patch baseline operations, as well as the AvailableSecurityUpdateCount and InstancesWithAvailableSecurityUpdates to patch state operations. Applies to Windows Server managed nodes only. ([645466c](https://github.com/aws/aws-sdk-js-v3/commit/645466ce49426fb963315da22bd68d7e0535adb7))
+* **clients:** update client endpoints as of 2025-03-24 ([c2a10c4](https://github.com/aws/aws-sdk-js-v3/commit/c2a10c4f78bae90a5f5e51c3aba76cbc5e1521f0))
+
+
+
+
+
 # [3.773.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.772.0...v3.773.0) (2025-03-21)
 
 

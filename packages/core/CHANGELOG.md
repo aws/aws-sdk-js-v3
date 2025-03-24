@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.774.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.773.0...v3.774.0) (2025-03-24)
+
+
+### Bug Fixes
+
+* pass through credentials parameters when wrapping the provider ([#6961](https://github.com/aws/aws-sdk-js-v3/issues/6961)) ([3f9fdc0](https://github.com/aws/aws-sdk-js-v3/commit/3f9fdc07a6201b8d2e3e3dff4415981e5417d7be))
+
+
+
+
+
 # [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
 
 **Note:** Version bump only for package @aws-sdk/core

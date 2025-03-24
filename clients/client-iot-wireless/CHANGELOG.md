@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.774.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.773.0...v3.774.0) (2025-03-24)
+
+
+### Features
+
+* **client-iot-wireless:** Mark EutranCid under LteNmr optional. ([fb3f980](https://github.com/aws/aws-sdk-js-v3/commit/fb3f9805a0f776acda50bbfe589f2f1f70add4f6))
+
+
+
+
+
 # [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
 
 **Note:** Version bump only for package @aws-sdk/client-iot-wireless
