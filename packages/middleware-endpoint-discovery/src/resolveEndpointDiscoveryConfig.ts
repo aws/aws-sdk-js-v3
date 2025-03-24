@@ -1,6 +1,9 @@
 import { EndpointCache } from "@aws-sdk/endpoint-cache";
 import { AwsCredentialIdentity, MemoizedProvider, Provider } from "@smithy/types";
 
+/**
+ * @internal
+ */
 export interface PreviouslyResolved {
   isCustomEndpoint?: boolean;
   credentials: MemoizedProvider<AwsCredentialIdentity>;
@@ -59,6 +62,9 @@ export interface EndpointDiscoveryConfigOptions {
   endpointDiscoveryCommandCtor: new (comandConfig: any) => any;
 }
 
+/**
+ * @internal
+ */
 export const resolveEndpointDiscoveryConfig = <T>(
   input: T & PreviouslyResolved & EndpointDiscoveryInputConfig,
   { endpointDiscoveryCommandCtor }: EndpointDiscoveryConfigOptions

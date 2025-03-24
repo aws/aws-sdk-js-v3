@@ -1,7 +1,16 @@
+/**
+ * @public
+ */
 export type AccountIdEndpointMode = "disabled" | "preferred" | "required";
 
+/**
+ * @internal
+ */
 export const DEFAULT_ACCOUNT_ID_ENDPOINT_MODE = "preferred";
 
+/**
+ * @internal
+ */
 export const ACCOUNT_ID_ENDPOINT_MODE_VALUES: AccountIdEndpointMode[] = ["disabled", "preferred", "required"];
 
 /**

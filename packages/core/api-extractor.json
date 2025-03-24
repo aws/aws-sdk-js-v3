@@ -1,4 +1,4 @@
 {
   "extends": "../../api-extractor.packages.json",
-  "mainEntryPointFilePath": "./dist-types/index.d.ts"
+  "mainEntryPointFilePath": "./src/api-extractor-type-index.d.ts"
 }

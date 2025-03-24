@@ -21,7 +21,7 @@ import {
 } from "@smithy/types";
 
 /**
- * @internal
+ * @public
  */
 export interface AwsSdkSigV4AuthInputConfig {
   /**
@@ -129,7 +129,8 @@ export const resolveAwsSdkSigV4Config = <T>(
     }
   }
 
-  const boundCredentialsProvider = async (options: Record<string, any> | undefined) => credentialsProvider!({ ...options, callerClientConfig: config });
+  const boundCredentialsProvider = async (options: Record<string, any> | undefined) =>
+    credentialsProvider!({ ...options, callerClientConfig: config });
 
   // Populate sigv4 arguments
   const {
@@ -235,21 +236,25 @@ export const resolveAwsSdkSigV4Config = <T>(
 };
 
 /**
+ * @internal
  * @deprecated renamed to {@link AwsSdkSigV4AuthInputConfig}
  */
 export interface AWSSDKSigV4AuthInputConfig extends AwsSdkSigV4AuthInputConfig {}
 
 /**
+ * @internal
  * @deprecated renamed to {@link AwsSdkSigV4PreviouslyResolved}
  */
 export interface AWSSDKSigV4PreviouslyResolved extends AwsSdkSigV4PreviouslyResolved {}
 
 /**
+ * @internal
  * @deprecated renamed to {@link AwsSdkSigV4AuthResolvedConfig}
  */
 export interface AWSSDKSigV4AuthResolvedConfig extends AwsSdkSigV4AuthResolvedConfig {}
 
 /**
+ * @internal
  * @deprecated renamed to {@link resolveAwsSdkSigV4Config}
  */
 export const resolveAWSSDKSigV4Config = resolveAwsSdkSigV4Config;

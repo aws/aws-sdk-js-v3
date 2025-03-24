@@ -26,9 +26,6 @@ interface PreviouslyResolved {}
  * @internal
  */
 export interface AccountIdEndpointModeResolvedConfig {
-  /**
-   * Resolved value for input config {config.accountIdEndpointMode}
-   */
   accountIdEndpointMode: Provider<AccountIdEndpointMode>;
 }
 

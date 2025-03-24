@@ -82,9 +82,9 @@ export const validateSigningProperties = async (
 };
 
 /**
- * @internal
  * Note: this is not a signing algorithm implementation. The sign method
  * accepts the real signer as an input parameter.
+ * @internal
  */
 export class AwsSdkSigV4Signer implements HttpSigner {
   async sign(
@@ -151,6 +151,7 @@ export class AwsSdkSigV4Signer implements HttpSigner {
 }
 
 /**
+ * @internal
  * @deprecated renamed to {@link AwsSdkSigV4Signer}
  */
 export const AWSSDKSigV4Signer = AwsSdkSigV4Signer;
