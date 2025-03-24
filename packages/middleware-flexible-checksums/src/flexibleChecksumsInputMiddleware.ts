@@ -12,6 +12,9 @@ import {
 import { PreviouslyResolved } from "./configuration";
 import { RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
 
+/**
+ * @internal
+ */
 export interface FlexibleChecksumsInputMiddlewareConfig {
   /**
    * Defines a top-level operation input member used to opt-in to best-effort validation

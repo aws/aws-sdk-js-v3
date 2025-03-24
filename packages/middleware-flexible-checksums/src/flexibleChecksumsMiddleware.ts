@@ -21,8 +21,10 @@ import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { stringHasher } from "./stringHasher";
 
+/**
+ * @internal
+ */
 export interface FlexibleChecksumsRequestMiddlewareConfig {
-  /**
   /**
    * Indicates an operation requires a checksum in its HTTP request.
    */
@@ -45,6 +47,9 @@ export interface FlexibleChecksumsRequestMiddlewareConfig {
   };
 }
 
+/**
+ * @internal
+ */
 export const flexibleChecksumsMiddlewareOptions: BuildHandlerOptions = {
   name: "flexibleChecksumsMiddleware",
   step: "build",

@@ -1,5 +1,6 @@
 /**
  * Determines when a checksum will be calculated for request payloads.
+ * @public
  */
 export const RequestChecksumCalculation = {
   /**
@@ -19,12 +20,19 @@ export const RequestChecksumCalculation = {
   WHEN_REQUIRED: "WHEN_REQUIRED",
 } as const;
 
+/**
+ * @public
+ */
 export type RequestChecksumCalculation = (typeof RequestChecksumCalculation)[keyof typeof RequestChecksumCalculation];
 
+/**
+ * @internal
+ */
 export const DEFAULT_REQUEST_CHECKSUM_CALCULATION = RequestChecksumCalculation.WHEN_SUPPORTED;
 
 /**
  * Determines when checksum validation will be performed on response payloads.
+ * @public
  */
 export const ResponseChecksumValidation = {
   /**
@@ -44,12 +52,19 @@ export const ResponseChecksumValidation = {
   WHEN_REQUIRED: "WHEN_REQUIRED",
 } as const;
 
+/**
+ * @public
+ */
 export type ResponseChecksumValidation = (typeof ResponseChecksumValidation)[keyof typeof ResponseChecksumValidation];
 
+/**
+ * @internal
+ */
 export const DEFAULT_RESPONSE_CHECKSUM_VALIDATION = RequestChecksumCalculation.WHEN_SUPPORTED;
 
 /**
  * Checksum Algorithms supported by the SDK.
+ * @public
  */
 export enum ChecksumAlgorithm {
   /**
@@ -65,6 +80,7 @@ export enum ChecksumAlgorithm {
 
 /**
  * Location when the checksum is stored in the request body.
+ * @internal
  */
 export enum ChecksumLocation {
   HEADER = "header",

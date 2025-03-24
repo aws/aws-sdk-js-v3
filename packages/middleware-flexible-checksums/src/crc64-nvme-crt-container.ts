@@ -1,7 +1,7 @@
 import { ChecksumConstructor } from "@smithy/types";
 
 /**
- * @public
+ * @internal
  *
  * \@aws-sdk/crc64-nvme-crt will install the constructor in this
  * container if it is installed.

@@ -11,6 +11,9 @@ import {
 
 import { RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
 
+/**
+ * @internal
+ */
 export interface PreviouslyResolved {
   /**
    * The function that will be used to convert binary data to a base64-encoded string.
