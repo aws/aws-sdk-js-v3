@@ -491,9 +491,9 @@ export interface AnswerRecommendationAIAgentConfiguration {
    * <p>The locale to which specifies the language and region settings that determine the response
    *       language for <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_QueryAssistant.html">QueryAssistant</a>.</p>
    *          <note>
-   *             <p>Changing this locale to anything other than <code>en_US</code> will turn off
-   *         recommendations triggered by contact transcripts for agent assistance, as this feature is
-   *         not supported in multiple languages.</p>
+   *             <p>Changing this locale to anything other than <code>en_US</code>, <code>en_GB</code>, or
+   *           <code>en_AU</code> will turn off recommendations triggered by contact transcripts for
+   *         agent assistance, as this feature is not supported in multiple languages.</p>
    *          </note>
    * @public
    */
@@ -2770,7 +2770,7 @@ export interface CreateAIPromptRequest {
 
   /**
    * <p>The identifier of the model used for this AI Prompt. Model Ids supported are:
-   *         <code>CLAUDE_3_HAIKU_20240307_V1</code>
+   *       <code>anthropic.claude-3-haiku-20240307-v1:0</code>
    *          </p>
    * @public
    */
@@ -2845,7 +2845,7 @@ export interface AIPromptData {
 
   /**
    * <p>The identifier of the model used for this AI Prompt. Model Ids supported are:
-   *         <code>CLAUDE_3_HAIKU_20240307_V1</code>.</p>
+   *       <code>anthropic.claude-3-haiku-20240307-v1:0</code>.</p>
    * @public
    */
   modelId: string | undefined;
@@ -3140,7 +3140,7 @@ export interface AIPromptSummary {
 
   /**
    * <p>The identifier of the model used for this AI Prompt. Model Ids supported are:
-   *         <code>CLAUDE_3_HAIKU_20240307_V1</code>.</p>
+   *       <code>anthropic.claude-3-haiku-20240307-v1:0</code>.</p>
    * @public
    */
   modelId: string | undefined;
@@ -5792,8 +5792,8 @@ export interface ListMessagesResponse {
 }
 
 /**
- * <p>The conversation history data to included in conversation context data before the the
- *       Amazon Q in Connect session..</p>
+ * <p>The conversation history data to included in conversation context data before the
+ *       Amazon Q in Connect session.</p>
  * @public
  */
 export interface SelfServiceConversationHistory {

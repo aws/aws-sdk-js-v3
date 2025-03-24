@@ -28,7 +28,7 @@ export interface RemoveAssistantAIAgentCommandInput extends RemoveAssistantAIAge
 export interface RemoveAssistantAIAgentCommandOutput extends RemoveAssistantAIAgentResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the AI Agent that is set for use by defafult on an Amazon Q in Connect
+ * <p>Removes the AI Agent that is set for use by default on an Amazon Q in Connect
  *       Assistant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
