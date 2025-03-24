@@ -1,5 +1,5 @@
 import { setCredentialFeature } from "@aws-sdk/core/client";
-import { AttributedAwsCredentialIdentity } from "@aws-sdk/types";
+import type { AttributedAwsCredentialIdentity, MergeFunctions } from "@aws-sdk/types";
 import {
   doesIdentityRequireRefresh,
   isIdentityExpired,
@@ -81,9 +81,8 @@ export interface AwsSdkSigV4AuthResolvedConfig {
   /**
    * Resolved value for input config {@link AwsSdkSigV4AuthInputConfig.credentials}
    * This provider MAY memoize the loaded credentials for certain period.
-   * See {@link MemoizedProvider} for more information.
    */
-  credentials: AwsCredentialIdentityProvider;
+  credentials: MergeFunctions<AwsCredentialIdentityProvider, MemoizedProvider<AwsCredentialIdentity>>;
   /**
    * Resolved value for input config {@link AwsSdkSigV4AuthInputConfig.signer}
    */
