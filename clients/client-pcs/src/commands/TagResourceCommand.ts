@@ -63,6 +63,29 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *             <u>Examples</u>
  *          </p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
+ *          maximum number of service resources or operations for your Amazon Web Services account. To learn how to
+ *          increase your service quota, see <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">Requesting a quota
+ *             increase</a> in the <i>Service Quotas User Guide</i>
+ *          </p>
+ *          <p>
+ *             <u>Examples</u>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>The max number of clusters or queues has been reached for the account.</p>
+ *             </li>
+ *             <li>
+ *                <p>The max number of compute node groups has been reached for the associated
+ *                cluster.</p>
+ *             </li>
+ *             <li>
+ *                <p>The total of <code>maxInstances</code> across all compute node groups has been
+ *                reached for associated cluster.</p>
+ *             </li>
+ *          </ul>
+ *
  * @throws {@link PCSServiceException}
  * <p>Base exception class for all service exceptions from PCS service.</p>
  *
