@@ -20,6 +20,7 @@ import {
   OpsItemNotification,
   PatchAction,
   PatchComplianceLevel,
+  PatchComplianceStatus,
   PatchFilterGroup,
   PatchRuleGroup,
   PatchSource,
@@ -57,6 +58,69 @@ import {
 } from "./models_1";
 
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+/**
+ * <p>The request body of the ResetServiceSetting API operation.</p>
+ * @public
+ */
+export interface ResetServiceSettingRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service setting to reset. The setting ID can be one of
+   *    the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/appmanager/appmanager-enabled</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/automation/customer-script-log-destination</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/automation/customer-script-log-group-name</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>/ssm/automation/enable-adaptive-concurrency</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/documents/console/public-sharing-permission</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/managed-instance/activation-tier</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/managed-instance/default-ec2-instance-management-role</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/opsinsights/opscenter</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/parameter-store/default-parameter-tier</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/parameter-store/high-throughput-enabled</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SettingId: string | undefined;
+}
 
 /**
  * <p>The result body of the ResetServiceSetting API operation.</p>
@@ -2798,6 +2862,19 @@ export interface UpdatePatchBaselineRequest {
   Sources?: PatchSource[] | undefined;
 
   /**
+   * <p>Indicates the status to be assigned to security patches that are available but not approved
+   *    because they don't meet the installation criteria specified in the patch baseline.</p>
+   *          <p>Example scenario: Security patches that you might want installed can be skipped if you have
+   *    specified a long period to wait after a patch is released before installation. If an update to
+   *    the patch is released during your specified waiting period, the waiting period for installing the
+   *    patch starts over. If the waiting period is too long, multiple versions of the patch could be
+   *    released but never installed.</p>
+   *          <p>Supported for Windows Server managed nodes only.</p>
+   * @public
+   */
+  AvailableSecurityUpdatesComplianceStatus?: PatchComplianceStatus | undefined;
+
+  /**
    * <p>If True, then all fields that are required by the <a>CreatePatchBaseline</a>
    *    operation are also required for this API request. Optional fields that aren't specified are set
    *    to null.</p>
@@ -2899,6 +2976,15 @@ export interface UpdatePatchBaselineResult {
    * @public
    */
   Sources?: PatchSource[] | undefined;
+
+  /**
+   * <p>Indicates the compliance status of managed nodes for which security-related patches are
+   *    available but were not approved. This preference is specified when the
+   *     <code>CreatePatchBaseline</code> or <code>UpdatePatchBaseline</code> commands are run.</p>
+   *          <p>Applies to Windows Server managed nodes only.</p>
+   * @public
+   */
+  AvailableSecurityUpdatesComplianceStatus?: PatchComplianceStatus | undefined;
 }
 
 /**

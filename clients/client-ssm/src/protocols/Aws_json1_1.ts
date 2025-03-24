@@ -842,7 +842,6 @@ import {
   RegisterTargetWithMaintenanceWindowRequest,
   RegisterTaskWithMaintenanceWindowRequest,
   RemoveTagsFromResourceRequest,
-  ResetServiceSettingRequest,
   ResourceComplianceSummaryItem,
   ResourceDataSyncItem,
   ResourcePolicyLimitExceededException,
@@ -888,6 +887,7 @@ import {
   NodeAggregator,
   OpsAggregator,
   OpsMetadataKeyLimitExceededException,
+  ResetServiceSettingRequest,
   ResetServiceSettingResult,
   ResourceDataSyncConflictException,
   ResumeSessionRequest,
@@ -8344,6 +8344,7 @@ const se_CreatePatchBaselineRequest = (input: CreatePatchBaselineRequest, contex
     ApprovedPatches: _json,
     ApprovedPatchesComplianceLevel: [],
     ApprovedPatchesEnableNonSecurity: [],
+    AvailableSecurityUpdatesComplianceStatus: [],
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     GlobalFilters: _json,
@@ -10527,6 +10528,7 @@ const de_GetPatchBaselineResult = (output: any, context: __SerdeContext): GetPat
     ApprovedPatches: _json,
     ApprovedPatchesComplianceLevel: __expectString,
     ApprovedPatchesEnableNonSecurity: __expectBoolean,
+    AvailableSecurityUpdatesComplianceStatus: __expectString,
     BaselineId: __expectString,
     CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
@@ -10658,6 +10660,7 @@ const de_InstanceInformationList = (output: any, context: __SerdeContext): Insta
  */
 const de_InstancePatchState = (output: any, context: __SerdeContext): InstancePatchState => {
   return take(output, {
+    AvailableSecurityUpdateCount: __expectInt32,
     BaselineId: __expectString,
     CriticalNonCompliantCount: __expectInt32,
     FailedCount: __expectInt32,
@@ -12171,6 +12174,7 @@ const de_UpdatePatchBaselineResult = (output: any, context: __SerdeContext): Upd
     ApprovedPatches: _json,
     ApprovedPatchesComplianceLevel: __expectString,
     ApprovedPatchesEnableNonSecurity: __expectBoolean,
+    AvailableSecurityUpdatesComplianceStatus: __expectString,
     BaselineId: __expectString,
     CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,

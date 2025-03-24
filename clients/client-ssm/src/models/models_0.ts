@@ -3766,6 +3766,20 @@ export interface PatchRuleGroup {
  * @public
  * @enum
  */
+export const PatchComplianceStatus = {
+  Compliant: "COMPLIANT",
+  NonCompliant: "NON_COMPLIANT",
+} as const;
+
+/**
+ * @public
+ */
+export type PatchComplianceStatus = (typeof PatchComplianceStatus)[keyof typeof PatchComplianceStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const OperatingSystem = {
   AlmaLinux: "ALMA_LINUX",
   AmazonLinux: "AMAZON_LINUX",
@@ -3957,6 +3971,20 @@ export interface CreatePatchBaselineRequest {
    * @public
    */
   Sources?: PatchSource[] | undefined;
+
+  /**
+   * <p>Indicates the status you want to assign to security patches that are available but not
+   *    approved because they don't meet the installation criteria specified in the patch
+   *    baseline.</p>
+   *          <p>Example scenario: Security patches that you might want installed can be skipped if you have
+   *    specified a long period to wait after a patch is released before installation. If an update to
+   *    the patch is released during your specified waiting period, the waiting period for installing the
+   *    patch starts over. If the waiting period is too long, multiple versions of the patch could be
+   *    released but never installed.</p>
+   *          <p>Supported for Windows Server managed nodes only.</p>
+   * @public
+   */
+  AvailableSecurityUpdatesComplianceStatus?: PatchComplianceStatus | undefined;
 
   /**
    * <p>User-provided idempotency token.</p>
@@ -7985,6 +8013,7 @@ export interface DescribeInstancePatchesRequest {
  * @enum
  */
 export const PatchComplianceDataState = {
+  AvailableSecurityUpdate: "AVAILABLE_SECURITY_UPDATE",
   Failed: "FAILED",
   Installed: "INSTALLED",
   InstalledOther: "INSTALLED_OTHER",
@@ -8266,6 +8295,15 @@ export interface InstancePatchState {
    * @public
    */
   NotApplicableCount?: number | undefined;
+
+  /**
+   * <p>The number of security-related patches that are available but not approved because they
+   *    didn't meet the patch baseline requirements. For example, an updated version of a patch might
+   *    have been released before the specified auto-approval period was over.</p>
+   *          <p>Applies to Windows Server managed nodes only.</p>
+   * @public
+   */
+  AvailableSecurityUpdateCount?: number | undefined;
 
   /**
    * <p>The time the most recent patching operation was started on the managed node.</p>
@@ -9622,31 +9660,6 @@ export interface DescribeMaintenanceWindowScheduleRequest {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>Information about a scheduled execution for a maintenance window.</p>
- * @public
- */
-export interface ScheduledWindowExecution {
-  /**
-   * <p>The ID of the maintenance window to be run.</p>
-   * @public
-   */
-  WindowId?: string | undefined;
-
-  /**
-   * <p>The name of the maintenance window to be run.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The time, in ISO-8601 Extended format, that the maintenance window is scheduled to be
-   *    run.</p>
-   * @public
-   */
-  ExecutionTime?: string | undefined;
 }
 
 /**

@@ -58,7 +58,7 @@ export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePa
  * //       KBId: "STRING_VALUE", // required
  * //       Classification: "STRING_VALUE", // required
  * //       Severity: "STRING_VALUE", // required
- * //       State: "INSTALLED" || "INSTALLED_OTHER" || "INSTALLED_PENDING_REBOOT" || "INSTALLED_REJECTED" || "MISSING" || "NOT_APPLICABLE" || "FAILED", // required
+ * //       State: "INSTALLED" || "INSTALLED_OTHER" || "INSTALLED_PENDING_REBOOT" || "INSTALLED_REJECTED" || "MISSING" || "NOT_APPLICABLE" || "FAILED" || "AVAILABLE_SECURITY_UPDATE", // required
  * //       InstalledTime: new Date("TIMESTAMP"), // required
  * //       CVEIds: "STRING_VALUE",
  * //     },

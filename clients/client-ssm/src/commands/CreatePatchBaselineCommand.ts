@@ -95,6 +95,7 @@ export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineRes
  *       Configuration: "STRING_VALUE", // required
  *     },
  *   ],
+ *   AvailableSecurityUpdatesComplianceStatus: "COMPLIANT" || "NON_COMPLIANT",
  *   ClientToken: "STRING_VALUE",
  *   Tags: [ // TagList
  *     { // Tag

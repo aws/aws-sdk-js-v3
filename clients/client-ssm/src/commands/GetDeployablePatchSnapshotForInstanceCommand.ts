@@ -106,6 +106,7 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  *         Configuration: "STRING_VALUE", // required
  *       },
  *     ],
+ *     AvailableSecurityUpdatesComplianceStatus: "COMPLIANT" || "NON_COMPLIANT",
  *   },
  * };
  * const command = new GetDeployablePatchSnapshotForInstanceCommand(input);

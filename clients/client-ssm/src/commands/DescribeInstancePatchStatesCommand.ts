@@ -65,6 +65,7 @@ export interface DescribeInstancePatchStatesCommandOutput extends DescribeInstan
  * //       FailedCount: Number("int"),
  * //       UnreportedNotApplicableCount: Number("int"),
  * //       NotApplicableCount: Number("int"),
+ * //       AvailableSecurityUpdateCount: Number("int"),
  * //       OperationStartTime: new Date("TIMESTAMP"), // required
  * //       OperationEndTime: new Date("TIMESTAMP"), // required
  * //       Operation: "Scan" || "Install", // required

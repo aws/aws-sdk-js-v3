@@ -102,6 +102,7 @@ export interface GetPatchBaselineCommandOutput extends GetPatchBaselineResult, _
  * //       Configuration: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   AvailableSecurityUpdatesComplianceStatus: "COMPLIANT" || "NON_COMPLIANT",
  * // };
  *
  * ```

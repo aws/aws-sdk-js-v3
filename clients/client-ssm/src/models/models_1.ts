@@ -27,6 +27,7 @@ import {
   OpsItemNotification,
   PatchAction,
   PatchComplianceLevel,
+  PatchComplianceStatus,
   PatchFilterGroup,
   PatchOrchestratorFilter,
   PatchRuleGroup,
@@ -41,7 +42,6 @@ import {
   ResourceTypeForTagging,
   ReviewStatus,
   Runbook,
-  ScheduledWindowExecution,
   StepExecution,
   Tag,
   Target,
@@ -49,6 +49,31 @@ import {
 } from "./models_0";
 
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+/**
+ * <p>Information about a scheduled execution for a maintenance window.</p>
+ * @public
+ */
+export interface ScheduledWindowExecution {
+  /**
+   * <p>The ID of the maintenance window to be run.</p>
+   * @public
+   */
+  WindowId?: string | undefined;
+
+  /**
+   * <p>The name of the maintenance window to be run.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The time, in ISO-8601 Extended format, that the maintenance window is scheduled to be
+   *    run.</p>
+   * @public
+   */
+  ExecutionTime?: string | undefined;
+}
 
 /**
  * @public
@@ -1458,6 +1483,16 @@ export interface DescribePatchGroupStateResult {
    * @public
    */
   InstancesWithOtherNonCompliantPatches?: number | undefined;
+
+  /**
+   * <p>The number of managed nodes for which security-related patches are available but not
+   *    approved because because they didn't meet the patch baseline requirements. For example, an
+   *    updated version of a patch might have been released before the specified auto-approval period was
+   *    over.</p>
+   *          <p>Applies to Windows Server managed nodes only.</p>
+   * @public
+   */
+  InstancesWithAvailableSecurityUpdates?: number | undefined;
 }
 
 /**
@@ -2689,6 +2724,16 @@ export interface BaselineOverride {
    * @public
    */
   Sources?: PatchSource[] | undefined;
+
+  /**
+   * <p>Indicates whether managed nodes for which there are available security-related patches that
+   *    have not been approved by the baseline are being defined as <code>COMPLIANT</code> or
+   *     <code>NON_COMPLIANT</code>. This option is specified when the <code>CreatePatchBaseline</code>
+   *    or <code>UpdatePatchBaseline</code> commands are run.</p>
+   *          <p>Applies to Windows Server managed nodes only.</p>
+   * @public
+   */
+  AvailableSecurityUpdatesComplianceStatus?: PatchComplianceStatus | undefined;
 }
 
 /**
@@ -5290,6 +5335,15 @@ export interface GetPatchBaselineResult {
    * @public
    */
   Sources?: PatchSource[] | undefined;
+
+  /**
+   * <p>Indicates the compliance status of managed nodes for which security-related patches are
+   *    available but were not approved. This preference is specified when the
+   *     <code>CreatePatchBaseline</code> or <code>UpdatePatchBaseline</code> commands are run.</p>
+   *          <p>Applies to Windows Server managed nodes only.</p>
+   * @public
+   */
+  AvailableSecurityUpdatesComplianceStatus?: PatchComplianceStatus | undefined;
 }
 
 /**
@@ -9252,7 +9306,8 @@ export interface ModifyDocumentPermissionRequest {
 
   /**
    * <p>The Amazon Web Services users that should have access to the document. The account IDs can either be a
-   *    group of account IDs or <i>All</i>. </p>
+   *    group of account IDs or <i>All</i>. You must specify a value for this parameter or
+   *    the <code>AccountIdsToRemove</code> parameter.</p>
    * @public
    */
   AccountIdsToAdd?: string[] | undefined;
@@ -9261,7 +9316,8 @@ export interface ModifyDocumentPermissionRequest {
    * <p>The Amazon Web Services users that should no longer have access to the document. The Amazon Web Services user
    *    can either be a group of account IDs or <i>All</i>. This action has a higher
    *    priority than <code>AccountIdsToAdd</code>. If you specify an ID to add and the same ID to
-   *    remove, the system removes access to the document. </p>
+   *    remove, the system removes access to the document. You must specify a value for this parameter or
+   *    the <code>AccountIdsToAdd</code> parameter.</p>
    * @public
    */
   AccountIdsToRemove?: string[] | undefined;
@@ -10000,10 +10056,13 @@ export interface PutParameterRequest {
    *          </ul>
    *          <p>For additional information about valid values for parameter names, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html">Creating Systems Manager parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          <note>
-   *             <p>The maximum length constraint of 2048 characters listed below includes 1037 characters
-   *     reserved for internal use by Systems Manager. The maximum length for a parameter name that you create is
-   *     1011 characters. This includes the characters in the ARN that precede the name you specify, such
-   *     as <code>arn:aws:ssm:us-east-2:111122223333:parameter/</code>.</p>
+   *             <p>The reported maximum length of 2048 characters for a parameter name includes 1037
+   *     characters that are reserved for internal use by Systems Manager. The maximum length for a parameter name
+   *     that you specify is 1011 characters.</p>
+   *             <p>This count of 1011 characters includes the characters in the ARN that precede the name you
+   *     specify. This ARN length will vary depending on your partition and Region. For example, the
+   *     following 45 characters count toward the 1011 character maximum for a parameter created in the
+   *     US East (Ohio) Region: <code>arn:aws:ssm:us-east-2:111122223333:parameter/</code>.</p>
    *          </note>
    * @public
    */
@@ -10785,69 +10844,6 @@ export interface RemoveTagsFromResourceRequest {
  * @public
  */
 export interface RemoveTagsFromResourceResult {}
-
-/**
- * <p>The request body of the ResetServiceSetting API operation.</p>
- * @public
- */
-export interface ResetServiceSettingRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the service setting to reset. The setting ID can be one of
-   *    the following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/appmanager/appmanager-enabled</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/automation/customer-script-log-destination</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/automation/customer-script-log-group-name</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>/ssm/automation/enable-adaptive-concurrency</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/documents/console/public-sharing-permission</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/managed-instance/activation-tier</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/managed-instance/default-ec2-instance-management-role</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/opsinsights/opscenter</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/parameter-store/default-parameter-tier</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/parameter-store/high-throughput-enabled</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SettingId: string | undefined;
-}
 
 /**
  * @internal

@@ -97,6 +97,7 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  *       Configuration: "STRING_VALUE", // required
  *     },
  *   ],
+ *   AvailableSecurityUpdatesComplianceStatus: "COMPLIANT" || "NON_COMPLIANT",
  *   Replace: true || false,
  * };
  * const command = new UpdatePatchBaselineCommand(input);
@@ -156,6 +157,7 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  * //       Configuration: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   AvailableSecurityUpdatesComplianceStatus: "COMPLIANT" || "NON_COMPLIANT",
  * // };
  *
  * ```

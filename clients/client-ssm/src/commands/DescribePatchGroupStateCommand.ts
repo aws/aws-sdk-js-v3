@@ -53,6 +53,7 @@ export interface DescribePatchGroupStateCommandOutput extends DescribePatchGroup
  * //   InstancesWithCriticalNonCompliantPatches: Number("int"),
  * //   InstancesWithSecurityNonCompliantPatches: Number("int"),
  * //   InstancesWithOtherNonCompliantPatches: Number("int"),
+ * //   InstancesWithAvailableSecurityUpdates: Number("int"),
  * // };
  *
  * ```
