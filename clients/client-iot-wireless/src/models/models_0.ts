@@ -245,12 +245,14 @@ export interface AssociateAwsAccountWithPartnerAccountRequest {
   Sidewalk: SidewalkAccountInfo | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. The client token is used to implement
-   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
-   *             with the same token and the same parameters, the request will complete successfully. However, if
-   *             you try to create a new resource using the same token but different parameters, an HTTP 409
-   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
-   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
+   * <p>Each resource must have a unique client request token. The client token is used to
+   *             implement idempotency. It ensures that the request completes no more than one time. If
+   *             you retry a request with the same token and the same parameters, the request will
+   *             complete successfully. However, if you try to create a new resource using the same token
+   *             but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs
+   *             will automatically generate a unique client request. For more information about
+   *             idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon
+   *                 EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -880,7 +882,7 @@ export interface LteNmrObj {
    *             (EUTRANCID).</p>
    * @public
    */
-  EutranCid: number | undefined;
+  EutranCid?: number | undefined;
 
   /**
    * <p>Signal power of the reference signal received, measured in dBm
@@ -1407,12 +1409,14 @@ export interface CreateDestinationRequest {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. The client token is used to implement
-   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
-   *             with the same token and the same parameters, the request will complete successfully. However, if
-   *             you try to create a new resource using the same token but different parameters, an HTTP 409
-   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
-   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
+   * <p>Each resource must have a unique client request token. The client token is used to
+   *             implement idempotency. It ensures that the request completes no more than one time. If
+   *             you retry a request with the same token and the same parameters, the request will
+   *             complete successfully. However, if you try to create a new resource using the same token
+   *             but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs
+   *             will automatically generate a unique client request. For more information about
+   *             idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon
+   *                 EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -1586,12 +1590,14 @@ export interface CreateDeviceProfileRequest {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. The client token is used to implement
-   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
-   *             with the same token and the same parameters, the request will complete successfully. However, if
-   *             you try to create a new resource using the same token but different parameters, an HTTP 409
-   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
-   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
+   * <p>Each resource must have a unique client request token. The client token is used to
+   *             implement idempotency. It ensures that the request completes no more than one time. If
+   *             you retry a request with the same token and the same parameters, the request will
+   *             complete successfully. However, if you try to create a new resource using the same token
+   *             but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs
+   *             will automatically generate a unique client request. For more information about
+   *             idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon
+   *                 EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -1674,12 +1680,14 @@ export interface CreateFuotaTaskRequest {
   Description?: string | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. The client token is used to implement
-   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
-   *             with the same token and the same parameters, the request will complete successfully. However, if
-   *             you try to create a new resource using the same token but different parameters, an HTTP 409
-   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
-   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
+   * <p>Each resource must have a unique client request token. The client token is used to
+   *             implement idempotency. It ensures that the request completes no more than one time. If
+   *             you retry a request with the same token and the same parameters, the request will
+   *             complete successfully. However, if you try to create a new resource using the same token
+   *             but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs
+   *             will automatically generate a unique client request. For more information about
+   *             idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon
+   *                 EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -1740,8 +1748,8 @@ export interface CreateFuotaTaskRequest {
   FragmentIntervalMS?: number | undefined;
 
   /**
-   * <p>The Descriptor specifies some metadata about the File being transferred using FUOTA e.g. the software version.
-   *             It is sent transparently to the device. It is a binary field encoded in base64</p>
+   * <p>The descriptor is the metadata about the file that is transferred to the device using
+   *             FUOTA, such as the software version. It is a binary field encoded in base64.</p>
    * @public
    */
   Descriptor?: string | undefined;
@@ -1779,23 +1787,24 @@ export const DlClass = {
 export type DlClass = (typeof DlClass)[keyof typeof DlClass];
 
 /**
- * <p>Specify the list of gateways to which you want to send the multicast downlink messages.
- *             The multicast message will be sent to each gateway in the sequence provided in the list.</p>
+ * <p>Specify the list of gateways to which you want to send the multicast downlink
+ *             messages. The multicast message will be sent to each gateway in the list, with the
+ *             transmission interval as the time interval between each message.</p>
  * @public
  */
 export interface ParticipatingGatewaysMulticast {
   /**
-   * <p>The list of gateways that you want to use for sending the multicast downlink. Each downlink will be
-   *             sent to all the gateways in the list with transmission interval between them. If list is empty the gateway
-   *             list will be dynamically selected similar to the case of no ParticipatingGateways
-   *         </p>
+   * <p>The list of gateways that you want to use for sending the multicast downlink message.
+   *             Each downlink message will be sent to all the gateways in the list in the order that you
+   *             provided. If the gateway list is empty, then AWS IoT Core for LoRaWAN chooses the
+   *             gateways that were most recently used by the devices to send an uplink message.</p>
    * @public
    */
   GatewayList?: string[] | undefined;
 
   /**
-   * <p>The duration of time for which AWS IoT Core for LoRaWAN will wait before transmitting
-   *             the multicast payload to the next gateway in the list.</p>
+   * <p>The duration of time in milliseconds for which AWS IoT Core for LoRaWAN will wait
+   *             before transmitting the multicast payload to the next gateway in the list.</p>
    * @public
    */
   TransmissionInterval?: number | undefined;
@@ -1819,8 +1828,9 @@ export interface LoRaWANMulticast {
   DlClass?: DlClass | undefined;
 
   /**
-   * <p>Specify the list of gateways to which you want to send the multicast downlink messages.
-   *             The multicast message will be sent to each gateway in the sequence provided in the list.</p>
+   * <p>Specify the list of gateways to which you want to send the multicast downlink
+   *             messages. The multicast message will be sent to each gateway in the list, with the
+   *             transmission interval as the time interval between each message.</p>
    * @public
    */
   ParticipatingGateways?: ParticipatingGatewaysMulticast | undefined;
@@ -1843,12 +1853,14 @@ export interface CreateMulticastGroupRequest {
   Description?: string | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. The client token is used to implement
-   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
-   *             with the same token and the same parameters, the request will complete successfully. However, if
-   *             you try to create a new resource using the same token but different parameters, an HTTP 409
-   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
-   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
+   * <p>Each resource must have a unique client request token. The client token is used to
+   *             implement idempotency. It ensures that the request completes no more than one time. If
+   *             you retry a request with the same token and the same parameters, the request will
+   *             complete successfully. However, if you try to create a new resource using the same token
+   *             but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs
+   *             will automatically generate a unique client request. For more information about
+   *             idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon
+   *                 EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -2003,12 +2015,14 @@ export interface CreateNetworkAnalyzerConfigurationRequest {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. The client token is used to implement
-   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
-   *             with the same token and the same parameters, the request will complete successfully. However, if
-   *             you try to create a new resource using the same token but different parameters, an HTTP 409
-   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
-   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
+   * <p>Each resource must have a unique client request token. The client token is used to
+   *             implement idempotency. It ensures that the request completes no more than one time. If
+   *             you retry a request with the same token and the same parameters, the request will
+   *             complete successfully. However, if you try to create a new resource using the same token
+   *             but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs
+   *             will automatically generate a unique client request. For more information about
+   *             idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon
+   *                 EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -2098,12 +2112,14 @@ export interface CreateServiceProfileRequest {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. The client token is used to implement
-   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
-   *             with the same token and the same parameters, the request will complete successfully. However, if
-   *             you try to create a new resource using the same token but different parameters, an HTTP 409
-   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
-   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
+   * <p>Each resource must have a unique client request token. The client token is used to
+   *             implement idempotency. It ensures that the request completes no more than one time. If
+   *             you retry a request with the same token and the same parameters, the request will
+   *             complete successfully. However, if you try to create a new resource using the same token
+   *             but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs
+   *             will automatically generate a unique client request. For more information about
+   *             idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon
+   *                 EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -2366,12 +2382,14 @@ export interface CreateWirelessDeviceRequest {
   DestinationName: string | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. The client token is used to implement
-   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
-   *             with the same token and the same parameters, the request will complete successfully. However, if
-   *             you try to create a new resource using the same token but different parameters, an HTTP 409
-   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
-   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
+   * <p>Each resource must have a unique client request token. The client token is used to
+   *             implement idempotency. It ensures that the request completes no more than one time. If
+   *             you retry a request with the same token and the same parameters, the request will
+   *             complete successfully. However, if you try to create a new resource using the same token
+   *             but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs
+   *             will automatically generate a unique client request. For more information about
+   *             idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon
+   *                 EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -2500,12 +2518,14 @@ export interface CreateWirelessGatewayRequest {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. The client token is used to implement
-   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
-   *             with the same token and the same parameters, the request will complete successfully. However, if
-   *             you try to create a new resource using the same token but different parameters, an HTTP 409
-   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
-   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
+   * <p>Each resource must have a unique client request token. The client token is used to
+   *             implement idempotency. It ensures that the request completes no more than one time. If
+   *             you retry a request with the same token and the same parameters, the request will
+   *             complete successfully. However, if you try to create a new resource using the same token
+   *             but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs
+   *             will automatically generate a unique client request. For more information about
+   *             idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon
+   *                 EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -2683,12 +2703,14 @@ export interface CreateWirelessGatewayTaskDefinitionRequest {
   Update?: UpdateWirelessGatewayTaskCreate | undefined;
 
   /**
-   * <p>Each resource must have a unique client request token. The client token is used to implement
-   *             idempotency. It ensures that the request completes no more than one time. If you retry a request
-   *             with the same token and the same parameters, the request will complete successfully. However, if
-   *             you try to create a new resource using the same token but different parameters, an HTTP 409
-   *             conflict occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.
-   *             For more information about idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
+   * <p>Each resource must have a unique client request token. The client token is used to
+   *             implement idempotency. It ensures that the request completes no more than one time. If
+   *             you retry a request with the same token and the same parameters, the request will
+   *             complete successfully. However, if you try to create a new resource using the same token
+   *             but different parameters, an HTTP 409 conflict occurs. If you omit this value, AWS SDKs
+   *             will automatically generate a unique client request. For more information about
+   *             idempotency, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon
+   *                 EC2 API requests</a>.</p>
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -3709,13 +3731,14 @@ export type FuotaTaskEvent = (typeof FuotaTaskEvent)[keyof typeof FuotaTaskEvent
 
 /**
  * <p>The log options for a FUOTA task event and can be used to set log levels for a
- *             specific fuota task event.</p>
- *          <p>For a LoRaWAN FuotaTask type, possible event for a log message is <code>Fuota</code>.</p>
+ *             specific FUOTA task event.</p>
+ *          <p>For a LoRaWAN FUOTA task, the only possible event for a log message is
+ *                 <code>Fuota</code>.</p>
  * @public
  */
 export interface FuotaTaskEventLogOption {
   /**
-   * <p>The event for a log message, if the log message is tied to a fuota task.</p>
+   * <p>The event for a log message, if the log message is tied to a FUOTA task.</p>
    * @public
    */
   Event: FuotaTaskEvent | undefined;
@@ -3743,13 +3766,13 @@ export const FuotaTaskType = {
 export type FuotaTaskType = (typeof FuotaTaskType)[keyof typeof FuotaTaskType];
 
 /**
- * <p>The log options for fuota tasks and can be used to set log levels for a specific
- *             type of fuota task.</p>
+ * <p>The log options for FUOTA tasks and can be used to set log levels for a specific type
+ *             of FUOTA task.</p>
  * @public
  */
 export interface FuotaTaskLogOption {
   /**
-   * <p>The fuota task type.</p>
+   * <p>The FUOTA task type.</p>
    * @public
    */
   Type: FuotaTaskType | undefined;
@@ -4119,8 +4142,8 @@ export interface GetFuotaTaskResponse {
   FragmentIntervalMS?: number | undefined;
 
   /**
-   * <p>The Descriptor specifies some metadata about the File being transferred using FUOTA e.g. the software version.
-   *             It is sent transparently to the device. It is a binary field encoded in base64</p>
+   * <p>The descriptor is the metadata about the file that is transferred to the device using
+   *             FUOTA, such as the software version. It is a binary field encoded in base64.</p>
    * @public
    */
   Descriptor?: string | undefined;
@@ -4302,7 +4325,7 @@ export interface GetLogLevelsByResourceTypesResponse {
   WirelessDeviceLogOptions?: WirelessDeviceLogOption[] | undefined;
 
   /**
-   * <p>The list of fuota task log options.</p>
+   * <p>The list of FUOTA task log options.</p>
    * @public
    */
   FuotaTaskLogOptions?: FuotaTaskLogOption[] | undefined;
@@ -4635,8 +4658,9 @@ export interface LoRaWANMulticastGet {
   NumberOfDevicesInGroup?: number | undefined;
 
   /**
-   * <p>Specify the list of gateways to which you want to send the multicast downlink messages.
-   *             The multicast message will be sent to each gateway in the sequence provided in the list.</p>
+   * <p>Specify the list of gateways to which you want to send the multicast downlink
+   *             messages. The multicast message will be sent to each gateway in the list, with the
+   *             transmission interval as the time interval between each message.</p>
    * @public
    */
   ParticipatingGateways?: ParticipatingGatewaysMulticast | undefined;
@@ -5275,15 +5299,15 @@ export interface GetResourceEventConfigurationResponse {
  */
 export interface GetResourceLogLevelRequest {
   /**
-   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device ID.
-   *             For a wireless gateway, it is the wireless gateway ID.</p>
+   * <p>The unique identifier of the resource, which can be the wireless gateway ID, the
+   *             wireless device ID, or the FUOTA task ID.</p>
    * @public
    */
   ResourceIdentifier: string | undefined;
 
   /**
-   * <p>The type of the resource, which can be <code>WirelessDevice</code>,
-   *                 <code>WirelessGateway</code> or <code>FuotaTask</code>.</p>
+   * <p>The type of resource, which can be <code>WirelessDevice</code>,
+   *                 <code>WirelessGateway</code>, or <code>FuotaTask</code>.</p>
    * @public
    */
   ResourceType: string | undefined;
@@ -5356,7 +5380,7 @@ export interface GetServiceEndpointRequest {
   /**
    * <p>The service type for which to get endpoint information about. Can be <code>CUPS</code>
    *             for the Configuration and Update Server endpoint, or <code>LNS</code> for the LoRaWAN
-   *             Network Server endpoint or <code>CLAIM</code> for the global endpoint.</p>
+   *             Network Server endpoint.</p>
    * @public
    */
   ServiceType?: WirelessGatewayServiceType | undefined;

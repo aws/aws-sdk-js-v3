@@ -37,7 +37,7 @@ export interface DisassociateMulticastGroupFromFuotaTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Disassociates a multicast group from a fuota task.</p>
+ * <p>Disassociates a multicast group from a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

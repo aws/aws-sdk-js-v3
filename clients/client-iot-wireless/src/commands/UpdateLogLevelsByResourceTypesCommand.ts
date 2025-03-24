@@ -34,7 +34,7 @@ export interface UpdateLogLevelsByResourceTypesCommandOutput
 
 /**
  * <p>Set default log level, or log levels by resource types. This can be for wireless
- *             device log options or wireless gateways log options and is used to control the log
+ *             device, wireless gateway, or FUOTA task log options, and is used to control the log
  *             messages that'll be displayed in CloudWatch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

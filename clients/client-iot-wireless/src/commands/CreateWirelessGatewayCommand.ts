@@ -30,19 +30,19 @@ export interface CreateWirelessGatewayCommandOutput extends CreateWirelessGatewa
 /**
  * <p>Provisions a wireless gateway.</p>
  *          <note>
- *             <p>When provisioning a wireless gateway, you might run into duplication errors
- *             for the following reasons.</p>
+ *             <p>When provisioning a wireless gateway, you might run into duplication errors for
+ *                 the following reasons.</p>
  *             <ul>
  *                <li>
  *                   <p>If you specify a <code>GatewayEui</code> value that already exists.</p>
  *                </li>
  *                <li>
  *                   <p>If you used a <code>ClientRequestToken</code> with the same parameters
- *                     within the last 10 minutes.</p>
+ *                         within the last 10 minutes.</p>
  *                </li>
  *             </ul>
- *             <p>To avoid this error, make sure that you use unique identifiers and parameters
- *                 for each request within the specified time period.</p>
+ *             <p>To avoid this error, make sure that you use unique identifiers and parameters for
+ *                 each request within the specified time period.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

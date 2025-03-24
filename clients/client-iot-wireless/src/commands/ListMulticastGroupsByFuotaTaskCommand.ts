@@ -33,7 +33,7 @@ export interface ListMulticastGroupsByFuotaTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>List all multicast groups associated with a fuota task.</p>
+ * <p>List all multicast groups associated with a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

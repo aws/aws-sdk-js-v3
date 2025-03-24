@@ -143,7 +143,7 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateCom
  *           { // LteNmrObj
  *             Pci: Number("int"), // required
  *             Earfcn: Number("int"), // required
- *             EutranCid: Number("int"), // required
+ *             EutranCid: Number("int"),
  *             Rsrp: Number("int"),
  *             Rsrq: Number("float"),
  *           },

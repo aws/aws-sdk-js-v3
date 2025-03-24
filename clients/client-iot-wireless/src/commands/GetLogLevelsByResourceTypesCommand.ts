@@ -33,9 +33,9 @@ export interface GetLogLevelsByResourceTypesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns current default log levels or log levels by resource types. Based on resource
- *             types, log levels can be for wireless device log options or wireless gateway log
- *             options.</p>
+ * <p>Returns current default log levels or log levels by resource types. Based on the
+ *             resource type, log levels can be returned for wireless device, wireless gateway, or
+ *             FUOTA task log options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

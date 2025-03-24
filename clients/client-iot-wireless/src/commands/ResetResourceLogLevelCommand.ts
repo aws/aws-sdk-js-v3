@@ -28,8 +28,8 @@ export interface ResetResourceLogLevelCommandInput extends ResetResourceLogLevel
 export interface ResetResourceLogLevelCommandOutput extends ResetResourceLogLevelResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the log-level override, if any, for a specific resource-ID and resource-type.
- *             It can be used for a wireless device, a wireless gateway, or a fuota task.</p>
+ * <p>Removes the log-level override, if any, for a specific resource ID and resource type.
+ *             It can be used for a wireless device, a wireless gateway, or a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

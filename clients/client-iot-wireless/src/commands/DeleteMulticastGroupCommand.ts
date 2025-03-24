@@ -28,7 +28,7 @@ export interface DeleteMulticastGroupCommandInput extends DeleteMulticastGroupRe
 export interface DeleteMulticastGroupCommandOutput extends DeleteMulticastGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a multicast group if it is not in use by a fuota task.</p>
+ * <p>Deletes a multicast group if it is not in use by a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
