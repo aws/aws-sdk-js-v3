@@ -25,11 +25,11 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
-    "@smithy/eventstream-codec": "^4.0.1",
+    "@smithy/eventstream-codec": "^4.0.2",
     "@smithy/eventstream-serde-browser": "^4.0.2",
     "@smithy/fetch-http-handler": "^5.0.2",
     "@smithy/protocol-http": "^5.1.0",
-    "@smithy/signature-v4": "^5.0.1",
+    "@smithy/signature-v4": "^5.0.2",
     "@smithy/types": "^4.2.0",
     "@smithy/util-hex-encoding": "^4.0.0",
     "tslib": "^2.6.2"
