@@ -4,8 +4,8 @@
   "description": "Core functions & classes shared by multiple AWS SDK clients.",
   "scripts": {
     "build": "yarn lint && concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
-    "build:cjs": "node ../../scripts/compilation/inline core",
-    "build:es": "tsc -p tsconfig.es.json",
+    "build:cjs": "node ../../scripts/compilation/inline core && rimraf ./dist-cjs/api-extractor-type-index.js",
+    "build:es": "tsc -p tsconfig.es.json && rimraf ./dist-es/api-extractor-type-index.js",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
@@ -22,11 +22,11 @@
   "types": "./dist-types/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist-types/index.d.ts",
       "module": "./dist-es/index.js",
       "node": "./dist-cjs/index.js",
       "import": "./dist-es/index.js",
-      "require": "./dist-cjs/index.js",
-      "types": "./dist-types/index.d.ts"
+      "require": "./dist-cjs/index.js"
     },
     "./package.json": {
       "module": "./package.json",
@@ -35,32 +35,32 @@
       "require": "./package.json"
     },
     "./client": {
+      "types": "./dist-types/submodules/client/index.d.ts",
       "module": "./dist-es/submodules/client/index.js",
       "node": "./dist-cjs/submodules/client/index.js",
       "import": "./dist-es/submodules/client/index.js",
-      "require": "./dist-cjs/submodules/client/index.js",
-      "types": "./dist-types/submodules/client/index.d.ts"
+      "require": "./dist-cjs/submodules/client/index.js"
     },
     "./httpAuthSchemes": {
+      "types": "./dist-types/submodules/httpAuthSchemes/index.d.ts",
       "module": "./dist-es/submodules/httpAuthSchemes/index.js",
       "node": "./dist-cjs/submodules/httpAuthSchemes/index.js",
       "import": "./dist-es/submodules/httpAuthSchemes/index.js",
-      "require": "./dist-cjs/submodules/httpAuthSchemes/index.js",
-      "types": "./dist-types/submodules/httpAuthSchemes/index.d.ts"
+      "require": "./dist-cjs/submodules/httpAuthSchemes/index.js"
     },
     "./account-id-endpoint": {
+      "types": "./dist-types/submodules/account-id-endpoint/index.d.ts",
       "module": "./dist-es/submodules/account-id-endpoint/index.js",
       "node": "./dist-cjs/submodules/account-id-endpoint/index.js",
       "import": "./dist-es/submodules/account-id-endpoint/index.js",
-      "require": "./dist-cjs/submodules/account-id-endpoint/index.js",
-      "types": "./dist-types/submodules/account-id-endpoint/index.d.ts"
+      "require": "./dist-cjs/submodules/account-id-endpoint/index.js"
     },
     "./protocols": {
+      "types": "./dist-types/submodules/protocols/index.d.ts",
       "module": "./dist-es/submodules/protocols/index.js",
       "node": "./dist-cjs/submodules/protocols/index.js",
       "import": "./dist-es/submodules/protocols/index.js",
-      "require": "./dist-cjs/submodules/protocols/index.js",
-      "types": "./dist-types/submodules/protocols/index.d.ts"
+      "require": "./dist-cjs/submodules/protocols/index.js"
     }
   },
   "files": [
