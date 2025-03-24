@@ -24,13 +24,13 @@ for (const submodulePackage of submodulePackages) {
     const submodulePath = path.join(root, "src", "submodules", submodule);
     if (fs.existsSync(submodulePath) && fs.lstatSync(submodulePath).isDirectory()) {
       // api extractor type index
-      const apiExtractorAggregateTypeIndexPath = path.join(root, "src", "api-extractor-type-index.d.ts");
+      const apiExtractorAggregateTypeIndexPath = path.join(root, "src", "api-extractor-type-index.ts");
       if (fs.existsSync(apiExtractorAggregateTypeIndexPath)) {
         const fileContents = fs.readFileSync(apiExtractorAggregateTypeIndexPath, "utf-8");
-        if (!fileContents.includes(`export * from "../dist-types/submodules/${submodule}";`)) {
+        if (!fileContents.includes(`export * from "./submodules/${submodule}/index";`)) {
           fs.writeFileSync(
             apiExtractorAggregateTypeIndexPath,
-            fileContents + `export * from "../dist-types/submodules/${submodule}";`
+            fileContents + `export * from "./submodules/${submodule}/index";`
           );
           errors.push(`${submodule} not exported from src/api-extractor-type-index.d.ts`);
         }
@@ -39,11 +39,11 @@ for (const submodulePackage of submodulePackages) {
       if (!pkgJson.exports[`./${submodule}`]) {
         errors.push(`${submodule} submodule is missing exports statement in package.json`);
         pkgJson.exports[`./${submodule}`] = {
+          types: `./dist-types/submodules/${submodule}/index.d.ts`,
           module: `./dist-es/submodules/${submodule}/index.js`,
           node: `./dist-cjs/submodules/${submodule}/index.js`,
           import: `./dist-es/submodules/${submodule}/index.js`,
           require: `./dist-cjs/submodules/${submodule}/index.js`,
-          types: `./dist-types/submodules/${submodule}/index.d.ts`,
         };
         fs.writeFileSync(path.join(root, "package.json"), JSON.stringify(pkgJson, null, 2) + "\n");
       }
