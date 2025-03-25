@@ -39,6 +39,7 @@ export interface CreatePartnerAppCommandOutput extends CreatePartnerAppResponse,
  *   Name: "STRING_VALUE", // required
  *   Type: "lakera-guard" || "comet" || "deepchecks-llm-evaluation" || "fiddler", // required
  *   ExecutionRoleArn: "STRING_VALUE", // required
+ *   KmsKeyId: "STRING_VALUE",
  *   MaintenanceConfig: { // PartnerAppMaintenanceConfig
  *     MaintenanceWindowStart: "STRING_VALUE",
  *   },

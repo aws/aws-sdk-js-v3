@@ -46,7 +46,9 @@ export interface DescribePartnerAppCommandOutput extends DescribePartnerAppRespo
  * //   Type: "lakera-guard" || "comet" || "deepchecks-llm-evaluation" || "fiddler",
  * //   Status: "Creating" || "Updating" || "Deleting" || "Available" || "Failed" || "UpdateFailed" || "Deleted",
  * //   CreationTime: new Date("TIMESTAMP"),
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
  * //   ExecutionRoleArn: "STRING_VALUE",
+ * //   KmsKeyId: "STRING_VALUE",
  * //   BaseUrl: "STRING_VALUE",
  * //   MaintenanceConfig: { // PartnerAppMaintenanceConfig
  * //     MaintenanceWindowStart: "STRING_VALUE",

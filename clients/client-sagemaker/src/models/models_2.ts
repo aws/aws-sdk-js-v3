@@ -873,6 +873,13 @@ export interface CreatePartnerAppRequest {
   ExecutionRoleArn: string | undefined;
 
   /**
+   * <p>SageMaker Partner AI Apps uses Amazon Web Services KMS to encrypt data at rest using an Amazon Web Services managed key by default. For more control, specify a
+   *          customer managed key.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
    * <p>Maintenance configuration settings for the SageMaker Partner AI App.</p>
    * @public
    */

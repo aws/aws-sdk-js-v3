@@ -4073,10 +4073,22 @@ export interface DescribePartnerAppResponse {
   CreationTime?: Date | undefined;
 
   /**
+   * <p>The time that the SageMaker Partner AI App was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
    * <p>The ARN of the IAM role associated with the SageMaker Partner AI App.</p>
    * @public
    */
   ExecutionRoleArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS customer managed key used to encrypt the data at rest associated with SageMaker Partner AI Apps.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The URL of the SageMaker Partner AI App that the Application SDK uses to support in-app calls for the user.</p>
