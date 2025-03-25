@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
+
+
+### Features
+
+* **client-sagemaker:** This release adds support for customer-managed KMS keys in Amazon SageMaker Partner AI Apps ([03a1150](https://github.com/aws/aws-sdk-js-v3/commit/03a1150b753c4a006e5fc6259769f690b2b9cddf))
+
+
+
+
+
 # [3.774.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.773.0...v3.774.0) (2025-03-24)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
+
+
+### Features
+
+* **client-marketplace-metering:** This release enhances the BatchMeterUsage API to support new field CustomerAWSAccountId in request and response and making CustomerIdentifier optional. CustomerAWSAccountId or CustomerIdentifier must be provided in request but not both. ([540d2d0](https://github.com/aws/aws-sdk-js-v3/commit/540d2d0bb01cbe0e4a8f675e838519bd281909ea))
+
+
+
+
+
 # [3.774.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.773.0...v3.774.0) (2025-03-24)
 
 **Note:** Version bump only for package @aws-sdk/client-marketplace-metering

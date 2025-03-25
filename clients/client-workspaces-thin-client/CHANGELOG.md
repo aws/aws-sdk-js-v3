@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
+
+
+### Features
+
+* **client-workspaces-thin-client:** Deprecate tags field in Get API responses ([026ba53](https://github.com/aws/aws-sdk-js-v3/commit/026ba533229a3b8c940fe55a6225b5a9335c1ac0))
+
+
+
+
+
 # [3.774.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.773.0...v3.774.0) (2025-03-24)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces-thin-client

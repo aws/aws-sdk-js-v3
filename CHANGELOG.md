@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
+
+
+### Bug Fixes
+
+* **core/httpAuthSchemes:** allow extensions to set signer credentials ([#6971](https://github.com/aws/aws-sdk-js-v3/issues/6971)) ([8b6fe4c](https://github.com/aws/aws-sdk-js-v3/commit/8b6fe4c36a144cf7304f11d173aa062d81b6a10b))
+* **packages:** maintain singleton config object ([#6959](https://github.com/aws/aws-sdk-js-v3/issues/6959)) ([6034850](https://github.com/aws/aws-sdk-js-v3/commit/6034850a01036d4c4190c92d714aac6a0cbcf917))
+
+
+### Features
+
+* **client-bedrock-agent:** Adding support for Amazon OpenSearch Managed clusters as a vector database in Knowledge Bases for Amazon Bedrock ([100062a](https://github.com/aws/aws-sdk-js-v3/commit/100062a60c6862b9cace26ef5e7f86a587e5a098))
+* **client-eks:** Added support to override upgrade-blocking readiness checks via force flag when updating a cluster. ([55f5a70](https://github.com/aws/aws-sdk-js-v3/commit/55f5a70c6fb2656f36c15ea02a8f6c483a20650d))
+* **client-gameliftstreams:** Minor updates to improve developer experience. ([b6b01de](https://github.com/aws/aws-sdk-js-v3/commit/b6b01de034b2254ef6e96a30b7fdd71d033c7638))
+* **client-keyspaces:** Removing replication region limitation for Amazon Keyspaces Multi-Region Replication APIs. ([254cb39](https://github.com/aws/aws-sdk-js-v3/commit/254cb39a9c186482299c7166da4d5d082705a543))
+* **client-marketplace-entitlement-service:** This release enhances the GetEntitlements API to support new filter CUSTOMER_AWS_ACCOUNT_ID in request and CustomerAWSAccountId field in response. ([17b1041](https://github.com/aws/aws-sdk-js-v3/commit/17b10418f28a6c162244ba7f6c2ea9f00c12e78d))
+* **client-marketplace-metering:** This release enhances the BatchMeterUsage API to support new field CustomerAWSAccountId in request and response and making CustomerIdentifier optional. CustomerAWSAccountId or CustomerIdentifier must be provided in request but not both. ([540d2d0](https://github.com/aws/aws-sdk-js-v3/commit/540d2d0bb01cbe0e4a8f675e838519bd281909ea))
+* **client-sagemaker:** This release adds support for customer-managed KMS keys in Amazon SageMaker Partner AI Apps ([03a1150](https://github.com/aws/aws-sdk-js-v3/commit/03a1150b753c4a006e5fc6259769f690b2b9cddf))
+* **client-workspaces-thin-client:** Deprecate tags field in Get API responses ([026ba53](https://github.com/aws/aws-sdk-js-v3/commit/026ba533229a3b8c940fe55a6225b5a9335c1ac0))
+* **clients:** update client endpoints as of 2025-03-25 ([5fd070a](https://github.com/aws/aws-sdk-js-v3/commit/5fd070ad0dec5ad889c9eff874ee0a1ae13de379))
+
+
+
+
+
 # [3.774.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.773.0...v3.774.0) (2025-03-24)
 
 

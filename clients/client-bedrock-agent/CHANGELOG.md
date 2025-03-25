@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
+
+
+### Features
+
+* **client-bedrock-agent:** Adding support for Amazon OpenSearch Managed clusters as a vector database in Knowledge Bases for Amazon Bedrock ([100062a](https://github.com/aws/aws-sdk-js-v3/commit/100062a60c6862b9cace26ef5e7f86a587e5a098))
+
+
+
+
+
 # [3.774.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.773.0...v3.774.0) (2025-03-24)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent
