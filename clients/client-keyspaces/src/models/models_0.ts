@@ -443,7 +443,7 @@ export type Rs = (typeof Rs)[keyof typeof Rs];
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>regionList</code> - up to six Amazon Web Services Regions where the keyspace is replicated in.</p>
+ *                   <code>regionList</code> - the Amazon Web Services Regions where the keyspace is replicated in.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -465,7 +465,7 @@ export interface ReplicationSpecification {
 
   /**
    * <p>
-   *          The <code>regionList</code> can contain up to six Amazon Web Services Regions where the keyspace is replicated in.
+   *          The <code>regionList</code> contains the Amazon Web Services Regions where the keyspace is replicated in.
    *       </p>
    * @public
    */
@@ -527,8 +527,7 @@ export interface CreateKeyspaceRequest {
    *                <p>
    *                   <code>regionList</code> - if the <code>replicationStrategy</code> is <code>MULTI_REGION</code>, the
    *             <code>regionList</code> requires the current Region and at least one additional Amazon Web Services Region where
-   *             the keyspace is going to be replicated in. The maximum number of supported replication Regions including the current
-   *             Region is six.</p>
+   *             the keyspace is going to be replicated in.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2192,7 +2191,7 @@ export interface UpdateKeyspaceRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>regionList</code> - up to six Amazon Web Services Regions where the keyspace is replicated in.</p>
+   *                   <code>regionList</code> - the Amazon Web Services Regions where the keyspace is replicated in.</p>
    *             </li>
    *             <li>
    *                <p>
