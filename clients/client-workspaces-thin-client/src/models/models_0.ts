@@ -893,6 +893,8 @@ export interface Device {
 
   /**
    * <p>The tag keys and optional values for the resource.</p>
+   *
+   * @deprecated
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1130,6 +1132,8 @@ export interface Environment {
 
   /**
    * <p>The tag keys and optional values for the resource.</p>
+   *
+   * @deprecated
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1278,6 +1282,8 @@ export interface SoftwareSet {
 
   /**
    * <p>The tag keys and optional values for the resource.</p>
+   *
+   * @deprecated
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1692,6 +1698,7 @@ export const EnvironmentSummaryFilterSensitiveLog = (obj: EnvironmentSummary): a
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.desktopEndpoint && { desktopEndpoint: SENSITIVE_STRING }),
+  ...(obj.activationCode && { activationCode: SENSITIVE_STRING }),
 });
 
 /**
@@ -1726,6 +1733,7 @@ export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
   ...obj,
   ...(obj.name && { name: SENSITIVE_STRING }),
   ...(obj.desktopEndpoint && { desktopEndpoint: SENSITIVE_STRING }),
+  ...(obj.activationCode && { activationCode: SENSITIVE_STRING }),
   ...(obj.tags && { tags: SENSITIVE_STRING }),
   ...(obj.deviceCreationTags && { deviceCreationTags: SENSITIVE_STRING }),
 });
