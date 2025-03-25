@@ -8,6 +8,7 @@ import { MarketplaceEntitlementServiceServiceException as __BaseException } from
  * @enum
  */
 export const GetEntitlementFilterName = {
+  CUSTOMER_AWS_ACCOUNT_ID: "CUSTOMER_AWS_ACCOUNT_ID",
   CUSTOMER_IDENTIFIER: "CUSTOMER_IDENTIFIER",
   DIMENSION: "DIMENSION",
 } as const;
@@ -35,6 +36,9 @@ export interface GetEntitlementsRequest {
    *       dimension. Filters are described as keys mapped to a lists of values. Filtered requests are
    *         <i>unioned</i> for each value in the value list, and then
    *         <i>intersected</i> for each filter key.</p>
+   *          <p>
+   *             <code>CustomerIdentifier</code> and <code>CustomerAWSAccountID</code> are mutually exclusive. You can't specify both in the same request.
+   *    </p>
    * @public
    */
   Filter?: Partial<Record<GetEntitlementFilterName, string[]>> | undefined;
@@ -118,6 +122,14 @@ export interface Entitlement {
    * @public
    */
   CustomerIdentifier?: string | undefined;
+
+  /**
+   * <p>
+   *       The <code>CustomerAWSAccountID</code> parameter specifies the AWS account ID of the buyer.
+   *     </p>
+   * @public
+   */
+  CustomerAWSAccountId?: string | undefined;
 
   /**
    * <p>The EntitlementValue represents the amount of capacity that the customer is entitled to

@@ -153,6 +153,7 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
  */
 const de_Entitlement = (output: any, context: __SerdeContext): Entitlement => {
   return take(output, {
+    CustomerAWSAccountId: __expectString,
     CustomerIdentifier: __expectString,
     Dimension: __expectString,
     ExpirationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
