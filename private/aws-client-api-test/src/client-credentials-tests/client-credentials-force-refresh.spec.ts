@@ -28,6 +28,9 @@ describe("client credentials forceRefresh", () => {
       "%o",
       async (ClientCtr) => {
         const client = new ClientCtr(config);
+
+        // Credentials function is only called on the first call (done by API call).
+        expect(credentials).not.toHaveBeenCalled();
         await client.config.credentials();
         expect(credentials).toHaveBeenCalledTimes(1);
 
