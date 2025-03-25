@@ -211,6 +211,7 @@ import {
   InsightSummary,
   InvalidParameterException,
   InvalidRequestException,
+  InvalidStateException,
   KubernetesNetworkConfigRequest,
   LaunchTemplateSpecification,
   Logging,
@@ -237,6 +238,7 @@ import {
   ServiceUnavailableException,
   StorageConfigRequest,
   Taint,
+  ThrottlingException,
   UnsupportedAvailabilityZoneException,
   Update,
   UpdateAccessConfigRequest,
@@ -1400,6 +1402,7 @@ export const se_UpdateClusterVersionCommand = async (
   body = JSON.stringify(
     take(input, {
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      force: [],
       version: [],
     })
   );
@@ -2744,6 +2747,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceInUseException":
     case "com.amazonaws.eks#ResourceInUseException":
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.eks#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.eks#ResourceLimitExceededException":
       throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
@@ -2765,6 +2771,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourcePropagationDelayException":
     case "com.amazonaws.eks#ResourcePropagationDelayException":
       throw await de_ResourcePropagationDelayExceptionRes(parsedOutput, context);
+    case "InvalidStateException":
+    case "com.amazonaws.eks#InvalidStateException":
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2877,6 +2886,27 @@ const de_InvalidRequestExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new InvalidRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1InvalidStateExceptionRes
+ */
+const de_InvalidStateExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidStateException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    clusterName: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -3026,6 +3056,24 @@ const de_ServiceUnavailableExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new ServiceUnavailableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    clusterName: __expectString,
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });

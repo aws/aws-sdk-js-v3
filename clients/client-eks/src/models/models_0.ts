@@ -1296,6 +1296,34 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
+ * <p>The request or operation couldn't be performed because a service is throttling
+ *             requests.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The Amazon EKS cluster associated with the exception.</p>
+   * @public
+   */
+  clusterName?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.clusterName = opts.clusterName;
+  }
+}
+
+/**
  * <p>An object representing an OpenID Connect (OIDC) configuration. Before associating an
  *             OIDC identity provider to your cluster, review the considerations in <a href="https://docs.aws.amazon.com/eks/latest/userguide/authenticate-oidc-identity-provider.html">Authenticating
  *                 users for your cluster from an OIDC identity provider</a> in the
@@ -3367,7 +3395,7 @@ export interface EksAnywhereSubscription {
 
   /**
    * <p>Includes all of the claims in the license token necessary to validate the license for
-   * 	    extended support.</p>
+   *             extended support.</p>
    * @public
    */
   licenses?: License[] | undefined;
@@ -7368,6 +7396,39 @@ export interface UpdateClusterConfigResponse {
 }
 
 /**
+ * <p>Amazon EKS detected upgrade readiness issues. Call the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListInsights.html">
+ *                <code>ListInsights</code>
+ *             </a> API to view detected upgrade blocking issues.
+ *             Pass the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateClusterVersion.html#API_UpdateClusterVersion_RequestBody">
+ *                <code>force</code>
+ *             </a> flag when updating to override upgrade readiness
+ *             errors.</p>
+ * @public
+ */
+export class InvalidStateException extends __BaseException {
+  readonly name: "InvalidStateException" = "InvalidStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The Amazon EKS cluster associated with the exception.</p>
+   * @public
+   */
+  clusterName?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
+    super({
+      name: "InvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStateException.prototype);
+    this.clusterName = opts.clusterName;
+  }
+}
+
+/**
  * @public
  */
 export interface UpdateClusterVersionRequest {
@@ -7389,6 +7450,13 @@ export interface UpdateClusterVersionRequest {
    * @public
    */
   clientRequestToken?: string | undefined;
+
+  /**
+   * <p>Set this value to <code>true</code> to override upgrade-blocking readiness checks when
+   *             updating a cluster.</p>
+   * @public
+   */
+  force?: boolean | undefined;
 }
 
 /**

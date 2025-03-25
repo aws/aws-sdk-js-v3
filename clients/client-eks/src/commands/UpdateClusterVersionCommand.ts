@@ -50,6 +50,7 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
  *   name: "STRING_VALUE", // required
  *   version: "STRING_VALUE", // required
  *   clientRequestToken: "STRING_VALUE",
+ *   force: true || false,
  * };
  * const command = new UpdateClusterVersionCommand(input);
  * const response = await client.send(command);
@@ -98,6 +99,15 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
  *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
  *             and the associated operations.</p>
  *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>Amazon EKS detected upgrade readiness issues. Call the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListInsights.html">
+ *                <code>ListInsights</code>
+ *             </a> API to view detected upgrade blocking issues.
+ *             Pass the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateClusterVersion.html#API_UpdateClusterVersion_RequestBody">
+ *                <code>force</code>
+ *             </a> flag when updating to override upgrade readiness
+ *             errors.</p>
+ *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The specified resource is in use.</p>
  *
@@ -109,6 +119,10 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request or operation couldn't be performed because a service is throttling
+ *             requests.</p>
  *
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
