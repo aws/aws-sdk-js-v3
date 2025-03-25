@@ -151,11 +151,21 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  *     },
  *   },
  *   storageConfiguration: { // StorageConfiguration
- *     type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS" || "MONGO_DB_ATLAS" || "NEPTUNE_ANALYTICS", // required
+ *     type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS" || "MONGO_DB_ATLAS" || "NEPTUNE_ANALYTICS" || "OPENSEARCH_MANAGED_CLUSTER", // required
  *     opensearchServerlessConfiguration: { // OpenSearchServerlessConfiguration
  *       collectionArn: "STRING_VALUE", // required
  *       vectorIndexName: "STRING_VALUE", // required
  *       fieldMapping: { // OpenSearchServerlessFieldMapping
+ *         vectorField: "STRING_VALUE", // required
+ *         textField: "STRING_VALUE", // required
+ *         metadataField: "STRING_VALUE", // required
+ *       },
+ *     },
+ *     opensearchManagedClusterConfiguration: { // OpenSearchManagedClusterConfiguration
+ *       domainEndpoint: "STRING_VALUE", // required
+ *       domainArn: "STRING_VALUE", // required
+ *       vectorIndexName: "STRING_VALUE", // required
+ *       fieldMapping: { // OpenSearchManagedClusterFieldMapping
  *         vectorField: "STRING_VALUE", // required
  *         textField: "STRING_VALUE", // required
  *         metadataField: "STRING_VALUE", // required
@@ -310,11 +320,21 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  * //       },
  * //     },
  * //     storageConfiguration: { // StorageConfiguration
- * //       type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS" || "MONGO_DB_ATLAS" || "NEPTUNE_ANALYTICS", // required
+ * //       type: "OPENSEARCH_SERVERLESS" || "PINECONE" || "REDIS_ENTERPRISE_CLOUD" || "RDS" || "MONGO_DB_ATLAS" || "NEPTUNE_ANALYTICS" || "OPENSEARCH_MANAGED_CLUSTER", // required
  * //       opensearchServerlessConfiguration: { // OpenSearchServerlessConfiguration
  * //         collectionArn: "STRING_VALUE", // required
  * //         vectorIndexName: "STRING_VALUE", // required
  * //         fieldMapping: { // OpenSearchServerlessFieldMapping
+ * //           vectorField: "STRING_VALUE", // required
+ * //           textField: "STRING_VALUE", // required
+ * //           metadataField: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       opensearchManagedClusterConfiguration: { // OpenSearchManagedClusterConfiguration
+ * //         domainEndpoint: "STRING_VALUE", // required
+ * //         domainArn: "STRING_VALUE", // required
+ * //         vectorIndexName: "STRING_VALUE", // required
+ * //         fieldMapping: { // OpenSearchManagedClusterFieldMapping
  * //           vectorField: "STRING_VALUE", // required
  * //           textField: "STRING_VALUE", // required
  * //           metadataField: "STRING_VALUE", // required

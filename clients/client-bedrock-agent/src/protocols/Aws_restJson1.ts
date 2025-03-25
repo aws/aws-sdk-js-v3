@@ -340,6 +340,8 @@ import {
   MongoDbAtlasFieldMapping,
   NeptuneAnalyticsConfiguration,
   NeptuneAnalyticsFieldMapping,
+  OpenSearchManagedClusterConfiguration,
+  OpenSearchManagedClusterFieldMapping,
   OpenSearchServerlessConfiguration,
   OpenSearchServerlessFieldMapping,
   PineconeConfiguration,
@@ -4141,6 +4143,10 @@ const se_MetadataAttributeValue = (input: MetadataAttributeValue, context: __Ser
 
 // se_NeptuneAnalyticsFieldMapping omitted.
 
+// se_OpenSearchManagedClusterConfiguration omitted.
+
+// se_OpenSearchManagedClusterFieldMapping omitted.
+
 // se_OpenSearchServerlessConfiguration omitted.
 
 // se_OpenSearchServerlessFieldMapping omitted.
@@ -5386,6 +5392,10 @@ const de_KnowledgeBaseSummary = (output: any, context: __SerdeContext): Knowledg
 // de_NeptuneAnalyticsConfiguration omitted.
 
 // de_NeptuneAnalyticsFieldMapping omitted.
+
+// de_OpenSearchManagedClusterConfiguration omitted.
+
+// de_OpenSearchManagedClusterFieldMapping omitted.
 
 // de_OpenSearchServerlessConfiguration omitted.
 

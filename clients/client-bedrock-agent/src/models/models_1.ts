@@ -1400,6 +1400,62 @@ export interface NeptuneAnalyticsConfiguration {
  * <p>Contains the names of the fields to which to map information about the vector store.</p>
  * @public
  */
+export interface OpenSearchManagedClusterFieldMapping {
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
+   * @public
+   */
+  vectorField: string | undefined;
+
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text
+   *     is split according to the chunking strategy you choose.</p>
+   * @public
+   */
+  textField: string | undefined;
+
+  /**
+   * <p>The name of the field in which Amazon Bedrock stores metadata about the vector store.</p>
+   * @public
+   */
+  metadataField: string | undefined;
+}
+
+/**
+ * <p>Contains details about the Managed Cluster configuration of the knowledge base in Amazon OpenSearch Service. For more information,
+ *     see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html">Create a vector index in OpenSearch Managed Cluster</a>.</p>
+ * @public
+ */
+export interface OpenSearchManagedClusterConfiguration {
+  /**
+   * <p>The endpoint URL the OpenSearch domain.</p>
+   * @public
+   */
+  domainEndpoint: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the OpenSearch domain.</p>
+   * @public
+   */
+  domainArn: string | undefined;
+
+  /**
+   * <p>The name of the vector store.</p>
+   * @public
+   */
+  vectorIndexName: string | undefined;
+
+  /**
+   * <p>Contains the names of the fields to which to map information about the vector store.</p>
+   * @public
+   */
+  fieldMapping: OpenSearchManagedClusterFieldMapping | undefined;
+}
+
+/**
+ * <p>Contains the names of the fields to which to map information about the vector store.</p>
+ * @public
+ */
 export interface OpenSearchServerlessFieldMapping {
   /**
    * <p>The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.</p>
@@ -1619,6 +1675,7 @@ export interface RedisEnterpriseCloudConfiguration {
 export const KnowledgeBaseStorageType = {
   MONGO_DB_ATLAS: "MONGO_DB_ATLAS",
   NEPTUNE_ANALYTICS: "NEPTUNE_ANALYTICS",
+  OPENSEARCH_MANAGED_CLUSTER: "OPENSEARCH_MANAGED_CLUSTER",
   OPENSEARCH_SERVERLESS: "OPENSEARCH_SERVERLESS",
   PINECONE: "PINECONE",
   RDS: "RDS",
@@ -1646,6 +1703,14 @@ export interface StorageConfiguration {
    * @public
    */
   opensearchServerlessConfiguration?: OpenSearchServerlessConfiguration | undefined;
+
+  /**
+   * <p>Contains details about the storage configuration of the knowledge base in OpenSearch Managed
+   *     Cluster. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html">Create
+   *     a vector index in Amazon OpenSearch Service</a>.</p>
+   * @public
+   */
+  opensearchManagedClusterConfiguration?: OpenSearchManagedClusterConfiguration | undefined;
 
   /**
    * <p>Contains the storage configuration of the knowledge base in Pinecone.</p>
@@ -3167,8 +3232,23 @@ export const NeptuneAnalyticsConfigurationFilterSensitiveLog = (obj: NeptuneAnal
 /**
  * @internal
  */
+export const OpenSearchManagedClusterConfigurationFilterSensitiveLog = (
+  obj: OpenSearchManagedClusterConfiguration
+): any => ({
+  ...obj,
+  ...(obj.vectorIndexName && { vectorIndexName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const StorageConfigurationFilterSensitiveLog = (obj: StorageConfiguration): any => ({
   ...obj,
+  ...(obj.opensearchManagedClusterConfiguration && {
+    opensearchManagedClusterConfiguration: OpenSearchManagedClusterConfigurationFilterSensitiveLog(
+      obj.opensearchManagedClusterConfiguration
+    ),
+  }),
   ...(obj.neptuneAnalyticsConfiguration && {
     neptuneAnalyticsConfiguration: NeptuneAnalyticsConfigurationFilterSensitiveLog(obj.neptuneAnalyticsConfiguration),
   }),

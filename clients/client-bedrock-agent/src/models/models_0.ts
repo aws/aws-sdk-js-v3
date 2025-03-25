@@ -996,7 +996,7 @@ export interface UpdateAgentActionGroupRequest {
    * <p>The configuration settings for a computer use action.</p>
    *          <important>
    *             <p>
-   *         Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
+   *         Computer use is a new Anthropic Claude model capability (in beta) available with Claude 3.7 Sonnet and Claude 3.5 Sonnet v2 only. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agent-computer-use.html">Configure an Amazon Bedrock Agent to complete tasks with computer use tools</a>.
    *       </p>
    *          </important>
    * @public
@@ -3893,7 +3893,7 @@ export interface BedrockFoundationModelContextEnrichmentConfiguration {
   enrichmentStrategyConfiguration: EnrichmentStrategyConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the foundation model used for context enrichment.</p>
+   * <p>The Amazon Resource Name (ARN) of the model used to create vector embeddings for the knowledge base.</p>
    * @public
    */
   modelArn: string | undefined;
