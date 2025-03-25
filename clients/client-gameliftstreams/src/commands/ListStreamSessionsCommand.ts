@@ -29,8 +29,8 @@ export interface ListStreamSessionsCommandOutput extends ListStreamSessionsOutpu
 
 /**
  * <p>Retrieves a list of Amazon GameLift Streams stream sessions that a stream group is hosting.</p>
- *          <p>To retrieve stream sessions, specify the stream group, and optionally filter by stream
- *             session status. You can paginate the results as needed.</p>
+ *          <p>To retrieve stream sessions, specify the stream group, and optionally filter by stream session status. You can paginate the results as
+ *             needed.</p>
  *          <p>This operation returns the requested stream sessions in no particular order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,8 +77,7 @@ export interface ListStreamSessionsCommandOutput extends ListStreamSessionsOutpu
  * @see {@link GameLiftStreamsClientResolvedConfig | config} for GameLiftStreamsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the
- *          permissions before you try again.</p>
+ *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The service encountered an internal error and is unable to complete the request.</p>
@@ -87,12 +86,11 @@ export interface ListStreamSessionsCommandOutput extends ListStreamSessionsOutpu
  *  <p>The resource specified in the request was not found. Correct the request before you try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Retry the request after the
- *          suggested wait time.</p>
+ *  <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values in the request fail to satisfy the specified constraints.
- *          Correct the invalid parameter values before retrying the request.</p>
+ *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before
+ *          retrying the request.</p>
  *
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>

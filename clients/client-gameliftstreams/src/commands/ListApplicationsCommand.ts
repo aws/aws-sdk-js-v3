@@ -28,9 +28,8 @@ export interface ListApplicationsCommandInput extends ListApplicationsInput {}
 export interface ListApplicationsCommandOutput extends ListApplicationsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of all Amazon GameLift Streams applications that are associated with the
- *             Amazon Web Services account in use. This operation returns applications in all statuses, in no
- *             particular order. You can paginate the results as needed.</p>
+ * <p>Retrieves a list of all Amazon GameLift Streams applications that are associated with the Amazon Web Services account in use. This operation returns applications in
+ *             all statuses, in no particular order. You can paginate the results as needed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,19 +69,17 @@ export interface ListApplicationsCommandOutput extends ListApplicationsOutput, _
  * @see {@link GameLiftStreamsClientResolvedConfig | config} for GameLiftStreamsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the
- *          permissions before you try again.</p>
+ *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The service encountered an internal error and is unable to complete the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Retry the request after the
- *          suggested wait time.</p>
+ *  <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values in the request fail to satisfy the specified constraints.
- *          Correct the invalid parameter values before retrying the request.</p>
+ *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before
+ *          retrying the request.</p>
  *
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>

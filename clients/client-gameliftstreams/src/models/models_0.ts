@@ -4,8 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { GameLiftStreamsServiceException as __BaseException } from "./GameLiftStreamsServiceException";
 
 /**
- * <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the
- *          permissions before you try again.</p>
+ * <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -31,15 +30,15 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Configuration settings that define a stream group's stream capacity for a location. When configuring a location for the first time, you must specify a numeric value for at least one of the two capacity types. To update the capacity for an existing stream group, call <a>UpdateStreamGroup</a>. To add a new location and specify its capacity, call <a>AddStreamGroupLocations</a>.</p>
+ * <p>Configuration settings that define a stream group's stream capacity for a location. When configuring a location for the first time, you
+ *             must specify a numeric value for at least one of the two capacity types. To update the capacity for an existing stream group, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UpdateStreamGroup.html">UpdateStreamGroup</a>. To add a new location and specify its
+ *             capacity, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_AddStreamGroupLocations.html">AddStreamGroupLocations</a>.</p>
  * @public
  */
 export interface LocationConfiguration {
   /**
    * <p>
-   * 	A location's name. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, see
-   * 	the Regions and quotas section in the Amazon GameLift Streams Developer Guide
-   * .
+   * 	A location's name. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions and quotas</a> in the <i>Amazon GameLift Streams Developer Guide</i>.
    * </p>
    * @public
    */
@@ -67,11 +66,9 @@ export interface LocationConfiguration {
  */
 export interface AddStreamGroupLocationsInput {
   /**
-   * <p>
-   *           A stream group to add the specified locations to.
-   *         </p>
+   * <p> A stream group to add the specified locations to. </p>
    *          <p>This value is a
-   * 	Amazon Resource Name (ARN) that uniquely identifies the stream group resource. Format example: <code>1AB2C3De4</code>.
+   * 	Amazon Resource Name (ARN) that uniquely identifies the stream group resource. Format example: <code>sg-1AB2C3De4</code>.
    * </p>
    * @public
    */
@@ -109,9 +106,7 @@ export type StreamGroupLocationStatus = (typeof StreamGroupLocationStatus)[keyof
 export interface LocationState {
   /**
    * <p>
-   * 	A location's name. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, see
-   * 	the Regions and quotas section in the Amazon GameLift Streams Developer Guide
-   * .
+   * 	A location's name. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions and quotas</a> in the <i>Amazon GameLift Streams Developer Guide</i>.
    * </p>
    * @public
    */
@@ -191,7 +186,7 @@ export interface LocationState {
 export interface AddStreamGroupLocationsOutput {
   /**
    * <p>This value is the
-   * 	Amazon Resource Name (ARN) that uniquely identifies the stream group resource. Format example: <code>1AB2C3De4</code>.
+   * 	Amazon Resource Name (ARN) that uniquely identifies the stream group resource. Format example: <code>sg-1AB2C3De4</code>.
    * </p>
    * @public
    */
@@ -285,8 +280,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request would cause the resource to exceed an allowed service quota. Resolve the
- *          issue before you try again.</p>
+ * <p>The request would cause the resource to exceed an allowed service quota. Resolve the issue before you try again.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -312,8 +306,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. Retry the request after the
- *          suggested wait time.</p>
+ * <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -342,8 +335,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>One or more parameter values in the request fail to satisfy the specified constraints.
- *          Correct the invalid parameter values before retrying the request.</p>
+ * <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before
+ *          retrying the request.</p>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -400,7 +393,8 @@ export const ApplicationStatusReason = {
 export type ApplicationStatusReason = (typeof ApplicationStatusReason)[keyof typeof ApplicationStatusReason];
 
 /**
- * <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+ * <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the
+ *          conflict before retrying this request.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -441,8 +435,8 @@ export const RuntimeEnvironmentType = {
 export type RuntimeEnvironmentType = (typeof RuntimeEnvironmentType)[keyof typeof RuntimeEnvironmentType];
 
 /**
- * <p>Configuration settings that identify the operating system for an application
- *             resource. This can also include a compatibility layer and other drivers.</p>
+ * <p>Configuration settings that identify the operating system for an application resource. This can also include a compatibility layer and
+ *             other drivers.</p>
  *          <p>A runtime environment can be one of the following:</p>
  *          <ul>
  *             <li>
@@ -452,7 +446,7 @@ export type RuntimeEnvironmentType = (typeof RuntimeEnvironmentType)[keyof typeo
  *                <ul>
  *                   <li>
  *                      <p>
- *                     Ubuntu 22.04 LTS(<code>Type=UBUNTU, Version=22_04_LTS</code>)
+ *                     Ubuntu 22.04 LTS (<code>Type=UBUNTU, Version=22_04_LTS</code>)
  *                 </p>
  *                   </li>
  *                </ul>
@@ -501,7 +495,8 @@ export interface CreateApplicationInput {
   Description: string | undefined;
 
   /**
-   * <p>A set of configuration settings to run the application on a stream group. This configures the operating system, and can include compatibility layers and other drivers.</p>
+   * <p>Configuration settings that identify the operating system for an application resource. This can also include a compatibility layer and
+   *             other drivers.</p>
    *          <p>A runtime environment can be one of the following:</p>
    *          <ul>
    *             <li>
@@ -511,7 +506,7 @@ export interface CreateApplicationInput {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                     Ubuntu 22.04 LTS(<code>Type=UBUNTU, Version=22_04_LTS</code>)
+   *                     Ubuntu 22.04 LTS (<code>Type=UBUNTU, Version=22_04_LTS</code>)
    *                 </p>
    *                   </li>
    *                </ul>
@@ -538,23 +533,19 @@ export interface CreateApplicationInput {
   RuntimeEnvironment: RuntimeEnvironment | undefined;
 
   /**
-   * <p>The path and file name of the executable file that launches the content for streaming.
-   *             Enter a path value that is relative to the location set in
-   *                 <code>ApplicationSourceUri</code>.</p>
+   * <p>The path and file name of the executable file that launches the content for streaming. Enter a path value that is relative to the
+   *             location set in <code>ApplicationSourceUri</code>.</p>
    * @public
    */
   ExecutablePath: string | undefined;
 
   /**
-   * <p>The location of the content that you want to stream. Enter the URI of an Amazon S3 location
-   *             (bucket name and prefixes) that contains your content. Use the following format for the
-   *             URI: <code>s3://[bucket name]/[prefix]</code>. The location can have a multi-level
-   *             prefix structure, but it must include all the files needed to run the content. Amazon GameLift Streams
-   *             copies everything under the specified location.</p>
-   *          <p>This value is immutable. To designate a different content location, create a new
-   *             application.</p>
+   * <p>The location of the content that you want to stream. Enter an Amazon S3 URI to a bucket that contains your game or other application. The
+   *             location can have a multi-level prefix structure, but it must include all the files needed to run the content. Amazon GameLift Streams copies everything
+   *             under the specified location.</p>
+   *          <p>This value is immutable. To designate a different content location, create a new application.</p>
    *          <note>
-   *             <p>The S3 bucket and the Amazon GameLift Streams application must be in the same Amazon Web Services Region.</p>
+   *             <p>The Amazon S3 bucket and the Amazon GameLift Streams application must be in the same Amazon Web Services Region.</p>
    *          </note>
    * @public
    */
@@ -563,17 +554,16 @@ export interface CreateApplicationInput {
   /**
    * <p>Locations of log files that your content generates during a stream session. Enter path
    *         values that are relative to the <code>ApplicationSourceUri</code> location.
-   *         You can specify up to 10 log locations.
+   *         You can specify up to 10 log paths.
    *         Amazon GameLift Streams uploads designated log files to the Amazon S3 bucket that you specify in <code>ApplicationLogOutputUri</code>
-   *         at the end of a stream session. To retrieve stored log files, call <a>GetStreamSession</a>
+   *         at the end of a stream session. To retrieve stored log files, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html">GetStreamSession</a>
    *         and get the <code>LogFileLocationUri</code>.</p>
    * @public
    */
   ApplicationLogPaths?: string[] | undefined;
 
   /**
-   * <p>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Use the following format for the URI: <code>s3://[bucket name]/[prefix]</code>.
-   *         Required if you specify one or more <code>LogPaths</code>.</p>
+   * <p>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Required if you specify one or more <code>ApplicationLogPaths</code>.</p>
    *          <note>
    *             <p>The log bucket must have permissions that give Amazon GameLift Streams access to write the log files. For more information, see <b>Getting Started</b> in the Amazon GameLift Streams Developer Guide. </p>
    *          </note>
@@ -582,13 +572,9 @@ export interface CreateApplicationInput {
   ApplicationLogOutputUri?: string | undefined;
 
   /**
-   * <p>A list of labels to assign to the new application resource. Tags are developer-defined
-   *             key-value pairs. Tagging Amazon Web Services resources is useful for resource management, access
-   *             management and cost allocation. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging Amazon Web Services Resources</a> in the
-   *                 <i>Amazon Web Services General Reference</i>. You can use <a>TagResource</a> to add tags, <a>UntagResource</a> to remove tags,
-   *             and <a>ListTagsForResource</a> to view tags on existing resources. The
-   *             maximum tag limit might be lower than stated. See the <i>Amazon Web Services General
-   *                 Reference</i> for actual tagging limits.</p>
+   * <p>A list of labels to assign to the new application resource. Tags are developer-defined key-value pairs. Tagging Amazon Web Services resources is
+   *             useful for resource management, access management and cost allocation. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>. You can
+   *             use <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_TagResource.html">TagResource</a> to add tags, <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UntagResource.html">UntagResource</a> to remove tags, and <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ListTagsForResource.html">ListTagsForResource</a> to view tags on existing resources.</p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -617,15 +603,14 @@ export const ReplicationStatusType = {
 export type ReplicationStatusType = (typeof ReplicationStatusType)[keyof typeof ReplicationStatusType];
 
 /**
- * <p>Represents the status of the replication of an application to a location. An application cannot be streamed from a location until it has finished replicating there.</p>
+ * <p>Represents the status of the replication of an application to a location. An application cannot be streamed from a location until it has
+ *             finished replicating there.</p>
  * @public
  */
 export interface ReplicationStatus {
   /**
    * <p>
-   * 	A location's name. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, see
-   * 	the Regions and quotas section in the Amazon GameLift Streams Developer Guide
-   * .
+   * 	A location's name. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions and quotas</a> in the <i>Amazon GameLift Streams Developer Guide</i>.
    * </p>
    * @public
    */
@@ -643,9 +628,8 @@ export interface ReplicationStatus {
  */
 export interface CreateApplicationOutput {
   /**
-   * <p>An Amazon Resource Name (ARN) that's assigned to an application resource and uniquely identifies it across
-   *             all Amazon Web Services Regions. Format is <code>arn:aws:gameliftstreams:[AWS Region]:[AWS
-   *                 account]:application/[resource ID]</code>.</p>
+   * <p>An Amazon Resource Name (ARN) that's assigned to an application resource and uniquely identifies it across all Amazon Web Services Regions. Format is
+   *                 <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:application/[resource ID]</code>.</p>
    * @public
    */
   Arn: string | undefined;
@@ -657,9 +641,8 @@ export interface CreateApplicationOutput {
   Description?: string | undefined;
 
   /**
-   * <p>
-   *             A set of configuration settings to run the application on a stream group. This configures the operating system, and can include compatibility layers and other drivers.
-   *         </p>
+   * <p> Configuration settings that identify the operating system for an application resource. This can also include a compatibility layer and
+   *             other drivers. </p>
    *          <p>A runtime environment can be one of the following:</p>
    *          <ul>
    *             <li>
@@ -669,7 +652,7 @@ export interface CreateApplicationOutput {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                     Ubuntu 22.04 LTS(<code>Type=UBUNTU, Version=22_04_LTS</code>)
+   *                     Ubuntu 22.04 LTS (<code>Type=UBUNTU, Version=22_04_LTS</code>)
    *                 </p>
    *                   </li>
    *                </ul>
@@ -696,8 +679,7 @@ export interface CreateApplicationOutput {
   RuntimeEnvironment?: RuntimeEnvironment | undefined;
 
   /**
-   * <p>The path and file name of the executable file that launches the content for
-   *             streaming.</p>
+   * <p>The path and file name of the executable file that launches the content for streaming.</p>
    * @public
    */
   ExecutablePath?: string | undefined;
@@ -705,15 +687,14 @@ export interface CreateApplicationOutput {
   /**
    * <p>Locations of log files that your content generates during a stream session.
    *         Amazon GameLift Streams uploads log files to the Amazon S3 bucket that you specify in <code>ApplicationLogOutputUri</code>
-   *         at the end of a stream session. To retrieve stored log files, call <a>GetStreamSession</a>
+   *         at the end of a stream session. To retrieve stored log files, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html">GetStreamSession</a>
    *         and get the <code>LogFileLocationUri</code>.</p>
    * @public
    */
   ApplicationLogPaths?: string[] | undefined;
 
   /**
-   * <p>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Use the following format for the URI: <code>s3://[bucket name]/[prefix]</code>.
-   *         Required if you specify one or more <code>LogPaths</code>.</p>
+   * <p>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Required if you specify one or more <code>ApplicationLogPaths</code>.</p>
    * @public
    */
   ApplicationLogOutputUri?: string | undefined;
@@ -726,26 +707,23 @@ export interface CreateApplicationOutput {
 
   /**
    * <p>An
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code> or ID-<code>9ZY8X7Wv6</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code> or ID-<code>a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The current status of the application resource. Possible statuses include the
-   *             following:</p>
+   * <p>The current status of the application resource. Possible statuses include the following:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>INITIALIZED</code>: Amazon GameLift Streams has received the request and is initiating the
-   *                     work flow to create an application. </p>
+   *                   <code>INITIALIZED</code>: Amazon GameLift Streams has received the request and is initiating the work flow to create an application. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PROCESSING</code>: The create application work flow is in process. Amazon GameLift Streams
-   *                     is copying the content and caching for future deployment in a stream
-   *                     group.</p>
+   *                   <code>PROCESSING</code>: The create application work flow is in process. Amazon GameLift Streams is copying the content and caching for future
+   *                     deployment in a stream group.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -753,13 +731,11 @@ export interface CreateApplicationOutput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ERROR</code>: An error occurred when setting up the application. See
-   *                         <code>StatusReason</code> for more information.</p>
+   *                   <code>ERROR</code>: An error occurred when setting up the application. See <code>StatusReason</code> for more information.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETING</code>: Amazon GameLift Streams is in the process of deleting the
-   *                     application.</p>
+   *                   <code>DELETING</code>: Amazon GameLift Streams is in the process of deleting the application.</p>
    *             </li>
    *          </ul>
    * @public
@@ -767,8 +743,7 @@ export interface CreateApplicationOutput {
   Status?: ApplicationStatus | undefined;
 
   /**
-   * <p>A short description of the status reason when the application is in <code>ERROR</code>
-   *             status.</p>
+   * <p>A short description of the status reason when the application is in <code>ERROR</code> status.</p>
    * @public
    */
   StatusReason?: ApplicationStatusReason | undefined;
@@ -804,7 +779,7 @@ export interface CreateApplicationOutput {
 export interface DeleteApplicationInput {
   /**
    * <p>An
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code> or ID-<code>9ZY8X7Wv6</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code> or ID-<code>a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
@@ -817,7 +792,7 @@ export interface DeleteApplicationInput {
 export interface GetApplicationInput {
   /**
    * <p>An
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code> or ID-<code>9ZY8X7Wv6</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code> or ID-<code>a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
@@ -829,9 +804,8 @@ export interface GetApplicationInput {
  */
 export interface GetApplicationOutput {
   /**
-   * <p>An Amazon Resource Name (ARN) that's assigned to an application resource and uniquely identifies it across
-   *             all Amazon Web Services Regions. Format is <code>arn:aws:gameliftstreams:[AWS Region]:[AWS
-   *                 account]:application/[resource ID]</code>.</p>
+   * <p>An Amazon Resource Name (ARN) that's assigned to an application resource and uniquely identifies it across all Amazon Web Services Regions. Format is
+   *                 <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:application/[resource ID]</code>.</p>
    * @public
    */
   Arn: string | undefined;
@@ -843,9 +817,8 @@ export interface GetApplicationOutput {
   Description?: string | undefined;
 
   /**
-   * <p>
-   *             A set of configuration settings to run the application on a stream group. This configures the operating system, and can include compatibility layers and other drivers.
-   *         </p>
+   * <p> Configuration settings that identify the operating system for an application resource. This can also include a compatibility layer and
+   *             other drivers. </p>
    *          <p>A runtime environment can be one of the following:</p>
    *          <ul>
    *             <li>
@@ -855,7 +828,7 @@ export interface GetApplicationOutput {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                     Ubuntu 22.04 LTS(<code>Type=UBUNTU, Version=22_04_LTS</code>)
+   *                     Ubuntu 22.04 LTS (<code>Type=UBUNTU, Version=22_04_LTS</code>)
    *                 </p>
    *                   </li>
    *                </ul>
@@ -882,8 +855,7 @@ export interface GetApplicationOutput {
   RuntimeEnvironment?: RuntimeEnvironment | undefined;
 
   /**
-   * <p>The path and file name of the executable file that launches the content for
-   *             streaming.</p>
+   * <p>The path and file name of the executable file that launches the content for streaming.</p>
    * @public
    */
   ExecutablePath?: string | undefined;
@@ -891,15 +863,14 @@ export interface GetApplicationOutput {
   /**
    * <p>Locations of log files that your content generates during a stream session.
    *         Amazon GameLift Streams uploads log files to the Amazon S3 bucket that you specify in <code>ApplicationLogOutputUri</code>
-   *         at the end of a stream session. To retrieve stored log files, call <a>GetStreamSession</a>
+   *         at the end of a stream session. To retrieve stored log files, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html">GetStreamSession</a>
    *         and get the <code>LogFileLocationUri</code>.</p>
    * @public
    */
   ApplicationLogPaths?: string[] | undefined;
 
   /**
-   * <p>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Use the following format for the URI: <code>s3://[bucket name]/[prefix]</code>.
-   *         Required if you specify one or more <code>LogPaths</code>.</p>
+   * <p>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Required if you specify one or more <code>ApplicationLogPaths</code>.</p>
    * @public
    */
   ApplicationLogOutputUri?: string | undefined;
@@ -912,26 +883,23 @@ export interface GetApplicationOutput {
 
   /**
    * <p>An
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code> or ID-<code>9ZY8X7Wv6</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code> or ID-<code>a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The current status of the application resource. Possible statuses include the
-   *             following:</p>
+   * <p>The current status of the application resource. Possible statuses include the following:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>INITIALIZED</code>: Amazon GameLift Streams has received the request and is initiating the
-   *                     work flow to create an application. </p>
+   *                   <code>INITIALIZED</code>: Amazon GameLift Streams has received the request and is initiating the work flow to create an application. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PROCESSING</code>: The create application work flow is in process. Amazon GameLift Streams
-   *                     is copying the content and caching for future deployment in a stream
-   *                     group.</p>
+   *                   <code>PROCESSING</code>: The create application work flow is in process. Amazon GameLift Streams is copying the content and caching for future
+   *                     deployment in a stream group.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -939,13 +907,11 @@ export interface GetApplicationOutput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ERROR</code>: An error occurred when setting up the application. See
-   *                         <code>StatusReason</code> for more information.</p>
+   *                   <code>ERROR</code>: An error occurred when setting up the application. See <code>StatusReason</code> for more information.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETING</code>: Amazon GameLift Streams is in the process of deleting the
-   *                     application.</p>
+   *                   <code>DELETING</code>: Amazon GameLift Streams is in the process of deleting the application.</p>
    *             </li>
    *          </ul>
    * @public
@@ -953,8 +919,7 @@ export interface GetApplicationOutput {
   Status?: ApplicationStatus | undefined;
 
   /**
-   * <p>A short description of the status reason when the application is in <code>ERROR</code>
-   *             status.</p>
+   * <p>A short description of the status reason when the application is in <code>ERROR</code> status.</p>
    * @public
    */
   StatusReason?: ApplicationStatusReason | undefined;
@@ -978,11 +943,9 @@ export interface GetApplicationOutput {
   LastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *             A set of stream groups that this application is associated with. You can use any of these stream groups to stream your application.
-   *         </p>
+   * <p> A set of stream groups that this application is associated with. You can use any of these stream groups to stream your application. </p>
    *          <p>This value is a
-   *     set of <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARNs)</a> that uniquely identify stream group resources. Format example: <code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</code>.
+   *     set of <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARNs)</a> that uniquely identify stream group resources. Format example: <code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</code>.
    * </p>
    * @public
    */
@@ -1005,30 +968,29 @@ export interface ListApplicationsInput {
   NextToken?: string | undefined;
 
   /**
-   * <p>The number of results to return. Use this parameter with <code>NextToken</code> to
-   *             return results in sequential pages. Default value is <code>25</code>.</p>
+   * <p>The number of results to return. Use this parameter with <code>NextToken</code> to return results in sequential pages. Default value is
+   *                 <code>25</code>.</p>
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Describes an application resource that represents a collection of content for
- *             streaming with Amazon GameLift Streams. To retrieve additional application details, call <a>GetApplication</a>.</p>
+ * <p>Describes an application resource that represents a collection of content for streaming with Amazon GameLift Streams. To retrieve additional application
+ *             details, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetApplication.html">GetApplication</a>.</p>
  * @public
  */
 export interface ApplicationSummary {
   /**
-   * <p>An Amazon Resource Name (ARN) that's assigned to an application resource and uniquely identifies the
-   *             application across all Amazon Web Services Regions. Format is <code>arn:aws:gameliftstreams:[AWS Region]:[AWS
-   *                 account]:application/[resource ID]</code>.</p>
+   * <p>An Amazon Resource Name (ARN) that's assigned to an application resource and uniquely identifies the application across all Amazon Web Services Regions. Format is
+   *                 <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:application/[resource ID]</code>.</p>
    * @public
    */
   Arn: string | undefined;
 
   /**
    * <p>An
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code> or ID-<code>9ZY8X7Wv6</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code> or ID-<code>a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
@@ -1041,19 +1003,16 @@ export interface ApplicationSummary {
   Description?: string | undefined;
 
   /**
-   * <p>The current status of the application resource. Possible statuses include the
-   *             following:</p>
+   * <p>The current status of the application resource. Possible statuses include the following:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>INITIALIZED</code>: Amazon GameLift Streams has received the request and is initiating the
-   *                     work flow to create an application. </p>
+   *                   <code>INITIALIZED</code>: Amazon GameLift Streams has received the request and is initiating the work flow to create an application. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PROCESSING</code>: The create application work flow is in process. Amazon GameLift Streams
-   *                     is copying the content and caching for future deployment in a stream
-   *                     group.</p>
+   *                   <code>PROCESSING</code>: The create application work flow is in process. Amazon GameLift Streams is copying the content and caching for future
+   *                     deployment in a stream group.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1061,13 +1020,11 @@ export interface ApplicationSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ERROR</code>: An error occurred when setting up the application. See
-   *                         <code>StatusReason</code> for more information.</p>
+   *                   <code>ERROR</code>: An error occurred when setting up the application. See <code>StatusReason</code> for more information.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETING</code>: Amazon GameLift Streams is in the process of deleting the
-   *                     application.</p>
+   *                   <code>DELETING</code>: Amazon GameLift Streams is in the process of deleting the application.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1087,9 +1044,8 @@ export interface ApplicationSummary {
   LastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *             A set of configuration settings to run the application on a stream group. This configures the operating system, and can include compatibility layers and other drivers.
-   *         </p>
+   * <p> Configuration settings that identify the operating system for an application resource. This can also include a compatibility layer and
+   *             other drivers. </p>
    *          <p>A runtime environment can be one of the following:</p>
    *          <ul>
    *             <li>
@@ -1099,7 +1055,7 @@ export interface ApplicationSummary {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                     Ubuntu 22.04 LTS(<code>Type=UBUNTU, Version=22_04_LTS</code>)
+   *                     Ubuntu 22.04 LTS (<code>Type=UBUNTU, Version=22_04_LTS</code>)
    *                 </p>
    *                   </li>
    *                </ul>
@@ -1131,8 +1087,8 @@ export interface ApplicationSummary {
  */
 export interface ListApplicationsOutput {
   /**
-   * <p>A collection of Amazon GameLift Streams applications that are associated with the Amazon Web Services account in
-   *             use. Each item includes application metadata and status.</p>
+   * <p>A collection of Amazon GameLift Streams applications that are associated with the Amazon Web Services account in use. Each item includes application metadata and
+   *             status.</p>
    * @public
    */
   Items?: ApplicationSummary[] | undefined;
@@ -1153,7 +1109,7 @@ export interface ListApplicationsOutput {
 export interface UpdateApplicationInput {
   /**
    * <p>An
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code> or ID-<code>9ZY8X7Wv6</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code> or ID-<code>a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
@@ -1168,17 +1124,16 @@ export interface UpdateApplicationInput {
   /**
    * <p>Locations of log files that your content generates during a stream session. Enter path
    *         values that are relative to the <code>ApplicationSourceUri</code> location.
-   *         You can specify up to 10 log locations.
+   *         You can specify up to 10 log paths.
    *         Amazon GameLift Streams uploads designated log files to the Amazon S3 bucket that you specify in <code>ApplicationLogOutputUri</code>
-   *         at the end of a stream session. To retrieve stored log files, call <a>GetStreamSession</a>
+   *         at the end of a stream session. To retrieve stored log files, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html">GetStreamSession</a>
    *         and get the <code>LogFileLocationUri</code>.</p>
    * @public
    */
   ApplicationLogPaths?: string[] | undefined;
 
   /**
-   * <p>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Use the following format for the URI: <code>s3://[bucket name]/[prefix]</code>.
-   *         Required if you specify one or more <code>LogPaths</code>.</p>
+   * <p>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Required if you specify one or more <code>ApplicationLogPaths</code>.</p>
    *          <note>
    *             <p>The log bucket must have permissions that give Amazon GameLift Streams access to write the log files. For more information, see <b>Getting Started</b> in the Amazon GameLift Streams Developer Guide. </p>
    *          </note>
@@ -1192,9 +1147,8 @@ export interface UpdateApplicationInput {
  */
 export interface UpdateApplicationOutput {
   /**
-   * <p>An Amazon Resource Name (ARN) that's assigned to an application resource and uniquely identifies it across
-   *             all Amazon Web Services Regions. Format is <code>arn:aws:gameliftstreams:[AWS Region]:[AWS
-   *                 account]:application/[resource ID]</code>.</p>
+   * <p>An Amazon Resource Name (ARN) that's assigned to an application resource and uniquely identifies it across all Amazon Web Services Regions. Format is
+   *                 <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:application/[resource ID]</code>.</p>
    * @public
    */
   Arn: string | undefined;
@@ -1206,9 +1160,8 @@ export interface UpdateApplicationOutput {
   Description?: string | undefined;
 
   /**
-   * <p>
-   *             A set of configuration settings to run the application on a stream group. This configures the operating system, and can include compatibility layers and other drivers.
-   *         </p>
+   * <p> Configuration settings that identify the operating system for an application resource. This can also include a compatibility layer and
+   *             other drivers. </p>
    *          <p>A runtime environment can be one of the following:</p>
    *          <ul>
    *             <li>
@@ -1218,7 +1171,7 @@ export interface UpdateApplicationOutput {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                     Ubuntu 22.04 LTS(<code>Type=UBUNTU, Version=22_04_LTS</code>)
+   *                     Ubuntu 22.04 LTS (<code>Type=UBUNTU, Version=22_04_LTS</code>)
    *                 </p>
    *                   </li>
    *                </ul>
@@ -1245,8 +1198,7 @@ export interface UpdateApplicationOutput {
   RuntimeEnvironment?: RuntimeEnvironment | undefined;
 
   /**
-   * <p>The path and file name of the executable file that launches the content for
-   *             streaming.</p>
+   * <p>The path and file name of the executable file that launches the content for streaming.</p>
    * @public
    */
   ExecutablePath?: string | undefined;
@@ -1254,15 +1206,14 @@ export interface UpdateApplicationOutput {
   /**
    * <p>Locations of log files that your content generates during a stream session.
    *         Amazon GameLift Streams uploads log files to the Amazon S3 bucket that you specify in <code>ApplicationLogOutputUri</code>
-   *         at the end of a stream session. To retrieve stored log files, call <a>GetStreamSession</a>
+   *         at the end of a stream session. To retrieve stored log files, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html">GetStreamSession</a>
    *         and get the <code>LogFileLocationUri</code>.</p>
    * @public
    */
   ApplicationLogPaths?: string[] | undefined;
 
   /**
-   * <p>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Use the following format for the URI: <code>s3://[bucket name]/[prefix]</code>.
-   *         Required if you specify one or more <code>LogPaths</code>.</p>
+   * <p>An Amazon S3 URI to a bucket where you would like Amazon GameLift Streams to save application logs. Required if you specify one or more <code>ApplicationLogPaths</code>.</p>
    * @public
    */
   ApplicationLogOutputUri?: string | undefined;
@@ -1275,26 +1226,23 @@ export interface UpdateApplicationOutput {
 
   /**
    * <p>An
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code> or ID-<code>9ZY8X7Wv6</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code> or ID-<code>a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The current status of the application resource. Possible statuses include the
-   *             following:</p>
+   * <p>The current status of the application resource. Possible statuses include the following:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>INITIALIZED</code>: Amazon GameLift Streams has received the request and is initiating the
-   *                     work flow to create an application. </p>
+   *                   <code>INITIALIZED</code>: Amazon GameLift Streams has received the request and is initiating the work flow to create an application. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PROCESSING</code>: The create application work flow is in process. Amazon GameLift Streams
-   *                     is copying the content and caching for future deployment in a stream
-   *                     group.</p>
+   *                   <code>PROCESSING</code>: The create application work flow is in process. Amazon GameLift Streams is copying the content and caching for future
+   *                     deployment in a stream group.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1302,13 +1250,11 @@ export interface UpdateApplicationOutput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ERROR</code>: An error occurred when setting up the application. See
-   *                         <code>StatusReason</code> for more information.</p>
+   *                   <code>ERROR</code>: An error occurred when setting up the application. See <code>StatusReason</code> for more information.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETING</code>: Amazon GameLift Streams is in the process of deleting the
-   *                     application.</p>
+   *                   <code>DELETING</code>: Amazon GameLift Streams is in the process of deleting the application.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1316,8 +1262,7 @@ export interface UpdateApplicationOutput {
   Status?: ApplicationStatus | undefined;
 
   /**
-   * <p>A short description of the status reason when the application is in <code>ERROR</code>
-   *             status.</p>
+   * <p>A short description of the status reason when the application is in <code>ERROR</code> status.</p>
    * @public
    */
   StatusReason?: ApplicationStatusReason | undefined;
@@ -1341,11 +1286,9 @@ export interface UpdateApplicationOutput {
   LastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *             A set of stream groups that this application is associated with. You can use any of these stream groups to stream your application.
-   *         </p>
+   * <p> A set of stream groups that this application is associated with. You can use any of these stream groups to stream your application. </p>
    *          <p>This value is a
-   *     set of <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARNs)</a> that uniquely identify stream group resources. Format example: <code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</code>.
+   *     set of <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARNs)</a> that uniquely identify stream group resources. Format example: <code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</code>.
    * </p>
    * @public
    */
@@ -1359,7 +1302,7 @@ export interface AssociateApplicationsInput {
   /**
    * <p>A stream group to associate to the applications.</p>
    *          <p>This value is a
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</code> or ID-<code>1AB2C3De4</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</code> or ID-<code>sg-1AB2C3De4</code>.
    * </p>
    * @public
    */
@@ -1368,7 +1311,7 @@ export interface AssociateApplicationsInput {
   /**
    * <p>A set of applications to associate with the stream group.</p>
    *          <p>This value is a
-   *     set of either <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARN)</a> or IDs that uniquely identify application resources. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code> or ID-<code>9ZY8X7Wv6</code>.
+   *     set of either <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARN)</a> or IDs that uniquely identify application resources. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code> or ID-<code>a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
@@ -1382,7 +1325,7 @@ export interface AssociateApplicationsOutput {
   /**
    * <p>A stream group that is associated to the applications.</p>
    *          <p>This value is a
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</code> or ID-<code>1AB2C3De4</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</code> or ID-<code>sg-1AB2C3De4</code>.
    * </p>
    * @public
    */
@@ -1391,7 +1334,7 @@ export interface AssociateApplicationsOutput {
   /**
    * <p>A set of applications that are associated to the stream group.</p>
    *          <p>This value is a
-   *     set of either <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARN)</a> or IDs that uniquely identify application resources. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code> or ID-<code>9ZY8X7Wv6</code>.
+   *     set of either <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARN)</a> or IDs that uniquely identify application resources. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code> or ID-<code>a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
@@ -1427,16 +1370,15 @@ export interface CreateStreamGroupInput {
   Description: string | undefined;
 
   /**
-   * <p>The target stream quality for sessions that are hosted in this stream group. Set a
-   *             stream class that is appropriate to the type of content that you're streaming. Stream
-   *             class determines the type of computing resources Amazon GameLift Streams uses and impacts the cost of
-   *             streaming. The following options are available: </p>
+   * <p>The target stream quality for sessions that are hosted in this stream group. Set a stream class that is appropriate to the type of
+   *             content that you're streaming. Stream class determines the type of computing resources Amazon GameLift Streams uses and impacts the cost of streaming. The
+   *             following options are available: </p>
    *          <p>A stream class can be one of the following:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <b>
-   *                      <code>gen5n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with most Unreal Engine 5.x builds, 32-bit applications, and anti-cheat technology. Uses NVIDIA A10G Tensor GPU.</p>
+   *                      <code>gen5n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.4, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA A10G Tensor GPU.</p>
    *                <ul>
    *                   <li>
    *                      <p>Reference resolution: 1080p</p>
@@ -1495,7 +1437,7 @@ export interface CreateStreamGroupInput {
    *             <li>
    *                <p>
    *                   <b>
-   *                      <code>gen4n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with most Unreal Engine 5.2 and 5.3 builds, 32-bit applications, and anti-cheat technology. Uses NVIDIA T4 Tensor GPU.</p>
+   *                      <code>gen4n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.4, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA T4 Tensor GPU.</p>
    *                <ul>
    *                   <li>
    *                      <p>Reference resolution: 1080p</p>
@@ -1575,12 +1517,9 @@ export interface CreateStreamGroupInput {
   LocationConfigurations?: LocationConfiguration[] | undefined;
 
   /**
-   * <p>A list of labels to assign to the new stream group resource. Tags are
-   *             developer-defined key-value pairs. It is useful to tag Amazon Web Services resources for resource
-   *             management, access management, and cost allocation. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging Amazon Web Services Resources</a> in the
-   *                 <i>Amazon Web Services General Reference</i>. You can use <a>TagResource</a>, <a>UntagResource</a>, and <a>ListTagsForResource</a> to add, remove, and view tags on existing resources.
-   *             The maximum tag limit might be lower than stated. See the <i>Amazon Web Services </i>
-   *             for actual tagging limits.</p>
+   * <p>A list of labels to assign to the new stream group resource. Tags are developer-defined key-value pairs. Tagging Amazon Web Services resources is
+   *             useful for resource management, access management and cost allocation. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>. You can
+   *             use <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_TagResource.html">TagResource</a> to add tags, <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UntagResource.html">UntagResource</a> to remove tags, and <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ListTagsForResource.html">ListTagsForResource</a> to view tags on existing resources.</p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1595,22 +1534,19 @@ export interface CreateStreamGroupInput {
 }
 
 /**
- * <p>Represents the Amazon GameLift Streams application that a stream group hosts.</p>
+ * <p>Represents the default Amazon GameLift Streams application that a stream group hosts.</p>
  * @public
  */
 export interface DefaultApplication {
   /**
-   * <p>The default application of the stream group.</p>
-   *          <p>This value is an
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code> or ID-<code>9ZY8X7Wv6</code>.
-   * </p>
+   * <p>An ID that uniquely identifies the application resource. For example: <code>a-9ZY8X7Wv6</code>.</p>
    * @public
    */
   Id?: string | undefined;
 
   /**
    * <p>An
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</code> or ID-<code>1AB2C3De4</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the application resource. Format example: <code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
@@ -1654,9 +1590,8 @@ export type StreamGroupStatusReason = (typeof StreamGroupStatusReason)[keyof typ
  */
 export interface CreateStreamGroupOutput {
   /**
-   * <p>An Amazon Resource Name (ARN) that is assigned to the stream group resource and that uniquely identifies
-   *             the group across all Amazon Web Services Regions. Format is <code>arn:aws:gameliftstreams:[AWS Region]:[AWS
-   *                 account]:streamgroup/[resource ID]</code>.</p>
+   * <p>An Amazon Resource Name (ARN) that is assigned to the stream group resource and that uniquely identifies the group across all Amazon Web Services Regions. Format is
+   *                 <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:streamgroup/[resource ID]</code>.</p>
    * @public
    */
   Arn: string | undefined;
@@ -1668,7 +1603,7 @@ export interface CreateStreamGroupOutput {
   Description?: string | undefined;
 
   /**
-   * <p>The Amazon GameLift Streams application that is associated with this stream group.</p>
+   * <p>The default Amazon GameLift Streams application that is associated with this stream group.</p>
    * @public
    */
   DefaultApplication?: DefaultApplication | undefined;
@@ -1713,7 +1648,7 @@ export interface CreateStreamGroupOutput {
    *             <li>
    *                <p>
    *                   <b>
-   *                      <code>gen5n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with most Unreal Engine 5.x builds, 32-bit applications, and anti-cheat technology. Uses NVIDIA A10G Tensor GPU.</p>
+   *                      <code>gen5n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.4, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA A10G Tensor GPU.</p>
    *                <ul>
    *                   <li>
    *                      <p>Reference resolution: 1080p</p>
@@ -1772,7 +1707,7 @@ export interface CreateStreamGroupOutput {
    *             <li>
    *                <p>
    *                   <b>
-   *                      <code>gen4n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with most Unreal Engine 5.2 and 5.3 builds, 32-bit applications, and anti-cheat technology. Uses NVIDIA T4 Tensor GPU.</p>
+   *                      <code>gen4n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.4, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA T4 Tensor GPU.</p>
    *                <ul>
    *                   <li>
    *                      <p>Reference resolution: 1080p</p>
@@ -1834,8 +1769,7 @@ export interface CreateStreamGroupOutput {
   StreamClass?: StreamClass | undefined;
 
   /**
-   * <p>A unique ID value that is assigned to the resource when it's created. Format example:
-   *                 <code>1AB2C3De4</code>.</p>
+   * <p>A unique ID value that is assigned to the resource when it's created. Format example: <code>sg-1AB2C3De4</code>.</p>
    * @public
    */
   Id?: string | undefined;
@@ -1883,19 +1817,19 @@ export interface CreateStreamGroupOutput {
   Status?: StreamGroupStatus | undefined;
 
   /**
-   * <p>
-   *             A short description of the reason that the stream group is in <code>ERROR</code> status. The possible reasons can be one of the following:
-   *         </p>
+   * <p> A short description of the reason that the stream group is in <code>ERROR</code> status. The possible reasons can be one of the
+   *             following: </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>internalError</code>: The request can't process right now bcause of an issue with the server. Try again later. Reach out to the Amazon GameLift Streams team for more help.
-   *                 </p>
+   *                   <code>internalError</code>: The request can't process right now bcause of an issue with the server. Try again later. Reach out to
+   *                     the Amazon GameLift Streams team for more help. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>noAvailableInstances</code>: Amazon GameLift Streams does not currently have enough available On-Demand capacity to fulfill your request. Wait a few minutes and retry the request as capacity can shift frequently. You can also try to make the request using a different stream class or in another region.
-   *                 </p>
+   *                   <code>noAvailableInstances</code>: Amazon GameLift Streams does not currently have enough available On-Demand capacity to fulfill your request.
+   *                     Wait a few minutes and retry the request as capacity can shift frequently. You can also try to make the request using a different
+   *                     stream class or in another region. </p>
    *             </li>
    *          </ul>
    * @public
@@ -1915,11 +1849,9 @@ export interface CreateStreamGroupOutput {
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *             A set of applications that this stream group is associated to. You can stream any of these applications by using this stream group.
-   *         </p>
+   * <p> A set of applications that this stream group is associated to. You can stream any of these applications by using this stream group. </p>
    *          <p>This value is a
-   *     set of <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARNs)</a> that uniquely identify application resources. Format example: <code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code>.
+   *     set of <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARNs)</a> that uniquely identify application resources. Format example: <code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
@@ -1940,11 +1872,10 @@ export interface CreateStreamSessionConnectionInput {
 
   /**
    * <p>
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</code> or ID-<code>1AB2C3De4</code>.
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</code> or ID-<code>sg-1AB2C3De4</code>.
    * </p>
-   *          <p>
-   *             The stream group that you want to run this stream session with. The stream group must be in <code>ACTIVE</code> status and have idle stream capacity.
-   *         </p>
+   *          <p> The stream group that you want to run this stream session with. The stream group must be in <code>ACTIVE</code> status and have idle
+   *             stream capacity. </p>
    * @public
    */
   Identifier: string | undefined;
@@ -1952,16 +1883,14 @@ export interface CreateStreamSessionConnectionInput {
   /**
    * <p>
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the stream session resource. Format example: <code>1AB2C3De4</code>.
-   *  The stream session must be in
-   *                 <code>PENDING_CLIENT_RECONNECTION</code> or <code>ACTIVE</code> status. </p>
+   *  The stream session must be in <code>PENDING_CLIENT_RECONNECTION</code> or <code>ACTIVE</code> status. </p>
    * @public
    */
   StreamSessionIdentifier: string | undefined;
 
   /**
-   * <p>A WebRTC ICE offer string to use when initializing a WebRTC connection. The offer is a
-   *             very long JSON string. Provide the string as a text value in quotes. The offer must be
-   *             newly generated, not the same offer provided to <code>StartStreamSession</code>. </p>
+   * <p>A WebRTC ICE offer string to use when initializing a WebRTC connection. The offer is a very long JSON string. Provide the string as a
+   *             text value in quotes. The offer must be newly generated, not the same offer provided to <code>StartStreamSession</code>. </p>
    * @public
    */
   SignalRequest: string | undefined;
@@ -1972,8 +1901,7 @@ export interface CreateStreamSessionConnectionInput {
  */
 export interface CreateStreamSessionConnectionOutput {
   /**
-   * <p>The WebRTC answer string that the stream server generates in response to the
-   *                 <code>SignalRequest</code>. </p>
+   * <p>The WebRTC answer string that the stream server generates in response to the <code>SignalRequest</code>. </p>
    * @public
    */
   SignalResponse?: string | undefined;
@@ -1984,8 +1912,7 @@ export interface CreateStreamSessionConnectionOutput {
  */
 export interface DeleteStreamGroupInput {
   /**
-   * <p>The unique ID value of the stream group resource to delete. Format example:
-   *                 <code>1AB2C3De4</code>.</p>
+   * <p>The unique ID value of the stream group resource to delete. Format example: <code>sg-1AB2C3De4</code>.</p>
    * @public
    */
   Identifier: string | undefined;
@@ -1998,7 +1925,7 @@ export interface DisassociateApplicationsInput {
   /**
    * <p>A stream group to disassociate these applications from.</p>
    *          <p>This value is an
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</code> or ID-<code>1AB2C3De4</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</code> or ID-<code>sg-1AB2C3De4</code>.
    * </p>
    * @public
    */
@@ -2007,7 +1934,7 @@ export interface DisassociateApplicationsInput {
   /**
    * <p>A set of applications that you want to disassociate from the stream group.</p>
    *          <p>This value is a
-   *     set of either <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARN)</a> or IDs that uniquely identify application resources. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code> or ID-<code>9ZY8X7Wv6</code>.
+   *     set of either <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARN)</a> or IDs that uniquely identify application resources. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code> or ID-<code>a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
@@ -2020,7 +1947,7 @@ export interface DisassociateApplicationsInput {
 export interface DisassociateApplicationsOutput {
   /**
    * <p>An
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</code> or ID-<code>1AB2C3De4</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</code> or ID-<code>sg-1AB2C3De4</code>.
    * </p>
    * @public
    */
@@ -2029,7 +1956,7 @@ export interface DisassociateApplicationsOutput {
   /**
    * <p>A set of applications that are disassociated from this stream group.</p>
    *          <p>This value is a
-   *     set of either <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARN)</a> or IDs that uniquely identify application resources. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code> or ID-<code>9ZY8X7Wv6</code>.
+   *     set of either <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARN)</a> or IDs that uniquely identify application resources. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code> or ID-<code>a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
@@ -2059,7 +1986,8 @@ export type ExportFilesStatus = (typeof ExportFilesStatus)[keyof typeof ExportFi
  */
 export interface ExportFilesMetadata {
   /**
-   * <p>The result of the <a>ExportStreamSessionFiles</a> operation.</p>
+   * <p>The result of the <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_ExportStreamSessionFiles.html">ExportStreamSessionFiles</a>
+   *             operation.</p>
    * @public
    */
   Status?: ExportFilesStatus | undefined;
@@ -2072,10 +2000,9 @@ export interface ExportFilesMetadata {
 
   /**
    * <p> The S3 bucket URI where Amazon GameLift Streams uploaded the set of compressed exported files for a stream session. Amazon GameLift Streams generates a ZIP file name
-   *             based on the stream session metadata. Alternatively, you can provide a custom file name with  a <code>.zip</code> file extension.</p>
-   *          <p>
-   *             Example 1: If you provide an S3 URI called <code>s3://MyBucket/MyGame_Session1.zip</code>, then Amazon GameLift Streams will save the files at that location.
-   *         </p>
+   *             based on the stream session metadata. Alternatively, you can provide a custom file name with a <code>.zip</code> file extension.</p>
+   *          <p> Example 1: If you provide an S3 URI called <code>s3://MyBucket/MyGame_Session1.zip</code>, then Amazon GameLift Streams will save the files at that
+   *             location. </p>
    *          <p> Example 2: If you provide an S3 URI called <code>s3://MyBucket/MyGameSessions_ExportedFiles/</code>, then Amazon GameLift Streams will save the files
    *             at <code>s3://MyBucket/MyGameSessions_ExportedFiles/YYYYMMDD-HHMMSS-appId-sg-Id-sessionId.zip</code> or another similar name. </p>
    * @public
@@ -2089,7 +2016,7 @@ export interface ExportFilesMetadata {
 export interface ExportStreamSessionFilesInput {
   /**
    * <p>An
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</code> or ID-<code>1AB2C3De4</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</code> or ID-<code>sg-1AB2C3De4</code>.
    * </p>
    * @public
    */
@@ -2105,10 +2032,9 @@ export interface ExportStreamSessionFilesInput {
 
   /**
    * <p> The S3 bucket URI where Amazon GameLift Streams uploads the set of compressed exported files for this stream session. Amazon GameLift Streams generates a ZIP file name
-   *             based on the stream session metadata. Alternatively, you can provide a custom file name with  a <code>.zip</code> file extension.</p>
-   *          <p>
-   *           Example 1: If you provide an S3 URI called <code>s3://MyBucket/MyGame_Session1.zip</code>, then Amazon GameLift Streams will save the files at that location.
-   *         </p>
+   *             based on the stream session metadata. Alternatively, you can provide a custom file name with a <code>.zip</code> file extension.</p>
+   *          <p> Example 1: If you provide an S3 URI called <code>s3://MyBucket/MyGame_Session1.zip</code>, then Amazon GameLift Streams will save the files at that
+   *             location. </p>
    *          <p> Example 2: If you provide an S3 URI called <code>s3://MyBucket/MyGameSessions_ExportedFiles/</code>, then Amazon GameLift Streams will save the files
    *             at <code>s3://MyBucket/MyGameSessions_ExportedFiles/YYYYMMDD-HHMMSS-appId-sg-Id-sessionId.zip</code> or another similar name. </p>
    * @public
@@ -2128,7 +2054,7 @@ export interface GetStreamSessionInput {
   /**
    * <p>The stream group that runs this stream session.</p>
    *          <p>This value is an
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</code> or ID-<code>1AB2C3De4</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</code> or ID-<code>sg-1AB2C3De4</code>.
    * </p>
    * @public
    */
@@ -2197,24 +2123,20 @@ export type StreamSessionStatusReason = (typeof StreamSessionStatusReason)[keyof
  */
 export interface GetStreamSessionOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) assigned to the stream session resource. When combined with the stream group
-   *             ARN, this value uniquely identifies it across all Amazon Web Services Regions. Format is
-   *                 <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:streamsession/[resource
-   *             ID]</code>.</p>
+   * <p>The Amazon Resource Name (ARN) assigned to the stream session resource. When combined with the stream group ARN, this value uniquely identifies it across all
+   *             Amazon Web Services Regions. Format is <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:streamsession/[resource ID]</code>.</p>
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>A human-readable label for the stream session. You can update this value at any
-   *             time.</p>
+   * <p>A human-readable label for the stream session. You can update this value at any time.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The unique identifier for the Amazon GameLift Streams stream group that is hosting the stream
-   *             session.</p>
+   * <p>The unique identifier for the Amazon GameLift Streams stream group that is hosting the stream session.</p>
    * @public
    */
   StreamGroupId?: string | undefined;
@@ -2228,15 +2150,13 @@ export interface GetStreamSessionOutput {
   UserId?: string | undefined;
 
   /**
-   * <p>The current status of the stream session. A stream session can host clients when in
-   *                 <code>ACTIVE</code> status.</p>
+   * <p>The current status of the stream session. A stream session can host clients when in <code>ACTIVE</code> status.</p>
    * @public
    */
   Status?: StreamSessionStatus | undefined;
 
   /**
-   * <p>A short description of the reason the stream session is in <code>ERROR</code>
-   *             status.</p>
+   * <p>A short description of the reason the stream session is in <code>ERROR</code> status.</p>
    * @public
    */
   StatusReason?: StreamSessionStatusReason | undefined;
@@ -2250,32 +2170,27 @@ export interface GetStreamSessionOutput {
   /**
    * <p>The location where Amazon GameLift Streams is hosting the stream session.</p>
    *          <p>
-   * 	A location's name. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, see
-   * 	the Regions and quotas section in the Amazon GameLift Streams Developer Guide
-   * .
+   * 	A location's name. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions and quotas</a> in the <i>Amazon GameLift Streams Developer Guide</i>.
    * </p>
    * @public
    */
   Location?: string | undefined;
 
   /**
-   * <p>The WebRTC ICE offer string that a client generates to initiate a connection to the
-   *             stream session.</p>
+   * <p>The WebRTC ICE offer string that a client generates to initiate a connection to the stream session.</p>
    * @public
    */
   SignalRequest?: string | undefined;
 
   /**
-   * <p>The WebRTC answer string that the stream server generates in response to the
-   *                 <code>SignalRequest</code>.</p>
+   * <p>The WebRTC answer string that the stream server generates in response to the <code>SignalRequest</code>.</p>
    * @public
    */
   SignalResponse?: string | undefined;
 
   /**
-   * <p>The maximum length of time (in seconds) that Amazon GameLift Streams keeps the stream session open. At
-   *             this point, Amazon GameLift Streams ends the stream session regardless of any existing client
-   *             connections.</p>
+   * <p>The maximum length of time (in seconds) that Amazon GameLift Streams keeps the stream session open. At this point, Amazon GameLift Streams ends the stream session
+   *             regardless of any existing client connections.</p>
    * @public
    */
   ConnectionTimeoutSeconds?: number | undefined;
@@ -2312,16 +2227,14 @@ export interface GetStreamSessionOutput {
   AdditionalEnvironmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>Access location for log files that your content generates during a stream session.
-   *             These log files are uploaded to cloud storage location at the end of a stream session.
-   *             The Amazon GameLift Streams application resource defines which log files to upload.</p>
+   * <p>Access location for log files that your content generates during a stream session. These log files are uploaded to cloud storage
+   *             location at the end of a stream session. The Amazon GameLift Streams application resource defines which log files to upload.</p>
    * @public
    */
   LogFileLocationUri?: string | undefined;
 
   /**
-   * <p>The URL of an S3 bucket that stores Amazon GameLift Streams WebSDK files. The URL is used to establish
-   *             connection with the client.</p>
+   * <p>The URL of an S3 bucket that stores Amazon GameLift Streams WebSDK files. The URL is used to establish connection with the client.</p>
    * @public
    */
   WebSdkProtocolUrl?: string | undefined;
@@ -2341,7 +2254,7 @@ export interface GetStreamSessionOutput {
   /**
    * <p>The application streaming in this session.</p>
    *          <p>This value is an
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the application resource. Format example: <code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the application resource. Format example: <code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
@@ -2361,15 +2274,15 @@ export interface GetStreamSessionOutput {
  */
 export interface ListStreamSessionsInput {
   /**
-   * <p>Filter by the stream session status. You can specify one status in each request
-   *             to retrieve only sessions that are currently in that status.</p>
+   * <p>Filter by the stream session status. You can specify one status in each request to retrieve only sessions that are currently in that
+   *             status.</p>
    * @public
    */
   Status?: StreamSessionStatus | undefined;
 
   /**
-   * <p>Filter by the exported files status. You can specify one status in each request
-   *                 to retrieve only sessions that currently have that exported files status.</p>
+   * <p>Filter by the exported files status. You can specify one status in each request to retrieve only sessions that currently have that
+   *             exported files status.</p>
    *          <p>
    * 		Exported files can be in one of the following states:
    * 	</p>
@@ -2415,16 +2328,15 @@ export interface ListStreamSessionsInput {
   MaxResults?: number | undefined;
 
   /**
-   * <p>The unique identifier of a Amazon GameLift Streams stream group to retrieve the stream session for.
-   *             You can use either the stream group ID or the Amazon Resource Name (ARN).</p>
+   * <p>The unique identifier of a Amazon GameLift Streams stream group to retrieve the stream session for. You can use either the stream group ID or the
+   *             Amazon Resource Name (ARN).</p>
    * @public
    */
   Identifier: string | undefined;
 }
 
 /**
- * <p>Describes a Amazon GameLift Streams stream session. To retrieve additional details for the stream
- *             session, call <a>GetStreamSession</a>.</p>
+ * <p>Describes a Amazon GameLift Streams stream session. To retrieve additional details for the stream session, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html">GetStreamSession</a>.</p>
  * @public
  */
 export interface StreamSessionSummary {
@@ -2445,18 +2357,15 @@ export interface StreamSessionSummary {
   UserId?: string | undefined;
 
   /**
-   * <p>The current status of the stream session resource. Possible statuses include the
-   *             following: </p>
+   * <p>The current status of the stream session resource. Possible statuses include the following: </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ACTIVATING</code>: The stream session is starting and preparing to
-   *                     stream.</p>
+   *                   <code>ACTIVATING</code>: The stream session is starting and preparing to stream.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ACTIVE</code>: The stream session is ready to accept client
-   *                     connections.</p>
+   *                   <code>ACTIVE</code>: The stream session is ready to accept client connections.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2464,9 +2373,8 @@ export interface StreamSessionSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PENDING_CLIENT_RECONNECTION</code>: A client has recently disconnected,
-   *                     and the stream session is waiting for the client to reconnect. After a short
-   *                     time, if the client doesn't reconnect, the stream session status transitions to
+   *                   <code>PENDING_CLIENT_RECONNECTION</code>: A client has recently disconnected, and the stream session is waiting for the client
+   *                     to reconnect. After a short time, if the client doesn't reconnect, the stream session status transitions to
    *                         <code>TERMINATED</code>.</p>
    *             </li>
    *             <li>
@@ -2506,7 +2414,7 @@ export interface StreamSessionSummary {
 
   /**
    * <p>An
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code> or ID-<code>9ZY8X7Wv6</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code> or ID-<code>a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
@@ -2523,9 +2431,7 @@ export interface StreamSessionSummary {
   /**
    * <p>The location where Amazon GameLift Streams is hosting the stream session.</p>
    *          <p>
-   * 	A location's name. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, see
-   * 	the Regions and quotas section in the Amazon GameLift Streams Developer Guide
-   * .
+   * 	A location's name. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions and quotas</a> in the <i>Amazon GameLift Streams Developer Guide</i>.
    * </p>
    * @public
    */
@@ -2537,9 +2443,8 @@ export interface StreamSessionSummary {
  */
 export interface ListStreamSessionsOutput {
   /**
-   * <p>A collection of Amazon GameLift Streams stream sessions that are associated with a stream group and
-   *             returned in response to a list request. Each item includes stream session metadata and
-   *             status.</p>
+   * <p>A collection of Amazon GameLift Streams stream sessions that are associated with a stream group and returned in response to a list request. Each item
+   *             includes stream session metadata and status.</p>
    * @public
    */
   Items?: StreamSessionSummary[] | undefined;
@@ -2559,15 +2464,15 @@ export interface ListStreamSessionsOutput {
  */
 export interface ListStreamSessionsByAccountInput {
   /**
-   * <p>Filter by the stream session status. You can specify one status in each request
-   *             to retrieve only sessions that are currently in that status.</p>
+   * <p>Filter by the stream session status. You can specify one status in each request to retrieve only sessions that are currently in that
+   *             status.</p>
    * @public
    */
   Status?: StreamSessionStatus | undefined;
 
   /**
-   * <p>Filter by the exported files status. You can specify one status in each request
-   *             to retrieve only sessions that currently have that exported files status.</p>
+   * <p>Filter by the exported files status. You can specify one status in each request to retrieve only sessions that currently have that
+   *             exported files status.</p>
    * @public
    */
   ExportFilesStatus?: ExportFilesStatus | undefined;
@@ -2598,9 +2503,8 @@ export interface ListStreamSessionsByAccountInput {
  */
 export interface ListStreamSessionsByAccountOutput {
   /**
-   * <p>A collection of Amazon GameLift Streams stream sessions that are associated with a stream group and
-   *             returned in response to a list request. Each item includes stream session metadata and
-   *             status.</p>
+   * <p>A collection of Amazon GameLift Streams stream sessions that are associated with a stream group and returned in response to a list request. Each item
+   *             includes stream session metadata and status.</p>
    * @public
    */
   Items?: StreamSessionSummary[] | undefined;
@@ -2620,8 +2524,8 @@ export interface ListStreamSessionsByAccountOutput {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">Amazon Resource Name (ARN)</a> that you want to retrieve tags for. To get a Amazon GameLift Streams resource ARN, call a
-   *          List or Get operation for the resource.</p>
+   * <p>The (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">Amazon Resource Name (ARN)</a> that you want to retrieve tags for. To get a
+   *          Amazon GameLift Streams resource ARN, call a List or Get operation for the resource.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -2643,28 +2547,18 @@ export interface ListTagsForResourceResponse {
  */
 export interface RemoveStreamGroupLocationsInput {
   /**
-   * <p>
-   *           A stream group to remove the specified locations from.
-   *         </p>
-   *          <p>
-   *           This value is a
-   * 	Amazon Resource Name (ARN) that uniquely identifies the stream group resource. Format example: <code>1AB2C3De4</code>.
-   *
-   *         </p>
+   * <p> A stream group to remove the specified locations from. </p>
+   *          <p> This value is a
+   * 	Amazon Resource Name (ARN) that uniquely identifies the stream group resource. Format example: <code>sg-1AB2C3De4</code>.
+   *  </p>
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>
-   *           A set of locations to remove this stream group.
-   *         </p>
-   *          <p>
-   *           A set of location names. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, see
-   * 	the Regions and quotas section in the Amazon GameLift Streams Developer Guide
-   * .
-   *
-   *         </p>
+   * <p> A set of locations to remove this stream group. </p>
+   *          <p> A set of location names. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions and quotas</a> in the <i>Amazon GameLift Streams Developer Guide</i>.
+   *  </p>
    * @public
    */
   Locations: string[] | undefined;
@@ -2691,7 +2585,7 @@ export interface StartStreamSessionInput {
   /**
    * <p>The stream group to run this stream session with.</p>
    *          <p>This value is an
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</code> or ID-<code>1AB2C3De4</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</code> or ID-<code>sg-1AB2C3De4</code>.
    * </p>
    * @public
    */
@@ -2704,15 +2598,15 @@ export interface StartStreamSessionInput {
   Protocol: Protocol | undefined;
 
   /**
-   * <p>A WebRTC ICE offer string to use when initializing a WebRTC connection. The offer is a
-   *             very long JSON string. Provide the string as a text value in quotes.</p>
+   * <p>A WebRTC ICE offer string to use when initializing a WebRTC connection. The offer is a very long JSON string. Provide the string as a
+   *             text value in quotes.</p>
    * @public
    */
   SignalRequest: string | undefined;
 
   /**
    * <p>An
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code> or ID-<code>9ZY8X7Wv6</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code> or ID-<code>a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
@@ -2727,33 +2621,26 @@ export interface StartStreamSessionInput {
   UserId?: string | undefined;
 
   /**
-   * <p> A list of locations, in order of priority, where you want Amazon GameLift Streams to start a stream
-   *             from. Amazon GameLift Streams selects the location with the next available capacity to start a single
-   *             stream session in. If this value is empty, Amazon GameLift Streams attempts to start a stream session in
-   *             the primary location. </p>
-   *          <p>
-   *           This value is A set of location names. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, see
-   * 	the Regions and quotas section in the Amazon GameLift Streams Developer Guide
-   * .
-   *
-   *         </p>
+   * <p> A list of locations, in order of priority, where you want Amazon GameLift Streams to start a stream from. Amazon GameLift Streams selects the location with the next
+   *             available capacity to start a single stream session in. If this value is empty, Amazon GameLift Streams attempts to start a stream session in the
+   *             primary location. </p>
+   *          <p> This value is A set of location names. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions and quotas</a> in the <i>Amazon GameLift Streams Developer Guide</i>.
+   *  </p>
    * @public
    */
   Locations?: string[] | undefined;
 
   /**
-   * <p>Length of time (in seconds) that Amazon GameLift Streams should wait for a client to connect to the
-   *             stream session. This time span starts when the stream session reaches
-   *                 <code>ACTIVE</code> status. If no client connects before the timeout, Amazon GameLift Streams stops
-   *             the stream session with status of <code>TERMINATED</code>. Default value is 120.</p>
+   * <p>Length of time (in seconds) that Amazon GameLift Streams should wait for a client to connect to the stream session. This time span starts when the
+   *             stream session reaches <code>ACTIVE</code> status. If no client connects before the timeout, Amazon GameLift Streams stops the stream session with status
+   *             of <code>TERMINATED</code>. Default value is 120.</p>
    * @public
    */
   ConnectionTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>The maximum length of time (in seconds) that Amazon GameLift Streams keeps the stream session open. At
-   *             this point, Amazon GameLift Streams ends the stream session regardless of any existing client
-   *             connections. Default value is 43200.</p>
+   * <p>The maximum length of time (in seconds) that Amazon GameLift Streams keeps the stream session open. At this point, Amazon GameLift Streams ends the stream session
+   *             regardless of any existing client connections. Default value is 43200.</p>
    * @public
    */
   SessionLengthSeconds?: number | undefined;
@@ -2789,24 +2676,20 @@ export interface StartStreamSessionInput {
  */
 export interface StartStreamSessionOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) assigned to the stream session resource. When combined with the stream group
-   *             ARN, this value uniquely identifies it across all Amazon Web Services Regions. Format is
-   *                 <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:streamsession/[resource
-   *             ID]</code>.</p>
+   * <p>The Amazon Resource Name (ARN) assigned to the stream session resource. When combined with the stream group ARN, this value uniquely identifies it across all
+   *             Amazon Web Services Regions. Format is <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:streamsession/[resource ID]</code>.</p>
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>A human-readable label for the stream session. You can update this value at any
-   *             time.</p>
+   * <p>A human-readable label for the stream session. You can update this value at any time.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The unique identifier for the Amazon GameLift Streams stream group that is hosting the stream
-   *             session.</p>
+   * <p>The unique identifier for the Amazon GameLift Streams stream group that is hosting the stream session.</p>
    * @public
    */
   StreamGroupId?: string | undefined;
@@ -2820,15 +2703,13 @@ export interface StartStreamSessionOutput {
   UserId?: string | undefined;
 
   /**
-   * <p>The current status of the stream session. A stream session can host clients when in
-   *                 <code>ACTIVE</code> status.</p>
+   * <p>The current status of the stream session. A stream session can host clients when in <code>ACTIVE</code> status.</p>
    * @public
    */
   Status?: StreamSessionStatus | undefined;
 
   /**
-   * <p>A short description of the reason the stream session is in <code>ERROR</code>
-   *             status.</p>
+   * <p>A short description of the reason the stream session is in <code>ERROR</code> status.</p>
    * @public
    */
   StatusReason?: StreamSessionStatusReason | undefined;
@@ -2840,36 +2721,29 @@ export interface StartStreamSessionOutput {
   Protocol?: Protocol | undefined;
 
   /**
-   * <p>
-   *         The location where Amazon GameLift Streams is streaming your application from.
-   *         </p>
+   * <p> The location where Amazon GameLift Streams is streaming your application from. </p>
    *          <p>
-   * 	A location's name. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, see
-   * 	the Regions and quotas section in the Amazon GameLift Streams Developer Guide
-   * .
+   * 	A location's name. For example, <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions and quotas</a> in the <i>Amazon GameLift Streams Developer Guide</i>.
    * </p>
    * @public
    */
   Location?: string | undefined;
 
   /**
-   * <p>The WebRTC ICE offer string that a client generates to initiate a connection to the
-   *             stream session.</p>
+   * <p>The WebRTC ICE offer string that a client generates to initiate a connection to the stream session.</p>
    * @public
    */
   SignalRequest?: string | undefined;
 
   /**
-   * <p>The WebRTC answer string that the stream server generates in response to the
-   *                 <code>SignalRequest</code>.</p>
+   * <p>The WebRTC answer string that the stream server generates in response to the <code>SignalRequest</code>.</p>
    * @public
    */
   SignalResponse?: string | undefined;
 
   /**
-   * <p>The maximum length of time (in seconds) that Amazon GameLift Streams keeps the stream session open. At
-   *             this point, Amazon GameLift Streams ends the stream session regardless of any existing client
-   *             connections.</p>
+   * <p>The maximum length of time (in seconds) that Amazon GameLift Streams keeps the stream session open. At this point, Amazon GameLift Streams ends the stream session
+   *             regardless of any existing client connections.</p>
    * @public
    */
   ConnectionTimeoutSeconds?: number | undefined;
@@ -2906,16 +2780,14 @@ export interface StartStreamSessionOutput {
   AdditionalEnvironmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>Access location for log files that your content generates during a stream session.
-   *             These log files are uploaded to cloud storage location at the end of a stream session.
-   *             The Amazon GameLift Streams application resource defines which log files to upload.</p>
+   * <p>Access location for log files that your content generates during a stream session. These log files are uploaded to cloud storage
+   *             location at the end of a stream session. The Amazon GameLift Streams application resource defines which log files to upload.</p>
    * @public
    */
   LogFileLocationUri?: string | undefined;
 
   /**
-   * <p>The URL of an S3 bucket that stores Amazon GameLift Streams WebSDK files. The URL is used to establish
-   *             connection with the client.</p>
+   * <p>The URL of an S3 bucket that stores Amazon GameLift Streams WebSDK files. The URL is used to establish connection with the client.</p>
    * @public
    */
   WebSdkProtocolUrl?: string | undefined;
@@ -2934,7 +2806,7 @@ export interface StartStreamSessionOutput {
 
   /**
    * <p>An
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the application resource. Format example: <code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the application resource. Format example: <code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
@@ -2954,8 +2826,7 @@ export interface StartStreamSessionOutput {
  */
 export interface GetStreamGroupInput {
   /**
-   * <p>The unique ID value of the stream group resource to retrieve. Format example:
-   *                 <code>1AB2C3De4</code>.</p>
+   * <p>The unique ID value of the stream group resource to retrieve. Format example: <code>sg-1AB2C3De4</code>.</p>
    * @public
    */
   Identifier: string | undefined;
@@ -2966,9 +2837,8 @@ export interface GetStreamGroupInput {
  */
 export interface GetStreamGroupOutput {
   /**
-   * <p>An Amazon Resource Name (ARN) that is assigned to the stream group resource and that uniquely identifies
-   *             the group across all Amazon Web Services Regions. Format is <code>arn:aws:gameliftstreams:[AWS Region]:[AWS
-   *                 account]:streamgroup/[resource ID]</code>.</p>
+   * <p>An Amazon Resource Name (ARN) that is assigned to the stream group resource and that uniquely identifies the group across all Amazon Web Services Regions. Format is
+   *                 <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:streamgroup/[resource ID]</code>.</p>
    * @public
    */
   Arn: string | undefined;
@@ -2980,7 +2850,7 @@ export interface GetStreamGroupOutput {
   Description?: string | undefined;
 
   /**
-   * <p>The Amazon GameLift Streams application that is associated with this stream group.</p>
+   * <p>The default Amazon GameLift Streams application that is associated with this stream group.</p>
    * @public
    */
   DefaultApplication?: DefaultApplication | undefined;
@@ -3025,7 +2895,7 @@ export interface GetStreamGroupOutput {
    *             <li>
    *                <p>
    *                   <b>
-   *                      <code>gen5n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with most Unreal Engine 5.x builds, 32-bit applications, and anti-cheat technology. Uses NVIDIA A10G Tensor GPU.</p>
+   *                      <code>gen5n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.4, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA A10G Tensor GPU.</p>
    *                <ul>
    *                   <li>
    *                      <p>Reference resolution: 1080p</p>
@@ -3084,7 +2954,7 @@ export interface GetStreamGroupOutput {
    *             <li>
    *                <p>
    *                   <b>
-   *                      <code>gen4n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with most Unreal Engine 5.2 and 5.3 builds, 32-bit applications, and anti-cheat technology. Uses NVIDIA T4 Tensor GPU.</p>
+   *                      <code>gen4n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.4, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA T4 Tensor GPU.</p>
    *                <ul>
    *                   <li>
    *                      <p>Reference resolution: 1080p</p>
@@ -3146,8 +3016,7 @@ export interface GetStreamGroupOutput {
   StreamClass?: StreamClass | undefined;
 
   /**
-   * <p>A unique ID value that is assigned to the resource when it's created. Format example:
-   *                 <code>1AB2C3De4</code>.</p>
+   * <p>A unique ID value that is assigned to the resource when it's created. Format example: <code>sg-1AB2C3De4</code>.</p>
    * @public
    */
   Id?: string | undefined;
@@ -3195,19 +3064,19 @@ export interface GetStreamGroupOutput {
   Status?: StreamGroupStatus | undefined;
 
   /**
-   * <p>
-   *             A short description of the reason that the stream group is in <code>ERROR</code> status. The possible reasons can be one of the following:
-   *         </p>
+   * <p> A short description of the reason that the stream group is in <code>ERROR</code> status. The possible reasons can be one of the
+   *             following: </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>internalError</code>: The request can't process right now bcause of an issue with the server. Try again later. Reach out to the Amazon GameLift Streams team for more help.
-   *                 </p>
+   *                   <code>internalError</code>: The request can't process right now bcause of an issue with the server. Try again later. Reach out to
+   *                     the Amazon GameLift Streams team for more help. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>noAvailableInstances</code>: Amazon GameLift Streams does not currently have enough available On-Demand capacity to fulfill your request. Wait a few minutes and retry the request as capacity can shift frequently. You can also try to make the request using a different stream class or in another region.
-   *                 </p>
+   *                   <code>noAvailableInstances</code>: Amazon GameLift Streams does not currently have enough available On-Demand capacity to fulfill your request.
+   *                     Wait a few minutes and retry the request as capacity can shift frequently. You can also try to make the request using a different
+   *                     stream class or in another region. </p>
    *             </li>
    *          </ul>
    * @public
@@ -3227,11 +3096,9 @@ export interface GetStreamGroupOutput {
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *             A set of applications that this stream group is associated to. You can stream any of these applications by using this stream group.
-   *         </p>
+   * <p> A set of applications that this stream group is associated to. You can stream any of these applications by using this stream group. </p>
    *          <p>This value is a
-   *     set of <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARNs)</a> that uniquely identify application resources. Format example: <code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code>.
+   *     set of <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARNs)</a> that uniquely identify application resources. Format example: <code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
@@ -3254,22 +3121,21 @@ export interface ListStreamGroupsInput {
   NextToken?: string | undefined;
 
   /**
-   * <p>The number of results to return. Use this parameter with <code>NextToken</code> to
-   *             return results in sequential pages. Default value is <code>25</code>.</p>
+   * <p>The number of results to return. Use this parameter with <code>NextToken</code> to return results in sequential pages. Default value is
+   *                 <code>25</code>.</p>
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Describes a Amazon GameLift Streams stream group resource for hosting content streams. To retrieve
- *             additional stream group details, call <a>GetStreamGroup</a>.</p>
+ * <p>Describes a Amazon GameLift Streams stream group resource for hosting content streams. To retrieve additional stream group details, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamGroup.html">GetStreamGroup</a>.</p>
  * @public
  */
 export interface StreamGroupSummary {
   /**
    * <p>An
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</code> or ID-<code>1AB2C3De4</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</code> or ID-<code>sg-1AB2C3De4</code>.
    * </p>
    * @public
    */
@@ -3277,7 +3143,7 @@ export interface StreamGroupSummary {
 
   /**
    * <p>An
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</code> or ID-<code>1AB2C3De4</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</code> or ID-<code>sg-1AB2C3De4</code>.
    * </p>
    * @public
    */
@@ -3290,8 +3156,7 @@ export interface StreamGroupSummary {
   Description?: string | undefined;
 
   /**
-   * <p>Object that identifies the Amazon GameLift Streams application to stream with this stream
-   *             group.</p>
+   * <p>Object that identifies the Amazon GameLift Streams application to stream with this stream group.</p>
    * @public
    */
   DefaultApplication?: DefaultApplication | undefined;
@@ -3303,7 +3168,7 @@ export interface StreamGroupSummary {
    *             <li>
    *                <p>
    *                   <b>
-   *                      <code>gen5n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with most Unreal Engine 5.x builds, 32-bit applications, and anti-cheat technology. Uses NVIDIA A10G Tensor GPU.</p>
+   *                      <code>gen5n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.4, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA A10G Tensor GPU.</p>
    *                <ul>
    *                   <li>
    *                      <p>Reference resolution: 1080p</p>
@@ -3362,7 +3227,7 @@ export interface StreamGroupSummary {
    *             <li>
    *                <p>
    *                   <b>
-   *                      <code>gen4n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with most Unreal Engine 5.2 and 5.3 builds, 32-bit applications, and anti-cheat technology. Uses NVIDIA T4 Tensor GPU.</p>
+   *                      <code>gen4n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.4, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA T4 Tensor GPU.</p>
    *                <ul>
    *                   <li>
    *                      <p>Reference resolution: 1080p</p>
@@ -3483,9 +3348,8 @@ export interface StreamGroupSummary {
  */
 export interface ListStreamGroupsOutput {
   /**
-   * <p>A collection of Amazon GameLift Streams stream groups that are associated with the Amazon Web Services account in
-   *             use. Each item includes stream group metadata and status, but doesn't include capacity
-   *             information.</p>
+   * <p>A collection of Amazon GameLift Streams stream groups that are associated with the Amazon Web Services account in use. Each item includes stream group metadata and
+   *             status, but doesn't include capacity information.</p>
    * @public
    */
   Items?: StreamGroupSummary[] | undefined;
@@ -3506,7 +3370,7 @@ export interface ListStreamGroupsOutput {
 export interface UpdateStreamGroupInput {
   /**
    * <p>An
-   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</code> or ID-<code>1AB2C3De4</code>.
+   *     <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</code> or ID-<code>sg-1AB2C3De4</code>.
    * </p>
    * @public
    */
@@ -3532,9 +3396,8 @@ export interface UpdateStreamGroupInput {
  */
 export interface UpdateStreamGroupOutput {
   /**
-   * <p>An Amazon Resource Name (ARN) that is assigned to the stream group resource and that uniquely identifies
-   *             the group across all Amazon Web Services Regions. Format is <code>arn:aws:gameliftstreams:[AWS Region]:[AWS
-   *                 account]:streamgroup/[resource ID]</code>.</p>
+   * <p>An Amazon Resource Name (ARN) that is assigned to the stream group resource and that uniquely identifies the group across all Amazon Web Services Regions. Format is
+   *                 <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:streamgroup/[resource ID]</code>.</p>
    * @public
    */
   Arn: string | undefined;
@@ -3546,7 +3409,7 @@ export interface UpdateStreamGroupOutput {
   Description?: string | undefined;
 
   /**
-   * <p>The Amazon GameLift Streams application that is associated with this stream group.</p>
+   * <p>The default Amazon GameLift Streams application that is associated with this stream group.</p>
    * @public
    */
   DefaultApplication?: DefaultApplication | undefined;
@@ -3591,7 +3454,7 @@ export interface UpdateStreamGroupOutput {
    *             <li>
    *                <p>
    *                   <b>
-   *                      <code>gen5n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with most Unreal Engine 5.x builds, 32-bit applications, and anti-cheat technology. Uses NVIDIA A10G Tensor GPU.</p>
+   *                      <code>gen5n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.4, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA A10G Tensor GPU.</p>
    *                <ul>
    *                   <li>
    *                      <p>Reference resolution: 1080p</p>
@@ -3650,7 +3513,7 @@ export interface UpdateStreamGroupOutput {
    *             <li>
    *                <p>
    *                   <b>
-   *                      <code>gen4n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with most Unreal Engine 5.2 and 5.3 builds, 32-bit applications, and anti-cheat technology. Uses NVIDIA T4 Tensor GPU.</p>
+   *                      <code>gen4n_win2022</code> (NVIDIA, ultra)</b> Supports applications with extremely high 3D scene complexity. Runs applications on Microsoft Windows Server 2022 Base and supports DirectX 12. Compatible with Unreal Engine versions up through 5.4, 32 and 64-bit applications, and anti-cheat technology. Uses NVIDIA T4 Tensor GPU.</p>
    *                <ul>
    *                   <li>
    *                      <p>Reference resolution: 1080p</p>
@@ -3712,8 +3575,7 @@ export interface UpdateStreamGroupOutput {
   StreamClass?: StreamClass | undefined;
 
   /**
-   * <p>A unique ID value that is assigned to the resource when it's created. Format example:
-   *                 <code>1AB2C3De4</code>.</p>
+   * <p>A unique ID value that is assigned to the resource when it's created. Format example: <code>sg-1AB2C3De4</code>.</p>
    * @public
    */
   Id?: string | undefined;
@@ -3761,19 +3623,19 @@ export interface UpdateStreamGroupOutput {
   Status?: StreamGroupStatus | undefined;
 
   /**
-   * <p>
-   *             A short description of the reason that the stream group is in <code>ERROR</code> status. The possible reasons can be one of the following:
-   *         </p>
+   * <p> A short description of the reason that the stream group is in <code>ERROR</code> status. The possible reasons can be one of the
+   *             following: </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>internalError</code>: The request can't process right now bcause of an issue with the server. Try again later. Reach out to the Amazon GameLift Streams team for more help.
-   *                 </p>
+   *                   <code>internalError</code>: The request can't process right now bcause of an issue with the server. Try again later. Reach out to
+   *                     the Amazon GameLift Streams team for more help. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>noAvailableInstances</code>: Amazon GameLift Streams does not currently have enough available On-Demand capacity to fulfill your request. Wait a few minutes and retry the request as capacity can shift frequently. You can also try to make the request using a different stream class or in another region.
-   *                 </p>
+   *                   <code>noAvailableInstances</code>: Amazon GameLift Streams does not currently have enough available On-Demand capacity to fulfill your request.
+   *                     Wait a few minutes and retry the request as capacity can shift frequently. You can also try to make the request using a different
+   *                     stream class or in another region. </p>
    *             </li>
    *          </ul>
    * @public
@@ -3793,11 +3655,9 @@ export interface UpdateStreamGroupOutput {
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>
-   *             A set of applications that this stream group is associated with. You can stream any of these applications with the stream group.
-   *         </p>
+   * <p> A set of applications that this stream group is associated with. You can stream any of these applications with the stream group. </p>
    *          <p>This value is a
-   *     set of <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARNs)</a> that uniquely identify application resources. Format example: <code>arn:aws:gameliftstreams:us-west-2:123456789012:application/9ZY8X7Wv6</code>.
+   *     set of <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARNs)</a> that uniquely identify application resources. Format example: <code>arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6</code>.
    * </p>
    * @public
    */
@@ -3809,14 +3669,14 @@ export interface UpdateStreamGroupOutput {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">Amazon Resource Name (ARN)</a> of the Amazon GameLift Streams resource that you want to apply tags to.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">Amazon Resource Name (ARN)</a> of the Amazon GameLift Streams resource that you want to apply
+   *          tags to.</p>
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>A list of tags, in the form of key-value pairs, to assign to the specified Amazon GameLift Streams
-   *          resource.</p>
+   * <p>A list of tags, in the form of key-value pairs, to assign to the specified Amazon GameLift Streams resource.</p>
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -3833,7 +3693,7 @@ export interface TagResourceResponse {}
 export interface TerminateStreamSessionInput {
   /**
    * <p>
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/1AB2C3De4</code> or ID-<code>1AB2C3De4</code>.
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Format example: ARN-<code>arn:aws:gameliftstreams:us-west-2:123456789012:streamgroup/sg-1AB2C3De4</code> or ID-<code>sg-1AB2C3De4</code>.
    * </p>
    *          <p>The stream group that runs this stream session.</p>
    * @public
@@ -3854,7 +3714,8 @@ export interface TerminateStreamSessionInput {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">Amazon Resource Name (ARN)</a> of the Amazon GameLift Streams resource that you want to remove tags from.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">Amazon Resource Name (ARN)</a> of the Amazon GameLift Streams resource that you want to remove
+   *          tags from.</p>
    * @public
    */
   ResourceArn: string | undefined;

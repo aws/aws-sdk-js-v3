@@ -28,12 +28,12 @@ export interface DisassociateApplicationsCommandInput extends DisassociateApplic
 export interface DisassociateApplicationsCommandOutput extends DisassociateApplicationsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             When you disassociate, or unlink, an application from a stream group, you can no longer stream this application by using that stream group's allocated compute resources. Any streams in process will continue until they terminate, which helps avoid interrupting an end-user's stream. Amazon GameLift Streams will not initiate new streams using this stream group. The disassociate action does not affect the stream capacity of a stream group.
- *         </p>
- *          <p>
- *             You can only disassociate an application if it's not a default application of the stream group. Check <code>DefaultApplicationIdentifier</code> by calling <a>GetStreamGroup</a>.
- *         </p>
+ * <p> When you disassociate, or unlink, an application from a stream group, you can no longer stream this application by using that stream
+ *             group's allocated compute resources. Any streams in process will continue until they terminate, which helps avoid interrupting an
+ *             end-user's stream. Amazon GameLift Streams will not initiate new streams using this stream group. The disassociate action does not affect the stream
+ *             capacity of a stream group. </p>
+ *          <p> You can only disassociate an application if it's not a default application of the stream group. Check
+ *                 <code>DefaultApplicationIdentifier</code> by calling <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamGroup.html">GetStreamGroup</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +64,7 @@ export interface DisassociateApplicationsCommandOutput extends DisassociateAppli
  * @see {@link GameLiftStreamsClientResolvedConfig | config} for GameLiftStreamsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the
- *          permissions before you try again.</p>
+ *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The service encountered an internal error and is unable to complete the request.</p>
@@ -74,12 +73,11 @@ export interface DisassociateApplicationsCommandOutput extends DisassociateAppli
  *  <p>The resource specified in the request was not found. Correct the request before you try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Retry the request after the
- *          suggested wait time.</p>
+ *  <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values in the request fail to satisfy the specified constraints.
- *          Correct the invalid parameter values before retrying the request.</p>
+ *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before
+ *          retrying the request.</p>
  *
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>

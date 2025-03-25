@@ -28,12 +28,11 @@ export interface AddStreamGroupLocationsCommandInput extends AddStreamGroupLocat
 export interface AddStreamGroupLocationsCommandOutput extends AddStreamGroupLocationsOutput, __MetadataBearer {}
 
 /**
- * <p>
- * 		    Add locations that can host stream sessions. You configure locations and their corresponding capacity for each stream group. Creating a stream group in a location that's nearest to your end users can help minimize latency and improve quality.
- * 		</p>
- *          <p>
- *             This operation provisions stream capacity at the specified locations. By default, all locations have 1 or 2 capacity, depending on the stream class option: 2 for 'High' and 1 for 'Ultra' and 'Win2022'. This operation also copies the content files of all associated applications to an internal S3 bucket at each location. This allows Amazon GameLift Streams to host performant stream sessions.
- *         </p>
+ * <p> Add locations that can host stream sessions. You configure locations and their corresponding capacity for each stream group. Creating a
+ *             stream group in a location that's nearest to your end users can help minimize latency and improve quality. </p>
+ *          <p> This operation provisions stream capacity at the specified locations. By default, all locations have 1 or 2 capacity, depending on the
+ *             stream class option: 2 for 'High' and 1 for 'Ultra' and 'Win2022'. This operation also copies the content files of all associated
+ *             applications to an internal S3 bucket at each location. This allows Amazon GameLift Streams to host performant stream sessions. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,8 +75,7 @@ export interface AddStreamGroupLocationsCommandOutput extends AddStreamGroupLoca
  * @see {@link GameLiftStreamsClientResolvedConfig | config} for GameLiftStreamsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the
- *          permissions before you try again.</p>
+ *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The service encountered an internal error and is unable to complete the request.</p>
@@ -86,16 +84,14 @@ export interface AddStreamGroupLocationsCommandOutput extends AddStreamGroupLoca
  *  <p>The resource specified in the request was not found. Correct the request before you try again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause the resource to exceed an allowed service quota. Resolve the
- *          issue before you try again.</p>
+ *  <p>The request would cause the resource to exceed an allowed service quota. Resolve the issue before you try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Retry the request after the
- *          suggested wait time.</p>
+ *  <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values in the request fail to satisfy the specified constraints.
- *          Correct the invalid parameter values before retrying the request.</p>
+ *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before
+ *          retrying the request.</p>
  *
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>

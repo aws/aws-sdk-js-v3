@@ -28,9 +28,11 @@ export interface CreateStreamGroupCommandInput extends CreateStreamGroupInput {}
 export interface CreateStreamGroupCommandOutput extends CreateStreamGroupOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             Manage how Amazon GameLift Streams streams your applications by using a stream group. A stream group is a collection of resources that Amazon GameLift Streams uses to stream your application to end-users. When you create a stream group, you specify an application to stream by default and the type of hardware to use, such as the graphical processing unit (GPU). You can also link additional applications, which allows you to stream those applications using this stream group. Depending on your expected users, you also scale the number of concurrent streams you want to support at one time, and in what locations.
- *         </p>
+ * <p> Manage how Amazon GameLift Streams streams your applications by using a stream group. A stream group is a collection of resources that Amazon GameLift Streams uses to
+ *             stream your application to end-users. When you create a stream group, you specify an application to stream by default and the type of
+ *             hardware to use, such as the graphical processing unit (GPU). You can also link additional applications, which allows you to stream those
+ *             applications using this stream group. Depending on your expected users, you also scale the number of concurrent streams you want to
+ *             support at one time, and in what locations. </p>
  *          <p>
  *     Stream capacity represents the number of concurrent streams that can be active at a time. You set stream capacity per location, per stream group. There are two types of capacity: always-on and on-demand:
  * </p>
@@ -50,12 +52,11 @@ export interface CreateStreamGroupCommandOutput extends CreateStreamGroupOutput,
  *         </p>
  *             </li>
  *          </ul>
- *          <p>
- *             To adjust the capacity of any <code>ACTIVE</code> stream group, call <a>UpdateStreamGroup</a>.
- *         </p>
- *          <p>
- *             If the request is successful, Amazon GameLift Streams begins creating the stream group. Amazon GameLift Streams assigns a unique ID to the stream group resource and sets the status to <code>ACTIVATING</code>. When the stream group reaches <code>ACTIVE</code> status, you can start stream sessions by using <a>StartStreamSession</a>. To check the stream group's status, call <a>GetStreamGroup</a>.
- *         </p>
+ *          <p> To adjust the capacity of any <code>ACTIVE</code> stream group, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_UpdateStreamGroup.html">UpdateStreamGroup</a>. </p>
+ *          <p> If the request is successful, Amazon GameLift Streams begins creating the stream group. Amazon GameLift Streams assigns a unique ID to the stream group resource and
+ *             sets the status to <code>ACTIVATING</code>. When the stream group reaches <code>ACTIVE</code> status, you can start stream sessions by
+ *             using <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_StartStreamSession.html">StartStreamSession</a>. To check the stream
+ *             group's status, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamGroup.html">GetStreamGroup</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,26 +119,27 @@ export interface CreateStreamGroupCommandOutput extends CreateStreamGroupOutput,
  * @see {@link GameLiftStreamsClientResolvedConfig | config} for GameLiftStreamsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the
- *          permissions before you try again.</p>
+ *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the
+ *          conflict before retrying this request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The service encountered an internal error and is unable to complete the request.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Correct the request before you try again.</p>
+ *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause the resource to exceed an allowed service quota. Resolve the
- *          issue before you try again.</p>
+ *  <p>The request would cause the resource to exceed an allowed service quota. Resolve the issue before you try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Retry the request after the
- *          suggested wait time.</p>
+ *  <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values in the request fail to satisfy the specified constraints.
- *          Correct the invalid parameter values before retrying the request.</p>
+ *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before
+ *          retrying the request.</p>
  *
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>

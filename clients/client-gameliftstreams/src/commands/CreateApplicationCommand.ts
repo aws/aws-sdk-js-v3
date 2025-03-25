@@ -28,21 +28,17 @@ export interface CreateApplicationCommandInput extends CreateApplicationInput {}
 export interface CreateApplicationCommandOutput extends CreateApplicationOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an application resource in Amazon GameLift Streams, which specifies the application content you want to stream, such as a game build or other software, and configures the settings to run it.</p>
- *          <p>
- *             Before you create an application, upload your
- *             application content files to an Amazon Simple Storage Service (Amazon S3) bucket. For more information, see <b>Getting Started</b> in the Amazon GameLift Streams Developer Guide.
- *         </p>
+ * <p>Creates an application resource in Amazon GameLift Streams, which specifies the application content you want to stream, such as a game build or other
+ *             software, and configures the settings to run it.</p>
+ *          <p> Before you create an application, upload your application content files to an Amazon Simple Storage Service (Amazon S3) bucket. For more information, see
+ *                 <b>Getting Started</b> in the Amazon GameLift Streams Developer Guide. </p>
  *          <important>
- *             <p>
- *             Make sure that your files in the Amazon S3 bucket are the correct version you
- *             want to use. As soon as you create a Amazon GameLift Streams application, you cannot change the files at a
- *             later time.
- *         </p>
+ *             <p> Make sure that your files in the Amazon S3 bucket are the correct version you want to use. As soon as you create a Amazon GameLift Streams application,
+ *                 you cannot change the files at a later time. </p>
  *          </important>
- *          <p>
- *             If the request is successful, Amazon GameLift Streams begins to create an application and sets the status to <code>INITIALIZED</code>. When an application reaches <code>READY</code> status, you can use the application to set up stream groups and start streams. To track application status, call <a>GetApplication</a>.
- *         </p>
+ *          <p> If the request is successful, Amazon GameLift Streams begins to create an application and sets the status to <code>INITIALIZED</code>. When an
+ *             application reaches <code>READY</code> status, you can use the application to set up stream groups and start streams. To track application
+ *             status, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetApplication.html">GetApplication</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,26 +102,24 @@ export interface CreateApplicationCommandOutput extends CreateApplicationOutput,
  * @see {@link GameLiftStreamsClientResolvedConfig | config} for GameLiftStreamsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the
- *          permissions before you try again.</p>
+ *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the
+ *          conflict before retrying this request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The service encountered an internal error and is unable to complete the request.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause the resource to exceed an allowed service quota. Resolve the
- *          issue before you try again.</p>
+ *  <p>The request would cause the resource to exceed an allowed service quota. Resolve the issue before you try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Retry the request after the
- *          suggested wait time.</p>
+ *  <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values in the request fail to satisfy the specified constraints.
- *          Correct the invalid parameter values before retrying the request.</p>
+ *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before
+ *          retrying the request.</p>
  *
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>

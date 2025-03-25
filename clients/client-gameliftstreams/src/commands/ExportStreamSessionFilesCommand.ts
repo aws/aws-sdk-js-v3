@@ -28,19 +28,21 @@ export interface ExportStreamSessionFilesCommandInput extends ExportStreamSessio
 export interface ExportStreamSessionFilesCommandOutput extends ExportStreamSessionFilesOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             Export the files that your application modifies or generates in a stream session, which can help you debug or verify your application. When your application runs, it generates output files such as logs, diagnostic information, crash dumps, save files, user data, screenshots, and so on. The files can be defined by the engine or frameworks that your application uses, or information that you've programmed your application to output.
- *         </p>
- *          <p>
- *             You can only call this action on a stream session that is in progress, specifically in one of the following statuses <code>ACTIVE</code>, <code>CONNECTED</code>, <code>PENDING_CLIENT_RECONNECTION</code>, and <code>RECONNECTING</code>. You must provide an Amazon Simple Storage Service (Amazon S3) bucket to store the files in. When the session ends, Amazon GameLift Streams produces a compressed folder that contains all of the files and directories that were modified or created by the application during the stream session. AWS uses your security credentials to authenticate and authorize access to your Amazon S3 bucket.
- *         </p>
- *          <p>Amazon GameLift Streams collects the following generated and modified files. Find them in the
- *             corresponding folders in the <code>.zip</code> archive.</p>
+ * <p> Export the files that your application modifies or generates in a stream session, which can help you debug or verify your application.
+ *             When your application runs, it generates output files such as logs, diagnostic information, crash dumps, save files, user data,
+ *             screenshots, and so on. The files can be defined by the engine or frameworks that your application uses, or information that you've
+ *             programmed your application to output. </p>
+ *          <p> You can only call this action on a stream session that is in progress, specifically in one of the following statuses
+ *                 <code>ACTIVE</code>, <code>CONNECTED</code>, <code>PENDING_CLIENT_RECONNECTION</code>, and <code>RECONNECTING</code>. You must provide
+ *             an Amazon Simple Storage Service (Amazon S3) bucket to store the files in. When the session ends, Amazon GameLift Streams produces a compressed folder
+ *             that contains all of the files and directories that were modified or created by the application during the stream session. AWS uses your
+ *             security credentials to authenticate and authorize access to your Amazon S3 bucket. </p>
+ *          <p>Amazon GameLift Streams collects the following generated and modified files. Find them in the corresponding folders in the <code>.zip</code>
+ *             archive.</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>application/</code>: The folder where your application or game is stored.
- *                 </p>
+ *                   <code>application/</code>: The folder where your application or game is stored. </p>
  *             </li>
  *          </ul>
  *          <ul>
@@ -80,8 +82,7 @@ export interface ExportStreamSessionFilesCommandOutput extends ExportStreamSessi
  * @see {@link GameLiftStreamsClientResolvedConfig | config} for GameLiftStreamsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the
- *          permissions before you try again.</p>
+ *  <p>You don't have the required permissions to access this Amazon GameLift Streams resource. Correct the permissions before you try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The service encountered an internal error and is unable to complete the request.</p>
@@ -90,12 +91,11 @@ export interface ExportStreamSessionFilesCommandOutput extends ExportStreamSessi
  *  <p>The resource specified in the request was not found. Correct the request before you try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Retry the request after the
- *          suggested wait time.</p>
+ *  <p>The request was denied due to request throttling. Retry the request after the suggested wait time.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values in the request fail to satisfy the specified constraints.
- *          Correct the invalid parameter values before retrying the request.</p>
+ *  <p>One or more parameter values in the request fail to satisfy the specified constraints. Correct the invalid parameter values before
+ *          retrying the request.</p>
  *
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>
