@@ -565,6 +565,7 @@ const se_MeterUsageRequest = (input: MeterUsageRequest, context: __SerdeContext)
  */
 const se_UsageRecord = (input: UsageRecord, context: __SerdeContext): any => {
   return take(input, {
+    CustomerAWSAccountId: [],
     CustomerIdentifier: [],
     Dimension: [],
     Quantity: [],
@@ -655,6 +656,7 @@ const de_RegisterUsageResult = (output: any, context: __SerdeContext): RegisterU
  */
 const de_UsageRecord = (output: any, context: __SerdeContext): UsageRecord => {
   return take(output, {
+    CustomerAWSAccountId: __expectString,
     CustomerIdentifier: __expectString,
     Dimension: __expectString,
     Quantity: __expectInt32,

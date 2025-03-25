@@ -67,11 +67,11 @@ export interface UsageRecord {
    *             application.</p>
    * @public
    */
-  CustomerIdentifier: string | undefined;
+  CustomerIdentifier?: string | undefined;
 
   /**
-   * <p>During the process of registering a product on AWS Marketplace, dimensions are
-   *             specified. These represent different units of value in your application.</p>
+   * <p>During the process of registering a product on Amazon Web Services Marketplace, dimensions are specified.
+   *             These represent different units of value in your application.</p>
    * @public
    */
   Dimension: string | undefined;
@@ -90,6 +90,14 @@ export interface UsageRecord {
    * @public
    */
   UsageAllocations?: UsageAllocation[] | undefined;
+
+  /**
+   * <p>
+   *             The <code>CustomerAWSAccountID</code> parameter specifies the AWS account ID of the buyer.
+   *         </p>
+   * @public
+   */
+  CustomerAWSAccountId?: string | undefined;
 }
 
 /**
@@ -106,8 +114,8 @@ export interface BatchMeterUsageRequest {
   UsageRecords: UsageRecord[] | undefined;
 
   /**
-   * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
-   *             code should be the same as the one used during the publishing of a new product.</p>
+   * <p>Product code is used to uniquely identify a product in Amazon Web Services Marketplace. The product code should
+   *             be the same as the one used during the publishing of a new product.</p>
    * @public
    */
   ProductCode: string | undefined;
@@ -174,7 +182,7 @@ export interface UsageRecordResult {
    *                             customer subscribes to your product.</p>
    *                   </li>
    *                   <li>
-   *                      <p>The customer's AWS account was suspended.</p>
+   *                      <p>The customer's Amazon Web Services account was suspended.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -199,8 +207,8 @@ export interface UsageRecordResult {
 export interface BatchMeterUsageResult {
   /**
    * <p>Contains all <code>UsageRecords</code> processed by <code>BatchMeterUsage</code>.
-   *             These records were either honored by AWS Marketplace Metering Service or were invalid.
-   *             Invalid records should be fixed before being resubmitted.</p>
+   *             These records were either honored by Amazon Web Services Marketplace Metering Service or were invalid. Invalid
+   *             records should be fixed before being resubmitted.</p>
    * @public
    */
   Results?: UsageRecordResult[] | undefined;
@@ -237,7 +245,7 @@ export class DisabledApiException extends __BaseException {
 
 /**
  * <p>An internal error has occurred. Retry your request. If the problem persists, post a
- *             message with details on the AWS forums.</p>
+ *             message with details on the Amazon Web Services forums.</p>
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
@@ -319,8 +327,7 @@ export class InvalidTagException extends __BaseException {
 }
 
 /**
- * <p>The usage allocation objects are invalid, or the number of allocations is greater than
- *             500 for a single usage record.</p>
+ * <p>Sum of allocated usage quantities is not equal to the usage quantity.</p>
  * @public
  */
 export class InvalidUsageAllocationsException extends __BaseException {
@@ -448,9 +455,9 @@ export class DuplicateRequestException extends __BaseException {
 }
 
 /**
- * <p>The endpoint being called is in a AWS Region different from your EC2 instance, ECS
- *             task, or EKS pod. The Region of the Metering Service endpoint and the AWS Region of the
- *             resource must match.</p>
+ * <p>The endpoint being called is in a Amazon Web Services Region different from your EC2 instance, ECS
+ *             task, or EKS pod. The Region of the Metering Service endpoint and the Amazon Web Services Region of
+ *             the resource must match.</p>
  * @public
  */
 export class InvalidEndpointRegionException extends __BaseException {
@@ -474,15 +481,15 @@ export class InvalidEndpointRegionException extends __BaseException {
  */
 export interface MeterUsageRequest {
   /**
-   * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
-   *             code should be the same as the one used during the publishing of a new product.</p>
+   * <p>Product code is used to uniquely identify a product in Amazon Web Services Marketplace. The product code
+   *             should be the same as the one used during the publishing of a new product.</p>
    * @public
    */
   ProductCode: string | undefined;
 
   /**
    * <p>Timestamp, in UTC, for which the usage is being reported. Your application can meter
-   *             usage for up to one hour in the past. Make sure the <code>timestamp</code> value is not
+   *             usage for up to six hours in the past. Make sure the <code>timestamp</code> value is not
    *             before the start of the software usage.</p>
    * @public
    */
@@ -554,7 +561,7 @@ export class InvalidPublicKeyVersionException extends __BaseException {
 
 /**
  * <p>
- *             <code>RegisterUsage</code> must be called in the same AWS Region the ECS task was
+ *             <code>RegisterUsage</code> must be called in the same Amazon Web Services Region the ECS task was
  *             launched in. This prevents a container from hardcoding a Region (e.g.
  *             withRegion(“us-east-1”) when calling <code>RegisterUsage</code>.</p>
  * @public
@@ -576,8 +583,7 @@ export class InvalidRegionException extends __BaseException {
 }
 
 /**
- * <p>AWS Marketplace does not support metering usage from the underlying platform.
- *             Currently, Amazon ECS, Amazon EKS, and AWS Fargate are supported.</p>
+ * <p>Amazon Web Services Marketplace does not support metering usage from the underlying platform. Currently, Amazon ECS, Amazon EKS, and Fargate are supported.</p>
  * @public
  */
 export class PlatformNotSupportedException extends __BaseException {
@@ -601,14 +607,14 @@ export class PlatformNotSupportedException extends __BaseException {
  */
 export interface RegisterUsageRequest {
   /**
-   * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
-   *             code should be the same as the one used during the publishing of a new product.</p>
+   * <p>Product code is used to uniquely identify a product in Amazon Web Services Marketplace. The product code should
+   *             be the same as the one used during the publishing of a new product.</p>
    * @public
    */
   ProductCode: string | undefined;
 
   /**
-   * <p>Public Key Version provided by AWS Marketplace</p>
+   * <p>Public Key Version provided by Amazon Web Services Marketplace</p>
    * @public
    */
   PublicKeyVersion: number | undefined;
@@ -690,10 +696,7 @@ export interface ResolveCustomerRequest {
   /**
    * <p>When a buyer visits your website during the registration process, the buyer submits a
    *             registration token through the browser. The registration token is resolved to obtain a
-   *                 <code>CustomerIdentifier</code>
-   *             along with the
-   *                 <code>CustomerAWSAccountId</code>
-   *             and
+   *                 <code>CustomerIdentifier</code> along with the <code>CustomerAWSAccountId</code> and
    *                 <code>ProductCode</code>.</p>
    * @public
    */
@@ -702,10 +705,8 @@ export interface ResolveCustomerRequest {
 
 /**
  * <p>The result of the <code>ResolveCustomer</code> operation. Contains the
- *                 <code>CustomerIdentifier</code>
- *
- *             along with the <code>CustomerAWSAccountId</code> and
- *             <code>ProductCode</code>.</p>
+ *                 <code>CustomerIdentifier</code> along with the <code>CustomerAWSAccountId</code> and
+ *                 <code>ProductCode</code>.</p>
  * @public
  */
 export interface ResolveCustomerResult {
@@ -726,8 +727,8 @@ export interface ResolveCustomerResult {
   ProductCode?: string | undefined;
 
   /**
-   * <p>The <code>CustomerAWSAccountId</code> provides the AWS account ID associated with the
-   *                 <code>CustomerIdentifier</code> for the individual customer.</p>
+   * <p>The <code>CustomerAWSAccountId</code> provides the Amazon Web Services account ID associated with
+   *             the <code>CustomerIdentifier</code> for the individual customer.</p>
    * @public
    */
   CustomerAWSAccountId?: string | undefined;
