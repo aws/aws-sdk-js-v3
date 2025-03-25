@@ -98,18 +98,18 @@
   },
   "exports": {
     "./sso-oidc": {
+      "types": "./dist-types/submodules/sso-oidc/index.d.ts",
       "module": "./dist-es/submodules/sso-oidc/index.js",
       "node": "./dist-cjs/submodules/sso-oidc/index.js",
       "import": "./dist-es/submodules/sso-oidc/index.js",
-      "require": "./dist-cjs/submodules/sso-oidc/index.js",
-      "types": "./dist-types/submodules/sso-oidc/index.d.ts"
+      "require": "./dist-cjs/submodules/sso-oidc/index.js"
     },
     "./sts": {
+      "types": "./dist-types/submodules/sts/index.d.ts",
       "module": "./dist-es/submodules/sts/index.js",
       "node": "./dist-cjs/submodules/sts/index.js",
       "import": "./dist-es/submodules/sts/index.js",
-      "require": "./dist-cjs/submodules/sts/index.js",
-      "types": "./dist-types/submodules/sts/index.d.ts"
+      "require": "./dist-cjs/submodules/sts/index.js"
     }
   }
 }
