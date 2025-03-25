@@ -101,7 +101,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/aws-client-api-test@workspace:private/aws-client-api-test"
   dependencies:
+    "@aws-sdk/client-dynamodb": "npm:*"
+    "@aws-sdk/client-ec2": "npm:*"
+    "@aws-sdk/client-glacier": "npm:*"
+    "@aws-sdk/client-rds": "npm:*"
+    "@aws-sdk/client-route-53": "npm:*"
     "@aws-sdk/client-s3": "npm:*"
+    "@aws-sdk/client-s3-control": "npm:*"
+    "@aws-sdk/client-sqs": "npm:*"
+    "@aws-sdk/client-sts": "npm:*"
+    "@aws-sdk/client-transcribe-streaming": "npm:*"
     "@aws-sdk/credential-provider-node": "npm:*"
     "@aws-sdk/middleware-bucket-endpoint": "npm:*"
     "@aws-sdk/middleware-flexible-checksums": "npm:*"
@@ -9462,7 +9471,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-glacier@workspace:clients/client-glacier":
+"@aws-sdk/client-glacier@npm:*, @aws-sdk/client-glacier@workspace:clients/client-glacier":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-glacier@workspace:clients/client-glacier"
   dependencies:
@@ -17209,7 +17218,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-rds@workspace:clients/client-rds":
+"@aws-sdk/client-rds@npm:*, @aws-sdk/client-rds@workspace:clients/client-rds":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-rds@workspace:clients/client-rds"
   dependencies:
@@ -17957,7 +17966,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-route-53@workspace:clients/client-route-53":
+"@aws-sdk/client-route-53@npm:*, @aws-sdk/client-route-53@workspace:clients/client-route-53":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-route-53@workspace:clients/client-route-53"
   dependencies:
@@ -20164,7 +20173,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-sqs@workspace:clients/client-sqs":
+"@aws-sdk/client-sqs@npm:*, @aws-sdk/client-sqs@workspace:clients/client-sqs":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-sqs@workspace:clients/client-sqs"
   dependencies:
@@ -20695,7 +20704,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-sts@workspace:clients/client-sts":
+"@aws-sdk/client-sts@npm:*, @aws-sdk/client-sts@workspace:clients/client-sts":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-sts@workspace:clients/client-sts"
   dependencies:
@@ -21330,7 +21339,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-transcribe-streaming@workspace:clients/client-transcribe-streaming":
+"@aws-sdk/client-transcribe-streaming@npm:*, @aws-sdk/client-transcribe-streaming@workspace:clients/client-transcribe-streaming":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-transcribe-streaming@workspace:clients/client-transcribe-streaming"
   dependencies:
