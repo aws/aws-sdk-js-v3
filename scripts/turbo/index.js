@@ -3,7 +3,7 @@ const { spawnProcess } = require("../utils/spawn-process");
 const path = require("path");
 
 const runTurbo = async (task, args, { apiSecret, apiEndpoint, apiSignatureKey } = {}) => {
-  const command = ["turbo", "run", task, "--concurrency=100%", "--output-logs=full"];
+  const command = ["turbo", "run", task, "--concurrency=100%", "--output-logs=errors-only"];
 
   const cacheReadWriteKey = process.env.AWS_JSV3_TURBO_CACHE_BUILD_TYPE ?? "dev";
 
