@@ -1,4 +1,4 @@
-import { STS } from "@aws-sdk/client-sts";
+import { STS, STSExtensionConfiguration } from "@aws-sdk/client-sts";
 import * as credentialProviderHttp from "@aws-sdk/credential-provider-http";
 import { fromCognitoIdentity, fromCognitoIdentityPool, fromIni, fromWebToken } from "@aws-sdk/credential-providers";
 import { HttpResponse } from "@smithy/protocol-http";
@@ -1264,6 +1264,78 @@ describe("credential-provider-node integration test", () => {
       expect(await sts.config.maxAttempts()).toEqual(3);
       expect(await sts.config.useFipsEndpoint()).toEqual(false);
       expect(await sts.config.useDualstackEndpoint()).toEqual(false);
+    });
+  });
+
+  describe("extension provided credentials", () => {
+    class OverrideCredentialsExtension {
+      private invocation = 0;
+      configure(extensionConfiguration: STSExtensionConfiguration): void {
+        extensionConfiguration.setCredentials(async () => ({
+          accessKeyId: "STS_AK" + ++this.invocation,
+          secretAccessKey: "STS_SAK" + this.invocation,
+        }));
+      }
+    }
+
+    it("allows an extension to modify client config credentials", async () => {
+      const client = new STS({
+        extensions: [new OverrideCredentialsExtension()],
+      });
+
+      const credentials = await client.config.credentials({});
+
+      expect(credentials).toEqual({
+        accessKeyId: "STS_AK1",
+        secretAccessKey: "STS_SAK1",
+        $source: {
+          CREDENTIALS_CODE: "e",
+        },
+      });
+    });
+
+    it("the extension provided credentials are still memoized", async () => {
+      const client = new STS({
+        extensions: [new OverrideCredentialsExtension()],
+      });
+
+      const credentials1 = await client.config.credentials({});
+      expect(credentials1).toEqual({
+        accessKeyId: "STS_AK1",
+        secretAccessKey: "STS_SAK1",
+        $source: {
+          CREDENTIALS_CODE: "e",
+        },
+      });
+
+      const credentials2 = await client.config.credentials({});
+      expect(credentials2).toEqual({
+        accessKeyId: "STS_AK1",
+        secretAccessKey: "STS_SAK1",
+        $source: {
+          CREDENTIALS_CODE: "e",
+        },
+      });
+
+      const credentials3 = await client.config.credentials({
+        forceRefresh: true,
+      });
+      expect(credentials3).toEqual({
+        accessKeyId: "STS_AK2",
+        secretAccessKey: "STS_SAK2",
+        $source: {
+          CREDENTIALS_CODE: "e",
+        },
+      });
+
+      const credentials4 = await client.config.credentials({});
+      expect(credentials4).toEqual({
+        accessKeyId: "STS_AK2",
+        secretAccessKey: "STS_SAK2",
+        $source: {
+          CREDENTIALS_CODE: "e",
+        },
+      });
     });
   });
 
