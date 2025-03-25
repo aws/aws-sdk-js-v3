@@ -1,14 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { HostLabelHeaderInput } from "../models/models_0";
-import {
-  de_EndpointWithHostLabelHeaderOperationCommand,
-  se_EndpointWithHostLabelHeaderOperationCommand,
-} from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
+import { EndpointWithHostLabelHeaderOperation } from "../schemas/aws.protocoltests.restxml";
 
 /**
  * @public
@@ -65,13 +61,12 @@ export class EndpointWithHostLabelHeaderOperationCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestXml", "EndpointWithHostLabelHeaderOperation", {})
   .n("RestXmlProtocolClient", "EndpointWithHostLabelHeaderOperationCommand")
   .f(void 0, void 0)
-  .ser(se_EndpointWithHostLabelHeaderOperationCommand)
-  .de(de_EndpointWithHostLabelHeaderOperationCommand)
+  .sc(EndpointWithHostLabelHeaderOperation)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

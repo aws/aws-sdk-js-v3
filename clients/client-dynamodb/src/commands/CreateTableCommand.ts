@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateTableInput, CreateTableOutput } from "../models/models_0";
-import { de_CreateTableCommand, se_CreateTableCommand } from "../protocols/Aws_json1_0";
+import { CreateTable } from "../schemas/com.amazonaws.dynamodb";
 
 /**
  * @public
@@ -446,16 +445,12 @@ export class CreateTableCommand extends $Command
     ResourceArn: { type: "contextParams", name: "TableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("DynamoDB_20120810", "CreateTable", {})
   .n("DynamoDBClient", "CreateTableCommand")
   .f(void 0, void 0)
-  .ser(se_CreateTableCommand)
-  .de(de_CreateTableCommand)
+  .sc(CreateTable)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

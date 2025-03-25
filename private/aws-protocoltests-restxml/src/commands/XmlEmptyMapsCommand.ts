@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { XmlEmptyMapsRequest, XmlEmptyMapsResponse } from "../models/models_0";
-import { de_XmlEmptyMapsCommand, se_XmlEmptyMapsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
+import { XmlEmptyMaps } from "../schemas/aws.protocoltests.restxml";
 
 /**
  * @public
@@ -72,13 +71,12 @@ export class XmlEmptyMapsCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestXml", "XmlEmptyMaps", {})
   .n("RestXmlProtocolClient", "XmlEmptyMapsCommand")
   .f(void 0, void 0)
-  .ser(se_XmlEmptyMapsCommand)
-  .de(de_XmlEmptyMapsCommand)
+  .sc(XmlEmptyMaps)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

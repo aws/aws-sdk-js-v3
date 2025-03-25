@@ -155,7 +155,7 @@ describe("@aws-sdk/client-s3", () => {
       });
     });
 
-    it("should successfully create, upload list and complete", async () => {
+    it("should successfully create, upload, list, and complete", async () => {
       //create multipart upload
       const createResult = await client.createMultipartUpload({
         Bucket,

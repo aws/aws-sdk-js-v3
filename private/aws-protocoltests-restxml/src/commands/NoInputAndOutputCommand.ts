@@ -1,11 +1,10 @@
 // smithy-typescript generated code
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { NoInputAndOutputOutput } from "../models/models_0";
-import { de_NoInputAndOutputCommand, se_NoInputAndOutputCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
+import { NoInputAndOutput } from "../schemas/aws.protocoltests.restxml";
 
 /**
  * @public
@@ -63,13 +62,12 @@ export class NoInputAndOutputCommand extends $Command
     ServiceOutputTypes
   >()
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [];
   })
   .s("RestXml", "NoInputAndOutput", {})
   .n("RestXmlProtocolClient", "NoInputAndOutputCommand")
   .f(void 0, void 0)
-  .ser(se_NoInputAndOutputCommand)
-  .de(de_NoInputAndOutputCommand)
+  .sc(NoInputAndOutput)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {

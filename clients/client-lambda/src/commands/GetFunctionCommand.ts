@@ -1,13 +1,12 @@
 // smithy-typescript generated code
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
-import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { GetFunctionRequest, GetFunctionResponse, GetFunctionResponseFilterSensitiveLog } from "../models/models_0";
-import { de_GetFunctionCommand, se_GetFunctionCommand } from "../protocols/Aws_restJson1";
+import { GetFunction } from "../schemas/com.amazonaws.lambda";
 
 /**
  * @public
@@ -251,16 +250,12 @@ export class GetFunctionCommand extends $Command
   >()
   .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [
-      getSerdePlugin(config, this.serialize, this.deserialize),
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-    ];
+    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
   .s("AWSGirApiService", "GetFunction", {})
   .n("LambdaClient", "GetFunctionCommand")
   .f(void 0, GetFunctionResponseFilterSensitiveLog)
-  .ser(se_GetFunctionCommand)
-  .de(de_GetFunctionCommand)
+  .sc(GetFunction)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
