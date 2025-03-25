@@ -281,6 +281,8 @@ export class MachineLearningClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<MachineLearningClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveUserAgentConfig(_config_0);
     const _config_2 = resolveRetryConfig(_config_1);
     const _config_3 = resolveRegionConfig(_config_2);
@@ -288,7 +290,6 @@ export class MachineLearningClient extends __Client<
     const _config_5 = resolveEndpointsConfig(_config_4);
     const _config_6 = resolveHttpAuthSchemeConfig(_config_5);
     const _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
-    super(_config_7);
     this.config = _config_7;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));

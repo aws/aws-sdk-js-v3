@@ -25,8 +25,8 @@
     "@aws-sdk/sha256-tree-hash": "*",
     "@aws-sdk/types": "*",
     "@smithy/is-array-buffer": "^4.0.0",
-    "@smithy/protocol-http": "^5.0.1",
-    "@smithy/types": "^4.1.0",
+    "@smithy/protocol-http": "^5.1.0",
+    "@smithy/types": "^4.2.0",
     "@smithy/util-hex-encoding": "^4.0.0",
     "@smithy/util-utf8": "^4.0.0",
     "tslib": "^2.6.2"

@@ -316,6 +316,8 @@ export class WeatherClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<WeatherClientConfig>) {
     let _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     let _config_1 = resolveTokenConfig(_config_0);
     let _config_2 = resolveUserAgentConfig(_config_1);
     let _config_3 = resolveCustomEndpointsConfig(_config_2);
@@ -325,7 +327,6 @@ export class WeatherClient extends __Client<
     let _config_7 = resolveSigV4AuthConfig(_config_6);
     let _config_8 = resolveHttpApiKeyAuthConfig(_config_7);
     let _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
-    super(_config_9);
     this.config = _config_9;
     this.middlewareStack.use(getTokenPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));

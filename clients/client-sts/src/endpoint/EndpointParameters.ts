@@ -19,13 +19,12 @@ export type ClientResolvedEndpointParameters = ClientInputEndpointParameters & {
 export const resolveClientEndpointParameters = <T>(
   options: T & ClientInputEndpointParameters
 ): T & ClientResolvedEndpointParameters => {
-  return {
-    ...options,
+  return Object.assign(options, {
     useDualstackEndpoint: options.useDualstackEndpoint ?? false,
     useFipsEndpoint: options.useFipsEndpoint ?? false,
     useGlobalEndpoint: options.useGlobalEndpoint ?? false,
     defaultSigningName: "sts",
-  };
+  });
 };
 
 export const commonParams = {

@@ -827,6 +827,8 @@ export class S3Client extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<S3ClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveUserAgentConfig(_config_1);
     const _config_3 = resolveFlexibleChecksumsConfig(_config_2);
@@ -838,7 +840,6 @@ export class S3Client extends __Client<
     const _config_9 = resolveHttpAuthSchemeConfig(_config_8);
     const _config_10 = resolveS3Config(_config_9, { session: [() => this, CreateSessionCommand] });
     const _config_11 = resolveRuntimeExtensions(_config_10, configuration?.extensions || []);
-    super(_config_11);
     this.config = _config_11;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));

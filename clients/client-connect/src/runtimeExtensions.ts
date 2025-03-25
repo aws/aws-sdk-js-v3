@@ -23,26 +23,24 @@ export interface RuntimeExtensionsConfig {
   extensions: RuntimeExtension[];
 }
 
-const asPartial = <T extends Partial<ConnectExtensionConfiguration>>(t: T) => t;
-
 /**
  * @internal
  */
 export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: RuntimeExtension[]) => {
-  const extensionConfiguration: ConnectExtensionConfiguration = {
-    ...asPartial(getAwsRegionExtensionConfiguration(runtimeConfig)),
-    ...asPartial(getDefaultExtensionConfiguration(runtimeConfig)),
-    ...asPartial(getHttpHandlerExtensionConfiguration(runtimeConfig)),
-    ...asPartial(getHttpAuthExtensionConfiguration(runtimeConfig)),
-  };
+  const extensionConfiguration: ConnectExtensionConfiguration = Object.assign(
+    getAwsRegionExtensionConfiguration(runtimeConfig),
+    getDefaultExtensionConfiguration(runtimeConfig),
+    getHttpHandlerExtensionConfiguration(runtimeConfig),
+    getHttpAuthExtensionConfiguration(runtimeConfig)
+  );
 
   extensions.forEach((extension) => extension.configure(extensionConfiguration));
 
-  return {
-    ...runtimeConfig,
-    ...resolveAwsRegionExtensionConfiguration(extensionConfiguration),
-    ...resolveDefaultRuntimeConfig(extensionConfiguration),
-    ...resolveHttpHandlerRuntimeConfig(extensionConfiguration),
-    ...resolveHttpAuthRuntimeConfig(extensionConfiguration),
-  };
+  return Object.assign(
+    runtimeConfig,
+    resolveAwsRegionExtensionConfiguration(extensionConfiguration),
+    resolveDefaultRuntimeConfig(extensionConfiguration),
+    resolveHttpHandlerRuntimeConfig(extensionConfiguration),
+    resolveHttpAuthRuntimeConfig(extensionConfiguration)
+  );
 };

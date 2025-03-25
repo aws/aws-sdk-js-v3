@@ -243,11 +243,10 @@ export const resolveHttpAuthSchemeConfig = <T>(
   const credentials = memoizeIdentityProvider(config.credentials, isIdentityExpired, doesIdentityRequireRefresh);
   const region = config.region ? normalizeProvider(config.region) : undefined;
   const token = memoizeIdentityProvider(config.token, isIdentityExpired, doesIdentityRequireRefresh);
-  return {
-    ...config,
+  return Object.assign(config, {
     apiKey,
     credentials,
     region,
     token,
-  } as T & HttpAuthSchemeResolvedConfig;
+  }) as T & HttpAuthSchemeResolvedConfig;
 };

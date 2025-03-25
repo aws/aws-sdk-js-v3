@@ -305,6 +305,8 @@ export class WeatherClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<WeatherClientConfig>) {
     let _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     let _config_1 = resolveUserAgentConfig(_config_0);
     let _config_2 = resolveCustomEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);
@@ -312,7 +314,6 @@ export class WeatherClient extends __Client<
     let _config_5 = resolveHostHeaderConfig(_config_4);
     let _config_6 = resolveHttpAuthSchemeConfig(_config_5);
     let _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
-    super(_config_7);
     this.config = _config_7;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));

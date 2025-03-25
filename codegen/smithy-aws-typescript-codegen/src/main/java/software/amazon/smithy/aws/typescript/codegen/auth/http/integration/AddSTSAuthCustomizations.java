@@ -194,10 +194,9 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
             w.openBlock("""
                 export const resolveStsAuthConfig = <T>(
                   input: T & StsAuthInputConfig
-                ): T & StsAuthResolvedConfig => ({
+                ): T & StsAuthResolvedConfig => Object.assign(input, {
                 """, "});", () -> {
                     w.write("""
-                        ...input,
                         stsClientCtor: STSClient,
                         """);
                 });

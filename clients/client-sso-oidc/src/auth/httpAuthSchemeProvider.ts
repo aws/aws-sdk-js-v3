@@ -149,7 +149,5 @@ export const resolveHttpAuthSchemeConfig = <T>(
   config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved
 ): T & HttpAuthSchemeResolvedConfig => {
   const config_0 = resolveAwsSdkSigV4Config(config);
-  return {
-    ...config_0,
-  } as T & HttpAuthSchemeResolvedConfig;
+  return Object.assign(config_0, {}) as T & HttpAuthSchemeResolvedConfig;
 };

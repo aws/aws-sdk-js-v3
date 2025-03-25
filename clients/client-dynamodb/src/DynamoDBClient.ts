@@ -556,6 +556,8 @@ export class DynamoDBClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<DynamoDBClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
     const _config_2 = resolveAccountIdEndpointModeConfig(_config_1);
     const _config_3 = resolveUserAgentConfig(_config_2);
@@ -568,7 +570,6 @@ export class DynamoDBClient extends __Client<
       endpointDiscoveryCommandCtor: DescribeEndpointsCommand,
     });
     const _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
-    super(_config_10);
     this.config = _config_10;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
