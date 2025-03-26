@@ -421,6 +421,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //             AutomatedEncodingSettings: { // AutomatedEncodingSettings
  * //               AbrSettings: { // AutomatedAbrSettings
  * //                 MaxAbrBitrate: Number("int"),
+ * //                 MaxQualityLevel: Number("double"),
  * //                 MaxRenditions: Number("int"),
  * //                 MinAbrBitrate: Number("int"),
  * //                 Rules: [ // __listOfAutomatedAbrRule

@@ -361,6 +361,7 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * //           AutomatedEncodingSettings: { // AutomatedEncodingSettings
  * //             AbrSettings: { // AutomatedAbrSettings
  * //               MaxAbrBitrate: Number("int"),
+ * //               MaxQualityLevel: Number("double"),
  * //               MaxRenditions: Number("int"),
  * //               MinAbrBitrate: Number("int"),
  * //               Rules: [ // __listOfAutomatedAbrRule

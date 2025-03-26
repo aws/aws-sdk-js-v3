@@ -28,7 +28,7 @@ export interface ProbeCommandInput extends ProbeRequest {}
 export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
 
 /**
- * The Probe operation analyzes the provided media file and returns comprehensive metadata about its container format, tracks, and any encountered errors.
+ * Use Probe to obtain detailed information about your input media files. Probe returns a JSON that includes container, codec, frame rate, resolution, track count, audio layout, captions, and more. You can use this information to learn more about your media files, or to help make decisions while automating your transcoding workflow.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

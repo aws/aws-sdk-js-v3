@@ -330,7 +330,7 @@ export interface Preset {
  */
 export interface ProbeInputFile {
   /**
-   * The URI to your input file(s) that is stored in Amazon S3 or on an HTTP(S) server.
+   * Specify the S3, HTTP, or HTTPS URL for your media file.
    * @public
    */
   FileUrl?: string | undefined;
@@ -353,25 +353,25 @@ export const Format = {
 export type Format = (typeof Format)[keyof typeof Format];
 
 /**
- * the calculated frame rate of the asset.
+ * The frame rate of the video or audio track.
  * @public
  */
 export interface FrameRate {
   /**
-   * the denominator of the frame rate of the asset.
+   * The denominator, or bottom number, in the fractional frame rate. For example, if your frame rate is 24000 / 1001 (23.976 frames per second), then the denominator would be 1001.
    * @public
    */
   Denominator?: number | undefined;
 
   /**
-   * the numerator of the frame rate of the asset.
+   * The numerator, or top number, in the fractional frame rate. For example, if your frame rate is 24000 / 1001 (23.976 frames per second), then the numerator would be 24000.
    * @public
    */
   Numerator?: number | undefined;
 }
 
 /**
- * Properties specific to audio tracks.
+ * Details about the media file's audio track.
  * @public
  */
 export interface AudioProperties {
@@ -382,25 +382,25 @@ export interface AudioProperties {
   BitDepth?: number | undefined;
 
   /**
-   * The bit rate of the audio track in bits per second.
+   * The bit rate of the audio track, in bits per second.
    * @public
    */
   BitRate?: number | undefined;
 
   /**
-   * The number of audio channels.
+   * The number of audio channels in the audio track.
    * @public
    */
   Channels?: number | undefined;
 
   /**
-   * the calculated frame rate of the asset.
+   * The frame rate of the video or audio track.
    * @public
    */
   FrameRate?: FrameRate | undefined;
 
   /**
-   * the language code of the track
+   * The language code of the audio track, in three character ISO 639-3 format.
    * @public
    */
   LanguageCode?: string | undefined;
@@ -447,12 +447,12 @@ export const Codec = {
 export type Codec = (typeof Codec)[keyof typeof Codec];
 
 /**
- * Properties specific to data tracks.
+ * Details about the media file's data track.
  * @public
  */
 export interface DataProperties {
   /**
-   * the language code of the track
+   * The language code of the data track, in three character ISO 639-3 format.
    * @public
    */
   LanguageCode?: string | undefined;
@@ -563,7 +563,7 @@ export const TransferCharacteristics = {
 export type TransferCharacteristics = (typeof TransferCharacteristics)[keyof typeof TransferCharacteristics];
 
 /**
- * Properties specific to video tracks.
+ * Details about the media file's video track.
  * @public
  */
 export interface VideoProperties {
@@ -574,193 +574,193 @@ export interface VideoProperties {
   BitDepth?: number | undefined;
 
   /**
-   * The bit rate of the video track in bits per second.
+   * The bit rate of the video track, in bits per second.
    * @public
    */
   BitRate?: number | undefined;
 
   /**
-   * the color primaries.
+   * The color space color primaries of the video track.
    * @public
    */
   ColorPrimaries?: ColorPrimaries | undefined;
 
   /**
-   * the calculated frame rate of the asset.
+   * The frame rate of the video or audio track.
    * @public
    */
   FrameRate?: FrameRate | undefined;
 
   /**
-   * The height of the video track in pixels.
+   * The height of the video track, in pixels.
    * @public
    */
   Height?: number | undefined;
 
   /**
-   * the matrix coefficients.
+   * The color space matrix coefficients of the video track.
    * @public
    */
   MatrixCoefficients?: MatrixCoefficients | undefined;
 
   /**
-   * the transfer characteristics.
+   * The color space transfer characteristics of the video track.
    * @public
    */
   TransferCharacteristics?: TransferCharacteristics | undefined;
 
   /**
-   * The width of the video track in pixels.
+   * The width of the video track, in pixels.
    * @public
    */
   Width?: number | undefined;
 }
 
 /**
- * The track information such as codec, duration, etc.
+ * Details about each track (video, audio, or data) in the media file.
  * @public
  */
 export interface Track {
   /**
-   * Properties specific to audio tracks.
+   * Details about the media file's audio track.
    * @public
    */
   AudioProperties?: AudioProperties | undefined;
 
   /**
-   * The codec used for the track.
+   * The codec of the audio or video track, or caption format of the data track.
    * @public
    */
   Codec?: Codec | undefined;
 
   /**
-   * Properties specific to data tracks.
+   * Details about the media file's data track.
    * @public
    */
   DataProperties?: DataProperties | undefined;
 
   /**
-   * The duration of the track in seconds.
+   * The duration of the track, in seconds.
    * @public
    */
   Duration?: number | undefined;
 
   /**
-   * The index of the track.
+   * The unique index number of the track, starting at 1.
    * @public
    */
   Index?: number | undefined;
 
   /**
-   * The type of the track (video, audio, or data).
+   * The type of track: video, audio, or data.
    * @public
    */
   TrackType?: TrackType | undefined;
 
   /**
-   * Properties specific to video tracks.
+   * Details about the media file's video track.
    * @public
    */
   VideoProperties?: VideoProperties | undefined;
 }
 
 /**
- * Information about the container format of the media file.
+ * The container of your media file. This information helps you understand the overall structure and details of your media, including format, duration, and track layout.
  * @public
  */
 export interface Container {
   /**
-   * The duration of the media file in seconds.
+   * The total duration of your media file, in seconds.
    * @public
    */
   Duration?: number | undefined;
 
   /**
-   * The format of the container
+   * The format of your media file. For example: MP4, QuickTime (MOV), Matroska (MKV), or WebM. Note that this will be blank if your media file has a format that the MediaConvert Probe operation does not recognize.
    * @public
    */
   Format?: Format | undefined;
 
   /**
-   * List of Track objects.
+   * Details about each track (video, audio, or data) in the media file.
    * @public
    */
   Tracks?: Track[] | undefined;
 }
 
 /**
- * Metadata about the file.
+ * Metadata and other file information.
  * @public
  */
 export interface Metadata {
   /**
-   * The ETag of the file.
+   * The entity tag (ETag) of the file.
    * @public
    */
   ETag?: string | undefined;
 
   /**
-   * The size of the file in bytes.
+   * The size of the media file, in bytes.
    * @public
    */
   FileSize?: number | undefined;
 
   /**
-   * The last modification time of the file.
+   * The last modification timestamp of the media file, in Unix time.
    * @public
    */
   LastModified?: Date | undefined;
 
   /**
-   * The MIME type of the file.
+   * The MIME type of the media file.
    * @public
    */
   MimeType?: string | undefined;
 }
 
 /**
- * Track mapping information.
+ * An array containing track mapping information.
  * @public
  */
 export interface TrackMapping {
   /**
-   * The indexes of the audio tracks.
+   * The index numbers of the audio tracks in your media file.
    * @public
    */
   AudioTrackIndexes?: number[] | undefined;
 
   /**
-   * The indexes of the data tracks.
+   * The index numbers of the data tracks in your media file.
    * @public
    */
   DataTrackIndexes?: number[] | undefined;
 
   /**
-   * The indexes of the video tracks.
+   * The index numbers of the video tracks in your media file.
    * @public
    */
   VideoTrackIndexes?: number[] | undefined;
 }
 
 /**
- * The metadata and analysis results for a media file.
+ * Probe results for your media file.
  * @public
  */
 export interface ProbeResult {
   /**
-   * Information about the container format of the media file.
+   * The container of your media file. This information helps you understand the overall structure and details of your media, including format, duration, and track layout.
    * @public
    */
   Container?: Container | undefined;
 
   /**
-   * Metadata about the file.
+   * Metadata and other file information.
    * @public
    */
   Metadata?: Metadata | undefined;
 
   /**
-   * List of Track mapping objects.
+   * An array containing track mapping information.
    * @public
    */
   TrackMappings?: TrackMapping[] | undefined;
@@ -2082,7 +2082,7 @@ export interface ListVersionsResponse {
  */
 export interface ProbeRequest {
   /**
-   * The list of input media files to be probed.
+   * Specify a media file to probe.
    * @public
    */
   InputFiles?: ProbeInputFile[] | undefined;
@@ -2093,7 +2093,7 @@ export interface ProbeRequest {
  */
 export interface ProbeResponse {
   /**
-   * List of probe results for the input media file(s).
+   * Probe results for your media file.
    * @public
    */
   ProbeResults?: ProbeResult[] | undefined;

@@ -352,6 +352,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *         AutomatedEncodingSettings: { // AutomatedEncodingSettings
  *           AbrSettings: { // AutomatedAbrSettings
  *             MaxAbrBitrate: Number("int"),
+ *             MaxQualityLevel: Number("double"),
  *             MaxRenditions: Number("int"),
  *             MinAbrBitrate: Number("int"),
  *             Rules: [ // __listOfAutomatedAbrRule
@@ -1869,6 +1870,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //           AutomatedEncodingSettings: { // AutomatedEncodingSettings
  * //             AbrSettings: { // AutomatedAbrSettings
  * //               MaxAbrBitrate: Number("int"),
+ * //               MaxQualityLevel: Number("double"),
  * //               MaxRenditions: Number("int"),
  * //               MinAbrBitrate: Number("int"),
  * //               Rules: [ // __listOfAutomatedAbrRule

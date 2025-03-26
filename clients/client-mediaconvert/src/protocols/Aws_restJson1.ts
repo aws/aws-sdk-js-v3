@@ -2262,6 +2262,7 @@ const se_AutomatedAbrRule = (input: AutomatedAbrRule, context: __SerdeContext): 
 const se_AutomatedAbrSettings = (input: AutomatedAbrSettings, context: __SerdeContext): any => {
   return take(input, {
     maxAbrBitrate: [, , `MaxAbrBitrate`],
+    maxQualityLevel: [, __serializeFloat, `MaxQualityLevel`],
     maxRenditions: [, , `MaxRenditions`],
     minAbrBitrate: [, , `MinAbrBitrate`],
     rules: [, (_) => se___listOfAutomatedAbrRule(_, context), `Rules`],
@@ -5436,6 +5437,7 @@ const de_AutomatedAbrRule = (output: any, context: __SerdeContext): AutomatedAbr
 const de_AutomatedAbrSettings = (output: any, context: __SerdeContext): AutomatedAbrSettings => {
   return take(output, {
     MaxAbrBitrate: [, __expectInt32, `maxAbrBitrate`],
+    MaxQualityLevel: [, __limitedParseDouble, `maxQualityLevel`],
     MaxRenditions: [, __expectInt32, `maxRenditions`],
     MinAbrBitrate: [, __expectInt32, `minAbrBitrate`],
     Rules: [, (_: any) => de___listOfAutomatedAbrRule(_, context), `rules`],
