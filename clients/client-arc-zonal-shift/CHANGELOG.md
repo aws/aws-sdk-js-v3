@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.776.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.775.0...v3.776.0) (2025-03-26)
+
+
+### Features
+
+* **client-arc-zonal-shift:** Add new shiftType field for ARC zonal shifts. ([f341188](https://github.com/aws/aws-sdk-js-v3/commit/f341188ec2bc2daced2bfce18b7589ddf7d0d56c))
+
+
+
+
+
 # [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
 
 **Note:** Version bump only for package @aws-sdk/client-arc-zonal-shift

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.776.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.775.0...v3.776.0) (2025-03-26)
+
+
+### Features
+
+* **client-direct-connect:** With this release, AWS Direct Connect allows you to tag your Direct Connect gateways. Tags are metadata that you can create and use to manage your Direct Connect gateways. For more information about tagging, see AWS Tagging Strategies. ([f1e9366](https://github.com/aws/aws-sdk-js-v3/commit/f1e9366159951f046f16aedeae4516fbbe8e874e))
+
+
+
+
+
 # [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
 
 **Note:** Version bump only for package @aws-sdk/client-direct-connect

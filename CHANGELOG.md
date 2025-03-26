@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.776.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.775.0...v3.776.0) (2025-03-26)
+
+
+### Features
+
+* **client-arc-zonal-shift:** Add new shiftType field for ARC zonal shifts. ([f341188](https://github.com/aws/aws-sdk-js-v3/commit/f341188ec2bc2daced2bfce18b7589ddf7d0d56c))
+* **client-direct-connect:** With this release, AWS Direct Connect allows you to tag your Direct Connect gateways. Tags are metadata that you can create and use to manage your Direct Connect gateways. For more information about tagging, see AWS Tagging Strategies. ([f1e9366](https://github.com/aws/aws-sdk-js-v3/commit/f1e9366159951f046f16aedeae4516fbbe8e874e))
+* **client-mediaconvert:** This release adds a configurable Quality Level setting for the top rendition of Auto ABR jobs ([8ab958b](https://github.com/aws/aws-sdk-js-v3/commit/8ab958b53238707157620137459cb870cb427c43))
+* **client-mediatailor:** Add support for log filtering which allow customers to filter out selected event types from logs. ([aa2ade8](https://github.com/aws/aws-sdk-js-v3/commit/aa2ade8971eae2d717fea8a3a5ebed809aa0e7a5))
+* **client-polly:** Added support for the new voice - Jihye (ko-KR). Jihye is available as a Neural voice only. ([016c4d0](https://github.com/aws/aws-sdk-js-v3/commit/016c4d077c8acafbc14ae3a7e5a80625f492e623))
+* **client-wafv2:** This release adds the ability to associate an AWS WAF v2 web ACL with an AWS Amplify App. ([74fdfa0](https://github.com/aws/aws-sdk-js-v3/commit/74fdfa0ddfcf99a3e097f4b957491aa57fd93fb8))
+* **clients:** update client endpoints as of 2025-03-26 ([41f5934](https://github.com/aws/aws-sdk-js-v3/commit/41f59349a4b2c1d130ad29425ab5acc2d05ddda2))
+
+
+
+
+
 # [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.776.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.775.0...v3.776.0) (2025-03-26)
+
+
+### Features
+
+* **client-mediaconvert:** This release adds a configurable Quality Level setting for the top rendition of Auto ABR jobs ([8ab958b](https://github.com/aws/aws-sdk-js-v3/commit/8ab958b53238707157620137459cb870cb427c43))
+
+
+
+
+
 # [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert

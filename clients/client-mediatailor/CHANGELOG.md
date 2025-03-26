@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.776.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.775.0...v3.776.0) (2025-03-26)
+
+
+### Features
+
+* **client-mediatailor:** Add support for log filtering which allow customers to filter out selected event types from logs. ([aa2ade8](https://github.com/aws/aws-sdk-js-v3/commit/aa2ade8971eae2d717fea8a3a5ebed809aa0e7a5))
+
+
+
+
+
 # [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
 
 **Note:** Version bump only for package @aws-sdk/client-mediatailor
