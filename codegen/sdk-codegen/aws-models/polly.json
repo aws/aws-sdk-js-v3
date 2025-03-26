@@ -3557,6 +3557,12 @@
           "traits": {
             "smithy.api#enumValue": "Jasmine"
           }
+        },
+        "Jihye": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Jihye"
+          }
         }
       }
     },

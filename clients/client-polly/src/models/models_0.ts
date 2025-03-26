@@ -239,6 +239,7 @@ export const VoiceId = {
   Jacek: "Jacek",
   Jan: "Jan",
   Jasmine: "Jasmine",
+  Jihye: "Jihye",
   Jitka: "Jitka",
   Joanna: "Joanna",
   Joey: "Joey",
