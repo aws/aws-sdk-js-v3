@@ -4,6 +4,74 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { MediaTailorServiceException as __BaseException } from "./MediaTailorServiceException";
 
 /**
+ * @public
+ * @enum
+ */
+export const AdsInteractionExcludeEventType = {
+  AD_MARKER_FOUND: "AD_MARKER_FOUND",
+  BEACON_FIRED: "BEACON_FIRED",
+  EMPTY_VAST_RESPONSE: "EMPTY_VAST_RESPONSE",
+  EMPTY_VMAP_RESPONSE: "EMPTY_VMAP_RESPONSE",
+  ERROR_ADS_INVALID_RESPONSE: "ERROR_ADS_INVALID_RESPONSE",
+  ERROR_ADS_IO: "ERROR_ADS_IO",
+  ERROR_ADS_RESPONSE_PARSE: "ERROR_ADS_RESPONSE_PARSE",
+  ERROR_ADS_RESPONSE_UNKNOWN_ROOT_ELEMENT: "ERROR_ADS_RESPONSE_UNKNOWN_ROOT_ELEMENT",
+  ERROR_ADS_TIMEOUT: "ERROR_ADS_TIMEOUT",
+  ERROR_DISALLOWED_HOST: "ERROR_DISALLOWED_HOST",
+  ERROR_FIRING_BEACON_FAILED: "ERROR_FIRING_BEACON_FAILED",
+  ERROR_PERSONALIZATION_DISABLED: "ERROR_PERSONALIZATION_DISABLED",
+  ERROR_UNKNOWN: "ERROR_UNKNOWN",
+  ERROR_UNKNOWN_HOST: "ERROR_UNKNOWN_HOST",
+  ERROR_VAST_INVALID_MEDIA_FILE: "ERROR_VAST_INVALID_MEDIA_FILE",
+  ERROR_VAST_INVALID_VAST_AD_TAG_URI: "ERROR_VAST_INVALID_VAST_AD_TAG_URI",
+  ERROR_VAST_MISSING_CREATIVES: "ERROR_VAST_MISSING_CREATIVES",
+  ERROR_VAST_MISSING_IMPRESSION: "ERROR_VAST_MISSING_IMPRESSION",
+  ERROR_VAST_MISSING_MEDIAFILES: "ERROR_VAST_MISSING_MEDIAFILES",
+  ERROR_VAST_MISSING_OVERLAYS: "ERROR_VAST_MISSING_OVERLAYS",
+  ERROR_VAST_MULTIPLE_LINEAR: "ERROR_VAST_MULTIPLE_LINEAR",
+  ERROR_VAST_MULTIPLE_TRACKING_EVENTS: "ERROR_VAST_MULTIPLE_TRACKING_EVENTS",
+  ERROR_VAST_REDIRECT_EMPTY_RESPONSE: "ERROR_VAST_REDIRECT_EMPTY_RESPONSE",
+  ERROR_VAST_REDIRECT_FAILED: "ERROR_VAST_REDIRECT_FAILED",
+  ERROR_VAST_REDIRECT_MULTIPLE_VAST: "ERROR_VAST_REDIRECT_MULTIPLE_VAST",
+  FILLED_AVAIL: "FILLED_AVAIL",
+  FILLED_OVERLAY_AVAIL: "FILLED_OVERLAY_AVAIL",
+  INTERSTITIAL_VOD_FAILURE: "INTERSTITIAL_VOD_FAILURE",
+  INTERSTITIAL_VOD_SUCCESS: "INTERSTITIAL_VOD_SUCCESS",
+  MAKING_ADS_REQUEST: "MAKING_ADS_REQUEST",
+  MODIFIED_TARGET_URL: "MODIFIED_TARGET_URL",
+  NON_AD_MARKER_FOUND: "NON_AD_MARKER_FOUND",
+  REDIRECTED_VAST_RESPONSE: "REDIRECTED_VAST_RESPONSE",
+  VAST_REDIRECT: "VAST_REDIRECT",
+  VAST_RESPONSE: "VAST_RESPONSE",
+  VOD_TIME_BASED_AVAIL_PLAN_SUCCESS: "VOD_TIME_BASED_AVAIL_PLAN_SUCCESS",
+  VOD_TIME_BASED_AVAIL_PLAN_VAST_RESPONSE_FOR_OFFSET: "VOD_TIME_BASED_AVAIL_PLAN_VAST_RESPONSE_FOR_OFFSET",
+  VOD_TIME_BASED_AVAIL_PLAN_WARNING_NO_ADVERTISEMENTS: "VOD_TIME_BASED_AVAIL_PLAN_WARNING_NO_ADVERTISEMENTS",
+  WARNING_NO_ADVERTISEMENTS: "WARNING_NO_ADVERTISEMENTS",
+  WARNING_URL_VARIABLE_SUBSTITUTION_FAILED: "WARNING_URL_VARIABLE_SUBSTITUTION_FAILED",
+  WARNING_VPAID_AD_DROPPED: "WARNING_VPAID_AD_DROPPED",
+} as const;
+
+/**
+ * @public
+ */
+export type AdsInteractionExcludeEventType =
+  (typeof AdsInteractionExcludeEventType)[keyof typeof AdsInteractionExcludeEventType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AdsInteractionPublishOptInEventType = {
+  RAW_ADS_RESPONSE: "RAW_ADS_RESPONSE",
+} as const;
+
+/**
+ * @public
+ */
+export type AdsInteractionPublishOptInEventType =
+  (typeof AdsInteractionPublishOptInEventType)[keyof typeof AdsInteractionPublishOptInEventType];
+
+/**
  * <p>For <code>SCTE35_ENHANCED</code> output, defines a key and corresponding value. MediaTailor generates these pairs within the <code>EXT-X-ASSET</code>tag.</p>
  * @public
  */
@@ -704,7 +772,7 @@ export interface AdConditioningConfiguration {
    * <p>For ads that have media files with streaming delivery and supported file extensions, indicates what transcoding action MediaTailor takes when it first receives these ads from the ADS.
    *             <code>TRANSCODE</code> indicates that MediaTailor must transcode the ads.
    *             <code>NONE</code> indicates that you have already transcoded the ads outside of MediaTailor and don't need them transcoded as part of the ad insertion workflow.
-   *             For more information about ad conditioning see <a href="https://docs.aws.amazon.com/precondition-ads.html">https://docs.aws.amazon.com/precondition-ads.html</a>.</p>
+   *             For more information about ad conditioning see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/precondition-ads.html">Using preconditioned ads</a> in the Elemental MediaTailor user guide.</p>
    * @public
    */
   StreamingMediaFileConditioning: StreamingMediaFileConditioning | undefined;
@@ -882,6 +950,85 @@ export interface LivePreRollConfiguration {
 }
 
 /**
+ * <p>Settings for customizing what events are included in logs for interactions with the ad decision server (ADS).</p>
+ *          <p>For more information about ADS logs, inlcuding descriptions of the event types, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ads-log-format.html">MediaTailor ADS logs description and event types</a>
+ *         in Elemental MediaTailor User Guide.</p>
+ * @public
+ */
+export interface AdsInteractionLog {
+  /**
+   * <p>Indicates that MediaTailor emits <code>RAW_ADS_RESPONSE</code> logs for playback sessions that are initialized with this configuration.</p>
+   * @public
+   */
+  PublishOptInEventTypes?: AdsInteractionPublishOptInEventType[] | undefined;
+
+  /**
+   * <p>Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.</p>
+   * @public
+   */
+  ExcludeEventTypes?: AdsInteractionExcludeEventType[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ManifestServiceExcludeEventType = {
+  CONFIG_SECURITY_ERROR: "CONFIG_SECURITY_ERROR",
+  CONFIG_SYNTAX_ERROR: "CONFIG_SYNTAX_ERROR",
+  CONNECTION_ERROR: "CONNECTION_ERROR",
+  ERROR_ADS_INTERPOLATION: "ERROR_ADS_INTERPOLATION",
+  ERROR_BUMPER_END_INTERPOLATION: "ERROR_BUMPER_END_INTERPOLATION",
+  ERROR_BUMPER_START_INTERPOLATION: "ERROR_BUMPER_START_INTERPOLATION",
+  ERROR_CDN_AD_SEGMENT_INTERPOLATION: "ERROR_CDN_AD_SEGMENT_INTERPOLATION",
+  ERROR_CDN_CONTENT_SEGMENT_INTERPOLATION: "ERROR_CDN_CONTENT_SEGMENT_INTERPOLATION",
+  ERROR_LIVE_PRE_ROLL_ADS_INTERPOLATION: "ERROR_LIVE_PRE_ROLL_ADS_INTERPOLATION",
+  ERROR_ORIGIN_PREFIX_INTERPOLATION: "ERROR_ORIGIN_PREFIX_INTERPOLATION",
+  ERROR_PROFILE_NAME_INTERPOLATION: "ERROR_PROFILE_NAME_INTERPOLATION",
+  ERROR_SLATE_AD_URL_INTERPOLATION: "ERROR_SLATE_AD_URL_INTERPOLATION",
+  GENERATED_MANIFEST: "GENERATED_MANIFEST",
+  HOST_DISALLOWED: "HOST_DISALLOWED",
+  INCOMPATIBLE_HLS_VERSION: "INCOMPATIBLE_HLS_VERSION",
+  INVALID_SINGLE_PERIOD_DASH_MANIFEST: "INVALID_SINGLE_PERIOD_DASH_MANIFEST",
+  IO_ERROR: "IO_ERROR",
+  LAST_PERIOD_MISSING_AUDIO: "LAST_PERIOD_MISSING_AUDIO",
+  LAST_PERIOD_MISSING_AUDIO_WARNING: "LAST_PERIOD_MISSING_AUDIO_WARNING",
+  MANIFEST_ERROR: "MANIFEST_ERROR",
+  NO_MASTER_OR_MEDIA_PLAYLIST: "NO_MASTER_OR_MEDIA_PLAYLIST",
+  NO_MASTER_PLAYLIST: "NO_MASTER_PLAYLIST",
+  NO_MEDIA_PLAYLIST: "NO_MEDIA_PLAYLIST",
+  ORIGIN_MANIFEST: "ORIGIN_MANIFEST",
+  PARSING_ERROR: "PARSING_ERROR",
+  SCTE35_PARSING_ERROR: "SCTE35_PARSING_ERROR",
+  SESSION_INITIALIZED: "SESSION_INITIALIZED",
+  TIMEOUT_ERROR: "TIMEOUT_ERROR",
+  TRACKING_RESPONSE: "TRACKING_RESPONSE",
+  UNKNOWN_ERROR: "UNKNOWN_ERROR",
+  UNKNOWN_HOST: "UNKNOWN_HOST",
+  UNSUPPORTED_SINGLE_PERIOD_DASH_MANIFEST: "UNSUPPORTED_SINGLE_PERIOD_DASH_MANIFEST",
+} as const;
+
+/**
+ * @public
+ */
+export type ManifestServiceExcludeEventType =
+  (typeof ManifestServiceExcludeEventType)[keyof typeof ManifestServiceExcludeEventType];
+
+/**
+ * <p>Settings for customizing what events are included in logs for interactions with the origin server.</p>
+ *          <p>For more information about manifest service logs, including descriptions of the event types, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/log-types.html">MediaTailor manifest logs description and event types</a>
+ *             in Elemental MediaTailor User Guide.</p>
+ * @public
+ */
+export interface ManifestServiceInteractionLog {
+  /**
+   * <p>Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.</p>
+   * @public
+   */
+  ExcludeEventTypes?: ManifestServiceExcludeEventType[] | undefined;
+}
+
+/**
  * <p>Defines where AWS Elemental MediaTailor sends logs for the playback configuration.</p>
  * @public
  */
@@ -899,6 +1046,18 @@ export interface LogConfiguration {
    * @public
    */
   EnabledLoggingStrategies?: LoggingStrategy[] | undefined;
+
+  /**
+   * <p>Settings for customizing what events are included in logs for interactions with the ad decision server (ADS).</p>
+   * @public
+   */
+  AdsInteractionLog?: AdsInteractionLog | undefined;
+
+  /**
+   * <p>Settings for customizing what events are included in logs for interactions with the origin server.</p>
+   * @public
+   */
+  ManifestServiceInteractionLog?: ManifestServiceInteractionLog | undefined;
 }
 
 /**
@@ -2700,6 +2859,18 @@ export interface ConfigureLogsForPlaybackConfigurationRequest {
    * @public
    */
   EnabledLoggingStrategies?: LoggingStrategy[] | undefined;
+
+  /**
+   * <p>The event types that MediaTailor emits in logs for interactions with the ADS.</p>
+   * @public
+   */
+  AdsInteractionLog?: AdsInteractionLog | undefined;
+
+  /**
+   * <p>The event types that MediaTailor emits in logs for interactions with the origin server.</p>
+   * @public
+   */
+  ManifestServiceInteractionLog?: ManifestServiceInteractionLog | undefined;
 }
 
 /**
@@ -2723,6 +2894,18 @@ export interface ConfigureLogsForPlaybackConfigurationResponse {
    * @public
    */
   EnabledLoggingStrategies?: LoggingStrategy[] | undefined;
+
+  /**
+   * <p>The event types that MediaTailor emits in logs for interactions with the ADS.</p>
+   * @public
+   */
+  AdsInteractionLog?: AdsInteractionLog | undefined;
+
+  /**
+   * <p>The event types that MediaTailor emits in logs for interactions with the origin server.</p>
+   * @public
+   */
+  ManifestServiceInteractionLog?: ManifestServiceInteractionLog | undefined;
 }
 
 /**

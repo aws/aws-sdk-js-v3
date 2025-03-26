@@ -127,6 +127,9 @@ import {
   AdConditioningConfiguration,
   AdMarkerPassthrough,
   AdMarkupType,
+  AdsInteractionExcludeEventType,
+  AdsInteractionLog,
+  AdsInteractionPublishOptInEventType,
   Alert,
   AlternateMedia,
   AudienceMedia,
@@ -149,6 +152,8 @@ import {
   LoggingStrategy,
   LogType,
   ManifestProcessingRules,
+  ManifestServiceExcludeEventType,
+  ManifestServiceInteractionLog,
   PlaybackConfiguration,
   PrefetchConsumption,
   PrefetchRetrieval,
@@ -209,7 +214,9 @@ export const se_ConfigureLogsForPlaybackConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AdsInteractionLog: (_) => _json(_),
       EnabledLoggingStrategies: (_) => _json(_),
+      ManifestServiceInteractionLog: (_) => _json(_),
       PercentEnabled: [],
       PlaybackConfigurationName: [],
     })
@@ -1120,7 +1127,9 @@ export const de_ConfigureLogsForPlaybackConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AdsInteractionLog: _json,
     EnabledLoggingStrategies: _json,
+    ManifestServiceInteractionLog: _json,
     PercentEnabled: __expectInt32,
     PlaybackConfigurationName: __expectString,
   });
@@ -2185,6 +2194,10 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se___adsInteractionExcludeEventTypesList omitted.
+
+// se___adsInteractionPublishOptInEventTypesList omitted.
+
 // se___listOfAdBreak omitted.
 
 // se___listOfAlternateMedia omitted.
@@ -2196,6 +2209,8 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se___listOfLoggingStrategies omitted.
 
 // se___listOfSegmentDeliveryConfiguration omitted.
+
+// se___manifestServiceExcludeEventTypesList omitted.
 
 // se___mapOf__string omitted.
 
@@ -2210,6 +2225,8 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_AdMarkerPassthrough omitted.
 
 // se_adMarkupTypes omitted.
+
+// se_AdsInteractionLog omitted.
 
 // se_AlternateMedia omitted.
 
@@ -2250,6 +2267,8 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_LogTypes omitted.
 
 // se_ManifestProcessingRules omitted.
+
+// se_ManifestServiceInteractionLog omitted.
 
 /**
  * serializeAws_restJson1PrefetchConsumption
@@ -2300,6 +2319,10 @@ const se_PrefetchRetrieval = (input: PrefetchRetrieval, context: __SerdeContext)
 // se_UpdateProgramScheduleConfiguration omitted.
 
 // se_UpdateProgramTransition omitted.
+
+// de___adsInteractionExcludeEventTypesList omitted.
+
+// de___adsInteractionPublishOptInEventTypesList omitted.
 
 // de___listOf__string omitted.
 
@@ -2423,6 +2446,8 @@ const de___listOfVodSource = (output: any, context: __SerdeContext): VodSource[]
   return retVal;
 };
 
+// de___manifestServiceExcludeEventTypesList omitted.
+
 // de___mapOf__string omitted.
 
 // de_AccessConfiguration omitted.
@@ -2440,6 +2465,8 @@ const de___listOfVodSource = (output: any, context: __SerdeContext): VodSource[]
 // de_AdMarkerPassthrough omitted.
 
 // de_adMarkupTypes omitted.
+
+// de_AdsInteractionLog omitted.
 
 /**
  * deserializeAws_restJson1Alert
@@ -2535,6 +2562,8 @@ const de_LiveSource = (output: any, context: __SerdeContext): LiveSource => {
 // de_LogTypes omitted.
 
 // de_ManifestProcessingRules omitted.
+
+// de_ManifestServiceInteractionLog omitted.
 
 /**
  * deserializeAws_restJson1PlaybackConfiguration
