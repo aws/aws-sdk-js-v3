@@ -59,6 +59,14 @@ export interface DescribeDirectConnectGatewayAssociationsCommandOutput
  *                <p>A Direct Connect gateway and a transit gateway</p>
  *                <p>The response contains the association between the Direct Connect gateway and transit gateway.</p>
  *             </li>
+ *             <li>
+ *                <p>A Direct Connect gateway and a virtual private gateway</p>
+ *                <p>The response contains the association between the Direct Connect gateway and virtual private gateway.</p>
+ *             </li>
+ *             <li>
+ *                <p>A Direct Connect gateway association to a Cloud WAN core network</p>
+ *                <p>The response contains the Cloud WAN core network ID that the Direct Connect gateway is associated to.</p>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

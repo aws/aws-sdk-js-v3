@@ -42,6 +42,12 @@ export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectCon
  * const client = new DirectConnectClient(config);
  * const input = { // CreateDirectConnectGatewayRequest
  *   directConnectGatewayName: "STRING_VALUE", // required
+ *   tags: [ // TagList
+ *     { // Tag
+ *       key: "STRING_VALUE", // required
+ *       value: "STRING_VALUE",
+ *     },
+ *   ],
  *   amazonSideAsn: Number("long"),
  * };
  * const command = new CreateDirectConnectGatewayCommand(input);
@@ -54,6 +60,12 @@ export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectCon
  * //     ownerAccount: "STRING_VALUE",
  * //     directConnectGatewayState: "pending" || "available" || "deleting" || "deleted",
  * //     stateChangeError: "STRING_VALUE",
+ * //     tags: [ // TagList
+ * //       { // Tag
+ * //         key: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

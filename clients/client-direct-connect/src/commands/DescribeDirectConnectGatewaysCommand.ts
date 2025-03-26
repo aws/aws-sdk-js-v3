@@ -56,6 +56,12 @@ export interface DescribeDirectConnectGatewaysCommandOutput
  * //       ownerAccount: "STRING_VALUE",
  * //       directConnectGatewayState: "pending" || "available" || "deleting" || "deleted",
  * //       stateChangeError: "STRING_VALUE",
+ * //       tags: [ // TagList
+ * //         { // Tag
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

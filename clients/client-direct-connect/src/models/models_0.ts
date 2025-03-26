@@ -47,12 +47,12 @@ export interface AcceptDirectConnectGatewayAssociationProposalRequest {
 }
 
 /**
- * <p>The Amazon Web Services Cloud WAN core network that the Direct Connect attachment is associated with.</p>
+ * <p>The Amazon Web Services Cloud WAN core network that the Direct Connect gateway is associated to. This is only returned when a Direct Connect gateway is associated to a Cloud WAN core network.</p>
  * @public
  */
 export interface AssociatedCoreNetwork {
   /**
-   * <p>The ID of the Cloud WAN core network.</p>
+   * <p>The ID of the Cloud WAN core network that the Direct Connect gateway is associated to.</p>
    * @public
    */
   id?: string | undefined;
@@ -64,7 +64,7 @@ export interface AssociatedCoreNetwork {
   ownerAccount?: string | undefined;
 
   /**
-   * <p>the ID of the Direct Connect attachment</p>
+   * <p>the ID of the Direct Connect gateway attachment.</p>
    * @public
    */
   attachmentId?: string | undefined;
@@ -203,7 +203,7 @@ export interface DirectConnectGatewayAssociation {
   allowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[] | undefined;
 
   /**
-   * <p>The ID of the Cloud WAN core network associated with the Direct Connect attachment.</p>
+   * <p>The ID of the Cloud WAN core network associated with the Direct Connect gateway attachment.</p>
    * @public
    */
   associatedCoreNetwork?: AssociatedCoreNetwork | undefined;
@@ -1069,6 +1069,10 @@ export interface VirtualInterface {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>testing</code>: A virtual interface is in this state immediately after calling <a>StartBgpFailoverTest</a> and remains in this state during the duration of the test.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>deleting</code>: A virtual interface is in this state immediately after calling <a>DeleteVirtualInterface</a> until it can no longer forward traffic.</p>
    *             </li>
    *             <li>
@@ -1587,6 +1591,10 @@ export interface ConfirmPrivateVirtualInterfaceResponse {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>testing</code>: A virtual interface is in this state immediately after calling <a>StartBgpFailoverTest</a> and remains in this state during the duration of the test.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>deleting</code>: A virtual interface is in this state immediately after calling <a>DeleteVirtualInterface</a> until it can no longer forward traffic.</p>
    *             </li>
    *             <li>
@@ -1644,6 +1652,10 @@ export interface ConfirmPublicVirtualInterfaceResponse {
    *             <li>
    *                <p>
    *                   <code>down</code>: A virtual interface that is BGP down.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>testing</code>: A virtual interface is in this state immediately after calling <a>StartBgpFailoverTest</a> and remains in this state during the duration of the test.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1710,6 +1722,10 @@ export interface ConfirmTransitVirtualInterfaceResponse {
    *             <li>
    *                <p>
    *                   <code>down</code>: A virtual interface that is BGP down.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>testing</code>: A virtual interface is in this state immediately after calling <a>StartBgpFailoverTest</a> and remains in this state during the duration of the test.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1867,6 +1883,12 @@ export interface CreateDirectConnectGatewayRequest {
   directConnectGatewayName: string | undefined;
 
   /**
+   * <p>The key-value pair tags associated with the request.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+
+  /**
    * <p>The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be configured
    *       on the Amazon side of the connection. The ASN must be in the private range of 64,512 to
    *       65,534 or 4,200,000,000 to 4,294,967,294. The default is 64512.</p>
@@ -1949,6 +1971,12 @@ export interface DirectConnectGateway {
    * @public
    */
   stateChangeError?: string | undefined;
+
+  /**
+   * <p>Information about a tag.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -3077,6 +3105,10 @@ export interface DeleteVirtualInterfaceResponse {
    *             <li>
    *                <p>
    *                   <code>down</code>: A virtual interface that is BGP down.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>testing</code>: A virtual interface is in this state immediately after calling <a>StartBgpFailoverTest</a> and remains in this state during the duration of the test.</p>
    *             </li>
    *             <li>
    *                <p>
