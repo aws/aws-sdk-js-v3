@@ -46,7 +46,7 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * const client = new WAFV2Client(config);
  * const input = { // ListResourcesForWebACLRequest
  *   WebACLArn: "STRING_VALUE", // required
- *   ResourceType: "APPLICATION_LOAD_BALANCER" || "API_GATEWAY" || "APPSYNC" || "COGNITO_USER_POOL" || "APP_RUNNER_SERVICE" || "VERIFIED_ACCESS_INSTANCE",
+ *   ResourceType: "APPLICATION_LOAD_BALANCER" || "API_GATEWAY" || "APPSYNC" || "COGNITO_USER_POOL" || "APP_RUNNER_SERVICE" || "VERIFIED_ACCESS_INSTANCE" || "AMPLIFY",
  * };
  * const command = new ListResourcesForWebACLCommand(input);
  * const response = await client.send(command);

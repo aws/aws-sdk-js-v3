@@ -36,9 +36,10 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * // const { WAFV2Client, GetWebACLCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // GetWebACLRequest
- *   Name: "STRING_VALUE", // required
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   Id: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Scope: "CLOUDFRONT" || "REGIONAL",
+ *   Id: "STRING_VALUE",
+ *   ARN: "STRING_VALUE",
  * };
  * const command = new GetWebACLCommand(input);
  * const response = await client.send(command);

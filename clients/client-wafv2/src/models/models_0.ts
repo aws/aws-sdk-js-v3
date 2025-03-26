@@ -178,6 +178,9 @@ export interface Body {
    *                <p>For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and
    *           you can increase the limit for each resource type in the web ACL <code>AssociationConfig</code>, for additional processing fees. </p>
    *             </li>
+   *             <li>
+   *                <p>For Amplify, use the CloudFront limit.</p>
+   *             </li>
    *          </ul>
    *          <p>The options for oversize handling are the following:</p>
    *          <ul>
@@ -664,6 +667,9 @@ export interface JsonBody {
    *                <p>For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and
    *           you can increase the limit for each resource type in the web ACL <code>AssociationConfig</code>, for additional processing fees. </p>
    *             </li>
+   *             <li>
+   *                <p>For Amplify, use the CloudFront limit.</p>
+   *             </li>
    *          </ul>
    *          <p>The options for oversize handling are the following:</p>
    *          <ul>
@@ -903,6 +909,9 @@ export interface FieldToMatch {
    *                <p>For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and
    *           you can increase the limit for each resource type in the web ACL <code>AssociationConfig</code>, for additional processing fees. </p>
    *             </li>
+   *             <li>
+   *                <p>For Amplify, use the CloudFront limit.</p>
+   *             </li>
    *          </ul>
    *          <p>For information about how to handle oversized
    *          request bodies, see the <code>Body</code> object configuration. </p>
@@ -931,6 +940,9 @@ export interface FieldToMatch {
    *             <li>
    *                <p>For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and
    *           you can increase the limit for each resource type in the web ACL <code>AssociationConfig</code>, for additional processing fees. </p>
+   *             </li>
+   *             <li>
+   *                <p>For Amplify, use the CloudFront limit.</p>
    *             </li>
    *          </ul>
    *          <p>For information about how to handle oversized
@@ -3257,6 +3269,11 @@ export interface AssociateWebACLRequest {
    *                   </code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>For an Amplify application: <code>arn:<i>partition</i>:amplify:<i>region</i>:<i>account-id</i>:apps/<i>app-id</i>
+   *                   </code>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -3839,7 +3856,7 @@ export class WAFSubscriptionNotFoundException extends __BaseException {
  */
 export interface CreateAPIKeyRequest {
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -3929,7 +3946,7 @@ export interface CreateIPSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4165,7 +4182,7 @@ export interface CreateRegexPatternSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4551,7 +4568,7 @@ export class WAFConfigurationWarningException extends __BaseException {
  */
 export interface DeleteAPIKeyRequest {
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4616,7 +4633,7 @@ export interface DeleteIPSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4762,7 +4779,7 @@ export interface DeleteRegexPatternSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4805,7 +4822,7 @@ export interface DeleteRuleGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4848,7 +4865,7 @@ export interface DeleteWebACLRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4885,7 +4902,7 @@ export interface DeleteWebACLResponse {}
  */
 export interface DescribeAllManagedProductsRequest {
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -4986,7 +5003,7 @@ export interface DescribeManagedProductsByVendorRequest {
   VendorName: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5029,7 +5046,7 @@ export interface DescribeManagedRuleGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5204,6 +5221,11 @@ export interface DisassociateWebACLRequest {
    *                   </code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>For an Amplify application: <code>arn:<i>partition</i>:amplify:<i>region</i>:<i>account-id</i>:apps/<i>app-id</i>
+   *                   </code>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -5263,7 +5285,7 @@ export interface GenerateMobileSdkReleaseUrlResponse {
  */
 export interface GetDecryptedAPIKeyRequest {
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5312,7 +5334,7 @@ export interface GetIPSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5706,7 +5728,7 @@ export interface GetManagedRuleSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -5959,7 +5981,7 @@ export interface GetPermissionPolicyResponse {
  */
 export interface GetRateBasedStatementManagedKeysRequest {
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6073,7 +6095,7 @@ export interface GetRegexPatternSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6160,7 +6182,7 @@ export interface GetRuleGroupRequest {
   Name?: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6245,7 +6267,7 @@ export interface GetSampledRequestsRequest {
   RuleMetricName: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6559,10 +6581,10 @@ export interface GetWebACLRequest {
    * <p>The name of the web ACL. You cannot change the name of a web ACL after you create it.</p>
    * @public
    */
-  Name: string | undefined;
+  Name?: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6574,13 +6596,19 @@ export interface GetWebACLRequest {
    *          </ul>
    * @public
    */
-  Scope: Scope | undefined;
+  Scope?: Scope | undefined;
 
   /**
    * <p>The unique identifier for the web ACL. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>
    * @public
    */
-  Id: string | undefined;
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the web ACL that you want to retrieve. </p>
+   * @public
+   */
+  ARN?: string | undefined;
 }
 
 /**
@@ -6621,6 +6649,11 @@ export interface GetWebACLForResourceRequest {
    *                   </code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>For an Amplify application: <code>arn:<i>partition</i>:amplify:<i>region</i>:<i>account-id</i>:apps/<i>app-id</i>
+   *                   </code>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -6632,7 +6665,7 @@ export interface GetWebACLForResourceRequest {
  */
 export interface ListAPIKeysRequest {
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6693,7 +6726,7 @@ export interface ListAPIKeysResponse {
  */
 export interface ListAvailableManagedRuleGroupsRequest {
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6791,7 +6824,7 @@ export interface ListAvailableManagedRuleGroupVersionsRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6871,7 +6904,7 @@ export interface ListAvailableManagedRuleGroupVersionsResponse {
  */
 export interface ListIPSetsRequest {
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6926,7 +6959,7 @@ export interface ListIPSetsResponse {
  */
 export interface ListLoggingConfigurationsRequest {
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -6992,7 +7025,7 @@ export interface ListLoggingConfigurationsResponse {
  */
 export interface ListManagedRuleSetsRequest {
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -7171,7 +7204,7 @@ export interface ListMobileSdkReleasesResponse {
  */
 export interface ListRegexPatternSetsRequest {
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -7226,6 +7259,7 @@ export interface ListRegexPatternSetsResponse {
  * @enum
  */
 export const ResourceType = {
+  AMPLIFY: "AMPLIFY",
   API_GATEWAY: "API_GATEWAY",
   APPLICATION_LOAD_BALANCER: "APPLICATION_LOAD_BALANCER",
   APPSYNC: "APPSYNC",
@@ -7280,7 +7314,7 @@ export interface ListResourcesForWebACLResponse {
  */
 export interface ListRuleGroupsRequest {
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -7408,7 +7442,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListWebACLsRequest {
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -7568,7 +7602,7 @@ export interface PutManagedRuleSetVersionsRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -7766,7 +7800,7 @@ export interface UpdateIPSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -7863,7 +7897,7 @@ export interface UpdateManagedRuleSetVersionExpiryDateRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -7939,7 +7973,7 @@ export interface UpdateRegexPatternSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -8670,7 +8704,7 @@ export interface FirewallManagerRuleGroup {
  */
 export interface CheckCapacityRequest {
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -8703,7 +8737,7 @@ export interface CreateRuleGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -8784,7 +8818,7 @@ export interface CreateWebACLRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -9001,7 +9035,7 @@ export interface UpdateRuleGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -9071,7 +9105,7 @@ export interface UpdateWebACLRequest {
   Name: string | undefined;
 
   /**
-   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. </p>
+   * <p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p>
    *          <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p>
    *          <ul>
    *             <li>
@@ -9196,7 +9230,7 @@ export interface GetRuleGroupResponse {
 }
 
 /**
- * <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resource types include Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito user pool, App Runner service, and Amazon Web Services Verified Access instance.  </p>
+ * <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resource types include Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito user pool, App Runner service, Amplify application, and Amazon Web Services Verified Access instance.  </p>
  * @public
  */
 export interface WebACL {
