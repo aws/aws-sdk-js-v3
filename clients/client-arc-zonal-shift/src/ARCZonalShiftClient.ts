@@ -325,13 +325,13 @@ export type ARCZonalShiftClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface ARCZonalShiftClientResolvedConfig extends ARCZonalShiftClientResolvedConfigType {}
 
 /**
- * <p>Welcome to the API Reference Guide for zonal shift and zonal autoshift in Amazon Route 53 Application Recovery Controller (Route 53 ARC).</p>
+ * <p>Welcome to the API Reference Guide for zonal shift and zonal autoshift in Amazon Route 53 Application Recovery Controller (ARC).</p>
  *          <p>You can start a zonal shift to move traffic for a load balancer resource away from an Availability Zone to
  * 			help your application recover quickly from an impairment in an Availability Zone. For example,
  * 			you can recover your application from a developer's bad code deployment or from an
  * 			Amazon Web Services infrastructure failure in a single Availability Zone.</p>
  *          <p>You can also configure zonal autoshift for supported load balancer resources. Zonal autoshift
- * 			is a capability in Route 53 ARC where you authorize Amazon Web Services to shift away application resource
+ * 			is a capability in ARC where you authorize Amazon Web Services to shift away application resource
  * 			traffic from an Availability Zone during events, on your behalf, to help reduce your time to recovery.
  * 			Amazon Web Services starts an autoshift when internal telemetry indicates that there is an Availability
  * 			Zone impairment that could potentially impact customers.</p>
@@ -352,7 +352,7 @@ export interface ARCZonalShiftClientResolvedConfig extends ARCZonalShiftClientRe
  * 				the minimum capacity of your auto scaling to continue operating normally with the loss of an
  * 				Availability Zone. </p>
  *          </important>
- *          <p>Be aware that Route 53 ARC does not inspect the health of individual resources. Amazon Web Services only starts an
+ *          <p>Be aware that ARC does not inspect the health of individual resources. Amazon Web Services only starts an
  * 			autoshift when Amazon Web Services telemetry detects that there is an Availability Zone impairment that could
  * 			potentially impact customers. In some cases, resources might be shifted away that are not experiencing
  * 			impact.</p>

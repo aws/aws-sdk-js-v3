@@ -37,17 +37,8 @@ export interface GetAutoshiftObserverNotificationStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns the status of autoshift observer notification. Autoshift observer
- * 			notification enables you to be notified, through Amazon EventBridge, when
- * 			there is an autoshift event for zonal autoshift.</p>
- *          <p>If the status is <code>ENABLED</code>,
- * 			Route 53 ARC includes all autoshift events when you use the EventBridge pattern
- * 			<code>Autoshift In Progress</code>. When the status is <code>DISABLED</code>,
- * 			Route 53 ARC includes only autoshift events for autoshifts when one or more of your
- * 			resources is included in the autoshift.</p>
- *          <p>For more information, see
- * 			<a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.html#ZAShiftNotification">
- * 				Notifications for practice runs and autoshifts</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
+ * <p>Returns the status of the autoshift observer notification. Autoshift observer notifications notify you through Amazon EventBridge when there is an autoshift event for zonal autoshift. The status can be <code>ENABLED</code> or <code>DISABLED</code>. When <code>ENABLED</code>, a notification is sent when an autoshift is triggered. When <code>DISABLED</code>, notifications are not sent.
+ * 		</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

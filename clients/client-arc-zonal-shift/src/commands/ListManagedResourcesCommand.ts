@@ -64,6 +64,7 @@ export interface ListManagedResourcesCommandOutput extends ListManagedResourcesR
  * //           expiryTime: new Date("TIMESTAMP"), // required
  * //           startTime: new Date("TIMESTAMP"), // required
  * //           comment: "STRING_VALUE", // required
+ * //           shiftType: "ZONAL_SHIFT" || "PRACTICE_RUN" || "FIS_EXPERIMENT" || "ZONAL_AUTOSHIFT",
  * //           practiceRunOutcome: "FAILED" || "INTERRUPTED" || "PENDING" || "SUCCEEDED",
  * //         },
  * //       ],

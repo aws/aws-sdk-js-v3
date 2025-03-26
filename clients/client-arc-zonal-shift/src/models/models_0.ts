@@ -76,9 +76,9 @@ export type AutoshiftExecutionStatus = (typeof AutoshiftExecutionStatus)[keyof t
  */
 export interface ListAutoshiftsRequest {
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the
    * 			previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous
-   * 			call's <code>NextToken</code> response to request the next page of results.</p>
+   * 			call's <code>nextToken</code> response to request the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -100,8 +100,8 @@ export interface ListAutoshiftsRequest {
  * <p>Information about an autoshift. Amazon Web Services starts an autoshift to temporarily move traffic for a resource
  * 			away from an Availability Zone in an Amazon Web Services Region
  * 			when Amazon Web Services determines that there's an issue in the Availability Zone that could potentially affect customers.
- * 			You can configure zonal autoshift in Route 53 ARC for managed resources in your Amazon Web Services account in a Region.
- * 			Supported Amazon Web Services resources are automatically registered with Route 53 ARC.</p>
+ * 			You can configure zonal autoshift in ARC for managed resources in your Amazon Web Services account in a Region.
+ * 			Supported Amazon Web Services resources are automatically registered with ARC.</p>
  *          <p>Autoshifts are temporary. When the Availability Zone recovers, Amazon Web Services ends the autoshift, and
  * 			traffic for the resource is no longer directed to the other Availability Zones in the Region.</p>
  *          <p>You can stop an autoshift for a resource by disabling zonal autoshift.</p>
@@ -121,7 +121,7 @@ export interface AutoshiftSummary {
    * <p>The time (in UTC) when the autoshift ended.</p>
    * @public
    */
-  endTime: Date | undefined;
+  endTime?: Date | undefined;
 
   /**
    * <p>The time (in UTC) when the autoshift started.</p>
@@ -147,9 +147,9 @@ export interface ListAutoshiftsResponse {
   items?: AutoshiftSummary[] | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the
    * 			previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous
-   * 			call's <code>NextToken</code> response to request the next page of results.</p>
+   * 			call's <code>nextToken</code> response to request the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -180,6 +180,7 @@ export class ThrottlingException extends __BaseException {
  * @enum
  */
 export const ValidationExceptionReason = {
+  FIS_EXPERIMENT_UPDATE_NOT_ALLOWED: "FISExperimentUpdateNotAllowed",
   INVALID_ALARM_CONDITION: "InvalidAlarmCondition",
   INVALID_AZ: "InvalidAz",
   INVALID_CONDITION_TYPE: "InvalidConditionType",
@@ -305,9 +306,9 @@ export type AutoshiftObserverNotificationStatus =
 export interface GetAutoshiftObserverNotificationStatusResponse {
   /**
    * <p>The status of autoshift observer notification. If the status is <code>ENABLED</code>,
-   * 			Route 53 ARC includes all autoshift events when you use the Amazon EventBridge pattern
+   * 			ARC includes all autoshift events when you use the Amazon EventBridge pattern
    * 			<code>Autoshift In Progress</code>. When the status is <code>DISABLED</code>,
-   * 			Route 53 ARC includes only autoshift events for autoshifts when one or more of your
+   * 			ARC includes only autoshift events for autoshifts when one or more of your
    * 			resources is included in the autoshift. </p>
    * @public
    */
@@ -320,9 +321,9 @@ export interface GetAutoshiftObserverNotificationStatusResponse {
 export interface UpdateAutoshiftObserverNotificationStatusRequest {
   /**
    * <p>The status to set for autoshift observer notification. If the status is <code>ENABLED</code>,
-   * 			Route 53 ARC includes all autoshift events when you use the Amazon EventBridge pattern
+   * 			ARC includes all autoshift events when you use the Amazon EventBridge pattern
    * 			<code>Autoshift In Progress</code>. When the status is <code>DISABLED</code>,
-   * 			Route 53 ARC includes only autoshift events for autoshifts when one or more of your
+   * 			ARC includes only autoshift events for autoshifts when one or more of your
    * 			resources is included in the autoshift. </p>
    * @public
    */
@@ -360,6 +361,7 @@ export const ConflictExceptionReason = {
   PRACTICE_CONFIGURATION_ALREADY_EXISTS: "PracticeConfigurationAlreadyExists",
   PRACTICE_CONFIGURATION_DOES_NOT_EXIST: "PracticeConfigurationDoesNotExist",
   SIMULTANEOUS_ZONAL_SHIFTS_CONFLICT: "SimultaneousZonalShiftsConflict",
+  ZONAL_AUTOSHIFT_ACTIVE: "ZonalAutoshiftActive",
   ZONAL_SHIFT_ALREADY_EXISTS: "ZonalShiftAlreadyExists",
   ZONAL_SHIFT_STATUS_NOT_ACTIVE: "ZonalShiftStatusNotActive",
 } as const;
@@ -466,7 +468,7 @@ export interface ZonalShift {
    * <p>The expiry time (expiration time) for a customer-initiated zonal shift. A zonal shift is temporary and must be set to expire when you start the zonal shift.
    * 			You can initially set a zonal shift to expire in a maximum of three days (72 hours). However, you can update a zonal shift
    * 			to set a new expiration at any time. </p>
-   *          <p>When you start a zonal shift, you specify how long you want it to be active, which Route 53 ARC converts
+   *          <p>When you start a zonal shift, you specify how long you want it to be active, which ARC converts
    * 			to an expiry time (expiration time). You can cancel a zonal shift when you're ready to restore traffic to the Availability Zone, or
    * 			just wait for it to expire. Or you can update the zonal shift to specify another length of time to expire in.</p>
    * @public
@@ -562,7 +564,7 @@ export interface CreatePracticeRunConfigurationRequest {
   resourceIdentifier: string | undefined;
 
   /**
-   * <p>Optionally, you can block Route 53 ARC from starting practice runs for specific windows of
+   * <p>Optionally, you can block ARC from starting practice runs for specific windows of
    * 			days and times. </p>
    *          <p>The format for blocked windows is: DAY:HH:SS-DAY:HH:SS. Keep in mind, when you specify dates,
    * 			that dates and times for practice runs are in UTC. Also, be aware of potential time adjustments
@@ -577,7 +579,7 @@ export interface CreatePracticeRunConfigurationRequest {
   blockedWindows?: string[] | undefined;
 
   /**
-   * <p>Optionally, you can block Route 53 ARC from starting practice runs for a resource
+   * <p>Optionally, you can block ARC from starting practice runs for a resource
    * 			on specific calendar dates.</p>
    *          <p>The format for blocked dates is: YYYY-MM-DD. Keep in mind, when you specify dates,
    * 			that dates and times for practice runs are in UTC. Separate multiple blocked
@@ -591,7 +593,7 @@ export interface CreatePracticeRunConfigurationRequest {
 
   /**
    * <p>An Amazon CloudWatch alarm that you can specify for zonal autoshift
-   * 			practice runs. This alarm blocks Route 53 ARC from starting practice run zonal
+   * 			practice runs. This alarm blocks ARC from starting practice run zonal
    * 			shifts, and ends a practice run that's in progress, when the alarm is in
    * 			an <code>ALARM</code> state. </p>
    * @public
@@ -603,7 +605,7 @@ export interface CreatePracticeRunConfigurationRequest {
    * 			Amazon CloudWatch alarm that you specify that ends a practice run when the
    * 			alarm is in an <code>ALARM</code> state.</p>
    *          <p>Configure the alarm to monitor the health of your application
-   * 			when traffic is shifted away from an Availability Zone during each weekly
+   * 			when traffic is shifted away from an Availability Zone during each
    * 			practice run. You should configure the alarm to go into an <code>ALARM</code> state
    * 			if your application is impacted by the zonal shift, and you want to stop the
    * 			zonal shift, to let traffic for the resource return to the Availability Zone.</p>
@@ -615,8 +617,8 @@ export interface CreatePracticeRunConfigurationRequest {
 /**
  * <p>A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice
  * 		run, as well as any blocked dates or blocked windows for the practice run. When a resource has a practice run
- * 		configuration, Route 53 ARC shifts traffic for the resource weekly for practice runs.</p>
- *          <p>Practice runs are required for zonal autoshift. The zonal shifts that Route 53 ARC starts for practice runs help you to ensure that
+ * 		configuration, ARC shifts traffic for the resource weekly for practice runs.</p>
+ *          <p>Practice runs are required for zonal autoshift. The zonal shifts that ARC starts for practice runs help you to ensure that
  * 			shifting away traffic from an Availability Zone during an autoshift is safe for your application.</p>
  *          <p>You can update or delete a practice run configuration. Before you delete a practice run configuration, you
  * 			must disable zonal autoshift for the resource. A practice run configuration is required when zonal autoshift is enabled.</p>
@@ -638,7 +640,7 @@ export interface PracticeRunConfiguration {
   outcomeAlarms: ControlCondition[] | undefined;
 
   /**
-   * <p>An array of one or more windows of days and times that you can block Route 53 ARC
+   * <p>An array of one or more windows of days and times that you can block ARC
    * 			from starting practice runs for a resource.</p>
    *          <p>Specify the blocked windows in UTC, using the format <code>DAY:HH:MM-DAY:HH:MM</code>, separated by
    * 			spaces. For example, <code>MON:18:30-MON:19:30 TUE:18:30-TUE:19:30</code>.</p>
@@ -772,6 +774,22 @@ export const PracticeRunOutcome = {
 export type PracticeRunOutcome = (typeof PracticeRunOutcome)[keyof typeof PracticeRunOutcome];
 
 /**
+ * @public
+ * @enum
+ */
+export const ShiftType = {
+  FIS_EXPERIMENT: "FIS_EXPERIMENT",
+  PRACTICE_RUN: "PRACTICE_RUN",
+  ZONAL_AUTOSHIFT: "ZONAL_AUTOSHIFT",
+  ZONAL_SHIFT: "ZONAL_SHIFT",
+} as const;
+
+/**
+ * @public
+ */
+export type ShiftType = (typeof ShiftType)[keyof typeof ShiftType];
+
+/**
  * <p>A complex structure that lists the zonal shifts for a managed resource and their statuses for the resource.</p>
  * @public
  */
@@ -817,7 +835,7 @@ export interface ZonalShiftInResource {
    * <p>The expiry time (expiration time) for a customer-initiated zonal shift. A zonal shift is temporary and must be set to expire when you start the zonal shift.
    *    		You can initially set a zonal shift to expire in a maximum of three days (72 hours). However, you can update a zonal shift
    *    		to set a new expiration at any time. </p>
-   *          <p>When you start a zonal shift, you specify how long you want it to be active, which Route 53 ARC converts
+   *          <p>When you start a zonal shift, you specify how long you want it to be active, which ARC converts
    *    		to an expiry time (expiration time). You can cancel a zonal shift when you're ready to restore traffic to the Availability Zone, or
    *    		just wait for it to expire. Or you can update the zonal shift to specify another length of time to expire in.</p>
    * @public
@@ -836,6 +854,12 @@ export interface ZonalShiftInResource {
    * @public
    */
   comment: string | undefined;
+
+  /**
+   * <p>Defines the zonal shift type.</p>
+   * @public
+   */
+  shiftType?: ShiftType | undefined;
 
   /**
    * <p>The outcome, or end state, returned for a practice run. The following values can be returned:</p>
@@ -928,9 +952,9 @@ export interface GetManagedResourceResponse {
  */
 export interface ListManagedResourcesRequest {
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the
    *    		previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous
-   *    		call's <code>NextToken</code> response to request the next page of results.</p>
+   *    		call's <code>nextToken</code> response to request the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -946,7 +970,7 @@ export interface ListManagedResourcesRequest {
  * <p>A complex structure for a managed resource in an Amazon Web Services account with information about zonal shifts
  *    		and autoshifts.</p>
  *          <p>A managed resource is a load balancer that has been registered
- *    		with Route 53 ARC by Elastic Load Balancing. You can start a zonal shift in Route 53 ARC for a managed resource to
+ *    		with ARC by Elastic Load Balancing. You can start a zonal shift in ARC for a managed resource to
  *    		temporarily move traffic for the resource away from an Availability Zone in an Amazon Web Services Region.
  *    		You can also configure zonal autoshift for a managed resource.</p>
  *          <note>
@@ -1001,10 +1025,10 @@ export interface ManagedResourceSummary {
 
   /**
    * <p>This status tracks whether a practice run configuration exists for a resource. When you configure
-   * 			a practice run for a resource so that a practice run configuration exists, Route 53 ARC sets this value to
+   * 			a practice run for a resource so that a practice run configuration exists, ARC sets this value to
    * 			<code>ENABLED</code>. If a you have not configured a practice run for the resource, or delete a practice
-   * 			run configuration, Route 53 ARC sets the value to <code>DISABLED</code>.</p>
-   *          <p>Route 53 ARC updates this status; you can't set a practice run status to <code>ENABLED</code> or
+   * 			run configuration, ARC sets the value to <code>DISABLED</code>.</p>
+   *          <p>ARC updates this status; you can't set a practice run status to <code>ENABLED</code> or
    * 			<code>DISABLED</code>.</p>
    * @public
    */
@@ -1022,9 +1046,9 @@ export interface ListManagedResourcesResponse {
   items: ManagedResourceSummary[] | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the
    *    		previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous
-   *    		call's <code>NextToken</code> response to request the next page of results.</p>
+   *    		call's <code>nextToken</code> response to request the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1035,9 +1059,9 @@ export interface ListManagedResourcesResponse {
  */
 export interface ListZonalShiftsRequest {
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the
    *    		previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous
-   *    		call's <code>NextToken</code> response to request the next page of results.</p>
+   *    		call's <code>nextToken</code> response to request the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1078,10 +1102,10 @@ export interface ListZonalShiftsRequest {
 }
 
 /**
- * <p>Lists information about zonal shifts in Amazon Route 53 Application Recovery Controller, including zonal shifts that you start yourself and zonal shifts that Route 53 ARC starts
+ * <p>Lists information about zonal shifts in Amazon Route 53 Application Recovery Controller, including zonal shifts that you start yourself and zonal shifts that ARC starts
  *    		on your behalf for practice runs with zonal autoshift.</p>
  *          <p>Zonal shifts are temporary, including customer-initiated zonal shifts and the zonal autoshift practice run zonal shifts that
- *    		Route 53 ARC starts weekly, on your behalf. A zonal shift that a customer starts can be active for up to three days (72 hours). A
+ *    		ARC starts weekly, on your behalf. A zonal shift that a customer starts can be active for up to three days (72 hours). A
  *    		practice run zonal shift has a 30 minute duration.</p>
  * @public
  */
@@ -1110,7 +1134,7 @@ export interface ZonalShiftSummary {
    * <p>The expiry time (expiration time) for a customer-initiated zonal shift. A zonal shift is temporary and must be set to expire when you start the zonal shift.
    *    		You can initially set a zonal shift to expire in a maximum of three days (72 hours). However, you can update a zonal shift
    *    		to set a new expiration at any time. </p>
-   *          <p>When you start a zonal shift, you specify how long you want it to be active, which Route 53 ARC converts
+   *          <p>When you start a zonal shift, you specify how long you want it to be active, which ARC converts
    *    		to an expiry time (expiration time). You can cancel a zonal shift when you're ready to restore traffic to the Availability Zone, or
    *    		just wait for it to expire. Or you can update the zonal shift to specify another length of time to expire in.</p>
    * @public
@@ -1150,6 +1174,12 @@ export interface ZonalShiftSummary {
    * @public
    */
   comment: string | undefined;
+
+  /**
+   * <p>Defines the zonal shift type.</p>
+   * @public
+   */
+  shiftType?: ShiftType | undefined;
 
   /**
    * <p>The outcome, or end state, of a practice run. The following values can be returned:</p>
@@ -1195,9 +1225,9 @@ export interface ListZonalShiftsResponse {
   items?: ZonalShiftSummary[] | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the
+   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the
    *    		previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous
-   *    		call's <code>NextToken</code> response to request the next page of results.</p>
+   *    		call's <code>nextToken</code> response to request the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -1255,7 +1285,7 @@ export interface UpdatePracticeRunConfigurationRequest {
 
   /**
    * <p>Add, change, or remove windows of days and times for when you can, optionally,
-   * 			block Route 53 ARC from starting a practice run for a resource.</p>
+   * 			block ARC from starting a practice run for a resource.</p>
    *          <p>The format for blocked windows is: DAY:HH:SS-DAY:HH:SS. Keep in mind, when you specify dates,
    * 			that dates and times for practice runs are in UTC. Also, be aware of potential time adjustments
    * 			that might be required for daylight saving time differences. Separate multiple blocked windows
@@ -1345,7 +1375,7 @@ export interface UpdateZonalShiftRequest {
   comment?: string | undefined;
 
   /**
-   * <p>The length of time that you want a zonal shift to be active, which Route 53 ARC converts to an expiry time (expiration time).
+   * <p>The length of time that you want a zonal shift to be active, which ARC converts to an expiry time (expiration time).
    *    		Zonal shifts are temporary. You can set a zonal shift to be active initially for up to three days (72 hours).</p>
    *          <p>If you want to still keep traffic away from an Availability Zone, you can update the
    *    		zonal shift and set a new expiration. You can also cancel a zonal shift, before it expires, for example, if you're ready to
@@ -1386,7 +1416,7 @@ export interface StartZonalShiftRequest {
   awayFrom: string | undefined;
 
   /**
-   * <p>The length of time that you want a zonal shift to be active, which Route 53 ARC converts to an expiry time (expiration time).
+   * <p>The length of time that you want a zonal shift to be active, which ARC converts to an expiry time (expiration time).
    * 		Zonal shifts are temporary. You can set a zonal shift to be active initially for up to three days (72 hours).</p>
    *          <p>If you want to still keep traffic away from an Availability Zone, you can update the
    * 		zonal shift and set a new expiration. You can also cancel a zonal shift, before it expires, for example, if you're ready to

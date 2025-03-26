@@ -924,6 +924,7 @@ const de_ZonalShiftInResource = (output: any, context: __SerdeContext): ZonalShi
     expiryTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     practiceRunOutcome: __expectString,
     resourceIdentifier: __expectString,
+    shiftType: __expectString,
     startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     zonalShiftId: __expectString,
   }) as any;
@@ -963,6 +964,7 @@ const de_ZonalShiftSummary = (output: any, context: __SerdeContext): ZonalShiftS
     expiryTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     practiceRunOutcome: __expectString,
     resourceIdentifier: __expectString,
+    shiftType: __expectString,
     startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     status: __expectString,
     zonalShiftId: __expectString,
