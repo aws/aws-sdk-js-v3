@@ -209,45 +209,45 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To get object list
  * ```javascript
  * // The following example retrieves object list. The request specifies max keys to limit response to include only 2 object keys.
  * const input = {
- *   "Bucket": "DOC-EXAMPLE-BUCKET",
- *   "MaxKeys": "2"
+ *   Bucket: "DOC-EXAMPLE-BUCKET",
+ *   MaxKeys: 2
  * };
  * const command = new ListObjectsV2Command(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Contents": [
+ *   Contents: [
  *     {
- *       "ETag": "\"70ee1738b6b21e2c8a43f3a5ab0eee71\"",
- *       "Key": "happyface.jpg",
- *       "LastModified": "2014-11-21T19:40:05.000Z",
- *       "Size": 11,
- *       "StorageClass": "STANDARD"
+ *       ETag: `"70ee1738b6b21e2c8a43f3a5ab0eee71"`,
+ *       Key: "happyface.jpg",
+ *       LastModified: "2014-11-21T19:40:05.000Z",
+ *       Size: 11,
+ *       StorageClass: "STANDARD"
  *     },
  *     {
- *       "ETag": "\"becf17f89c30367a9a44495d62ed521a-1\"",
- *       "Key": "test.jpg",
- *       "LastModified": "2014-05-02T04:51:50.000Z",
- *       "Size": 4192256,
- *       "StorageClass": "STANDARD"
+ *       ETag: `"becf17f89c30367a9a44495d62ed521a-1"`,
+ *       Key: "test.jpg",
+ *       LastModified: "2014-05-02T04:51:50.000Z",
+ *       Size: 4192256,
+ *       StorageClass: "STANDARD"
  *     }
  *   ],
- *   "IsTruncated": true,
- *   "KeyCount": "2",
- *   "MaxKeys": "2",
- *   "Name": "DOC-EXAMPLE-BUCKET",
- *   "NextContinuationToken": "1w41l63U0xa8q7smH50vCxyTQqdxo69O3EmK28Bi5PcROI4wI/EyIJg==",
- *   "Prefix": ""
+ *   IsTruncated: true,
+ *   KeyCount: 2,
+ *   MaxKeys: 2,
+ *   Name: "DOC-EXAMPLE-BUCKET",
+ *   NextContinuationToken: "1w41l63U0xa8q7smH50vCxyTQqdxo69O3EmK28Bi5PcROI4wI/EyIJg==",
+ *   Prefix: ""
  * }
  * *\/
- * // example id: to-get-object-list
  * ```
  *
+ * @public
  */
 export class ListObjectsV2Command extends $Command
   .classBuilder<

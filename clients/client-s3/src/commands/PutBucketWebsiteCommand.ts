@@ -209,27 +209,30 @@ export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example Set website configuration on a bucket
  * ```javascript
  * // The following example adds website configuration to a bucket.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "ContentMD5": "",
- *   "WebsiteConfiguration": {
- *     "ErrorDocument": {
- *       "Key": "error.html"
+ *   Bucket: "examplebucket",
+ *   ContentMD5: "",
+ *   WebsiteConfiguration: {
+ *     ErrorDocument: {
+ *       Key: "error.html"
  *     },
- *     "IndexDocument": {
- *       "Suffix": "index.html"
+ *     IndexDocument: {
+ *       Suffix: "index.html"
  *     }
  *   }
  * };
  * const command = new PutBucketWebsiteCommand(input);
- * await client.send(command);
- * // example id: set-website-configuration-on-a-bucket-1482346836261
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutBucketWebsiteCommand extends $Command
   .classBuilder<

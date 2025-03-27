@@ -155,51 +155,51 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To list object versions
  * ```javascript
  * // The following example returns versions of an object with specific key name prefix.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "Prefix": "HappyFace.jpg"
+ *   Bucket: "examplebucket",
+ *   Prefix: "HappyFace.jpg"
  * };
  * const command = new ListObjectVersionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Versions": [
+ *   Versions: [
  *     {
- *       "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *       "IsLatest": true,
- *       "Key": "HappyFace.jpg",
- *       "LastModified": "2016-12-15T01:19:41.000Z",
- *       "Owner": {
- *         "DisplayName": "owner-display-name",
- *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       ETag: `"6805f2cfc46c0f04559748bb039d69ae"`,
+ *       IsLatest: true,
+ *       Key: "HappyFace.jpg",
+ *       LastModified: "2016-12-15T01:19:41.000Z",
+ *       Owner: {
+ *         DisplayName: "owner-display-name",
+ *         ID: "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
  *       },
- *       "Size": 3191,
- *       "StorageClass": "STANDARD",
- *       "VersionId": "null"
+ *       Size: 3191,
+ *       StorageClass: "STANDARD",
+ *       VersionId: "null"
  *     },
  *     {
- *       "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *       "IsLatest": false,
- *       "Key": "HappyFace.jpg",
- *       "LastModified": "2016-12-13T00:58:26.000Z",
- *       "Owner": {
- *         "DisplayName": "owner-display-name",
- *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       ETag: `"6805f2cfc46c0f04559748bb039d69ae"`,
+ *       IsLatest: false,
+ *       Key: "HappyFace.jpg",
+ *       LastModified: "2016-12-13T00:58:26.000Z",
+ *       Owner: {
+ *         DisplayName: "owner-display-name",
+ *         ID: "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
  *       },
- *       "Size": 3191,
- *       "StorageClass": "STANDARD",
- *       "VersionId": "PHtexPGjH2y.zBgT8LmB7wwLI2mpbz.k"
+ *       Size: 3191,
+ *       StorageClass: "STANDARD",
+ *       VersionId: "PHtexPGjH2y.zBgT8LmB7wwLI2mpbz.k"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-object-versions-1481910996058
  * ```
  *
+ * @public
  */
 export class ListObjectVersionsCommand extends $Command
   .classBuilder<

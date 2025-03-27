@@ -103,28 +103,28 @@ export interface GetBucketWebsiteCommandOutput extends GetBucketWebsiteOutput, _
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To get bucket website configuration
  * ```javascript
  * // The following example retrieves website configuration of a bucket.
  * const input = {
- *   "Bucket": "examplebucket"
+ *   Bucket: "examplebucket"
  * };
  * const command = new GetBucketWebsiteCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ErrorDocument": {
- *     "Key": "error.html"
+ *   ErrorDocument: {
+ *     Key: "error.html"
  *   },
- *   "IndexDocument": {
- *     "Suffix": "index.html"
+ *   IndexDocument: {
+ *     Suffix: "index.html"
  *   }
  * }
  * *\/
- * // example id: to-get-bucket-website-configuration-1483037016926
  * ```
  *
+ * @public
  */
 export class GetBucketWebsiteCommand extends $Command
   .classBuilder<

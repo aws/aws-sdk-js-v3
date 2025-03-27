@@ -113,22 +113,25 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example Set versioning configuration on a bucket
  * ```javascript
  * // The following example sets versioning configuration on bucket. The configuration enables versioning on the bucket.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "VersioningConfiguration": {
- *     "MFADelete": "Disabled",
- *     "Status": "Enabled"
+ *   Bucket: "examplebucket",
+ *   VersioningConfiguration: {
+ *     MFADelete: "Disabled",
+ *     Status: "Enabled"
  *   }
  * };
  * const command = new PutBucketVersioningCommand(input);
- * await client.send(command);
- * // example id: set-versioning-configuration-on-a-bucket-1482344186279
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutBucketVersioningCommand extends $Command
   .classBuilder<

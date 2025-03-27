@@ -278,22 +278,25 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To grant permissions using object ACL
  * ```javascript
  * // The following example adds grants to an object ACL. The first permission grants user1 and user2 FULL_CONTROL and the AllUsers group READ permission.
  * const input = {
- *   "AccessControlPolicy": {},
- *   "Bucket": "examplebucket",
- *   "GrantFullControl": "emailaddress=user1@example.com,emailaddress=user2@example.com",
- *   "GrantRead": "uri=http://acs.amazonaws.com/groups/global/AllUsers",
- *   "Key": "HappyFace.jpg"
+ *   AccessControlPolicy:   { /* empty *\/ },
+ *   Bucket: "examplebucket",
+ *   GrantFullControl: "emailaddress=user1@example.com,emailaddress=user2@example.com",
+ *   GrantRead: "uri=http://acs.amazonaws.com/groups/global/AllUsers",
+ *   Key: "HappyFace.jpg"
  * };
  * const command = new PutObjectAclCommand(input);
- * await client.send(command);
- * // example id: to-grant-permissions-using-object-acl-1481835549285
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutObjectAclCommand extends $Command
   .classBuilder<

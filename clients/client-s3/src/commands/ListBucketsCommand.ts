@@ -84,38 +84,38 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To list all buckets
  * ```javascript
  * // The following example returns all the buckets owned by the sender of this request.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListBucketsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Buckets": [
+ *   Buckets: [
  *     {
- *       "CreationDate": "2012-02-15T21:03:02.000Z",
- *       "Name": "examplebucket"
+ *       CreationDate: "2012-02-15T21:03:02.000Z",
+ *       Name: "examplebucket"
  *     },
  *     {
- *       "CreationDate": "2011-07-24T19:33:50.000Z",
- *       "Name": "examplebucket2"
+ *       CreationDate: "2011-07-24T19:33:50.000Z",
+ *       Name: "examplebucket2"
  *     },
  *     {
- *       "CreationDate": "2010-12-17T00:56:49.000Z",
- *       "Name": "examplebucket3"
+ *       CreationDate: "2010-12-17T00:56:49.000Z",
+ *       Name: "examplebucket3"
  *     }
  *   ],
- *   "Owner": {
- *     "DisplayName": "own-display-name",
- *     "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31"
+ *   Owner: {
+ *     DisplayName: "own-display-name",
+ *     ID: "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31"
  *   }
  * }
  * *\/
- * // example id: to-list-buckets-1481910996058
  * ```
  *
+ * @public
  */
 export class ListBucketsCommand extends $Command
   .classBuilder<

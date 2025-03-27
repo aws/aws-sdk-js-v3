@@ -168,33 +168,36 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example Set logging configuration for a bucket
  * ```javascript
  * // The following example sets logging policy on a bucket. For the Log Delivery group to deliver logs to the destination bucket, it needs permission for the READ_ACP action which the policy grants.
  * const input = {
- *   "Bucket": "sourcebucket",
- *   "BucketLoggingStatus": {
- *     "LoggingEnabled": {
- *       "TargetBucket": "targetbucket",
- *       "TargetGrants": [
+ *   Bucket: "sourcebucket",
+ *   BucketLoggingStatus: {
+ *     LoggingEnabled: {
+ *       TargetBucket: "targetbucket",
+ *       TargetGrants: [
  *         {
- *           "Grantee": {
- *             "Type": "Group",
- *             "URI": "http://acs.amazonaws.com/groups/global/AllUsers"
+ *           Grantee: {
+ *             Type: "Group",
+ *             URI: "http://acs.amazonaws.com/groups/global/AllUsers"
  *           },
- *           "Permission": "READ"
+ *           Permission: "READ"
  *         }
  *       ],
- *       "TargetPrefix": "MyBucketLogs/"
+ *       TargetPrefix: "MyBucketLogs/"
  *     }
  *   }
  * };
  * const command = new PutBucketLoggingCommand(input);
- * await client.send(command);
- * // example id: set-logging-configuration-for-a-bucket-1482269119909
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutBucketLoggingCommand extends $Command
   .classBuilder<

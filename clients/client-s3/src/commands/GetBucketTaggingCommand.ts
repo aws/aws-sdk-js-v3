@@ -94,32 +94,32 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To get tag set associated with a bucket
  * ```javascript
  * // The following example returns tag set associated with a bucket
  * const input = {
- *   "Bucket": "examplebucket"
+ *   Bucket: "examplebucket"
  * };
  * const command = new GetBucketTaggingCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TagSet": [
+ *   TagSet: [
  *     {
- *       "Key": "key1",
- *       "Value": "value1"
+ *       Key: "key1",
+ *       Value: "value1"
  *     },
  *     {
- *       "Key": "key2",
- *       "Value": "value2"
+ *       Key: "key2",
+ *       Value: "value2"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-tag-set-associated-with-a-bucket-1481593232107
  * ```
  *
+ * @public
  */
 export class GetBucketTaggingCommand extends $Command
   .classBuilder<

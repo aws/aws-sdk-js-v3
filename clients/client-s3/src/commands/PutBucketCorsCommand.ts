@@ -133,52 +133,55 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To set cors configuration on a bucket.
  * ```javascript
  * // The following example enables PUT, POST, and DELETE requests from www.example.com, and enables GET requests from any domain.
  * const input = {
- *   "Bucket": "",
- *   "CORSConfiguration": {
- *     "CORSRules": [
+ *   Bucket: "",
+ *   CORSConfiguration: {
+ *     CORSRules: [
  *       {
- *         "AllowedHeaders": [
+ *         AllowedHeaders: [
  *           "*"
  *         ],
- *         "AllowedMethods": [
+ *         AllowedMethods: [
  *           "PUT",
  *           "POST",
  *           "DELETE"
  *         ],
- *         "AllowedOrigins": [
+ *         AllowedOrigins: [
  *           "http://www.example.com"
  *         ],
- *         "ExposeHeaders": [
+ *         ExposeHeaders: [
  *           "x-amz-server-side-encryption"
  *         ],
- *         "MaxAgeSeconds": 3000
+ *         MaxAgeSeconds: 3000
  *       },
  *       {
- *         "AllowedHeaders": [
+ *         AllowedHeaders: [
  *           "Authorization"
  *         ],
- *         "AllowedMethods": [
+ *         AllowedMethods: [
  *           "GET"
  *         ],
- *         "AllowedOrigins": [
+ *         AllowedOrigins: [
  *           "*"
  *         ],
- *         "MaxAgeSeconds": 3000
+ *         MaxAgeSeconds: 3000
  *       }
  *     ]
  *   },
- *   "ContentMD5": ""
+ *   ContentMD5: ""
  * };
  * const command = new PutBucketCorsCommand(input);
- * await client.send(command);
- * // example id: to-set-cors-configuration-on-a-bucket-1483037818805
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutBucketCorsCommand extends $Command
   .classBuilder<

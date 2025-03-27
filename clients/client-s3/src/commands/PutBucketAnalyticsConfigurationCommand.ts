@@ -195,6 +195,7 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ *
  * @public
  */
 export class PutBucketAnalyticsConfigurationCommand extends $Command

@@ -330,28 +330,28 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To copy an object
  * ```javascript
  * // The following example copies an object from one bucket to another.
  * const input = {
- *   "Bucket": "destinationbucket",
- *   "CopySource": "/sourcebucket/HappyFacejpg",
- *   "Key": "HappyFaceCopyjpg"
+ *   Bucket: "destinationbucket",
+ *   CopySource: "/sourcebucket/HappyFacejpg",
+ *   Key: "HappyFaceCopyjpg"
  * };
  * const command = new CopyObjectCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CopyObjectResult": {
- *     "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *     "LastModified": "2016-12-15T17:38:53.000Z"
+ *   CopyObjectResult: {
+ *     ETag: `"6805f2cfc46c0f04559748bb039d69ae"`,
+ *     LastModified: "2016-12-15T17:38:53.000Z"
  *   }
  * }
  * *\/
- * // example id: to-copy-an-object-1481823186878
  * ```
  *
+ * @public
  */
 export class CopyObjectCommand extends $Command
   .classBuilder<

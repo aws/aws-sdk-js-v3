@@ -70,23 +70,23 @@ export interface GetBucketRequestPaymentCommandOutput extends GetBucketRequestPa
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To get bucket versioning configuration
  * ```javascript
  * // The following example retrieves bucket versioning configuration.
  * const input = {
- *   "Bucket": "examplebucket"
+ *   Bucket: "examplebucket"
  * };
  * const command = new GetBucketRequestPaymentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Payer": "BucketOwner"
+ *   Payer: "BucketOwner"
  * }
  * *\/
- * // example id: to-get-bucket-versioning-configuration-1483037183929
  * ```
  *
+ * @public
  */
 export class GetBucketRequestPaymentCommand extends $Command
   .classBuilder<
