@@ -102,6 +102,7 @@ export interface ListWorkflowTypesCommandOutput extends WorkflowTypeInfos, __Met
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class ListWorkflowTypesCommand extends $Command

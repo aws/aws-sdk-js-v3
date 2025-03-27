@@ -113,6 +113,7 @@ export interface ListTranscriptionJobsCommandOutput extends ListTranscriptionJob
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class ListTranscriptionJobsCommand extends $Command

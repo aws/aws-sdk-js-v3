@@ -83,27 +83,27 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To get information about organization configuration
  * ```javascript
  * // This operation provides information about the way your organization is configured in Security Hub. Only a Security Hub administrator account can invoke this operation.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AutoEnable": false,
- *   "AutoEnableStandards": "NONE",
- *   "MemberAccountLimitReached": false,
- *   "OrganizationConfiguration": {
- *     "ConfigurationType": "CENTRAL",
- *     "Status": "ENABLED"
+ *   AutoEnable: false,
+ *   AutoEnableStandards: "NONE",
+ *   MemberAccountLimitReached: false,
+ *   OrganizationConfiguration: {
+ *     ConfigurationType: "CENTRAL",
+ *     Status: "ENABLED"
  *   }
  * }
  * *\/
- * // example id: to-get-information-about-organization-configuration-1676059786304
  * ```
  *
+ * @public
  */
 export class DescribeOrganizationConfigurationCommand extends $Command
   .classBuilder<

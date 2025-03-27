@@ -105,6 +105,7 @@ export interface LookupPolicyCommandOutput extends LookupPolicyResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
  * @public
  */
 export class LookupPolicyCommand extends $Command

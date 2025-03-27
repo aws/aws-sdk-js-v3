@@ -107,6 +107,7 @@ export interface ListLicenseServerEndpointsCommandOutput extends ListLicenseServ
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ *
  * @public
  */
 export class ListLicenseServerEndpointsCommand extends $Command

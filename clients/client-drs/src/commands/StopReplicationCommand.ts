@@ -179,6 +179,7 @@ export interface StopReplicationCommandOutput extends StopReplicationResponse, _
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class StopReplicationCommand extends $Command

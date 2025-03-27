@@ -125,6 +125,7 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ *
  * @public
  */
 export class BeginTransactionCommand extends $Command

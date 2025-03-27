@@ -78,6 +78,7 @@ export interface ListTrustedTokenIssuersCommandOutput extends ListTrustedTokenIs
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class ListTrustedTokenIssuersCommand extends $Command

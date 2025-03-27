@@ -62,6 +62,7 @@ export interface DeleteApiDestinationCommandOutput extends DeleteApiDestinationR
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class DeleteApiDestinationCommand extends $Command

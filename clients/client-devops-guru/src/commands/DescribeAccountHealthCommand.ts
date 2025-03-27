@@ -75,6 +75,7 @@ export interface DescribeAccountHealthCommandOutput extends DescribeAccountHealt
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccountHealthCommand extends $Command

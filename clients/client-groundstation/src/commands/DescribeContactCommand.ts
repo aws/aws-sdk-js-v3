@@ -208,6 +208,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class DescribeContactCommand extends $Command

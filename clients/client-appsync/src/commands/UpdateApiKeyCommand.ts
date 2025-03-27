@@ -84,6 +84,7 @@ export interface UpdateApiKeyCommandOutput extends UpdateApiKeyResponse, __Metad
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class UpdateApiKeyCommand extends $Command

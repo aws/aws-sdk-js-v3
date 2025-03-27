@@ -70,6 +70,7 @@ export interface IndexDocumentsCommandOutput extends IndexDocumentsResponse, __M
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class IndexDocumentsCommand extends $Command

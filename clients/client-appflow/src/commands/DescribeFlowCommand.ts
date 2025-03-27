@@ -370,6 +370,7 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ *
  * @public
  */
 export class DescribeFlowCommand extends $Command

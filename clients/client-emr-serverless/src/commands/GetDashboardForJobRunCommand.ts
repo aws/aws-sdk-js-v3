@@ -76,6 +76,7 @@ export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRu
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ *
  * @public
  */
 export class GetDashboardForJobRunCommand extends $Command

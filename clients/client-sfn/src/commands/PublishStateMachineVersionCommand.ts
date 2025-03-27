@@ -108,6 +108,7 @@ export interface PublishStateMachineVersionCommandOutput extends PublishStateMac
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class PublishStateMachineVersionCommand extends $Command

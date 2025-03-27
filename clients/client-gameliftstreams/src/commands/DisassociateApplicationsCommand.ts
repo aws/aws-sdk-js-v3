@@ -82,6 +82,7 @@ export interface DisassociateApplicationsCommandOutput extends DisassociateAppli
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>
  *
+ *
  * @public
  */
 export class DisassociateApplicationsCommand extends $Command

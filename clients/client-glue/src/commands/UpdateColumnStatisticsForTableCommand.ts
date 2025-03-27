@@ -195,6 +195,7 @@ export interface UpdateColumnStatisticsForTableCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class UpdateColumnStatisticsForTableCommand extends $Command

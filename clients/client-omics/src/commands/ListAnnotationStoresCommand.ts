@@ -98,6 +98,7 @@ export interface ListAnnotationStoresCommandOutput extends ListAnnotationStoresR
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class ListAnnotationStoresCommand extends $Command

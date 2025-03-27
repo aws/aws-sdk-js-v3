@@ -88,6 +88,7 @@ export interface BatchCreateVariableCommandOutput extends BatchCreateVariableRes
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class BatchCreateVariableCommand extends $Command

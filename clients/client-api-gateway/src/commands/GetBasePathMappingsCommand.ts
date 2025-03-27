@@ -77,6 +77,7 @@ export interface GetBasePathMappingsCommandOutput extends BasePathMappings, __Me
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetBasePathMappingsCommand extends $Command

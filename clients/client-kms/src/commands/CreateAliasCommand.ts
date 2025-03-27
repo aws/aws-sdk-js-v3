@@ -156,19 +156,22 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To create an alias
  * ```javascript
  * // The following example creates an alias for the specified KMS key.
  * const input = {
- *   "AliasName": "alias/ExampleAlias",
- *   "TargetKeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   AliasName: "alias/ExampleAlias",
+ *   TargetKeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new CreateAliasCommand(input);
- * await client.send(command);
- * // example id: to-create-an-alias-1477505685119
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateAliasCommand extends $Command
   .classBuilder<

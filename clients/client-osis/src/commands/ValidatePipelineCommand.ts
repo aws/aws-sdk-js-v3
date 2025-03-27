@@ -75,6 +75,7 @@ export interface ValidatePipelineCommandOutput extends ValidatePipelineResponse,
  * @throws {@link OSISServiceException}
  * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ *
  * @public
  */
 export class ValidatePipelineCommand extends $Command

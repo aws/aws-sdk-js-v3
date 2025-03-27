@@ -81,6 +81,7 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ *
  * @public
  */
 export class ListSessionsCommand extends $Command

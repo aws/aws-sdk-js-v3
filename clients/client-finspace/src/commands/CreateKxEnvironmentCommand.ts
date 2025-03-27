@@ -90,6 +90,7 @@ export interface CreateKxEnvironmentCommandOutput extends CreateKxEnvironmentRes
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class CreateKxEnvironmentCommand extends $Command

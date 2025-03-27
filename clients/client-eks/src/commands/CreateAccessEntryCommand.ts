@@ -114,6 +114,7 @@ export interface CreateAccessEntryCommandOutput extends CreateAccessEntryRespons
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class CreateAccessEntryCommand extends $Command

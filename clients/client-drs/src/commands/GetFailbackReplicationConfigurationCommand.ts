@@ -78,6 +78,7 @@ export interface GetFailbackReplicationConfigurationCommandOutput
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class GetFailbackReplicationConfigurationCommand extends $Command

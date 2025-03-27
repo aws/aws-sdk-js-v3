@@ -271,39 +271,39 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To update a Web ACL
  * ```javascript
  * // The following example deletes an ActivatedRule object in a WebACL with the ID webacl-1472061481310.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "DefaultAction": {
- *     "Type": "ALLOW"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   DefaultAction: {
+ *     Type: "ALLOW"
  *   },
- *   "Updates": [
+ *   Updates: [
  *     {
- *       "Action": "DELETE",
- *       "ActivatedRule": {
- *         "Action": {
- *           "Type": "ALLOW"
+ *       Action: "DELETE",
+ *       ActivatedRule: {
+ *         Action: {
+ *           Type: "ALLOW"
  *         },
- *         "Priority": 1,
- *         "RuleId": "WAFRule-1-Example"
+ *         Priority: 1,
+ *         RuleId: "WAFRule-1-Example"
  *       }
  *     }
  *   ],
- *   "WebACLId": "webacl-1472061481310"
+ *   WebACLId: "webacl-1472061481310"
  * };
  * const command = new UpdateWebACLCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: updatewebacl-1475533627385
  * ```
  *
+ * @public
  */
 export class UpdateWebACLCommand extends $Command
   .classBuilder<

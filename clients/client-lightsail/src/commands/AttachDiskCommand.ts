@@ -110,6 +110,7 @@ export interface AttachDiskCommandOutput extends AttachDiskResult, __MetadataBea
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class AttachDiskCommand extends $Command

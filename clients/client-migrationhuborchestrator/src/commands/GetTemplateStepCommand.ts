@@ -108,6 +108,7 @@ export interface GetTemplateStepCommandOutput extends GetTemplateStepResponse, _
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ *
  * @public
  */
 export class GetTemplateStepCommand extends $Command

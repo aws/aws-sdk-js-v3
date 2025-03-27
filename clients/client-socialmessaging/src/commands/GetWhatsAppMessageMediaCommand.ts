@@ -101,6 +101,7 @@ export interface GetWhatsAppMessageMediaCommandOutput extends GetWhatsAppMessage
  * @throws {@link SocialMessagingServiceException}
  * <p>Base exception class for all service exceptions from SocialMessaging service.</p>
  *
+ *
  * @public
  */
 export class GetWhatsAppMessageMediaCommand extends $Command

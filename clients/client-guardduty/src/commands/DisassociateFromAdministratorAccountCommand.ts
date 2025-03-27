@@ -76,6 +76,7 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class DisassociateFromAdministratorAccountCommand extends $Command

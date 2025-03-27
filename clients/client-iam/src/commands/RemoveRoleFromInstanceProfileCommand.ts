@@ -85,19 +85,22 @@ export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBe
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To remove a role from an instance profile
  * ```javascript
  * // The following command removes the role named Test-Role from the instance profile named ExampleInstanceProfile.
  * const input = {
- *   "InstanceProfileName": "ExampleInstanceProfile",
- *   "RoleName": "Test-Role"
+ *   InstanceProfileName: "ExampleInstanceProfile",
+ *   RoleName: "Test-Role"
  * };
  * const command = new RemoveRoleFromInstanceProfileCommand(input);
- * await client.send(command);
- * // example id: 6d9f46f1-9f4a-4873-b403-51a85c5c627c
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RemoveRoleFromInstanceProfileCommand extends $Command
   .classBuilder<

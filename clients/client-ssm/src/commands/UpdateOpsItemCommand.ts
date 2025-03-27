@@ -112,6 +112,7 @@ export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __Met
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class UpdateOpsItemCommand extends $Command

@@ -118,6 +118,7 @@ export interface CreateQuerySuggestionsBlockListCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class CreateQuerySuggestionsBlockListCommand extends $Command

@@ -71,6 +71,7 @@ export interface DeleteLogPatternCommandOutput extends DeleteLogPatternResponse,
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class DeleteLogPatternCommand extends $Command

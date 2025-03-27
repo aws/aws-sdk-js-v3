@@ -112,6 +112,7 @@ export interface GetMeetingCommandOutput extends GetMeetingResponse, __MetadataB
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ *
  * @public
  */
 export class GetMeetingCommand extends $Command

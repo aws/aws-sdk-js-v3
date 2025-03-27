@@ -79,6 +79,7 @@ export interface DescribeReportJobCommandOutput extends DescribeReportJobOutput,
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class DescribeReportJobCommand extends $Command

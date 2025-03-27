@@ -94,6 +94,7 @@ export interface GetNextMessageCommandOutput extends GetNextMessageResponse, __M
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class GetNextMessageCommand extends $Command

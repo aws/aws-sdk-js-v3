@@ -91,6 +91,7 @@ export interface GetUserDefinedFunctionsCommandOutput extends GetUserDefinedFunc
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetUserDefinedFunctionsCommand extends $Command

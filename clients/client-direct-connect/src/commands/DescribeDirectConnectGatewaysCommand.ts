@@ -84,6 +84,7 @@ export interface DescribeDirectConnectGatewaysCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeDirectConnectGatewaysCommand extends $Command

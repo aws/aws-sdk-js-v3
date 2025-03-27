@@ -238,6 +238,7 @@ export interface DescribeOriginEndpointCommandOutput extends DescribeOriginEndpo
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ *
  * @public
  */
 export class DescribeOriginEndpointCommand extends $Command

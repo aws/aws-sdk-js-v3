@@ -139,6 +139,7 @@ export interface ListInputDevicesCommandOutput extends ListInputDevicesResponse,
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class ListInputDevicesCommand extends $Command

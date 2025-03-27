@@ -58,6 +58,7 @@ export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceW
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DeleteMaintenanceWindowCommand extends $Command

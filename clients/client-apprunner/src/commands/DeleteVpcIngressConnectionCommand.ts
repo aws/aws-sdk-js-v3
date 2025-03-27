@@ -103,6 +103,7 @@ export interface DeleteVpcIngressConnectionCommandOutput extends DeleteVpcIngres
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ *
  * @public
  */
 export class DeleteVpcIngressConnectionCommand extends $Command

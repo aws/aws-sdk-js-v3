@@ -94,6 +94,7 @@ export interface GetIdMappingJobCommandOutput extends GetIdMappingJobOutput, __M
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ *
  * @public
  */
 export class GetIdMappingJobCommand extends $Command

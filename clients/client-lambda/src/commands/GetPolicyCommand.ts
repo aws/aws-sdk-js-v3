@@ -69,25 +69,25 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To retrieve a Lambda function policy
  * ```javascript
  * // The following example returns the resource-based policy for version 1 of a Lambda function named my-function.
  * const input = {
- *   "FunctionName": "my-function",
- *   "Qualifier": "1"
+ *   FunctionName: "my-function",
+ *   Qualifier: "1"
  * };
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Policy": "{\"Version\":\"2012-10-17\",\"Id\":\"default\",\"Statement\":[{\"Sid\":\"xaccount\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::123456789012:root\"},\"Action\":\"lambda:InvokeFunction\",\"Resource\":\"arn:aws:lambda:us-east-2:123456789012:function:my-function:1\"}]}",
- *   "RevisionId": "4843f2f6-7c59-4fda-b484-afd0bc0e22b8"
+ *   Policy: `{"Version":"2012-10-17","Id":"default","Statement":[{"Sid":"xaccount","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::123456789012:root"},"Action":"lambda:InvokeFunction","Resource":"arn:aws:lambda:us-east-2:123456789012:function:my-function:1"}]}`,
+ *   RevisionId: "4843f2f6-7c59-4fda-b484-afd0bc0e22b8"
  * }
  * *\/
- * // example id: to-retrieve-a-lambda-function-policy-1481649319053
  * ```
  *
+ * @public
  */
 export class GetPolicyCommand extends $Command
   .classBuilder<

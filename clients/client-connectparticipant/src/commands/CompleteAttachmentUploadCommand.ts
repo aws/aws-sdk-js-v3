@@ -90,6 +90,7 @@ export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmen
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ *
  * @public
  */
 export class CompleteAttachmentUploadCommand extends $Command

@@ -95,6 +95,42 @@ export interface StopCisSessionCommandOutput extends StopCisSessionResponse, __M
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
+ * @example Sample StopCisSession Call
+ * ```javascript
+ * //
+ * const input = {
+ *   message: {
+ *     benchmarkProfile: "xccdf_org.cisecurity.benchmarks_profile_Level_1",
+ *     benchmarkVersion: "2.0.0",
+ *     computePlatform: {
+ *       product: "ubuntu",
+ *       vendor: "canonical",
+ *       version: "20.04"
+ *     },
+ *     progress: {
+ *       errorChecks: 1,
+ *       failedChecks: 0,
+ *       informationalChecks: 1,
+ *       notApplicableChecks: 0,
+ *       notEvaluatedChecks: 2,
+ *       successfulChecks: 5,
+ *       totalChecks: 10,
+ *       unknownChecks: 0
+ *     },
+ *     reason: "Failure Reason",
+ *     status: "FAILED"
+ *   },
+ *   scanJobId: "624b746d-e080-44ae-8c1d-48e653365a38",
+ *   sessionToken: "624b746d-e080-44ae-8c1d-48e653365a31"
+ * };
+ * const command = new StopCisSessionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class StopCisSessionCommand extends $Command

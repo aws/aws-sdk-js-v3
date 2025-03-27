@@ -78,6 +78,7 @@ export interface DetectPiiEntitiesCommandOutput extends DetectPiiEntitiesRespons
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class DetectPiiEntitiesCommand extends $Command

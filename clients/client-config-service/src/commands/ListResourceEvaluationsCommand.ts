@@ -84,6 +84,7 @@ export interface ListResourceEvaluationsCommandOutput extends ListResourceEvalua
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class ListResourceEvaluationsCommand extends $Command

@@ -84,6 +84,7 @@ export interface ListSchedulesCommandOutput extends ListSchedulesOutput, __Metad
  * @throws {@link SchedulerServiceException}
  * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
+ *
  * @public
  */
 export class ListSchedulesCommand extends $Command

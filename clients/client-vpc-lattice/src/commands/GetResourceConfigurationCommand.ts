@@ -99,6 +99,7 @@ export interface GetResourceConfigurationCommandOutput extends GetResourceConfig
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class GetResourceConfigurationCommand extends $Command

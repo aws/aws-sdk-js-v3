@@ -92,6 +92,7 @@ export interface GetDomainPermissionsPolicyCommandOutput extends GetDomainPermis
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class GetDomainPermissionsPolicyCommand extends $Command

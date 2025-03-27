@@ -105,6 +105,7 @@ export interface RotateIngestEndpointCredentialsCommandOutput
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ *
  * @public
  */
 export class RotateIngestEndpointCredentialsCommand extends $Command

@@ -105,6 +105,7 @@ export interface CreateDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class CreateDBShardGroupCommand extends $Command

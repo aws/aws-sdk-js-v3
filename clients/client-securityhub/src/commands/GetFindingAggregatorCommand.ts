@@ -84,29 +84,29 @@ export interface GetFindingAggregatorCommandOutput extends GetFindingAggregatorR
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To get cross-Region aggregation details
  * ```javascript
  * // The following example returns cross-Region aggregation details for the requesting account.
  * const input = {
- *   "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ *   FindingAggregatorArn: "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  * };
  * const command = new GetFindingAggregatorCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "FindingAggregationRegion": "us-east-1",
- *   "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "RegionLinkingMode": "SPECIFIED_REGIONS",
- *   "Regions": [
+ *   FindingAggregationRegion: "us-east-1",
+ *   FindingAggregatorArn: "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   RegionLinkingMode: "SPECIFIED_REGIONS",
+ *   Regions: [
  *     "us-west-1",
  *     "us-west-2"
  *   ]
  * }
  * *\/
- * // example id: to-get-cross-region-aggregation-details-1677091474868
  * ```
  *
+ * @public
  */
 export class GetFindingAggregatorCommand extends $Command
   .classBuilder<

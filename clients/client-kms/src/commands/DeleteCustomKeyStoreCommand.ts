@@ -164,18 +164,21 @@ export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreR
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To delete a custom key store from AWS KMS
  * ```javascript
  * // This example deletes a custom key store from AWS KMS. This operation does not affect the backing key store, such as a CloudHSM cluster, external key store proxy, or your external key manager. This operation doesn't return any data. To verify that the operation was successful, use the DescribeCustomKeyStores operation.
  * const input = {
- *   "CustomKeyStoreId": "cks-1234567890abcdef0"
+ *   CustomKeyStoreId: "cks-1234567890abcdef0"
  * };
  * const command = new DeleteCustomKeyStoreCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-custom-key-store-from-aws-kms-1628630837145
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteCustomKeyStoreCommand extends $Command
   .classBuilder<

@@ -127,6 +127,7 @@ export interface InferRxNormCommandOutput extends InferRxNormResponse, __Metadat
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ *
  * @public
  */
 export class InferRxNormCommand extends $Command

@@ -94,6 +94,7 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class GetStageCommand extends $Command

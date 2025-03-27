@@ -152,6 +152,7 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ *
  * @public
  */
 export class CreateQueueCommand extends $Command

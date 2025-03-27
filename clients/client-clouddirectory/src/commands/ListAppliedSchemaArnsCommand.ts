@@ -86,25 +86,25 @@ export interface ListAppliedSchemaArnsCommandOutput extends ListAppliedSchemaArn
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To list applied schema ARNs for a specified directory
  * ```javascript
  * //
  * const input = {
- *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY"
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY"
  * };
  * const command = new ListAppliedSchemaArnsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SchemaArns": [
+ *   SchemaArns: [
  *     "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
  *   ]
  * }
  * *\/
- * // example id: to-list-applied-schema-arns-for-a-specified-directory-1508194900072
  * ```
  *
+ * @public
  */
 export class ListAppliedSchemaArnsCommand extends $Command
   .classBuilder<

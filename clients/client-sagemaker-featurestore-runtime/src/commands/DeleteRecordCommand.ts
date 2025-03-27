@@ -109,6 +109,7 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
+ *
  * @public
  */
 export class DeleteRecordCommand extends $Command

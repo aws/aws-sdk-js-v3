@@ -183,44 +183,44 @@ export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __Metad
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
- * @public
+ *
  * @example Example username and password sign-in for a user who has TOTP MFA
  * ```javascript
  * // The following example signs in the user mytestuser with analytics data, client metadata, and user context data for advanced security.
  * const input = {
- *   "AnalyticsMetadata": {
- *     "AnalyticsEndpointId": "d70b2ba36a8c4dc5a04a0451a31a1e12"
+ *   AnalyticsMetadata: {
+ *     AnalyticsEndpointId: "d70b2ba36a8c4dc5a04a0451a31a1e12"
  *   },
- *   "AuthFlow": "USER_PASSWORD_AUTH",
- *   "AuthParameters": {
- *     "PASSWORD": "This-is-my-test-99!",
- *     "SECRET_HASH": "oT5ZkS8ctnrhYeeGsGTvOzPhoc/Jd1cO5fueBWFVmp8=",
- *     "USERNAME": "mytestuser"
+ *   AuthFlow: "USER_PASSWORD_AUTH",
+ *   AuthParameters: {
+ *     PASSWORD: "This-is-my-test-99!",
+ *     SECRET_HASH: "oT5ZkS8ctnrhYeeGsGTvOzPhoc/Jd1cO5fueBWFVmp8=",
+ *     USERNAME: "mytestuser"
  *   },
- *   "ClientId": "1example23456789",
- *   "ClientMetadata": {
- *     "MyTestKey": "MyTestValue"
+ *   ClientId: "1example23456789",
+ *   ClientMetadata: {
+ *     MyTestKey: "MyTestValue"
  *   },
- *   "UserContextData": {
- *     "EncodedData": "AmazonCognitoAdvancedSecurityData_object",
- *     "IpAddress": "192.0.2.1"
+ *   UserContextData: {
+ *     EncodedData: "AmazonCognitoAdvancedSecurityData_object",
+ *     IpAddress: "192.0.2.1"
  *   }
  * };
  * const command = new InitiateAuthCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChallengeName": "SOFTWARE_TOKEN_MFA",
- *   "ChallengeParameters": {
- *     "FRIENDLY_DEVICE_NAME": "mytestauthenticator",
- *     "USER_ID_FOR_SRP": "mytestuser"
+ *   ChallengeName: "SOFTWARE_TOKEN_MFA",
+ *   ChallengeParameters: {
+ *     FRIENDLY_DEVICE_NAME: "mytestauthenticator",
+ *     USER_ID_FOR_SRP: "mytestuser"
  *   },
- *   "Session": "AYABeC1-y8qooiuysEv0uM4wAqQAHQABAAdTZXJ2aWNlABBDb2duaXRvVXNlclBvb2xzAAEAB2F3cy1rbXMAS2Fybjphd3M6a21zOnVzLXdlc3QtMjowMTU3MzY3MjcxOTg6a2V5LzI5OTFhNGE5LTM5YTAtNDQ0Mi04MWU4LWRkYjY4NTllMTg2MQC4AQIBAHhjxv5lVLhE2_WNrC1zuomqn08qDUUp3z9v4EGAjazZ-wGP3HuBF5Izvxf-9WkCT5uyAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMeQoT5e6Dpfh52caqAgEQgDvuL8uLMhPt0WmQpZnkNED1gob6xbqt5LaQo_H4L5CuT4Kj499dGCoZ1q1trmlZSRgRm0wwGGG8lFU37QIAAAAADAAAEAAAAAAAAAAAAAAAAADuLe9_UJ4oZAMsQYr0ntiT_____wAAAAEAAAAAAAAAAAAAAAEAAADnLDGmKBQtsCafNokRmPLgl2itBKuKR2dfZBQb5ucCYkzThM5HOfQUSEL-A3dZzfYDC0IODsrcMkrbeeVyMJk-FCzsxS9Og8BEBVnvi9WjZkPJ4mF0YS6FUXnoPSBV5oUqGzRaT-tJ169SUFZAUfFM1fGeJ8T57-QdCxjyISRCWV1VG5_7TiCioyRGfWwzNVWh7exJortF3ccfOyiEyxeqJ2VJvJq3m_w8NP24_PMDpktpRMKftObIMlD5ewRTNCdrUXQ1BW5KIxhJLGjYfRzJDZuKzmEgS-VHsKz0z76w-AlAgdfvdAjflLnsgduU5kUX4YP6jqnetg"
+ *   Session: "AYABeC1-y8qooiuysEv0uM4wAqQAHQABAAdTZXJ2aWNlABBDb2duaXRvVXNlclBvb2xzAAEAB2F3cy1rbXMAS2Fybjphd3M6a21zOnVzLXdlc3QtMjowMTU3MzY3MjcxOTg6a2V5LzI5OTFhNGE5LTM5YTAtNDQ0Mi04MWU4LWRkYjY4NTllMTg2MQC4AQIBAHhjxv5lVLhE2_WNrC1zuomqn08qDUUp3z9v4EGAjazZ-wGP3HuBF5Izvxf-9WkCT5uyAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMeQoT5e6Dpfh52caqAgEQgDvuL8uLMhPt0WmQpZnkNED1gob6xbqt5LaQo_H4L5CuT4Kj499dGCoZ1q1trmlZSRgRm0wwGGG8lFU37QIAAAAADAAAEAAAAAAAAAAAAAAAAADuLe9_UJ4oZAMsQYr0ntiT_____wAAAAEAAAAAAAAAAAAAAAEAAADnLDGmKBQtsCafNokRmPLgl2itBKuKR2dfZBQb5ucCYkzThM5HOfQUSEL-A3dZzfYDC0IODsrcMkrbeeVyMJk-FCzsxS9Og8BEBVnvi9WjZkPJ4mF0YS6FUXnoPSBV5oUqGzRaT-tJ169SUFZAUfFM1fGeJ8T57-QdCxjyISRCWV1VG5_7TiCioyRGfWwzNVWh7exJortF3ccfOyiEyxeqJ2VJvJq3m_w8NP24_PMDpktpRMKftObIMlD5ewRTNCdrUXQ1BW5KIxhJLGjYfRzJDZuKzmEgS-VHsKz0z76w-AlAgdfvdAjflLnsgduU5kUX4YP6jqnetg"
  * }
  * *\/
- * // example id: example-username-and-password-sign-in-for-a-user-who-has-totp-mfa-1689887395219
  * ```
  *
+ * @public
  */
 export class InitiateAuthCommand extends $Command
   .classBuilder<

@@ -54,18 +54,21 @@ export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBeare
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example DeleteVerifiedEmailAddress
  * ```javascript
  * // The following example deletes an email address from the list of identities that have been submitted for verification with Amazon SES:
  * const input = {
- *   "EmailAddress": "user@example.com"
+ *   EmailAddress: "user@example.com"
  * };
  * const command = new DeleteVerifiedEmailAddressCommand(input);
- * await client.send(command);
- * // example id: deleteverifiedemailaddress-1469051086444
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteVerifiedEmailAddressCommand extends $Command
   .classBuilder<

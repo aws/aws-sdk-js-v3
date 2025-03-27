@@ -81,6 +81,7 @@ export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer 
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class GetTypeCommand extends $Command

@@ -76,6 +76,7 @@ export interface AssociateEnvironmentRoleCommandOutput extends AssociateEnvironm
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class AssociateEnvironmentRoleCommand extends $Command

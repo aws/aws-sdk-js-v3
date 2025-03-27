@@ -87,6 +87,7 @@ export interface ListForecastsCommandOutput extends ListForecastsResponse, __Met
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class ListForecastsCommand extends $Command

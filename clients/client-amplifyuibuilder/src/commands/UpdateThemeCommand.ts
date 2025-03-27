@@ -117,6 +117,7 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class UpdateThemeCommand extends $Command

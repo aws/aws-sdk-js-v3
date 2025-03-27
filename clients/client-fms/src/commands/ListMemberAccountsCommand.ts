@@ -68,6 +68,7 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsRespo
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class ListMemberAccountsCommand extends $Command

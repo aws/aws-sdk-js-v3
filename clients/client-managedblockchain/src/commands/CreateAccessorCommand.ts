@@ -92,6 +92,7 @@ export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __Met
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class CreateAccessorCommand extends $Command

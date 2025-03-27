@@ -409,6 +409,7 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListEntitiesCommand extends $Command

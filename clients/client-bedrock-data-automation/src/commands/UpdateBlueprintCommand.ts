@@ -103,6 +103,7 @@ export interface UpdateBlueprintCommandOutput extends UpdateBlueprintResponse, _
  * @throws {@link BedrockDataAutomationServiceException}
  * <p>Base exception class for all service exceptions from BedrockDataAutomation service.</p>
  *
+ *
  * @public
  */
 export class UpdateBlueprintCommand extends $Command

@@ -134,6 +134,7 @@ export interface ListEventsCommandOutput extends ListEventsResponse, __MetadataB
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class ListEventsCommand extends $Command

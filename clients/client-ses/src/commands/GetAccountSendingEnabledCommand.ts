@@ -54,21 +54,21 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example GetAccountSendingEnabled
  * ```javascript
  * // The following example returns if sending status for an account is enabled. (true / false):
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new GetAccountSendingEnabledCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Enabled": true
+ *   Enabled: true
  * }
  * *\/
- * // example id: getaccountsendingenabled-1469047741333
  * ```
  *
+ * @public
  */
 export class GetAccountSendingEnabledCommand extends $Command
   .classBuilder<

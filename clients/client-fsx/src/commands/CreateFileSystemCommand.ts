@@ -856,82 +856,8 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
- * @public
- * @example To create a new file system
- * ```javascript
- * // This operation creates a new Amazon FSx for Windows File Server file system.
- * const input = {
- *   "ClientRequestToken": "a8ca07e4-61ec-4399-99f4-19853801bcd5",
- *   "FileSystemType": "WINDOWS",
- *   "KmsKeyId": "arn:aws:kms:us-east-1:012345678912:key/1111abcd-2222-3333-4444-55556666eeff",
- *   "SecurityGroupIds": [
- *     "sg-edcd9784"
- *   ],
- *   "StorageCapacity": 3200,
- *   "StorageType": "HDD",
- *   "SubnetIds": [
- *     "subnet-1234abcd"
- *   ],
- *   "Tags": [
- *     {
- *       "Key": "Name",
- *       "Value": "MyFileSystem"
- *     }
- *   ],
- *   "WindowsConfiguration": {
- *     "ActiveDirectoryId": "d-1234abcd12",
- *     "Aliases": [
- *       "accounting.corp.example.com"
- *     ],
- *     "AutomaticBackupRetentionDays": 30,
- *     "DailyAutomaticBackupStartTime": "05:00",
- *     "ThroughputCapacity": 32,
- *     "WeeklyMaintenanceStartTime": "1:05:00"
- *   }
- * };
- * const command = new CreateFileSystemCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "FileSystem": {
- *     "CreationTime": "1481841524.0",
- *     "DNSName": "fs-0123456789abcdef0.fsx.com",
- *     "FileSystemId": "fs-0123456789abcdef0",
- *     "KmsKeyId": "arn:aws:kms:us-east-1:012345678912:key/1111abcd-2222-3333-4444-55556666eeff",
- *     "Lifecycle": "CREATING",
- *     "OwnerId": "012345678912",
- *     "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:file-system/fs-0123456789abcdef0",
- *     "StorageCapacity": 3200,
- *     "StorageType": "HDD",
- *     "SubnetIds": [
- *       "subnet-1234abcd"
- *     ],
- *     "Tags": [
- *       {
- *         "Key": "Name",
- *         "Value": "MyFileSystem"
- *       }
- *     ],
- *     "VpcId": "vpc-ab1234cd",
- *     "WindowsConfiguration": {
- *       "ActiveDirectoryId": "d-1234abcd12",
- *       "Aliases": [
- *         {
- *           "Lifecycle": "CREATING",
- *           "Name": "accounting.corp.example.com"
- *         }
- *       ],
- *       "AutomaticBackupRetentionDays": 30,
- *       "DailyAutomaticBackupStartTime": "05:00",
- *       "ThroughputCapacity": 32,
- *       "WeeklyMaintenanceStartTime": "1:05:00"
- *     }
- *   }
- * }
- * *\/
- * // example id: to-create-a-new-file-system-1481840798547
- * ```
  *
+ * @public
  */
 export class CreateFileSystemCommand extends $Command
   .classBuilder<

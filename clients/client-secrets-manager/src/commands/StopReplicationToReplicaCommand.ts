@@ -90,6 +90,7 @@ export interface StopReplicationToReplicaCommandOutput extends StopReplicationTo
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ *
  * @public
  */
 export class StopReplicationToReplicaCommand extends $Command

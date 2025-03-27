@@ -90,6 +90,7 @@ export interface ListRepositoryAssociationsCommandOutput extends ListRepositoryA
  * @throws {@link CodeGuruReviewerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ *
  * @public
  */
 export class ListRepositoryAssociationsCommand extends $Command

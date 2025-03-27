@@ -55,6 +55,7 @@ export interface EndpointWithHostLabelOperationCommandOutput extends __MetadataB
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  */
 export class EndpointWithHostLabelOperationCommand extends $Command
   .classBuilder<

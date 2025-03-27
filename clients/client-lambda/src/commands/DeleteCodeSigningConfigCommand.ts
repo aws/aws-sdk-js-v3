@@ -66,6 +66,7 @@ export interface DeleteCodeSigningConfigCommandOutput extends DeleteCodeSigningC
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class DeleteCodeSigningConfigCommand extends $Command

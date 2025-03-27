@@ -79,33 +79,33 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example ModifyCacheParameterGroup
  * ```javascript
  * // Modifies one or more parameter values in the specified parameter group. You cannot modify any default parameter group.
  * const input = {
- *   "CacheParameterGroupName": "custom-mem1-4",
- *   "ParameterNameValues": [
+ *   CacheParameterGroupName: "custom-mem1-4",
+ *   ParameterNameValues: [
  *     {
- *       "ParameterName": "binding_protocol",
- *       "ParameterValue": "ascii"
+ *       ParameterName: "binding_protocol",
+ *       ParameterValue: "ascii"
  *     },
  *     {
- *       "ParameterName": "chunk_size",
- *       "ParameterValue": "96"
+ *       ParameterName: "chunk_size",
+ *       ParameterValue: "96"
  *     }
  *   ]
  * };
  * const command = new ModifyCacheParameterGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CacheParameterGroupName": "custom-mem1-4"
+ *   CacheParameterGroupName: "custom-mem1-4"
  * }
  * *\/
- * // example id: modifycacheparametergroup-1482966746787
  * ```
  *
+ * @public
  */
 export class ModifyCacheParameterGroupCommand extends $Command
   .classBuilder<

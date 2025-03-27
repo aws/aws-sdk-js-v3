@@ -103,24 +103,24 @@ export interface RevokeDBSecurityGroupIngressCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To revoke ingress for a DB security group
  * ```javascript
  * // This example revokes ingress for the specified CIDR block associated with the specified DB security group.
  * const input = {
- *   "CIDRIP": "203.0.113.5/32",
- *   "DBSecurityGroupName": "mydbsecuritygroup"
+ *   CIDRIP: "203.0.113.5/32",
+ *   DBSecurityGroupName: "mydbsecuritygroup"
  * };
  * const command = new RevokeDBSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBSecurityGroup": {}
+ *   DBSecurityGroup:   { /* empty *\/ }
  * }
  * *\/
- * // example id: revoke-db-security-group-ingress-ce5b2c1c-bd4e-4809-b04a-6d78ec448813
  * ```
  *
+ * @public
  */
 export class RevokeDBSecurityGroupIngressCommand extends $Command
   .classBuilder<

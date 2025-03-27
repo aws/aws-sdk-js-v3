@@ -64,25 +64,25 @@ export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To get the console output
  * ```javascript
  * // This example gets the console output for the specified instance.
  * const input = {
- *   "InstanceId": "i-1234567890abcdef0"
+ *   InstanceId: "i-1234567890abcdef0"
  * };
  * const command = new GetConsoleOutputCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InstanceId": "i-1234567890abcdef0",
- *   "Output": "...",
- *   "Timestamp": "2018-05-25T21:23:53.000Z"
+ *   InstanceId: "i-1234567890abcdef0",
+ *   Output: "...",
+ *   Timestamp: "2018-05-25T21:23:53.000Z"
  * }
  * *\/
- * // example id: to-get-the-console-output-1529355683194
  * ```
  *
+ * @public
  */
 export class GetConsoleOutputCommand extends $Command
   .classBuilder<

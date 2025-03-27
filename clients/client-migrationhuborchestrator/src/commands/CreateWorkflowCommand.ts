@@ -122,6 +122,7 @@ export interface CreateWorkflowCommandOutput extends CreateMigrationWorkflowResp
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ *
  * @public
  */
 export class CreateWorkflowCommand extends $Command

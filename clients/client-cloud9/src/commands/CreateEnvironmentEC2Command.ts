@@ -102,29 +102,29 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
- * @public
+ *
  * @example CreateEnvironmentEC2
  * ```javascript
  * //
  * const input = {
- *   "name": "my-demo-environment",
- *   "automaticStopTimeMinutes": 60,
- *   "description": "This is my demonstration environment.",
- *   "imageId": "amazonlinux-2023-x86_64",
- *   "instanceType": "t2.micro",
- *   "ownerArn": "arn:aws:iam::123456789012:user/MyDemoUser",
- *   "subnetId": "subnet-6300cd1b"
+ *   automaticStopTimeMinutes: 60,
+ *   description: "This is my demonstration environment.",
+ *   imageId: "amazonlinux-2023-x86_64",
+ *   instanceType: "t2.micro",
+ *   name: "my-demo-environment",
+ *   ownerArn: "arn:aws:iam::123456789012:user/MyDemoUser",
+ *   subnetId: "subnet-6300cd1b"
  * };
  * const command = new CreateEnvironmentEC2Command(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
+ *   environmentId: "8d9967e2f0624182b74e7690ad69ebEX"
  * }
  * *\/
- * // example id: createenvironmentec2-1516821730547
  * ```
  *
+ * @public
  */
 export class CreateEnvironmentEC2Command extends $Command
   .classBuilder<

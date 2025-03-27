@@ -143,6 +143,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetEnvironmentCommand extends $Command

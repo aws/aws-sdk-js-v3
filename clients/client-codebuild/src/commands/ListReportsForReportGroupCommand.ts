@@ -72,6 +72,7 @@ export interface ListReportsForReportGroupCommandOutput extends ListReportsForRe
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class ListReportsForReportGroupCommand extends $Command

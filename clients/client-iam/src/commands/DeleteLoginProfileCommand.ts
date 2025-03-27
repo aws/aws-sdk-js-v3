@@ -83,18 +83,21 @@ export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To delete a password for an IAM user
  * ```javascript
  * // The following command deletes the password for the IAM user named Bob.
  * const input = {
- *   "UserName": "Bob"
+ *   UserName: "Bob"
  * };
  * const command = new DeleteLoginProfileCommand(input);
- * await client.send(command);
- * // example id: 1fe57059-fc73-42e2-b992-517b7d573b5c
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteLoginProfileCommand extends $Command
   .classBuilder<

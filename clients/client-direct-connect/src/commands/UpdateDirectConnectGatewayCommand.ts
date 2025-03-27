@@ -75,6 +75,7 @@ export interface UpdateDirectConnectGatewayCommandOutput extends UpdateDirectCon
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class UpdateDirectConnectGatewayCommand extends $Command

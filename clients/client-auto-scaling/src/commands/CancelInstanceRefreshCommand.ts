@@ -76,23 +76,23 @@ export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefres
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To cancel an instance refresh
  * ```javascript
  * // This example cancels an instance refresh operation in progress.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group"
+ *   AutoScalingGroupName: "my-auto-scaling-group"
  * };
  * const command = new CancelInstanceRefreshCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InstanceRefreshId": "08b91cf7-8fa6-48af-b6a6-d227f40f1b9b"
+ *   InstanceRefreshId: "08b91cf7-8fa6-48af-b6a6-d227f40f1b9b"
  * }
  * *\/
- * // example id: to-cancel-an-instance-refresh-1592960979817
  * ```
  *
+ * @public
  */
 export class CancelInstanceRefreshCommand extends $Command
   .classBuilder<

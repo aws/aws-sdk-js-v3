@@ -55,18 +55,21 @@ export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __M
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example DeleteIdentity
  * ```javascript
  * // The following example deletes an identity from the list of identities that have been submitted for verification with Amazon SES:
  * const input = {
- *   "Identity": "user@example.com"
+ *   Identity: "user@example.com"
  * };
  * const command = new DeleteIdentityCommand(input);
- * await client.send(command);
- * // example id: deleteidentity-1469047858906
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteIdentityCommand extends $Command
   .classBuilder<

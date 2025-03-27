@@ -79,6 +79,7 @@ export interface DeleteDocumentClassifierCommandOutput extends DeleteDocumentCla
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class DeleteDocumentClassifierCommand extends $Command

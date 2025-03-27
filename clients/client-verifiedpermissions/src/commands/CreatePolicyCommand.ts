@@ -230,115 +230,113 @@ export interface CreatePolicyCommandOutput extends CreatePolicyOutput, __Metadat
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
- * @public
+ *
  * @example To create a static policy
  * ```javascript
  * // The following example request creates a static policy with a policy scope that specifies both a principal and a resource. The response includes both the Principal and Resource elements because both were specified in the request policy scope.
  * const input = {
- *   "clientToken": "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
- *   "definition": {
- *     "static": {
- *       "description": "Grant members of janeFriends UserGroup access to the vacationFolder Album",
- *       "statement": "permit( principal in UserGroup::\"janeFriends\", action, resource in Album::\"vacationFolder\" );"
+ *   clientToken: "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
+ *   definition: {
+ *     static: {
+ *       description: "Grant members of janeFriends UserGroup access to the vacationFolder Album",
+ *       statement: `permit( principal in UserGroup::"janeFriends", action, resource in Album::"vacationFolder" );`
  *     }
  *   },
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a"
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
  * };
  * const command = new CreatePolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "createdDate": "2024-08-12T18:20:50.99Z",
- *   "lastUpdatedDate": "2024-08-12T18:20:50.99Z",
- *   "policyId": "9wYxMpljbbZQb5fcZHyJhY",
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
- *   "policyType": "STATIC",
- *   "principal": {
- *     "entityId": "janeFriends",
- *     "entityType": "UserGroup"
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyId: "9wYxMpljbbZQb5fcZHyJhY",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   policyType: "STATIC",
+ *   principal: {
+ *     entityId: "janeFriends",
+ *     entityType: "UserGroup"
  *   },
- *   "resource": {
- *     "entityId": "vacationFolder",
- *     "entityType": "Album"
+ *   resource: {
+ *     entityId: "vacationFolder",
+ *     entityType: "Album"
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
  * @example To create a static policy
  * ```javascript
  * // The following example request creates a static policy with a policy scope that specifies both a principal and a resource. The response includes both the Principal and Resource elements because both were specified in the request policy scope.
  * const input = {
- *   "clientToken": "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
- *   "definition": {
- *     "static": {
- *       "description": "Grant members of janeFriends UserGroup access to the vacationFolder Album",
- *       "statement": "permit( principal in UserGroup::\"janeFriends\", action, resource in Album::\"vacationFolder\" );"
+ *   clientToken: "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
+ *   definition: {
+ *     static: {
+ *       description: "Grant members of janeFriends UserGroup access to the vacationFolder Album",
+ *       statement: `permit( principal in UserGroup::"janeFriends", action, resource in Album::"vacationFolder" );`
  *     }
  *   },
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a"
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
  * };
  * const command = new CreatePolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "createdDate": "2024-08-12T18:20:50.99Z",
- *   "lastUpdatedDate": "2024-08-12T18:20:50.99Z",
- *   "policyId": "9wYxMpljbbZQb5fcZHyJhY",
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
- *   "policyType": "STATIC",
- *   "principal": {
- *     "entityId": "janeFriends",
- *     "entityType": "UserGroup"
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyId: "9wYxMpljbbZQb5fcZHyJhY",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   policyType: "STATIC",
+ *   principal: {
+ *     entityId: "janeFriends",
+ *     entityType: "UserGroup"
  *   },
- *   "resource": {
- *     "entityId": "vacationFolder",
- *     "entityType": "Album"
+ *   resource: {
+ *     entityId: "vacationFolder",
+ *     entityType: "Album"
  *   }
  * }
  * *\/
- * // example id: example-2
  * ```
  *
  * @example To create a template-linked policy
  * ```javascript
  * // The following example creates a template-linked policy using the specified policy template and associates the specified principal to use with the new template-linked policy.
  * const input = {
- *   "clientToken": "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
- *   "definition": {
- *     "templateLinked": {
- *       "policyTemplateId": "PTEXAMPLEabcdefg111111",
- *       "principal": {
- *         "entityId": "alice",
- *         "entityType": "User"
+ *   clientToken: "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
+ *   definition: {
+ *     templateLinked: {
+ *       policyTemplateId: "PTEXAMPLEabcdefg111111",
+ *       principal: {
+ *         entityId: "alice",
+ *         entityType: "User"
  *       }
  *     }
  *   },
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a"
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
  * };
  * const command = new CreatePolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "createdDate": "2024-08-12T18:20:50.99Z",
- *   "lastUpdatedDate": "2024-08-12T18:20:50.99Z",
- *   "policyId": "Et9KxMplyaDdyurDw8TeFa",
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
- *   "policyType": "TEMPLATE_LINKED",
- *   "principal": {
- *     "entityId": "alice",
- *     "entityType": "User"
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyId: "Et9KxMplyaDdyurDw8TeFa",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   policyType: "TEMPLATE_LINKED",
+ *   principal: {
+ *     entityId: "alice",
+ *     entityType: "User"
  *   },
- *   "resource": {
- *     "entityId": "VacationPhoto94.jpg",
- *     "entityType": "Photo"
+ *   resource: {
+ *     entityId: "VacationPhoto94.jpg",
+ *     entityType: "Photo"
  *   }
  * }
  * *\/
- * // example id: example-3
  * ```
  *
+ * @public
  */
 export class CreatePolicyCommand extends $Command
   .classBuilder<

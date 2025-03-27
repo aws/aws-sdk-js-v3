@@ -76,6 +76,7 @@ export interface ListCodegenJobsCommandOutput extends ListCodegenJobsResponse, _
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class ListCodegenJobsCommand extends $Command

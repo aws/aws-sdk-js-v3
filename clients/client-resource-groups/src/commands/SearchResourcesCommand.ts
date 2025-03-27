@@ -120,6 +120,7 @@ export interface SearchResourcesCommandOutput extends SearchResourcesOutput, __M
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class SearchResourcesCommand extends $Command

@@ -74,6 +74,7 @@ export interface ListInstanceProfileTagsCommandOutput extends ListInstanceProfil
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class ListInstanceProfileTagsCommand extends $Command

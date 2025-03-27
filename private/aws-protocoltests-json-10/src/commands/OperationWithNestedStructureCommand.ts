@@ -109,6 +109,7 @@ export interface OperationWithNestedStructureCommandOutput
  * @throws {@link JSONRPC10ServiceException}
  * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>
  *
+ *
  */
 export class OperationWithNestedStructureCommand extends $Command
   .classBuilder<

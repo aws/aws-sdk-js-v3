@@ -83,6 +83,39 @@ export interface ListWorkloadDeploymentPatternsCommandOutput
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ *
+ * @example List all available workloads supported by AWS Launch Wizard.
+ * ```javascript
+ * //
+ * const input = {
+ *   workloadName: "SAP"
+ * };
+ * const command = new ListWorkloadDeploymentPatternsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   workloadDeploymentPatterns: [
+ *     {
+ *       deploymentPatternName: "SapHanaHA",
+ *       description: "Deployment Option Description",
+ *       displayName: "Deployment Option Display Name",
+ *       status: "ACTIVE",
+ *       workloadName: "SAP",
+ *       workloadVersionName: "2023-08-02-01-00-00"
+ *     },
+ *     {
+ *       deploymentPatternName: "SapHanaMulti",
+ *       description: "Deployment Option Description",
+ *       displayName: "Deployment Option Display Name",
+ *       status: "ACTIVE",
+ *       workloadName: "SAP",
+ *       workloadVersionName: "2023-08-02-01-00-00"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListWorkloadDeploymentPatternsCommand extends $Command

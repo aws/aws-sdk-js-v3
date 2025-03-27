@@ -433,36 +433,36 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To create a service control policy
  * ```javascript
  * // The following example shows how to create a service control policy (SCP) that is named AllowAllS3Actions. The JSON string in the content parameter specifies the content in the policy. The parameter string is escaped with backslashes to ensure that the embedded double quotes in the JSON policy are treated as literals in the parameter, which itself is surrounded by double quotes:
- * //
- * //
+ *
+ *
  * const input = {
- *   "Content": "{\\\"Version\\\":\\\"2012-10-17\\\",\\\"Statement\\\":{\\\"Effect\\\":\\\"Allow\\\",\\\"Action\\\":\\\"s3:*\\\"}}",
- *   "Description": "Enables admins of attached accounts to delegate all S3 permissions",
- *   "Name": "AllowAllS3Actions",
- *   "Type": "SERVICE_CONTROL_POLICY"
+ *   Content: `{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Action\":\"s3:*\"}}`,
+ *   Description: "Enables admins of attached accounts to delegate all S3 permissions",
+ *   Name: "AllowAllS3Actions",
+ *   Type: "SERVICE_CONTROL_POLICY"
  * };
  * const command = new CreatePolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Policy": {
- *     "Content": "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Action\":\"s3:*\"}}",
- *     "PolicySummary": {
- *       "Arn": "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
- *       "Description": "Allows delegation of all S3 actions",
- *       "Name": "AllowAllS3Actions",
- *       "Type": "SERVICE_CONTROL_POLICY"
+ *   Policy: {
+ *     Content: `{"Version":"2012-10-17","Statement":{"Effect":"Allow","Action":"s3:*"}}`,
+ *     PolicySummary: {
+ *       Arn: "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
+ *       Description: "Allows delegation of all S3 actions",
+ *       Name: "AllowAllS3Actions",
+ *       Type: "SERVICE_CONTROL_POLICY"
  *     }
  *   }
  * }
  * *\/
- * // example id: to-create-a-service-control-policy
  * ```
  *
+ * @public
  */
 export class CreatePolicyCommand extends $Command
   .classBuilder<

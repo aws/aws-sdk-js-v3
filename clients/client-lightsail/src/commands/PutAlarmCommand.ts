@@ -123,6 +123,7 @@ export interface PutAlarmCommandOutput extends PutAlarmResult, __MetadataBearer 
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class PutAlarmCommand extends $Command

@@ -64,6 +64,7 @@ export interface AssociateEnvironmentOperationsRoleCommandOutput extends __Metad
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ *
  * @public
  */
 export class AssociateEnvironmentOperationsRoleCommand extends $Command

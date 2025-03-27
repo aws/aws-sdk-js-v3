@@ -84,6 +84,7 @@ export interface ListBotAliasesCommandOutput extends ListBotAliasesResponse, __M
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class ListBotAliasesCommand extends $Command

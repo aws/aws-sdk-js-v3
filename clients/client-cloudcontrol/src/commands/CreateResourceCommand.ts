@@ -153,6 +153,7 @@ export interface CreateResourceCommandOutput extends CreateResourceOutput, __Met
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ *
  * @public
  */
 export class CreateResourceCommand extends $Command

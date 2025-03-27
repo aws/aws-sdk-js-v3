@@ -132,6 +132,7 @@ export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __Met
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class CreateBGPPeerCommand extends $Command

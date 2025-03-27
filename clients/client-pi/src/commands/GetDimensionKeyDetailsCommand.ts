@@ -79,6 +79,7 @@ export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDeta
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ *
  * @public
  */
 export class GetDimensionKeyDetailsCommand extends $Command

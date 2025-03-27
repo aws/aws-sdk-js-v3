@@ -76,6 +76,7 @@ export interface DeregisterFromWorkMailCommandOutput extends DeregisterFromWorkM
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class DeregisterFromWorkMailCommand extends $Command

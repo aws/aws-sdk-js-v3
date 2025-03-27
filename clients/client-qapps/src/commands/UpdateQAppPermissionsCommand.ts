@@ -98,80 +98,79 @@ export interface UpdateQAppPermissionsCommandOutput extends UpdateQAppPermission
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example Grant permissions for the app
  * ```javascript
  * //
  * const input = {
- *   "appId": "fe0acf86-49e5-4def-a0c2-40ce0cafee14",
- *   "grantPermissions": [
+ *   appId: "fe0acf86-49e5-4def-a0c2-40ce0cafee14",
+ *   grantPermissions: [
  *     {
- *       "action": "read",
- *       "principal": "user2@example.com"
+ *       action: "read",
+ *       principal: "user2@example.com"
  *     }
  *   ],
- *   "instanceId": "01793661-ad73-4c7d-8eaa-1c95a10151c2"
+ *   instanceId: "01793661-ad73-4c7d-8eaa-1c95a10151c2"
  * };
  * const command = new UpdateQAppPermissionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "appId": "fe0acf86-49e5-4def-a0c2-40ce0cafee14",
- *   "permissions": [
+ *   appId: "fe0acf86-49e5-4def-a0c2-40ce0cafee14",
+ *   permissions: [
  *     {
- *       "action": "write",
- *       "principal": {
- *         "email": "user1@example.com",
- *         "userId": "f8f15330-b091-708b-d46e-adb0d914b699"
+ *       action: "write",
+ *       principal: {
+ *         email: "user1@example.com",
+ *         userId: "f8f15330-b091-708b-d46e-adb0d914b699"
  *       }
  *     },
  *     {
- *       "action": "read",
- *       "principal": {
- *         "email": "user2@example.com",
- *         "userId": "c81133d0-10d1-70eb-aaa3-d427ea6fc0f3"
+ *       action: "read",
+ *       principal: {
+ *         email: "user2@example.com",
+ *         userId: "c81133d0-10d1-70eb-aaa3-d427ea6fc0f3"
  *       }
  *     }
  *   ],
- *   "resourceArn": "arn:aws:qapps:us-west-2:111111111111:application/01793661-ad73-4c7d-8eaa-1c95a10151c2/qapp/fe0acf86-49e5-4def-a0c2-40ce0cafee14"
+ *   resourceArn: "arn:aws:qapps:us-west-2:111111111111:application/01793661-ad73-4c7d-8eaa-1c95a10151c2/qapp/fe0acf86-49e5-4def-a0c2-40ce0cafee14"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
  * @example Revoke permissions for the app
  * ```javascript
  * //
  * const input = {
- *   "appId": "fe0acf86-49e5-4def-a0c2-40ce0cafee14",
- *   "instanceId": "01793661-ad73-4c7d-8eaa-1c95a10151c2",
- *   "revokePermissions": [
+ *   appId: "fe0acf86-49e5-4def-a0c2-40ce0cafee14",
+ *   instanceId: "01793661-ad73-4c7d-8eaa-1c95a10151c2",
+ *   revokePermissions: [
  *     {
- *       "action": "read",
- *       "principal": "user2@example.com"
+ *       action: "read",
+ *       principal: "user2@example.com"
  *     }
  *   ]
  * };
  * const command = new UpdateQAppPermissionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "appId": "fe0acf86-49e5-4def-a0c2-40ce0cafee14",
- *   "permissions": [
+ *   appId: "fe0acf86-49e5-4def-a0c2-40ce0cafee14",
+ *   permissions: [
  *     {
- *       "action": "write",
- *       "principal": {
- *         "email": "user1@example.com",
- *         "userId": "f8f15330-b091-708b-d46e-adb0d914b699"
+ *       action: "write",
+ *       principal: {
+ *         email: "user1@example.com",
+ *         userId: "f8f15330-b091-708b-d46e-adb0d914b699"
  *       }
  *     }
  *   ],
- *   "resourceArn": "arn:aws:qapps:us-west-2:111111111111:application/01793661-ad73-4c7d-8eaa-1c95a10151c2/qapp/fe0acf86-49e5-4def-a0c2-40ce0cafee14"
+ *   resourceArn: "arn:aws:qapps:us-west-2:111111111111:application/01793661-ad73-4c7d-8eaa-1c95a10151c2/qapp/fe0acf86-49e5-4def-a0c2-40ce0cafee14"
  * }
  * *\/
- * // example id: example-2
  * ```
  *
+ * @public
  */
 export class UpdateQAppPermissionsCommand extends $Command
   .classBuilder<

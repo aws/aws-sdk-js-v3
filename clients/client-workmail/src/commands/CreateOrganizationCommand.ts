@@ -88,6 +88,7 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class CreateOrganizationCommand extends $Command

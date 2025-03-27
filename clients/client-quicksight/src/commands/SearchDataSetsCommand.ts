@@ -106,6 +106,7 @@ export interface SearchDataSetsCommandOutput extends SearchDataSetsResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class SearchDataSetsCommand extends $Command

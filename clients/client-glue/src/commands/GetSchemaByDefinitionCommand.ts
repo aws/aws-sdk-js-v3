@@ -76,6 +76,7 @@ export interface GetSchemaByDefinitionCommandOutput extends GetSchemaByDefinitio
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetSchemaByDefinitionCommand extends $Command

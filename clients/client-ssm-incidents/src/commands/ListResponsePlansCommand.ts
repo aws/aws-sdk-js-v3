@@ -77,6 +77,7 @@ export interface ListResponsePlansCommandOutput extends ListResponsePlansOutput,
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ *
  * @public
  */
 export class ListResponsePlansCommand extends $Command

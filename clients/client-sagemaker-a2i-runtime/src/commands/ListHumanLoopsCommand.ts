@@ -90,6 +90,7 @@ export interface ListHumanLoopsCommandOutput extends ListHumanLoopsResponse, __M
  * @throws {@link SageMakerA2IRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerA2IRuntime service.</p>
  *
+ *
  * @public
  */
 export class ListHumanLoopsCommand extends $Command

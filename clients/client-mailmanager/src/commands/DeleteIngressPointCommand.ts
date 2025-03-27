@@ -62,6 +62,20 @@ export interface DeleteIngressPointCommandOutput extends DeleteIngressPointRespo
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
+ * @example Delete IngressPoint
+ * ```javascript
+ * //
+ * const input = {
+ *   IngressPointId: "inp-12345"
+ * };
+ * const command = new DeleteIngressPointCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteIngressPointCommand extends $Command

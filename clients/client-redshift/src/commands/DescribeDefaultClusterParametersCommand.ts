@@ -83,6 +83,7 @@ export interface DescribeDefaultClusterParametersCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeDefaultClusterParametersCommand extends $Command

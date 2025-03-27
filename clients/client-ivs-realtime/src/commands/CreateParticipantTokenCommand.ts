@@ -98,6 +98,7 @@ export interface CreateParticipantTokenCommandOutput extends CreateParticipantTo
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class CreateParticipantTokenCommand extends $Command

@@ -84,6 +84,7 @@ export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3E
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeJournalS3ExportCommand extends $Command

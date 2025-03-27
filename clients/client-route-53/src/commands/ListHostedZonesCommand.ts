@@ -92,6 +92,7 @@ export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, _
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class ListHostedZonesCommand extends $Command

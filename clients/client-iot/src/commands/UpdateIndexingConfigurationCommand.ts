@@ -117,6 +117,7 @@ export interface UpdateIndexingConfigurationCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdateIndexingConfigurationCommand extends $Command

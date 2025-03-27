@@ -117,6 +117,7 @@ export interface SearchIndexCommandOutput extends SearchIndexResponse, __Metadat
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class SearchIndexCommand extends $Command

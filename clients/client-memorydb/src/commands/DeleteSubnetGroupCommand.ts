@@ -77,6 +77,7 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class DeleteSubnetGroupCommand extends $Command

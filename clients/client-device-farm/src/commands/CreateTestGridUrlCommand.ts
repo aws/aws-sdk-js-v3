@@ -72,6 +72,7 @@ export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult,
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class CreateTestGridUrlCommand extends $Command

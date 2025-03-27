@@ -136,6 +136,7 @@ export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __Metad
  * @throws {@link KinesisVideoArchivedMediaServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
+ *
  * @public
  */
 export class ListFragmentsCommand extends $Command

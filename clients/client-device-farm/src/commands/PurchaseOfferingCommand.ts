@@ -104,42 +104,8 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, _
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
- * @example To purchase a device slot offering
- * ```javascript
- * // The following example purchases a specific device slot offering.
- * const input = {
- *   "offeringId": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
- *   "quantity": 1
- * };
- * const command = new PurchaseOfferingCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "offeringTransaction": {
- *     "cost": {
- *       "amount": 8.07,
- *       "currencyCode": "USD"
- *     },
- *     "createdOn": "1472648340",
- *     "offeringStatus": {
- *       "type": "PURCHASE",
- *       "effectiveOn": "1472648340",
- *       "offering": {
- *         "type": "RECURRING",
- *         "description": "Android Remote Access Unmetered Device Slot",
- *         "id": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
- *         "platform": "ANDROID"
- *       },
- *       "quantity": 1
- *     },
- *     "transactionId": "d30614ed-1b03-404c-9893-12345EXAMPLE"
- *   }
- * }
- * *\/
- * // example id: to-purchase-a-device-slot-offering-1472648146343
- * ```
  *
+ * @public
  */
 export class PurchaseOfferingCommand extends $Command
   .classBuilder<

@@ -88,6 +88,7 @@ export interface ListSpacesCommandOutput extends ListSpacesOutput, __MetadataBea
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ *
  * @public
  */
 export class ListSpacesCommand extends $Command

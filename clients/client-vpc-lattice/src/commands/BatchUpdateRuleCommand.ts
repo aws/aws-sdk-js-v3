@@ -176,6 +176,7 @@ export interface BatchUpdateRuleCommandOutput extends BatchUpdateRuleResponse, _
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class BatchUpdateRuleCommand extends $Command

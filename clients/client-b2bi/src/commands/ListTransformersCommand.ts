@@ -118,42 +118,42 @@ export interface ListTransformersCommandOutput extends ListTransformersResponse,
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample ListTransformers call
  * ```javascript
  * //
  * const input = {
- *   "maxResults": 50,
- *   "nextToken": "foo"
+ *   maxResults: 50,
+ *   nextToken: "foo"
  * };
  * const command = new ListTransformersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "nextToken": "foo",
- *   "transformers": [
+ *   nextToken: "foo",
+ *   transformers: [
  *     {
- *       "name": "transformJSON",
- *       "createdAt": "2023-11-01T21:51:05.504Z",
- *       "ediType": {
- *         "x12Details": {
- *           "version": "VERSION_4010",
- *           "transactionSet": "X12_110"
+ *       createdAt: "2023-11-01T21:51:05.504Z",
+ *       ediType: {
+ *         x12Details: {
+ *           transactionSet: "X12_110",
+ *           version: "VERSION_4010"
  *         }
  *       },
- *       "fileFormat": "JSON",
- *       "mappingTemplate": "$",
- *       "modifiedAt": "2023-11-01T21:51:05.504Z",
- *       "sampleDocument": "s3://test-bucket/sampleDoc.txt",
- *       "status": "inactive",
- *       "transformerId": "tr-974c129999f84d8c9"
+ *       fileFormat: "JSON",
+ *       mappingTemplate: "$",
+ *       modifiedAt: "2023-11-01T21:51:05.504Z",
+ *       name: "transformJSON",
+ *       sampleDocument: "s3://test-bucket/sampleDoc.txt",
+ *       status: "inactive",
+ *       transformerId: "tr-974c129999f84d8c9"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListTransformersCommand extends $Command
   .classBuilder<

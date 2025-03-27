@@ -105,6 +105,7 @@ export interface StartAttachedFileUploadCommandOutput extends StartAttachedFileU
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class StartAttachedFileUploadCommand extends $Command

@@ -144,6 +144,7 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ *
  * @public
  */
 export class CreateResourceShareCommand extends $Command

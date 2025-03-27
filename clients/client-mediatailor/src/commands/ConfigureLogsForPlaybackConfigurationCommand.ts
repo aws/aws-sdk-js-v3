@@ -98,6 +98,7 @@ export interface ConfigureLogsForPlaybackConfigurationCommandOutput
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class ConfigureLogsForPlaybackConfigurationCommand extends $Command

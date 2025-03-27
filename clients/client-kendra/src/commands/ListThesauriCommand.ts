@@ -86,6 +86,7 @@ export interface ListThesauriCommandOutput extends ListThesauriResponse, __Metad
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class ListThesauriCommand extends $Command

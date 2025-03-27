@@ -94,6 +94,7 @@ export interface GetFilterCommandOutput extends GetFilterResponse, __MetadataBea
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class GetFilterCommand extends $Command

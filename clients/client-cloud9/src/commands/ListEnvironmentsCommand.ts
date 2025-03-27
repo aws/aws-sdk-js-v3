@@ -92,24 +92,24 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResult, _
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
- * @public
+ *
  * @example ListEnvironments
  * ```javascript
  * //
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "environmentIds": [
+ *   environmentIds: [
  *     "349c86d4579e4e7298d500ff57a6b2EX",
  *     "45a3da47af0840f2b0c0824f5ee232EX"
  *   ]
  * }
  * *\/
- * // example id: listenvironments-1516823687205
  * ```
  *
+ * @public
  */
 export class ListEnvironmentsCommand extends $Command
   .classBuilder<

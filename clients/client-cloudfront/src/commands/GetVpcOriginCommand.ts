@@ -87,44 +87,44 @@ export interface GetVpcOriginCommandOutput extends GetVpcOriginResult, __Metadat
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
- * @public
+ *
  * @example To get a VPC origin
  * ```javascript
  * // The following command gets a VPC origin:
  * const input = {
- *   "Id": "vo_BQwjxxQxjCaBcQLzJUFkDM"
+ *   Id: "vo_BQwjxxQxjCaBcQLzJUFkDM"
  * };
  * const command = new GetVpcOriginCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ETag": "ETVPDKIKX0DER",
- *   "VpcOrigin": {
- *     "Arn": "arn:aws:cloudfront::123456789012:vpcorigin/vo_BQwjxxQxjCaBcQLzJUFkDM",
- *     "CreatedTime": "2024-10-15T17:19:42.318Z",
- *     "Id": "vo_BQwjxxQxjCaBcQLzJUFkDM",
- *     "LastModifiedTime": "2024-10-15T17:24:35.188Z",
- *     "Status": "Deployed",
- *     "VpcOriginEndpointConfig": {
- *       "Arn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-alb-us-west-2/e6aa5c7d26415c6d",
- *       "HTTPPort": 80,
- *       "HTTPSPort": 443,
- *       "Name": "my-vpcorigin-name",
- *       "OriginProtocolPolicy": "match-viewer",
- *       "OriginSslProtocols": {
- *         "Items": [
+ *   ETag: "ETVPDKIKX0DER",
+ *   VpcOrigin: {
+ *     Arn: "arn:aws:cloudfront::123456789012:vpcorigin/vo_BQwjxxQxjCaBcQLzJUFkDM",
+ *     CreatedTime: "2024-10-15T17:19:42.318Z",
+ *     Id: "vo_BQwjxxQxjCaBcQLzJUFkDM",
+ *     LastModifiedTime: "2024-10-15T17:24:35.188Z",
+ *     Status: "Deployed",
+ *     VpcOriginEndpointConfig: {
+ *       Arn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-alb-us-west-2/e6aa5c7d26415c6d",
+ *       HTTPPort: 80,
+ *       HTTPSPort: 443,
+ *       Name: "my-vpcorigin-name",
+ *       OriginProtocolPolicy: "match-viewer",
+ *       OriginSslProtocols: {
+ *         Items: [
  *           "TLSv1.1",
  *           "TLSv1.2"
  *         ],
- *         "Quantity": 2
+ *         Quantity: 2
  *       }
  *     }
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetVpcOriginCommand extends $Command
   .classBuilder<

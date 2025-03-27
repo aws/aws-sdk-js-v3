@@ -50,6 +50,11 @@ export interface GetImageSetMetadataCommandOutput
  * };
  * const command = new GetImageSetMetadataCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.imageSetMetadataBlob.transformToByteArray();
+ * // const str = await response.imageSetMetadataBlob.transformToString();
+ * // response.imageSetMetadataBlob.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetImageSetMetadataResponse
  * //   imageSetMetadataBlob: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes // required
  * //   contentType: "STRING_VALUE",
@@ -84,6 +89,7 @@ export interface GetImageSetMetadataCommandOutput
  *
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
+ *
  *
  * @public
  */

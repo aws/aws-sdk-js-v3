@@ -88,6 +88,7 @@ export interface GetPrivacyBudgetTemplateCommandOutput extends GetPrivacyBudgetT
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class GetPrivacyBudgetTemplateCommand extends $Command

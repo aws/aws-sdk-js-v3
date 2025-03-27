@@ -79,6 +79,7 @@ export interface DeleteUsageLimitCommandOutput extends DeleteUsageLimitResponse,
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class DeleteUsageLimitCommand extends $Command

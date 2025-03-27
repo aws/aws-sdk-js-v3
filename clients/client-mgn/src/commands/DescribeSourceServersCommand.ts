@@ -202,6 +202,7 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class DescribeSourceServersCommand extends $Command

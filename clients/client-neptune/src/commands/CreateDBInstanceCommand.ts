@@ -314,6 +314,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class CreateDBInstanceCommand extends $Command

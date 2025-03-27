@@ -72,6 +72,7 @@ export interface DescribeLocationS3CommandOutput extends DescribeLocationS3Respo
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeLocationS3Command extends $Command

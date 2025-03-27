@@ -91,6 +91,7 @@ export interface ListResourceEndpointAssociationsCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class ListResourceEndpointAssociationsCommand extends $Command

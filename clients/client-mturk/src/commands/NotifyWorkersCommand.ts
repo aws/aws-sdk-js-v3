@@ -80,6 +80,7 @@ export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __Met
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class NotifyWorkersCommand extends $Command

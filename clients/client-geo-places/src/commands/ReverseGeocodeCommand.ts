@@ -185,6 +185,7 @@ export interface ReverseGeocodeCommandOutput extends ReverseGeocodeResponse, __M
  * @throws {@link GeoPlacesServiceException}
  * <p>Base exception class for all service exceptions from GeoPlaces service.</p>
  *
+ *
  * @public
  */
 export class ReverseGeocodeCommand extends $Command

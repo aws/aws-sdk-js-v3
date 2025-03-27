@@ -83,6 +83,7 @@ export interface DescribeSchedulingPoliciesCommandOutput extends DescribeSchedul
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ *
  * @public
  */
 export class DescribeSchedulingPoliciesCommand extends $Command

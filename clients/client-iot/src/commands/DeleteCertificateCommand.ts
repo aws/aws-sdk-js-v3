@@ -83,6 +83,7 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DeleteCertificateCommand extends $Command

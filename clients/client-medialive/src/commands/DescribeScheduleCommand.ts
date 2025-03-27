@@ -238,6 +238,7 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class DescribeScheduleCommand extends $Command

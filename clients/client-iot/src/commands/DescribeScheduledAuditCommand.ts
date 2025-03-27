@@ -75,6 +75,7 @@ export interface DescribeScheduledAuditCommandOutput extends DescribeScheduledAu
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeScheduledAuditCommand extends $Command

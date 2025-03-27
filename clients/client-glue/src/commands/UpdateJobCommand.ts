@@ -1162,6 +1162,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class UpdateJobCommand extends $Command

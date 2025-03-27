@@ -132,6 +132,7 @@ export interface UpdateRelationalDatabaseParametersCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class UpdateRelationalDatabaseParametersCommand extends $Command

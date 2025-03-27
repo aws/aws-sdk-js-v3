@@ -66,24 +66,24 @@ export interface ListAvailableSolutionStacksCommandOutput
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To view solution stacks
  * ```javascript
  * // The following operation lists solution stacks for all currently available platform configurations and any that you have used in the past:
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListAvailableSolutionStacksCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SolutionStackDetails": [
+ *   SolutionStackDetails: [
  *     {
- *       "PermittedFileTypes": [
+ *       PermittedFileTypes: [
  *         "zip"
  *       ],
- *       "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Node.js"
+ *       SolutionStackName: "64bit Amazon Linux 2015.03 v2.0.0 running Node.js"
  *     }
  *   ],
- *   "SolutionStacks": [
+ *   SolutionStacks: [
  *     "64bit Amazon Linux 2015.03 v2.0.0 running Node.js",
  *     "64bit Amazon Linux 2015.03 v2.0.0 running PHP 5.6",
  *     "64bit Amazon Linux 2015.03 v2.0.0 running PHP 5.5",
@@ -115,9 +115,9 @@ export interface ListAvailableSolutionStacksCommandOutput
  *   ]
  * }
  * *\/
- * // example id: to-view-solution-stacks-1456277504811
  * ```
  *
+ * @public
  */
 export class ListAvailableSolutionStacksCommand extends $Command
   .classBuilder<

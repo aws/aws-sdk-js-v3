@@ -84,6 +84,7 @@ export interface GetSamplingRulesCommandOutput extends GetSamplingRulesResult, _
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ *
  * @public
  */
 export class GetSamplingRulesCommand extends $Command

@@ -74,6 +74,7 @@ export interface DisassociateAppBlockBuilderAppBlockCommandOutput
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DisassociateAppBlockBuilderAppBlockCommand extends $Command

@@ -83,6 +83,7 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class ListExportsCommand extends $Command

@@ -82,6 +82,7 @@ export interface GetMarketplaceResourceCommandOutput extends GetMarketplaceResou
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class GetMarketplaceResourceCommand extends $Command

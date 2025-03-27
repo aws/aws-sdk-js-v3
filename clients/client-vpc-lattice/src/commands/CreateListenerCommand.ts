@@ -120,6 +120,7 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class CreateListenerCommand extends $Command

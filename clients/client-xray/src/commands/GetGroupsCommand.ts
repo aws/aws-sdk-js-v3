@@ -72,6 +72,7 @@ export interface GetGroupsCommandOutput extends GetGroupsResult, __MetadataBeare
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ *
  * @public
  */
 export class GetGroupsCommand extends $Command

@@ -80,6 +80,7 @@ export interface DescribeOrganizationHealthCommandOutput extends DescribeOrganiz
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class DescribeOrganizationHealthCommand extends $Command

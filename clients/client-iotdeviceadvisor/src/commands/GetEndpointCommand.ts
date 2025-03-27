@@ -67,6 +67,7 @@ export interface GetEndpointCommandOutput extends GetEndpointResponse, __Metadat
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ *
  * @public
  */
 export class GetEndpointCommand extends $Command

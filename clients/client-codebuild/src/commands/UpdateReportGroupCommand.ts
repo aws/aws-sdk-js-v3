@@ -104,6 +104,7 @@ export interface UpdateReportGroupCommandOutput extends UpdateReportGroupOutput,
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class UpdateReportGroupCommand extends $Command

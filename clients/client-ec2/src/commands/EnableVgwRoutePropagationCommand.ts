@@ -56,19 +56,22 @@ export interface EnableVgwRoutePropagationCommandOutput extends __MetadataBearer
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To enable route propagation
  * ```javascript
  * // This example enables the specified virtual private gateway to propagate static routes to the specified route table.
  * const input = {
- *   "GatewayId": "vgw-9a4cacf3",
- *   "RouteTableId": "rtb-22574640"
+ *   GatewayId: "vgw-9a4cacf3",
+ *   RouteTableId: "rtb-22574640"
  * };
  * const command = new EnableVgwRoutePropagationCommand(input);
- * await client.send(command);
- * // example id: ec2-enable-vgw-route-propagation-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class EnableVgwRoutePropagationCommand extends $Command
   .classBuilder<

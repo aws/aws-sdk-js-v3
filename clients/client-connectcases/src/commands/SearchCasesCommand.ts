@@ -191,6 +191,7 @@ export interface SearchCasesCommandOutput extends SearchCasesResponse, __Metadat
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class SearchCasesCommand extends $Command

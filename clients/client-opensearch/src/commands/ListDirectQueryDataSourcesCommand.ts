@@ -97,6 +97,7 @@ export interface ListDirectQueryDataSourcesCommandOutput extends ListDirectQuery
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class ListDirectQueryDataSourcesCommand extends $Command

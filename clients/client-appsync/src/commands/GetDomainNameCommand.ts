@@ -79,6 +79,7 @@ export interface GetDomainNameCommandOutput extends GetDomainNameResponse, __Met
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class GetDomainNameCommand extends $Command

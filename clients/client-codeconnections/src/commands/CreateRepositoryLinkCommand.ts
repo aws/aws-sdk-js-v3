@@ -93,6 +93,7 @@ export interface CreateRepositoryLinkCommandOutput extends CreateRepositoryLinkO
  * @throws {@link CodeConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ *
  * @public
  */
 export class CreateRepositoryLinkCommand extends $Command

@@ -78,6 +78,7 @@ export interface ImportApplicationUsageCommandOutput extends ImportApplicationUs
  * @throws {@link ApplicationCostProfilerServiceException}
  * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
+ *
  * @public
  */
 export class ImportApplicationUsageCommand extends $Command

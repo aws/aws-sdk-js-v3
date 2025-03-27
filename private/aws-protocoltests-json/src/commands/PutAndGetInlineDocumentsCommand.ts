@@ -53,6 +53,7 @@ export interface PutAndGetInlineDocumentsCommandOutput extends PutAndGetInlineDo
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class PutAndGetInlineDocumentsCommand extends $Command

@@ -103,6 +103,7 @@ export interface GetIntegrationCommandOutput extends Integration, __MetadataBear
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetIntegrationCommand extends $Command

@@ -91,6 +91,7 @@ export interface UpdateResourceCollectionCommandOutput extends UpdateResourceCol
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class UpdateResourceCollectionCommand extends $Command

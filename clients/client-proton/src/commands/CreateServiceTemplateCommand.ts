@@ -104,6 +104,7 @@ export interface CreateServiceTemplateCommandOutput extends CreateServiceTemplat
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class CreateServiceTemplateCommand extends $Command

@@ -120,24 +120,24 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
- * @public
+ *
  * @example To delete an IP set
  * ```javascript
  * // The following example deletes an IP match set  with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "IPSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   IPSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
  * };
  * const command = new DeleteIPSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: deleteipset-1472767434306
  * ```
  *
+ * @public
  */
 export class DeleteIPSetCommand extends $Command
   .classBuilder<

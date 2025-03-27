@@ -50,6 +50,7 @@ export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
  * @throws {@link JSONRPC10ServiceException}
  * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>
  *
+ *
  * @public
  */
 export class NoInputAndNoOutputCommand extends $Command

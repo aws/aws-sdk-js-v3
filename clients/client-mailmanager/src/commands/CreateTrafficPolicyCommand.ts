@@ -126,6 +126,41 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
+ * @example Create TrafficPolicy
+ * ```javascript
+ * //
+ * const input = {
+ *   DefaultAction: "DENY",
+ *   PolicyStatements: [
+ *     {
+ *       Action: "ALLOW",
+ *       Conditions: [
+ *         {
+ *           IpExpression: {
+ *             Evaluate: {
+ *               Attribute: "SENDER_IP"
+ *             },
+ *             Operator: "CIDR_MATCHES",
+ *             Values: [
+ *               "0.0.0.0/12"
+ *             ]
+ *           }
+ *         }
+ *       ]
+ *     }
+ *   ],
+ *   TrafficPolicyName: "trafficPolicyName"
+ * };
+ * const command = new CreateTrafficPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   TrafficPolicyId: "tp-13245"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateTrafficPolicyCommand extends $Command

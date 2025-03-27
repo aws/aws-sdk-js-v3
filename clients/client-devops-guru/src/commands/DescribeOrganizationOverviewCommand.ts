@@ -85,6 +85,7 @@ export interface DescribeOrganizationOverviewCommandOutput
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class DescribeOrganizationOverviewCommand extends $Command

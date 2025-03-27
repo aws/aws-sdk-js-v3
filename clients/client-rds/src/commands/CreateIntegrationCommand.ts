@@ -114,32 +114,32 @@ export interface CreateIntegrationCommandOutput extends Integration, __MetadataB
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To create a zero-ETL integration
  * ```javascript
  * // The following example creates a zero-ETL integration with Amazon Redshift.
  * const input = {
- *   "IntegrationName": "my-integration",
- *   "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster",
- *   "TargetArn": "arn:aws:redshift-serverless:us-east-1:123456789012:namespace/62c70612-0302-4db7-8414-b5e3e049f0d8"
+ *   IntegrationName: "my-integration",
+ *   SourceArn: "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster",
+ *   TargetArn: "arn:aws:redshift-serverless:us-east-1:123456789012:namespace/62c70612-0302-4db7-8414-b5e3e049f0d8"
  * };
  * const command = new CreateIntegrationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CreateTime": "2023-12-28T17:20:20.629Z",
- *   "IntegrationArn": "arn:aws:rds:us-east-1:123456789012:integration:5b9f3d79-7392-4a3e-896c-58eaa1b53231",
- *   "IntegrationName": "my-integration",
- *   "KMSKeyId": "arn:aws:kms:us-east-1:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
- *   "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster",
- *   "Status": "creating",
- *   "Tags": [],
- *   "TargetArn": "arn:aws:redshift-serverless:us-east-1:123456789012:namespace/62c70612-0302-4db7-8414-b5e3e049f0d8"
+ *   CreateTime: "2023-12-28T17:20:20.629Z",
+ *   IntegrationArn: "arn:aws:rds:us-east-1:123456789012:integration:5b9f3d79-7392-4a3e-896c-58eaa1b53231",
+ *   IntegrationName: "my-integration",
+ *   KMSKeyId: "arn:aws:kms:us-east-1:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
+ *   SourceArn: "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster",
+ *   Status: "creating",
+ *   Tags:   [],
+ *   TargetArn: "arn:aws:redshift-serverless:us-east-1:123456789012:namespace/62c70612-0302-4db7-8414-b5e3e049f0d8"
  * }
  * *\/
- * // example id: to-create-a-zero-etl-integration-1679688377231
  * ```
  *
+ * @public
  */
 export class CreateIntegrationCommand extends $Command
   .classBuilder<

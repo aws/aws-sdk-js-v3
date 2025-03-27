@@ -89,6 +89,7 @@ export interface GetNetworkResourceRelationshipsCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetNetworkResourceRelationshipsCommand extends $Command

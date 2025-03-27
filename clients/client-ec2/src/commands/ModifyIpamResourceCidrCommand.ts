@@ -84,6 +84,7 @@ export interface ModifyIpamResourceCidrCommandOutput extends ModifyIpamResourceC
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyIpamResourceCidrCommand extends $Command

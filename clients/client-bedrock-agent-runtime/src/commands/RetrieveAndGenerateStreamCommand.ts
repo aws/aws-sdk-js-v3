@@ -447,6 +447,7 @@ export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGener
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ *
  * @public
  */
 export class RetrieveAndGenerateStreamCommand extends $Command

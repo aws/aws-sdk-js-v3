@@ -87,6 +87,7 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ *
  * @public
  */
 export class ListIdentitiesCommand extends $Command

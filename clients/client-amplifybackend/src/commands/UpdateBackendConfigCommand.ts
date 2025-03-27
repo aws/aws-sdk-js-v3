@@ -81,6 +81,7 @@ export interface UpdateBackendConfigCommandOutput extends UpdateBackendConfigRes
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ *
  * @public
  */
 export class UpdateBackendConfigCommand extends $Command

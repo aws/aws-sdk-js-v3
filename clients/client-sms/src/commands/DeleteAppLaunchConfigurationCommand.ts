@@ -74,6 +74,7 @@ export interface DeleteAppLaunchConfigurationCommandOutput
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ *
  * @public
  */
 export class DeleteAppLaunchConfigurationCommand extends $Command

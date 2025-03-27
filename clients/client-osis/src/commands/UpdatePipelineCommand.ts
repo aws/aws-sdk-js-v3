@@ -154,6 +154,7 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  * @throws {@link OSISServiceException}
  * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ *
  * @public
  */
 export class UpdatePipelineCommand extends $Command

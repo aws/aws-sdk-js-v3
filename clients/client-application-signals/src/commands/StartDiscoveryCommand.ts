@@ -107,6 +107,7 @@ export interface StartDiscoveryCommandOutput extends StartDiscoveryOutput, __Met
  * @throws {@link ApplicationSignalsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationSignals service.</p>
  *
+ *
  * @public
  */
 export class StartDiscoveryCommand extends $Command

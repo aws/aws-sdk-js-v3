@@ -342,56 +342,63 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe an Amazon EC2 instance
  * ```javascript
  * // This example describes the specified instance.
  * const input = {
- *   "InstanceIds": [
+ *   InstanceIds: [
  *     "i-1234567890abcdef0"
  *   ]
  * };
  * const command = new DescribeInstancesCommand(input);
- * await client.send(command);
- * // example id: to-describe-an-amazon-ec2-instance-1529025982172
- * ```
- *
- * @example To describe the instances with a specific instance type
- * ```javascript
- * // This example describes the instances with the t2.micro instance type.
- * const input = {
- *   "Filters": [
- *     {
- *       "Name": "instance-type",
- *       "Values": [
- *         "t2.micro"
- *       ]
- *     }
- *   ]
- * };
- * const command = new DescribeInstancesCommand(input);
- * await client.send(command);
- * // example id: to-describe-the-instances-with-the-instance-type-t2micro-1529026147602
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
  * @example To describe the instances with a specific tag
  * ```javascript
  * // This example describes the instances with the Purpose=test tag.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "tag:Purpose",
- *       "Values": [
+ *       Name: "tag:Purpose",
+ *       Values: [
  *         "test"
  *       ]
  *     }
  *   ]
  * };
  * const command = new DescribeInstancesCommand(input);
- * await client.send(command);
- * // example id: to-describe-the-instances-with-a-specific-tag-1529026251928
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @example To describe the instances with a specific instance type
+ * ```javascript
+ * // This example describes the instances with the t2.micro instance type.
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Name: "instance-type",
+ *       Values: [
+ *         "t2.micro"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new DescribeInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class DescribeInstancesCommand extends $Command
   .classBuilder<

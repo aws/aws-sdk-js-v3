@@ -133,6 +133,7 @@ export interface DeleteComputeNodeGroupCommandOutput extends DeleteComputeNodeGr
  * @throws {@link PCSServiceException}
  * <p>Base exception class for all service exceptions from PCS service.</p>
  *
+ *
  * @public
  */
 export class DeleteComputeNodeGroupCommand extends $Command

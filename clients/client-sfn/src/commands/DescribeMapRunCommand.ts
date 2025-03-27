@@ -94,6 +94,7 @@ export interface DescribeMapRunCommandOutput extends DescribeMapRunOutput, __Met
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class DescribeMapRunCommand extends $Command

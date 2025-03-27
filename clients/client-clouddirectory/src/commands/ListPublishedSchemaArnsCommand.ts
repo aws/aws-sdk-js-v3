@@ -85,6 +85,7 @@ export interface ListPublishedSchemaArnsCommandOutput extends ListPublishedSchem
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
  * @public
  */
 export class ListPublishedSchemaArnsCommand extends $Command

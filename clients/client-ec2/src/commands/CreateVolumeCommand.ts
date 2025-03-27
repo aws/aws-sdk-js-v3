@@ -126,61 +126,60 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
- * @example To create a new volume
- * ```javascript
- * // This example creates an 80 GiB General Purpose (SSD) volume in the Availability Zone ``us-east-1a``.
- * const input = {
- *   "AvailabilityZone": "us-east-1a",
- *   "Size": 80,
- *   "VolumeType": "gp2"
- * };
- * const command = new CreateVolumeCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "AvailabilityZone": "us-east-1a",
- *   "CreateTime": "2016-08-29T18:52:32.724Z",
- *   "Encrypted": false,
- *   "Iops": 240,
- *   "Size": 80,
- *   "SnapshotId": "",
- *   "State": "creating",
- *   "VolumeId": "vol-6b60b7c7",
- *   "VolumeType": "gp2"
- * }
- * *\/
- * // example id: to-create-a-new-volume-1472496724296
- * ```
  *
  * @example To create a new Provisioned IOPS (SSD) volume from a snapshot
  * ```javascript
  * // This example creates a new Provisioned IOPS (SSD) volume with 1000 provisioned IOPS from a snapshot in the Availability Zone ``us-east-1a``.
  * const input = {
- *   "AvailabilityZone": "us-east-1a",
- *   "Iops": 1000,
- *   "SnapshotId": "snap-066877671789bd71b",
- *   "VolumeType": "io1"
+ *   AvailabilityZone: "us-east-1a",
+ *   Iops: 1000,
+ *   SnapshotId: "snap-066877671789bd71b",
+ *   VolumeType: "io1"
  * };
  * const command = new CreateVolumeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Attachments": [],
- *   "AvailabilityZone": "us-east-1a",
- *   "CreateTime": "2016-08-29T18:52:32.724Z",
- *   "Iops": 1000,
- *   "Size": 500,
- *   "SnapshotId": "snap-066877671789bd71b",
- *   "State": "creating",
- *   "Tags": [],
- *   "VolumeId": "vol-1234567890abcdef0",
- *   "VolumeType": "io1"
+ *   Attachments:   [],
+ *   AvailabilityZone: "us-east-1a",
+ *   CreateTime: "2016-08-29T18:52:32.724Z",
+ *   Iops: 1000,
+ *   Size: 500,
+ *   SnapshotId: "snap-066877671789bd71b",
+ *   State: "creating",
+ *   Tags:   [],
+ *   VolumeId: "vol-1234567890abcdef0",
+ *   VolumeType: "io1"
  * }
  * *\/
- * // example id: to-create-a-new-provisioned-iops-ssd-volume-from-a-snapshot-1472498975176
  * ```
  *
+ * @example To create a new volume
+ * ```javascript
+ * // This example creates an 80 GiB General Purpose (SSD) volume in the Availability Zone ``us-east-1a``.
+ * const input = {
+ *   AvailabilityZone: "us-east-1a",
+ *   Size: 80,
+ *   VolumeType: "gp2"
+ * };
+ * const command = new CreateVolumeCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   AvailabilityZone: "us-east-1a",
+ *   CreateTime: "2016-08-29T18:52:32.724Z",
+ *   Encrypted: false,
+ *   Iops: 240,
+ *   Size: 80,
+ *   SnapshotId: "",
+ *   State: "creating",
+ *   VolumeId: "vol-6b60b7c7",
+ *   VolumeType: "gp2"
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class CreateVolumeCommand extends $Command
   .classBuilder<

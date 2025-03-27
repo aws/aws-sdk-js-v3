@@ -77,35 +77,35 @@ export interface ListChannelGroupsCommandOutput extends ListChannelGroupsRespons
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
- * @public
+ *
  * @example Listing all Channel Groups
  * ```javascript
  * //
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListChannelGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Items": [
+ *   Items: [
  *     {
- *       "Arn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup",
- *       "ChannelGroupName": "exampleChannelGroup",
- *       "CreatedAt": "2022-10-18T09:36:00.00Z",
- *       "Description": "Description for exampleChannelGroup",
- *       "ModifiedAt": "2022-10-18T09:36:00.00Z"
+ *       Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup",
+ *       ChannelGroupName: "exampleChannelGroup",
+ *       CreatedAt: "2022-10-18T09:36:00.00Z",
+ *       Description: "Description for exampleChannelGroup",
+ *       ModifiedAt: "2022-10-18T09:36:00.00Z"
  *     },
  *     {
- *       "Arn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/anotherExampleChannelGroup",
- *       "ChannelGroupName": "anotherExampleChannelGroup",
- *       "CreatedAt": "2022-10-18T10:36:00.00Z",
- *       "ModifiedAt": "2022-10-18T10:36:00.00Z"
+ *       Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/anotherExampleChannelGroup",
+ *       ChannelGroupName: "anotherExampleChannelGroup",
+ *       CreatedAt: "2022-10-18T10:36:00.00Z",
+ *       ModifiedAt: "2022-10-18T10:36:00.00Z"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListChannelGroupsCommand extends $Command
   .classBuilder<

@@ -81,6 +81,7 @@ export interface EndSessionCommandOutput extends EndSessionResponse, __MetadataB
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ *
  * @public
  */
 export class EndSessionCommand extends $Command

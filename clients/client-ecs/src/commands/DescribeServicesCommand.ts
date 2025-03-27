@@ -374,62 +374,62 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To describe a service
  * ```javascript
  * // This example provides descriptive information about the service named ``ecs-simple-service``.
  * const input = {
- *   "services": [
+ *   services: [
  *     "ecs-simple-service"
  *   ]
  * };
  * const command = new DescribeServicesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "failures": [],
- *   "services": [
+ *   failures:   [],
+ *   services: [
  *     {
- *       "clusterArn": "arn:aws:ecs:us-east-1:012345678910:cluster/default",
- *       "createdAt": "2016-08-29T16:25:52.130Z",
- *       "deploymentConfiguration": {
- *         "maximumPercent": 200,
- *         "minimumHealthyPercent": 100
+ *       clusterArn: "arn:aws:ecs:us-east-1:012345678910:cluster/default",
+ *       createdAt: "2016-08-29T16:25:52.130Z",
+ *       deploymentConfiguration: {
+ *         maximumPercent: 200,
+ *         minimumHealthyPercent: 100
  *       },
- *       "deployments": [
+ *       deployments: [
  *         {
- *           "createdAt": "2016-08-29T16:25:52.130Z",
- *           "desiredCount": 1,
- *           "id": "ecs-svc/9223370564341623665",
- *           "pendingCount": 0,
- *           "runningCount": 0,
- *           "status": "PRIMARY",
- *           "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/hello_world:6",
- *           "updatedAt": "2016-08-29T16:25:52.130Z"
+ *           createdAt: "2016-08-29T16:25:52.130Z",
+ *           desiredCount: 1,
+ *           id: "ecs-svc/9223370564341623665",
+ *           pendingCount: 0,
+ *           runningCount: 0,
+ *           status: "PRIMARY",
+ *           taskDefinition: "arn:aws:ecs:us-east-1:012345678910:task-definition/hello_world:6",
+ *           updatedAt: "2016-08-29T16:25:52.130Z"
  *         }
  *       ],
- *       "desiredCount": 1,
- *       "events": [
+ *       desiredCount: 1,
+ *       events: [
  *         {
- *           "createdAt": "2016-08-29T16:25:58.520Z",
- *           "id": "38c285e5-d335-4b68-8b15-e46dedc8e88d",
- *           "message": "(service ecs-simple-service) was unable to place a task because no container instance met all of its requirements. The closest matching (container-instance 3f4de1c5-ffdd-4954-af7e-75b4be0c8841) is already using a port required by your task. For more information, see the Troubleshooting section of the Amazon ECS Developer Guide."
+ *           createdAt: "2016-08-29T16:25:58.520Z",
+ *           id: "38c285e5-d335-4b68-8b15-e46dedc8e88d",
+ *           message: "(service ecs-simple-service) was unable to place a task because no container instance met all of its requirements. The closest matching (container-instance 3f4de1c5-ffdd-4954-af7e-75b4be0c8841) is already using a port required by your task. For more information, see the Troubleshooting section of the Amazon ECS Developer Guide."
  *         }
  *       ],
- *       "loadBalancers": [],
- *       "pendingCount": 0,
- *       "runningCount": 0,
- *       "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/default/ecs-simple-service",
- *       "serviceName": "ecs-simple-service",
- *       "status": "ACTIVE",
- *       "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/default/hello_world:6"
+ *       loadBalancers:       [],
+ *       pendingCount: 0,
+ *       runningCount: 0,
+ *       serviceArn: "arn:aws:ecs:us-east-1:012345678910:service/default/ecs-simple-service",
+ *       serviceName: "ecs-simple-service",
+ *       status: "ACTIVE",
+ *       taskDefinition: "arn:aws:ecs:us-east-1:012345678910:task-definition/default/hello_world:6"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-a-service-1472513256350
  * ```
  *
+ * @public
  */
 export class DescribeServicesCommand extends $Command
   .classBuilder<

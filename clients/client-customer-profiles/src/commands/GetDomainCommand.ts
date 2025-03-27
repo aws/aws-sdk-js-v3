@@ -147,6 +147,7 @@ export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBea
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class GetDomainCommand extends $Command

@@ -80,6 +80,7 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ *
  * @public
  */
 export class AcceptInvitationCommand extends $Command

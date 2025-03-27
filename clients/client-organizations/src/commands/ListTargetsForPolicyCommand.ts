@@ -212,42 +212,42 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To retrieve a list of roots, OUs, and accounts to which a policy is attached
  * ```javascript
  * // The following example shows how to get the list of roots, OUs, and accounts to which the specified policy is attached:/n/n
  * const input = {
- *   "PolicyId": "p-FullAWSAccess"
+ *   PolicyId: "p-FullAWSAccess"
  * };
  * const command = new ListTargetsForPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Targets": [
+ *   Targets: [
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:root/o-exampleorgid/r-examplerootid111",
- *       "Name": "Root",
- *       "TargetId": "r-examplerootid111",
- *       "Type": "ROOT"
+ *       Arn: "arn:aws:organizations::111111111111:root/o-exampleorgid/r-examplerootid111",
+ *       Name: "Root",
+ *       TargetId: "r-examplerootid111",
+ *       Type: "ROOT"
  *     },
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:account/o-exampleorgid/333333333333;",
- *       "Name": "Developer Test Account",
- *       "TargetId": "333333333333",
- *       "Type": "ACCOUNT"
+ *       Arn: "arn:aws:organizations::111111111111:account/o-exampleorgid/333333333333;",
+ *       Name: "Developer Test Account",
+ *       TargetId: "333333333333",
+ *       Type: "ACCOUNT"
  *     },
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
- *       "Name": "Accounting",
- *       "TargetId": "ou-examplerootid111-exampleouid111",
- *       "Type": "ORGANIZATIONAL_UNIT"
+ *       Arn: "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
+ *       Name: "Accounting",
+ *       TargetId: "ou-examplerootid111-exampleouid111",
+ *       Type: "ORGANIZATIONAL_UNIT"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-a-list-of-roots-ous-and-accounts-to-which-a-policy-is-attached
  * ```
  *
+ * @public
  */
 export class ListTargetsForPolicyCommand extends $Command
   .classBuilder<

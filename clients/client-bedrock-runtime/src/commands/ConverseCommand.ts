@@ -566,6 +566,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * @throws {@link BedrockRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockRuntime service.</p>
  *
+ *
  * @public
  */
 export class ConverseCommand extends $Command

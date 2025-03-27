@@ -78,6 +78,7 @@ export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __Met
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class ListSchedulesCommand extends $Command

@@ -104,6 +104,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationOutput,
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>
  *
+ *
  * @public
  */
 export class UpdateApplicationCommand extends $Command

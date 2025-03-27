@@ -154,6 +154,7 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateDeploymentCommand extends $Command

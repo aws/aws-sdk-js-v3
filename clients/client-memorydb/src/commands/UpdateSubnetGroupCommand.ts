@@ -91,6 +91,7 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class UpdateSubnetGroupCommand extends $Command

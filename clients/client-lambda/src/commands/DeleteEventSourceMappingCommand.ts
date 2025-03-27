@@ -158,29 +158,8 @@ export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappin
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
- * @example To delete a Lambda function event source mapping
- * ```javascript
- * // The following example deletes an event source mapping. To get a mapping's UUID, use ListEventSourceMappings.
- * const input = {
- *   "UUID": "14e0db71-xmpl-4eb5-b481-8945cf9d10c2"
- * };
- * const command = new DeleteEventSourceMappingCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "BatchSize": 5,
- *   "EventSourceArn": "arn:aws:sqs:us-west-2:123456789012:my-queue",
- *   "FunctionArn": "arn:aws:lambda:us-east-2:123456789012:function:my-function",
- *   "LastModified": "${timestamp}",
- *   "State": "Enabled",
- *   "StateTransitionReason": "USER_INITIATED",
- *   "UUID": "14e0db71-xmpl-4eb5-b481-8945cf9d10c2"
- * }
- * *\/
- * // example id: to-delete-a-lambda-function-event-source-mapping-1481658973862
- * ```
  *
+ * @public
  */
 export class DeleteEventSourceMappingCommand extends $Command
   .classBuilder<

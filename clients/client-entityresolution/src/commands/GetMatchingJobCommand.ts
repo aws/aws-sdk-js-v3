@@ -92,6 +92,7 @@ export interface GetMatchingJobCommandOutput extends GetMatchingJobOutput, __Met
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ *
  * @public
  */
 export class GetMatchingJobCommand extends $Command

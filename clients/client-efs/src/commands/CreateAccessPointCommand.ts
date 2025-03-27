@@ -151,6 +151,7 @@ export interface CreateAccessPointCommandOutput extends AccessPointDescription, 
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ *
  * @public
  */
 export class CreateAccessPointCommand extends $Command

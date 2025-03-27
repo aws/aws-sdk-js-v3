@@ -92,24 +92,24 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Import certificate
  * ```javascript
  * // Uploads the specified certificate.
  * const input = {
- *   "CertificateIdentifier": "",
- *   "CertificatePem": ""
+ *   CertificateIdentifier: "",
+ *   CertificatePem: ""
  * };
  * const command = new ImportCertificateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Certificate": {}
+ *   Certificate:   { /* empty *\/ }
  * }
  * *\/
- * // example id: import-certificate-1481756197206
  * ```
  *
+ * @public
  */
 export class ImportCertificateCommand extends $Command
   .classBuilder<

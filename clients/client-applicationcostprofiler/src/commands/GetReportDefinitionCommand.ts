@@ -80,6 +80,7 @@ export interface GetReportDefinitionCommandOutput extends GetReportDefinitionRes
  * @throws {@link ApplicationCostProfilerServiceException}
  * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
+ *
  * @public
  */
 export class GetReportDefinitionCommand extends $Command

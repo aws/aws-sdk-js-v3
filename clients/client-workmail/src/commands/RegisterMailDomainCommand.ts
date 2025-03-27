@@ -73,6 +73,7 @@ export interface RegisterMailDomainCommandOutput extends RegisterMailDomainRespo
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class RegisterMailDomainCommand extends $Command

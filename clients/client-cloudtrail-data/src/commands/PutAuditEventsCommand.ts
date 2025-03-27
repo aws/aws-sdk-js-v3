@@ -98,6 +98,7 @@ export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __M
  * @throws {@link CloudTrailDataServiceException}
  * <p>Base exception class for all service exceptions from CloudTrailData service.</p>
  *
+ *
  * @public
  */
 export class PutAuditEventsCommand extends $Command

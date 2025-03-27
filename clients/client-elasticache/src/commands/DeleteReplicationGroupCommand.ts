@@ -229,30 +229,30 @@ export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGr
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example DeleteReplicationGroup
  * ```javascript
  * // Deletes the Amazon ElastiCache replication group my-redis-rg.
  * const input = {
- *   "ReplicationGroupId": "my-redis-rg",
- *   "RetainPrimaryCluster": false
+ *   ReplicationGroupId: "my-redis-rg",
+ *   RetainPrimaryCluster: false
  * };
  * const command = new DeleteReplicationGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReplicationGroup": {
- *     "AutomaticFailover": "disabled",
- *     "Description": "simple redis cluster",
- *     "PendingModifiedValues": {},
- *     "ReplicationGroupId": "my-redis-rg",
- *     "Status": "deleting"
+ *   ReplicationGroup: {
+ *     AutomaticFailover: "disabled",
+ *     Description: "simple redis cluster",
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     ReplicationGroupId: "my-redis-rg",
+ *     Status: "deleting"
  *   }
  * }
  * *\/
- * // example id: deletereplicationgroup-1475011641804
  * ```
  *
+ * @public
  */
 export class DeleteReplicationGroupCommand extends $Command
   .classBuilder<

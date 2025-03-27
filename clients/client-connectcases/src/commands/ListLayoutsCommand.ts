@@ -82,6 +82,7 @@ export interface ListLayoutsCommandOutput extends ListLayoutsResponse, __Metadat
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class ListLayoutsCommand extends $Command

@@ -65,6 +65,7 @@ export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __Met
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class DeleteTapePoolCommand extends $Command

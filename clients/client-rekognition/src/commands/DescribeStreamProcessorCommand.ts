@@ -131,6 +131,7 @@ export interface DescribeStreamProcessorCommandOutput extends DescribeStreamProc
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ *
  * @public
  */
 export class DescribeStreamProcessorCommand extends $Command

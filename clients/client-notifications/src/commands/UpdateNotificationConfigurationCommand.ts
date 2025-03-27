@@ -81,6 +81,7 @@ export interface UpdateNotificationConfigurationCommandOutput
  * @throws {@link NotificationsServiceException}
  * <p>Base exception class for all service exceptions from Notifications service.</p>
  *
+ *
  * @public
  */
 export class UpdateNotificationConfigurationCommand extends $Command

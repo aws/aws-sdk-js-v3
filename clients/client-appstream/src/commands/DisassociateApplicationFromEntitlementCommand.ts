@@ -73,6 +73,7 @@ export interface DisassociateApplicationFromEntitlementCommandOutput
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DisassociateApplicationFromEntitlementCommand extends $Command

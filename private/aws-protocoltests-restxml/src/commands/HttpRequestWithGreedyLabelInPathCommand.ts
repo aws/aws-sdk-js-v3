@@ -56,6 +56,7 @@ export interface HttpRequestWithGreedyLabelInPathCommandOutput extends __Metadat
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class HttpRequestWithGreedyLabelInPathCommand extends $Command
   .classBuilder<

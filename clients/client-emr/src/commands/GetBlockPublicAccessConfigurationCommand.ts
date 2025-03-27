@@ -98,6 +98,7 @@ export interface GetBlockPublicAccessConfigurationCommandOutput
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class GetBlockPublicAccessConfigurationCommand extends $Command

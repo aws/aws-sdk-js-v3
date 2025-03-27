@@ -130,6 +130,7 @@ export interface GetVpcAttachmentCommandOutput extends GetVpcAttachmentResponse,
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetVpcAttachmentCommand extends $Command

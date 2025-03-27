@@ -116,6 +116,7 @@ export interface UpdateMediaStorageConfigurationCommandOutput
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class UpdateMediaStorageConfigurationCommand extends $Command

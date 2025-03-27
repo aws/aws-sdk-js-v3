@@ -106,6 +106,7 @@ export interface DeleteDbInstanceCommandOutput extends DeleteDbInstanceOutput, _
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ *
  * @public
  */
 export class DeleteDbInstanceCommand extends $Command

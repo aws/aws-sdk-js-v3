@@ -84,6 +84,7 @@ export interface DeleteExpressionCommandOutput extends DeleteExpressionResponse,
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class DeleteExpressionCommand extends $Command

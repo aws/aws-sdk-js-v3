@@ -87,6 +87,7 @@ export interface PutEventStreamCommandOutput extends PutEventStreamResponse, __M
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class PutEventStreamCommand extends $Command

@@ -88,6 +88,7 @@ export interface GetReplicationSetCommandOutput extends GetReplicationSetOutput,
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ *
  * @public
  */
 export class GetReplicationSetCommand extends $Command

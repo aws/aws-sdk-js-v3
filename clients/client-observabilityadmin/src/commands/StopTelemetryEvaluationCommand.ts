@@ -71,6 +71,7 @@ export interface StopTelemetryEvaluationCommandOutput extends __MetadataBearer {
  * @throws {@link ObservabilityAdminServiceException}
  * <p>Base exception class for all service exceptions from ObservabilityAdmin service.</p>
  *
+ *
  * @public
  */
 export class StopTelemetryEvaluationCommand extends $Command

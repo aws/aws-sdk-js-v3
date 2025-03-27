@@ -87,6 +87,7 @@ export interface ListMediaCapturePipelinesCommandOutput extends ListMediaCapture
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class ListMediaCapturePipelinesCommand extends $Command

@@ -80,6 +80,7 @@ export interface ListProfileNotificationsCommandOutput extends ListProfileNotifi
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class ListProfileNotificationsCommand extends $Command

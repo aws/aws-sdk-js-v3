@@ -93,6 +93,7 @@ export interface StartMetadataGenerationRunCommandOutput extends StartMetadataGe
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class StartMetadataGenerationRunCommand extends $Command

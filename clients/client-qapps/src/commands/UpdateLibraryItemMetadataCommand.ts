@@ -78,20 +78,23 @@ export interface UpdateLibraryItemMetadataCommandOutput extends __MetadataBearer
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example Update a library item to be verified
  * ```javascript
  * //
  * const input = {
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
- *   "isVerified": true,
- *   "libraryItemId": "cb9ecf72-8563-450d-9db9-994f98297316"
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   isVerified: true,
+ *   libraryItemId: "cb9ecf72-8563-450d-9db9-994f98297316"
  * };
  * const command = new UpdateLibraryItemMetadataCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateLibraryItemMetadataCommand extends $Command
   .classBuilder<

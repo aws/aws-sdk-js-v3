@@ -102,6 +102,7 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class BatchDeleteDocumentCommand extends $Command

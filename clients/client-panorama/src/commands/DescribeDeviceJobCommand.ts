@@ -78,6 +78,7 @@ export interface DescribeDeviceJobCommandOutput extends DescribeDeviceJobRespons
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class DescribeDeviceJobCommand extends $Command

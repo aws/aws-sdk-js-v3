@@ -62,6 +62,7 @@ export interface DeleteStudioLifecycleConfigCommandOutput extends __MetadataBear
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteStudioLifecycleConfigCommand extends $Command

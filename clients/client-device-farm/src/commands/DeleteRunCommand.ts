@@ -66,18 +66,21 @@ export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBeare
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To delete a run
  * ```javascript
  * // The following example deletes a specific test run.
  * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:run:EXAMPLE-GUID-123-456"
+ *   arn: "arn:aws:devicefarm:us-west-2:123456789101:run:EXAMPLE-GUID-123-456"
  * };
  * const command = new DeleteRunCommand(input);
- * await client.send(command);
- * // example id: deleterun-example-1470867905129
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteRunCommand extends $Command
   .classBuilder<

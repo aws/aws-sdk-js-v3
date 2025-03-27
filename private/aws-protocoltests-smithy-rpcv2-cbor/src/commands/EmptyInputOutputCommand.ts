@@ -50,6 +50,7 @@ export interface EmptyInputOutputCommandOutput extends EmptyStructure, __Metadat
  * @throws {@link RpcV2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from RpcV2Protocol service.</p>
  *
+ *
  */
 export class EmptyInputOutputCommand extends $Command
   .classBuilder<

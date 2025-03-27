@@ -125,6 +125,7 @@ export interface UpdatePipelineStatusCommandOutput extends UpdatePipelineStatusR
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ *
  * @public
  */
 export class UpdatePipelineStatusCommand extends $Command

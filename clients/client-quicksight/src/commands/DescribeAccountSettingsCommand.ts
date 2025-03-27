@@ -86,6 +86,7 @@ export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSet
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccountSettingsCommand extends $Command

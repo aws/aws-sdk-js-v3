@@ -93,6 +93,7 @@ export interface ListGroupingStatusesCommandOutput extends ListGroupingStatusesO
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class ListGroupingStatusesCommand extends $Command

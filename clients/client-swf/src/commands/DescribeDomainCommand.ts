@@ -93,6 +93,7 @@ export interface DescribeDomainCommandOutput extends DomainDetail, __MetadataBea
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class DescribeDomainCommand extends $Command

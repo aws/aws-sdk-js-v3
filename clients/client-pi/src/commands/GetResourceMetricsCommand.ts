@@ -111,6 +111,7 @@ export interface GetResourceMetricsCommandOutput extends GetResourceMetricsRespo
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ *
  * @public
  */
 export class GetResourceMetricsCommand extends $Command

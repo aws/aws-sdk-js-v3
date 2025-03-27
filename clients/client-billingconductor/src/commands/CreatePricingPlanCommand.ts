@@ -95,6 +95,7 @@ export interface CreatePricingPlanCommandOutput extends CreatePricingPlanOutput,
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ *
  * @public
  */
 export class CreatePricingPlanCommand extends $Command

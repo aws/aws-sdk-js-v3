@@ -86,27 +86,27 @@ export interface GetFacetCommandOutput extends GetFacetResponse, __MetadataBeare
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To get information about a facet
  * ```javascript
  * //
  * const input = {
- *   "Name": "node2",
- *   "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
+ *   Name: "node2",
+ *   SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
  * };
  * const command = new GetFacetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Facet": {
- *     "Name": "node2",
- *     "ObjectType": "NODE"
+ *   Facet: {
+ *     Name: "node2",
+ *     ObjectType: "NODE"
  *   }
  * }
  * *\/
- * // example id: to-get-information-about-a-facet-1507234748374
  * ```
  *
+ * @public
  */
 export class GetFacetCommand extends $Command
   .classBuilder<

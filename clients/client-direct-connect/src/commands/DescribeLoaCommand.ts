@@ -67,6 +67,7 @@ export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeLoaCommand extends $Command

@@ -75,6 +75,7 @@ export interface AssociateApiCommandOutput extends AssociateApiResponse, __Metad
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class AssociateApiCommand extends $Command

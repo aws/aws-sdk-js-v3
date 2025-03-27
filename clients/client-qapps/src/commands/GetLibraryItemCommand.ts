@@ -96,49 +96,49 @@ export interface GetLibraryItemCommandOutput extends GetLibraryItemOutput, __Met
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example Retrieve a library item
  * ```javascript
  * //
  * const input = {
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
- *   "libraryItemId": "18cbebaa-196a-4aa5-a840-88d548e07f8f"
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   libraryItemId: "18cbebaa-196a-4aa5-a840-88d548e07f8f"
  * };
  * const command = new GetLibraryItemCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "appId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
- *   "appVersion": 1,
- *   "categories": [
+ *   appId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   appVersion: 1,
+ *   categories: [
  *     {
- *       "id": "9c871ed4-1c41-4065-aefe-321cd4b61cf8",
- *       "title": "HR"
+ *       id: "9c871ed4-1c41-4065-aefe-321cd4b61cf8",
+ *       title: "HR"
  *     },
  *     {
- *       "id": "fdc4b483-c4e2-44c9-b4b2-6c850bbdb579",
- *       "title": "General"
+ *       id: "fdc4b483-c4e2-44c9-b4b2-6c850bbdb579",
+ *       title: "General"
  *     },
  *     {
- *       "id": "c1c4e374-118c-446f-81fb-cba6225d88da",
- *       "title": "IT"
+ *       id: "c1c4e374-118c-446f-81fb-cba6225d88da",
+ *       title: "IT"
  *     }
  *   ],
- *   "createdAt": "2024-05-08T16:09:56.080Z",
- *   "createdBy": "a841e300-40c1-7062-fa34-5b46dadbbaac",
- *   "isRatedByUser": false,
- *   "isVerified": false,
- *   "libraryItemId": "18cbebaa-196a-4aa5-a840-88d548e07f8f",
- *   "ratingCount": 0,
- *   "status": "PUBLISHED",
- *   "updatedAt": "2024-05-08T16:09:56.080Z",
- *   "updatedBy": "a841e300-40c1-7062-fa34-5b46dadbbaac",
- *   "userCount": 1
+ *   createdAt: "2024-05-08T16:09:56.080Z",
+ *   createdBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *   isRatedByUser: false,
+ *   isVerified: false,
+ *   libraryItemId: "18cbebaa-196a-4aa5-a840-88d548e07f8f",
+ *   ratingCount: 0,
+ *   status: "PUBLISHED",
+ *   updatedAt: "2024-05-08T16:09:56.080Z",
+ *   updatedBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *   userCount: 1
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetLibraryItemCommand extends $Command
   .classBuilder<

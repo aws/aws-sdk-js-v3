@@ -84,24 +84,24 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To invoke a Lambda function asynchronously
  * ```javascript
  * // The following example invokes a Lambda function asynchronously
  * const input = {
- *   "FunctionName": "my-function",
- *   "InvokeArgs": "{}"
+ *   FunctionName: "my-function",
+ *   InvokeArgs: "{}"
  * };
  * const command = new InvokeAsyncCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Status": 202
+ *   Status: 202
  * }
  * *\/
- * // example id: to-invoke-a-lambda-function-asynchronously-1481649694923
  * ```
  *
+ * @public
  */
 export class InvokeAsyncCommand extends $Command
   .classBuilder<

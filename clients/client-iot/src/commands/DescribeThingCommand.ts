@@ -83,6 +83,7 @@ export interface DescribeThingCommandOutput extends DescribeThingResponse, __Met
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeThingCommand extends $Command

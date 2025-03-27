@@ -87,26 +87,26 @@ export interface UpdateCustomActionCommandOutput extends UpdateCustomActionResul
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
- * @public
+ *
  * @example Update the command definition of an existing action
  * ```javascript
  * // Updates the command text of a custom action without altering the existing alias name or attachment criteria
  * const input = {
- *   "CustomActionArn": "arn:aws:chatbot::1234567890:custom-action/my-custom-action",
- *   "Definition": {
- *     "CommandText": "lambda invoke MyNewFunction"
+ *   CustomActionArn: "arn:aws:chatbot::1234567890:custom-action/my-custom-action",
+ *   Definition: {
+ *     CommandText: "lambda invoke MyNewFunction"
  *   }
  * };
  * const command = new UpdateCustomActionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CustomActionArn": "arn:aws:chatbot::1234567890:custom-action/my-custom-action"
+ *   CustomActionArn: "arn:aws:chatbot::1234567890:custom-action/my-custom-action"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class UpdateCustomActionCommand extends $Command
   .classBuilder<

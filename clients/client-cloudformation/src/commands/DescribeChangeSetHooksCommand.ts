@@ -85,6 +85,7 @@ export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHo
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeChangeSetHooksCommand extends $Command

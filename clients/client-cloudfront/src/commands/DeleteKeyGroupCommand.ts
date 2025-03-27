@@ -73,6 +73,7 @@ export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class DeleteKeyGroupCommand extends $Command

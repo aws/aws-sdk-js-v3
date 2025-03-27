@@ -192,6 +192,7 @@ export interface DescribeBrandPublishedVersionCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeBrandPublishedVersionCommand extends $Command

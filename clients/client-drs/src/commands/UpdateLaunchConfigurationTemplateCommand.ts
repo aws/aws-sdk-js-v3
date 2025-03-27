@@ -108,6 +108,7 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class UpdateLaunchConfigurationTemplateCommand extends $Command

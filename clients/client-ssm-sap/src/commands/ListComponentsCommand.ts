@@ -80,6 +80,7 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ *
  * @public
  */
 export class ListComponentsCommand extends $Command

@@ -86,68 +86,68 @@ export interface ListResourceScanRelatedResourcesCommandOutput
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
- * @public
+ *
  * @example To list resource scan related resources
  * ```javascript
  * // This example lists the resources related to the passed in resources
  * const input = {
- *   "ResourceScanId": "arn:aws:cloudformation:us-east-1:123456789012:resourceScan/c19304f6-c4f1-4ff8-8e1f-35162e41d7e1",
- *   "Resources": [
+ *   ResourceScanId: "arn:aws:cloudformation:us-east-1:123456789012:resourceScan/c19304f6-c4f1-4ff8-8e1f-35162e41d7e1",
+ *   Resources: [
  *     {
- *       "ResourceIdentifier": {
- *         "BucketName": "jazz-bucket"
+ *       ResourceIdentifier: {
+ *         BucketName: "jazz-bucket"
  *       },
- *       "ResourceType": "AWS::S3::Bucket"
+ *       ResourceType: "AWS::S3::Bucket"
  *     },
  *     {
- *       "ResourceIdentifier": {
- *         "DhcpOptionsId": "random-id123"
+ *       ResourceIdentifier: {
+ *         DhcpOptionsId: "random-id123"
  *       },
- *       "ResourceType": "AWS::EC2::DHCPOptions"
+ *       ResourceType: "AWS::EC2::DHCPOptions"
  *     }
  *   ]
  * };
  * const command = new ListResourceScanRelatedResourcesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "RelatedResources": [
+ *   RelatedResources: [
  *     {
- *       "ManagedByStack": false,
- *       "ResourceIdentifier": {
- *         "DhcpOptionsId": "dopt-98765edcba",
- *         "VpcId": "vpc-0123456abcdefg"
+ *       ManagedByStack: false,
+ *       ResourceIdentifier: {
+ *         DhcpOptionsId: "dopt-98765edcba",
+ *         VpcId: "vpc-0123456abcdefg"
  *       },
- *       "ResourceType": "AWS::EC2::VPCDHCPOptionsAssociation"
+ *       ResourceType: "AWS::EC2::VPCDHCPOptionsAssociation"
  *     },
  *     {
- *       "ManagedByStack": false,
- *       "ResourceIdentifier": {
- *         "VpcId": "vpc-0123456abcdefgabc"
+ *       ManagedByStack: false,
+ *       ResourceIdentifier: {
+ *         VpcId: "vpc-0123456abcdefgabc"
  *       },
- *       "ResourceType": "AWS::EC2::VPC"
+ *       ResourceType: "AWS::EC2::VPC"
  *     },
  *     {
- *       "ManagedByStack": false,
- *       "ResourceIdentifier": {
- *         "DhcpOptionsId": "dopt-98765edcba",
- *         "VpcId": "vpc-123456abcdef"
+ *       ManagedByStack: false,
+ *       ResourceIdentifier: {
+ *         DhcpOptionsId: "dopt-98765edcba",
+ *         VpcId: "vpc-123456abcdef"
  *       },
- *       "ResourceType": "AWS::EC2::VPCDHCPOptionsAssociation"
+ *       ResourceType: "AWS::EC2::VPCDHCPOptionsAssociation"
  *     },
  *     {
- *       "ManagedByStack": false,
- *       "ResourceIdentifier": {
- *         "VpcId": "vpc-12345678abcd"
+ *       ManagedByStack: false,
+ *       ResourceIdentifier: {
+ *         VpcId: "vpc-12345678abcd"
  *       },
- *       "ResourceType": "AWS::EC2::VPC"
+ *       ResourceType: "AWS::EC2::VPC"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-resource-scan-related-resources
  * ```
  *
+ * @public
  */
 export class ListResourceScanRelatedResourcesCommand extends $Command
   .classBuilder<

@@ -85,6 +85,7 @@ export interface CreateServiceProfileCommandOutput extends CreateServiceProfileR
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class CreateServiceProfileCommand extends $Command

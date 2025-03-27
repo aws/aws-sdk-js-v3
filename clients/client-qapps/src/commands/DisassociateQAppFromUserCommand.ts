@@ -73,19 +73,22 @@ export interface DisassociateQAppFromUserCommandOutput extends __MetadataBearer 
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example Unlinks an Amazon Q App from the invoker's list of apps
  * ```javascript
  * //
  * const input = {
- *   "appId": "393e77fb-0a30-4f47-ad30-75d71aeaed8a",
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
+ *   appId: "393e77fb-0a30-4f47-ad30-75d71aeaed8a",
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
  * };
  * const command = new DisassociateQAppFromUserCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DisassociateQAppFromUserCommand extends $Command
   .classBuilder<

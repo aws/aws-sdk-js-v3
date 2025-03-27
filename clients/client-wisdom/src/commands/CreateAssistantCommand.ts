@@ -96,6 +96,7 @@ export interface CreateAssistantCommandOutput extends CreateAssistantResponse, _
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class CreateAssistantCommand extends $Command

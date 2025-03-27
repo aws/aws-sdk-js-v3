@@ -73,6 +73,7 @@ export interface ListGroundStationsCommandOutput extends ListGroundStationsRespo
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class ListGroundStationsCommand extends $Command

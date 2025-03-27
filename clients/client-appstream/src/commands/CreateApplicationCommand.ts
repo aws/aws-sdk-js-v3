@@ -120,6 +120,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationResult,
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class CreateApplicationCommand extends $Command

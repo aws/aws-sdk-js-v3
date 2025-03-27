@@ -189,6 +189,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * @throws {@link MarketplaceMeteringServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
+ *
  * @public
  */
 export class BatchMeterUsageCommand extends $Command

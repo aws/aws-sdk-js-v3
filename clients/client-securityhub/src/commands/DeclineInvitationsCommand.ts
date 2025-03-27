@@ -83,26 +83,26 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To decline invitation to become a member account
  * ```javascript
  * // The following example declines an invitation from the Security Hub administrator account to become a member account. The invited account makes the request.
  * const input = {
- *   "AccountIds": [
+ *   AccountIds: [
  *     "123456789012",
  *     "111122223333"
  *   ]
  * };
  * const command = new DeclineInvitationsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "UnprocessedAccounts": []
+ *   UnprocessedAccounts:   []
  * }
  * *\/
- * // example id: to-decline-invitation-to-become-a-member-account-1675448487605
  * ```
  *
+ * @public
  */
 export class DeclineInvitationsCommand extends $Command
   .classBuilder<

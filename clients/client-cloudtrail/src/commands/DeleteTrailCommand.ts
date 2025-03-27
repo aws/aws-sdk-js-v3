@@ -129,6 +129,7 @@ export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __Metadat
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class DeleteTrailCommand extends $Command

@@ -97,23 +97,26 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To deregister a target from a target group
  * ```javascript
  * // This example deregisters the specified instance from the specified target group.
  * const input = {
- *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
- *   "Targets": [
+ *   TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *   Targets: [
  *     {
- *       "Id": "i-0f76fade"
+ *       Id: "i-0f76fade"
  *     }
  *   ]
  * };
  * const command = new DeregisterTargetsCommand(input);
- * await client.send(command);
- * // example id: elbv2-deregister-targets-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeregisterTargetsCommand extends $Command
   .classBuilder<

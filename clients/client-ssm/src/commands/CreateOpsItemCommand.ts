@@ -112,6 +112,7 @@ export interface CreateOpsItemCommandOutput extends CreateOpsItemResponse, __Met
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class CreateOpsItemCommand extends $Command

@@ -95,6 +95,7 @@ export interface GetIdMappingTableCommandOutput extends GetIdMappingTableOutput,
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class GetIdMappingTableCommand extends $Command

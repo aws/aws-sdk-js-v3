@@ -109,6 +109,7 @@ export interface DescribeStorageSystemResourceMetricsCommandOutput
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeStorageSystemResourceMetricsCommand extends $Command

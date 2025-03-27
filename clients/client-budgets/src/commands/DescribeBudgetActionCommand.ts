@@ -126,6 +126,7 @@ export interface DescribeBudgetActionCommandOutput extends DescribeBudgetActionR
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ *
  * @public
  */
 export class DescribeBudgetActionCommand extends $Command

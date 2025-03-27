@@ -268,6 +268,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class CreateRuleGroupCommand extends $Command

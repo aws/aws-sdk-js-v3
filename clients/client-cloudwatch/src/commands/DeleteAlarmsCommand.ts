@@ -77,6 +77,7 @@ export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class DeleteAlarmsCommand extends $Command

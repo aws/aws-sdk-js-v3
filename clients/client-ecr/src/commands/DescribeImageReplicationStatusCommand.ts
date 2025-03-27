@@ -94,6 +94,7 @@ export interface DescribeImageReplicationStatusCommandOutput
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class DescribeImageReplicationStatusCommand extends $Command

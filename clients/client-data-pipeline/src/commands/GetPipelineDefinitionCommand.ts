@@ -161,6 +161,7 @@ export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitio
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class GetPipelineDefinitionCommand extends $Command

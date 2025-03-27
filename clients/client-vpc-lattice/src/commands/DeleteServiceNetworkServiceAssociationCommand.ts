@@ -87,6 +87,7 @@ export interface DeleteServiceNetworkServiceAssociationCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class DeleteServiceNetworkServiceAssociationCommand extends $Command

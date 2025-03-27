@@ -106,6 +106,7 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ *
  * @public
  */
 export class UpdateResourceShareCommand extends $Command

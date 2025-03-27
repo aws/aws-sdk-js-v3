@@ -89,6 +89,7 @@ export interface RegisterDataLakeDelegatedAdministratorCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class RegisterDataLakeDelegatedAdministratorCommand extends $Command

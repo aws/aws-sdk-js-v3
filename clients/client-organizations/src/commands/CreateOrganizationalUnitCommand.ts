@@ -415,30 +415,30 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To create a new organization unit
  * ```javascript
  * // The following example shows how to create an OU that is named AccountingOU. The new OU is directly under the root.:
- * //
- * //
+ *
+ *
  * const input = {
- *   "Name": "AccountingOU",
- *   "ParentId": "r-examplerootid111"
+ *   Name: "AccountingOU",
+ *   ParentId: "r-examplerootid111"
  * };
  * const command = new CreateOrganizationalUnitCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OrganizationalUnit": {
- *     "Arn": "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
- *     "Id": "ou-examplerootid111-exampleouid111",
- *     "Name": "AccountingOU"
+ *   OrganizationalUnit: {
+ *     Arn: "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
+ *     Id: "ou-examplerootid111-exampleouid111",
+ *     Name: "AccountingOU"
  *   }
  * }
  * *\/
- * // example id: to-create-a-new-organizational-unit
  * ```
  *
+ * @public
  */
 export class CreateOrganizationalUnitCommand extends $Command
   .classBuilder<

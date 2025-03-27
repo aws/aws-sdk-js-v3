@@ -182,6 +182,7 @@ export interface BatchPutPropertyValuesCommandOutput extends BatchPutPropertyVal
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class BatchPutPropertyValuesCommand extends $Command

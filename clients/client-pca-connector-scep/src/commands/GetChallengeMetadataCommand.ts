@@ -80,6 +80,7 @@ export interface GetChallengeMetadataCommandOutput extends GetChallengeMetadataR
  * @throws {@link PcaConnectorScepServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorScep service.</p>
  *
+ *
  * @public
  */
 export class GetChallengeMetadataCommand extends $Command

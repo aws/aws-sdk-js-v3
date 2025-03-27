@@ -110,6 +110,7 @@ export interface DeleteSlotTypeCommandOutput extends __MetadataBearer {}
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ *
  * @public
  */
 export class DeleteSlotTypeCommand extends $Command

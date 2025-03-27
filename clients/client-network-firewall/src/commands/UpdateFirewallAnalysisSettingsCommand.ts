@@ -96,6 +96,7 @@ export interface UpdateFirewallAnalysisSettingsCommandOutput
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class UpdateFirewallAnalysisSettingsCommand extends $Command

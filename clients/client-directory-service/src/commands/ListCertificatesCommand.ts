@@ -84,6 +84,7 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResult, _
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class ListCertificatesCommand extends $Command

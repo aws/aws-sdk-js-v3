@@ -120,6 +120,7 @@ export interface CreatePermissionCommandOutput extends CreatePermissionResponse,
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ *
  * @public
  */
 export class CreatePermissionCommand extends $Command

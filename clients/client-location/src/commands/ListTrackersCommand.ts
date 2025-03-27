@@ -79,6 +79,7 @@ export interface ListTrackersCommandOutput extends ListTrackersResponse, __Metad
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class ListTrackersCommand extends $Command

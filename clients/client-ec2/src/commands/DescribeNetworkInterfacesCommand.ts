@@ -176,75 +176,75 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a network interface
  * ```javascript
  * //
  * const input = {
- *   "NetworkInterfaceIds": [
+ *   NetworkInterfaceIds: [
  *     "eni-e5aa89a3"
  *   ]
  * };
  * const command = new DescribeNetworkInterfacesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NetworkInterfaces": [
+ *   NetworkInterfaces: [
  *     {
- *       "Association": {
- *         "AssociationId": "eipassoc-0fbb766a",
- *         "IpOwnerId": "123456789012",
- *         "PublicDnsName": "ec2-203-0-113-12.compute-1.amazonaws.com",
- *         "PublicIp": "203.0.113.12"
+ *       Association: {
+ *         AssociationId: "eipassoc-0fbb766a",
+ *         IpOwnerId: "123456789012",
+ *         PublicDnsName: "ec2-203-0-113-12.compute-1.amazonaws.com",
+ *         PublicIp: "203.0.113.12"
  *       },
- *       "Attachment": {
- *         "AttachTime": "2013-11-30T23:36:42.000Z",
- *         "AttachmentId": "eni-attach-66c4350a",
- *         "DeleteOnTermination": false,
- *         "DeviceIndex": 1,
- *         "InstanceId": "i-1234567890abcdef0",
- *         "InstanceOwnerId": "123456789012",
- *         "Status": "attached"
+ *       Attachment: {
+ *         AttachTime: "2013-11-30T23:36:42.000Z",
+ *         AttachmentId: "eni-attach-66c4350a",
+ *         DeleteOnTermination: false,
+ *         DeviceIndex: 1,
+ *         InstanceId: "i-1234567890abcdef0",
+ *         InstanceOwnerId: "123456789012",
+ *         Status: "attached"
  *       },
- *       "AvailabilityZone": "us-east-1d",
- *       "Description": "my network interface",
- *       "Groups": [
+ *       AvailabilityZone: "us-east-1d",
+ *       Description: "my network interface",
+ *       Groups: [
  *         {
- *           "GroupId": "sg-8637d3e3",
- *           "GroupName": "default"
+ *           GroupId: "sg-8637d3e3",
+ *           GroupName: "default"
  *         }
  *       ],
- *       "MacAddress": "02:2f:8f:b0:cf:75",
- *       "NetworkInterfaceId": "eni-e5aa89a3",
- *       "OwnerId": "123456789012",
- *       "PrivateDnsName": "ip-10-0-1-17.ec2.internal",
- *       "PrivateIpAddress": "10.0.1.17",
- *       "PrivateIpAddresses": [
+ *       MacAddress: "02:2f:8f:b0:cf:75",
+ *       NetworkInterfaceId: "eni-e5aa89a3",
+ *       OwnerId: "123456789012",
+ *       PrivateDnsName: "ip-10-0-1-17.ec2.internal",
+ *       PrivateIpAddress: "10.0.1.17",
+ *       PrivateIpAddresses: [
  *         {
- *           "Association": {
- *             "AssociationId": "eipassoc-0fbb766a",
- *             "IpOwnerId": "123456789012",
- *             "PublicDnsName": "ec2-203-0-113-12.compute-1.amazonaws.com",
- *             "PublicIp": "203.0.113.12"
+ *           Association: {
+ *             AssociationId: "eipassoc-0fbb766a",
+ *             IpOwnerId: "123456789012",
+ *             PublicDnsName: "ec2-203-0-113-12.compute-1.amazonaws.com",
+ *             PublicIp: "203.0.113.12"
  *           },
- *           "Primary": true,
- *           "PrivateDnsName": "ip-10-0-1-17.ec2.internal",
- *           "PrivateIpAddress": "10.0.1.17"
+ *           Primary: true,
+ *           PrivateDnsName: "ip-10-0-1-17.ec2.internal",
+ *           PrivateIpAddress: "10.0.1.17"
  *         }
  *       ],
- *       "RequesterManaged": false,
- *       "SourceDestCheck": true,
- *       "Status": "in-use",
- *       "SubnetId": "subnet-b61f49f0",
- *       "TagSet": [],
- *       "VpcId": "vpc-a01106c2"
+ *       RequesterManaged: false,
+ *       SourceDestCheck: true,
+ *       Status: "in-use",
+ *       SubnetId: "subnet-b61f49f0",
+ *       TagSet:       [],
+ *       VpcId: "vpc-a01106c2"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-network-interfaces-1
  * ```
  *
+ * @public
  */
 export class DescribeNetworkInterfacesCommand extends $Command
   .classBuilder<

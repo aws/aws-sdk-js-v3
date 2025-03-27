@@ -82,6 +82,7 @@ export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class ContinueDeploymentCommand extends $Command

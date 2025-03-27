@@ -136,6 +136,7 @@ export interface InvokeModelCommandOutput extends InvokeModelCommandOutputType, 
  * @throws {@link BedrockRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockRuntime service.</p>
  *
+ *
  * @public
  */
 export class InvokeModelCommand extends $Command

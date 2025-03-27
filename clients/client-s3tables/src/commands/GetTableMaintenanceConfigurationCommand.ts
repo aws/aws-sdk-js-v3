@@ -101,6 +101,7 @@ export interface GetTableMaintenanceConfigurationCommandOutput
  * @throws {@link S3TablesServiceException}
  * <p>Base exception class for all service exceptions from S3Tables service.</p>
  *
+ *
  * @public
  */
 export class GetTableMaintenanceConfigurationCommand extends $Command

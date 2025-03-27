@@ -80,6 +80,7 @@ export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesR
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class ListInstanceProfilesCommand extends $Command

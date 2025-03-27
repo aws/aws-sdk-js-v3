@@ -93,6 +93,7 @@ export interface DescribeTunnelCommandOutput extends DescribeTunnelResponse, __M
  * @throws {@link IoTSecureTunnelingServiceException}
  * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
+ *
  * @public
  */
 export class DescribeTunnelCommand extends $Command

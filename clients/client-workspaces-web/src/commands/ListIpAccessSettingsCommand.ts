@@ -80,6 +80,7 @@ export interface ListIpAccessSettingsCommandOutput extends ListIpAccessSettingsR
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class ListIpAccessSettingsCommand extends $Command

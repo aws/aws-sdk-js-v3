@@ -78,23 +78,26 @@ export interface AddTagsToVaultCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To add tags to a vault
  * ```javascript
  * // The example adds two tags to a my-vault.
  * const input = {
- *   "Tags": {
- *     "examplekey1": "examplevalue1",
- *     "examplekey2": "examplevalue2"
+ *   Tags: {
+ *     examplekey1: "examplevalue1",
+ *     examplekey2: "examplevalue2"
  *   },
- *   "accountId": "-",
- *   "vaultName": "my-vault"
+ *   accountId: "-",
+ *   vaultName: "my-vault"
  * };
  * const command = new AddTagsToVaultCommand(input);
- * await client.send(command);
- * // example id: add-tags-to-vault-post-tags-add-1481663457694
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AddTagsToVaultCommand extends $Command
   .classBuilder<

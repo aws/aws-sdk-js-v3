@@ -115,6 +115,7 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class CreateNodeCommand extends $Command

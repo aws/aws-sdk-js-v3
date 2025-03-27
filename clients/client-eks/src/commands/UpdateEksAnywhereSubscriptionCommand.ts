@@ -111,6 +111,7 @@ export interface UpdateEksAnywhereSubscriptionCommandOutput
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class UpdateEksAnywhereSubscriptionCommand extends $Command

@@ -54,6 +54,7 @@ export interface PutWithContentEncodingCommandOutput extends __MetadataBearer {}
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class PutWithContentEncodingCommand extends $Command
   .classBuilder<

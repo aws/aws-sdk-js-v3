@@ -82,6 +82,7 @@ export interface ListPackagesCommandOutput extends ListPackagesResponse, __Metad
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class ListPackagesCommand extends $Command

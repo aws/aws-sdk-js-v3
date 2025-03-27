@@ -83,6 +83,7 @@ export interface ListTypesCommandOutput extends ListTypesResponse, __MetadataBea
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ *
  * @public
  */
 export class ListTypesCommand extends $Command

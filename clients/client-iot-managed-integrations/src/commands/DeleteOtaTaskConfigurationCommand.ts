@@ -73,6 +73,7 @@ export interface DeleteOtaTaskConfigurationCommandOutput extends __MetadataBeare
  * @throws {@link IoTManagedIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from IoTManagedIntegrations service.</p>
  *
+ *
  * @public
  */
 export class DeleteOtaTaskConfigurationCommand extends $Command

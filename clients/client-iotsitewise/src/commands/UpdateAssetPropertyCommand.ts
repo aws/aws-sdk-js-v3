@@ -83,6 +83,7 @@ export interface UpdateAssetPropertyCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class UpdateAssetPropertyCommand extends $Command

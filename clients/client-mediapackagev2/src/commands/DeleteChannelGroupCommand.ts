@@ -68,18 +68,21 @@ export interface DeleteChannelGroupCommandOutput extends DeleteChannelGroupRespo
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
- * @public
+ *
  * @example Deleting a Channel Group
  * ```javascript
  * //
  * const input = {
- *   "ChannelGroupName": "exampleChannelGroup"
+ *   ChannelGroupName: "exampleChannelGroup"
  * };
  * const command = new DeleteChannelGroupCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteChannelGroupCommand extends $Command
   .classBuilder<

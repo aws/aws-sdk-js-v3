@@ -70,6 +70,7 @@ export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinat
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class DescribeApiDestinationCommand extends $Command

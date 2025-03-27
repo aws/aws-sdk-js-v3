@@ -114,6 +114,7 @@ export interface PutTemplateActionCommandOutput extends TemplateActionDocument, 
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class PutTemplateActionCommand extends $Command

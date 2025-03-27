@@ -111,27 +111,27 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
- * @public
+ *
  * @example To create a new repository
  * ```javascript
  * // This example creates a repository called nginx-web-app inside the project-a namespace in the default registry for an account.
  * const input = {
- *   "repositoryName": "project-a/nginx-web-app"
+ *   repositoryName: "project-a/nginx-web-app"
  * };
  * const command = new CreateRepositoryCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "repository": {
- *     "registryId": "012345678901",
- *     "repositoryArn": "arn:aws:ecr:us-west-2:012345678901:repository/project-a/nginx-web-app",
- *     "repositoryName": "project-a/nginx-web-app"
+ *   repository: {
+ *     registryId: "012345678901",
+ *     repositoryArn: "arn:aws:ecr:us-west-2:012345678901:repository/project-a/nginx-web-app",
+ *     repositoryName: "project-a/nginx-web-app"
  *   }
  * }
  * *\/
- * // example id: createrepository-example-1470863688724
  * ```
  *
+ * @public
  */
 export class CreateRepositoryCommand extends $Command
   .classBuilder<

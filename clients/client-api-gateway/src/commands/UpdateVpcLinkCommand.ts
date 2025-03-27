@@ -91,6 +91,7 @@ export interface UpdateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class UpdateVpcLinkCommand extends $Command

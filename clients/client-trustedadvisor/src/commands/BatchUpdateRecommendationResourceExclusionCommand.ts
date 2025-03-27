@@ -90,6 +90,33 @@ export interface BatchUpdateRecommendationResourceExclusionCommandOutput
  * @throws {@link TrustedAdvisorServiceException}
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ *
+ * @example Batch updates the exclusion status for a list of recommendation resources
+ * ```javascript
+ * //
+ * const input = {
+ *   recommendationResourceExclusions: [
+ *     {
+ *       arn: "arn:aws:trustedadvisor::000000000000:recommendation-resource/55fa4d2e-bbb7-491a-833b-5773e9589578/18959a1f1973cff8e706e9d9bde28bba36cd602a6b2cb86c8b61252835236010",
+ *       isExcluded: true
+ *     }
+ *   ]
+ * };
+ * const command = new BatchUpdateRecommendationResourceExclusionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   batchUpdateRecommendationResourceExclusionErrors: [
+ *     {
+ *       arn: "arn:aws:trustedadvisor::000000000000:recommendation-resource/55fa4d2e-bbb7-491a-833b-5773e9589578/18959a1f1973cff8e706e9d9bde28bba36cd602a6b2cb86c8b61252835236010",
+ *       errorCode: "404",
+ *       errorMessage: "Exception that the requested resource has not been found"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class BatchUpdateRecommendationResourceExclusionCommand extends $Command

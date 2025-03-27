@@ -161,6 +161,7 @@ export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromR
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class RemoveLFTagsFromResourceCommand extends $Command

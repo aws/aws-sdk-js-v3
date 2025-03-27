@@ -88,6 +88,7 @@ export interface GetSdkCommandOutput extends GetSdkCommandOutputType, __Metadata
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetSdkCommand extends $Command

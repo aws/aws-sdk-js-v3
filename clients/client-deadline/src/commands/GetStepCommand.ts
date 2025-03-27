@@ -125,6 +125,7 @@ export interface GetStepCommandOutput extends GetStepResponse, __MetadataBearer 
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class GetStepCommand extends $Command

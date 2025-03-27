@@ -95,6 +95,7 @@ export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer 
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class GetCaseCommand extends $Command

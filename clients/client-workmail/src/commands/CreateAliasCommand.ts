@@ -88,6 +88,7 @@ export interface CreateAliasCommandOutput extends CreateAliasResponse, __Metadat
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class CreateAliasCommand extends $Command

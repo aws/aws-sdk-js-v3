@@ -118,6 +118,67 @@ export interface UpdateTrafficPolicyCommandOutput extends UpdateTrafficPolicyRes
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
+ * @example Update TrafficPolicy with new Name
+ * ```javascript
+ * //
+ * const input = {
+ *   TrafficPolicyId: "tp-12345",
+ *   TrafficPolicyName: "trafficPolicyNewName"
+ * };
+ * const command = new UpdateTrafficPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @example Update TrafficPolicy with new PolicyStatements
+ * ```javascript
+ * //
+ * const input = {
+ *   PolicyStatements: [
+ *     {
+ *       Action: "ALLOW",
+ *       Conditions: [
+ *         {
+ *           StringExpression: {
+ *             Evaluate: {
+ *               Attribute: "RECIPIENT"
+ *             },
+ *             Operator: "EQUALS",
+ *             Values: [
+ *               "example@amazon.com",
+ *               "example@gmail.com"
+ *             ]
+ *           }
+ *         }
+ *       ]
+ *     }
+ *   ],
+ *   TrafficPolicyId: "tp-12345"
+ * };
+ * const command = new UpdateTrafficPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @example Update TrafficPolicy with new DefaultAction
+ * ```javascript
+ * //
+ * const input = {
+ *   DefaultAction: "ALLOW",
+ *   TrafficPolicyId: "tp-12345"
+ * };
+ * const command = new UpdateTrafficPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateTrafficPolicyCommand extends $Command

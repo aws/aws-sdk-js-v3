@@ -85,6 +85,7 @@ export interface SetTimeBasedAutoScalingCommandOutput extends __MetadataBearer {
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class SetTimeBasedAutoScalingCommand extends $Command

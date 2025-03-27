@@ -93,6 +93,7 @@ export interface SearchQuantumTasksCommandOutput extends SearchQuantumTasksRespo
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ *
  * @public
  */
 export class SearchQuantumTasksCommand extends $Command

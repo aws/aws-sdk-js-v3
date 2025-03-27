@@ -111,45 +111,45 @@ export interface DescribeEnvironmentsCommandOutput extends EnvironmentDescriptio
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To view information about an environment
  * ```javascript
  * // The following operation retrieves information about an environment named my-env:
  * const input = {
- *   "EnvironmentNames": [
+ *   EnvironmentNames: [
  *     "my-env"
  *   ]
  * };
  * const command = new DescribeEnvironmentsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Environments": [
+ *   Environments: [
  *     {
- *       "AbortableOperationInProgress": false,
- *       "ApplicationName": "my-app",
- *       "CNAME": "my-env.elasticbeanstalk.com",
- *       "DateCreated": "2015-08-07T20:48:49.599Z",
- *       "DateUpdated": "2015-08-12T18:16:55.019Z",
- *       "EndpointURL": "awseb-e-w-AWSEBLoa-1483140XB0Q4L-109QXY8121.us-west-2.elb.amazonaws.com",
- *       "EnvironmentId": "e-rpqsewtp2j",
- *       "EnvironmentName": "my-env",
- *       "Health": "Green",
- *       "SolutionStackName": "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
- *       "Status": "Ready",
- *       "Tier": {
- *         "Name": "WebServer",
- *         "Type": "Standard",
- *         "Version": " "
+ *       AbortableOperationInProgress: false,
+ *       ApplicationName: "my-app",
+ *       CNAME: "my-env.elasticbeanstalk.com",
+ *       DateCreated: "2015-08-07T20:48:49.599Z",
+ *       DateUpdated: "2015-08-12T18:16:55.019Z",
+ *       EndpointURL: "awseb-e-w-AWSEBLoa-1483140XB0Q4L-109QXY8121.us-west-2.elb.amazonaws.com",
+ *       EnvironmentId: "e-rpqsewtp2j",
+ *       EnvironmentName: "my-env",
+ *       Health: "Green",
+ *       SolutionStackName: "64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java 8",
+ *       Status: "Ready",
+ *       Tier: {
+ *         Name: "WebServer",
+ *         Type: "Standard",
+ *         Version: " "
  *       },
- *       "VersionLabel": "7f58-stage-150812_025409"
+ *       VersionLabel: "7f58-stage-150812_025409"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-view-information-about-an-environment-1456277288662
  * ```
  *
+ * @public
  */
 export class DescribeEnvironmentsCommand extends $Command
   .classBuilder<

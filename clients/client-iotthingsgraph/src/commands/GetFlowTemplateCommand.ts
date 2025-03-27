@@ -82,6 +82,7 @@ export interface GetFlowTemplateCommandOutput extends GetFlowTemplateResponse, _
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class GetFlowTemplateCommand extends $Command

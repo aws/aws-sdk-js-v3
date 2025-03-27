@@ -101,6 +101,7 @@ export interface DeleteSlackWorkspaceConfigurationCommandOutput
  * @throws {@link SupportAppServiceException}
  * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
+ *
  * @public
  */
 export class DeleteSlackWorkspaceConfigurationCommand extends $Command

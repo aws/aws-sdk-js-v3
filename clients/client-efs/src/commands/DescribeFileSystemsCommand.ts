@@ -124,41 +124,8 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
- * @public
- * @example To describe an EFS file system
- * ```javascript
- * // This operation describes all of the EFS file systems in an account.
- * const input = {};
- * const command = new DescribeFileSystemsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "FileSystems": [
- *     {
- *       "CreationTime": "1481841524.0",
- *       "CreationToken": "tokenstring",
- *       "FileSystemId": "fs-01234567",
- *       "LifeCycleState": "available",
- *       "Name": "MyFileSystem",
- *       "NumberOfMountTargets": 1,
- *       "OwnerId": "012345678912",
- *       "PerformanceMode": "generalPurpose",
- *       "SizeInBytes": {
- *         "Value": 6144
- *       },
- *       "Tags": [
- *         {
- *           "Key": "Name",
- *           "Value": "MyFileSystem"
- *         }
- *       ]
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describe-an-efs-file-system-1481848448460
- * ```
  *
+ * @public
  */
 export class DescribeFileSystemsCommand extends $Command
   .classBuilder<

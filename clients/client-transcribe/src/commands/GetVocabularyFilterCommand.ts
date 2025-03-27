@@ -77,6 +77,7 @@ export interface GetVocabularyFilterCommandOutput extends GetVocabularyFilterRes
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class GetVocabularyFilterCommand extends $Command

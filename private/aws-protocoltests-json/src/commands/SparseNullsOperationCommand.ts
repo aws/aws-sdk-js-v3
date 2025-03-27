@@ -64,6 +64,7 @@ export interface SparseNullsOperationCommandOutput extends SparseNullsOperationI
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  */
 export class SparseNullsOperationCommand extends $Command
   .classBuilder<

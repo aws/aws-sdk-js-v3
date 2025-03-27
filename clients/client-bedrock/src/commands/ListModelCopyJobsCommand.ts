@@ -100,6 +100,7 @@ export interface ListModelCopyJobsCommandOutput extends ListModelCopyJobsRespons
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class ListModelCopyJobsCommand extends $Command

@@ -61,6 +61,7 @@ export interface DeleteAccessGrantsInstanceCommandOutput extends __MetadataBeare
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class DeleteAccessGrantsInstanceCommand extends $Command

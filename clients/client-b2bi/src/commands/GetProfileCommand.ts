@@ -80,31 +80,31 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample GetProfile call
  * ```javascript
  * //
  * const input = {
- *   "profileId": "p-60fbc37c87f04fce9"
+ *   profileId: "p-60fbc37c87f04fce9"
  * };
  * const command = new GetProfileCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "name": "Shipping Profile",
- *   "businessName": "John's Trucking",
- *   "createdAt": "2023-11-01T21:51:05.504Z",
- *   "email": "john@example.com",
- *   "logGroupName": "b2bi/p-60fbc37c87f04fce9-Logs",
- *   "logging": "ENABLED",
- *   "phone": "5555555555",
- *   "profileArn": "arn:aws:b2bi:us-west-2:123456789012:profile/p-60fbc37c87f04fce9",
- *   "profileId": "p-60fbc37c87f04fce9"
+ *   businessName: "John's Trucking",
+ *   createdAt: "2023-11-01T21:51:05.504Z",
+ *   email: "john@example.com",
+ *   logGroupName: "b2bi/p-60fbc37c87f04fce9-Logs",
+ *   logging: "ENABLED",
+ *   name: "Shipping Profile",
+ *   phone: "5555555555",
+ *   profileArn: "arn:aws:b2bi:us-west-2:123456789012:profile/p-60fbc37c87f04fce9",
+ *   profileId: "p-60fbc37c87f04fce9"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetProfileCommand extends $Command
   .classBuilder<

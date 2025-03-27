@@ -321,6 +321,7 @@ export interface ReadJobCommandOutput extends ReadJobResponse, __MetadataBearer 
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ *
  * @public
  */
 export class ReadJobCommand extends $Command

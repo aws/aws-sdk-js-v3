@@ -94,6 +94,7 @@ export interface GetWirelessDeviceImportTaskCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class GetWirelessDeviceImportTaskCommand extends $Command

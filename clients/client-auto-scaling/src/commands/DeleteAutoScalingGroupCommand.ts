@@ -81,30 +81,35 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To delete an Auto Scaling group
  * ```javascript
  * // This example deletes the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group"
+ *   AutoScalingGroupName: "my-auto-scaling-group"
  * };
  * const command = new DeleteAutoScalingGroupCommand(input);
- * await client.send(command);
- * // example id: autoscaling-delete-auto-scaling-group-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To delete an Auto Scaling group and all its instances
  * ```javascript
  * // This example deletes the specified Auto Scaling group and all its instances.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "ForceDelete": true
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   ForceDelete: true
  * };
  * const command = new DeleteAutoScalingGroupCommand(input);
- * await client.send(command);
- * // example id: autoscaling-delete-auto-scaling-group-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteAutoScalingGroupCommand extends $Command
   .classBuilder<

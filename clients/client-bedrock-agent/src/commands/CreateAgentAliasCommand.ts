@@ -119,6 +119,7 @@ export interface CreateAgentAliasCommandOutput extends CreateAgentAliasResponse,
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class CreateAgentAliasCommand extends $Command

@@ -90,34 +90,34 @@ export interface UpdateFindingAggregatorCommandOutput extends UpdateFindingAggre
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To update cross-Region aggregation settings
  * ```javascript
  * // The following example updates the cross-Region aggregation configuration. You use this operation to change the list of linked Regions and the treatment of new Regions. However, you cannot use this operation to change the aggregation Region.
  * const input = {
- *   "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "RegionLinkingMode": "SPECIFIED_REGIONS",
- *   "Regions": [
+ *   FindingAggregatorArn: "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   RegionLinkingMode: "SPECIFIED_REGIONS",
+ *   Regions: [
  *     "us-west-1",
  *     "us-west-2"
  *   ]
  * };
  * const command = new UpdateFindingAggregatorCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "FindingAggregationRegion": "us-east-1",
- *   "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "RegionLinkingMode": "SPECIFIED_REGIONS",
- *   "Regions": [
+ *   FindingAggregationRegion: "us-east-1",
+ *   FindingAggregatorArn: "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   RegionLinkingMode: "SPECIFIED_REGIONS",
+ *   Regions: [
  *     "us-west-1",
  *     "us-west-2"
  *   ]
  * }
  * *\/
- * // example id: to-update-cross-region-aggregation-settings-1678815536396
  * ```
  *
+ * @public
  */
 export class UpdateFindingAggregatorCommand extends $Command
   .classBuilder<

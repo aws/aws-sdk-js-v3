@@ -80,6 +80,7 @@ export interface GetMailDomainCommandOutput extends GetMailDomainResponse, __Met
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class GetMailDomainCommand extends $Command

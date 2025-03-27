@@ -87,6 +87,7 @@ export interface GetAuthenticationUrlCommandOutput extends GetAuthenticationUrlR
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ *
  * @public
  */
 export class GetAuthenticationUrlCommand extends $Command

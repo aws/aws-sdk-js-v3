@@ -81,6 +81,33 @@ export interface SendCisSessionTelemetryCommandOutput extends SendCisSessionTele
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
+ * @example Sample SendCisSessionTelemetry Call
+ * ```javascript
+ * //
+ * const input = {
+ *   messages: [
+ *     {
+ *       cisRuleDetails: "dGVzdCBleGFtcGxlCg==",
+ *       ruleId: "1.12.1",
+ *       status: "FAILED"
+ *     },
+ *     {
+ *       cisRuleDetails: "dGVzdCBleGFtcGxlCg==dGVzdCBleGFtcGxlCg",
+ *       ruleId: "1.2.1",
+ *       status: "PASSED"
+ *     }
+ *   ],
+ *   scanJobId: "624b746d-e080-44ae-8c1d-48e653365a38",
+ *   sessionToken: "624b746d-e080-44ae-8c1d-48e653365a31"
+ * };
+ * const command = new SendCisSessionTelemetryCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class SendCisSessionTelemetryCommand extends $Command

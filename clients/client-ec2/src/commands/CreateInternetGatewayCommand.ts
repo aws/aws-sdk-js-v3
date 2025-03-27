@@ -84,25 +84,25 @@ export interface CreateInternetGatewayCommandOutput extends CreateInternetGatewa
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To create an Internet gateway
  * ```javascript
  * // This example creates an Internet gateway.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new CreateInternetGatewayCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InternetGateway": {
- *     "Attachments": [],
- *     "InternetGatewayId": "igw-c0a643a9",
- *     "Tags": []
+ *   InternetGateway: {
+ *     Attachments:     [],
+ *     InternetGatewayId: "igw-c0a643a9",
+ *     Tags:     []
  *   }
  * }
  * *\/
- * // example id: ec2-create-internet-gateway-1
  * ```
  *
+ * @public
  */
 export class CreateInternetGatewayCommand extends $Command
   .classBuilder<

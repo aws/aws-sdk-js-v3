@@ -92,6 +92,7 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class AddRegionCommand extends $Command

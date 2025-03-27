@@ -142,6 +142,7 @@ export interface ListHealthEventsCommandOutput extends ListHealthEventsOutput, _
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ *
  * @public
  */
 export class ListHealthEventsCommand extends $Command

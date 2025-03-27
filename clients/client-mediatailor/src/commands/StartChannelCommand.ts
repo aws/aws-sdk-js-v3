@@ -53,6 +53,7 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class StartChannelCommand extends $Command

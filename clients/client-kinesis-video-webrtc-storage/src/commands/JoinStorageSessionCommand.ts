@@ -125,6 +125,7 @@ export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisVideoWebRTCStorageServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoWebRTCStorage service.</p>
  *
+ *
  * @public
  */
 export class JoinStorageSessionCommand extends $Command

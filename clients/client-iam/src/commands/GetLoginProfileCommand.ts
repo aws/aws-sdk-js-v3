@@ -76,26 +76,26 @@ export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, _
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To get password information for an IAM user
  * ```javascript
  * // The following command gets information about the password for the IAM user named Anika.
  * const input = {
- *   "UserName": "Anika"
+ *   UserName: "Anika"
  * };
  * const command = new GetLoginProfileCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LoginProfile": {
- *     "CreateDate": "2012-09-21T23:03:39Z",
- *     "UserName": "Anika"
+ *   LoginProfile: {
+ *     CreateDate: "2012-09-21T23:03:39Z",
+ *     UserName: "Anika"
  *   }
  * }
  * *\/
- * // example id: d6b580cc-909f-4925-9caa-d425cbc1ad47
  * ```
  *
+ * @public
  */
 export class GetLoginProfileCommand extends $Command
   .classBuilder<

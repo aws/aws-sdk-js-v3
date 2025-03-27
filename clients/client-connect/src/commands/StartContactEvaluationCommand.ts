@@ -84,6 +84,7 @@ export interface StartContactEvaluationCommandOutput extends StartContactEvaluat
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class StartContactEvaluationCommand extends $Command

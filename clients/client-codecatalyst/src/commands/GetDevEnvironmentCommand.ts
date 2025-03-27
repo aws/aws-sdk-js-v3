@@ -102,6 +102,7 @@ export interface GetDevEnvironmentCommandOutput extends GetDevEnvironmentRespons
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class GetDevEnvironmentCommand extends $Command

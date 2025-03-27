@@ -75,6 +75,7 @@ export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, _
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class PutContactPolicyCommand extends $Command

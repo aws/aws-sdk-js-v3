@@ -99,6 +99,7 @@ export interface UpdateReportPlanCommandOutput extends UpdateReportPlanOutput, _
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class UpdateReportPlanCommand extends $Command

@@ -159,6 +159,7 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ *
  * @public
  */
 export class DetectTextCommand extends $Command

@@ -118,6 +118,7 @@ export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupRes
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class UpdateEndpointGroupCommand extends $Command

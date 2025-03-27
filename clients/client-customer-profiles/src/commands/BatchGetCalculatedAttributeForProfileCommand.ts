@@ -114,6 +114,7 @@ export interface BatchGetCalculatedAttributeForProfileCommandOutput
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class BatchGetCalculatedAttributeForProfileCommand extends $Command

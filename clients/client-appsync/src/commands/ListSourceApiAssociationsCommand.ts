@@ -82,6 +82,7 @@ export interface ListSourceApiAssociationsCommandOutput extends ListSourceApiAss
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class ListSourceApiAssociationsCommand extends $Command

@@ -65,23 +65,23 @@ export interface MoveAddressToVpcCommandOutput extends MoveAddressToVpcResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To move an address to EC2-VPC
  * ```javascript
  * // This example moves the specified Elastic IP address to the EC2-VPC platform.
  * const input = {
- *   "PublicIp": "54.123.4.56"
+ *   PublicIp: "54.123.4.56"
  * };
  * const command = new MoveAddressToVpcCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Status": "MoveInProgress"
+ *   Status: "MoveInProgress"
  * }
  * *\/
- * // example id: ec2-move-address-to-vpc-1
  * ```
  *
+ * @public
  */
 export class MoveAddressToVpcCommand extends $Command
   .classBuilder<

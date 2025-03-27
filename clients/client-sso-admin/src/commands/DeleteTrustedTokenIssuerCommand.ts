@@ -79,6 +79,7 @@ export interface DeleteTrustedTokenIssuerCommandOutput extends DeleteTrustedToke
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class DeleteTrustedTokenIssuerCommand extends $Command

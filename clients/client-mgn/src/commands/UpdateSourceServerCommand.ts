@@ -184,6 +184,7 @@ export interface UpdateSourceServerCommandOutput extends SourceServer, __Metadat
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class UpdateSourceServerCommand extends $Command

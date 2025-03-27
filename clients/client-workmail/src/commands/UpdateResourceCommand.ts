@@ -113,6 +113,7 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class UpdateResourceCommand extends $Command

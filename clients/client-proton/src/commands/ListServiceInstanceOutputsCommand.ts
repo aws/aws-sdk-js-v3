@@ -83,6 +83,7 @@ export interface ListServiceInstanceOutputsCommandOutput extends ListServiceInst
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class ListServiceInstanceOutputsCommand extends $Command

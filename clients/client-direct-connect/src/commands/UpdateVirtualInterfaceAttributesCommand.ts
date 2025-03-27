@@ -120,6 +120,7 @@ export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualIn
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class UpdateVirtualInterfaceAttributesCommand extends $Command

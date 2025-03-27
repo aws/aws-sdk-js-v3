@@ -73,6 +73,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

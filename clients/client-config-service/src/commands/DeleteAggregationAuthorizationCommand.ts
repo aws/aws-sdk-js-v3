@@ -62,6 +62,7 @@ export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataB
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DeleteAggregationAuthorizationCommand extends $Command

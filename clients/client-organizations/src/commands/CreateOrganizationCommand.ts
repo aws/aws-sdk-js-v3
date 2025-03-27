@@ -422,62 +422,61 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To create a new organization with all features enabled
  * ```javascript
  * // Bill wants to create an organization using credentials from account 111111111111. The following example shows that the account becomes the master account in the new organization. Because he does not specify a feature set, the new organization defaults to all features enabled and service control policies enabled on the root:
- * //
- * //
- * const input = {};
+ *
+ *
+ * const input = { /* empty *\/ };
  * const command = new CreateOrganizationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Organization": {
- *     "Arn": "arn:aws:organizations::111111111111:organization/o-exampleorgid",
- *     "AvailablePolicyTypes": [
+ *   Organization: {
+ *     Arn: "arn:aws:organizations::111111111111:organization/o-exampleorgid",
+ *     AvailablePolicyTypes: [
  *       {
- *         "Status": "ENABLED",
- *         "Type": "SERVICE_CONTROL_POLICY"
+ *         Status: "ENABLED",
+ *         Type: "SERVICE_CONTROL_POLICY"
  *       }
  *     ],
- *     "FeatureSet": "ALL",
- *     "Id": "o-exampleorgid",
- *     "MasterAccountArn": "arn:aws:organizations::111111111111:account/o-exampleorgid/111111111111",
- *     "MasterAccountEmail": "bill@example.com",
- *     "MasterAccountId": "111111111111"
+ *     FeatureSet: "ALL",
+ *     Id: "o-exampleorgid",
+ *     MasterAccountArn: "arn:aws:organizations::111111111111:account/o-exampleorgid/111111111111",
+ *     MasterAccountEmail: "bill@example.com",
+ *     MasterAccountId: "111111111111"
  *   }
  * }
  * *\/
- * // example id: to-create-a-new-organization-with-all-features enabled
  * ```
  *
  * @example To create a new organization with consolidated billing features only
  * ```javascript
  * // In the following example, Bill creates an organization using credentials from account 111111111111, and configures the organization to support only the consolidated billing feature set:
- * //
- * //
+ *
+ *
  * const input = {
- *   "FeatureSet": "CONSOLIDATED_BILLING"
+ *   FeatureSet: "CONSOLIDATED_BILLING"
  * };
  * const command = new CreateOrganizationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Organization": {
- *     "Arn": "arn:aws:organizations::111111111111:organization/o-exampleorgid",
- *     "AvailablePolicyTypes": [],
- *     "FeatureSet": "CONSOLIDATED_BILLING",
- *     "Id": "o-exampleorgid",
- *     "MasterAccountArn": "arn:aws:organizations::111111111111:account/o-exampleorgid/111111111111",
- *     "MasterAccountEmail": "bill@example.com",
- *     "MasterAccountId": "111111111111"
+ *   Organization: {
+ *     Arn: "arn:aws:organizations::111111111111:organization/o-exampleorgid",
+ *     AvailablePolicyTypes:     [],
+ *     FeatureSet: "CONSOLIDATED_BILLING",
+ *     Id: "o-exampleorgid",
+ *     MasterAccountArn: "arn:aws:organizations::111111111111:account/o-exampleorgid/111111111111",
+ *     MasterAccountEmail: "bill@example.com",
+ *     MasterAccountId: "111111111111"
  *   }
  * }
  * *\/
- * // example id: to-create-a-new-organization-with-consolidated-billing-features-only
  * ```
  *
+ * @public
  */
 export class CreateOrganizationCommand extends $Command
   .classBuilder<

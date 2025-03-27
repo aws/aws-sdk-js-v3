@@ -94,42 +94,42 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a DHCP options set
  * ```javascript
  * // This example describes the specified DHCP options set.
  * const input = {
- *   "DhcpOptionsIds": [
+ *   DhcpOptionsIds: [
  *     "dopt-d9070ebb"
  *   ]
  * };
  * const command = new DescribeDhcpOptionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DhcpOptions": [
+ *   DhcpOptions: [
  *     {
- *       "DhcpConfigurations": [
+ *       DhcpConfigurations: [
  *         {
- *           "Key": "domain-name-servers",
- *           "Values": [
+ *           Key: "domain-name-servers",
+ *           Values: [
  *             {
- *               "Value": "10.2.5.2"
+ *               Value: "10.2.5.2"
  *             },
  *             {
- *               "Value": "10.2.5.1"
+ *               Value: "10.2.5.1"
  *             }
  *           ]
  *         }
  *       ],
- *       "DhcpOptionsId": "dopt-d9070ebb"
+ *       DhcpOptionsId: "dopt-d9070ebb"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-dhcp-options-1
  * ```
  *
+ * @public
  */
 export class DescribeDhcpOptionsCommand extends $Command
   .classBuilder<

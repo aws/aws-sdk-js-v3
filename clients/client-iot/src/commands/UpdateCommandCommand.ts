@@ -78,6 +78,7 @@ export interface UpdateCommandCommandOutput extends UpdateCommandResponse, __Met
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdateCommandCommand extends $Command

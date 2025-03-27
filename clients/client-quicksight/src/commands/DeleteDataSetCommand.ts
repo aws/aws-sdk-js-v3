@@ -77,6 +77,7 @@ export interface DeleteDataSetCommandOutput extends DeleteDataSetResponse, __Met
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DeleteDataSetCommand extends $Command

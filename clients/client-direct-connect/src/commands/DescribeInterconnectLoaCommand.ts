@@ -74,6 +74,7 @@ export interface DescribeInterconnectLoaCommandOutput extends DescribeInterconne
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeInterconnectLoaCommand extends $Command

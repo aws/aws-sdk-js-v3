@@ -65,6 +65,7 @@ export interface DeleteTagOptionCommandOutput extends DeleteTagOptionOutput, __M
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class DeleteTagOptionCommand extends $Command

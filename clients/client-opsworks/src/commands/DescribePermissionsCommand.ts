@@ -75,6 +75,7 @@ export interface DescribePermissionsCommandOutput extends DescribePermissionsRes
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class DescribePermissionsCommand extends $Command

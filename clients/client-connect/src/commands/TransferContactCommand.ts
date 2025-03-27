@@ -106,6 +106,7 @@ export interface TransferContactCommandOutput extends TransferContactResponse, _
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class TransferContactCommand extends $Command

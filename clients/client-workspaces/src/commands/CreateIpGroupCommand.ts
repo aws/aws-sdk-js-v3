@@ -91,6 +91,7 @@ export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __Metad
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class CreateIpGroupCommand extends $Command

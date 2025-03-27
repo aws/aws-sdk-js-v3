@@ -91,72 +91,71 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
- * @example To view your effective account settings
- * ```javascript
- * // This example displays the effective account settings for your account.
- * const input = {
- *   "effectiveSettings": true
- * };
- * const command = new ListAccountSettingsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "settings": [
- *     {
- *       "name": "containerInstanceLongArnFormat",
- *       "value": "disabled",
- *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
- *     },
- *     {
- *       "name": "serviceLongArnFormat",
- *       "value": "enabled",
- *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
- *     },
- *     {
- *       "name": "taskLongArnFormat",
- *       "value": "disabled",
- *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-view-your-account-settings-1549524118170
- * ```
  *
  * @example To view the effective account settings for a specific IAM user or IAM role
  * ```javascript
  * // This example displays the effective account settings for the specified user or role.
  * const input = {
- *   "effectiveSettings": true,
- *   "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *   effectiveSettings: true,
+ *   principalArn: "arn:aws:iam::<aws_account_id>:user/principalName"
  * };
  * const command = new ListAccountSettingsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "settings": [
+ *   settings: [
  *     {
- *       "name": "containerInstanceLongArnFormat",
- *       "value": "disabled",
- *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *       name: "containerInstanceLongArnFormat",
+ *       principalArn: "arn:aws:iam::<aws_account_id>:user/principalName",
+ *       value: "disabled"
  *     },
  *     {
- *       "name": "serviceLongArnFormat",
- *       "value": "enabled",
- *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *       name: "serviceLongArnFormat",
+ *       principalArn: "arn:aws:iam::<aws_account_id>:user/principalName",
+ *       value: "enabled"
  *     },
  *     {
- *       "name": "taskLongArnFormat",
- *       "value": "disabled",
- *       "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *       name: "taskLongArnFormat",
+ *       principalArn: "arn:aws:iam::<aws_account_id>:user/principalName",
+ *       value: "disabled"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-view-the-account-settings-for-a-specific-iam-user-or-iam-role-1549524237932
  * ```
  *
+ * @example To view your effective account settings
+ * ```javascript
+ * // This example displays the effective account settings for your account.
+ * const input = {
+ *   effectiveSettings: true
+ * };
+ * const command = new ListAccountSettingsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   settings: [
+ *     {
+ *       name: "containerInstanceLongArnFormat",
+ *       principalArn: "arn:aws:iam::<aws_account_id>:user/principalName",
+ *       value: "disabled"
+ *     },
+ *     {
+ *       name: "serviceLongArnFormat",
+ *       principalArn: "arn:aws:iam::<aws_account_id>:user/principalName",
+ *       value: "enabled"
+ *     },
+ *     {
+ *       name: "taskLongArnFormat",
+ *       principalArn: "arn:aws:iam::<aws_account_id>:user/principalName",
+ *       value: "disabled"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class ListAccountSettingsCommand extends $Command
   .classBuilder<

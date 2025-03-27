@@ -81,6 +81,7 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * @throws {@link ApplicationCostProfilerServiceException}
  * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
+ *
  * @public
  */
 export class PutReportDefinitionCommand extends $Command

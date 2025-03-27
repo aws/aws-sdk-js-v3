@@ -84,6 +84,7 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, _
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DescribeSessionsCommand extends $Command

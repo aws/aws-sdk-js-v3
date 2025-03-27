@@ -89,6 +89,7 @@ export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyRespo
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ *
  * @public
  */
 export class CreateAccessPolicyCommand extends $Command

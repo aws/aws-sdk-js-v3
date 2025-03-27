@@ -97,6 +97,7 @@ export interface CreateOutpostCommandOutput extends CreateOutpostOutput, __Metad
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class CreateOutpostCommand extends $Command

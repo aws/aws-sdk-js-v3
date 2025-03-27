@@ -130,6 +130,7 @@ export interface StartLoggingCommandOutput extends StartLoggingResponse, __Metad
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class StartLoggingCommand extends $Command

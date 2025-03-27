@@ -90,6 +90,7 @@ export interface ListModelCustomizationJobsCommandOutput extends ListModelCustom
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class ListModelCustomizationJobsCommand extends $Command

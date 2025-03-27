@@ -111,6 +111,7 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetPlanCommand extends $Command

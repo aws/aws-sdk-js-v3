@@ -77,6 +77,7 @@ export interface GenerateDataSetCommandOutput extends GenerateDataSetResult, __M
  * @throws {@link MarketplaceCommerceAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCommerceAnalytics service.</p>
  *
+ *
  * @public
  */
 export class GenerateDataSetCommand extends $Command

@@ -87,32 +87,32 @@ export interface GetQAppSessionMetadataCommandOutput extends GetQAppSessionMetad
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example Retrieves an existing session metadata for an Amazon Q App
  * ```javascript
  * //
  * const input = {
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
- *   "sessionId": "56ae47c3-10bc-4c2c-8b27-9b9fe23b3edb"
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   sessionId: "56ae47c3-10bc-4c2c-8b27-9b9fe23b3edb"
  * };
  * const command = new GetQAppSessionMetadataCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "sessionArn": "arn:aws:qapps:us-west-2:0123456789012:application/cbea8329-41c0-4566-a112-19250921a220/qapp/387ccac9-4717-489f-841f-729b7d7de355/session/56ae47c3-10bc-4c2c-8b27-9b9fe23b3edb",
- *   "sessionId": "56ae47c3-10bc-4c2c-8b27-9b9fe23b3edb",
- *   "sessionName": "Trip itinerary collection session",
- *   "sessionOwner": true,
- *   "sharingConfiguration": {
- *     "acceptResponses": true,
- *     "enabled": true,
- *     "revealCards": false
+ *   sessionArn: "arn:aws:qapps:us-west-2:0123456789012:application/cbea8329-41c0-4566-a112-19250921a220/qapp/387ccac9-4717-489f-841f-729b7d7de355/session/56ae47c3-10bc-4c2c-8b27-9b9fe23b3edb",
+ *   sessionId: "56ae47c3-10bc-4c2c-8b27-9b9fe23b3edb",
+ *   sessionName: "Trip itinerary collection session",
+ *   sessionOwner: true,
+ *   sharingConfiguration: {
+ *     acceptResponses: true,
+ *     enabled: true,
+ *     revealCards: false
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetQAppSessionMetadataCommand extends $Command
   .classBuilder<

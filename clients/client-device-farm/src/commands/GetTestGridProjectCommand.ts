@@ -79,6 +79,7 @@ export interface GetTestGridProjectCommandOutput extends GetTestGridProjectResul
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class GetTestGridProjectCommand extends $Command

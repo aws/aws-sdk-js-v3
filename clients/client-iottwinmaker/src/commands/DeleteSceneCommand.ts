@@ -69,6 +69,7 @@ export interface DeleteSceneCommandOutput extends DeleteSceneResponse, __Metadat
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteSceneCommand extends $Command

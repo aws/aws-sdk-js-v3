@@ -85,6 +85,7 @@ export interface PutProfileObjectCommandOutput extends PutProfileObjectResponse,
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class PutProfileObjectCommand extends $Command

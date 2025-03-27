@@ -110,6 +110,7 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesRes
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
  * @public
  */
 export class GetObjectAttributesCommand extends $Command

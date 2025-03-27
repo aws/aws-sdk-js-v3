@@ -79,6 +79,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link KinesisAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationsCommand extends $Command

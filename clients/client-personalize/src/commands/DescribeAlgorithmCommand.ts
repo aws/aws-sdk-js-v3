@@ -105,6 +105,7 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmRespons
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class DescribeAlgorithmCommand extends $Command

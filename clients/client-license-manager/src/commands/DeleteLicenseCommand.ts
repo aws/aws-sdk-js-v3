@@ -82,6 +82,7 @@ export interface DeleteLicenseCommandOutput extends DeleteLicenseResponse, __Met
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteLicenseCommand extends $Command

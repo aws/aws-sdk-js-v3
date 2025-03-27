@@ -118,6 +118,7 @@ export interface GetDataflowEndpointGroupCommandOutput extends GetDataflowEndpoi
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class GetDataflowEndpointGroupCommand extends $Command

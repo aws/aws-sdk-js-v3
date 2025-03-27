@@ -73,6 +73,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class ListConnectionsCommand extends $Command

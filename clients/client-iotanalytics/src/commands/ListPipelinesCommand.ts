@@ -82,6 +82,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ *
  * @public
  */
 export class ListPipelinesCommand extends $Command

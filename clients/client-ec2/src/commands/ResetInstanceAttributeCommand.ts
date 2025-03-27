@@ -63,19 +63,22 @@ export interface ResetInstanceAttributeCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To reset the sourceDestCheck attribute
  * ```javascript
  * // This example resets the sourceDestCheck attribute for the specified instance.
  * const input = {
- *   "Attribute": "sourceDestCheck",
- *   "InstanceId": "i-1234567890abcdef0"
+ *   Attribute: "sourceDestCheck",
+ *   InstanceId: "i-1234567890abcdef0"
  * };
  * const command = new ResetInstanceAttributeCommand(input);
- * await client.send(command);
- * // example id: to-reset-the-sourcedestcheck-attribute-1529359630708
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ResetInstanceAttributeCommand extends $Command
   .classBuilder<

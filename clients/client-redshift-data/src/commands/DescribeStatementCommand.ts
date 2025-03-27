@@ -108,6 +108,7 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ *
  * @public
  */
 export class DescribeStatementCommand extends $Command

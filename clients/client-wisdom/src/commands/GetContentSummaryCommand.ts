@@ -81,6 +81,7 @@ export interface GetContentSummaryCommandOutput extends GetContentSummaryRespons
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class GetContentSummaryCommand extends $Command

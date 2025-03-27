@@ -82,20 +82,23 @@ export interface CreateLBCookieStickinessPolicyCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To generate a duration-based stickiness policy for your load balancer
  * ```javascript
  * // This example generates a stickiness policy with sticky session lifetimes controlled by the specified expiration period.
  * const input = {
- *   "CookieExpirationPeriod": 60,
- *   "LoadBalancerName": "my-load-balancer",
- *   "PolicyName": "my-duration-cookie-policy"
+ *   CookieExpirationPeriod: 60,
+ *   LoadBalancerName: "my-load-balancer",
+ *   PolicyName: "my-duration-cookie-policy"
  * };
  * const command = new CreateLBCookieStickinessPolicyCommand(input);
- * await client.send(command);
- * // example id: elb-create-lb-cookie-stickiness-policy-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateLBCookieStickinessPolicyCommand extends $Command
   .classBuilder<

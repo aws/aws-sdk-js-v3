@@ -81,6 +81,7 @@ export interface GetListElementsCommandOutput extends GetListElementsResult, __M
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class GetListElementsCommand extends $Command

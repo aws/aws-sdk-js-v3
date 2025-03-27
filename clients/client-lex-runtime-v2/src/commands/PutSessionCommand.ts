@@ -162,6 +162,11 @@ export interface PutSessionCommandOutput extends Omit<PutSessionResponse, "audio
  * };
  * const command = new PutSessionCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.audioStream.transformToByteArray();
+ * // const str = await response.audioStream.transformToString();
+ * // response.audioStream.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // PutSessionResponse
  * //   contentType: "STRING_VALUE",
  * //   messages: "STRING_VALUE",
@@ -205,6 +210,7 @@ export interface PutSessionCommandOutput extends Omit<PutSessionResponse, "audio
  *
  * @throws {@link LexRuntimeV2ServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
+ *
  *
  * @public
  */

@@ -121,6 +121,7 @@ export interface ListTokenBalancesCommandOutput extends ListTokenBalancesOutput,
  * @throws {@link ManagedBlockchainQueryServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
+ *
  * @public
  */
 export class ListTokenBalancesCommand extends $Command

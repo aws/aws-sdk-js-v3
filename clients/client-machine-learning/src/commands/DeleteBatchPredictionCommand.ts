@@ -69,6 +69,7 @@ export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictio
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class DeleteBatchPredictionCommand extends $Command

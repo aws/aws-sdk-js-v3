@@ -218,6 +218,7 @@ export interface TransferDomainCommandOutput extends TransferDomainResponse, __M
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ *
  * @public
  */
 export class TransferDomainCommand extends $Command

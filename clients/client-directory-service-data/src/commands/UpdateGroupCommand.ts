@@ -106,6 +106,7 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataB
  * @throws {@link DirectoryServiceDataServiceException}
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
+ *
  * @public
  */
 export class UpdateGroupCommand extends $Command

@@ -73,33 +73,33 @@ export interface ListUserTagsCommandOutput extends ListUserTagsResponse, __Metad
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To list the tags attached to an IAM user
  * ```javascript
  * // The following example shows how to list the tags attached to a user.
  * const input = {
- *   "UserName": "anika"
+ *   UserName: "anika"
  * };
  * const command = new ListUserTagsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "IsTruncated": false,
- *   "Tags": [
+ *   IsTruncated: false,
+ *   Tags: [
  *     {
- *       "Key": "Dept",
- *       "Value": "12345"
+ *       Key: "Dept",
+ *       Value: "12345"
  *     },
  *     {
- *       "Key": "Team",
- *       "Value": "Accounting"
+ *       Key: "Team",
+ *       Value: "Accounting"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-the-tags-attached-to-an-iam-user-1506719473186
  * ```
  *
+ * @public
  */
 export class ListUserTagsCommand extends $Command
   .classBuilder<

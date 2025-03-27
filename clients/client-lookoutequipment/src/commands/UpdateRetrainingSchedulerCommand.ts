@@ -80,20 +80,23 @@ export interface UpdateRetrainingSchedulerCommandOutput extends __MetadataBearer
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
- * @public
+ *
  * @example Updates a retraining scheduler
  * ```javascript
  * //
  * const input = {
- *   "ModelName": "sample-model",
- *   "RetrainingFrequency": "P1Y",
- *   "RetrainingStartDate": "2024-01-01T00:00:00Z"
+ *   ModelName: "sample-model",
+ *   RetrainingFrequency: "P1Y",
+ *   RetrainingStartDate: "2024-01-01T00:00:00Z"
  * };
  * const command = new UpdateRetrainingSchedulerCommand(input);
- * await client.send(command);
- * // example id: updates-a-retraining-scheduler-1694019840918
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateRetrainingSchedulerCommand extends $Command
   .classBuilder<

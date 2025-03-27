@@ -91,6 +91,7 @@ export interface ListImageSetVersionsCommandOutput extends ListImageSetVersionsR
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ *
  * @public
  */
 export class ListImageSetVersionsCommand extends $Command

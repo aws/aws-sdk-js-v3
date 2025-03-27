@@ -73,6 +73,7 @@ export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyRes
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class SetRepositoryPolicyCommand extends $Command

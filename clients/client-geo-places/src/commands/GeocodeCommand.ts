@@ -220,6 +220,7 @@ export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer 
  * @throws {@link GeoPlacesServiceException}
  * <p>Base exception class for all service exceptions from GeoPlaces service.</p>
  *
+ *
  * @public
  */
 export class GeocodeCommand extends $Command

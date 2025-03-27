@@ -101,6 +101,7 @@ export interface ListCollaborationIdNamespaceAssociationsCommandOutput
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class ListCollaborationIdNamespaceAssociationsCommand extends $Command

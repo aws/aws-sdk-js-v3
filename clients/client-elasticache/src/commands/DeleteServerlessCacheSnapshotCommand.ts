@@ -86,6 +86,7 @@ export interface DeleteServerlessCacheSnapshotCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class DeleteServerlessCacheSnapshotCommand extends $Command

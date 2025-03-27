@@ -96,6 +96,7 @@ export interface UpdatePrimaryEmailAddressCommandOutput extends UpdatePrimaryEma
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class UpdatePrimaryEmailAddressCommand extends $Command

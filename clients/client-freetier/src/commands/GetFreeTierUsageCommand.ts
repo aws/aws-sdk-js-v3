@@ -114,6 +114,7 @@ export interface GetFreeTierUsageCommandOutput extends GetFreeTierUsageResponse,
  * @throws {@link FreeTierServiceException}
  * <p>Base exception class for all service exceptions from FreeTier service.</p>
  *
+ *
  * @public
  */
 export class GetFreeTierUsageCommand extends $Command

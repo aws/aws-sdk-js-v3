@@ -82,6 +82,7 @@ export interface CreateSourceRepositoryCommandOutput extends CreateSourceReposit
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class CreateSourceRepositoryCommand extends $Command

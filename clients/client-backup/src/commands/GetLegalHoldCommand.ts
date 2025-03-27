@@ -89,6 +89,7 @@ export interface GetLegalHoldCommandOutput extends GetLegalHoldOutput, __Metadat
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class GetLegalHoldCommand extends $Command

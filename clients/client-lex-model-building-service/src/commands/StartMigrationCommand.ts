@@ -92,6 +92,7 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ *
  * @public
  */
 export class StartMigrationCommand extends $Command

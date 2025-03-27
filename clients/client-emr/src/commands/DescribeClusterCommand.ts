@@ -183,6 +183,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterOutput, __M
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class DescribeClusterCommand extends $Command

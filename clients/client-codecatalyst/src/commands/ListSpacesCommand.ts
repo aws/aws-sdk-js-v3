@@ -83,6 +83,7 @@ export interface ListSpacesCommandOutput extends ListSpacesResponse, __MetadataB
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class ListSpacesCommand extends $Command

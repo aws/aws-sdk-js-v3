@@ -103,43 +103,48 @@ export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
- * @example To make an AMI public
- * ```javascript
- * // This example makes the specified AMI public.
- * const input = {
- *   "ImageId": "ami-5731123e",
- *   "LaunchPermission": {
- *     "Add": [
- *       {
- *         "Group": "all"
- *       }
- *     ]
- *   }
- * };
- * const command = new ModifyImageAttributeCommand(input);
- * await client.send(command);
- * // example id: to-make-an-ami-public-1529357395278
- * ```
  *
  * @example To grant launch permissions
  * ```javascript
  * // This example grants launch permissions for the specified AMI to the specified AWS account.
  * const input = {
- *   "ImageId": "ami-5731123e",
- *   "LaunchPermission": {
- *     "Add": [
+ *   ImageId: "ami-5731123e",
+ *   LaunchPermission: {
+ *     Add: [
  *       {
- *         "UserId": "123456789012"
+ *         UserId: "123456789012"
  *       }
  *     ]
  *   }
  * };
  * const command = new ModifyImageAttributeCommand(input);
- * await client.send(command);
- * // example id: to-grant-launch-permissions-1529357727906
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @example To make an AMI public
+ * ```javascript
+ * // This example makes the specified AMI public.
+ * const input = {
+ *   ImageId: "ami-5731123e",
+ *   LaunchPermission: {
+ *     Add: [
+ *       {
+ *         Group: "all"
+ *       }
+ *     ]
+ *   }
+ * };
+ * const command = new ModifyImageAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class ModifyImageAttributeCommand extends $Command
   .classBuilder<

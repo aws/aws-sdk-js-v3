@@ -80,6 +80,7 @@ export interface DeleteExperienceCommandOutput extends DeleteExperienceResponse,
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class DeleteExperienceCommand extends $Command

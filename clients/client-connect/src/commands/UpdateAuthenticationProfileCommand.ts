@@ -83,6 +83,7 @@ export interface UpdateAuthenticationProfileCommandOutput extends __MetadataBear
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateAuthenticationProfileCommand extends $Command

@@ -66,6 +66,7 @@ export interface CreateModelPackageGroupCommandOutput extends CreateModelPackage
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateModelPackageGroupCommand extends $Command

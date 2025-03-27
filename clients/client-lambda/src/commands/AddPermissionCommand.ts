@@ -108,47 +108,46 @@ export interface AddPermissionCommandOutput extends AddPermissionResponse, __Met
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To grant Amazon S3 permission to invoke a function
  * ```javascript
  * // The following example adds permission for Amazon S3 to invoke a Lambda function named my-function for notifications from a bucket named my-bucket-1xpuxmplzrlbh in account 123456789012.
  * const input = {
- *   "Action": "lambda:InvokeFunction",
- *   "FunctionName": "my-function",
- *   "Principal": "s3.amazonaws.com",
- *   "SourceAccount": "123456789012",
- *   "SourceArn": "arn:aws:s3:::my-bucket-1xpuxmplzrlbh/*",
- *   "StatementId": "s3"
+ *   Action: "lambda:InvokeFunction",
+ *   FunctionName: "my-function",
+ *   Principal: "s3.amazonaws.com",
+ *   SourceAccount: "123456789012",
+ *   SourceArn: "arn:aws:s3:::my-bucket-1xpuxmplzrlbh/*",
+ *   StatementId: "s3"
  * };
  * const command = new AddPermissionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Statement": "{\"Sid\":\"s3\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"s3.amazonaws.com\"},\"Action\":\"lambda:InvokeFunction\",\"Resource\":\"arn:aws:lambda:us-east-2:123456789012:function:my-function\",\"Condition\":{\"StringEquals\":{\"AWS:SourceAccount\":\"123456789012\"},\"ArnLike\":{\"AWS:SourceArn\":\"arn:aws:s3:::my-bucket-1xpuxmplzrlbh\"}}}"
+ *   Statement: `{"Sid":"s3","Effect":"Allow","Principal":{"Service":"s3.amazonaws.com"},"Action":"lambda:InvokeFunction","Resource":"arn:aws:lambda:us-east-2:123456789012:function:my-function","Condition":{"StringEquals":{"AWS:SourceAccount":"123456789012"},"ArnLike":{"AWS:SourceArn":"arn:aws:s3:::my-bucket-1xpuxmplzrlbh"}}}`
  * }
  * *\/
- * // example id: add-permission-1474651469455
  * ```
  *
  * @example To grant another account permission to invoke a function
  * ```javascript
  * // The following example adds permission for account 223456789012 invoke a Lambda function named my-function.
  * const input = {
- *   "Action": "lambda:InvokeFunction",
- *   "FunctionName": "my-function",
- *   "Principal": "223456789012",
- *   "StatementId": "xaccount"
+ *   Action: "lambda:InvokeFunction",
+ *   FunctionName: "my-function",
+ *   Principal: "223456789012",
+ *   StatementId: "xaccount"
  * };
  * const command = new AddPermissionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Statement": "{\"Sid\":\"xaccount\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::223456789012:root\"},\"Action\":\"lambda:InvokeFunction\",\"Resource\":\"arn:aws:lambda:us-east-2:123456789012:function:my-function\"}"
+ *   Statement: `{"Sid":"xaccount","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::223456789012:root"},"Action":"lambda:InvokeFunction","Resource":"arn:aws:lambda:us-east-2:123456789012:function:my-function"}`
  * }
  * *\/
- * // example id: add-permission-1474651469456
  * ```
  *
+ * @public
  */
 export class AddPermissionCommand extends $Command
   .classBuilder<

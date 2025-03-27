@@ -240,36 +240,36 @@ export interface CreateIdentitySourceCommandOutput extends CreateIdentitySourceO
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
- * @public
+ *
  * @example To create an identity source
  * ```javascript
  * // The following ``create-identity-source`` example creates an identity source that lets you reference identities stored in the specified Amazon Cognito user pool. Those identities are available in Verified Permissions as entities of type ``User``.
  * const input = {
- *   "clientToken": "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
- *   "configuration": {
- *     "cognitoUserPoolConfiguration": {
- *       "clientIds": [
+ *   clientToken: "a1b2c3d4-e5f6-a1b2-c3d4-TOKEN1111111",
+ *   configuration: {
+ *     cognitoUserPoolConfiguration: {
+ *       clientIds: [
  *         "a1b2c3d4e5f6g7h8i9j0kalbmc"
  *       ],
- *       "userPoolArn": "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"
+ *       userPoolArn: "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"
  *     }
  *   },
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
- *   "principalEntityType": "User"
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   principalEntityType: "User"
  * };
  * const command = new CreateIdentitySourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "createdDate": "2024-08-12T18:20:50.99Z",
- *   "identitySourceId": "ISEXAMPLEabcdefg111111",
- *   "lastUpdatedDate": "2024-08-12T18:20:50.99Z",
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a"
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   identitySourceId: "ISEXAMPLEabcdefg111111",
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class CreateIdentitySourceCommand extends $Command
   .classBuilder<

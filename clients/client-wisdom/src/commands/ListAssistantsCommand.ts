@@ -81,6 +81,7 @@ export interface ListAssistantsCommandOutput extends ListAssistantsResponse, __M
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class ListAssistantsCommand extends $Command

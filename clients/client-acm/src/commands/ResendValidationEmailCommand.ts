@@ -77,6 +77,7 @@ export interface ResendValidationEmailCommandOutput extends __MetadataBearer {}
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ *
  * @public
  */
 export class ResendValidationEmailCommand extends $Command

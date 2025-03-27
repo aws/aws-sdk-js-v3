@@ -80,6 +80,7 @@ export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershi
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ *
  * @public
  */
 export class DeleteGroupMembershipCommand extends $Command

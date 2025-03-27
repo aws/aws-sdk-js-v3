@@ -84,6 +84,7 @@ export interface GetEnvironmentTemplateCommandOutput extends GetEnvironmentTempl
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class GetEnvironmentTemplateCommand extends $Command

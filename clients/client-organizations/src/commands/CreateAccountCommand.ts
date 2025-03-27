@@ -491,29 +491,29 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To create a new account that is automatically part of the organization
  * ```javascript
  * // The owner of an organization creates a member account in the organization. The following example shows that when the organization owner creates the member account, the account is preconfigured with the name "Production Account" and an owner email address of susan@example.com.  An IAM role is automatically created using the default name because the roleName parameter is not used. AWS Organizations sends Susan a "Welcome to AWS" email:
- * //
- * //
+ *
+ *
  * const input = {
- *   "AccountName": "Production Account",
- *   "Email": "susan@example.com"
+ *   AccountName: "Production Account",
+ *   Email: "susan@example.com"
  * };
  * const command = new CreateAccountCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CreateAccountStatus": {
- *     "Id": "car-examplecreateaccountrequestid111",
- *     "State": "IN_PROGRESS"
+ *   CreateAccountStatus: {
+ *     Id: "car-examplecreateaccountrequestid111",
+ *     State: "IN_PROGRESS"
  *   }
  * }
  * *\/
- * // example id: to-create-a-new-account-that-is-automatically-part-of-the-organization-1472501463507
  * ```
  *
+ * @public
  */
 export class CreateAccountCommand extends $Command
   .classBuilder<

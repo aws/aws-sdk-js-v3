@@ -94,6 +94,7 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ *
  * @public
  */
 export class StartAttachmentUploadCommand extends $Command

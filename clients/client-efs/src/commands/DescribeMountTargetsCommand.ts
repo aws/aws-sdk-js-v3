@@ -99,33 +99,33 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
- * @public
+ *
  * @example To describe the mount targets for a file system
  * ```javascript
  * // This operation describes all of a file system's mount targets.
  * const input = {
- *   "FileSystemId": "fs-01234567"
+ *   FileSystemId: "fs-01234567"
  * };
  * const command = new DescribeMountTargetsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "MountTargets": [
+ *   MountTargets: [
  *     {
- *       "FileSystemId": "fs-01234567",
- *       "IpAddress": "192.0.0.2",
- *       "LifeCycleState": "available",
- *       "MountTargetId": "fsmt-12340abc",
- *       "NetworkInterfaceId": "eni-cedf6789",
- *       "OwnerId": "012345678912",
- *       "SubnetId": "subnet-1234abcd"
+ *       FileSystemId: "fs-01234567",
+ *       IpAddress: "192.0.0.2",
+ *       LifeCycleState: "available",
+ *       MountTargetId: "fsmt-12340abc",
+ *       NetworkInterfaceId: "eni-cedf6789",
+ *       OwnerId: "012345678912",
+ *       SubnetId: "subnet-1234abcd"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-the-mount-targets-for-a-file-system-1481849958584
  * ```
  *
+ * @public
  */
 export class DescribeMountTargetsCommand extends $Command
   .classBuilder<

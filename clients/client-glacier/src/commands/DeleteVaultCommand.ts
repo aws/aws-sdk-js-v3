@@ -86,19 +86,22 @@ export interface DeleteVaultCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To delete a vault
  * ```javascript
  * // The example deletes a vault named my-vault:
  * const input = {
- *   "accountId": "-",
- *   "vaultName": "my-vault"
+ *   accountId: "-",
+ *   vaultName: "my-vault"
  * };
  * const command = new DeleteVaultCommand(input);
- * await client.send(command);
- * // example id: 7f7f000b-4bdb-40d2-91e6-7c902f60f60f
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteVaultCommand extends $Command
   .classBuilder<

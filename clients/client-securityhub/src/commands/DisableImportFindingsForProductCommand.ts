@@ -76,18 +76,21 @@ export interface DisableImportFindingsForProductCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To end a Security Hub integration
  * ```javascript
  * // The following example ends an integration between Security Hub and the specified product that sends findings to Security Hub. After the integration ends, the product no longer sends findings to Security  Hub.
  * const input = {
- *   "ProductSubscriptionArn": "arn:aws:securityhub:us-east-1:517716713836:product/crowdstrike/crowdstrike-falcon"
+ *   ProductSubscriptionArn: "arn:aws:securityhub:us-east-1:517716713836:product/crowdstrike/crowdstrike-falcon"
  * };
  * const command = new DisableImportFindingsForProductCommand(input);
- * await client.send(command);
- * // example id: to-end-a-security-hub-integration-1676480035650
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DisableImportFindingsForProductCommand extends $Command
   .classBuilder<

@@ -123,6 +123,7 @@ export interface ListAppVersionResourcesCommandOutput extends ListAppVersionReso
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListAppVersionResourcesCommand extends $Command

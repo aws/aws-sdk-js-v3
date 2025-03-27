@@ -215,6 +215,7 @@ export interface ListClustersV2CommandOutput extends ListClustersV2Response, __M
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class ListClustersV2Command extends $Command

@@ -76,29 +76,29 @@ export interface DescribeWorkingStorageCommandOutput extends DescribeWorkingStor
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To describe the working storage of a gateway [Depreciated]
  * ```javascript
  * // This operation is supported only for the gateway-stored volume architecture. This operation is deprecated in cached-volumes API version (20120630). Use DescribeUploadBuffer instead.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * };
  * const command = new DescribeWorkingStorageCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DiskIds": [
+ *   DiskIds: [
  *     "pci-0000:03:00.0-scsi-0:0:0:0",
  *     "pci-0000:03:00.0-scsi-0:0:1:0"
  *   ],
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "WorkingStorageAllocatedInBytes": 2199023255552,
- *   "WorkingStorageUsedInBytes": 789207040
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   WorkingStorageAllocatedInBytes: 2199023255552,
+ *   WorkingStorageUsedInBytes: 789207040
  * }
  * *\/
- * // example id: to-describe-the-working-storage-of-a-gateway-depreciated-1472070842332
  * ```
  *
+ * @public
  */
 export class DescribeWorkingStorageCommand extends $Command
   .classBuilder<

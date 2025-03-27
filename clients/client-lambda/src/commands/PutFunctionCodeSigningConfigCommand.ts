@@ -81,6 +81,7 @@ export interface PutFunctionCodeSigningConfigCommandOutput
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class PutFunctionCodeSigningConfigCommand extends $Command

@@ -78,6 +78,7 @@ export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class AssignIpv6AddressesCommand extends $Command

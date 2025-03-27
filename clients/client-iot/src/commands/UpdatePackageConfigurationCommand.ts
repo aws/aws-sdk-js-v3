@@ -71,6 +71,7 @@ export interface UpdatePackageConfigurationCommandOutput extends UpdatePackageCo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdatePackageConfigurationCommand extends $Command

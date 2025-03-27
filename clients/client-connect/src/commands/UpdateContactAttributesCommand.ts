@@ -82,6 +82,7 @@ export interface UpdateContactAttributesCommandOutput extends UpdateContactAttri
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateContactAttributesCommand extends $Command

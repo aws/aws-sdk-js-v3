@@ -68,6 +68,7 @@ export interface DeleteTestRunCommandOutput extends DeleteTestRunResponse, __Met
  * @throws {@link AppTestServiceException}
  * <p>Base exception class for all service exceptions from AppTest service.</p>
  *
+ *
  * @public
  */
 export class DeleteTestRunCommand extends $Command

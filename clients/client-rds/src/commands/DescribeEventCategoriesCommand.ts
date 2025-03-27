@@ -76,21 +76,21 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe event categories
  * ```javascript
  * // The following example retrieves details about the event categories for all available event sources.
  * const input = {
- *   "Filters": [],
- *   "SourceType": ""
+ *   Filters:   [],
+ *   SourceType: ""
  * };
  * const command = new DescribeEventCategoriesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EventCategoriesMapList": [
+ *   EventCategoriesMapList: [
  *     {
- *       "EventCategories": [
+ *       EventCategories: [
  *         "deletion",
  *         "read replica",
  *         "failover",
@@ -106,50 +106,50 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  *         "backtrack",
  *         "notification"
  *       ],
- *       "SourceType": "db-instance"
+ *       SourceType: "db-instance"
  *     },
  *     {
- *       "EventCategories": [
+ *       EventCategories: [
  *         "configuration change",
  *         "failure"
  *       ],
- *       "SourceType": "db-security-group"
+ *       SourceType: "db-security-group"
  *     },
  *     {
- *       "EventCategories": [
+ *       EventCategories: [
  *         "configuration change"
  *       ],
- *       "SourceType": "db-parameter-group"
+ *       SourceType: "db-parameter-group"
  *     },
  *     {
- *       "EventCategories": [
+ *       EventCategories: [
  *         "deletion",
  *         "creation",
  *         "restoration",
  *         "notification"
  *       ],
- *       "SourceType": "db-snapshot"
+ *       SourceType: "db-snapshot"
  *     },
  *     {
- *       "EventCategories": [
+ *       EventCategories: [
  *         "failover",
  *         "failure",
  *         "notification"
  *       ],
- *       "SourceType": "db-cluster"
+ *       SourceType: "db-cluster"
  *     },
  *     {
- *       "EventCategories": [
+ *       EventCategories: [
  *         "backup"
  *       ],
- *       "SourceType": "db-cluster-snapshot"
+ *       SourceType: "db-cluster-snapshot"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-event-categories-1680281431508
  * ```
  *
+ * @public
  */
 export class DescribeEventCategoriesCommand extends $Command
   .classBuilder<

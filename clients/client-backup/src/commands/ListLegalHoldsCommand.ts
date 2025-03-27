@@ -74,6 +74,7 @@ export interface ListLegalHoldsCommandOutput extends ListLegalHoldsOutput, __Met
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class ListLegalHoldsCommand extends $Command

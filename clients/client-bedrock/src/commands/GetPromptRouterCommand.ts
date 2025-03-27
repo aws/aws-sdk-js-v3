@@ -91,6 +91,7 @@ export interface GetPromptRouterCommandOutput extends GetPromptRouterResponse, _
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class GetPromptRouterCommand extends $Command

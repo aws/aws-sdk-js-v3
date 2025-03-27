@@ -75,6 +75,7 @@ export interface ListLandingZonesCommandOutput extends ListLandingZonesOutput, _
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class ListLandingZonesCommand extends $Command

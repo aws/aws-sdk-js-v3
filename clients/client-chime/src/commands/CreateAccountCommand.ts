@@ -95,6 +95,7 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class CreateAccountCommand extends $Command

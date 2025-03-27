@@ -85,6 +85,7 @@ export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __Metadat
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ *
  * @public
  */
 export class GetKeyspaceCommand extends $Command

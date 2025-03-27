@@ -122,6 +122,7 @@ export interface CreateNotebookInstanceCommandOutput extends CreateNotebookInsta
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateNotebookInstanceCommand extends $Command

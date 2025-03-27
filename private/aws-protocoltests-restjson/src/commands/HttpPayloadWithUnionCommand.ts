@@ -57,6 +57,7 @@ export interface HttpPayloadWithUnionCommandOutput extends HttpPayloadWithUnionI
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class HttpPayloadWithUnionCommand extends $Command

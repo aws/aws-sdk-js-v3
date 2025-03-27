@@ -226,179 +226,179 @@ export interface UpdateContainerInstancesStateCommandOutput
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To update the state of a container instance
  * ```javascript
  * // This example updates the state of the specified container instance in the default cluster to DRAINING.
  * const input = {
- *   "cluster": "default",
- *   "containerInstances": [
+ *   cluster: "default",
+ *   containerInstances: [
  *     "1c3be8ed-df30-47b4-8f1e-6e68ebd01f34"
  *   ],
- *   "status": "DRAINING"
+ *   status: "DRAINING"
  * };
  * const command = new UpdateContainerInstancesStateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "containerInstances": [
+ *   containerInstances: [
  *     {
- *       "version": 30,
- *       "agentConnected": true,
- *       "attributes": [
+ *       agentConnected: true,
+ *       attributes: [
  *         {
- *           "name": "ecs.availability-zone",
- *           "value": "us-west-2b"
+ *           name: "ecs.availability-zone",
+ *           value: "us-west-2b"
  *         },
  *         {
- *           "name": "com.amazonaws.ecs.capability.logging-driver.syslog"
+ *           name: "com.amazonaws.ecs.capability.logging-driver.syslog"
  *         },
  *         {
- *           "name": "ecs.instance-type",
- *           "value": "c4.xlarge"
+ *           name: "ecs.instance-type",
+ *           value: "c4.xlarge"
  *         },
  *         {
- *           "name": "ecs.ami-id",
- *           "value": "ami-a2ca61c2"
+ *           name: "ecs.ami-id",
+ *           value: "ami-a2ca61c2"
  *         },
  *         {
- *           "name": "com.amazonaws.ecs.capability.task-iam-role-network-host"
+ *           name: "com.amazonaws.ecs.capability.task-iam-role-network-host"
  *         },
  *         {
- *           "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+ *           name: "com.amazonaws.ecs.capability.logging-driver.awslogs"
  *         },
  *         {
- *           "name": "com.amazonaws.ecs.capability.logging-driver.json-file"
+ *           name: "com.amazonaws.ecs.capability.logging-driver.json-file"
  *         },
  *         {
- *           "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
+ *           name: "com.amazonaws.ecs.capability.docker-remote-api.1.17"
  *         },
  *         {
- *           "name": "com.amazonaws.ecs.capability.privileged-container"
+ *           name: "com.amazonaws.ecs.capability.privileged-container"
  *         },
  *         {
- *           "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+ *           name: "com.amazonaws.ecs.capability.docker-remote-api.1.18"
  *         },
  *         {
- *           "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+ *           name: "com.amazonaws.ecs.capability.docker-remote-api.1.19"
  *         },
  *         {
- *           "name": "com.amazonaws.ecs.capability.ecr-auth"
+ *           name: "com.amazonaws.ecs.capability.ecr-auth"
  *         },
  *         {
- *           "name": "ecs.os-type",
- *           "value": "linux"
+ *           name: "ecs.os-type",
+ *           value: "linux"
  *         },
  *         {
- *           "name": "com.amazonaws.ecs.capability.docker-remote-api.1.20"
+ *           name: "com.amazonaws.ecs.capability.docker-remote-api.1.20"
  *         },
  *         {
- *           "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+ *           name: "com.amazonaws.ecs.capability.docker-remote-api.1.21"
  *         },
  *         {
- *           "name": "com.amazonaws.ecs.capability.docker-remote-api.1.22"
+ *           name: "com.amazonaws.ecs.capability.docker-remote-api.1.22"
  *         },
  *         {
- *           "name": "com.amazonaws.ecs.capability.task-iam-role"
+ *           name: "com.amazonaws.ecs.capability.task-iam-role"
  *         },
  *         {
- *           "name": "com.amazonaws.ecs.capability.docker-remote-api.1.23"
+ *           name: "com.amazonaws.ecs.capability.docker-remote-api.1.23"
  *         }
  *       ],
- *       "containerInstanceArn": "arn:aws:ecs:us-west-2:012345678910:container-instance/default/1c3be8ed-df30-47b4-8f1e-6e68ebd01f34",
- *       "ec2InstanceId": "i-05d99c76955727ec6",
- *       "pendingTasksCount": 0,
- *       "registeredResources": [
+ *       containerInstanceArn: "arn:aws:ecs:us-west-2:012345678910:container-instance/default/1c3be8ed-df30-47b4-8f1e-6e68ebd01f34",
+ *       ec2InstanceId: "i-05d99c76955727ec6",
+ *       pendingTasksCount: 0,
+ *       registeredResources: [
  *         {
- *           "name": "CPU",
- *           "type": "INTEGER",
- *           "doubleValue": 0,
- *           "integerValue": 4096,
- *           "longValue": 0
+ *           doubleValue: 0,
+ *           integerValue: 4096,
+ *           longValue: 0,
+ *           name: "CPU",
+ *           type: "INTEGER"
  *         },
  *         {
- *           "name": "MEMORY",
- *           "type": "INTEGER",
- *           "doubleValue": 0,
- *           "integerValue": 7482,
- *           "longValue": 0
+ *           doubleValue: 0,
+ *           integerValue: 7482,
+ *           longValue: 0,
+ *           name: "MEMORY",
+ *           type: "INTEGER"
  *         },
  *         {
- *           "name": "PORTS",
- *           "type": "STRINGSET",
- *           "doubleValue": 0,
- *           "integerValue": 0,
- *           "longValue": 0,
- *           "stringSetValue": [
+ *           doubleValue: 0,
+ *           integerValue: 0,
+ *           longValue: 0,
+ *           name: "PORTS",
+ *           stringSetValue: [
  *             "22",
  *             "2376",
  *             "2375",
  *             "51678",
  *             "51679"
- *           ]
+ *           ],
+ *           type: "STRINGSET"
  *         },
  *         {
- *           "name": "PORTS_UDP",
- *           "type": "STRINGSET",
- *           "doubleValue": 0,
- *           "integerValue": 0,
- *           "longValue": 0,
- *           "stringSetValue": []
+ *           doubleValue: 0,
+ *           integerValue: 0,
+ *           longValue: 0,
+ *           name: "PORTS_UDP",
+ *           stringSetValue:           [],
+ *           type: "STRINGSET"
  *         }
  *       ],
- *       "remainingResources": [
+ *       remainingResources: [
  *         {
- *           "name": "CPU",
- *           "type": "INTEGER",
- *           "doubleValue": 0,
- *           "integerValue": 4096,
- *           "longValue": 0
+ *           doubleValue: 0,
+ *           integerValue: 4096,
+ *           longValue: 0,
+ *           name: "CPU",
+ *           type: "INTEGER"
  *         },
  *         {
- *           "name": "MEMORY",
- *           "type": "INTEGER",
- *           "doubleValue": 0,
- *           "integerValue": 7482,
- *           "longValue": 0
+ *           doubleValue: 0,
+ *           integerValue: 7482,
+ *           longValue: 0,
+ *           name: "MEMORY",
+ *           type: "INTEGER"
  *         },
  *         {
- *           "name": "PORTS",
- *           "type": "STRINGSET",
- *           "doubleValue": 0,
- *           "integerValue": 0,
- *           "longValue": 0,
- *           "stringSetValue": [
+ *           doubleValue: 0,
+ *           integerValue: 0,
+ *           longValue: 0,
+ *           name: "PORTS",
+ *           stringSetValue: [
  *             "22",
  *             "2376",
  *             "2375",
  *             "51678",
  *             "51679"
- *           ]
+ *           ],
+ *           type: "STRINGSET"
  *         },
  *         {
- *           "name": "PORTS_UDP",
- *           "type": "STRINGSET",
- *           "doubleValue": 0,
- *           "integerValue": 0,
- *           "longValue": 0,
- *           "stringSetValue": []
+ *           doubleValue: 0,
+ *           integerValue: 0,
+ *           longValue: 0,
+ *           name: "PORTS_UDP",
+ *           stringSetValue:           [],
+ *           type: "STRINGSET"
  *         }
  *       ],
- *       "runningTasksCount": 0,
- *       "status": "DRAINING",
- *       "versionInfo": {
- *         "agentHash": "efe53c6",
- *         "agentVersion": "1.13.1",
- *         "dockerVersion": "DockerVersion: 1.11.2"
+ *       runningTasksCount: 0,
+ *       status: "DRAINING",
+ *       version: 30,
+ *       versionInfo: {
+ *         agentHash: "efe53c6",
+ *         agentVersion: "1.13.1",
+ *         dockerVersion: "DockerVersion: 1.11.2"
  *       }
  *     }
  *   ],
- *   "failures": []
+ *   failures:   []
  * }
  * *\/
- * // example id: to-update-the-state-of-a-container-instance-1734630991280
  * ```
  *
+ * @public
  */
 export class UpdateContainerInstancesStateCommand extends $Command
   .classBuilder<

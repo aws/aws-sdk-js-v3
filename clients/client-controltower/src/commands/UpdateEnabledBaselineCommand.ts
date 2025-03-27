@@ -85,6 +85,7 @@ export interface UpdateEnabledBaselineCommandOutput extends UpdateEnabledBaselin
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class UpdateEnabledBaselineCommand extends $Command

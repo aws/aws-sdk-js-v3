@@ -94,6 +94,7 @@ export interface DescribeBandwidthRateLimitScheduleCommandOutput
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class DescribeBandwidthRateLimitScheduleCommand extends $Command

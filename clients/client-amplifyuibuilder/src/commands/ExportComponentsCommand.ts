@@ -284,6 +284,7 @@ export interface ExportComponentsCommandOutput extends ExportComponentsResponse,
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class ExportComponentsCommand extends $Command

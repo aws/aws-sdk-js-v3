@@ -48,6 +48,7 @@ export interface OnlyHttpApiKeyAuthOptionalCommandOutput extends __MetadataBeare
  * @throws {@link WeatherServiceException}
  * <p>Base exception class for all service exceptions from Weather service.</p>
  *
+ *
  */
 export class OnlyHttpApiKeyAuthOptionalCommand extends $Command
   .classBuilder<

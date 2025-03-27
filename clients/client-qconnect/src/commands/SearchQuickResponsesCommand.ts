@@ -150,6 +150,7 @@ export interface SearchQuickResponsesCommandOutput extends SearchQuickResponsesR
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class SearchQuickResponsesCommand extends $Command

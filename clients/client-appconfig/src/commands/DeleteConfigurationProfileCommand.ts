@@ -71,19 +71,22 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To delete a configuration profile
  * ```javascript
  * // The following delete-configuration-profile example deletes the specified configuration profile.
  * const input = {
- *   "ApplicationId": "339ohji",
- *   "ConfigurationProfileId": "ur8hx2f"
+ *   ApplicationId: "339ohji",
+ *   ConfigurationProfileId: "ur8hx2f"
  * };
  * const command = new DeleteConfigurationProfileCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-configuration-profile-1632265401308
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteConfigurationProfileCommand extends $Command
   .classBuilder<

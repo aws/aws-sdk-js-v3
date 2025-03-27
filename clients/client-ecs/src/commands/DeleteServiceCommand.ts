@@ -385,18 +385,21 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To delete a service
  * ```javascript
  * // This example deletes the my-http-service service. The service must have a desired count and running count of 0 before you can delete it.
  * const input = {
- *   "service": "my-http-service"
+ *   service: "my-http-service"
  * };
  * const command = new DeleteServiceCommand(input);
- * await client.send(command);
- * // example id: e8183e38-f86e-4390-b811-f74f30a6007d
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteServiceCommand extends $Command
   .classBuilder<

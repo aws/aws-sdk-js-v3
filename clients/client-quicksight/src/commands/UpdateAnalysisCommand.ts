@@ -5522,6 +5522,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateAnalysisCommand extends $Command

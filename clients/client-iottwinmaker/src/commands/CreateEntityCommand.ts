@@ -200,6 +200,7 @@ export interface CreateEntityCommandOutput extends CreateEntityResponse, __Metad
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateEntityCommand extends $Command

@@ -89,6 +89,7 @@ export interface GetBlockCommandOutput extends GetBlockResponse, __MetadataBeare
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ *
  * @public
  */
 export class GetBlockCommand extends $Command

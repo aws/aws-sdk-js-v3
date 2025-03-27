@@ -80,35 +80,35 @@ export interface ExportMetadataModelAssessmentCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Export Metadata Model Assessment
  * ```javascript
  * // Saves a copy of a database migration assessment report to your S3 bucket. DMS can save your assessment report as a comma-separated value (CSV) or a PDF file.
  * const input = {
- *   "AssessmentReportTypes": [
+ *   AssessmentReportTypes: [
  *     "pdf"
  *   ],
- *   "FileName": "file",
- *   "MigrationProjectIdentifier": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *   "SelectionRules": "{\"rules\": [{\"rule-type\": \"selection\",\"rule-id\": \"1\",\"rule-name\": \"1\",\"object-locator\": {\"server-name\": \"aurora-pg.cluster-a1b2c3d4e5f6.us-east-1.rds.amazonaws.com\", \"schema-name\": \"schema1\", \"table-name\": \"Cities\"},\"rule-action\": \"explicit\"} ]}"
+ *   FileName: "file",
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *   SelectionRules: `{"rules": [{"rule-type": "selection","rule-id": "1","rule-name": "1","object-locator": {"server-name": "aurora-pg.cluster-a1b2c3d4e5f6.us-east-1.rds.amazonaws.com", "schema-name": "schema1", "table-name": "Cities"},"rule-action": "explicit"} ]}`
  * };
  * const command = new ExportMetadataModelAssessmentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CsvReport": {
- *     "ObjectURL": "url",
- *     "S3ObjectKey": "object-name"
+ *   CsvReport: {
+ *     ObjectURL: "url",
+ *     S3ObjectKey: "object-name"
  *   },
- *   "PdfReport": {
- *     "ObjectURL": "url",
- *     "S3ObjectKey": "object-name"
+ *   PdfReport: {
+ *     ObjectURL: "url",
+ *     S3ObjectKey: "object-name"
  *   }
  * }
  * *\/
- * // example id: export-metadata-model-assessment-1689720309558
  * ```
  *
+ * @public
  */
 export class ExportMetadataModelAssessmentCommand extends $Command
   .classBuilder<

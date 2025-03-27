@@ -58,6 +58,7 @@ export interface TestGetNoPayloadCommandOutput extends TestNoPayloadInputOutput,
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class TestGetNoPayloadCommand extends $Command

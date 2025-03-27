@@ -67,6 +67,7 @@ export interface DeletePersonalAccessTokenCommandOutput extends DeletePersonalAc
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class DeletePersonalAccessTokenCommand extends $Command

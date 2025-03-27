@@ -101,6 +101,7 @@ export interface GetHITCommandOutput extends GetHITResponse, __MetadataBearer {}
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class GetHITCommand extends $Command

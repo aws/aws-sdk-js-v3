@@ -79,6 +79,7 @@ export interface DeleteThingCommandOutput extends DeleteThingResponse, __Metadat
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DeleteThingCommand extends $Command

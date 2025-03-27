@@ -96,6 +96,7 @@ export interface ListBlueprintsCommandOutput extends ListBlueprintsResponse, __M
  * @throws {@link BedrockDataAutomationServiceException}
  * <p>Base exception class for all service exceptions from BedrockDataAutomation service.</p>
  *
+ *
  * @public
  */
 export class ListBlueprintsCommand extends $Command

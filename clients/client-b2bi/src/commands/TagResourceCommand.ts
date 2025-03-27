@@ -72,24 +72,27 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample TagResource call
  * ```javascript
  * //
  * const input = {
- *   "ResourceARN": "arn:aws:b2bi:us-west-2:123456789012:profile/p-60fbc37c87f04fce9",
- *   "Tags": [
+ *   ResourceARN: "arn:aws:b2bi:us-west-2:123456789012:profile/p-60fbc37c87f04fce9",
+ *   Tags: [
  *     {
- *       "Key": "sampleKey",
- *       "Value": "SampleValue"
+ *       Key: "sampleKey",
+ *       Value: "SampleValue"
  *     }
  *   ]
  * };
  * const command = new TagResourceCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

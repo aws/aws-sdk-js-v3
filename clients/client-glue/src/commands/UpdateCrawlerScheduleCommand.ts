@@ -69,6 +69,7 @@ export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerSchedul
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class UpdateCrawlerScheduleCommand extends $Command

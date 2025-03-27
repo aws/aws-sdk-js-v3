@@ -223,28 +223,28 @@ export interface DeriveSharedSecretCommandOutput extends DeriveSharedSecretRespo
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To derive a shared secret
  * ```javascript
  * // The following example derives a shared secret using a key agreement algorithm.
  * const input = {
- *   "KeyAgreementAlgorithm": "ECDH",
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "PublicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvH3Yj0wbkLEpUl95Cv1cJVjsVNSjwGq3tCLnzXfhVwVvmzGN8pYj3U8nKwgouaHbBWNJYjP5VutbbkKS4Kv4GojwZBJyHN17kmxo8yTjRmjR15SKIQ8cqRA2uaERMLnpztIXdZp232PQPbWGxDyXYJ0aJ5EFSag"
+ *   KeyAgreementAlgorithm: "ECDH",
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   PublicKey: "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvH3Yj0wbkLEpUl95Cv1cJVjsVNSjwGq3tCLnzXfhVwVvmzGN8pYj3U8nKwgouaHbBWNJYjP5VutbbkKS4Kv4GojwZBJyHN17kmxo8yTjRmjR15SKIQ8cqRA2uaERMLnpztIXdZp232PQPbWGxDyXYJ0aJ5EFSag"
  * };
  * const command = new DeriveSharedSecretCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "KeyAgreementAlgorithm": "ECDH",
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "KeyOrigin": "AWS_KMS",
- *   "SharedSecret": "MEYCIQCKZLWyTk5runarx6XiAkU9gv3lbwPO/pHa+DXFehzdDwIhANwpsIV2g/9SPWLLsF6p/hiSskuIXMTRwqrMdVKWTMHG"
+ *   KeyAgreementAlgorithm: "ECDH",
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   KeyOrigin: "AWS_KMS",
+ *   SharedSecret: "MEYCIQCKZLWyTk5runarx6XiAkU9gv3lbwPO/pHa+DXFehzdDwIhANwpsIV2g/9SPWLLsF6p/hiSskuIXMTRwqrMdVKWTMHG"
  * }
  * *\/
- * // example id: to-derive-a-shared-secret-1718381818754
  * ```
  *
+ * @public
  */
 export class DeriveSharedSecretCommand extends $Command
   .classBuilder<

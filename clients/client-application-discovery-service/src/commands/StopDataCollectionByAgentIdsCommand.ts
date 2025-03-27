@@ -89,6 +89,7 @@ export interface StopDataCollectionByAgentIdsCommandOutput
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class StopDataCollectionByAgentIdsCommand extends $Command

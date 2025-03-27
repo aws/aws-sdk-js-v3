@@ -77,6 +77,7 @@ export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsRes
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListLambdaFunctionsCommand extends $Command

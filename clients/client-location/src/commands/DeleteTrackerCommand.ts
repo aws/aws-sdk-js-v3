@@ -74,6 +74,7 @@ export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __Met
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class DeleteTrackerCommand extends $Command

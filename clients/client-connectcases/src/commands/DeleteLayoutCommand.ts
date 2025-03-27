@@ -91,6 +91,7 @@ export interface DeleteLayoutCommandOutput extends DeleteLayoutResponse, __Metad
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class DeleteLayoutCommand extends $Command

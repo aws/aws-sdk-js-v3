@@ -76,6 +76,7 @@ export interface ListVodSourcesCommandOutput extends ListVodSourcesResponse, __M
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class ListVodSourcesCommand extends $Command

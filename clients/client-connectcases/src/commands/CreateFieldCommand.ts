@@ -86,6 +86,7 @@ export interface CreateFieldCommandOutput extends CreateFieldResponse, __Metadat
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class CreateFieldCommand extends $Command

@@ -86,6 +86,7 @@ export interface GetUserIdCommandOutput extends GetUserIdResponse, __MetadataBea
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ *
  * @public
  */
 export class GetUserIdCommand extends $Command

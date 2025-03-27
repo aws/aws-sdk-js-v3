@@ -90,6 +90,7 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class RemoveTargetsCommand extends $Command

@@ -75,6 +75,7 @@ export interface DeleteDomainUnitCommandOutput extends DeleteDomainUnitOutput, _
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class DeleteDomainUnitCommand extends $Command

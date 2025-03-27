@@ -5498,6 +5498,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeAnalysisDefinitionCommand extends $Command

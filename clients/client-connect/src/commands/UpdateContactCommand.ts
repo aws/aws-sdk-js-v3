@@ -123,6 +123,7 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateContactCommand extends $Command

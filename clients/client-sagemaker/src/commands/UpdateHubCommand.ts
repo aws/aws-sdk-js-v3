@@ -63,6 +63,7 @@ export interface UpdateHubCommandOutput extends UpdateHubResponse, __MetadataBea
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateHubCommand extends $Command

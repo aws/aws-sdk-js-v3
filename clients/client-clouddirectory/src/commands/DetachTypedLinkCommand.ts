@@ -106,38 +106,41 @@ export interface DetachTypedLinkCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To detach a typed link from an object
  * ```javascript
  * //
  * const input = {
- *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
- *   "TypedLinkSpecifier": {
- *     "IdentityAttributeValues": [
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   TypedLinkSpecifier: {
+ *     IdentityAttributeValues: [
  *       {
- *         "AttributeName": "22",
- *         "Value": {
- *           "BinaryValue": "c3Ry"
+ *         AttributeName: "22",
+ *         Value: {
+ *           BinaryValue: "c3Ry"
  *         }
  *       }
  *     ],
- *     "SourceObjectReference": {
- *       "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
+ *     SourceObjectReference: {
+ *       Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
  *     },
- *     "TargetObjectReference": {
- *       "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *     TargetObjectReference: {
+ *       Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
  *     },
- *     "TypedLinkFacet": {
- *       "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1",
- *       "TypedLinkName": "exampletypedlink8"
+ *     TypedLinkFacet: {
+ *       SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1",
+ *       TypedLinkName: "exampletypedlink8"
  *     }
  *   }
  * };
  * const command = new DetachTypedLinkCommand(input);
- * await client.send(command);
- * // example id: to-detach-a-typed-link-from-an-object-1506540145856
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DetachTypedLinkCommand extends $Command
   .classBuilder<

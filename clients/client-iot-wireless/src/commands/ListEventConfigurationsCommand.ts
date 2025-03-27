@@ -108,6 +108,7 @@ export interface ListEventConfigurationsCommandOutput extends ListEventConfigura
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class ListEventConfigurationsCommand extends $Command

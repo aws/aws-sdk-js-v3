@@ -88,6 +88,7 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
  * @throws {@link PricingServiceException}
  * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
+ *
  * @public
  */
 export class GetProductsCommand extends $Command

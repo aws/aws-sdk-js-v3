@@ -194,6 +194,7 @@ export interface GetAccessPreviewCommandOutput extends GetAccessPreviewResponse,
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class GetAccessPreviewCommand extends $Command

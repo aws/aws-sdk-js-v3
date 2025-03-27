@@ -90,6 +90,7 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResponse,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListAssociationsCommand extends $Command

@@ -90,6 +90,7 @@ export interface GetDevicePositionCommandOutput extends GetDevicePositionRespons
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class GetDevicePositionCommand extends $Command

@@ -75,6 +75,7 @@ export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __Met
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class PutInsightRuleCommand extends $Command

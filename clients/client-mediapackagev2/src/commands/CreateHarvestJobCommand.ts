@@ -151,93 +151,93 @@ export interface CreateHarvestJobCommandOutput extends CreateHarvestJobResponse,
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
- * @public
+ *
  * @example Creating a Harvest Job
  * ```javascript
  * //
  * const input = {
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannelName",
- *   "Description": "Example HarvestJob description",
- *   "Destination": {
- *     "S3Destination": {
- *       "BucketName": "harvestJobS3DestinationBucket",
- *       "DestinationPath": "manifests"
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannelName",
+ *   Description: "Example HarvestJob description",
+ *   Destination: {
+ *     S3Destination: {
+ *       BucketName: "harvestJobS3DestinationBucket",
+ *       DestinationPath: "manifests"
  *     }
  *   },
- *   "HarvestedManifests": {
- *     "DashManifests": [
+ *   HarvestedManifests: {
+ *     DashManifests: [
  *       {
- *         "ManifestName": "DashManifest"
+ *         ManifestName: "DashManifest"
  *       }
  *     ],
- *     "HlsManifests": [
+ *     HlsManifests: [
  *       {
- *         "ManifestName": "HlsManifest"
+ *         ManifestName: "HlsManifest"
  *       }
  *     ],
- *     "LowLatencyHlsManifests": [
+ *     LowLatencyHlsManifests: [
  *       {
- *         "ManifestName": "LowLatencyHlsManifest"
+ *         ManifestName: "LowLatencyHlsManifest"
  *       }
  *     ]
  *   },
- *   "OriginEndpointName": "exampleOriginEndpointName",
- *   "ScheduleConfiguration": {
- *     "EndTime": "2024-05-28T12:00:00.00Z",
- *     "StartTime": "2024-05-28T06:00:00.00Z"
+ *   OriginEndpointName: "exampleOriginEndpointName",
+ *   ScheduleConfiguration: {
+ *     EndTime: "2024-05-28T12:00:00.00Z",
+ *     StartTime: "2024-05-28T06:00:00.00Z"
  *   }
  * };
  * const command = new CreateHarvestJobCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Arn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannelName/originEndpoint/exampleOriginEndpointName/harvestJob/HarvestJobName",
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannelName",
- *   "CreatedAt": "2024-05-28T09:36:00.00Z",
- *   "Description": "Example HarvestJob description",
- *   "Destination": {
- *     "S3Destination": {
- *       "BucketName": "harvestJobS3DestinationBucket",
- *       "DestinationPath": "manifests"
+ *   Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannelName/originEndpoint/exampleOriginEndpointName/harvestJob/HarvestJobName",
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannelName",
+ *   CreatedAt: "2024-05-28T09:36:00.00Z",
+ *   Description: "Example HarvestJob description",
+ *   Destination: {
+ *     S3Destination: {
+ *       BucketName: "harvestJobS3DestinationBucket",
+ *       DestinationPath: "manifests"
  *     }
  *   },
- *   "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
- *   "HarvestJobName": "HarvestJobName",
- *   "HarvestedManifests": {
- *     "DashManifests": [
+ *   ETag: "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
+ *   HarvestJobName: "HarvestJobName",
+ *   HarvestedManifests: {
+ *     DashManifests: [
  *       {
- *         "ManifestName": "DashManifest"
+ *         ManifestName: "DashManifest"
  *       }
  *     ],
- *     "HlsManifests": [
+ *     HlsManifests: [
  *       {
- *         "ManifestName": "HlsManifest"
+ *         ManifestName: "HlsManifest"
  *       }
  *     ],
- *     "LowLatencyHlsManifests": [
+ *     LowLatencyHlsManifests: [
  *       {
- *         "ManifestName": "LowLatencyHlsManifest"
+ *         ManifestName: "LowLatencyHlsManifest"
  *       }
  *     ]
  *   },
- *   "ModifiedAt": "2024-05-28T09:36:00.00Z",
- *   "OriginEndpointName": "exampleOriginEndpointName",
- *   "ScheduleConfiguration": {
- *     "EndTime": "2024-05-28T12:00:00.00Z",
- *     "StartTime": "2024-05-28T06:00:00.00Z"
+ *   ModifiedAt: "2024-05-28T09:36:00.00Z",
+ *   OriginEndpointName: "exampleOriginEndpointName",
+ *   ScheduleConfiguration: {
+ *     EndTime: "2024-05-28T12:00:00.00Z",
+ *     StartTime: "2024-05-28T06:00:00.00Z"
  *   },
- *   "Status": "QUEUED",
- *   "Tags": {
- *     "key1": "value1",
- *     "key2": "value2"
+ *   Status: "QUEUED",
+ *   Tags: {
+ *     key1: "value1",
+ *     key2: "value2"
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class CreateHarvestJobCommand extends $Command
   .classBuilder<

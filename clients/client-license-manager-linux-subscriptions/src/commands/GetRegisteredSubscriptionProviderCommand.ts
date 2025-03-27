@@ -84,6 +84,7 @@ export interface GetRegisteredSubscriptionProviderCommandOutput
  * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
+ *
  * @public
  */
 export class GetRegisteredSubscriptionProviderCommand extends $Command

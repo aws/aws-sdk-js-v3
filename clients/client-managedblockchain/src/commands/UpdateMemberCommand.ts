@@ -86,6 +86,7 @@ export interface UpdateMemberCommandOutput extends UpdateMemberOutput, __Metadat
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class UpdateMemberCommand extends $Command

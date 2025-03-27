@@ -73,6 +73,7 @@ export interface UpdateSoftwareSetCommandOutput extends UpdateSoftwareSetRespons
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ *
  * @public
  */
 export class UpdateSoftwareSetCommand extends $Command

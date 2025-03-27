@@ -419,6 +419,7 @@ export interface UpdatePipeCommandOutput extends UpdatePipeResponse, __MetadataB
  * @throws {@link PipesServiceException}
  * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ *
  * @public
  */
 export class UpdatePipeCommand extends $Command

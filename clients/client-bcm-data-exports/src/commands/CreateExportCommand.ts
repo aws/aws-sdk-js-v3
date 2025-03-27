@@ -120,6 +120,7 @@ export interface CreateExportCommandOutput extends CreateExportResponse, __Metad
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
  *
+ *
  * @public
  */
 export class CreateExportCommand extends $Command

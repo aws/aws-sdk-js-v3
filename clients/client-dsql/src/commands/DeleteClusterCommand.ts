@@ -79,18 +79,21 @@ export interface DeleteClusterCommandOutput extends DeleteClusterOutput, __Metad
  * @throws {@link DSQLServiceException}
  * <p>Base exception class for all service exceptions from DSQL service.</p>
  *
- * @public
+ *
  * @example Delete Cluster
  * ```javascript
  * //
  * const input = {
- *   "identifier": "kiqenqglxyl2snyvkvnj2c3s2e"
+ *   identifier: "kiqenqglxyl2snyvkvnj2c3s2e"
  * };
  * const command = new DeleteClusterCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteClusterCommand extends $Command
   .classBuilder<

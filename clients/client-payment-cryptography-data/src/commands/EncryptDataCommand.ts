@@ -155,6 +155,7 @@ export interface EncryptDataCommandOutput extends EncryptDataOutput, __MetadataB
  * @throws {@link PaymentCryptographyDataServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptographyData service.</p>
  *
+ *
  * @public
  */
 export class EncryptDataCommand extends $Command

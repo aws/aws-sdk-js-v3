@@ -93,6 +93,7 @@ export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __Me
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command

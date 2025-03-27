@@ -71,6 +71,7 @@ export interface DisableHealthServiceAccessForOrganizationCommandOutput extends 
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ *
  * @public
  */
 export class DisableHealthServiceAccessForOrganizationCommand extends $Command

@@ -80,6 +80,7 @@ export interface CreateApplicationInstanceCommandOutput extends CreateApplicatio
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class CreateApplicationInstanceCommand extends $Command

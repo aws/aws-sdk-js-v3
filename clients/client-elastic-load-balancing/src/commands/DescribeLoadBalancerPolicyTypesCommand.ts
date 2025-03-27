@@ -90,37 +90,37 @@ export interface DescribeLoadBalancerPolicyTypesCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To describe a load balancer policy type defined by Elastic Load Balancing
  * ```javascript
  * // This example describes the specified load balancer policy type.
  * const input = {
- *   "PolicyTypeNames": [
+ *   PolicyTypeNames: [
  *     "ProxyProtocolPolicyType"
  *   ]
  * };
  * const command = new DescribeLoadBalancerPolicyTypesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "PolicyTypeDescriptions": [
+ *   PolicyTypeDescriptions: [
  *     {
- *       "Description": "Policy that controls whether to include the IP address and port of the originating request for TCP messages. This policy operates on TCP listeners only.",
- *       "PolicyAttributeTypeDescriptions": [
+ *       Description: "Policy that controls whether to include the IP address and port of the originating request for TCP messages. This policy operates on TCP listeners only.",
+ *       PolicyAttributeTypeDescriptions: [
  *         {
- *           "AttributeName": "ProxyProtocol",
- *           "AttributeType": "Boolean",
- *           "Cardinality": "ONE"
+ *           AttributeName: "ProxyProtocol",
+ *           AttributeType: "Boolean",
+ *           Cardinality: "ONE"
  *         }
  *       ],
- *       "PolicyTypeName": "ProxyProtocolPolicyType"
+ *       PolicyTypeName: "ProxyProtocolPolicyType"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elb-describe-load-balancer-policy-types-1
  * ```
  *
+ * @public
  */
 export class DescribeLoadBalancerPolicyTypesCommand extends $Command
   .classBuilder<

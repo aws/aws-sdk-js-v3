@@ -79,6 +79,7 @@ export interface GetChallengePasswordCommandOutput extends GetChallengePasswordR
  * @throws {@link PcaConnectorScepServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorScep service.</p>
  *
+ *
  * @public
  */
 export class GetChallengePasswordCommand extends $Command

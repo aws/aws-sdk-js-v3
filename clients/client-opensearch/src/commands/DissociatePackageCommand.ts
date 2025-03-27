@@ -99,6 +99,7 @@ export interface DissociatePackageCommandOutput extends DissociatePackageRespons
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class DissociatePackageCommand extends $Command

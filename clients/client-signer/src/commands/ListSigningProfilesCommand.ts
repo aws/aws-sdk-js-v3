@@ -102,6 +102,7 @@ export interface ListSigningProfilesCommandOutput extends ListSigningProfilesRes
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ *
  * @public
  */
 export class ListSigningProfilesCommand extends $Command

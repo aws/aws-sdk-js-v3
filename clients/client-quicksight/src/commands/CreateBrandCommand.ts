@@ -252,6 +252,7 @@ export interface CreateBrandCommandOutput extends CreateBrandResponse, __Metadat
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateBrandCommand extends $Command

@@ -132,6 +132,7 @@ export interface CreateDiskFromSnapshotCommandOutput extends CreateDiskFromSnaps
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class CreateDiskFromSnapshotCommand extends $Command

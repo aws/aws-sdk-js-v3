@@ -90,6 +90,7 @@ export interface UpdateZonalAutoshiftConfigurationCommandOutput
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ *
  * @public
  */
 export class UpdateZonalAutoshiftConfigurationCommand extends $Command

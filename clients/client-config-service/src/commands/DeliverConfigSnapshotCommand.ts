@@ -82,6 +82,7 @@ export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapsho
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DeliverConfigSnapshotCommand extends $Command

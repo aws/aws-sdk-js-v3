@@ -87,6 +87,7 @@ export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershi
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateGroupMembershipCommand extends $Command

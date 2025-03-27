@@ -92,6 +92,7 @@ export interface DescribeExplainabilityCommandOutput extends DescribeExplainabil
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class DescribeExplainabilityCommand extends $Command

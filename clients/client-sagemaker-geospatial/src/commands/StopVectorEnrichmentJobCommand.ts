@@ -75,6 +75,7 @@ export interface StopVectorEnrichmentJobCommandOutput extends StopVectorEnrichme
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ *
  * @public
  */
 export class StopVectorEnrichmentJobCommand extends $Command

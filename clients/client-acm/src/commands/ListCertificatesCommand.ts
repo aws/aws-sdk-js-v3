@@ -107,6 +107,7 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ *
  * @public
  */
 export class ListCertificatesCommand extends $Command

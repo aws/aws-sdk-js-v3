@@ -94,6 +94,7 @@ export interface DeleteStateMachineAliasCommandOutput extends DeleteStateMachine
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class DeleteStateMachineAliasCommand extends $Command

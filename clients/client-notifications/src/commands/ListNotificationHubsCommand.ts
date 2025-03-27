@@ -79,6 +79,7 @@ export interface ListNotificationHubsCommandOutput extends ListNotificationHubsR
  * @throws {@link NotificationsServiceException}
  * <p>Base exception class for all service exceptions from Notifications service.</p>
  *
+ *
  * @public
  */
 export class ListNotificationHubsCommand extends $Command

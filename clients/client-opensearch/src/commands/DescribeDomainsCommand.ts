@@ -245,6 +245,7 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class DescribeDomainsCommand extends $Command

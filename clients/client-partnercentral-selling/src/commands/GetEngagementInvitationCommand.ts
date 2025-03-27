@@ -158,6 +158,7 @@ export interface GetEngagementInvitationCommandOutput extends GetEngagementInvit
  * @throws {@link PartnerCentralSellingServiceException}
  * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>
  *
+ *
  * @public
  */
 export class GetEngagementInvitationCommand extends $Command

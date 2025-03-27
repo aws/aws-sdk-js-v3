@@ -62,6 +62,7 @@ export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBea
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class DeregisterOnPremisesInstanceCommand extends $Command

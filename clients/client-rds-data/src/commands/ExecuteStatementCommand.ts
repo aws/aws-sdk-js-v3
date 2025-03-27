@@ -268,6 +268,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ *
  * @public
  */
 export class ExecuteStatementCommand extends $Command

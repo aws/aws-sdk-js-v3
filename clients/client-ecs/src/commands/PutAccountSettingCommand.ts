@@ -89,50 +89,49 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
- * @example To modify your account settings
- * ```javascript
- * // This example modifies your account settings to opt in to the new ARN and resource ID format for Amazon ECS services. If you’re using this command as the root user, then changes apply to the entire AWS account, unless an IAM user or role explicitly overrides these settings for themselves.
- * const input = {
- *   "name": "serviceLongArnFormat",
- *   "value": "enabled"
- * };
- * const command = new PutAccountSettingCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "setting": {
- *     "name": "serviceLongArnFormat",
- *     "value": "enabled",
- *     "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
- *   }
- * }
- * *\/
- * // example id: to-modify-the-account-settings-for-your-iam-user-account-1549523130939
- * ```
  *
  * @example To modify the account settings for a specific IAM user or IAM role
  * ```javascript
  * // This example modifies the account setting for a specific IAM user or IAM role to opt in to the new ARN and resource ID format for Amazon ECS container instances. If you’re using this command as the root user, then changes apply to the entire AWS account, unless an IAM user or role explicitly overrides these settings for themselves.
  * const input = {
- *   "name": "containerInstanceLongArnFormat",
- *   "value": "enabled",
- *   "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *   name: "containerInstanceLongArnFormat",
+ *   principalArn: "arn:aws:iam::<aws_account_id>:user/principalName",
+ *   value: "enabled"
  * };
  * const command = new PutAccountSettingCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "setting": {
- *     "name": "containerInstanceLongArnFormat",
- *     "value": "enabled",
- *     "principalArn": "arn:aws:iam::<aws_account_id>:user/principalName"
+ *   setting: {
+ *     name: "containerInstanceLongArnFormat",
+ *     principalArn: "arn:aws:iam::<aws_account_id>:user/principalName",
+ *     value: "enabled"
  *   }
  * }
  * *\/
- * // example id: to-modify-the-account-settings-for-a-specific-iam-user-or-iam-role-1549523518390
  * ```
  *
+ * @example To modify your account settings
+ * ```javascript
+ * // This example modifies your account settings to opt in to the new ARN and resource ID format for Amazon ECS services. If you’re using this command as the root user, then changes apply to the entire AWS account, unless an IAM user or role explicitly overrides these settings for themselves.
+ * const input = {
+ *   name: "serviceLongArnFormat",
+ *   value: "enabled"
+ * };
+ * const command = new PutAccountSettingCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   setting: {
+ *     name: "serviceLongArnFormat",
+ *     principalArn: "arn:aws:iam::<aws_account_id>:user/principalName",
+ *     value: "enabled"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class PutAccountSettingCommand extends $Command
   .classBuilder<

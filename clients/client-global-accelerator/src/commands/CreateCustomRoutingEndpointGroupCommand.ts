@@ -118,6 +118,7 @@ export interface CreateCustomRoutingEndpointGroupCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class CreateCustomRoutingEndpointGroupCommand extends $Command

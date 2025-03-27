@@ -86,6 +86,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class DescribeApplicationCommand extends $Command

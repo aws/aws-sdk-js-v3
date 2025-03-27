@@ -163,47 +163,47 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe the DB engine versions for the MySQL DB engine
  * ```javascript
  * // The following example displays details about each of the DB engine versions for the specified DB engine.
  * const input = {
- *   "Engine": "mysql"
+ *   Engine: "mysql"
  * };
  * const command = new DescribeDBEngineVersionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBEngineVersions": [
+ *   DBEngineVersions: [
  *     {
- *       "DBEngineDescription": "MySQL Community Edition",
- *       "DBEngineVersionDescription": "MySQL 5.7.33",
- *       "DBParameterGroupFamily": "mysql5.7",
- *       "Engine": "mysql",
- *       "EngineVersion": "5.7.33",
- *       "ValidUpgradeTarget": [
+ *       DBEngineDescription: "MySQL Community Edition",
+ *       DBEngineVersionDescription: "MySQL 5.7.33",
+ *       DBParameterGroupFamily: "mysql5.7",
+ *       Engine: "mysql",
+ *       EngineVersion: "5.7.33",
+ *       ValidUpgradeTarget: [
  *         {
- *           "AutoUpgrade": false,
- *           "Description": "MySQL 5.7.34",
- *           "Engine": "mysql",
- *           "EngineVersion": "5.7.34",
- *           "IsMajorVersionUpgrade": false
+ *           AutoUpgrade: false,
+ *           Description: "MySQL 5.7.34",
+ *           Engine: "mysql",
+ *           EngineVersion: "5.7.34",
+ *           IsMajorVersionUpgrade: false
  *         },
  *         {
- *           "AutoUpgrade": false,
- *           "Description": "MySQL 5.7.36",
- *           "Engine": "mysql",
- *           "EngineVersion": "5.7.36",
- *           "IsMajorVersionUpgrade": false
+ *           AutoUpgrade: false,
+ *           Description: "MySQL 5.7.36",
+ *           Engine: "mysql",
+ *           EngineVersion: "5.7.36",
+ *           IsMajorVersionUpgrade: false
  *         }
  *       ]
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-the-db-engine-versions-for-the-mysql-db-engine-1680216738909
  * ```
  *
+ * @public
  */
 export class DescribeDBEngineVersionsCommand extends $Command
   .classBuilder<

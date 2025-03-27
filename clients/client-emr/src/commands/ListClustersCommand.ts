@@ -103,6 +103,7 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class ListClustersCommand extends $Command

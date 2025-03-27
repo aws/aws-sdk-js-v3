@@ -312,6 +312,7 @@ export interface GetEvaluationJobCommandOutput extends GetEvaluationJobResponse,
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class GetEvaluationJobCommand extends $Command

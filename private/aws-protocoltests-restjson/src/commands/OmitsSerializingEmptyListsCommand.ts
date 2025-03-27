@@ -73,6 +73,7 @@ export interface OmitsSerializingEmptyListsCommandOutput extends __MetadataBeare
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class OmitsSerializingEmptyListsCommand extends $Command

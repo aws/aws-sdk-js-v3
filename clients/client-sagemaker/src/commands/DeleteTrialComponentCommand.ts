@@ -60,6 +60,7 @@ export interface DeleteTrialComponentCommandOutput extends DeleteTrialComponentR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteTrialComponentCommand extends $Command

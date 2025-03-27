@@ -52,6 +52,7 @@ export interface FractionalSecondsCommandOutput extends FractionalSecondsOutput,
  * @throws {@link EC2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
+ *
  */
 export class FractionalSecondsCommand extends $Command
   .classBuilder<

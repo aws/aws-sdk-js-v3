@@ -81,6 +81,7 @@ export interface GetCustomDomainAssociationCommandOutput extends GetCustomDomain
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class GetCustomDomainAssociationCommand extends $Command

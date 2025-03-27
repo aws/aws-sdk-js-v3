@@ -75,6 +75,26 @@ export interface GetKeyCommandOutput extends GetKeyResponse, __MetadataBearer {}
  * @throws {@link CloudFrontKeyValueStoreServiceException}
  * <p>Base exception class for all service exceptions from CloudFrontKeyValueStore service.</p>
  *
+ *
+ * @example Get 'key1' from the key value store with ARN 'arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58'
+ * ```javascript
+ * //
+ * const input = {
+ *   Key: "key1",
+ *   KvsARN: "arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58"
+ * };
+ * const command = new GetKeyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ItemCount: 4,
+ *   Key: "key1",
+ *   TotalSizeInBytes: 15,
+ *   Value: "value1"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetKeyCommand extends $Command

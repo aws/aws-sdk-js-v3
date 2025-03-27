@@ -123,6 +123,7 @@ export interface VerifyMacCommandOutput extends VerifyMacOutput, __MetadataBeare
  * @throws {@link PaymentCryptographyDataServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptographyData service.</p>
  *
+ *
  * @public
  */
 export class VerifyMacCommand extends $Command

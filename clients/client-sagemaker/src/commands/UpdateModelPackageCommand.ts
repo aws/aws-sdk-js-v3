@@ -196,6 +196,7 @@ export interface UpdateModelPackageCommandOutput extends UpdateModelPackageOutpu
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateModelPackageCommand extends $Command

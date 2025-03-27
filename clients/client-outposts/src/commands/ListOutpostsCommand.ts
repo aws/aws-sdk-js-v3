@@ -95,6 +95,7 @@ export interface ListOutpostsCommandOutput extends ListOutpostsOutput, __Metadat
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class ListOutpostsCommand extends $Command

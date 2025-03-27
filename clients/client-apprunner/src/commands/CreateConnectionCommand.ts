@@ -83,6 +83,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectionCommand extends $Command

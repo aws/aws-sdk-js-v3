@@ -161,31 +161,52 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
- * @public
+ *
  * @example GetSchema
  * ```javascript
  * // The following example retrieves the current schema stored in the specified policy store.
- * //
- * // Note
- * // The JSON in the parameters of this operation are strings that can contain embedded quotation marks (") within the outermost quotation mark pair. This requires that you stringify the JSON object by preceding all embedded quotation marks with a backslash character ( \" ) and combining all lines into a single text line with no line breaks.
- * //
- * // Example strings might be displayed wrapped across multiple lines here for readability, but the operation requires the parameters be submitted as single line strings.
+ *
+ * Note
+ * The JSON in the parameters of this operation are strings that can contain embedded quotation marks (") within the outermost quotation mark pair. This requires that you stringify the JSON object by preceding all embedded quotation marks with a backslash character ( \" ) and combining all lines into a single text line with no line breaks.
+ *
+ * Example strings might be displayed wrapped across multiple lines here for readability, but the operation requires the parameters be submitted as single line strings.
  * const input = {
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a"
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
  * };
  * const command = new GetSchemaCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "createdDate": "2024-08-12T18:20:50.99Z",
- *   "lastUpdatedDate": "2024-08-12T18:20:50.99Z",
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
- *   "schema": "{\n\"My::Application\": {\n\"actions\": {\n\"remoteAccess\": {\n\"appliesTo\": {\n\"principalTypes\":   [\"Employee\"]\n}\n}\n},\n\"entityTypes\":   {\n\"Employee\": {\n\"shape\": {\n\"attributes\": {\n\"jobLevel\": { \"type\": \"Long\" },\n\"name\": { \"type\":\"String\" }\n},\n\"type\": \"Record\"\n}\n}\n}\n}\n  }"
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   schema: `{
+ * "My::Application": {
+ * "actions": {
+ * "remoteAccess": {
+ * "appliesTo": {
+ * "principalTypes":   ["Employee"]
+ * }
+ * }
+ * },
+ * "entityTypes":   {
+ * "Employee": {
+ * "shape": {
+ * "attributes": {
+ * "jobLevel": { "type": "Long" },
+ * "name": { "type":"String" }
+ * },
+ * "type": "Record"
+ * }
+ * }
+ * }
+ * }
+ *   }`
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetSchemaCommand extends $Command
   .classBuilder<

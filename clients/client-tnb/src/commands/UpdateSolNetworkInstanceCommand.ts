@@ -96,6 +96,65 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example Update a Sol Network Instance
+ * ```javascript
+ * //
+ * const input = {
+ *   modifyVnfInfoData: {
+ *     vnfConfigurableProperties: {
+ *       pcf.pods: "10",
+ *       pcf.port: "8080"
+ *     },
+ *     vnfInstanceId: "fi-0d5b823eb5c2a9241"
+ *   },
+ *   nsInstanceId: "ni-0d5b823eb5c2a9241",
+ *   tags: {
+ *     Name: "Resource"
+ *   },
+ *   updateType: "MODIFY_VNF_INFORMATION"
+ * };
+ * const command = new UpdateSolNetworkInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   nsLcmOpOccId: "no-0d5b823eb5c2a9241",
+ *   tags: {
+ *     Name: "Resource"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example Update a Sol Network Instance
+ * ```javascript
+ * //
+ * const input = {
+ *   nsInstanceId: "ni-0d5b823eb5c2a9241",
+ *   tags: {
+ *     Name: "Resource"
+ *   },
+ *   updateNs: {
+ *     additionalParamsForNs: {
+ *       availability_zone: "us-west-2a",
+ *       cidr_block: "10.0.0.0/16"
+ *     },
+ *     nsdInfoId: "np-0d5b823eb5c2a9241"
+ *   },
+ *   updateType: "UPDATE_NS"
+ * };
+ * const command = new UpdateSolNetworkInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   nsLcmOpOccId: "no-0d5b823eb5c2a9241",
+ *   tags: {
+ *     Name: "Resource"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateSolNetworkInstanceCommand extends $Command

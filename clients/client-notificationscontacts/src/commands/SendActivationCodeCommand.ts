@@ -78,6 +78,7 @@ export interface SendActivationCodeCommandOutput extends SendActivationCodeRespo
  * @throws {@link NotificationsContactsServiceException}
  * <p>Base exception class for all service exceptions from NotificationsContacts service.</p>
  *
+ *
  * @public
  */
 export class SendActivationCodeCommand extends $Command

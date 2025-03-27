@@ -78,6 +78,7 @@ export interface ListLanguagesCommandOutput extends ListLanguagesResponse, __Met
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ *
  * @public
  */
 export class ListLanguagesCommand extends $Command

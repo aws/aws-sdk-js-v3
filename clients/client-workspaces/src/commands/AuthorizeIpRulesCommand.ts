@@ -76,6 +76,7 @@ export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, _
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class AuthorizeIpRulesCommand extends $Command

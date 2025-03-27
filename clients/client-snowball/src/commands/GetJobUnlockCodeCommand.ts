@@ -75,27 +75,27 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
+ *
  * @example To get the unlock code for a job you've created for AWS Snowball
  * ```javascript
  * // Returns the UnlockCode code value for the specified job. A particular UnlockCode value can be accessed for up to 90 days after the associated job has been created.
- * //
- * // The UnlockCode value is a 29-character code with 25 alphanumeric characters and 4 hyphens. This code is used to decrypt the manifest file when it is passed along with the manifest to the Snowball through the Snowball client when the client is started for the first time.
- * //
- * // As a best practice, we recommend that you don't save a copy of the UnlockCode in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snowball associated with that job.
+ *
+ * The UnlockCode value is a 29-character code with 25 alphanumeric characters and 4 hyphens. This code is used to decrypt the manifest file when it is passed along with the manifest to the Snowball through the Snowball client when the client is started for the first time.
+ *
+ * As a best practice, we recommend that you don't save a copy of the UnlockCode in the same location as the manifest file for that job. Saving these separately helps prevent unauthorized parties from gaining access to the Snowball associated with that job.
  * const input = {
- *   "JobId": "JID123e4567-e89b-12d3-a456-426655440000"
+ *   JobId: "JID123e4567-e89b-12d3-a456-426655440000"
  * };
  * const command = new GetJobUnlockCodeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "UnlockCode": "12345-abcde-56789-fghij-01234"
+ *   UnlockCode: "12345-abcde-56789-fghij-01234"
  * }
  * *\/
- * // example id: to-get-the-unlock-code-for-a-job-youve-created-for-aws-snowball-1482541987286
  * ```
  *
+ * @public
  */
 export class GetJobUnlockCodeCommand extends $Command
   .classBuilder<

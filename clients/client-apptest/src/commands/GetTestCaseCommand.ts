@@ -173,6 +173,7 @@ export interface GetTestCaseCommandOutput extends GetTestCaseResponse, __Metadat
  * @throws {@link AppTestServiceException}
  * <p>Base exception class for all service exceptions from AppTest service.</p>
  *
+ *
  * @public
  */
 export class GetTestCaseCommand extends $Command

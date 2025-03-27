@@ -76,6 +76,7 @@ export interface GetSSHPublicKeyCommandOutput extends GetSSHPublicKeyResponse, _
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class GetSSHPublicKeyCommand extends $Command

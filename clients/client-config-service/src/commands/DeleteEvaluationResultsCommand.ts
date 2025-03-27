@@ -85,6 +85,7 @@ export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationRe
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DeleteEvaluationResultsCommand extends $Command

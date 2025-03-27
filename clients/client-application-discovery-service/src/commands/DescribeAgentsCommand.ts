@@ -114,6 +114,7 @@ export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __M
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class DescribeAgentsCommand extends $Command

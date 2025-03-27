@@ -96,6 +96,7 @@ export interface DescribeApplicationsCommandOutput extends DescribeApplicationsR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DescribeApplicationsCommand extends $Command

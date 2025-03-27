@@ -152,75 +152,74 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a snapshot
  * ```javascript
  * // This example describes a snapshot with the snapshot ID of ``snap-1234567890abcdef0``.
  * const input = {
- *   "SnapshotIds": [
+ *   SnapshotIds: [
  *     "snap-1234567890abcdef0"
  *   ]
  * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NextToken": "",
- *   "Snapshots": [
+ *   NextToken: "",
+ *   Snapshots: [
  *     {
- *       "Description": "This is my snapshot.",
- *       "OwnerId": "012345678910",
- *       "Progress": "100%",
- *       "SnapshotId": "snap-1234567890abcdef0",
- *       "StartTime": "2014-02-28T21:28:32.000Z",
- *       "State": "completed",
- *       "VolumeId": "vol-049df61146c4d7901",
- *       "VolumeSize": 8
+ *       Description: "This is my snapshot.",
+ *       OwnerId: "012345678910",
+ *       Progress: "100%",
+ *       SnapshotId: "snap-1234567890abcdef0",
+ *       StartTime: "2014-02-28T21:28:32.000Z",
+ *       State: "completed",
+ *       VolumeId: "vol-049df61146c4d7901",
+ *       VolumeSize: 8
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-a-snapshot-1472503807850
  * ```
  *
  * @example To describe snapshots using filters
  * ```javascript
  * // This example describes all snapshots owned by the ID 012345678910 that are in the ``pending`` status.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "status",
- *       "Values": [
+ *       Name: "status",
+ *       Values: [
  *         "pending"
  *       ]
  *     }
  *   ],
- *   "OwnerIds": [
+ *   OwnerIds: [
  *     "012345678910"
  *   ]
  * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NextToken": "",
- *   "Snapshots": [
+ *   NextToken: "",
+ *   Snapshots: [
  *     {
- *       "Description": "This is my copied snapshot.",
- *       "OwnerId": "012345678910",
- *       "Progress": "87%",
- *       "SnapshotId": "snap-066877671789bd71b",
- *       "StartTime": "2014-02-28T21:37:27.000Z",
- *       "State": "pending",
- *       "VolumeId": "vol-1234567890abcdef0",
- *       "VolumeSize": 8
+ *       Description: "This is my copied snapshot.",
+ *       OwnerId: "012345678910",
+ *       Progress: "87%",
+ *       SnapshotId: "snap-066877671789bd71b",
+ *       StartTime: "2014-02-28T21:37:27.000Z",
+ *       State: "pending",
+ *       VolumeId: "vol-1234567890abcdef0",
+ *       VolumeSize: 8
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-snapshots-using-filters-1472503929793
  * ```
  *
+ * @public
  */
 export class DescribeSnapshotsCommand extends $Command
   .classBuilder<

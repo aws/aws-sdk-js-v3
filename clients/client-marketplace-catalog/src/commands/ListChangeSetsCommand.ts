@@ -108,6 +108,7 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListChangeSetsCommand extends $Command

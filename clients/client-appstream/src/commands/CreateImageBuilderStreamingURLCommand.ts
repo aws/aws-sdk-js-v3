@@ -68,6 +68,7 @@ export interface CreateImageBuilderStreamingURLCommandOutput
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class CreateImageBuilderStreamingURLCommand extends $Command

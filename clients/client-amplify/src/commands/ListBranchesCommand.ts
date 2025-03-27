@@ -110,6 +110,7 @@ export interface ListBranchesCommandOutput extends ListBranchesResult, __Metadat
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class ListBranchesCommand extends $Command

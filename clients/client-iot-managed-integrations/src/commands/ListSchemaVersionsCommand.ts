@@ -94,70 +94,71 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * @throws {@link IoTManagedIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from IoTManagedIntegrations service.</p>
  *
- * @public
+ *
  * @example ListSchemaVersions happy path for an example schema version.
  * ```javascript
  * //
  * const input = {
- *   "SchemaId": "matter.ColorControl",
- *   "Type": "capability"
+ *   SchemaId: "matter.ColorControl",
+ *   Type: "capability"
  * };
  * const command = new ListSchemaVersionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Items": [
+ *   Items: [
  *     {
- *       "Description": "The Color Control cluster defined as Harmony Capability.",
- *       "Namespace": "matter",
- *       "SchemaId": "matter.ColorControl",
- *       "SemanticVersion": "1.3",
- *       "Type": "capability"
+ *       Description: "The Color Control cluster defined as Harmony Capability.",
+ *       Namespace: "matter",
+ *       SchemaId: "matter.ColorControl",
+ *       SemanticVersion: "1.3",
+ *       Type: "capability"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
  * @example ListSchemaVersions by version.
  * ```javascript
  * //
  * const input = {
- *   "SemanticVersion": "34.56",
- *   "Type": "capability"
+ *   SemanticVersion: "34.56",
+ *   Type: "capability"
  * };
  * const command = new ListSchemaVersionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Items": [
+ *   Items: [
  *     {
- *       "Description": "The Color Control cluster defined as Harmony Capability.",
- *       "Namespace": "matter",
- *       "SchemaId": "matter.ColorControl",
- *       "SemanticVersion": "1.3",
- *       "Type": "capability"
+ *       Description: "The Color Control cluster defined as Harmony Capability.",
+ *       Namespace: "matter",
+ *       SchemaId: "matter.ColorControl",
+ *       SemanticVersion: "1.3",
+ *       Type: "capability"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-2
  * ```
  *
  * @example ListSchemaVersions error  for invalid input.
  * ```javascript
  * //
  * const input = {
- *   "Namespace": "matter",
- *   "SchemaId": "matter.ColorControl",
- *   "Type": "capability"
+ *   Namespace: "matter",
+ *   SchemaId: "matter.ColorControl",
+ *   Type: "capability"
  * };
  * const command = new ListSchemaVersionsCommand(input);
- * await client.send(command);
- * // example id: example-3
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ListSchemaVersionsCommand extends $Command
   .classBuilder<

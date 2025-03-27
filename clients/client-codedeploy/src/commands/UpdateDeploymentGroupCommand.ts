@@ -309,6 +309,7 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class UpdateDeploymentGroupCommand extends $Command

@@ -122,6 +122,7 @@ export interface CreateRetrieverCommandOutput extends CreateRetrieverResponse, _
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class CreateRetrieverCommand extends $Command

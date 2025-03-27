@@ -89,6 +89,7 @@ export interface PutBackupVaultLockConfigurationCommandOutput extends __Metadata
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class PutBackupVaultLockConfigurationCommand extends $Command

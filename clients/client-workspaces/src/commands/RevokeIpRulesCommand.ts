@@ -68,6 +68,7 @@ export interface RevokeIpRulesCommandOutput extends RevokeIpRulesResult, __Metad
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class RevokeIpRulesCommand extends $Command

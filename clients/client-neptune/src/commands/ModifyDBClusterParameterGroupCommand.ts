@@ -102,6 +102,7 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class ModifyDBClusterParameterGroupCommand extends $Command

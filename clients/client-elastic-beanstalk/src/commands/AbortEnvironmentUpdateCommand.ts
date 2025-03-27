@@ -59,18 +59,21 @@ export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To abort a deployment
  * ```javascript
  * // The following code aborts a running application version deployment for an environment named my-env:
  * const input = {
- *   "EnvironmentName": "my-env"
+ *   EnvironmentName: "my-env"
  * };
  * const command = new AbortEnvironmentUpdateCommand(input);
- * await client.send(command);
- * // example id: to-abort-a-deployment-1456267848227
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AbortEnvironmentUpdateCommand extends $Command
   .classBuilder<

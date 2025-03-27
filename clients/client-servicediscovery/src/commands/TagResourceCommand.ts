@@ -70,28 +70,31 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example TagResource example
  * ```javascript
  * // This example adds "Department" and "Project" tags to a resource.
  * const input = {
- *   "ResourceARN": "arn:aws:servicediscovery:us-east-1:123456789012:namespace/ns-ylexjili4cdxy3xm",
- *   "Tags": [
+ *   ResourceARN: "arn:aws:servicediscovery:us-east-1:123456789012:namespace/ns-ylexjili4cdxy3xm",
+ *   Tags: [
  *     {
- *       "Key": "Department",
- *       "Value": "Engineering"
+ *       Key: "Department",
+ *       Value: "Engineering"
  *     },
  *     {
- *       "Key": "Project",
- *       "Value": "Zeta"
+ *       Key: "Project",
+ *       Value: "Zeta"
  *     }
  *   ]
  * };
  * const command = new TagResourceCommand(input);
- * await client.send(command);
- * // example id: tagresource-example-1590093532240
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

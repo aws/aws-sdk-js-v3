@@ -67,6 +67,7 @@ export interface GetServiceSettingsCommandOutput extends GetServiceSettingsOutpu
  * @throws {@link SSMQuickSetupServiceException}
  * <p>Base exception class for all service exceptions from SSMQuickSetup service.</p>
  *
+ *
  * @public
  */
 export class GetServiceSettingsCommand extends $Command

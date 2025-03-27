@@ -73,6 +73,7 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class AddTagsToResourceCommand extends $Command

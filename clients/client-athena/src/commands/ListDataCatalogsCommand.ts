@@ -78,6 +78,7 @@ export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, _
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class ListDataCatalogsCommand extends $Command

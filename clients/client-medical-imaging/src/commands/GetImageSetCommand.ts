@@ -87,6 +87,7 @@ export interface GetImageSetCommandOutput extends GetImageSetResponse, __Metadat
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ *
  * @public
  */
 export class GetImageSetCommand extends $Command

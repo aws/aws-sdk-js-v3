@@ -71,6 +71,7 @@ export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanRespons
  * @throws {@link AutoScalingPlansServiceException}
  * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
+ *
  * @public
  */
 export class DeleteScalingPlanCommand extends $Command

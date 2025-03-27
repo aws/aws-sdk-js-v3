@@ -159,6 +159,7 @@ export interface DescribeThemeCommandOutput extends DescribeThemeResponse, __Met
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeThemeCommand extends $Command

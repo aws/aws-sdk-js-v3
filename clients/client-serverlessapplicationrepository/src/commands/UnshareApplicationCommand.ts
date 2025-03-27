@@ -73,6 +73,7 @@ export interface UnshareApplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ *
  * @public
  */
 export class UnshareApplicationCommand extends $Command

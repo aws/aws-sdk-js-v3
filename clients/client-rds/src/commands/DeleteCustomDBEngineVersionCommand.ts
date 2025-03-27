@@ -169,6 +169,7 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class DeleteCustomDBEngineVersionCommand extends $Command

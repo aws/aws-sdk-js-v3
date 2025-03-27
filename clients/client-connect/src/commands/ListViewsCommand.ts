@@ -87,6 +87,7 @@ export interface ListViewsCommandOutput extends ListViewsResponse, __MetadataBea
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListViewsCommand extends $Command

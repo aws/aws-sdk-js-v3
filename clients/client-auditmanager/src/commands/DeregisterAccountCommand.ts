@@ -76,6 +76,7 @@ export interface DeregisterAccountCommandOutput extends DeregisterAccountRespons
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class DeregisterAccountCommand extends $Command

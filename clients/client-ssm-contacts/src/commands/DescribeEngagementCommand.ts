@@ -84,6 +84,7 @@ export interface DescribeEngagementCommandOutput extends DescribeEngagementResul
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class DescribeEngagementCommand extends $Command

@@ -97,33 +97,33 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To get information about an organization
  * ```javascript
  * // The following example shows how to request information about the current user's organization:/n/n
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeOrganizationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Organization": {
- *     "Arn": "arn:aws:organizations::111111111111:organization/o-exampleorgid",
- *     "AvailablePolicyTypes": [
+ *   Organization: {
+ *     Arn: "arn:aws:organizations::111111111111:organization/o-exampleorgid",
+ *     AvailablePolicyTypes: [
  *       {
- *         "Status": "ENABLED",
- *         "Type": "SERVICE_CONTROL_POLICY"
+ *         Status: "ENABLED",
+ *         Type: "SERVICE_CONTROL_POLICY"
  *       }
  *     ],
- *     "FeatureSet": "ALL",
- *     "Id": "o-exampleorgid",
- *     "MasterAccountArn": "arn:aws:organizations::111111111111:account/o-exampleorgid/111111111111",
- *     "MasterAccountEmail": "bill@example.com"
+ *     FeatureSet: "ALL",
+ *     Id: "o-exampleorgid",
+ *     MasterAccountArn: "arn:aws:organizations::111111111111:account/o-exampleorgid/111111111111",
+ *     MasterAccountEmail: "bill@example.com"
  *   }
  * }
  * *\/
- * // example id: to-get-information-about-an-organization-1472503400505
  * ```
  *
+ * @public
  */
 export class DescribeOrganizationCommand extends $Command
   .classBuilder<

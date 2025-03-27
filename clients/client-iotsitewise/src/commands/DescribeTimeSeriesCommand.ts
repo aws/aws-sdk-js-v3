@@ -100,6 +100,7 @@ export interface DescribeTimeSeriesCommandOutput extends DescribeTimeSeriesRespo
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DescribeTimeSeriesCommand extends $Command

@@ -85,6 +85,7 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ *
  * @public
  */
 export class ListOperationsCommand extends $Command

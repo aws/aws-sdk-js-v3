@@ -99,6 +99,7 @@ export interface PutAppInstanceUserExpirationSettingsCommandOutput
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ *
  * @public
  */
 export class PutAppInstanceUserExpirationSettingsCommand extends $Command

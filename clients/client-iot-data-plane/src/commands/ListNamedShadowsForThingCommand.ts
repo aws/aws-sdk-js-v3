@@ -83,6 +83,7 @@ export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsF
  * @throws {@link IoTDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
+ *
  * @public
  */
 export class ListNamedShadowsForThingCommand extends $Command

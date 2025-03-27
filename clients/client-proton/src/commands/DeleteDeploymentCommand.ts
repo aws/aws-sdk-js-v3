@@ -153,6 +153,7 @@ export interface DeleteDeploymentCommandOutput extends DeleteDeploymentOutput, _
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class DeleteDeploymentCommand extends $Command

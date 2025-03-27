@@ -72,6 +72,7 @@ export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelRes
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ *
  * @public
  */
 export class DeleteDetectorModelCommand extends $Command

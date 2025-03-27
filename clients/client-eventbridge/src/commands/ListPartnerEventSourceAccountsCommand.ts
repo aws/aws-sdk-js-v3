@@ -80,6 +80,7 @@ export interface ListPartnerEventSourceAccountsCommandOutput
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class ListPartnerEventSourceAccountsCommand extends $Command

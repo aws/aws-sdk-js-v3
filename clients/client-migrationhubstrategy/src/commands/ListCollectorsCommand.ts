@@ -114,6 +114,7 @@ export interface ListCollectorsCommandOutput extends ListCollectorsResponse, __M
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ *
  * @public
  */
 export class ListCollectorsCommand extends $Command

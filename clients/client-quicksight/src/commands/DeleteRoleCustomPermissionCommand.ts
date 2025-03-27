@@ -82,6 +82,7 @@ export interface DeleteRoleCustomPermissionCommandOutput extends DeleteRoleCusto
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DeleteRoleCustomPermissionCommand extends $Command

@@ -128,6 +128,7 @@ export interface ListApisCommandOutput extends ListApisResponse, __MetadataBeare
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class ListApisCommand extends $Command

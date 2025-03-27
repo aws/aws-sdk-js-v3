@@ -81,6 +81,7 @@ export interface GetApiCacheCommandOutput extends GetApiCacheResponse, __Metadat
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class GetApiCacheCommand extends $Command

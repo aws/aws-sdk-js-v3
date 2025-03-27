@@ -217,6 +217,7 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  * @throws {@link RekognitionStreamingServiceException}
  * <p>Base exception class for all service exceptions from RekognitionStreaming service.</p>
  *
+ *
  * @public
  */
 export class StartFaceLivenessSessionCommand extends $Command

@@ -73,6 +73,7 @@ export interface SendInvitesCommandOutput extends __MetadataBearer {}
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ *
  * @public
  */
 export class SendInvitesCommand extends $Command

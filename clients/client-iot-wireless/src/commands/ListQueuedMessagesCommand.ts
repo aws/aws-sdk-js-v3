@@ -93,6 +93,7 @@ export interface ListQueuedMessagesCommandOutput extends ListQueuedMessagesRespo
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class ListQueuedMessagesCommand extends $Command

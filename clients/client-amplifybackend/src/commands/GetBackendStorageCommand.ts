@@ -84,6 +84,7 @@ export interface GetBackendStorageCommandOutput extends GetBackendStorageRespons
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ *
  * @public
  */
 export class GetBackendStorageCommand extends $Command

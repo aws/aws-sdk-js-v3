@@ -65,6 +65,7 @@ export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataB
  * @throws {@link CodestarNotificationsServiceException}
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ *
  * @public
  */
 export class UnsubscribeCommand extends $Command

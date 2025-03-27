@@ -123,32 +123,32 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To create an Amazon Rekognition Custom Labels dataset
  * ```javascript
  * // Creates an Amazon Rekognition Custom Labels dataset with a manifest file stored in an Amazon S3 bucket.
  * const input = {
- *   "DatasetSource": {
- *     "GroundTruthManifest": {
- *       "S3Object": {
- *         "Bucket": "my-bucket",
- *         "Name": "datasets/flowers_training/manifests/output/output.manifest"
+ *   DatasetSource: {
+ *     GroundTruthManifest: {
+ *       S3Object: {
+ *         Bucket: "my-bucket",
+ *         Name: "datasets/flowers_training/manifests/output/output.manifest"
  *       }
  *     }
  *   },
- *   "DatasetType": "TRAIN",
- *   "ProjectArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/1690474772815"
+ *   DatasetType: "TRAIN",
+ *   ProjectArn: "arn:aws:rekognition:us-east-1:111122223333:project/my-project/1690474772815"
  * };
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DatasetArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/dataset/train/1690476084535"
+ *   DatasetArn: "arn:aws:rekognition:us-east-1:111122223333:project/my-project/dataset/train/1690476084535"
  * }
  * *\/
- * // example id: to-create-an-amazon-rekognition-custom-labels-dataset-1690476237145
  * ```
  *
+ * @public
  */
 export class CreateDatasetCommand extends $Command
   .classBuilder<

@@ -55,18 +55,21 @@ export interface DeleteInternetGatewayCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete an Internet gateway
  * ```javascript
  * // This example deletes the specified Internet gateway.
  * const input = {
- *   "InternetGatewayId": "igw-c0a643a9"
+ *   InternetGatewayId: "igw-c0a643a9"
  * };
  * const command = new DeleteInternetGatewayCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-internet-gateway-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteInternetGatewayCommand extends $Command
   .classBuilder<

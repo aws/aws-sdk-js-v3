@@ -94,6 +94,7 @@ export interface ListDataAutomationProjectsCommandOutput extends ListDataAutomat
  * @throws {@link BedrockDataAutomationServiceException}
  * <p>Base exception class for all service exceptions from BedrockDataAutomation service.</p>
  *
+ *
  * @public
  */
 export class ListDataAutomationProjectsCommand extends $Command

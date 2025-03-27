@@ -123,6 +123,7 @@ export interface DeleteCoreNetworkCommandOutput extends DeleteCoreNetworkRespons
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteCoreNetworkCommand extends $Command

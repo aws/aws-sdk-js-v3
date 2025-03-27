@@ -104,6 +104,7 @@ export interface DescribeInferenceSchedulerCommandOutput extends DescribeInferen
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class DescribeInferenceSchedulerCommand extends $Command

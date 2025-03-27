@@ -97,6 +97,7 @@ export interface GetTableObjectsCommandOutput extends GetTableObjectsResponse, _
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class GetTableObjectsCommand extends $Command

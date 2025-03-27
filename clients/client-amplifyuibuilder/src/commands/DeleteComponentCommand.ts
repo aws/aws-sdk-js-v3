@@ -64,6 +64,7 @@ export interface DeleteComponentCommandOutput extends __MetadataBearer {}
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class DeleteComponentCommand extends $Command

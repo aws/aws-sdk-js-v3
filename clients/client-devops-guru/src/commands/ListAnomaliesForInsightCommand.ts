@@ -343,6 +343,7 @@ export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForIn
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class ListAnomaliesForInsightCommand extends $Command

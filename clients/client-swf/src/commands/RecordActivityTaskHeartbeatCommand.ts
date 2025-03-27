@@ -109,6 +109,7 @@ export interface RecordActivityTaskHeartbeatCommandOutput extends ActivityTaskSt
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class RecordActivityTaskHeartbeatCommand extends $Command

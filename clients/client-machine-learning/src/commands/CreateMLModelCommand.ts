@@ -91,6 +91,7 @@ export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __Metad
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class CreateMLModelCommand extends $Command

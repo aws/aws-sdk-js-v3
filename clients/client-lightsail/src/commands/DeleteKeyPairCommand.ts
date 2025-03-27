@@ -109,6 +109,7 @@ export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __Metad
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class DeleteKeyPairCommand extends $Command

@@ -127,6 +127,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ *
  * @public
  */
 export class CreateSnapshotCommand extends $Command

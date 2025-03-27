@@ -99,27 +99,27 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To retrieve vault lock-policy related attributes that are set on a vault
  * ```javascript
  * // The example retrieves the attributes from the lock-policy subresource set on the vault named examplevault.
  * const input = {
- *   "accountId": "-",
- *   "vaultName": "examplevault"
+ *   accountId: "-",
+ *   vaultName: "examplevault"
  * };
  * const command = new GetVaultLockCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CreationDate": "exampledate",
- *   "ExpirationDate": "exampledate",
- *   "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Define-vault-lock\",\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"arn:aws:iam::999999999999:root\"},\"Action\":\"glacier:DeleteArchive\",\"Resource\":\"arn:aws:glacier:us-west-2:999999999999:vaults/examplevault\",\"Condition\":{\"NumericLessThanEquals\":{\"glacier:ArchiveAgeinDays\":\"365\"}}}]}",
- *   "State": "InProgress"
+ *   CreationDate: "exampledate",
+ *   ExpirationDate: "exampledate",
+ *   Policy: `{"Version":"2012-10-17","Statement":[{"Sid":"Define-vault-lock","Effect":"Deny","Principal":{"AWS":"arn:aws:iam::999999999999:root"},"Action":"glacier:DeleteArchive","Resource":"arn:aws:glacier:us-west-2:999999999999:vaults/examplevault","Condition":{"NumericLessThanEquals":{"glacier:ArchiveAgeinDays":"365"}}}]}`,
+ *   State: "InProgress"
  * }
  * *\/
- * // example id: to-retrieve-vault-lock-policy-related-attributes-that-are-set-on-a-vault-1481851363097
  * ```
  *
+ * @public
  */
 export class GetVaultLockCommand extends $Command
   .classBuilder<

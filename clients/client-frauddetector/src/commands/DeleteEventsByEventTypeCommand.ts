@@ -74,6 +74,7 @@ export interface DeleteEventsByEventTypeCommandOutput extends DeleteEventsByEven
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class DeleteEventsByEventTypeCommand extends $Command

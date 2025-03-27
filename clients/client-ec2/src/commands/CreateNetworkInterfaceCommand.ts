@@ -211,53 +211,8 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
- * @example To create a network interface
- * ```javascript
- * // This example creates a network interface for the specified subnet.
- * const input = {
- *   "Description": "my network interface",
- *   "Groups": [
- *     "sg-903004f8"
- *   ],
- *   "PrivateIpAddress": "10.0.2.17",
- *   "SubnetId": "subnet-9d4a7b6c"
- * };
- * const command = new CreateNetworkInterfaceCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "NetworkInterface": {
- *     "AvailabilityZone": "us-east-1d",
- *     "Description": "my network interface",
- *     "Groups": [
- *       {
- *         "GroupId": "sg-903004f8",
- *         "GroupName": "default"
- *       }
- *     ],
- *     "MacAddress": "02:1a:80:41:52:9c",
- *     "NetworkInterfaceId": "eni-e5aa89a3",
- *     "OwnerId": "123456789012",
- *     "PrivateIpAddress": "10.0.2.17",
- *     "PrivateIpAddresses": [
- *       {
- *         "Primary": true,
- *         "PrivateIpAddress": "10.0.2.17"
- *       }
- *     ],
- *     "RequesterManaged": false,
- *     "SourceDestCheck": true,
- *     "Status": "pending",
- *     "SubnetId": "subnet-9d4a7b6c",
- *     "TagSet": [],
- *     "VpcId": "vpc-a01106c2"
- *   }
- * }
- * *\/
- * // example id: ec2-create-network-interface-1
- * ```
  *
+ * @public
  */
 export class CreateNetworkInterfaceCommand extends $Command
   .classBuilder<

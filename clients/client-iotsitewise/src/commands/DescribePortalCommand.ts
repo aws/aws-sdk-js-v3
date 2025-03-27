@@ -109,6 +109,7 @@ export interface DescribePortalCommandOutput extends DescribePortalResponse, __M
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DescribePortalCommand extends $Command

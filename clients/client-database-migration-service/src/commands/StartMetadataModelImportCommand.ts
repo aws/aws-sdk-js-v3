@@ -90,26 +90,26 @@ export interface StartMetadataModelImportCommandOutput extends StartMetadataMode
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Start Metadata Model Import
  * ```javascript
  * // Loads the metadata for all the dependent database objects of the parent object.
  * const input = {
- *   "MigrationProjectIdentifier": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *   "Origin": "SOURCE",
- *   "Refresh": false,
- *   "SelectionRules": "{\"rules\": [{\"rule-type\": \"selection\",\"rule-id\": \"1\",\"rule-name\": \"1\",\"object-locator\": {\"server-name\": \"aurora-pg.cluster-0a1b2c3d4e5f.us-east-1.rds.amazonaws.com\", \"schema-name\": \"schema1\", \"table-name\": \"Cities\"},\"rule-action\": \"explicit\"} ]}"
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *   Origin: "SOURCE",
+ *   Refresh: false,
+ *   SelectionRules: `{"rules": [{"rule-type": "selection","rule-id": "1","rule-name": "1","object-locator": {"server-name": "aurora-pg.cluster-0a1b2c3d4e5f.us-east-1.rds.amazonaws.com", "schema-name": "schema1", "table-name": "Cities"},"rule-action": "explicit"} ]}`
  * };
  * const command = new StartMetadataModelImportCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "RequestIdentifier": "01234567-89ab-cdef-0123-456789abcdef"
+ *   RequestIdentifier: "01234567-89ab-cdef-0123-456789abcdef"
  * }
  * *\/
- * // example id: start-metadata-model-import-1689723124259
  * ```
  *
+ * @public
  */
 export class StartMetadataModelImportCommand extends $Command
   .classBuilder<

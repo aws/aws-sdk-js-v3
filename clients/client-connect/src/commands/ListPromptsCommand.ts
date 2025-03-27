@@ -81,6 +81,7 @@ export interface ListPromptsCommandOutput extends ListPromptsResponse, __Metadat
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListPromptsCommand extends $Command

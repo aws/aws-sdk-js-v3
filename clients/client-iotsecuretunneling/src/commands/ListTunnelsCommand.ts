@@ -73,6 +73,7 @@ export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __Metadat
  * @throws {@link IoTSecureTunnelingServiceException}
  * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
+ *
  * @public
  */
 export class ListTunnelsCommand extends $Command

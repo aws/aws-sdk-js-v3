@@ -69,6 +69,7 @@ export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKi
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ *
  * @public
  */
 export class CancelJournalKinesisStreamCommand extends $Command

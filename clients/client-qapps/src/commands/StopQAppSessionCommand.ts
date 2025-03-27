@@ -79,6 +79,7 @@ export interface StopQAppSessionCommandOutput extends __MetadataBearer {}
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
+ *
  * @public
  */
 export class StopQAppSessionCommand extends $Command

@@ -115,40 +115,40 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example DescribeActiveReceiptRuleSet
  * ```javascript
  * // The following example returns the metadata and receipt rules for the receipt rule set that is currently active:
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeActiveReceiptRuleSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Metadata": {
- *     "CreatedTimestamp": "2016-07-15T16:25:59.607Z",
- *     "Name": "default-rule-set"
+ *   Metadata: {
+ *     CreatedTimestamp: "2016-07-15T16:25:59.607Z",
+ *     Name: "default-rule-set"
  *   },
- *   "Rules": [
+ *   Rules: [
  *     {
- *       "Actions": [
+ *       Actions: [
  *         {
- *           "S3Action": {
- *             "BucketName": "MyBucket",
- *             "ObjectKeyPrefix": "email"
+ *           S3Action: {
+ *             BucketName: "MyBucket",
+ *             ObjectKeyPrefix: "email"
  *           }
  *         }
  *       ],
- *       "Enabled": true,
- *       "Name": "MyRule",
- *       "ScanEnabled": true,
- *       "TlsPolicy": "Optional"
+ *       Enabled: true,
+ *       Name: "MyRule",
+ *       ScanEnabled: true,
+ *       TlsPolicy: "Optional"
  *     }
  *   ]
  * }
  * *\/
- * // example id: describeactivereceiptruleset-1469121611502
  * ```
  *
+ * @public
  */
 export class DescribeActiveReceiptRuleSetCommand extends $Command
   .classBuilder<

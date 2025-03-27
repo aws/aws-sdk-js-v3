@@ -113,22 +113,25 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To create a launch lifecycle hook
  * ```javascript
  * // This example creates a lifecycle hook for instance launch.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "DefaultResult": "CONTINUE",
- *   "HeartbeatTimeout": 300,
- *   "LifecycleHookName": "my-launch-lifecycle-hook",
- *   "LifecycleTransition": "autoscaling:EC2_INSTANCE_LAUNCHING"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   DefaultResult: "CONTINUE",
+ *   HeartbeatTimeout: 300,
+ *   LifecycleHookName: "my-launch-lifecycle-hook",
+ *   LifecycleTransition: "autoscaling:EC2_INSTANCE_LAUNCHING"
  * };
  * const command = new PutLifecycleHookCommand(input);
- * await client.send(command);
- * // example id: autoscaling-put-lifecycle-hook-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutLifecycleHookCommand extends $Command
   .classBuilder<

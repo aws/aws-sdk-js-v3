@@ -143,6 +143,7 @@ export interface UpdateMultiplexCommandOutput extends UpdateMultiplexResponse, _
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class UpdateMultiplexCommand extends $Command

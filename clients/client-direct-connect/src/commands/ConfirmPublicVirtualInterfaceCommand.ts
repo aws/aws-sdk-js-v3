@@ -68,6 +68,7 @@ export interface ConfirmPublicVirtualInterfaceCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class ConfirmPublicVirtualInterfaceCommand extends $Command

@@ -139,6 +139,7 @@ export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __Met
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ *
  * @public
  */
 export class GetDeploymentCommand extends $Command

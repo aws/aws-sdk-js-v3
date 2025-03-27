@@ -433,34 +433,34 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe endpoints
  * ```javascript
  * // Returns information about the endpoints for your account in the current region.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "string",
- *       "Values": [
+ *       Name: "string",
+ *       Values: [
  *         "string",
  *         "string"
  *       ]
  *     }
  *   ],
- *   "Marker": "",
- *   "MaxRecords": 123
+ *   Marker: "",
+ *   MaxRecords: 123
  * };
  * const command = new DescribeEndpointsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Endpoints": [],
- *   "Marker": ""
+ *   Endpoints:   [],
+ *   Marker: ""
  * }
  * *\/
- * // example id: describe-endpoints-1481754926060
  * ```
  *
+ * @public
  */
 export class DescribeEndpointsCommand extends $Command
   .classBuilder<

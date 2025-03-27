@@ -85,33 +85,33 @@ export interface CreateFindingAggregatorCommandOutput extends CreateFindingAggre
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To enable cross-Region aggregation
  * ```javascript
  * // The following example creates a finding aggregator. This is required to enable cross-Region aggregation.
  * const input = {
- *   "RegionLinkingMode": "SPECIFIED_REGIONS",
- *   "Regions": [
+ *   RegionLinkingMode: "SPECIFIED_REGIONS",
+ *   Regions: [
  *     "us-west-1",
  *     "us-west-2"
  *   ]
  * };
  * const command = new CreateFindingAggregatorCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "FindingAggregationRegion": "us-east-1",
- *   "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:222222222222:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "RegionLinkingMode": "SPECIFIED_REGIONS",
- *   "Regions": [
+ *   FindingAggregationRegion: "us-east-1",
+ *   FindingAggregatorArn: "arn:aws:securityhub:us-east-1:222222222222:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   RegionLinkingMode: "SPECIFIED_REGIONS",
+ *   Regions: [
  *     "us-west-1",
  *     "us-west-2"
  *   ]
  * }
  * *\/
- * // example id: to-enable-cross-region-aggregation-1674766716226
  * ```
  *
+ * @public
  */
 export class CreateFindingAggregatorCommand extends $Command
   .classBuilder<

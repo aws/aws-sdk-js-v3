@@ -97,6 +97,7 @@ export interface DisassociateFirewallRuleGroupCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class DisassociateFirewallRuleGroupCommand extends $Command

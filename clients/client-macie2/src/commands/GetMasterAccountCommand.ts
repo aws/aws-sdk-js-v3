@@ -79,6 +79,7 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class GetMasterAccountCommand extends $Command

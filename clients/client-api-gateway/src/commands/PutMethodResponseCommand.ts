@@ -88,6 +88,7 @@ export interface PutMethodResponseCommandOutput extends MethodResponse, __Metada
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class PutMethodResponseCommand extends $Command

@@ -101,6 +101,7 @@ export interface UpdateSourceLocationCommandOutput extends UpdateSourceLocationR
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class UpdateSourceLocationCommand extends $Command

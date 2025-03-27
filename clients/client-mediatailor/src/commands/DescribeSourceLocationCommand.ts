@@ -81,6 +81,7 @@ export interface DescribeSourceLocationCommandOutput extends DescribeSourceLocat
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class DescribeSourceLocationCommand extends $Command

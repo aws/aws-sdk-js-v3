@@ -117,6 +117,7 @@ export interface UpdateIntegrationCommandOutput extends Integration, __MetadataB
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class UpdateIntegrationCommand extends $Command

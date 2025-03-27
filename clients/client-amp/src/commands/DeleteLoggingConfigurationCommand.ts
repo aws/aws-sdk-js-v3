@@ -70,6 +70,7 @@ export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBeare
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
  * @public
  */
 export class DeleteLoggingConfigurationCommand extends $Command

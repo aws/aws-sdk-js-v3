@@ -57,6 +57,7 @@ export interface QueryParamsAsStringListMapCommandOutput extends __MetadataBeare
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class QueryParamsAsStringListMapCommand extends $Command
   .classBuilder<

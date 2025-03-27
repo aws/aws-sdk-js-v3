@@ -84,6 +84,7 @@ export interface GetSellingSystemSettingsCommandOutput extends GetSellingSystemS
  * @throws {@link PartnerCentralSellingServiceException}
  * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>
  *
+ *
  * @public
  */
 export class GetSellingSystemSettingsCommand extends $Command

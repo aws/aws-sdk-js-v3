@@ -71,6 +71,7 @@ export interface GetAccessKeyInfoCommandOutput extends GetAccessKeyInfoResponse,
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>
  *
+ *
  * @public
  */
 export class GetAccessKeyInfoCommand extends $Command

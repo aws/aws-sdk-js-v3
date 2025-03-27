@@ -153,6 +153,7 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class PutComplianceItemsCommand extends $Command

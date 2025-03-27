@@ -250,6 +250,7 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DescribeAssetPropertyCommand extends $Command

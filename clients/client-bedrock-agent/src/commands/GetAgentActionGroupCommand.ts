@@ -117,6 +117,7 @@ export interface GetAgentActionGroupCommandOutput extends GetAgentActionGroupRes
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class GetAgentActionGroupCommand extends $Command

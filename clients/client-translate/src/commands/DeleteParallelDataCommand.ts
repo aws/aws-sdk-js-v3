@@ -72,6 +72,7 @@ export interface DeleteParallelDataCommandOutput extends DeleteParallelDataRespo
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ *
  * @public
  */
 export class DeleteParallelDataCommand extends $Command

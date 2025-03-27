@@ -67,6 +67,7 @@ export interface ResetAllResourceLogLevelsCommandOutput extends ResetAllResource
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class ResetAllResourceLogLevelsCommand extends $Command

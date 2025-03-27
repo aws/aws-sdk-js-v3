@@ -104,6 +104,7 @@ export interface CreateKxChangesetCommandOutput extends CreateKxChangesetRespons
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class CreateKxChangesetCommand extends $Command

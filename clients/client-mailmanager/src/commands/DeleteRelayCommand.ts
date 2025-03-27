@@ -62,6 +62,7 @@ export interface DeleteRelayCommandOutput extends DeleteRelayResponse, __Metadat
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteRelayCommand extends $Command

@@ -76,24 +76,27 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Add tags to resource
  * ```javascript
  * // Adds metadata tags to an AWS DMS resource, including replication instance, endpoint, security group, and migration task. These tags can also be used with cost allocation reporting to track cost associated with AWS DMS resources, or used in a Condition statement in an IAM policy for AWS DMS.
  * const input = {
- *   "ResourceArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E",
- *   "Tags": [
+ *   ResourceArn: "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E",
+ *   Tags: [
  *     {
- *       "Key": "Acount",
- *       "Value": "1633456"
+ *       Key: "Acount",
+ *       Value: "1633456"
  *     }
  *   ]
  * };
  * const command = new AddTagsToResourceCommand(input);
- * await client.send(command);
- * // example id: add-tags-to-resource-1481744141435
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AddTagsToResourceCommand extends $Command
   .classBuilder<

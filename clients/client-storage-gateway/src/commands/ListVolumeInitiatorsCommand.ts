@@ -67,6 +67,7 @@ export interface ListVolumeInitiatorsCommandOutput extends ListVolumeInitiatorsO
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class ListVolumeInitiatorsCommand extends $Command

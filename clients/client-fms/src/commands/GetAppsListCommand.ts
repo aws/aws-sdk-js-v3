@@ -93,6 +93,7 @@ export interface GetAppsListCommandOutput extends GetAppsListResponse, __Metadat
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class GetAppsListCommand extends $Command

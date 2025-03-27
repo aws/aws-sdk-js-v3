@@ -83,6 +83,7 @@ export interface ListTableStorageOptimizersCommandOutput extends ListTableStorag
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class ListTableStorageOptimizersCommand extends $Command

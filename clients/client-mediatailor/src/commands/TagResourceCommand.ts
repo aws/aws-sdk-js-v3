@@ -59,6 +59,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

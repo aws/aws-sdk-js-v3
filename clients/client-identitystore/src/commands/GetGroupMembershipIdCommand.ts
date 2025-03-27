@@ -80,6 +80,7 @@ export interface GetGroupMembershipIdCommandOutput extends GetGroupMembershipIdR
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ *
  * @public
  */
 export class GetGroupMembershipIdCommand extends $Command

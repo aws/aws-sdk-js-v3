@@ -80,6 +80,7 @@ export interface ActivateEmailContactCommandOutput extends ActivateEmailContactR
  * @throws {@link NotificationsContactsServiceException}
  * <p>Base exception class for all service exceptions from NotificationsContacts service.</p>
  *
+ *
  * @public
  */
 export class ActivateEmailContactCommand extends $Command

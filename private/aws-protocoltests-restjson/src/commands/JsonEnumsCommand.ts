@@ -75,6 +75,7 @@ export interface JsonEnumsCommandOutput extends JsonEnumsInputOutput, __Metadata
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class JsonEnumsCommand extends $Command

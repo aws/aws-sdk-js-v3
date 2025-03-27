@@ -470,6 +470,7 @@ export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceL
  * @throws {@link ApplicationSignalsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationSignals service.</p>
  *
+ *
  * @public
  */
 export class CreateServiceLevelObjectiveCommand extends $Command

@@ -144,6 +144,7 @@ export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, _
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ *
  * @public
  */
 export class SearchImageSetsCommand extends $Command

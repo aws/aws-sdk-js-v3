@@ -84,6 +84,7 @@ export interface DeleteJobCommandOutput extends DeleteJobResult, __MetadataBeare
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class DeleteJobCommand extends $Command

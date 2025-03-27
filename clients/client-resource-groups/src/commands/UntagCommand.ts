@@ -91,6 +91,7 @@ export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class UntagCommand extends $Command

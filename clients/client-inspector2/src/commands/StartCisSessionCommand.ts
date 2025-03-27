@@ -76,6 +76,23 @@ export interface StartCisSessionCommandOutput extends StartCisSessionResponse, _
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
+ * @example Sample SendCisSessionHealth Call
+ * ```javascript
+ * //
+ * const input = {
+ *   message: {
+ *     sessionToken: "624b746d-e080-44ae-8c1d-48e653365a31"
+ *   },
+ *   scanJobId: "624b746d-e080-44ae-8c1d-48e653365a38"
+ * };
+ * const command = new StartCisSessionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class StartCisSessionCommand extends $Command

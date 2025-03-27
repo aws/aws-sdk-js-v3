@@ -148,6 +148,7 @@ export interface PutWebhookCommandOutput extends PutWebhookOutput, __MetadataBea
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class PutWebhookCommand extends $Command

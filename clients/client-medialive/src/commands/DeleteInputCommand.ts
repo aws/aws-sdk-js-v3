@@ -77,6 +77,7 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class DeleteInputCommand extends $Command

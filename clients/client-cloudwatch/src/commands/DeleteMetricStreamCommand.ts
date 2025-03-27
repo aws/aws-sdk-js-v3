@@ -63,6 +63,7 @@ export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutpu
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class DeleteMetricStreamCommand extends $Command

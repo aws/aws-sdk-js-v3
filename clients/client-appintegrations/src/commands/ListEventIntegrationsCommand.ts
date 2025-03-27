@@ -82,6 +82,7 @@ export interface ListEventIntegrationsCommandOutput extends ListEventIntegration
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ *
  * @public
  */
 export class ListEventIntegrationsCommand extends $Command

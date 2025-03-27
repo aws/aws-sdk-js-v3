@@ -111,6 +111,7 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ *
  * @public
  */
 export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command

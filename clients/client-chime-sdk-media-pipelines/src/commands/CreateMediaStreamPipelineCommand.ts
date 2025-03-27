@@ -128,6 +128,7 @@ export interface CreateMediaStreamPipelineCommandOutput extends CreateMediaStrea
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class CreateMediaStreamPipelineCommand extends $Command

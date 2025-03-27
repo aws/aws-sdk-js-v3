@@ -113,35 +113,40 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
- * @example To modify the instance type
- * ```javascript
- * // This example modifies the instance type of the specified stopped instance.
- * const input = {
- *   "InstanceId": "i-1234567890abcdef0",
- *   "InstanceType": {
- *     "Value": "m5.large"
- *   }
- * };
- * const command = new ModifyInstanceAttributeCommand(input);
- * await client.send(command);
- * // example id: to-modify-the-instance-type-1529357844378
- * ```
  *
  * @example To enable enhanced networking
  * ```javascript
  * // This example enables enhanced networking for the specified stopped instance.
  * const input = {
- *   "EnaSupport": {
- *     "Value": true
+ *   EnaSupport: {
+ *     Value: true
  *   },
- *   "InstanceId": "i-1234567890abcdef0"
+ *   InstanceId: "i-1234567890abcdef0"
  * };
  * const command = new ModifyInstanceAttributeCommand(input);
- * await client.send(command);
- * // example id: to-enable-enhanced-networking-1529358279870
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @example To modify the instance type
+ * ```javascript
+ * // This example modifies the instance type of the specified stopped instance.
+ * const input = {
+ *   InstanceId: "i-1234567890abcdef0",
+ *   InstanceType: {
+ *     Value: "m5.large"
+ *   }
+ * };
+ * const command = new ModifyInstanceAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class ModifyInstanceAttributeCommand extends $Command
   .classBuilder<

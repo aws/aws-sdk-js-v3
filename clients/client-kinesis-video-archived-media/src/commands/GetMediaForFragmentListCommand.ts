@@ -89,6 +89,11 @@ export interface GetMediaForFragmentListCommandOutput
  * };
  * const command = new GetMediaForFragmentListCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.Payload.transformToByteArray();
+ * // const str = await response.Payload.transformToString();
+ * // response.Payload.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetMediaForFragmentListOutput
  * //   ContentType: "STRING_VALUE",
  * //   Payload: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
@@ -127,6 +132,7 @@ export interface GetMediaForFragmentListCommandOutput
  *
  * @throws {@link KinesisVideoArchivedMediaServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
+ *
  *
  * @public
  */

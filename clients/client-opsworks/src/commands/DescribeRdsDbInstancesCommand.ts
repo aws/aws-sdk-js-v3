@@ -82,6 +82,7 @@ export interface DescribeRdsDbInstancesCommandOutput extends DescribeRdsDbInstan
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class DescribeRdsDbInstancesCommand extends $Command

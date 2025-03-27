@@ -75,33 +75,33 @@ export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __Metadat
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
- * @public
+ *
  * @example To list all lexicons in a region
  * ```javascript
  * // Returns a list of pronunciation lexicons stored in an AWS Region.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListLexiconsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Lexicons": [
+ *   Lexicons: [
  *     {
- *       "Attributes": {
- *         "Alphabet": "ipa",
- *         "LanguageCode": "en-US",
- *         "LastModified": 1478542980.117,
- *         "LexemesCount": 1,
- *         "LexiconArn": "arn:aws:polly:us-east-1:123456789012:lexicon/example",
- *         "Size": 503
+ *       Attributes: {
+ *         Alphabet: "ipa",
+ *         LanguageCode: "en-US",
+ *         LastModified: 1.478542980117E9,
+ *         LexemesCount: 1,
+ *         LexiconArn: "arn:aws:polly:us-east-1:123456789012:lexicon/example",
+ *         Size: 503
  *       },
- *       "Name": "example"
+ *       Name: "example"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-all-lexicons-in-a-region-1481842106487
  * ```
  *
+ * @public
  */
 export class ListLexiconsCommand extends $Command
   .classBuilder<

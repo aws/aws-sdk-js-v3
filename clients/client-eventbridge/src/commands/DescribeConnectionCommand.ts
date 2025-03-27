@@ -147,6 +147,7 @@ export interface DescribeConnectionCommandOutput extends DescribeConnectionRespo
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class DescribeConnectionCommand extends $Command

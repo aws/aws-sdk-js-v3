@@ -109,6 +109,7 @@ export interface UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class UpdateMediaPipelineKinesisVideoStreamPoolCommand extends $Command

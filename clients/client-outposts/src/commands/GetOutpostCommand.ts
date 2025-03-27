@@ -82,6 +82,7 @@ export interface GetOutpostCommandOutput extends GetOutpostOutput, __MetadataBea
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class GetOutpostCommand extends $Command

@@ -114,6 +114,7 @@ export interface DeleteAddonCommandOutput extends DeleteAddonResponse, __Metadat
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class DeleteAddonCommand extends $Command

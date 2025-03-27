@@ -87,6 +87,24 @@ export interface GetSolNetworkPackageContentCommandOutput
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example Get a network package Content
+ * ```javascript
+ * //
+ * const input = {
+ *   accept: "application/zip",
+ *   nsdInfoId: "np-0d5b823eb5c2a9241"
+ * };
+ * const command = new GetSolNetworkPackageContentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   contentType: "application/zip",
+ *   nsdContent: "dGVzdCBjb250ZW50IGhlcmU="
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetSolNetworkPackageContentCommand extends $Command

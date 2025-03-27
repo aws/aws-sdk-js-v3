@@ -79,6 +79,7 @@ export interface SignPayloadCommandOutput extends SignPayloadResponse, __Metadat
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ *
  * @public
  */
 export class SignPayloadCommand extends $Command

@@ -165,6 +165,7 @@ export interface BatchGetProfileCommandOutput extends BatchGetProfileResponse, _
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class BatchGetProfileCommand extends $Command

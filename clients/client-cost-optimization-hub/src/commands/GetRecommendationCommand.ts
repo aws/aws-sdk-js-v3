@@ -681,6 +681,7 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * @throws {@link CostOptimizationHubServiceException}
  * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
  *
+ *
  * @public
  */
 export class GetRecommendationCommand extends $Command

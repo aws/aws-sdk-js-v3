@@ -103,6 +103,7 @@ export interface DetachStaticIpCommandOutput extends DetachStaticIpResult, __Met
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class DetachStaticIpCommand extends $Command

@@ -80,6 +80,7 @@ export interface GetWorkUnitsCommandOutput extends GetWorkUnitsResponse, __Metad
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class GetWorkUnitsCommand extends $Command

@@ -74,6 +74,7 @@ export interface DeleteSyncJobCommandOutput extends DeleteSyncJobResponse, __Met
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteSyncJobCommand extends $Command

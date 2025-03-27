@@ -91,6 +91,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationsCommand extends $Command

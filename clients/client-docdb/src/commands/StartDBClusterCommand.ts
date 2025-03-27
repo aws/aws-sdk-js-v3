@@ -130,6 +130,7 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class StartDBClusterCommand extends $Command

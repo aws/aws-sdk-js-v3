@@ -79,6 +79,7 @@ export interface UpdateTableStorageOptimizerCommandOutput
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class UpdateTableStorageOptimizerCommand extends $Command

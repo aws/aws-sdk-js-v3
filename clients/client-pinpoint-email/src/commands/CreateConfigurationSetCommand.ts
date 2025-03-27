@@ -95,6 +95,7 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ *
  * @public
  */
 export class CreateConfigurationSetCommand extends $Command

@@ -84,6 +84,7 @@ export interface GetContentCommandOutput extends GetContentResponse, __MetadataB
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class GetContentCommand extends $Command

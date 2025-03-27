@@ -85,6 +85,7 @@ export interface BatchStopUpdateActionCommandOutput extends UpdateActionResultsM
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class BatchStopUpdateActionCommand extends $Command

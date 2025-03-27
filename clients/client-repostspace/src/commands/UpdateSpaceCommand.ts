@@ -74,6 +74,7 @@ export interface UpdateSpaceCommandOutput extends __MetadataBearer {}
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ *
  * @public
  */
 export class UpdateSpaceCommand extends $Command

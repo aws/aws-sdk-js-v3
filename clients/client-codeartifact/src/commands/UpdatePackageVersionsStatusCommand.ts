@@ -115,6 +115,7 @@ export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageV
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class UpdatePackageVersionsStatusCommand extends $Command

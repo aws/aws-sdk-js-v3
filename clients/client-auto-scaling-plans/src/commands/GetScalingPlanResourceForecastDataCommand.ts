@@ -84,6 +84,7 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
  * @throws {@link AutoScalingPlansServiceException}
  * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
+ *
  * @public
  */
 export class GetScalingPlanResourceForecastDataCommand extends $Command

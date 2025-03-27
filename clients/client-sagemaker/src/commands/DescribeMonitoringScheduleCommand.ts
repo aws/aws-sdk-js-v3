@@ -186,6 +186,7 @@ export interface DescribeMonitoringScheduleCommandOutput extends DescribeMonitor
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeMonitoringScheduleCommand extends $Command

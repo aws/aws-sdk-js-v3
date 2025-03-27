@@ -112,6 +112,7 @@ export interface ListInvestigationsCommandOutput extends ListInvestigationsRespo
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ *
  * @public
  */
 export class ListInvestigationsCommand extends $Command

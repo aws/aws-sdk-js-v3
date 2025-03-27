@@ -89,6 +89,7 @@ export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivene
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ *
  * @public
  */
 export class CreateFaceLivenessSessionCommand extends $Command

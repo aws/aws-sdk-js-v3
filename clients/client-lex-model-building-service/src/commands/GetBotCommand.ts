@@ -119,64 +119,64 @@ export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
- * @public
+ *
  * @example To get information about a bot
  * ```javascript
  * // This example shows how to get configuration information for a bot.
  * const input = {
- *   "name": "DocOrderPizza",
- *   "versionOrAlias": "$LATEST"
+ *   name: "DocOrderPizza",
+ *   versionOrAlias: "$LATEST"
  * };
  * const command = new GetBotCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "version": "$LATEST",
- *   "name": "DocOrderPizzaBot",
- *   "abortStatement": {
- *     "messages": [
+ *   abortStatement: {
+ *     messages: [
  *       {
- *         "content": "I don't understand. Can you try again?",
- *         "contentType": "PlainText"
+ *         content: "I don't understand. Can you try again?",
+ *         contentType: "PlainText"
  *       },
  *       {
- *         "content": "I'm sorry, I don't understand.",
- *         "contentType": "PlainText"
+ *         content: "I'm sorry, I don't understand.",
+ *         contentType: "PlainText"
  *       }
  *     ]
  *   },
- *   "checksum": "20172ee3-fa06-49b2-bbc5-667c090303e9",
- *   "childDirected": true,
- *   "clarificationPrompt": {
- *     "maxAttempts": 1,
- *     "messages": [
+ *   checksum: "20172ee3-fa06-49b2-bbc5-667c090303e9",
+ *   childDirected: true,
+ *   clarificationPrompt: {
+ *     maxAttempts: 1,
+ *     messages: [
  *       {
- *         "content": "I'm sorry, I didn't hear that. Can you repeate what you just said?",
- *         "contentType": "PlainText"
+ *         content: "I'm sorry, I didn't hear that. Can you repeate what you just said?",
+ *         contentType: "PlainText"
  *       },
  *       {
- *         "content": "Can you say that again?",
- *         "contentType": "PlainText"
+ *         content: "Can you say that again?",
+ *         contentType: "PlainText"
  *       }
  *     ]
  *   },
- *   "createdDate": 1494360160.133,
- *   "description": "Orders a pizza from a local pizzeria.",
- *   "idleSessionTTLInSeconds": 300,
- *   "intents": [
+ *   createdDate: 1.494360160133E9,
+ *   description: "Orders a pizza from a local pizzeria.",
+ *   idleSessionTTLInSeconds: 300,
+ *   intents: [
  *     {
- *       "intentName": "DocOrderPizza",
- *       "intentVersion": "$LATEST"
+ *       intentName: "DocOrderPizza",
+ *       intentVersion: "$LATEST"
  *     }
  *   ],
- *   "lastUpdatedDate": 1494360160.133,
- *   "locale": "en-US",
- *   "status": "NOT_BUILT"
+ *   lastUpdatedDate: 1.494360160133E9,
+ *   locale: "en-US",
+ *   name: "DocOrderPizzaBot",
+ *   status: "NOT_BUILT",
+ *   version: "$LATEST"
  * }
  * *\/
- * // example id: to-get-information-about-a-bot-1494431724188
  * ```
  *
+ * @public
  */
 export class GetBotCommand extends $Command
   .classBuilder<

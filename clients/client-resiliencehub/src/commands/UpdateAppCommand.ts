@@ -131,6 +131,7 @@ export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBea
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class UpdateAppCommand extends $Command

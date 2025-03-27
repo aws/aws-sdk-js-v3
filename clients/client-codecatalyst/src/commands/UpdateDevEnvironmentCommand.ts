@@ -99,6 +99,7 @@ export interface UpdateDevEnvironmentCommandOutput extends UpdateDevEnvironmentR
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class UpdateDevEnvironmentCommand extends $Command

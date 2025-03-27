@@ -115,196 +115,196 @@ export interface ListFacetAttributesCommandOutput extends ListFacetAttributesRes
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To list facet attributes
  * ```javascript
  * //
  * const input = {
- *   "Name": "Organization",
- *   "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
+ *   Name: "Organization",
+ *   SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
  * };
  * const command = new ListFacetAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Attributes": [
+ *   Attributes: [
  *     {
- *       "AttributeDefinition": {
- *         "IsImmutable": false,
- *         "Rules": {
- *           "nameLength": {
- *             "Parameters": {
- *               "max": "1024",
- *               "min": "1"
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
  *             },
- *             "Type": "STRING_LENGTH"
+ *             Type: "STRING_LENGTH"
  *           }
  *         },
- *         "Type": "STRING"
+ *         Type: "STRING"
  *       },
- *       "Name": "account_id",
- *       "RequiredBehavior": "NOT_REQUIRED"
+ *       Name: "account_id",
+ *       RequiredBehavior: "NOT_REQUIRED"
  *     },
  *     {
- *       "AttributeDefinition": {
- *         "IsImmutable": false,
- *         "Rules": {
- *           "nameLength": {
- *             "Parameters": {
- *               "max": "1024",
- *               "min": "1"
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
  *             },
- *             "Type": "STRING_LENGTH"
+ *             Type: "STRING_LENGTH"
  *           }
  *         },
- *         "Type": "STRING"
+ *         Type: "STRING"
  *       },
- *       "Name": "account_name",
- *       "RequiredBehavior": "NOT_REQUIRED"
+ *       Name: "account_name",
+ *       RequiredBehavior: "NOT_REQUIRED"
  *     },
  *     {
- *       "AttributeDefinition": {
- *         "IsImmutable": false,
- *         "Rules": {
- *           "nameLength": {
- *             "Parameters": {
- *               "max": "1024",
- *               "min": "1"
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
  *             },
- *             "Type": "STRING_LENGTH"
+ *             Type: "STRING_LENGTH"
  *           }
  *         },
- *         "Type": "STRING"
+ *         Type: "STRING"
  *       },
- *       "Name": "description",
- *       "RequiredBehavior": "NOT_REQUIRED"
+ *       Name: "description",
+ *       RequiredBehavior: "NOT_REQUIRED"
  *     },
  *     {
- *       "AttributeDefinition": {
- *         "IsImmutable": false,
- *         "Rules": {
- *           "nameLength": {
- *             "Parameters": {
- *               "max": "1024",
- *               "min": "1"
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
  *             },
- *             "Type": "STRING_LENGTH"
+ *             Type: "STRING_LENGTH"
  *           }
  *         },
- *         "Type": "STRING"
+ *         Type: "STRING"
  *       },
- *       "Name": "email",
- *       "RequiredBehavior": "NOT_REQUIRED"
+ *       Name: "email",
+ *       RequiredBehavior: "NOT_REQUIRED"
  *     },
  *     {
- *       "AttributeDefinition": {
- *         "IsImmutable": false,
- *         "Rules": {
- *           "nameLength": {
- *             "Parameters": {
- *               "max": "1024",
- *               "min": "1"
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
  *             },
- *             "Type": "STRING_LENGTH"
+ *             Type: "STRING_LENGTH"
  *           }
  *         },
- *         "Type": "STRING"
+ *         Type: "STRING"
  *       },
- *       "Name": "mailing_address_city",
- *       "RequiredBehavior": "NOT_REQUIRED"
+ *       Name: "mailing_address_city",
+ *       RequiredBehavior: "NOT_REQUIRED"
  *     },
  *     {
- *       "AttributeDefinition": {
- *         "IsImmutable": false,
- *         "Rules": {
- *           "nameLength": {
- *             "Parameters": {
- *               "max": "1024",
- *               "min": "1"
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
  *             },
- *             "Type": "STRING_LENGTH"
+ *             Type: "STRING_LENGTH"
  *           }
  *         },
- *         "Type": "STRING"
+ *         Type: "STRING"
  *       },
- *       "Name": "mailing_address_country",
- *       "RequiredBehavior": "NOT_REQUIRED"
+ *       Name: "mailing_address_country",
+ *       RequiredBehavior: "NOT_REQUIRED"
  *     },
  *     {
- *       "AttributeDefinition": {
- *         "IsImmutable": false,
- *         "Rules": {
- *           "nameLength": {
- *             "Parameters": {
- *               "max": "1024",
- *               "min": "1"
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
  *             },
- *             "Type": "STRING_LENGTH"
+ *             Type: "STRING_LENGTH"
  *           }
  *         },
- *         "Type": "STRING"
+ *         Type: "STRING"
  *       },
- *       "Name": "mailing_address_postal_code",
- *       "RequiredBehavior": "NOT_REQUIRED"
+ *       Name: "mailing_address_postal_code",
+ *       RequiredBehavior: "NOT_REQUIRED"
  *     },
  *     {
- *       "AttributeDefinition": {
- *         "IsImmutable": false,
- *         "Rules": {
- *           "nameLength": {
- *             "Parameters": {
- *               "max": "1024",
- *               "min": "1"
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
  *             },
- *             "Type": "STRING_LENGTH"
+ *             Type: "STRING_LENGTH"
  *           }
  *         },
- *         "Type": "STRING"
+ *         Type: "STRING"
  *       },
- *       "Name": "mailing_address_state",
- *       "RequiredBehavior": "NOT_REQUIRED"
+ *       Name: "mailing_address_state",
+ *       RequiredBehavior: "NOT_REQUIRED"
  *     },
  *     {
- *       "AttributeDefinition": {
- *         "IsImmutable": false,
- *         "Rules": {
- *           "nameLength": {
- *             "Parameters": {
- *               "max": "1024",
- *               "min": "1"
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
  *             },
- *             "Type": "STRING_LENGTH"
+ *             Type: "STRING_LENGTH"
  *           }
  *         },
- *         "Type": "STRING"
+ *         Type: "STRING"
  *       },
- *       "Name": "mailing_address_street1",
- *       "RequiredBehavior": "NOT_REQUIRED"
+ *       Name: "mailing_address_street1",
+ *       RequiredBehavior: "NOT_REQUIRED"
  *     },
  *     {
- *       "AttributeDefinition": {
- *         "IsImmutable": false,
- *         "Rules": {
- *           "nameLength": {
- *             "Parameters": {
- *               "max": "1024",
- *               "min": "1"
+ *       AttributeDefinition: {
+ *         IsImmutable: false,
+ *         Rules: {
+ *           nameLength: {
+ *             Parameters: {
+ *               max: "1024",
+ *               min: "1"
  *             },
- *             "Type": "STRING_LENGTH"
+ *             Type: "STRING_LENGTH"
  *           }
  *         },
- *         "Type": "STRING"
+ *         Type: "STRING"
  *       },
- *       "Name": "mailing_address_street2",
- *       "RequiredBehavior": "NOT_REQUIRED"
+ *       Name: "mailing_address_street2",
+ *       RequiredBehavior: "NOT_REQUIRED"
  *     }
  *   ],
- *   "NextToken": "V0b3JnYW5pemF0aW9uX3N0YXR1cw=="
+ *   NextToken: "V0b3JnYW5pemF0aW9uX3N0YXR1cw=="
  * }
  * *\/
- * // example id: to-list-facet-attributes-1508275015421
  * ```
  *
+ * @public
  */
 export class ListFacetAttributesCommand extends $Command
   .classBuilder<

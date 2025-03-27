@@ -74,6 +74,7 @@ export interface RemoveThingFromThingGroupCommandOutput extends RemoveThingFromT
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class RemoveThingFromThingGroupCommand extends $Command

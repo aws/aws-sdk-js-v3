@@ -109,6 +109,7 @@ export interface DescribeServerlessCachesCommandOutput extends DescribeServerles
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class DescribeServerlessCachesCommand extends $Command

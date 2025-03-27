@@ -89,6 +89,7 @@ export interface BatchPutDataQualityStatisticAnnotationCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class BatchPutDataQualityStatisticAnnotationCommand extends $Command

@@ -91,6 +91,7 @@ export interface GetAssessmentCommandOutput extends GetAssessmentResponse, __Met
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ *
  * @public
  */
 export class GetAssessmentCommand extends $Command

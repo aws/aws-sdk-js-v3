@@ -90,6 +90,7 @@ export interface ListVoiceConnectorGroupsCommandOutput extends ListVoiceConnecto
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class ListVoiceConnectorGroupsCommand extends $Command

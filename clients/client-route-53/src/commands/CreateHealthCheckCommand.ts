@@ -196,6 +196,7 @@ export interface CreateHealthCheckCommandOutput extends CreateHealthCheckRespons
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class CreateHealthCheckCommand extends $Command

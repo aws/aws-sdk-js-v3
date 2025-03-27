@@ -71,6 +71,7 @@ export interface PutObjectCommandOutput extends PutObjectResponse, __MetadataBea
  * @throws {@link MediaStoreDataServiceException}
  * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
+ *
  * @public
  */
 export class PutObjectCommand extends $Command

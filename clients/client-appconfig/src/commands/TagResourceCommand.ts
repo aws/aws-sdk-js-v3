@@ -67,21 +67,24 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To tag an application
  * ```javascript
  * // The following tag-resource example tags an application resource.
  * const input = {
- *   "ResourceArn": "arn:aws:appconfig:us-east-1:111122223333:application/339ohji",
- *   "Tags": {
- *     "group1": "1"
+ *   ResourceArn: "arn:aws:appconfig:us-east-1:111122223333:application/339ohji",
+ *   Tags: {
+ *     group1: "1"
  *   }
  * };
  * const command = new TagResourceCommand(input);
- * await client.send(command);
- * // example id: to-tag-an-application-1632330350645
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

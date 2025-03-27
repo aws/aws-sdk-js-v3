@@ -105,6 +105,7 @@ export interface DeleteAssetModelCompositeModelCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DeleteAssetModelCompositeModelCommand extends $Command

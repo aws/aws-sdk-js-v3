@@ -87,6 +87,7 @@ export interface RegisterRobotCommandOutput extends RegisterRobotResponse, __Met
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class RegisterRobotCommand extends $Command

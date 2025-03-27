@@ -89,6 +89,7 @@ export interface CreateDocumentationPartCommandOutput extends DocumentationPart,
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class CreateDocumentationPartCommand extends $Command

@@ -78,6 +78,7 @@ export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __Metadat
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class UpdateRadiusCommand extends $Command

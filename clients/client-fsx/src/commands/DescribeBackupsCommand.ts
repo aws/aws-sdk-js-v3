@@ -712,46 +712,8 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
- * @public
- * @example To describe Amazon FSx backups
- * ```javascript
- * // This operation describes all of the Amazon FSx backups in an account.
- * const input = {};
- * const command = new DescribeBackupsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Backups": [
- *     {
- *       "BackupId": "backup-03e3c82e0183b7b6b",
- *       "CreationTime": "1481841524.0",
- *       "FileSystem": {
- *         "FileSystemId": "fs-0498eed5fe91001ec",
- *         "OwnerId": "012345678912",
- *         "StorageCapacity": 300,
- *         "WindowsConfiguration": {
- *           "ActiveDirectoryId": "d-1234abcd12",
- *           "AutomaticBackupRetentionDays": 30,
- *           "DailyAutomaticBackupStartTime": "05:00",
- *           "WeeklyMaintenanceStartTime": "1:05:00"
- *         }
- *       },
- *       "Lifecycle": "AVAILABLE",
- *       "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:backup/backup-03e3c82e0183b7b6b",
- *       "Tags": [
- *         {
- *           "Key": "Name",
- *           "Value": "MyBackup"
- *         }
- *       ],
- *       "Type": "USER_INITIATED"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describe-backups-1481848448499
- * ```
  *
+ * @public
  */
 export class DescribeBackupsCommand extends $Command
   .classBuilder<

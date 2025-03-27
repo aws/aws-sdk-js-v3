@@ -112,6 +112,7 @@ export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, _
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ *
  * @public
  */
 export class DetectAnomaliesCommand extends $Command

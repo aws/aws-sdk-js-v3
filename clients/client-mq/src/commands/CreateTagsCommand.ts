@@ -68,6 +68,7 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ *
  * @public
  */
 export class CreateTagsCommand extends $Command

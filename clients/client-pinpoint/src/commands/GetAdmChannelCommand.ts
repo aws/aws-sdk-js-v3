@@ -87,6 +87,7 @@ export interface GetAdmChannelCommandOutput extends GetAdmChannelResponse, __Met
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetAdmChannelCommand extends $Command

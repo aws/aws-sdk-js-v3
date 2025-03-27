@@ -178,6 +178,7 @@ export interface GetResourceSnapshotCommandOutput extends GetResourceSnapshotRes
  * @throws {@link PartnerCentralSellingServiceException}
  * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>
  *
+ *
  * @public
  */
 export class GetResourceSnapshotCommand extends $Command

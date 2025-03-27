@@ -90,6 +90,7 @@ export interface UpdateVoiceChannelCommandOutput extends UpdateVoiceChannelRespo
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class UpdateVoiceChannelCommand extends $Command

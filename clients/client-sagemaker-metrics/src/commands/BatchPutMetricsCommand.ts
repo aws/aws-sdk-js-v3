@@ -69,6 +69,7 @@ export interface BatchPutMetricsCommandOutput extends BatchPutMetricsResponse, _
  * @throws {@link SageMakerMetricsServiceException}
  * <p>Base exception class for all service exceptions from SageMakerMetrics service.</p>
  *
+ *
  * @public
  */
 export class BatchPutMetricsCommand extends $Command

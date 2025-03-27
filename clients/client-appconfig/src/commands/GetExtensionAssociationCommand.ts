@@ -73,6 +73,7 @@ export interface GetExtensionAssociationCommandOutput extends ExtensionAssociati
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ *
  * @public
  */
 export class GetExtensionAssociationCommand extends $Command

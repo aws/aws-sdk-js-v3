@@ -115,6 +115,7 @@ export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __Met
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class GetAssignmentCommand extends $Command

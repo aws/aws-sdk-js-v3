@@ -97,52 +97,51 @@ export interface CreateCustomActionCommandOutput extends CreateCustomActionResul
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
- * @public
+ *
  * @example Create an alias that invokes a Lambda function
  * ```javascript
  * // Creates an alias that invokes a Lambda function from chat channels. You can use this alias by entering 'run invoke', after which you're prompted for the function name.
  * const input = {
- *   "ActionName": "my-custom-action",
- *   "AliasName": "invoke",
- *   "Definition": {
- *     "CommandText": "lambda invoke $functionName"
+ *   ActionName: "my-custom-action",
+ *   AliasName: "invoke",
+ *   Definition: {
+ *     CommandText: "lambda invoke $functionName"
  *   }
  * };
  * const command = new CreateCustomActionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CustomActionArn": "arn:aws:chatbot::1234567890:custom-action/my-custom-action"
+ *   CustomActionArn: "arn:aws:chatbot::1234567890:custom-action/my-custom-action"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
  * @example Create a custom action to list alarms
  * ```javascript
  * // Creates a button on all Cloudwatch notifications that lists alarms in the ‘ALARM’ state.
  * const input = {
- *   "ActionName": "describe-alarms",
- *   "Attachments": [
+ *   ActionName: "describe-alarms",
+ *   Attachments: [
  *     {
- *       "ButtonText": "List alarms",
- *       "NotificationType": "CloudWatch"
+ *       ButtonText: "List alarms",
+ *       NotificationType: "CloudWatch"
  *     }
  *   ],
- *   "Definition": {
- *     "CommandText": "cloudwatch describe-alarms --state-value ALARM"
+ *   Definition: {
+ *     CommandText: "cloudwatch describe-alarms --state-value ALARM"
  *   }
  * };
  * const command = new CreateCustomActionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CustomActionArn": "arn:aws:chatbot::1234567890:custom-action/describe-alarms"
+ *   CustomActionArn: "arn:aws:chatbot::1234567890:custom-action/describe-alarms"
  * }
  * *\/
- * // example id: example-2
  * ```
  *
+ * @public
  */
 export class CreateCustomActionCommand extends $Command
   .classBuilder<

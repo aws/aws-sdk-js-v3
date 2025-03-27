@@ -83,25 +83,25 @@ export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceRes
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example CreateHttpNamespace example
  * ```javascript
  * // This example creates an HTTP namespace.
  * const input = {
- *   "CreatorRequestId": "example-creator-request-id-0001",
- *   "Description": "Example.com AWS Cloud Map HTTP Namespace",
- *   "Name": "example-http.com"
+ *   CreatorRequestId: "example-creator-request-id-0001",
+ *   Description: "Example.com AWS Cloud Map HTTP Namespace",
+ *   Name: "example-http.com"
  * };
  * const command = new CreateHttpNamespaceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OperationId": "httpvoqozuhfet5kzxoxg-a-response-example"
+ *   OperationId: "httpvoqozuhfet5kzxoxg-a-response-example"
  * }
  * *\/
- * // example id: createhttpnamespace-example-1590114811304
  * ```
  *
+ * @public
  */
 export class CreateHttpNamespaceCommand extends $Command
   .classBuilder<

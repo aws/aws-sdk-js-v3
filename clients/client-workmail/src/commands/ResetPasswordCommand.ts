@@ -91,6 +91,7 @@ export interface ResetPasswordCommandOutput extends ResetPasswordResponse, __Met
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class ResetPasswordCommand extends $Command

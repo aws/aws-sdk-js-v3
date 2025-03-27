@@ -112,6 +112,7 @@ export interface CreateResourceSnapshotJobCommandOutput extends CreateResourceSn
  * @throws {@link PartnerCentralSellingServiceException}
  * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>
  *
+ *
  * @public
  */
 export class CreateResourceSnapshotJobCommand extends $Command

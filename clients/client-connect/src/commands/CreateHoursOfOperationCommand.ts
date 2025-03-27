@@ -97,6 +97,7 @@ export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperat
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateHoursOfOperationCommand extends $Command

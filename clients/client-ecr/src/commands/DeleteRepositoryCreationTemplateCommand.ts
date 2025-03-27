@@ -97,32 +97,8 @@ export interface DeleteRepositoryCreationTemplateCommandOutput
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
- * @public
- * @example Delete a repository creation template
- * ```javascript
- * // This example deletes a repository creation template.
- * const input = {
- *   "prefix": "eng"
- * };
- * const command = new DeleteRepositoryCreationTemplateCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "registryId": "012345678901",
- *   "repositoryCreationTemplate": {
- *     "createdAt": "2023-12-03T16:27:57.933000-08:00",
- *     "encryptionConfiguration": {
- *       "encryptionType": "AES256"
- *     },
- *     "imageTagMutability": "MUTABLE",
- *     "prefix": "eng",
- *     "updatedAt": "2023-12-03T16:27:57.933000-08:00"
- *   }
- * }
- * *\/
- * // example id: delete-a-repository-creation-template-1713298142230
- * ```
  *
+ * @public
  */
 export class DeleteRepositoryCreationTemplateCommand extends $Command
   .classBuilder<

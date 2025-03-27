@@ -80,6 +80,7 @@ export interface GetCalculatedAttributeForProfileCommandOutput
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class GetCalculatedAttributeForProfileCommand extends $Command

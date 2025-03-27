@@ -156,6 +156,7 @@ export interface GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class GenerateEmbedUrlForRegisteredUserWithIdentityCommand extends $Command

@@ -73,6 +73,7 @@ export interface DeleteMobileDeviceAccessRuleCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class DeleteMobileDeviceAccessRuleCommand extends $Command

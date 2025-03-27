@@ -112,6 +112,7 @@ export interface ListEdgeAgentConfigurationsCommandOutput extends ListEdgeAgentC
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class ListEdgeAgentConfigurationsCommand extends $Command

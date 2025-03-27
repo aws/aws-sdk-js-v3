@@ -83,6 +83,7 @@ export interface UpdateRouteCommandOutput extends UpdateRouteResponse, __Metadat
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ *
  * @public
  */
 export class UpdateRouteCommand extends $Command

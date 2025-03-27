@@ -111,6 +111,7 @@ export interface CreateInterconnectCommandOutput extends Interconnect, __Metadat
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class CreateInterconnectCommand extends $Command

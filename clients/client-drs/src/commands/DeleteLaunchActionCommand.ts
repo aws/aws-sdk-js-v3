@@ -69,6 +69,7 @@ export interface DeleteLaunchActionCommandOutput extends DeleteLaunchActionRespo
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class DeleteLaunchActionCommand extends $Command

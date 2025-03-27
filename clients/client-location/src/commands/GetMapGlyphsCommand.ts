@@ -84,6 +84,7 @@ export interface GetMapGlyphsCommandOutput extends GetMapGlyphsCommandOutputType
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class GetMapGlyphsCommand extends $Command

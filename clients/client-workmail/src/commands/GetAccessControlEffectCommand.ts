@@ -81,6 +81,7 @@ export interface GetAccessControlEffectCommandOutput extends GetAccessControlEff
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class GetAccessControlEffectCommand extends $Command

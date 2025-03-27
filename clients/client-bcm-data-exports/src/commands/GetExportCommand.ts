@@ -104,6 +104,7 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
  *
+ *
  * @public
  */
 export class GetExportCommand extends $Command

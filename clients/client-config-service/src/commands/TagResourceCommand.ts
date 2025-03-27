@@ -105,6 +105,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

@@ -79,6 +79,7 @@ export interface DeleteThesaurusCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class DeleteThesaurusCommand extends $Command

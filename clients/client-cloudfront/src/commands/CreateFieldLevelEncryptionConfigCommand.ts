@@ -150,6 +150,7 @@ export interface CreateFieldLevelEncryptionConfigCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class CreateFieldLevelEncryptionConfigCommand extends $Command

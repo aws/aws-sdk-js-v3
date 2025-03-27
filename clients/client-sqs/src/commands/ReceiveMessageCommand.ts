@@ -202,6 +202,7 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ *
  * @public
  */
 export class ReceiveMessageCommand extends $Command

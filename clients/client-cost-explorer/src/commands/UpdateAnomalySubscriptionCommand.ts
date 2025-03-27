@@ -149,6 +149,7 @@ export interface UpdateAnomalySubscriptionCommandOutput extends UpdateAnomalySub
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class UpdateAnomalySubscriptionCommand extends $Command

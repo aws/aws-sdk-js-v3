@@ -77,6 +77,7 @@ export interface GetUploadStatusCommandOutput extends GetUploadStatusResponse, _
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class GetUploadStatusCommand extends $Command

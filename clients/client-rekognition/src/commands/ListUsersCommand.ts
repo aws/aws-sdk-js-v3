@@ -90,33 +90,33 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example ListUsers
  * ```javascript
  * // Returns metadata of the User such as UserID in the specified collection.
  * const input = {
- *   "CollectionId": "MyCollection"
+ *   CollectionId: "MyCollection"
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NextToken": "MGYZLAHX1T5a....",
- *   "Users": [
+ *   NextToken: "MGYZLAHX1T5a....",
+ *   Users: [
  *     {
- *       "UserId": "demoUser4",
- *       "UserStatus": "CREATED"
+ *       UserId: "demoUser4",
+ *       UserStatus: "CREATED"
  *     },
  *     {
- *       "UserId": "demoUser2",
- *       "UserStatus": "CREATED"
+ *       UserId: "demoUser2",
+ *       UserStatus: "CREATED"
  *     }
  *   ]
  * }
  * *\/
- * // example id: listusers-1686182360075
  * ```
  *
+ * @public
  */
 export class ListUsersCommand extends $Command
   .classBuilder<

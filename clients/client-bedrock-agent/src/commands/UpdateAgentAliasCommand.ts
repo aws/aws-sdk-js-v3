@@ -116,6 +116,7 @@ export interface UpdateAgentAliasCommandOutput extends UpdateAgentAliasResponse,
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class UpdateAgentAliasCommand extends $Command

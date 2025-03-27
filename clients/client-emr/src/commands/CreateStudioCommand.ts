@@ -86,6 +86,7 @@ export interface CreateStudioCommandOutput extends CreateStudioOutput, __Metadat
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class CreateStudioCommand extends $Command

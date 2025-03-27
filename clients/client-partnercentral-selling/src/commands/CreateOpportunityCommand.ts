@@ -230,6 +230,7 @@ export interface CreateOpportunityCommandOutput extends CreateOpportunityRespons
  * @throws {@link PartnerCentralSellingServiceException}
  * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>
  *
+ *
  * @public
  */
 export class CreateOpportunityCommand extends $Command

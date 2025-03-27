@@ -80,6 +80,7 @@ export interface StopDevEnvironmentCommandOutput extends StopDevEnvironmentRespo
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class StopDevEnvironmentCommand extends $Command

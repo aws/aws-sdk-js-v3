@@ -180,6 +180,7 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class RetryDataReplicationCommand extends $Command

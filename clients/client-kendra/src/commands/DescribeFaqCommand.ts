@@ -90,6 +90,7 @@ export interface DescribeFaqCommandOutput extends DescribeFaqResponse, __Metadat
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class DescribeFaqCommand extends $Command

@@ -76,6 +76,7 @@ export interface DeleteBrandAssignmentCommandOutput extends DeleteBrandAssignmen
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DeleteBrandAssignmentCommand extends $Command

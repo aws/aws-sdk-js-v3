@@ -50,6 +50,7 @@ export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class NoInputAndNoOutputCommand extends $Command

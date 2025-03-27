@@ -82,6 +82,7 @@ export interface ListComponentVersionsCommandOutput extends ListComponentVersion
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ *
  * @public
  */
 export class ListComponentVersionsCommand extends $Command

@@ -66,6 +66,7 @@ export interface DeregisterResourceCommandOutput extends DeregisterResourceRespo
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class DeregisterResourceCommand extends $Command

@@ -84,6 +84,7 @@ export interface CreateConstraintCommandOutput extends CreateConstraintOutput, _
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class CreateConstraintCommand extends $Command

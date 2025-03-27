@@ -90,6 +90,7 @@ export interface GetSceneCommandOutput extends GetSceneResponse, __MetadataBeare
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class GetSceneCommand extends $Command

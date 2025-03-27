@@ -105,6 +105,7 @@ export interface CreateSignalingChannelCommandOutput extends CreateSignalingChan
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class CreateSignalingChannelCommand extends $Command

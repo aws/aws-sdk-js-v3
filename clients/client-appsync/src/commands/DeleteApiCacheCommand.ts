@@ -71,6 +71,7 @@ export interface DeleteApiCacheCommandOutput extends DeleteApiCacheResponse, __M
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class DeleteApiCacheCommand extends $Command

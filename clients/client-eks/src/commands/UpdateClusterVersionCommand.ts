@@ -127,6 +127,7 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class UpdateClusterVersionCommand extends $Command

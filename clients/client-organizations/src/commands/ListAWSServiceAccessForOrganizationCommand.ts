@@ -410,6 +410,7 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ *
  * @public
  */
 export class ListAWSServiceAccessForOrganizationCommand extends $Command

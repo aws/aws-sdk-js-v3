@@ -195,6 +195,7 @@ export interface DescribeMergeConflictsCommandOutput extends DescribeMergeConfli
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class DescribeMergeConflictsCommand extends $Command

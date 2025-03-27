@@ -162,29 +162,29 @@ export interface GetPolicyStoreCommandOutput extends GetPolicyStoreOutput, __Met
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
- * @public
+ *
  * @example GetPolicyStore
  * ```javascript
  * // The following example retrieves details about the specified policy store.
  * const input = {
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a"
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
  * };
  * const command = new GetPolicyStoreCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "arn": "arn:aws:verifiedpermissions::123456789012:policy-store/C7v5xMplfFH3i3e4Jrzb1a",
- *   "createdDate": "2024-08-12T18:20:50.99Z",
- *   "lastUpdatedDate": "2024-08-12T18:20:50.99Z",
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
- *   "validationSettings": {
- *     "mode": "STRICT"
+ *   arn: "arn:aws:verifiedpermissions::123456789012:policy-store/C7v5xMplfFH3i3e4Jrzb1a",
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   validationSettings: {
+ *     mode: "STRICT"
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetPolicyStoreCommand extends $Command
   .classBuilder<

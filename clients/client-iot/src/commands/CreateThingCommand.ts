@@ -94,6 +94,7 @@ export interface CreateThingCommandOutput extends CreateThingResponse, __Metadat
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class CreateThingCommand extends $Command

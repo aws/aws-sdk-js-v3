@@ -88,6 +88,7 @@ export interface ImportHostKeyCommandOutput extends ImportHostKeyResponse, __Met
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class ImportHostKeyCommand extends $Command

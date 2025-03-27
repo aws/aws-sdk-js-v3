@@ -91,6 +91,7 @@ export interface ListTargetGroupsCommandOutput extends ListTargetGroupsResponse,
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class ListTargetGroupsCommand extends $Command

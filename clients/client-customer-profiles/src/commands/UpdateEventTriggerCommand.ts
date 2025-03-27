@@ -147,6 +147,7 @@ export interface UpdateEventTriggerCommandOutput extends UpdateEventTriggerRespo
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class UpdateEventTriggerCommand extends $Command

@@ -102,6 +102,7 @@ export interface DescribeIngestionCommandOutput extends DescribeIngestionRespons
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeIngestionCommand extends $Command

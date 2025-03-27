@@ -71,6 +71,7 @@ export interface DeleteAppAuthorizationCommandOutput extends DeleteAppAuthorizat
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ *
  * @public
  */
 export class DeleteAppAuthorizationCommand extends $Command

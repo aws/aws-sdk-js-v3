@@ -80,6 +80,7 @@ export interface EnableUserCommandOutput extends EnableUserResponse, __MetadataB
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ *
  * @public
  */
 export class EnableUserCommand extends $Command

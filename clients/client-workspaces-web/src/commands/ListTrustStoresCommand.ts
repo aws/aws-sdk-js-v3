@@ -73,6 +73,7 @@ export interface ListTrustStoresCommandOutput extends ListTrustStoresResponse, _
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class ListTrustStoresCommand extends $Command

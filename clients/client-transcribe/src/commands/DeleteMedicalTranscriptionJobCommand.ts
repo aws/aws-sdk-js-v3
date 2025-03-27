@@ -72,6 +72,7 @@ export interface DeleteMedicalTranscriptionJobCommandOutput extends __MetadataBe
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class DeleteMedicalTranscriptionJobCommand extends $Command

@@ -100,47 +100,47 @@ export interface DescribeEnvironmentResourcesCommandOutput
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To view information about the AWS resources in your environment
  * ```javascript
  * // The following operation retrieves information about resources in an environment named my-env:
  * const input = {
- *   "EnvironmentName": "my-env"
+ *   EnvironmentName: "my-env"
  * };
  * const command = new DescribeEnvironmentResourcesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EnvironmentResources": {
- *     "AutoScalingGroups": [
+ *   EnvironmentResources: {
+ *     AutoScalingGroups: [
  *       {
- *         "Name": "awseb-e-qu3fyyjyjs-stack-AWSEBAutoScalingGroup-QSB2ZO88SXZT"
+ *         Name: "awseb-e-qu3fyyjyjs-stack-AWSEBAutoScalingGroup-QSB2ZO88SXZT"
  *       }
  *     ],
- *     "EnvironmentName": "my-env",
- *     "Instances": [
+ *     EnvironmentName: "my-env",
+ *     Instances: [
  *       {
- *         "Id": "i-0c91c786"
+ *         Id: "i-0c91c786"
  *       }
  *     ],
- *     "LaunchConfigurations": [
+ *     LaunchConfigurations: [
  *       {
- *         "Name": "awseb-e-qu3fyyjyjs-stack-AWSEBAutoScalingLaunchConfiguration-1UUVQIBC96TQ2"
+ *         Name: "awseb-e-qu3fyyjyjs-stack-AWSEBAutoScalingLaunchConfiguration-1UUVQIBC96TQ2"
  *       }
  *     ],
- *     "LoadBalancers": [
+ *     LoadBalancers: [
  *       {
- *         "Name": "awseb-e-q-AWSEBLoa-1EEPZ0K98BIF0"
+ *         Name: "awseb-e-q-AWSEBLoa-1EEPZ0K98BIF0"
  *       }
  *     ],
- *     "Queues": [],
- *     "Triggers": []
+ *     Queues:     [],
+ *     Triggers:     []
  *   }
  * }
  * *\/
- * // example id: to-view-information-about-the-aws-resources-in-your-environment-1456277206232
  * ```
  *
+ * @public
  */
 export class DescribeEnvironmentResourcesCommand extends $Command
   .classBuilder<

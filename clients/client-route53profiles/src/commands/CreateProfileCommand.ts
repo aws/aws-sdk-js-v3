@@ -100,6 +100,7 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * @throws {@link Route53ProfilesServiceException}
  * <p>Base exception class for all service exceptions from Route53Profiles service.</p>
  *
+ *
  * @public
  */
 export class CreateProfileCommand extends $Command

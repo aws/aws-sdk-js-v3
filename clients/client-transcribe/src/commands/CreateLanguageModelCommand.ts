@@ -110,6 +110,7 @@ export interface CreateLanguageModelCommandOutput extends CreateLanguageModelRes
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class CreateLanguageModelCommand extends $Command

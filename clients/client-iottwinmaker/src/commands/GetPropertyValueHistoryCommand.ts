@@ -193,6 +193,7 @@ export interface GetPropertyValueHistoryCommandOutput extends GetPropertyValueHi
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class GetPropertyValueHistoryCommand extends $Command

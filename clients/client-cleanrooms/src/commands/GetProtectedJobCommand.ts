@@ -114,6 +114,7 @@ export interface GetProtectedJobCommandOutput extends GetProtectedJobOutput, __M
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class GetProtectedJobCommand extends $Command

@@ -133,6 +133,7 @@ export interface ListLicenseConfigurationsCommandOutput extends ListLicenseConfi
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class ListLicenseConfigurationsCommand extends $Command

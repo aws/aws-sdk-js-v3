@@ -70,6 +70,7 @@ export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationS
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class GetSchemaCreationStatusCommand extends $Command

@@ -95,6 +95,7 @@ export interface SubmitAttachmentStateChangesCommandOutput
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ *
  * @public
  */
 export class SubmitAttachmentStateChangesCommand extends $Command

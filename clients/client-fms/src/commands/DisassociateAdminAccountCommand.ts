@@ -66,6 +66,7 @@ export interface DisassociateAdminAccountCommandOutput extends __MetadataBearer 
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class DisassociateAdminAccountCommand extends $Command

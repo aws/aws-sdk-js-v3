@@ -140,76 +140,76 @@ export interface CreateMigrationProjectCommandOutput extends CreateMigrationProj
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Create Migration Project
  * ```javascript
  * // Creates the migration project with the specified parameters.
  * const input = {
- *   "Description": "description",
- *   "InstanceProfileIdentifier": "ip-au-17",
- *   "MigrationProjectName": "my-migration-project",
- *   "SchemaConversionApplicationAttributes": {
- *     "S3BucketPath": "arn:aws:s3:::mylogin-bucket",
- *     "S3BucketRoleArn": "arn:aws:iam::012345678901:role/Admin"
+ *   Description: "description",
+ *   InstanceProfileIdentifier: "ip-au-17",
+ *   MigrationProjectName: "my-migration-project",
+ *   SchemaConversionApplicationAttributes: {
+ *     S3BucketPath: "arn:aws:s3:::mylogin-bucket",
+ *     S3BucketRoleArn: "arn:aws:iam::012345678901:role/Admin"
  *   },
- *   "SourceDataProviderDescriptors": [
+ *   SourceDataProviderDescriptors: [
  *     {
- *       "DataProviderIdentifier": "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
- *       "SecretsManagerAccessRoleArn": "arn:aws:iam::012345678901:role/myuser-admin-access",
- *       "SecretsManagerSecretId": "arn:aws:secretsmanager:us-east-1:012345678901:secret:myorg/example1/ALL.SOURCE.ORACLE_12-A1B2C3"
+ *       DataProviderIdentifier: "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
+ *       SecretsManagerAccessRoleArn: "arn:aws:iam::012345678901:role/myuser-admin-access",
+ *       SecretsManagerSecretId: "arn:aws:secretsmanager:us-east-1:012345678901:secret:myorg/example1/ALL.SOURCE.ORACLE_12-A1B2C3"
  *     }
  *   ],
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "Key": "access",
- *       "Value": "authorizedusers"
+ *       Key: "access",
+ *       Value: "authorizedusers"
  *     }
  *   ],
- *   "TargetDataProviderDescriptors": [
+ *   TargetDataProviderDescriptors: [
  *     {
- *       "DataProviderIdentifier": "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
- *       "SecretsManagerAccessRoleArn": "arn:aws:iam::012345678901:role/myuser-admin-access",
- *       "SecretsManagerSecretId": "arn:aws:secretsmanager:us-east-1:012345678901:secret:myorg/example1/TARGET.postgresql-A1B2C3"
+ *       DataProviderIdentifier: "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
+ *       SecretsManagerAccessRoleArn: "arn:aws:iam::012345678901:role/myuser-admin-access",
+ *       SecretsManagerSecretId: "arn:aws:secretsmanager:us-east-1:012345678901:secret:myorg/example1/TARGET.postgresql-A1B2C3"
  *     }
  *   ],
- *   "TransformationRules": "{\"key0\":\"value0\",\"key1\":\"value1\",\"key2\":\"value2\"}"
+ *   TransformationRules: `{"key0":"value0","key1":"value1","key2":"value2"}`
  * };
  * const command = new CreateMigrationProjectCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "MigrationProject": {
- *     "InstanceProfileArn": "arn:aws:dms:us-east-1:012345678901:instance-profile:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *     "InstanceProfileName": "my-instance-profile",
- *     "MigrationProjectArn": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *     "MigrationProjectCreationTime": "2023-04-19T11:45:15.805253Z",
- *     "MigrationProjectName": "my-migration-project",
- *     "SchemaConversionApplicationAttributes": {
- *       "S3BucketPath": "my-s3-bucket/my_folder",
- *       "S3BucketRoleArn": "arn:aws:iam::012345678901:role/my-s3role"
+ *   MigrationProject: {
+ *     InstanceProfileArn: "arn:aws:dms:us-east-1:012345678901:instance-profile:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *     InstanceProfileName: "my-instance-profile",
+ *     MigrationProjectArn: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *     MigrationProjectCreationTime: "2023-04-19T11:45:15.805253Z",
+ *     MigrationProjectName: "my-migration-project",
+ *     SchemaConversionApplicationAttributes: {
+ *       S3BucketPath: "my-s3-bucket/my_folder",
+ *       S3BucketRoleArn: "arn:aws:iam::012345678901:role/my-s3role"
  *     },
- *     "SourceDataProviderDescriptors": [
+ *     SourceDataProviderDescriptors: [
  *       {
- *         "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *         "DataProviderName": "source-oracle-12",
- *         "SecretsManagerAccessRoleArn": "arn:aws:iam::012345678901:role/my-access-role",
- *         "SecretsManagerSecretId": "arn:aws:secretsmanager:us-east-1:012345678901:secret:myuser/ALL.SOURCE.ORACLE_12-0123456"
+ *         DataProviderArn: "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *         DataProviderName: "source-oracle-12",
+ *         SecretsManagerAccessRoleArn: "arn:aws:iam::012345678901:role/my-access-role",
+ *         SecretsManagerSecretId: "arn:aws:secretsmanager:us-east-1:012345678901:secret:myuser/ALL.SOURCE.ORACLE_12-0123456"
  *       }
  *     ],
- *     "TargetDataProviderDescriptors": [
+ *     TargetDataProviderDescriptors: [
  *       {
- *         "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *         "DataProviderName": "target-dataprovider-3",
- *         "SecretsManagerAccessRoleArn": "arn:aws:iam::012345678901:role/dmytbon-admin-access",
- *         "SecretsManagerSecretId": "arn:aws:secretsmanager:us-east-1:012345678901:secret:myuser/TARGET.postgresql-0123456"
+ *         DataProviderArn: "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *         DataProviderName: "target-dataprovider-3",
+ *         SecretsManagerAccessRoleArn: "arn:aws:iam::012345678901:role/dmytbon-admin-access",
+ *         SecretsManagerSecretId: "arn:aws:secretsmanager:us-east-1:012345678901:secret:myuser/TARGET.postgresql-0123456"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: create-migration-project-1689716672685
  * ```
  *
+ * @public
  */
 export class CreateMigrationProjectCommand extends $Command
   .classBuilder<

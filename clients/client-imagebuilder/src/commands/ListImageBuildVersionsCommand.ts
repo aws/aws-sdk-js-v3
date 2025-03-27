@@ -136,6 +136,7 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ListImageBuildVersionsCommand extends $Command

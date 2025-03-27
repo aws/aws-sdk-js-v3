@@ -126,6 +126,7 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput
  * @throws {@link ConnectContactLensServiceException}
  * <p>Base exception class for all service exceptions from ConnectContactLens service.</p>
  *
+ *
  * @public
  */
 export class ListRealtimeContactAnalysisSegmentsCommand extends $Command

@@ -219,42 +219,42 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To retrieve a list of all of the accounts in a root or OU
  * ```javascript
  * // The following example shows how to request a list of the accounts in an OU:/n/n
  * const input = {
- *   "ParentId": "ou-examplerootid111-exampleouid111"
+ *   ParentId: "ou-examplerootid111-exampleouid111"
  * };
  * const command = new ListAccountsForParentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Accounts": [
+ *   Accounts: [
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:account/o-exampleorgid/333333333333",
- *       "Email": "juan@example.com",
- *       "Id": "333333333333",
- *       "JoinedMethod": "INVITED",
- *       "JoinedTimestamp": 1481835795.536,
- *       "Name": "Development Account",
- *       "Status": "ACTIVE"
+ *       Arn: "arn:aws:organizations::111111111111:account/o-exampleorgid/333333333333",
+ *       Email: "juan@example.com",
+ *       Id: "333333333333",
+ *       JoinedMethod: "INVITED",
+ *       JoinedTimestamp: 1.481835795536E9,
+ *       Name: "Development Account",
+ *       Status: "ACTIVE"
  *     },
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:account/o-exampleorgid/444444444444",
- *       "Email": "anika@example.com",
- *       "Id": "444444444444",
- *       "JoinedMethod": "INVITED",
- *       "JoinedTimestamp": 1481835812.143,
- *       "Name": "Test Account",
- *       "Status": "ACTIVE"
+ *       Arn: "arn:aws:organizations::111111111111:account/o-exampleorgid/444444444444",
+ *       Email: "anika@example.com",
+ *       Id: "444444444444",
+ *       JoinedMethod: "INVITED",
+ *       JoinedTimestamp: 1.481835812143E9,
+ *       Name: "Test Account",
+ *       Status: "ACTIVE"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-a-list-of-all-of-the-accounts-in-a-root-or-ou-1472509590974
  * ```
  *
+ * @public
  */
 export class ListAccountsForParentCommand extends $Command
   .classBuilder<

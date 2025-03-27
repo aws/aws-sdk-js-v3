@@ -87,47 +87,52 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To register targets with a target group
  * ```javascript
  * // This example registers the specified instances with the specified target group.
  * const input = {
- *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
- *   "Targets": [
+ *   TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *   Targets: [
  *     {
- *       "Id": "i-80c8dd94"
+ *       Id: "i-80c8dd94"
  *     },
  *     {
- *       "Id": "i-ceddcd4d"
+ *       Id: "i-ceddcd4d"
  *     }
  *   ]
  * };
  * const command = new RegisterTargetsCommand(input);
- * await client.send(command);
- * // example id: elbv2-register-targets-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To register targets with a target group using port overrides
  * ```javascript
  * // This example registers the specified instance with the specified target group using multiple ports. This enables you to register ECS containers on the same instance as targets in the target group.
  * const input = {
- *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-new-targets/3bb63f11dfb0faf9",
- *   "Targets": [
+ *   TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-new-targets/3bb63f11dfb0faf9",
+ *   Targets: [
  *     {
- *       "Id": "i-80c8dd94",
- *       "Port": 80
+ *       Id: "i-80c8dd94",
+ *       Port: 80
  *     },
  *     {
- *       "Id": "i-80c8dd94",
- *       "Port": 766
+ *       Id: "i-80c8dd94",
+ *       Port: 766
  *     }
  *   ]
  * };
  * const command = new RegisterTargetsCommand(input);
- * await client.send(command);
- * // example id: elbv2-register-targets-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RegisterTargetsCommand extends $Command
   .classBuilder<

@@ -104,6 +104,7 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ *
  * @public
  */
 export class CreateRegexPatternSetCommand extends $Command

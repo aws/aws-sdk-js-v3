@@ -94,6 +94,7 @@ export interface ExportThemesCommandOutput extends ExportThemesResponse, __Metad
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class ExportThemesCommand extends $Command

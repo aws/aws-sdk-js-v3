@@ -71,6 +71,7 @@ export interface GetVPCEConfigurationCommandOutput extends GetVPCEConfigurationR
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class GetVPCEConfigurationCommand extends $Command

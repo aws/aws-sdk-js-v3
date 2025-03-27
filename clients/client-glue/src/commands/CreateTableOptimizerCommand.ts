@@ -97,6 +97,7 @@ export interface CreateTableOptimizerCommandOutput extends CreateTableOptimizerR
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class CreateTableOptimizerCommand extends $Command

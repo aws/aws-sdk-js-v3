@@ -94,6 +94,7 @@ export interface UpdateQAppSessionCommandOutput extends UpdateQAppSessionOutput,
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
+ *
  * @public
  */
 export class UpdateQAppSessionCommand extends $Command

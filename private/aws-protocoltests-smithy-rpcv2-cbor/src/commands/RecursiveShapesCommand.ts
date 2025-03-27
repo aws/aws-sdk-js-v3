@@ -78,6 +78,7 @@ export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput
  * @throws {@link RpcV2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from RpcV2Protocol service.</p>
  *
+ *
  */
 export class RecursiveShapesCommand extends $Command
   .classBuilder<

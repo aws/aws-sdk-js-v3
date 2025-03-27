@@ -92,6 +92,7 @@ export interface GetQueryStatusWorkloadInsightsTopContributorsDataCommandOutput
  * @throws {@link NetworkFlowMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkFlowMonitor service.</p>
  *
+ *
  * @public
  */
 export class GetQueryStatusWorkloadInsightsTopContributorsDataCommand extends $Command

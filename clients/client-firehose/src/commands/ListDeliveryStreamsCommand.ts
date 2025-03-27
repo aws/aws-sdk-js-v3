@@ -67,6 +67,7 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ *
  * @public
  */
 export class ListDeliveryStreamsCommand extends $Command

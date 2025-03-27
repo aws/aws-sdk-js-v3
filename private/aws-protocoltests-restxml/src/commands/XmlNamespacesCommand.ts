@@ -64,6 +64,7 @@ export interface XmlNamespacesCommandOutput extends XmlNamespacesResponse, __Met
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class XmlNamespacesCommand extends $Command
   .classBuilder<

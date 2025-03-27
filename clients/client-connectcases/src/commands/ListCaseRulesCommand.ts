@@ -85,6 +85,7 @@ export interface ListCaseRulesCommandOutput extends ListCaseRulesResponse, __Met
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class ListCaseRulesCommand extends $Command

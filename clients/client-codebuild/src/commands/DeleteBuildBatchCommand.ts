@@ -67,6 +67,7 @@ export interface DeleteBuildBatchCommandOutput extends DeleteBuildBatchOutput, _
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class DeleteBuildBatchCommand extends $Command

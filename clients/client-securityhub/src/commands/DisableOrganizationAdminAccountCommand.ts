@@ -76,18 +76,21 @@ export interface DisableOrganizationAdminAccountCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To remove a Security Hub administrator account
  * ```javascript
  * // The following example removes the Security Hub administrator account in the Region from which the operation was executed. This operation doesn't remove the delegated administrator account in AWS Organizations.
  * const input = {
- *   "AdminAccountId": "123456789012"
+ *   AdminAccountId: "123456789012"
  * };
  * const command = new DisableOrganizationAdminAccountCommand(input);
- * await client.send(command);
- * // example id: to-remove-a-security-hub-administrator-account-1676480521876
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DisableOrganizationAdminAccountCommand extends $Command
   .classBuilder<

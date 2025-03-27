@@ -94,6 +94,7 @@ export interface RemoveEndpointsCommandOutput extends __MetadataBearer {}
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class RemoveEndpointsCommand extends $Command

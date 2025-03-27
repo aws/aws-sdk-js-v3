@@ -85,6 +85,7 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class DescribeDBParametersCommand extends $Command

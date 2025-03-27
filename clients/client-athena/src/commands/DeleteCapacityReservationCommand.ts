@@ -65,6 +65,7 @@ export interface DeleteCapacityReservationCommandOutput extends DeleteCapacityRe
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class DeleteCapacityReservationCommand extends $Command

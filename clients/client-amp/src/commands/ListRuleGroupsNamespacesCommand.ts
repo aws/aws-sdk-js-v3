@@ -89,6 +89,7 @@ export interface ListRuleGroupsNamespacesCommandOutput extends ListRuleGroupsNam
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
  * @public
  */
 export class ListRuleGroupsNamespacesCommand extends $Command

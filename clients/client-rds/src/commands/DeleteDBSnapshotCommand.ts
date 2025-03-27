@@ -113,48 +113,48 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To delete a DB snapshot
  * ```javascript
  * // The following example deletes the specified DB snapshot.
  * const input = {
- *   "DBSnapshotIdentifier": "mydbsnapshot"
+ *   DBSnapshotIdentifier: "mydbsnapshot"
  * };
  * const command = new DeleteDBSnapshotCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBSnapshot": {
- *     "AllocatedStorage": 100,
- *     "AvailabilityZone": "us-east-1b",
- *     "DBInstanceIdentifier": "database-mysql",
- *     "DBSnapshotArn": "arn:aws:rds:us-east-1:123456789012:snapshot:mydbsnapshot",
- *     "DBSnapshotIdentifier": "mydbsnapshot",
- *     "DbiResourceId": "db-AKIAIOSFODNN7EXAMPLE",
- *     "Encrypted": true,
- *     "Engine": "mysql",
- *     "EngineVersion": "5.6.40",
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "InstanceCreateTime": "2019-04-30T15:45:53.663Z",
- *     "Iops": 1000,
- *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
- *     "LicenseModel": "general-public-license",
- *     "MasterUsername": "admin",
- *     "OptionGroupName": "default:mysql-5-6",
- *     "PercentProgress": 100,
- *     "Port": 3306,
- *     "ProcessorFeatures": [],
- *     "SnapshotCreateTime": "2019-06-18T22:08:40.702Z",
- *     "SnapshotType": "manual",
- *     "Status": "deleted",
- *     "StorageType": "io1",
- *     "VpcId": "vpc-6594f31c"
+ *   DBSnapshot: {
+ *     AllocatedStorage: 100,
+ *     AvailabilityZone: "us-east-1b",
+ *     DBInstanceIdentifier: "database-mysql",
+ *     DBSnapshotArn: "arn:aws:rds:us-east-1:123456789012:snapshot:mydbsnapshot",
+ *     DBSnapshotIdentifier: "mydbsnapshot",
+ *     DbiResourceId: "db-AKIAIOSFODNN7EXAMPLE",
+ *     Encrypted: true,
+ *     Engine: "mysql",
+ *     EngineVersion: "5.6.40",
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     InstanceCreateTime: "2019-04-30T15:45:53.663Z",
+ *     Iops: 1000,
+ *     KmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
+ *     LicenseModel: "general-public-license",
+ *     MasterUsername: "admin",
+ *     OptionGroupName: "default:mysql-5-6",
+ *     PercentProgress: 100,
+ *     Port: 3306,
+ *     ProcessorFeatures:     [],
+ *     SnapshotCreateTime: "2019-06-18T22:08:40.702Z",
+ *     SnapshotType: "manual",
+ *     Status: "deleted",
+ *     StorageType: "io1",
+ *     VpcId: "vpc-6594f31c"
  *   }
  * }
  * *\/
- * // example id: to-delete-a-db-snapshot-1680111103708
  * ```
  *
+ * @public
  */
 export class DeleteDBSnapshotCommand extends $Command
   .classBuilder<

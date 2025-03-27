@@ -88,6 +88,7 @@ export interface ListDevEnvironmentSessionsCommandOutput extends ListDevEnvironm
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class ListDevEnvironmentSessionsCommand extends $Command

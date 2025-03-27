@@ -82,6 +82,7 @@ export interface ListExecutorsCommandOutput extends ListExecutorsResponse, __Met
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class ListExecutorsCommand extends $Command

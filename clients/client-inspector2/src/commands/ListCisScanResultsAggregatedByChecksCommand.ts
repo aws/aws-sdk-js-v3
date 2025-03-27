@@ -134,6 +134,37 @@ export interface ListCisScanResultsAggregatedByChecksCommandOutput
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
+ * @example Sample ListCisScanResultsAggregatedByChecks Call
+ * ```javascript
+ * //
+ * const input = {
+ *   scanArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-scan/624b746d-e080-44ae-8c1d-48e653365a38"
+ * };
+ * const command = new ListCisScanResultsAggregatedByChecksCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   checkAggregations: [
+ *     {
+ *       accountId: "123412341234",
+ *       checkDescription: "description",
+ *       checkId: "1.1.1.1",
+ *       level: "LEVEL_1",
+ *       platform: "AMAZON_LINUX_2",
+ *       scanArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-scan/624b746d-e080-44ae-8c1d-48e653365a38",
+ *       statusCounts: {
+ *         failed: 0,
+ *         passed: 2,
+ *         skipped: 1
+ *       },
+ *       title: "title1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListCisScanResultsAggregatedByChecksCommand extends $Command

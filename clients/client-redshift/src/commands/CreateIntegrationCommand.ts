@@ -119,6 +119,7 @@ export interface CreateIntegrationCommandOutput extends Integration, __MetadataB
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class CreateIntegrationCommand extends $Command

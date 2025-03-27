@@ -83,6 +83,7 @@ export interface StartVariantImportJobCommandOutput extends StartVariantImportRe
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class StartVariantImportJobCommand extends $Command

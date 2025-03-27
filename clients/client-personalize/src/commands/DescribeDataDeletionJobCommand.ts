@@ -74,6 +74,7 @@ export interface DescribeDataDeletionJobCommandOutput extends DescribeDataDeleti
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class DescribeDataDeletionJobCommand extends $Command

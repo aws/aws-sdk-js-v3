@@ -226,18 +226,21 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To connect a custom key store
  * ```javascript
  * // This example connects an AWS KMS custom key store to its backing key store. For an AWS CloudHSM key store, it connects the key store to its AWS CloudHSM cluster. For an external key store, it connects the key store to the external key store proxy that communicates with your external key manager. This operation does not return any data. To verify that the custom key store is connected, use the <code>DescribeCustomKeyStores</code> operation.
  * const input = {
- *   "CustomKeyStoreId": "cks-1234567890abcdef0"
+ *   CustomKeyStoreId: "cks-1234567890abcdef0"
  * };
  * const command = new ConnectCustomKeyStoreCommand(input);
- * await client.send(command);
- * // example id: to-connect-a-custom-key-store-1628626947750
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ConnectCustomKeyStoreCommand extends $Command
   .classBuilder<

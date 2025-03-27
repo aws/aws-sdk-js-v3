@@ -137,6 +137,7 @@ export interface UpdateManagedLoginBrandingCommandOutput extends UpdateManagedLo
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class UpdateManagedLoginBrandingCommand extends $Command

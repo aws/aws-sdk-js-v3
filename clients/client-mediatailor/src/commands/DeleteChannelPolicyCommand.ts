@@ -53,6 +53,7 @@ export interface DeleteChannelPolicyCommandOutput extends DeleteChannelPolicyRes
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class DeleteChannelPolicyCommand extends $Command

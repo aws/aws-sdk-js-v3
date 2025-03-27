@@ -73,6 +73,7 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class ListThemesCommand extends $Command

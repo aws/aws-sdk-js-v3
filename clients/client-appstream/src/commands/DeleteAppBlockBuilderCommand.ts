@@ -67,6 +67,7 @@ export interface DeleteAppBlockBuilderCommandOutput extends DeleteAppBlockBuilde
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DeleteAppBlockBuilderCommand extends $Command

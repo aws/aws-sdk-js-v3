@@ -66,26 +66,29 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete a tag from a resource
  * ```javascript
  * // This example deletes the tag Stack=test from the specified image.
  * const input = {
- *   "Resources": [
+ *   Resources: [
  *     "ami-78a54011"
  *   ],
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "Key": "Stack",
- *       "Value": "test"
+ *       Key: "Stack",
+ *       Value: "test"
  *     }
  *   ]
  * };
  * const command = new DeleteTagsCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-tags-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteTagsCommand extends $Command
   .classBuilder<

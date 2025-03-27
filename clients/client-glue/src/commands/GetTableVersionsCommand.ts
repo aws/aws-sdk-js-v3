@@ -336,6 +336,7 @@ export interface GetTableVersionsCommandOutput extends GetTableVersionsResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetTableVersionsCommand extends $Command

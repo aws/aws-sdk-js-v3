@@ -140,6 +140,7 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class PutScalingPolicyCommand extends $Command

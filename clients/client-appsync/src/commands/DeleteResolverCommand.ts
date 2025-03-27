@@ -73,6 +73,7 @@ export interface DeleteResolverCommandOutput extends DeleteResolverResponse, __M
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class DeleteResolverCommand extends $Command

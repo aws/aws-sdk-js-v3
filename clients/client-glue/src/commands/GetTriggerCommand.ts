@@ -105,6 +105,7 @@ export interface GetTriggerCommandOutput extends GetTriggerResponse, __MetadataB
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetTriggerCommand extends $Command

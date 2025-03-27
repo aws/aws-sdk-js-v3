@@ -98,6 +98,7 @@ export interface ListExperienceEntitiesCommandOutput extends ListExperienceEntit
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class ListExperienceEntitiesCommand extends $Command

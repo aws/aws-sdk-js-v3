@@ -85,6 +85,7 @@ export interface GetRegexMatchSetCommandOutput extends GetRegexMatchSetResponse,
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ *
  * @public
  */
 export class GetRegexMatchSetCommand extends $Command

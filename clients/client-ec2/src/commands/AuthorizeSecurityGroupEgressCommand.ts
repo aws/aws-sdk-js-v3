@@ -152,53 +152,58 @@ export interface AuthorizeSecurityGroupEgressCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To add a rule that allows outbound traffic to a specific address range
  * ```javascript
  * // This example adds a rule that grants access to the specified address ranges on TCP port 80.
  * const input = {
- *   "GroupId": "sg-1a2b3c4d",
- *   "IpPermissions": [
+ *   GroupId: "sg-1a2b3c4d",
+ *   IpPermissions: [
  *     {
- *       "FromPort": 80,
- *       "IpProtocol": "tcp",
- *       "IpRanges": [
+ *       FromPort: 80,
+ *       IpProtocol: "tcp",
+ *       IpRanges: [
  *         {
- *           "CidrIp": "10.0.0.0/16"
+ *           CidrIp: "10.0.0.0/16"
  *         }
  *       ],
- *       "ToPort": 80
+ *       ToPort: 80
  *     }
  *   ]
  * };
  * const command = new AuthorizeSecurityGroupEgressCommand(input);
- * await client.send(command);
- * // example id: to-add-a-rule-that-allows-outbound-traffic-to-a-specific-address-range-1528929309636
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
  * @example To add a rule that allows outbound traffic to a specific security group
  * ```javascript
  * // This example adds a rule that grants access to the specified security group on TCP port 80.
  * const input = {
- *   "GroupId": "sg-1a2b3c4d",
- *   "IpPermissions": [
+ *   GroupId: "sg-1a2b3c4d",
+ *   IpPermissions: [
  *     {
- *       "FromPort": 80,
- *       "IpProtocol": "tcp",
- *       "ToPort": 80,
- *       "UserIdGroupPairs": [
+ *       FromPort: 80,
+ *       IpProtocol: "tcp",
+ *       ToPort: 80,
+ *       UserIdGroupPairs: [
  *         {
- *           "GroupId": "sg-4b51a32f"
+ *           GroupId: "sg-4b51a32f"
  *         }
  *       ]
  *     }
  *   ]
  * };
  * const command = new AuthorizeSecurityGroupEgressCommand(input);
- * await client.send(command);
- * // example id: to-add-a-rule-that-allows-outbound-traffic-to-a-specific-security-group-1528929760260
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AuthorizeSecurityGroupEgressCommand extends $Command
   .classBuilder<

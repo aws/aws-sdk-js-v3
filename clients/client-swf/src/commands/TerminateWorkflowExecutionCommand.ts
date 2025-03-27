@@ -103,6 +103,7 @@ export interface TerminateWorkflowExecutionCommandOutput extends __MetadataBeare
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class TerminateWorkflowExecutionCommand extends $Command

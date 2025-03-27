@@ -665,6 +665,7 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ *
  * @public
  */
 export class RestoreVolumeFromSnapshotCommand extends $Command

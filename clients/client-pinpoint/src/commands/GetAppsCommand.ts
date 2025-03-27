@@ -90,6 +90,7 @@ export interface GetAppsCommandOutput extends GetAppsResponse, __MetadataBearer 
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetAppsCommand extends $Command

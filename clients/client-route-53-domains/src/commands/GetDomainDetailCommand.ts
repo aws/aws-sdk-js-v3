@@ -192,6 +192,7 @@ export interface GetDomainDetailCommandOutput extends GetDomainDetailResponse, _
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ *
  * @public
  */
 export class GetDomainDetailCommand extends $Command

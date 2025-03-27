@@ -73,6 +73,7 @@ export interface DescribeLocationNfsCommandOutput extends DescribeLocationNfsRes
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeLocationNfsCommand extends $Command

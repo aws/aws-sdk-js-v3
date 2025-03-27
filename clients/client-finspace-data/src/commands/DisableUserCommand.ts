@@ -77,6 +77,7 @@ export interface DisableUserCommandOutput extends DisableUserResponse, __Metadat
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ *
  * @public
  */
 export class DisableUserCommand extends $Command

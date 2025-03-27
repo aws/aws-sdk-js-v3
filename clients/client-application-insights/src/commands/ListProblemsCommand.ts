@@ -99,6 +99,7 @@ export interface ListProblemsCommandOutput extends ListProblemsResponse, __Metad
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class ListProblemsCommand extends $Command

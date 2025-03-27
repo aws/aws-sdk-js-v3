@@ -88,6 +88,7 @@ export interface ListIndexedRecoveryPointsCommandOutput extends ListIndexedRecov
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class ListIndexedRecoveryPointsCommand extends $Command

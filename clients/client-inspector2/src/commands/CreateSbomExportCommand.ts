@@ -123,6 +123,7 @@ export interface CreateSbomExportCommandOutput extends CreateSbomExportResponse,
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class CreateSbomExportCommand extends $Command

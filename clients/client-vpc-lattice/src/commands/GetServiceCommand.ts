@@ -85,6 +85,7 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class GetServiceCommand extends $Command

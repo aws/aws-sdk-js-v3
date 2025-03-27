@@ -69,6 +69,7 @@ export interface ImportAppCatalogCommandOutput extends ImportAppCatalogResponse,
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ *
  * @public
  */
 export class ImportAppCatalogCommand extends $Command

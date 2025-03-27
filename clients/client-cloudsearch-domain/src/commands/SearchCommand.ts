@@ -129,6 +129,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * @throws {@link CloudSearchDomainServiceException}
  * <p>Base exception class for all service exceptions from CloudSearchDomain service.</p>
  *
+ *
  * @public
  */
 export class SearchCommand extends $Command

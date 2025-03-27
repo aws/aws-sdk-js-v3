@@ -81,6 +81,7 @@ export interface CreateTypeCommandOutput extends CreateTypeResponse, __MetadataB
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class CreateTypeCommand extends $Command

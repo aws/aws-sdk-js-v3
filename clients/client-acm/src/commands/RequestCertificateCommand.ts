@@ -115,6 +115,7 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ *
  * @public
  */
 export class RequestCertificateCommand extends $Command

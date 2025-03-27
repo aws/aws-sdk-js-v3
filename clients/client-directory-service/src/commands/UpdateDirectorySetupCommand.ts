@@ -91,6 +91,7 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class UpdateDirectorySetupCommand extends $Command

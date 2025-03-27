@@ -105,6 +105,7 @@ export interface GetIceServerConfigCommandOutput extends GetIceServerConfigRespo
  * @throws {@link KinesisVideoSignalingServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoSignaling service.</p>
  *
+ *
  * @public
  */
 export class GetIceServerConfigCommand extends $Command

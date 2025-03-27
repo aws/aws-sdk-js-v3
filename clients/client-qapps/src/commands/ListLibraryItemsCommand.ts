@@ -102,90 +102,90 @@ export interface ListLibraryItemsCommandOutput extends ListLibraryItemsOutput, _
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example List at most 3 library items for this instance
  * ```javascript
  * //
  * const input = {
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
- *   "limit": 3
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   limit: 3
  * };
  * const command = new ListLibraryItemsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "libraryItems": [
+ *   libraryItems: [
  *     {
- *       "appId": "7a11f34b-42d4-4bc8-b668-ae4a788dae1e",
- *       "appVersion": 6,
- *       "categories": [
+ *       appId: "7a11f34b-42d4-4bc8-b668-ae4a788dae1e",
+ *       appVersion: 6,
+ *       categories: [
  *         {
- *           "id": "9c871ed4-1c41-4065-aefe-321cd4b61cf8",
- *           "title": "HR"
+ *           id: "9c871ed4-1c41-4065-aefe-321cd4b61cf8",
+ *           title: "HR"
  *         },
  *         {
- *           "id": "c1c4e374-118c-446f-81fb-cba6225d88da",
- *           "title": "IT"
+ *           id: "c1c4e374-118c-446f-81fb-cba6225d88da",
+ *           title: "IT"
  *         }
  *       ],
- *       "createdAt": "2024-05-21T23:17:27.350Z",
- *       "createdBy": "a841e300-40c1-7062-fa34-5b46dadbbaac",
- *       "isRatedByUser": true,
- *       "isVerified": false,
- *       "libraryItemId": "cb9ecf72-8563-450d-9db9-994f98297316",
- *       "ratingCount": 3,
- *       "status": "PUBLISHED",
- *       "updatedAt": "2024-05-21T23:17:27.350Z",
- *       "updatedBy": "a841e300-40c1-7062-fa34-5b46dadbbaac",
- *       "userCount": 5
+ *       createdAt: "2024-05-21T23:17:27.350Z",
+ *       createdBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *       isRatedByUser: true,
+ *       isVerified: false,
+ *       libraryItemId: "cb9ecf72-8563-450d-9db9-994f98297316",
+ *       ratingCount: 3,
+ *       status: "PUBLISHED",
+ *       updatedAt: "2024-05-21T23:17:27.350Z",
+ *       updatedBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *       userCount: 5
  *     },
  *     {
- *       "appId": "201272ac-d474-4a97-991c-5520dae04026",
- *       "appVersion": 1,
- *       "categories": [
+ *       appId: "201272ac-d474-4a97-991c-5520dae04026",
+ *       appVersion: 1,
+ *       categories: [
  *         {
- *           "id": "fdc4b483-c4e2-44c9-b4b2-6c850bbdb579",
- *           "title": "General"
+ *           id: "fdc4b483-c4e2-44c9-b4b2-6c850bbdb579",
+ *           title: "General"
  *         }
  *       ],
- *       "createdAt": "2024-05-08T16:09:56.080Z",
- *       "createdBy": "a841e300-40c1-7062-fa34-5b46dadbbaac",
- *       "isRatedByUser": false,
- *       "isVerified": false,
- *       "libraryItemId": "18cbebaa-196a-4aa5-a840-88d548e07f8f",
- *       "ratingCount": 5,
- *       "status": "PUBLISHED",
- *       "updatedAt": "2024-05-08T16:09:56.080Z",
- *       "updatedBy": "a841e300-40c1-7062-fa34-5b46dadbbaac",
- *       "userCount": 8
+ *       createdAt: "2024-05-08T16:09:56.080Z",
+ *       createdBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *       isRatedByUser: false,
+ *       isVerified: false,
+ *       libraryItemId: "18cbebaa-196a-4aa5-a840-88d548e07f8f",
+ *       ratingCount: 5,
+ *       status: "PUBLISHED",
+ *       updatedAt: "2024-05-08T16:09:56.080Z",
+ *       updatedBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *       userCount: 8
  *     },
  *     {
- *       "appId": "1802f57f-079a-4b5b-839a-79bbe2e21b3c",
- *       "appVersion": 1,
- *       "categories": [
+ *       appId: "1802f57f-079a-4b5b-839a-79bbe2e21b3c",
+ *       appVersion: 1,
+ *       categories: [
  *         {
- *           "id": "fdc4b483-c4e2-44c9-b4b2-6c850bbdb579",
- *           "title": "General"
+ *           id: "fdc4b483-c4e2-44c9-b4b2-6c850bbdb579",
+ *           title: "General"
  *         }
  *       ],
- *       "createdAt": "2024-05-07T22:57:59.327Z",
- *       "createdBy": "a841e300-40c1-7062-fa34-5b46dadbbaac",
- *       "isRatedByUser": false,
- *       "isVerified": false,
- *       "libraryItemId": "549abfe0-f5c4-45a2-bb9b-c05987a49c6d",
- *       "ratingCount": 8,
- *       "status": "PUBLISHED",
- *       "updatedAt": "2024-05-07T22:57:59.327Z",
- *       "updatedBy": "a841e300-40c1-7062-fa34-5b46dadbbaac",
- *       "userCount": 12
+ *       createdAt: "2024-05-07T22:57:59.327Z",
+ *       createdBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *       isRatedByUser: false,
+ *       isVerified: false,
+ *       libraryItemId: "549abfe0-f5c4-45a2-bb9b-c05987a49c6d",
+ *       ratingCount: 8,
+ *       status: "PUBLISHED",
+ *       updatedAt: "2024-05-07T22:57:59.327Z",
+ *       updatedBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *       userCount: 12
  *     }
  *   ],
- *   "nextToken": "YW5vdGhlclRva2VuIQ=="
+ *   nextToken: "YW5vdGhlclRva2VuIQ=="
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListLibraryItemsCommand extends $Command
   .classBuilder<

@@ -128,6 +128,7 @@ export interface ListRuleExecutionsCommandOutput extends ListRuleExecutionsOutpu
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class ListRuleExecutionsCommand extends $Command

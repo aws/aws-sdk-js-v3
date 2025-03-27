@@ -68,6 +68,7 @@ export interface PromoteCommandOutput extends PromoteResponse, __MetadataBearer 
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ *
  * @public
  */
 export class PromoteCommand extends $Command

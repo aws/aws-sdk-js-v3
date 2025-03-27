@@ -83,24 +83,24 @@ export interface CloseCaseCommandOutput extends CloseCaseResponse, __MetadataBea
  * @throws {@link SecurityIRServiceException}
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
- * @public
+ *
  * @example Invoke CloseCase
  * ```javascript
  * //
  * const input = {
- *   "caseId": "8403556009"
+ *   caseId: "8403556009"
  * };
  * const command = new CloseCaseCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "caseStatus": "Closed",
- *   "closedDate": "2024-02-27T17:01:33.000Z"
+ *   caseStatus: "Closed",
+ *   closedDate: "2024-02-27T17:01:33.000Z"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class CloseCaseCommand extends $Command
   .classBuilder<

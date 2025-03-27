@@ -120,6 +120,7 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * @throws {@link KinesisAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
+ *
  * @public
  */
 export class AddApplicationReferenceDataSourceCommand extends $Command

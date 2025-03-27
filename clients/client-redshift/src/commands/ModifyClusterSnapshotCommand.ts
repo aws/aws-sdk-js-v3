@@ -119,6 +119,7 @@ export interface ModifyClusterSnapshotCommandOutput extends ModifyClusterSnapsho
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class ModifyClusterSnapshotCommand extends $Command

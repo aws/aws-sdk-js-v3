@@ -79,6 +79,7 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class DescribeProjectCommand extends $Command

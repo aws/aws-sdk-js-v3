@@ -75,6 +75,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link BedrockDataAutomationRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockDataAutomationRuntime service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

@@ -69,6 +69,7 @@ export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrat
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ *
  * @public
  */
 export class DeleteEventIntegrationCommand extends $Command

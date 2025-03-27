@@ -82,6 +82,7 @@ export interface DeleteUserByPrincipalIdCommandOutput extends DeleteUserByPrinci
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserByPrincipalIdCommand extends $Command

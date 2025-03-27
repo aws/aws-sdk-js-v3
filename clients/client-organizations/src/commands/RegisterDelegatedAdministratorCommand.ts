@@ -411,6 +411,7 @@ export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataB
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ *
  * @public
  */
 export class RegisterDelegatedAdministratorCommand extends $Command

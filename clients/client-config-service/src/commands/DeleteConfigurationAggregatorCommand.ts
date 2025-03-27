@@ -60,6 +60,7 @@ export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBe
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DeleteConfigurationAggregatorCommand extends $Command

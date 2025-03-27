@@ -75,6 +75,7 @@ export interface StartScreenSharingCommandOutput extends StartScreenSharingRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class StartScreenSharingCommand extends $Command

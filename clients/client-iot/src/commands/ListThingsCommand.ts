@@ -94,6 +94,7 @@ export interface ListThingsCommandOutput extends ListThingsResponse, __MetadataB
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListThingsCommand extends $Command

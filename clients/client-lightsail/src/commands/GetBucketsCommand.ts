@@ -135,6 +135,7 @@ export interface GetBucketsCommandOutput extends GetBucketsResult, __MetadataBea
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetBucketsCommand extends $Command

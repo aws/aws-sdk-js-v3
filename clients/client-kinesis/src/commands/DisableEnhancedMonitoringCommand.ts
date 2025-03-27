@@ -91,6 +91,7 @@ export interface DisableEnhancedMonitoringCommandOutput extends EnhancedMonitori
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class DisableEnhancedMonitoringCommand extends $Command

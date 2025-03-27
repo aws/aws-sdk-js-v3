@@ -90,29 +90,29 @@ export interface GetCustomActionCommandOutput extends GetCustomActionResult, __M
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
- * @public
+ *
  * @example Get a custom action
  * ```javascript
  * //
  * const input = {
- *   "CustomActionArn": "arn:aws:chatbot::1234567890:custom-action/my-custom-action"
+ *   CustomActionArn: "arn:aws:chatbot::1234567890:custom-action/my-custom-action"
  * };
  * const command = new GetCustomActionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CustomAction": {
- *     "ActionName": "my-custom-action",
- *     "CustomActionArn": "arn:aws:chatbot::1234567890:custom-action/my-custom-action",
- *     "Definition": {
- *       "CommandText": "lambda invoke $functionName"
+ *   CustomAction: {
+ *     ActionName: "my-custom-action",
+ *     CustomActionArn: "arn:aws:chatbot::1234567890:custom-action/my-custom-action",
+ *     Definition: {
+ *       CommandText: "lambda invoke $functionName"
  *     }
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetCustomActionCommand extends $Command
   .classBuilder<

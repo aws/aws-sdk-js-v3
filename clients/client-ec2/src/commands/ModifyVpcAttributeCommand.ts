@@ -62,35 +62,40 @@ export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To modify the enableDnsSupport attribute
  * ```javascript
  * // This example modifies the enableDnsSupport attribute. This attribute indicates whether DNS resolution is enabled for the VPC. If this attribute is true, the Amazon DNS server resolves DNS hostnames for instances in the VPC to their corresponding IP addresses; otherwise, it does not.
  * const input = {
- *   "EnableDnsSupport": {
- *     "Value": false
+ *   EnableDnsSupport: {
+ *     Value: false
  *   },
- *   "VpcId": "vpc-a01106c2"
+ *   VpcId: "vpc-a01106c2"
  * };
  * const command = new ModifyVpcAttributeCommand(input);
- * await client.send(command);
- * // example id: ec2-modify-vpc-attribute-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To modify the enableDnsHostnames attribute
  * ```javascript
  * // This example modifies the enableDnsHostnames attribute. This attribute indicates whether instances launched in the VPC get DNS hostnames. If this attribute is true, instances in the VPC get DNS hostnames; otherwise, they do not.
  * const input = {
- *   "EnableDnsHostnames": {
- *     "Value": false
+ *   EnableDnsHostnames: {
+ *     Value: false
  *   },
- *   "VpcId": "vpc-a01106c2"
+ *   VpcId: "vpc-a01106c2"
  * };
  * const command = new ModifyVpcAttributeCommand(input);
- * await client.send(command);
- * // example id: ec2-modify-vpc-attribute-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ModifyVpcAttributeCommand extends $Command
   .classBuilder<

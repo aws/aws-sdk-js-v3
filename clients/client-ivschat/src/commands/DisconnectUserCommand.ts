@@ -76,6 +76,7 @@ export interface DisconnectUserCommandOutput extends DisconnectUserResponse, __M
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ *
  * @public
  */
 export class DisconnectUserCommand extends $Command

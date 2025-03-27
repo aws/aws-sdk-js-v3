@@ -86,6 +86,7 @@ export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __Metadat
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class ResolveAliasCommand extends $Command

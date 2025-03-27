@@ -92,6 +92,7 @@ export interface UpdateStreamCommandOutput extends UpdateStreamResponse, __Metad
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdateStreamCommand extends $Command

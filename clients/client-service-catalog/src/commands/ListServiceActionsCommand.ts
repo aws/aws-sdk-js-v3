@@ -68,6 +68,7 @@ export interface ListServiceActionsCommandOutput extends ListServiceActionsOutpu
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListServiceActionsCommand extends $Command

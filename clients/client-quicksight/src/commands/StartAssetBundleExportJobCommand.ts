@@ -169,6 +169,7 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class StartAssetBundleExportJobCommand extends $Command

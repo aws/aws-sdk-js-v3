@@ -106,6 +106,7 @@ export interface DeleteRegexPatternSetCommandOutput extends DeleteRegexPatternSe
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ *
  * @public
  */
 export class DeleteRegexPatternSetCommand extends $Command

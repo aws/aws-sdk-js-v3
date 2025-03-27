@@ -104,25 +104,25 @@ export interface ModifyReplicationSubnetGroupCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Modify replication subnet group
  * ```javascript
  * // Modifies the settings for the specified replication subnet group.
  * const input = {
- *   "ReplicationSubnetGroupDescription": "",
- *   "ReplicationSubnetGroupIdentifier": "",
- *   "SubnetIds": []
+ *   ReplicationSubnetGroupDescription: "",
+ *   ReplicationSubnetGroupIdentifier: "",
+ *   SubnetIds:   []
  * };
  * const command = new ModifyReplicationSubnetGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReplicationSubnetGroup": {}
+ *   ReplicationSubnetGroup:   { /* empty *\/ }
  * }
  * *\/
- * // example id: modify-replication-subnet-group-1481762275392
  * ```
  *
+ * @public
  */
 export class ModifyReplicationSubnetGroupCommand extends $Command
   .classBuilder<

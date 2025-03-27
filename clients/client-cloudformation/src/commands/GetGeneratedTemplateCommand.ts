@@ -63,42 +63,77 @@ export interface GetGeneratedTemplateCommandOutput extends GetGeneratedTemplateO
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
- * @public
+ *
  * @example To get a generated template in JSON format
  * ```javascript
  * // This example gets a generated template ins JSON format.
  * const input = {
- *   "GeneratedTemplateName": "JazzyTemplate"
+ *   GeneratedTemplateName: "JazzyTemplate"
  * };
  * const command = new GetGeneratedTemplateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Status": "COMPLETE",
- *   "TemplateBody": "{\"Metadata\":{\"TemplateId\":\"arn:aws:cloudformation:us-east-1:123456789012:generatedtemplate/*\"},\"Parameters\":{\"Stage\":{\"Default\":\"beta\",\"Type\":\"String\"}},\"Resources\":{\"TestRole\":{\"Properties\":{\"AssumeRolePolicyDocument\":{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":{\"Fn::Sub\":[\"arn:${AWS::Partition}:iam::${AccountId}:root\",{\"AccountId\":{\"Fn::AccountIdFromAlias\":\"test-account-alias\"}}]}},\"Action\":\"sts:AssumeRole\"}]}},\"Type\":\"AWS::IAM::Role\",\"DeletionPolicy\":\"Delete\"},\"DocumentationPartl7ob4vsd76vs\":{\"UpdateReplacePolicy\":\"Retain\",\"Type\":\"AWS::ApiGateway::DocumentationPart\",\"DeletionPolicy\":\"Retain\",\"Properties\":{\"RestApiId\":\"l7ob4vsd76\",\"Properties\":\"{\\n  \\\"description\\\" : \\\"ListGeneratedTemplates 200 response\\\"\\n}\",\"Location\":{\"Path\":\"/ListGeneratedTemplates\",\"Type\":\"RESPONSE\",\"Method\":\"POST\",\"StatusCode\":\"200\"}}}}}"
+ *   Status: "COMPLETE",
+ *   TemplateBody: `{"Metadata":{"TemplateId":"arn:aws:cloudformation:us-east-1:123456789012:generatedtemplate/*"},"Parameters":{"Stage":{"Default":"beta","Type":"String"}},"Resources":{"TestRole":{"Properties":{"AssumeRolePolicyDocument":{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":{"Fn::Sub":["arn:${AWS::Partition}:iam::${AccountId}:root",{"AccountId":{"Fn::AccountIdFromAlias":"test-account-alias"}}]}},"Action":"sts:AssumeRole"}]}},"Type":"AWS::IAM::Role","DeletionPolicy":"Delete"},"DocumentationPartl7ob4vsd76vs":{"UpdateReplacePolicy":"Retain","Type":"AWS::ApiGateway::DocumentationPart","DeletionPolicy":"Retain","Properties":{"RestApiId":"l7ob4vsd76","Properties":"{\n  \"description\" : \"ListGeneratedTemplates 200 response\"\n}","Location":{"Path":"/ListGeneratedTemplates","Type":"RESPONSE","Method":"POST","StatusCode":"200"}}}}}`
  * }
  * *\/
- * // example id: to-get-a-generated-template-json
  * ```
  *
  * @example To get a generated template in YAML format
  * ```javascript
  * // This example gets a generated template in YAML format.
  * const input = {
- *   "Format": "YAML",
- *   "GeneratedTemplateName": "JazzyTemplate"
+ *   Format: "YAML",
+ *   GeneratedTemplateName: "JazzyTemplate"
  * };
  * const command = new GetGeneratedTemplateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Status": "COMPLETE",
- *   "TemplateBody": "---\nMetadata:\n  TemplateId: \"arn:aws:cloudformation:us-east-1:123456789012:generatedtemplate/*\"\nParameters:\n  Stage:\n    Default: \"beta\"\n    Type: \"String\"\nResources:\n  TestRole:\n    Properties:\n      AssumeRolePolicyDocument:\n        Version: \"2012-10-17\"\n        Statement:\n        - Effect: \"Allow\"\n          Principal:\n            AWS:\n              Fn::Sub:\n              - \"arn:${AWS::Partition}:iam::${AccountId}:root\"\n              - AccountId:\n                  Fn::AccountIdFromAlias: \"test-account-alias\"\n          Action: \"sts:AssumeRole\"\n    Type: \"AWS::IAM::Role\"\n    DeletionPolicy: \"Delete\"\n  DocumentationPartl7ob4vsd76vsnAlFMLXKVm:\n    UpdateReplacePolicy: \"Retain\"\n    Type: \"AWS::ApiGateway::DocumentationPart\"\n    DeletionPolicy: \"Retain\"\n    Properties:\n      RestApiId: \"l7ob4vsd76\"\n      Properties: \"{\\n  \\\"description\\\" : \\\"ListGeneratedTemplates 200 response\\\"\\n\\\n        }\"\n      Location:\n        Path: \"/ListGeneratedTemplates\"\n        Type: \"RESPONSE\"\n        Method: \"POST\"\n        StatusCode: \"200\"\n"
+ *   Status: "COMPLETE",
+ *   TemplateBody: `---
+ * Metadata:
+ *   TemplateId: "arn:aws:cloudformation:us-east-1:123456789012:generatedtemplate/*"
+ * Parameters:
+ *   Stage:
+ *     Default: "beta"
+ *     Type: "String"
+ * Resources:
+ *   TestRole:
+ *     Properties:
+ *       AssumeRolePolicyDocument:
+ *         Version: "2012-10-17"
+ *         Statement:
+ *         - Effect: "Allow"
+ *           Principal:
+ *             AWS:
+ *               Fn::Sub:
+ *               - "arn:${AWS::Partition}:iam::${AccountId}:root"
+ *               - AccountId:
+ *                   Fn::AccountIdFromAlias: "test-account-alias"
+ *           Action: "sts:AssumeRole"
+ *     Type: "AWS::IAM::Role"
+ *     DeletionPolicy: "Delete"
+ *   DocumentationPartl7ob4vsd76vsnAlFMLXKVm:
+ *     UpdateReplacePolicy: "Retain"
+ *     Type: "AWS::ApiGateway::DocumentationPart"
+ *     DeletionPolicy: "Retain"
+ *     Properties:
+ *       RestApiId: "l7ob4vsd76"
+ *       Properties: "{\n  \"description\" : \"ListGeneratedTemplates 200 response\"\n\
+ *         }"
+ *       Location:
+ *         Path: "/ListGeneratedTemplates"
+ *         Type: "RESPONSE"
+ *         Method: "POST"
+ *         StatusCode: "200"
+ * `
  * }
  * *\/
- * // example id: to-get-a-generated-template-yaml
  * ```
  *
+ * @public
  */
 export class GetGeneratedTemplateCommand extends $Command
   .classBuilder<

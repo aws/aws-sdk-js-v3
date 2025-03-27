@@ -106,6 +106,7 @@ export interface DescribeChannelMembershipCommandOutput extends DescribeChannelM
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class DescribeChannelMembershipCommand extends $Command

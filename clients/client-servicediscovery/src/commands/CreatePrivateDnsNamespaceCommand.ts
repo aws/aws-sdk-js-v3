@@ -94,25 +94,25 @@ export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDns
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example Example: Create private DNS namespace
  * ```javascript
  * // Example: Create private DNS namespace
  * const input = {
- *   "CreatorRequestId": "eedd6892-50f3-41b2-8af9-611d6e1d1a8c",
- *   "Name": "example.com",
- *   "Vpc": "vpc-1c56417b"
+ *   CreatorRequestId: "eedd6892-50f3-41b2-8af9-611d6e1d1a8c",
+ *   Name: "example.com",
+ *   Vpc: "vpc-1c56417b"
  * };
  * const command = new CreatePrivateDnsNamespaceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OperationId": "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k9302yzd"
+ *   OperationId: "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k9302yzd"
  * }
  * *\/
- * // example id: example-create-private-dns-namespace-1587058592930
  * ```
  *
+ * @public
  */
 export class CreatePrivateDnsNamespaceCommand extends $Command
   .classBuilder<

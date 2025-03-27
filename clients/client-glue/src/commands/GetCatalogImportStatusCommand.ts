@@ -65,6 +65,7 @@ export interface GetCatalogImportStatusCommandOutput extends GetCatalogImportSta
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetCatalogImportStatusCommand extends $Command

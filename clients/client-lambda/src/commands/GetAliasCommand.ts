@@ -77,28 +77,28 @@ export interface GetAliasCommandOutput extends AliasConfiguration, __MetadataBea
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To get a Lambda function alias
  * ```javascript
  * // The following example returns details about an alias named BLUE for a function named my-function
  * const input = {
- *   "FunctionName": "my-function",
- *   "Name": "BLUE"
+ *   FunctionName: "my-function",
+ *   Name: "BLUE"
  * };
  * const command = new GetAliasCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AliasArn": "arn:aws:lambda:us-west-2:123456789012:function:my-function:BLUE",
- *   "Description": "Production environment BLUE.",
- *   "FunctionVersion": "3",
- *   "Name": "BLUE",
- *   "RevisionId": "594f41fb-xmpl-4c20-95c7-6ca5f2a92c93"
+ *   AliasArn: "arn:aws:lambda:us-west-2:123456789012:function:my-function:BLUE",
+ *   Description: "Production environment BLUE.",
+ *   FunctionVersion: "3",
+ *   Name: "BLUE",
+ *   RevisionId: "594f41fb-xmpl-4c20-95c7-6ca5f2a92c93"
  * }
  * *\/
- * // example id: to-retrieve-a-lambda-function-alias-1481648742254
  * ```
  *
+ * @public
  */
 export class GetAliasCommand extends $Command
   .classBuilder<

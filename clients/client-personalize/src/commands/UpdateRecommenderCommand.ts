@@ -85,6 +85,7 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class UpdateRecommenderCommand extends $Command

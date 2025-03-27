@@ -80,6 +80,7 @@ export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBear
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class DeleteResponseHeadersPolicyCommand extends $Command

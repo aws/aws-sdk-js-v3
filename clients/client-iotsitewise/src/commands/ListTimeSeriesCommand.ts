@@ -88,6 +88,7 @@ export interface ListTimeSeriesCommandOutput extends ListTimeSeriesResponse, __M
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class ListTimeSeriesCommand extends $Command

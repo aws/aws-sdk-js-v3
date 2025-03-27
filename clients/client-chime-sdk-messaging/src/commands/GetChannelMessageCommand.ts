@@ -125,6 +125,7 @@ export interface GetChannelMessageCommandOutput extends GetChannelMessageRespons
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class GetChannelMessageCommand extends $Command

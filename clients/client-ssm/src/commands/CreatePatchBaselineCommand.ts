@@ -134,6 +134,7 @@ export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineRes
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class CreatePatchBaselineCommand extends $Command

@@ -81,6 +81,7 @@ export interface EnableOrganizationAdminAccountCommandOutput extends __MetadataB
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ *
  * @public
  */
 export class EnableOrganizationAdminAccountCommand extends $Command

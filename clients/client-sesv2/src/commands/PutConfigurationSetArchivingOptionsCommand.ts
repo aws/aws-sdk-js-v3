@@ -73,19 +73,22 @@ export interface PutConfigurationSetArchivingOptionsCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
- * @public
+ *
  * @example Used to associate an MailManager archive with a ConfigurationSet.
  * ```javascript
  * // This example associates an archive arn with a configuration set.
  * const input = {
- *   "ArchiveArn": "arn:aws:ses:us-west-2:123456789012:mailmanager-archive/a-abcdefghijklmnopqrstuvwxyz",
- *   "ConfigurationSetName": "sample-configuration-name"
+ *   ArchiveArn: "arn:aws:ses:us-west-2:123456789012:mailmanager-archive/a-abcdefghijklmnopqrstuvwxyz",
+ *   ConfigurationSetName: "sample-configuration-name"
  * };
  * const command = new PutConfigurationSetArchivingOptionsCommand(input);
- * await client.send(command);
- * // example id: put-configuration-set-archiving-options-example-1737363685
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutConfigurationSetArchivingOptionsCommand extends $Command
   .classBuilder<

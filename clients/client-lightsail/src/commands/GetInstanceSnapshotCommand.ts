@@ -148,6 +148,7 @@ export interface GetInstanceSnapshotCommandOutput extends GetInstanceSnapshotRes
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetInstanceSnapshotCommand extends $Command

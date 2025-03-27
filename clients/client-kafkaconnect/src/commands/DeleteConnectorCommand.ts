@@ -84,6 +84,7 @@ export interface DeleteConnectorCommandOutput extends DeleteConnectorResponse, _
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ *
  * @public
  */
 export class DeleteConnectorCommand extends $Command

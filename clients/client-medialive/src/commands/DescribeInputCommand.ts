@@ -153,6 +153,7 @@ export interface DescribeInputCommandOutput extends DescribeInputResponse, __Met
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class DescribeInputCommand extends $Command

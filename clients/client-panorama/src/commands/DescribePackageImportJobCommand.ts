@@ -106,6 +106,7 @@ export interface DescribePackageImportJobCommandOutput extends DescribePackageIm
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class DescribePackageImportJobCommand extends $Command

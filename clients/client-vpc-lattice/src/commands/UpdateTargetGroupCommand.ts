@@ -118,6 +118,7 @@ export interface UpdateTargetGroupCommandOutput extends UpdateTargetGroupRespons
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class UpdateTargetGroupCommand extends $Command

@@ -54,6 +54,11 @@ export interface GetSnapshotBlockCommandOutput extends Omit<GetSnapshotBlockResp
  * };
  * const command = new GetSnapshotBlockCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.BlockData.transformToByteArray();
+ * // const str = await response.BlockData.transformToString();
+ * // response.BlockData.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetSnapshotBlockResponse
  * //   DataLength: Number("int"),
  * //   BlockData: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
@@ -90,6 +95,7 @@ export interface GetSnapshotBlockCommandOutput extends Omit<GetSnapshotBlockResp
  *
  * @throws {@link EBSServiceException}
  * <p>Base exception class for all service exceptions from EBS service.</p>
+ *
  *
  * @public
  */

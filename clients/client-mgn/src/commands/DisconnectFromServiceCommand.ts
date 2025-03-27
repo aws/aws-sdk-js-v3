@@ -180,6 +180,7 @@ export interface DisconnectFromServiceCommandOutput extends SourceServer, __Meta
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class DisconnectFromServiceCommand extends $Command

@@ -69,6 +69,7 @@ export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ *
  * @public
  */
 export class DeleteTerminologyCommand extends $Command

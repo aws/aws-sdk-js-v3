@@ -110,6 +110,7 @@ export interface UpdateAnalyzerCommandOutput extends UpdateAnalyzerResponse, __M
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class UpdateAnalyzerCommand extends $Command

@@ -94,25 +94,25 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To create a security group for a VPC
  * ```javascript
  * // This example creates a security group for the specified VPC.
  * const input = {
- *   "Description": "My security group",
- *   "GroupName": "my-security-group",
- *   "VpcId": "vpc-1a2b3c4d"
+ *   Description: "My security group",
+ *   GroupName: "my-security-group",
+ *   VpcId: "vpc-1a2b3c4d"
  * };
  * const command = new CreateSecurityGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GroupId": "sg-903004f8"
+ *   GroupId: "sg-903004f8"
  * }
  * *\/
- * // example id: to-create-a-security-group-for-a-vpc-1529024532716
  * ```
  *
+ * @public
  */
 export class CreateSecurityGroupCommand extends $Command
   .classBuilder<

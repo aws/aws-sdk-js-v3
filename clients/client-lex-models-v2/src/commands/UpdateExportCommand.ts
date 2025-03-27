@@ -107,6 +107,7 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class UpdateExportCommand extends $Command

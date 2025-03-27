@@ -74,6 +74,7 @@ export interface UpdateAccountConfigurationCommandOutput extends UpdateAccountCo
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ *
  * @public
  */
 export class UpdateAccountConfigurationCommand extends $Command

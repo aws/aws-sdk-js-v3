@@ -159,6 +159,7 @@ export interface CreateIdNamespaceCommandOutput extends CreateIdNamespaceOutput,
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ *
  * @public
  */
 export class CreateIdNamespaceCommand extends $Command

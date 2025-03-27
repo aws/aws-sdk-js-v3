@@ -128,6 +128,7 @@ export interface CreateDataProtectionSettingsCommandOutput
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class CreateDataProtectionSettingsCommand extends $Command

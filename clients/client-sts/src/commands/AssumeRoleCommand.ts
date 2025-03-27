@@ -206,54 +206,54 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>
  *
- * @public
+ *
  * @example To assume a role
  * ```javascript
  * //
  * const input = {
- *   "ExternalId": "123ABC",
- *   "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Stmt1\",\"Effect\":\"Allow\",\"Action\":\"s3:ListAllMyBuckets\",\"Resource\":\"*\"}]}",
- *   "RoleArn": "arn:aws:iam::123456789012:role/demo",
- *   "RoleSessionName": "testAssumeRoleSession",
- *   "Tags": [
+ *   ExternalId: "123ABC",
+ *   Policy: `{"Version":"2012-10-17","Statement":[{"Sid":"Stmt1","Effect":"Allow","Action":"s3:ListAllMyBuckets","Resource":"*"}]}`,
+ *   RoleArn: "arn:aws:iam::123456789012:role/demo",
+ *   RoleSessionName: "testAssumeRoleSession",
+ *   Tags: [
  *     {
- *       "Key": "Project",
- *       "Value": "Unicorn"
+ *       Key: "Project",
+ *       Value: "Unicorn"
  *     },
  *     {
- *       "Key": "Team",
- *       "Value": "Automation"
+ *       Key: "Team",
+ *       Value: "Automation"
  *     },
  *     {
- *       "Key": "Cost-Center",
- *       "Value": "12345"
+ *       Key: "Cost-Center",
+ *       Value: "12345"
  *     }
  *   ],
- *   "TransitiveTagKeys": [
+ *   TransitiveTagKeys: [
  *     "Project",
  *     "Cost-Center"
  *   ]
  * };
  * const command = new AssumeRoleCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AssumedRoleUser": {
- *     "Arn": "arn:aws:sts::123456789012:assumed-role/demo/Bob",
- *     "AssumedRoleId": "ARO123EXAMPLE123:Bob"
+ *   AssumedRoleUser: {
+ *     Arn: "arn:aws:sts::123456789012:assumed-role/demo/Bob",
+ *     AssumedRoleId: "ARO123EXAMPLE123:Bob"
  *   },
- *   "Credentials": {
- *     "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
- *     "Expiration": "2011-07-15T23:28:33.359Z",
- *     "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY",
- *     "SessionToken": "AQoDYXdzEPT//////////wEXAMPLEtc764bNrC9SAPBSM22wDOk4x4HIZ8j4FZTwdQWLWsKWHGBuFqwAeMicRXmxfpSPfIeoIYRqTflfKD8YUuwthAx7mSEI/qkPpKPi/kMcGdQrmGdeehM4IC1NtBmUpp2wUE8phUZampKsburEDy0KPkyQDYwT7WZ0wq5VSXDvp75YU9HFvlRd8Tx6q6fE8YQcHNVXAkiY9q6d+xo0rKwT38xVqr7ZD0u0iPPkUL64lIZbqBAz+scqKmlzm8FDrypNC9Yjc8fPOLn9FX9KSYvKTr4rvx3iSIlTJabIQwj2ICCR/oLxBA=="
+ *   Credentials: {
+ *     AccessKeyId: "AKIAIOSFODNN7EXAMPLE",
+ *     Expiration: "2011-07-15T23:28:33.359Z",
+ *     SecretAccessKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY",
+ *     SessionToken: "AQoDYXdzEPT//////////wEXAMPLEtc764bNrC9SAPBSM22wDOk4x4HIZ8j4FZTwdQWLWsKWHGBuFqwAeMicRXmxfpSPfIeoIYRqTflfKD8YUuwthAx7mSEI/qkPpKPi/kMcGdQrmGdeehM4IC1NtBmUpp2wUE8phUZampKsburEDy0KPkyQDYwT7WZ0wq5VSXDvp75YU9HFvlRd8Tx6q6fE8YQcHNVXAkiY9q6d+xo0rKwT38xVqr7ZD0u0iPPkUL64lIZbqBAz+scqKmlzm8FDrypNC9Yjc8fPOLn9FX9KSYvKTr4rvx3iSIlTJabIQwj2ICCR/oLxBA=="
  *   },
- *   "PackedPolicySize": 8
+ *   PackedPolicySize: 8
  * }
  * *\/
- * // example id: to-assume-a-role-1480532402212
  * ```
  *
+ * @public
  */
 export class AssumeRoleCommand extends $Command
   .classBuilder<

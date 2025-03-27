@@ -136,6 +136,7 @@ export interface ReadPresetCommandOutput extends ReadPresetResponse, __MetadataB
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ *
  * @public
  */
 export class ReadPresetCommand extends $Command

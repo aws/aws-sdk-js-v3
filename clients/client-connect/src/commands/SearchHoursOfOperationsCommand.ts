@@ -146,6 +146,7 @@ export interface SearchHoursOfOperationsCommandOutput extends SearchHoursOfOpera
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class SearchHoursOfOperationsCommand extends $Command

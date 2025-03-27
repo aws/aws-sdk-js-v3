@@ -120,6 +120,7 @@ export interface ListSensorStatisticsCommandOutput extends ListSensorStatisticsR
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class ListSensorStatisticsCommand extends $Command

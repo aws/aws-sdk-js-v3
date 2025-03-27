@@ -101,47 +101,47 @@ export interface BatchUpdateStandardsControlAssociationsCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To update enablement status of a batch of controls
  * ```javascript
  * // The following example disables CloudWatch.12 in CIS AWS Foundations Benchmark v1.2.0. The example returns an error for CloudTrail.1 because an invalid standard ARN is provided.
  * const input = {
- *   "StandardsControlAssociationUpdates": [
+ *   StandardsControlAssociationUpdates: [
  *     {
- *       "AssociationStatus": "DISABLED",
- *       "SecurityControlId": "CloudTrail.1",
- *       "StandardsArn": "arn:aws:securityhub:::ruleset/sample-standard/v/1.1.0",
- *       "UpdatedReason": "Not relevant to environment"
+ *       AssociationStatus: "DISABLED",
+ *       SecurityControlId: "CloudTrail.1",
+ *       StandardsArn: "arn:aws:securityhub:::ruleset/sample-standard/v/1.1.0",
+ *       UpdatedReason: "Not relevant to environment"
  *     },
  *     {
- *       "AssociationStatus": "DISABLED",
- *       "SecurityControlId": "CloudWatch.12",
- *       "StandardsArn": "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
- *       "UpdatedReason": "Not relevant to environment"
+ *       AssociationStatus: "DISABLED",
+ *       SecurityControlId: "CloudWatch.12",
+ *       StandardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
+ *       UpdatedReason: "Not relevant to environment"
  *     }
  *   ]
  * };
  * const command = new BatchUpdateStandardsControlAssociationsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "UnprocessedAssociationUpdates": [
+ *   UnprocessedAssociationUpdates: [
  *     {
- *       "ErrorCode": "INVALID_INPUT",
- *       "ErrorReason": "Invalid Standards Arn: 'arn:aws:securityhub:::ruleset/sample-standard/v/1.1.0'",
- *       "StandardsControlAssociationUpdate": {
- *         "AssociationStatus": "DISABLED",
- *         "SecurityControlId": "CloudTrail.1",
- *         "StandardsArn": "arn:aws:securityhub:::ruleset/sample-standard/v/1.1.0",
- *         "UpdatedReason": "Test Reason"
+ *       ErrorCode: "INVALID_INPUT",
+ *       ErrorReason: "Invalid Standards Arn: 'arn:aws:securityhub:::ruleset/sample-standard/v/1.1.0'",
+ *       StandardsControlAssociationUpdate: {
+ *         AssociationStatus: "DISABLED",
+ *         SecurityControlId: "CloudTrail.1",
+ *         StandardsArn: "arn:aws:securityhub:::ruleset/sample-standard/v/1.1.0",
+ *         UpdatedReason: "Test Reason"
  *       }
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-update-enablement-status-of-a-batch-of-controls-1683300378416
  * ```
  *
+ * @public
  */
 export class BatchUpdateStandardsControlAssociationsCommand extends $Command
   .classBuilder<

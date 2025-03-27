@@ -193,6 +193,7 @@ export interface GetAssessmentCommandOutput extends GetAssessmentResponse, __Met
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class GetAssessmentCommand extends $Command

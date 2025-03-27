@@ -58,6 +58,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ *
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

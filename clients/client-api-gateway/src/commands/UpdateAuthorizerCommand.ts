@@ -93,6 +93,7 @@ export interface UpdateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class UpdateAuthorizerCommand extends $Command

@@ -107,6 +107,7 @@ export interface StartFlowFlushCommandOutput extends StartFlowFlushResponse, __M
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class StartFlowFlushCommand extends $Command

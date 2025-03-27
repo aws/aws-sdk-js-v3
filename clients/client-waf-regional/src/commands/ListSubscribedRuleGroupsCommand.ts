@@ -77,6 +77,7 @@ export interface ListSubscribedRuleGroupsCommandOutput extends ListSubscribedRul
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ *
  * @public
  */
 export class ListSubscribedRuleGroupsCommand extends $Command

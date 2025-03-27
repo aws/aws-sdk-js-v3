@@ -130,6 +130,7 @@ export interface GetResourceCommandOutput extends GetResourceOutput, __MetadataB
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ *
  * @public
  */
 export class GetResourceCommand extends $Command

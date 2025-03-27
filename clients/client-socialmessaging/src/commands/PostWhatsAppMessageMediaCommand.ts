@@ -98,6 +98,7 @@ export interface PostWhatsAppMessageMediaCommandOutput extends PostWhatsAppMessa
  * @throws {@link SocialMessagingServiceException}
  * <p>Base exception class for all service exceptions from SocialMessaging service.</p>
  *
+ *
  * @public
  */
 export class PostWhatsAppMessageMediaCommand extends $Command

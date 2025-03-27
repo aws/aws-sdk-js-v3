@@ -74,6 +74,7 @@ export interface ListAssociatedGroupsCommandOutput extends ListAssociatedGroupsR
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class ListAssociatedGroupsCommand extends $Command

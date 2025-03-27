@@ -84,6 +84,7 @@ export interface CreateServiceSyncConfigCommandOutput extends CreateServiceSyncC
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class CreateServiceSyncConfigCommand extends $Command

@@ -94,6 +94,7 @@ export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResul
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class CopyWorkspaceImageCommand extends $Command

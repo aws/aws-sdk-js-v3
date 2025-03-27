@@ -107,6 +107,7 @@ export interface UpdateTemplatePermissionsCommandOutput extends UpdateTemplatePe
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateTemplatePermissionsCommand extends $Command

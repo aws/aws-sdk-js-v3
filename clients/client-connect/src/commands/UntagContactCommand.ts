@@ -74,6 +74,7 @@ export interface UntagContactCommandOutput extends UntagContactResponse, __Metad
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UntagContactCommand extends $Command

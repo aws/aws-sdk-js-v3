@@ -68,6 +68,7 @@ export interface DisableHttpEndpointCommandOutput extends DisableHttpEndpointRes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class DisableHttpEndpointCommand extends $Command

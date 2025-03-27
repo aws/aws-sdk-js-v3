@@ -111,6 +111,7 @@ export interface DeleteIntegrationCommandOutput extends DeleteIntegrationRespons
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class DeleteIntegrationCommand extends $Command

@@ -141,18 +141,21 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To disable automatic rotation of key material
  * ```javascript
  * // The following example disables automatic annual rotation of the key material for the specified KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new DisableKeyRotationCommand(input);
- * await client.send(command);
- * // example id: to-disable-automatic-rotation-of-key-material-1478624396092
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DisableKeyRotationCommand extends $Command
   .classBuilder<

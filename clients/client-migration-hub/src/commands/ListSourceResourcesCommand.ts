@@ -89,6 +89,7 @@ export interface ListSourceResourcesCommandOutput extends ListSourceResourcesRes
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ *
  * @public
  */
 export class ListSourceResourcesCommand extends $Command

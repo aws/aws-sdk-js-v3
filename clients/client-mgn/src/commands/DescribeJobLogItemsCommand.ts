@@ -76,6 +76,7 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class DescribeJobLogItemsCommand extends $Command

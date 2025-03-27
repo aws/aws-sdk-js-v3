@@ -99,38 +99,38 @@ export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTa
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe scalable targets
  * ```javascript
  * // This example describes the scalable targets for the ECS service namespace.
  * const input = {
- *   "ServiceNamespace": "ecs"
+ *   ServiceNamespace: "ecs"
  * };
  * const command = new DescribeScalableTargetsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ScalableTargets": [
+ *   ScalableTargets: [
  *     {
- *       "CreationTime": "2019-05-06T11:21:46.199Z",
- *       "MaxCapacity": 10,
- *       "MinCapacity": 1,
- *       "ResourceId": "service/default/web-app",
- *       "RoleARN": "arn:aws:iam::012345678910:role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService",
- *       "ScalableDimension": "ecs:service:DesiredCount",
- *       "ServiceNamespace": "ecs",
- *       "SuspendedState": {
- *         "DynamicScalingInSuspended": false,
- *         "DynamicScalingOutSuspended": false,
- *         "ScheduledScalingSuspended": false
+ *       CreationTime: "2019-05-06T11:21:46.199Z",
+ *       MaxCapacity: 10,
+ *       MinCapacity: 1,
+ *       ResourceId: "service/default/web-app",
+ *       RoleARN: "arn:aws:iam::012345678910:role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService",
+ *       ScalableDimension: "ecs:service:DesiredCount",
+ *       ServiceNamespace: "ecs",
+ *       SuspendedState: {
+ *         DynamicScalingInSuspended: false,
+ *         DynamicScalingOutSuspended: false,
+ *         ScheduledScalingSuspended: false
  *       }
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-scalable-targets-1470864286961
  * ```
  *
+ * @public
  */
 export class DescribeScalableTargetsCommand extends $Command
   .classBuilder<

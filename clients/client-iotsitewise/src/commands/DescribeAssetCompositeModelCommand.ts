@@ -134,6 +134,7 @@ export interface DescribeAssetCompositeModelCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DescribeAssetCompositeModelCommand extends $Command

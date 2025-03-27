@@ -86,6 +86,7 @@ export interface UpdateEc2DeepInspectionConfigurationCommandOutput
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class UpdateEc2DeepInspectionConfigurationCommand extends $Command

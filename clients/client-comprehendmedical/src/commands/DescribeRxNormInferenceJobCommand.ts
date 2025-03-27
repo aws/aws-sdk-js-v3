@@ -97,6 +97,7 @@ export interface DescribeRxNormInferenceJobCommandOutput extends DescribeRxNormI
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ *
  * @public
  */
 export class DescribeRxNormInferenceJobCommand extends $Command

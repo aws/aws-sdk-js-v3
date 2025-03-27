@@ -92,6 +92,7 @@ export interface GetSipRuleCommandOutput extends GetSipRuleResponse, __MetadataB
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class GetSipRuleCommand extends $Command

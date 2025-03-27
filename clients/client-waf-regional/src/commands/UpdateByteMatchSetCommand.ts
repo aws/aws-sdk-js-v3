@@ -214,38 +214,38 @@ export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetRespo
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To update a byte match set
  * ```javascript
  * // The following example deletes a ByteMatchTuple object (filters) in an byte match set with the ID exampleIDs3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "ByteMatchSetId": "exampleIDs3t-46da-4fdb-b8d5-abc321j569j5",
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "Updates": [
+ *   ByteMatchSetId: "exampleIDs3t-46da-4fdb-b8d5-abc321j569j5",
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   Updates: [
  *     {
- *       "Action": "DELETE",
- *       "ByteMatchTuple": {
- *         "FieldToMatch": {
- *           "Data": "referer",
- *           "Type": "HEADER"
+ *       Action: "DELETE",
+ *       ByteMatchTuple: {
+ *         FieldToMatch: {
+ *           Data: "referer",
+ *           Type: "HEADER"
  *         },
- *         "PositionalConstraint": "CONTAINS",
- *         "TargetString": "badrefer1",
- *         "TextTransformation": "NONE"
+ *         PositionalConstraint: "CONTAINS",
+ *         TargetString: "badrefer1",
+ *         TextTransformation: "NONE"
  *       }
  *     }
  *   ]
  * };
  * const command = new UpdateByteMatchSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: updatebytematchset-1475259074558
  * ```
  *
+ * @public
  */
 export class UpdateByteMatchSetCommand extends $Command
   .classBuilder<

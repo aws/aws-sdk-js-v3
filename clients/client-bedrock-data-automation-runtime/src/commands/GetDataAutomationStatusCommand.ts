@@ -79,6 +79,7 @@ export interface GetDataAutomationStatusCommandOutput extends GetDataAutomationS
  * @throws {@link BedrockDataAutomationRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockDataAutomationRuntime service.</p>
  *
+ *
  * @public
  */
 export class GetDataAutomationStatusCommand extends $Command

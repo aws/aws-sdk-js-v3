@@ -91,6 +91,7 @@ export interface IncreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class IncreaseStreamRetentionPeriodCommand extends $Command

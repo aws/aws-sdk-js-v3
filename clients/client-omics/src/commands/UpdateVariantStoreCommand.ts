@@ -79,6 +79,7 @@ export interface UpdateVariantStoreCommandOutput extends UpdateVariantStoreRespo
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class UpdateVariantStoreCommand extends $Command

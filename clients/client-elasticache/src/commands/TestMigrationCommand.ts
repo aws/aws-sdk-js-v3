@@ -193,6 +193,7 @@ export interface TestMigrationCommandOutput extends TestMigrationResponse, __Met
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class TestMigrationCommand extends $Command

@@ -81,6 +81,7 @@ export interface ListBotReplicasCommandOutput extends ListBotReplicasResponse, _
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class ListBotReplicasCommand extends $Command

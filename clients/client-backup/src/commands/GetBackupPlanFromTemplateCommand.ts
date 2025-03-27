@@ -119,6 +119,7 @@ export interface GetBackupPlanFromTemplateCommandOutput extends GetBackupPlanFro
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class GetBackupPlanFromTemplateCommand extends $Command

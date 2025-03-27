@@ -119,34 +119,34 @@ export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __Metad
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe the available option groups
  * ```javascript
  * // The following example lists the options groups for an Oracle Database 19c instance.
  * const input = {
- *   "EngineName": "oracle-ee",
- *   "MajorEngineVersion": "19"
+ *   EngineName: "oracle-ee",
+ *   MajorEngineVersion: "19"
  * };
  * const command = new DescribeOptionGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OptionGroupsList": [
+ *   OptionGroupsList: [
  *     {
- *       "AllowsVpcAndNonVpcInstanceMemberships": true,
- *       "EngineName": "oracle-ee",
- *       "MajorEngineVersion": "19",
- *       "OptionGroupArn": "arn:aws:rds:us-west-1:111122223333:og:default:oracle-ee-19",
- *       "OptionGroupDescription": "Default option group for oracle-ee 19",
- *       "OptionGroupName": "default:oracle-ee-19",
- *       "Options": []
+ *       AllowsVpcAndNonVpcInstanceMemberships: true,
+ *       EngineName: "oracle-ee",
+ *       MajorEngineVersion: "19",
+ *       OptionGroupArn: "arn:aws:rds:us-west-1:111122223333:og:default:oracle-ee-19",
+ *       OptionGroupDescription: "Default option group for oracle-ee 19",
+ *       OptionGroupName: "default:oracle-ee-19",
+ *       Options:       []
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-the-available-option-groups-1680283066000
  * ```
  *
+ * @public
  */
 export class DescribeOptionGroupsCommand extends $Command
   .classBuilder<

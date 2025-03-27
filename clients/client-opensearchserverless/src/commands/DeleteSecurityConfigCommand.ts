@@ -75,6 +75,7 @@ export interface DeleteSecurityConfigCommandOutput extends DeleteSecurityConfigR
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ *
  * @public
  */
 export class DeleteSecurityConfigCommand extends $Command

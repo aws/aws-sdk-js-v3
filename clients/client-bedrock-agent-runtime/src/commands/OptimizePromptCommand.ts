@@ -119,6 +119,7 @@ export interface OptimizePromptCommandOutput extends OptimizePromptResponse, __M
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ *
  * @public
  */
 export class OptimizePromptCommand extends $Command

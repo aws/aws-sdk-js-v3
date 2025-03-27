@@ -641,6 +641,7 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class TransactWriteItemsCommand extends $Command

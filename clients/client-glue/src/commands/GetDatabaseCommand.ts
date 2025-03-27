@@ -105,6 +105,7 @@ export interface GetDatabaseCommandOutput extends GetDatabaseResponse, __Metadat
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetDatabaseCommand extends $Command

@@ -66,6 +66,7 @@ export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __Met
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DeactivateTypeCommand extends $Command

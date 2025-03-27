@@ -81,6 +81,7 @@ export interface DescribePromptCommandOutput extends DescribePromptResponse, __M
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DescribePromptCommand extends $Command

@@ -80,27 +80,27 @@ export interface GetEnvironmentCommandOutput extends Environment, __MetadataBear
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To retrieve environment details
  * ```javascript
  * // The following get-environment example returns the details and state of the specified environment.
  * const input = {
- *   "ApplicationId": "339ohji",
- *   "EnvironmentId": "54j1r29"
+ *   ApplicationId: "339ohji",
+ *   EnvironmentId: "54j1r29"
  * };
  * const command = new GetEnvironmentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplicationId": "339ohji",
- *   "Id": "54j1r29",
- *   "Name": "Example-Environment",
- *   "State": "READY_FOR_DEPLOYMENT"
+ *   ApplicationId: "339ohji",
+ *   Id: "54j1r29",
+ *   Name: "Example-Environment",
+ *   State: "READY_FOR_DEPLOYMENT"
  * }
  * *\/
- * // example id: to-retrieve-environment-details-1632266924806
  * ```
  *
+ * @public
  */
 export class GetEnvironmentCommand extends $Command
   .classBuilder<

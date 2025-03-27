@@ -100,6 +100,7 @@ export interface AssignOpportunityCommandOutput extends __MetadataBearer {}
  * @throws {@link PartnerCentralSellingServiceException}
  * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>
  *
+ *
  * @public
  */
 export class AssignOpportunityCommand extends $Command

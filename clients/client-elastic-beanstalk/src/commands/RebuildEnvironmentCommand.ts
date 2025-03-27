@@ -59,18 +59,21 @@ export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To rebuild an environment
  * ```javascript
  * // The following operation terminates and recreates the resources in an environment named my-env:
  * const input = {
- *   "EnvironmentName": "my-env"
+ *   EnvironmentName: "my-env"
  * };
  * const command = new RebuildEnvironmentCommand(input);
- * await client.send(command);
- * // example id: to-rebuild-an-environment-1456277600918
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RebuildEnvironmentCommand extends $Command
   .classBuilder<

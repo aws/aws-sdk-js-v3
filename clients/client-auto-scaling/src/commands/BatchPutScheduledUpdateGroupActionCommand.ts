@@ -91,6 +91,7 @@ export interface BatchPutScheduledUpdateGroupActionCommandOutput
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ *
  * @public
  */
 export class BatchPutScheduledUpdateGroupActionCommand extends $Command

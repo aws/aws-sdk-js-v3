@@ -75,6 +75,7 @@ export interface StartAvailabilityMonitorTestCommandOutput
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class StartAvailabilityMonitorTestCommand extends $Command

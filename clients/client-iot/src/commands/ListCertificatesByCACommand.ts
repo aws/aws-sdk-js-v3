@@ -83,6 +83,7 @@ export interface ListCertificatesByCACommandOutput extends ListCertificatesByCAR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListCertificatesByCACommand extends $Command

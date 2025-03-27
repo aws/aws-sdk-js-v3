@@ -77,6 +77,7 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupRespo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdateBillingGroupCommand extends $Command

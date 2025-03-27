@@ -90,6 +90,7 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ *
  * @public
  */
 export class ListAlertsCommand extends $Command

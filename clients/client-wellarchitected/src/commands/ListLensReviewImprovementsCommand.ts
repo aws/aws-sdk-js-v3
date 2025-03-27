@@ -100,6 +100,7 @@ export interface ListLensReviewImprovementsCommandOutput extends ListLensReviewI
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class ListLensReviewImprovementsCommand extends $Command

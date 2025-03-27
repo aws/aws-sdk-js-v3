@@ -72,18 +72,21 @@ export interface DeleteTransformerCommandOutput extends __MetadataBearer {}
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample DeleteTransformer call
  * ```javascript
  * //
  * const input = {
- *   "transformerId": "tr-974c129999f84d8c9"
+ *   transformerId: "tr-974c129999f84d8c9"
  * };
  * const command = new DeleteTransformerCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteTransformerCommand extends $Command
   .classBuilder<

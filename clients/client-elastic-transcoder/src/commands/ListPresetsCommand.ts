@@ -137,6 +137,7 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ *
  * @public
  */
 export class ListPresetsCommand extends $Command

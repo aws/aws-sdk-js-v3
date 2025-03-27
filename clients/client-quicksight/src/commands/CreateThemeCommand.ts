@@ -162,6 +162,7 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateThemeCommand extends $Command

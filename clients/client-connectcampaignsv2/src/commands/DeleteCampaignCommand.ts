@@ -69,6 +69,7 @@ export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectCampaignsV2ServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaignsV2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteCampaignCommand extends $Command

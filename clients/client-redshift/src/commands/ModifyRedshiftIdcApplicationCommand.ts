@@ -134,6 +134,7 @@ export interface ModifyRedshiftIdcApplicationCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class ModifyRedshiftIdcApplicationCommand extends $Command

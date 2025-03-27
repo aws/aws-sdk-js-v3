@@ -77,6 +77,7 @@ export interface DeleteProbeCommandOutput extends DeleteProbeOutput, __MetadataB
  * @throws {@link NetworkMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ *
  * @public
  */
 export class DeleteProbeCommand extends $Command

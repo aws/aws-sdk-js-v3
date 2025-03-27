@@ -100,6 +100,7 @@ export interface DescribeSourceNetworksCommandOutput extends DescribeSourceNetwo
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class DescribeSourceNetworksCommand extends $Command

@@ -130,6 +130,7 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class ExportTableToPointInTimeCommand extends $Command

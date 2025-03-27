@@ -87,6 +87,7 @@ export interface GetAttributeGroupCommandOutput extends GetAttributeGroupRespons
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ *
  * @public
  */
 export class GetAttributeGroupCommand extends $Command

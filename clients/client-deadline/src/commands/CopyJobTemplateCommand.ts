@@ -77,6 +77,7 @@ export interface CopyJobTemplateCommandOutput extends CopyJobTemplateResponse, _
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class CopyJobTemplateCommand extends $Command

@@ -134,6 +134,7 @@ export interface ListAppsCommandOutput extends ListAppsResult, __MetadataBearer 
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class ListAppsCommand extends $Command

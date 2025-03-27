@@ -103,6 +103,7 @@ export interface UpdateVpcEndpointCommandOutput extends UpdateVpcEndpointRespons
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ *
  * @public
  */
 export class UpdateVpcEndpointCommand extends $Command

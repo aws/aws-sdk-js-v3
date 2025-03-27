@@ -222,76 +222,75 @@ export interface UpdateQAppCommandOutput extends UpdateQAppOutput, __MetadataBea
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example Updating the title of an app
  * ```javascript
  * //
  * const input = {
- *   "appId": "7212ff04-de7b-4831-bd80-45d6975ba1b0",
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
- *   "title": "This is the new title"
+ *   appId: "7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   title: "This is the new title"
  * };
  * const command = new UpdateQAppCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "appArn": "arn:aws:qapps:us-west-2:123456789012:app/7212ff04-de7b-4831-bd80-45d6975ba1b0",
- *   "appId": "7212ff04-de7b-4831-bd80-45d6975ba1b0",
- *   "appVersion": 2,
- *   "createdAt": "2024-05-14T00:11:54.232Z",
- *   "createdBy": "a841e300-40c1-7062-fa34-5b46dadbbaac",
- *   "requiredCapabilities": [
+ *   appArn: "arn:aws:qapps:us-west-2:123456789012:app/7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   appId: "7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   appVersion: 2,
+ *   createdAt: "2024-05-14T00:11:54.232Z",
+ *   createdBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *   requiredCapabilities: [
  *     "CreatorMode"
  *   ],
- *   "status": "DRAFT",
- *   "title": "This is the new title",
- *   "updatedAt": "2024-05-17T23:15:08.571Z",
- *   "updatedBy": "a841e300-40c1-7062-fa34-5b46dadbbaac"
+ *   status: "DRAFT",
+ *   title: "This is the new title",
+ *   updatedAt: "2024-05-17T23:15:08.571Z",
+ *   updatedBy: "a841e300-40c1-7062-fa34-5b46dadbbaac"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
  * @example Updating the app so it has a single q-query card
  * ```javascript
  * //
  * const input = {
- *   "appDefinition": {
- *     "cards": [
+ *   appDefinition: {
+ *     cards: [
  *       {
- *         "qQuery": {
- *           "type": "q-query",
- *           "id": "18870b94-1e63-40e0-8c12-669c90ac5acc",
- *           "prompt": "Recommend me an itinerary for a trip",
- *           "title": "Trip Ideas"
+ *         qQuery: {
+ *           id: "18870b94-1e63-40e0-8c12-669c90ac5acc",
+ *           prompt: "Recommend me an itinerary for a trip",
+ *           title: "Trip Ideas",
+ *           type: "q-query"
  *         }
  *       }
  *     ]
  *   },
- *   "appId": "7212ff04-de7b-4831-bd80-45d6975ba1b0",
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
+ *   appId: "7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
  * };
  * const command = new UpdateQAppCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "appArn": "arn:aws:qapps:us-west-2:123456789012:app/7212ff04-de7b-4831-bd80-45d6975ba1b0",
- *   "appId": "7212ff04-de7b-4831-bd80-45d6975ba1b0",
- *   "appVersion": 99,
- *   "createdAt": "2024-05-14T00:11:54.232Z",
- *   "createdBy": "a841e300-40c1-7062-fa34-5b46dadbbaac",
- *   "requiredCapabilities": [
+ *   appArn: "arn:aws:qapps:us-west-2:123456789012:app/7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   appId: "7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   appVersion: 99,
+ *   createdAt: "2024-05-14T00:11:54.232Z",
+ *   createdBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *   requiredCapabilities: [
  *     "CreatorMode"
  *   ],
- *   "status": "DRAFT",
- *   "title": "Previous Title Stays the Same",
- *   "updatedAt": "2024-05-17T23:15:08.571Z",
- *   "updatedBy": "a841e300-40c1-7062-fa34-5b46dadbbaac"
+ *   status: "DRAFT",
+ *   title: "Previous Title Stays the Same",
+ *   updatedAt: "2024-05-17T23:15:08.571Z",
+ *   updatedBy: "a841e300-40c1-7062-fa34-5b46dadbbaac"
  * }
  * *\/
- * // example id: example-2
  * ```
  *
+ * @public
  */
 export class UpdateQAppCommand extends $Command
   .classBuilder<

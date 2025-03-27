@@ -104,6 +104,7 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ *
  * @public
  */
 export class GetMembersCommand extends $Command

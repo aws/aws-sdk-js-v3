@@ -159,6 +159,7 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class DeleteFirewallCommand extends $Command

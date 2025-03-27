@@ -54,6 +54,7 @@ export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingP
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class RemoveAutoScalingPolicyCommand extends $Command

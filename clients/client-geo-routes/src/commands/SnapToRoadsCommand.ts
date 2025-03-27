@@ -131,6 +131,7 @@ export interface SnapToRoadsCommandOutput extends SnapToRoadsResponse, __Metadat
  * @throws {@link GeoRoutesServiceException}
  * <p>Base exception class for all service exceptions from GeoRoutes service.</p>
  *
+ *
  * @public
  */
 export class SnapToRoadsCommand extends $Command

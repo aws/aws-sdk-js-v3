@@ -98,6 +98,7 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingResult, _
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class GetBucketTaggingCommand extends $Command

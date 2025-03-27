@@ -71,6 +71,7 @@ export interface StopEngagementCommandOutput extends StopEngagementResult, __Met
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class StopEngagementCommand extends $Command

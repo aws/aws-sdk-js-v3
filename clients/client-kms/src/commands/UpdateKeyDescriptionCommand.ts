@@ -114,19 +114,22 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To update the description of a KMS key
  * ```javascript
  * // The following example updates the description of the specified KMS key.
  * const input = {
- *   "Description": "Example description that indicates the intended use of this KMS key.",
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   Description: "Example description that indicates the intended use of this KMS key.",
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new UpdateKeyDescriptionCommand(input);
- * await client.send(command);
- * // example id: to-update-the-description-of-a-cmk-1481574808619
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateKeyDescriptionCommand extends $Command
   .classBuilder<

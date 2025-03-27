@@ -88,6 +88,7 @@ export interface ListContactChannelsCommandOutput extends ListContactChannelsRes
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class ListContactChannelsCommand extends $Command

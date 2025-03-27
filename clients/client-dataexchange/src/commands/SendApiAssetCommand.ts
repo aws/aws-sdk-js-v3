@@ -85,6 +85,7 @@ export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __Metad
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class SendApiAssetCommand extends $Command

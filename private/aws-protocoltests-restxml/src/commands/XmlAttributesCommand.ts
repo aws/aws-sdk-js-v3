@@ -55,6 +55,7 @@ export interface XmlAttributesCommandOutput extends XmlAttributesResponse, __Met
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class XmlAttributesCommand extends $Command

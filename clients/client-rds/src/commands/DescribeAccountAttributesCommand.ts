@@ -61,97 +61,97 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe account attributes
  * ```javascript
  * // The following example retrieves the attributes for the current AWS account.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AccountQuotas": [
+ *   AccountQuotas: [
  *     {
- *       "AccountQuotaName": "DBInstances",
- *       "Max": 40,
- *       "Used": 4
+ *       AccountQuotaName: "DBInstances",
+ *       Max: 40,
+ *       Used: 4
  *     },
  *     {
- *       "AccountQuotaName": "ReservedDBInstances",
- *       "Max": 40,
- *       "Used": 0
+ *       AccountQuotaName: "ReservedDBInstances",
+ *       Max: 40,
+ *       Used: 0
  *     },
  *     {
- *       "AccountQuotaName": "AllocatedStorage",
- *       "Max": 100000,
- *       "Used": 40
+ *       AccountQuotaName: "AllocatedStorage",
+ *       Max: 100000,
+ *       Used: 40
  *     },
  *     {
- *       "AccountQuotaName": "DBSecurityGroups",
- *       "Max": 25,
- *       "Used": 0
+ *       AccountQuotaName: "DBSecurityGroups",
+ *       Max: 25,
+ *       Used: 0
  *     },
  *     {
- *       "AccountQuotaName": "AuthorizationsPerDBSecurityGroup",
- *       "Max": 20,
- *       "Used": 0
+ *       AccountQuotaName: "AuthorizationsPerDBSecurityGroup",
+ *       Max: 20,
+ *       Used: 0
  *     },
  *     {
- *       "AccountQuotaName": "DBParameterGroups",
- *       "Max": 50,
- *       "Used": 1
+ *       AccountQuotaName: "DBParameterGroups",
+ *       Max: 50,
+ *       Used: 1
  *     },
  *     {
- *       "AccountQuotaName": "ManualSnapshots",
- *       "Max": 100,
- *       "Used": 3
+ *       AccountQuotaName: "ManualSnapshots",
+ *       Max: 100,
+ *       Used: 3
  *     },
  *     {
- *       "AccountQuotaName": "EventSubscriptions",
- *       "Max": 20,
- *       "Used": 0
+ *       AccountQuotaName: "EventSubscriptions",
+ *       Max: 20,
+ *       Used: 0
  *     },
  *     {
- *       "AccountQuotaName": "DBSubnetGroups",
- *       "Max": 50,
- *       "Used": 1
+ *       AccountQuotaName: "DBSubnetGroups",
+ *       Max: 50,
+ *       Used: 1
  *     },
  *     {
- *       "AccountQuotaName": "OptionGroups",
- *       "Max": 20,
- *       "Used": 1
+ *       AccountQuotaName: "OptionGroups",
+ *       Max: 20,
+ *       Used: 1
  *     },
  *     {
- *       "AccountQuotaName": "SubnetsPerDBSubnetGroup",
- *       "Max": 20,
- *       "Used": 6
+ *       AccountQuotaName: "SubnetsPerDBSubnetGroup",
+ *       Max: 20,
+ *       Used: 6
  *     },
  *     {
- *       "AccountQuotaName": "ReadReplicasPerMaster",
- *       "Max": 5,
- *       "Used": 0
+ *       AccountQuotaName: "ReadReplicasPerMaster",
+ *       Max: 5,
+ *       Used: 0
  *     },
  *     {
- *       "AccountQuotaName": "DBClusters",
- *       "Max": 40,
- *       "Used": 1
+ *       AccountQuotaName: "DBClusters",
+ *       Max: 40,
+ *       Used: 1
  *     },
  *     {
- *       "AccountQuotaName": "DBClusterParameterGroups",
- *       "Max": 50,
- *       "Used": 0
+ *       AccountQuotaName: "DBClusterParameterGroups",
+ *       Max: 50,
+ *       Used: 0
  *     },
  *     {
- *       "AccountQuotaName": "DBClusterRoles",
- *       "Max": 5,
- *       "Used": 0
+ *       AccountQuotaName: "DBClusterRoles",
+ *       Max: 5,
+ *       Used: 0
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-account-attributes-1680210466935
  * ```
  *
+ * @public
  */
 export class DescribeAccountAttributesCommand extends $Command
   .classBuilder<

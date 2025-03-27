@@ -100,6 +100,7 @@ export interface ListSimulationApplicationsCommandOutput extends ListSimulationA
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class ListSimulationApplicationsCommand extends $Command

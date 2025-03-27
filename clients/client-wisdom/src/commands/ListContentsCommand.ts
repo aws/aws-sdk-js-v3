@@ -85,6 +85,7 @@ export interface ListContentsCommandOutput extends ListContentsResponse, __Metad
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class ListContentsCommand extends $Command

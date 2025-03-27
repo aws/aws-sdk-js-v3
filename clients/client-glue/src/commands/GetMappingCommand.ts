@@ -108,6 +108,7 @@ export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataB
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetMappingCommand extends $Command

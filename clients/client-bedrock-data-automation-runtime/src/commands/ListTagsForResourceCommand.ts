@@ -79,6 +79,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link BedrockDataAutomationRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockDataAutomationRuntime service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

@@ -69,6 +69,7 @@ export interface UpdateProblemCommandOutput extends UpdateProblemResponse, __Met
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class UpdateProblemCommand extends $Command

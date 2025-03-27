@@ -81,30 +81,30 @@ export interface ListEnvironmentsCommandOutput extends Environments, __MetadataB
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To list the available environments
  * ```javascript
  * // The following list-environments example lists the available environments in your AWS account for the specified application.
  * const input = {
- *   "ApplicationId": "339ohji"
+ *   ApplicationId: "339ohji"
  * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Items": [
+ *   Items: [
  *     {
- *       "ApplicationId": "339ohji",
- *       "Id": "54j1r29",
- *       "Name": "Example-Environment",
- *       "State": "READY_FOR_DEPLOYMENT"
+ *       ApplicationId: "339ohji",
+ *       Id: "54j1r29",
+ *       Name: "Example-Environment",
+ *       State: "READY_FOR_DEPLOYMENT"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-the-available-environments-1632267474389
  * ```
  *
+ * @public
  */
 export class ListEnvironmentsCommand extends $Command
   .classBuilder<

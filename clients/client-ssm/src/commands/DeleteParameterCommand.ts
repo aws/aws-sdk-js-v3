@@ -65,6 +65,7 @@ export interface DeleteParameterCommandOutput extends DeleteParameterResult, __M
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DeleteParameterCommand extends $Command

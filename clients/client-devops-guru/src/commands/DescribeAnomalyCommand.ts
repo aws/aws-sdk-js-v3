@@ -324,6 +324,7 @@ export interface DescribeAnomalyCommandOutput extends DescribeAnomalyResponse, _
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class DescribeAnomalyCommand extends $Command

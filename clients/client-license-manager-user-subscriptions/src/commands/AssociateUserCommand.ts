@@ -148,6 +148,7 @@ export interface AssociateUserCommandOutput extends AssociateUserResponse, __Met
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ *
  * @public
  */
 export class AssociateUserCommand extends $Command

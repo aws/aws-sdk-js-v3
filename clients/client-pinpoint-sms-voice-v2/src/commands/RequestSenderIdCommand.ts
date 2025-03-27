@@ -109,6 +109,7 @@ export interface RequestSenderIdCommandOutput extends RequestSenderIdResult, __M
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class RequestSenderIdCommand extends $Command

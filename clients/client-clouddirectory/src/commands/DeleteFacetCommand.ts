@@ -85,19 +85,22 @@ export interface DeleteFacetCommandOutput extends DeleteFacetResponse, __Metadat
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To delete a facet
  * ```javascript
  * //
  * const input = {
- *   "Name": "Organization",
- *   "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:schema/development/exampleorgtest"
+ *   Name: "Organization",
+ *   SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:schema/development/exampleorgtest"
  * };
  * const command = new DeleteFacetCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-facet-1507573383449
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteFacetCommand extends $Command
   .classBuilder<

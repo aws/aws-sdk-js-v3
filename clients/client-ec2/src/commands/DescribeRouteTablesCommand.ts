@@ -124,46 +124,46 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a route table
  * ```javascript
  * // This example describes the specified route table.
  * const input = {
- *   "RouteTableIds": [
+ *   RouteTableIds: [
  *     "rtb-1f382e7d"
  *   ]
  * };
  * const command = new DescribeRouteTablesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "RouteTables": [
+ *   RouteTables: [
  *     {
- *       "Associations": [
+ *       Associations: [
  *         {
- *           "Main": true,
- *           "RouteTableAssociationId": "rtbassoc-d8ccddba",
- *           "RouteTableId": "rtb-1f382e7d"
+ *           Main: true,
+ *           RouteTableAssociationId: "rtbassoc-d8ccddba",
+ *           RouteTableId: "rtb-1f382e7d"
  *         }
  *       ],
- *       "PropagatingVgws": [],
- *       "RouteTableId": "rtb-1f382e7d",
- *       "Routes": [
+ *       PropagatingVgws:       [],
+ *       RouteTableId: "rtb-1f382e7d",
+ *       Routes: [
  *         {
- *           "DestinationCidrBlock": "10.0.0.0/16",
- *           "GatewayId": "local",
- *           "State": "active"
+ *           DestinationCidrBlock: "10.0.0.0/16",
+ *           GatewayId: "local",
+ *           State: "active"
  *         }
  *       ],
- *       "Tags": [],
- *       "VpcId": "vpc-a01106c2"
+ *       Tags:       [],
+ *       VpcId: "vpc-a01106c2"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-route-tables-1
  * ```
  *
+ * @public
  */
 export class DescribeRouteTablesCommand extends $Command
   .classBuilder<

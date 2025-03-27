@@ -88,6 +88,7 @@ export interface ListUsageLimitsCommandOutput extends ListUsageLimitsResponse, _
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class ListUsageLimitsCommand extends $Command

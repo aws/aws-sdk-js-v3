@@ -57,6 +57,7 @@ export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataB
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class ConstantAndVariableQueryStringCommand extends $Command

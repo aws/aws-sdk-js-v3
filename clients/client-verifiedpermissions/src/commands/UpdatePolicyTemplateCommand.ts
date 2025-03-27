@@ -181,34 +181,42 @@ export interface UpdatePolicyTemplateCommandOutput extends UpdatePolicyTemplateO
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
- * @public
+ *
  * @example UpdatePolicyTemplate
  * ```javascript
  * // The following example updates a policy template with both a new description and a new policy body. The effect, principal, and resource are the same as the original policy template. Only the action in the head, and the when and unless clauses can be different.
- * //
- * // Note
- * // The JSON in the parameters of this operation are strings that can contain embedded quotation marks (") within the outermost quotation mark pair. This requires that you stringify the JSON object by preceding all embedded quotation marks with a backslash character ( \" ) and combining all lines into a single text line with no line breaks.
- * //
- * // Example strings might be displayed wrapped across multiple lines here for readability, but the operation requires the parameters be submitted as single line strings.
+ *
+ * Note
+ * The JSON in the parameters of this operation are strings that can contain embedded quotation marks (") within the outermost quotation mark pair. This requires that you stringify the JSON object by preceding all embedded quotation marks with a backslash character ( \" ) and combining all lines into a single text line with no line breaks.
+ *
+ * Example strings might be displayed wrapped across multiple lines here for readability, but the operation requires the parameters be submitted as single line strings.
  * const input = {
- *   "description": "My updated template description",
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
- *   "policyTemplateId": "PTEXAMPLEabcdefg111111",
- *   "statement": "\"ResearchAccess\"\npermit(\nprincipal in ?principal,\naction == Action::\"view\",\nresource in ?resource\"\n)\nwhen {\nprincipal has department && principal.department == \"research\"\n};"
+ *   description: "My updated template description",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   policyTemplateId: "PTEXAMPLEabcdefg111111",
+ *   statement: `"ResearchAccess"
+ * permit(
+ * principal in ?principal,
+ * action == Action::"view",
+ * resource in ?resource"
+ * )
+ * when {
+ * principal has department && principal.department == "research"
+ * };`
  * };
  * const command = new UpdatePolicyTemplateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "createdDate": "2023-05-17T18:58:48.795411Z",
- *   "lastUpdatedDate": "2023-05-17T19:18:48.870209Z",
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
- *   "policyTemplateId": "PTEXAMPLEabcdefg111111"
+ *   createdDate: "2023-05-17T18:58:48.795411Z",
+ *   lastUpdatedDate: "2023-05-17T19:18:48.870209Z",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   policyTemplateId: "PTEXAMPLEabcdefg111111"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class UpdatePolicyTemplateCommand extends $Command
   .classBuilder<

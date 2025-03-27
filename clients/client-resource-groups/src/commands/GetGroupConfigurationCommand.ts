@@ -115,6 +115,7 @@ export interface GetGroupConfigurationCommandOutput extends GetGroupConfiguratio
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class GetGroupConfigurationCommand extends $Command

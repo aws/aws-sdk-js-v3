@@ -84,31 +84,31 @@ export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataB
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To create a virtual tape
  * ```javascript
  * // Creates one or more virtual tapes.
  * const input = {
- *   "ClientToken": "77777",
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
- *   "NumTapesToCreate": 3,
- *   "TapeBarcodePrefix": "TEST",
- *   "TapeSizeInBytes": 107374182400
+ *   ClientToken: "77777",
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+ *   NumTapesToCreate: 3,
+ *   TapeBarcodePrefix: "TEST",
+ *   TapeSizeInBytes: 107374182400
  * };
  * const command = new CreateTapesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TapeARNs": [
+ *   TapeARNs: [
  *     "arn:aws:storagegateway:us-east-1:999999999999:tape/TEST38A29D",
  *     "arn:aws:storagegateway:us-east-1:204469490176:tape/TEST3AA29F",
  *     "arn:aws:storagegateway:us-east-1:204469490176:tape/TEST3BA29E"
  *   ]
  * }
  * *\/
- * // example id: to-create-a-virtual-tape-1471372061659
  * ```
  *
+ * @public
  */
 export class CreateTapesCommand extends $Command
   .classBuilder<

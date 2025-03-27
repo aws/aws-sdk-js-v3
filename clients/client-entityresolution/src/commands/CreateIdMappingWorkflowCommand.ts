@@ -161,6 +161,7 @@ export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWor
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ *
  * @public
  */
 export class CreateIdMappingWorkflowCommand extends $Command

@@ -96,34 +96,34 @@ export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsR
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To enable security standards
  * ```javascript
  * // The following example enables the security standard specified by the StandardArn. You can use this operation to enable one or more Security Hub standards.
  * const input = {
- *   "StandardsSubscriptionRequests": [
+ *   StandardsSubscriptionRequests: [
  *     {
- *       "StandardsArn": "arn:aws:securityhub:us-west-1::standards/pci-dss/v/3.2.1"
+ *       StandardsArn: "arn:aws:securityhub:us-west-1::standards/pci-dss/v/3.2.1"
  *     }
  *   ]
  * };
  * const command = new BatchEnableStandardsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "StandardsSubscriptions": [
+ *   StandardsSubscriptions: [
  *     {
- *       "StandardsArn": "arn:aws:securityhub:us-west-1::standards/pci-dss/v/3.2.1",
- *       "StandardsInput": {},
- *       "StandardsStatus": "PENDING",
- *       "StandardsSubscriptionArn": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
+ *       StandardsArn: "arn:aws:securityhub:us-west-1::standards/pci-dss/v/3.2.1",
+ *       StandardsInput:       { /* empty *\/ },
+ *       StandardsStatus: "PENDING",
+ *       StandardsSubscriptionArn: "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-enable-security-standards-1683233792239
  * ```
  *
+ * @public
  */
 export class BatchEnableStandardsCommand extends $Command
   .classBuilder<

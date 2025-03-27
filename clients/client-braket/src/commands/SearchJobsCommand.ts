@@ -92,6 +92,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ *
  * @public
  */
 export class SearchJobsCommand extends $Command

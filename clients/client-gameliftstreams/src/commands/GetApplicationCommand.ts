@@ -97,6 +97,7 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>
  *
+ *
  * @public
  */
 export class GetApplicationCommand extends $Command

@@ -68,20 +68,23 @@ export interface UpdateActionTargetCommandOutput extends UpdateActionTargetRespo
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To update the name and description of a custom action target
  * ```javascript
  * // The following example updates the name and description of a custom action target in Security Hub. You can create custom actions to automatically respond to Security Hub findings using Amazon EventBridge.
  * const input = {
- *   "ActionTargetArn": "arn:aws:securityhub:us-west-1:123456789012:action/custom/Remediation",
- *   "Description": "Sends specified findings to customer service chat",
- *   "Name": "Chat custom action"
+ *   ActionTargetArn: "arn:aws:securityhub:us-west-1:123456789012:action/custom/Remediation",
+ *   Description: "Sends specified findings to customer service chat",
+ *   Name: "Chat custom action"
  * };
  * const command = new UpdateActionTargetCommand(input);
- * await client.send(command);
- * // example id: to-update-the-name-and-description-of-a-custom-action-target-1678814873015
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateActionTargetCommand extends $Command
   .classBuilder<

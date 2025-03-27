@@ -77,6 +77,7 @@ export interface AssociateMemberToFarmCommandOutput extends AssociateMemberToFar
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class AssociateMemberToFarmCommand extends $Command

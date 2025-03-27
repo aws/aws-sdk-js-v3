@@ -121,6 +121,7 @@ export interface ReadPipelineCommandOutput extends ReadPipelineResponse, __Metad
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ *
  * @public
  */
 export class ReadPipelineCommand extends $Command

@@ -87,19 +87,22 @@ export interface ChangePasswordCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To change the password for your IAM user
  * ```javascript
  * // The following command changes the password for the current IAM user.
  * const input = {
- *   "NewPassword": "]35d/{pB9Fo9wJ",
- *   "OldPassword": "3s0K_;xh4~8XXI"
+ *   NewPassword: "]35d/{pB9Fo9wJ",
+ *   OldPassword: "3s0K_;xh4~8XXI"
  * };
  * const command = new ChangePasswordCommand(input);
- * await client.send(command);
- * // example id: 3a80c66f-bffb-46df-947c-1e8fa583b470
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ChangePasswordCommand extends $Command
   .classBuilder<

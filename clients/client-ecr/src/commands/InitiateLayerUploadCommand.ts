@@ -78,6 +78,7 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class InitiateLayerUploadCommand extends $Command

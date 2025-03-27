@@ -411,6 +411,7 @@ export interface ListDelegatedAdministratorsCommandOutput
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ *
  * @public
  */
 export class ListDelegatedAdministratorsCommand extends $Command

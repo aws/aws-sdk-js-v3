@@ -132,6 +132,7 @@ export interface StartTextDetectionCommandOutput extends StartTextDetectionRespo
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ *
  * @public
  */
 export class StartTextDetectionCommand extends $Command

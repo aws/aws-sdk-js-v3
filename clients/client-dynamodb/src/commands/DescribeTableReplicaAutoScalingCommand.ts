@@ -154,6 +154,7 @@ export interface DescribeTableReplicaAutoScalingCommandOutput
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeTableReplicaAutoScalingCommand extends $Command

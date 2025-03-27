@@ -178,6 +178,7 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class CreateOTAUpdateCommand extends $Command

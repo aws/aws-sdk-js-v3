@@ -90,6 +90,7 @@ export interface DescribeCustomDomainsCommandOutput extends DescribeCustomDomain
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ *
  * @public
  */
 export class DescribeCustomDomainsCommand extends $Command

@@ -113,24 +113,24 @@ export interface AuthorizeDBSecurityGroupIngressCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To authorize DB security group integress
  * ```javascript
  * // This example authorizes access to the specified security group by the specified CIDR block.
  * const input = {
- *   "CIDRIP": "203.0.113.5/32",
- *   "DBSecurityGroupName": "mydbsecuritygroup"
+ *   CIDRIP: "203.0.113.5/32",
+ *   DBSecurityGroupName: "mydbsecuritygroup"
  * };
  * const command = new AuthorizeDBSecurityGroupIngressCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBSecurityGroup": {}
+ *   DBSecurityGroup:   { /* empty *\/ }
  * }
  * *\/
- * // example id: authorize-db-security-group-ingress-ebf9ab91-8912-4b07-a32e-ca150668164f
  * ```
  *
+ * @public
  */
 export class AuthorizeDBSecurityGroupIngressCommand extends $Command
   .classBuilder<

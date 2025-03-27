@@ -77,6 +77,7 @@ export interface DescribeComponentConfigurationCommandOutput
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class DescribeComponentConfigurationCommand extends $Command

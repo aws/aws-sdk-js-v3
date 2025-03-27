@@ -90,6 +90,7 @@ export interface GetDashboardCommandOutput extends GetDashboardResponse, __Metad
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class GetDashboardCommand extends $Command

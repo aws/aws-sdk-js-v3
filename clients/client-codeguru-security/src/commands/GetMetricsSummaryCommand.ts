@@ -96,6 +96,7 @@ export interface GetMetricsSummaryCommandOutput extends GetMetricsSummaryRespons
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ *
  * @public
  */
 export class GetMetricsSummaryCommand extends $Command

@@ -134,88 +134,86 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
- * @example To set task scale-in protection for a task for 60 minutes
+ *
+ * @example To remove task scale-in protection
  * ```javascript
- * // This example enables scale-in protection for a task for 60 minutes.
+ * // This example removes scale-in protection for a task.
  * const input = {
- *   "cluster": "test-task-protection",
- *   "expiresInMinutes": 60,
- *   "protectionEnabled": true,
- *   "tasks": [
+ *   cluster: "test-task-protection",
+ *   protectionEnabled: false,
+ *   tasks: [
  *     "b8b1cf532d0e46ba8d44a40d1de16772"
  *   ]
  * };
  * const command = new UpdateTaskProtectionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "failures": [],
- *   "protectedTasks": [
+ *   failures:   [],
+ *   protectedTasks: [
  *     {
- *       "expirationDate": "2022-11-02T06:56:32.553Z",
- *       "protectionEnabled": true,
- *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
+ *       protectionEnabled: false,
+ *       taskArn: "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
  *     }
  *   ]
  * }
  * *\/
- * // example id: enable-the-protection-status-for-a-single-task-for-60-minutes-2022-11-02T06:56:32.553Z
+ * ```
+ *
+ * @example To set task scale-in protection for a task for 60 minutes
+ * ```javascript
+ * // This example enables scale-in protection for a task for 60 minutes.
+ * const input = {
+ *   cluster: "test-task-protection",
+ *   expiresInMinutes: 60,
+ *   protectionEnabled: true,
+ *   tasks: [
+ *     "b8b1cf532d0e46ba8d44a40d1de16772"
+ *   ]
+ * };
+ * const command = new UpdateTaskProtectionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   failures:   [],
+ *   protectedTasks: [
+ *     {
+ *       expirationDate: "2022-11-02T06:56:32.553Z",
+ *       protectionEnabled: true,
+ *       taskArn: "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
+ *     }
+ *   ]
+ * }
+ * *\/
  * ```
  *
  * @example To set task scale-in protection for the default time period in minutes
  * ```javascript
  * // This example enables task scale-in protection for a task, without specifying the expiresInMinutes parameter, for the default protection period of 120 minutes.
  * const input = {
- *   "cluster": "test-task-protection",
- *   "protectionEnabled": true,
- *   "tasks": [
+ *   cluster: "test-task-protection",
+ *   protectionEnabled: true,
+ *   tasks: [
  *     "b8b1cf532d0e46ba8d44a40d1de16772"
  *   ]
  * };
  * const command = new UpdateTaskProtectionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "failures": [],
- *   "protectedTasks": [
+ *   failures:   [],
+ *   protectedTasks: [
  *     {
- *       "expirationDate": "2022-11-02T06:56:32.553Z",
- *       "protectionEnabled": true,
- *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
+ *       expirationDate: "2022-11-02T06:56:32.553Z",
+ *       protectionEnabled: true,
+ *       taskArn: "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
  *     }
  *   ]
  * }
  * *\/
- * // example id: enable-the-protection-status-for-a-single-task-with-default-expiresinminutes-2022-11-02T06:56:32.553Z
  * ```
  *
- * @example To remove task scale-in protection
- * ```javascript
- * // This example removes scale-in protection for a task.
- * const input = {
- *   "cluster": "test-task-protection",
- *   "protectionEnabled": false,
- *   "tasks": [
- *     "b8b1cf532d0e46ba8d44a40d1de16772"
- *   ]
- * };
- * const command = new UpdateTaskProtectionCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "failures": [],
- *   "protectedTasks": [
- *     {
- *       "protectionEnabled": false,
- *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
- *     }
- *   ]
- * }
- * *\/
- * // example id: disable-scale-in-protection-on-a-single-task
- * ```
- *
+ * @public
  */
 export class UpdateTaskProtectionCommand extends $Command
   .classBuilder<

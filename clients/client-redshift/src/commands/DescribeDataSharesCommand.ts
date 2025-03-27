@@ -81,6 +81,7 @@ export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResul
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeDataSharesCommand extends $Command

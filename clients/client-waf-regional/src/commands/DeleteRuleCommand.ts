@@ -126,24 +126,24 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To delete a rule
  * ```javascript
  * // The following example deletes a rule with the ID WAFRule-1-Example.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "RuleId": "WAFRule-1-Example"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   RuleId: "WAFRule-1-Example"
  * };
  * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: deleterule-1474073108749
  * ```
  *
+ * @public
  */
 export class DeleteRuleCommand extends $Command
   .classBuilder<

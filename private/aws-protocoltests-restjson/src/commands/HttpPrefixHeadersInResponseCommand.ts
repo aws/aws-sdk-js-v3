@@ -56,6 +56,7 @@ export interface HttpPrefixHeadersInResponseCommandOutput extends HttpPrefixHead
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class HttpPrefixHeadersInResponseCommand extends $Command

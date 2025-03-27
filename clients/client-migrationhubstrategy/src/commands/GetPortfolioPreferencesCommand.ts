@@ -117,6 +117,7 @@ export interface GetPortfolioPreferencesCommandOutput extends GetPortfolioPrefer
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ *
  * @public
  */
 export class GetPortfolioPreferencesCommand extends $Command

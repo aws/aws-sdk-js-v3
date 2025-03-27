@@ -100,50 +100,50 @@ export interface ListJobsByConsumableResourceCommandOutput
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To get a list of Batch jobs by consumable resource
  * ```javascript
  * // Returns a list of Batch jobs that require a specific consumable resource.
  * const input = {
- *   "consumableResource": "myConsumableResource",
- *   "filters": [
+ *   consumableResource: "myConsumableResource",
+ *   filters: [
  *     {
- *       "name": "CONSUMABLE_RESOURCE_NAME",
- *       "values": [
+ *       name: "CONSUMABLE_RESOURCE_NAME",
+ *       values: [
  *         "my*"
  *       ]
  *     }
  *   ],
- *   "maxResults": 123
+ *   maxResults: 123
  * };
  * const command = new ListJobsByConsumableResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "jobs": [
+ *   jobs: [
  *     {
- *       "consumableResourceProperties": {
- *         "consumableResourceList": [
+ *       consumableResourceProperties: {
+ *         consumableResourceList: [
  *           {
- *             "consumableResource": "myConsumableResource",
- *             "quantity": 123
+ *             consumableResource: "myConsumableResource",
+ *             quantity: 123
  *           }
  *         ]
  *       },
- *       "createdAt": 1480460782010,
- *       "jobArn": "arn:aws:batch:us-east-1:012345678910:job/myJob",
- *       "jobDefinitionArn": "arn:aws:batch:us-east-1:012345678910:job-definition/myJobDef",
- *       "jobName": "myJob",
- *       "jobQueueArn": "arn:aws:batch:us-east-1:012345678910:job-queue/myJobQueue",
- *       "jobStatus": "PENDING",
- *       "quantity": 123
+ *       createdAt: 1480460782010,
+ *       jobArn: "arn:aws:batch:us-east-1:012345678910:job/myJob",
+ *       jobDefinitionArn: "arn:aws:batch:us-east-1:012345678910:job-definition/myJobDef",
+ *       jobName: "myJob",
+ *       jobQueueArn: "arn:aws:batch:us-east-1:012345678910:job-queue/myJobQueue",
+ *       jobStatus: "PENDING",
+ *       quantity: 123
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-a-list-of-batch-jobs-by-consumable-resource-1739496640347
  * ```
  *
+ * @public
  */
 export class ListJobsByConsumableResourceCommand extends $Command
   .classBuilder<

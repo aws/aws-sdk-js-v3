@@ -83,6 +83,7 @@ export interface ListServerCertificatesCommandOutput extends ListServerCertifica
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class ListServerCertificatesCommand extends $Command

@@ -54,6 +54,7 @@ export interface OptionalInputOutputCommandOutput extends SimpleStructure, __Met
  * @throws {@link RpcV2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from RpcV2Protocol service.</p>
  *
+ *
  */
 export class OptionalInputOutputCommand extends $Command
   .classBuilder<

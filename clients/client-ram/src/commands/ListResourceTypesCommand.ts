@@ -79,6 +79,7 @@ export interface ListResourceTypesCommandOutput extends ListResourceTypesRespons
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ *
  * @public
  */
 export class ListResourceTypesCommand extends $Command

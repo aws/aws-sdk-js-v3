@@ -193,6 +193,7 @@ export interface ListAIAgentVersionsCommandOutput extends ListAIAgentVersionsRes
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class ListAIAgentVersionsCommand extends $Command

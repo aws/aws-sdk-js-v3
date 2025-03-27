@@ -92,6 +92,7 @@ export interface UpdateSourceApiAssociationCommandOutput extends UpdateSourceApi
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class UpdateSourceApiAssociationCommand extends $Command

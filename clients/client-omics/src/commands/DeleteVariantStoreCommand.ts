@@ -74,6 +74,7 @@ export interface DeleteVariantStoreCommandOutput extends DeleteVariantStoreRespo
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class DeleteVariantStoreCommand extends $Command

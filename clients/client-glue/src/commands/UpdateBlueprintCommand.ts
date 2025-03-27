@@ -75,6 +75,7 @@ export interface UpdateBlueprintCommandOutput extends UpdateBlueprintResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class UpdateBlueprintCommand extends $Command

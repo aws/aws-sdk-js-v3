@@ -88,6 +88,7 @@ export interface DescribeViewCommandOutput extends DescribeViewResponse, __Metad
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ *
  * @public
  */
 export class DescribeViewCommand extends $Command

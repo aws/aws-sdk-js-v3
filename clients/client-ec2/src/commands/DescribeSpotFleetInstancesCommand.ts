@@ -67,30 +67,30 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe the Spot Instances associated with a Spot fleet
  * ```javascript
  * // This example lists the Spot Instances associated with the specified Spot fleet.
  * const input = {
- *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
+ *   SpotFleetRequestId: "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
  * };
  * const command = new DescribeSpotFleetInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ActiveInstances": [
+ *   ActiveInstances: [
  *     {
- *       "InstanceId": "i-1234567890abcdef0",
- *       "InstanceType": "m3.medium",
- *       "SpotInstanceRequestId": "sir-08b93456"
+ *       InstanceId: "i-1234567890abcdef0",
+ *       InstanceType: "m3.medium",
+ *       SpotInstanceRequestId: "sir-08b93456"
  *     }
  *   ],
- *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
+ *   SpotFleetRequestId: "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
  * }
  * *\/
- * // example id: ec2-describe-spot-fleet-instances-1
  * ```
  *
+ * @public
  */
 export class DescribeSpotFleetInstancesCommand extends $Command
   .classBuilder<

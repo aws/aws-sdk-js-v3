@@ -95,6 +95,7 @@ export interface CancelFlowExecutionsCommandOutput extends CancelFlowExecutionsR
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ *
  * @public
  */
 export class CancelFlowExecutionsCommand extends $Command

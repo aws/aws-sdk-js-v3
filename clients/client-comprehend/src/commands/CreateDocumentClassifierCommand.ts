@@ -148,6 +148,7 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class CreateDocumentClassifierCommand extends $Command

@@ -80,6 +80,7 @@ export interface GetProvisionedProductOutputsCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class GetProvisionedProductOutputsCommand extends $Command

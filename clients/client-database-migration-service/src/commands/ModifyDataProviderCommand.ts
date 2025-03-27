@@ -238,47 +238,47 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Modify Data Provider
  * ```javascript
  * // Modifies the specified data provider using the provided settings.
  * const input = {
- *   "DataProviderIdentifier": "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
- *   "DataProviderName": "new-name",
- *   "Description": "description",
- *   "Engine": "sqlserver",
- *   "Settings": {
- *     "MicrosoftSqlServerSettings": {
- *       "DatabaseName": "DatabaseName",
- *       "Port": 11112,
- *       "ServerName": "ServerName2",
- *       "SslMode": "none"
+ *   DataProviderIdentifier: "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
+ *   DataProviderName: "new-name",
+ *   Description: "description",
+ *   Engine: "sqlserver",
+ *   Settings: {
+ *     MicrosoftSqlServerSettings: {
+ *       DatabaseName: "DatabaseName",
+ *       Port: 11112,
+ *       ServerName: "ServerName2",
+ *       SslMode: "none"
  *     }
  *   }
  * };
  * const command = new ModifyDataProviderCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DataProvider": {
- *     "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:my-target-data-provider",
- *     "DataProviderCreationTime": "2023-05-12T10:50:41.988561Z",
- *     "DataProviderName": "my-target-data-provider",
- *     "Engine": "postgres",
- *     "Settings": {
- *       "PostgreSqlSettings": {
- *         "DatabaseName": "target",
- *         "Port": 5432,
- *         "ServerName": "postrgesql.0a1b2c3d4e5f.us-east-1.rds.amazonaws.com",
- *         "SslMode": "none"
+ *   DataProvider: {
+ *     DataProviderArn: "arn:aws:dms:us-east-1:012345678901:data-provider:my-target-data-provider",
+ *     DataProviderCreationTime: "2023-05-12T10:50:41.988561Z",
+ *     DataProviderName: "my-target-data-provider",
+ *     Engine: "postgres",
+ *     Settings: {
+ *       PostgreSqlSettings: {
+ *         DatabaseName: "target",
+ *         Port: 5432,
+ *         ServerName: "postrgesql.0a1b2c3d4e5f.us-east-1.rds.amazonaws.com",
+ *         SslMode: "none"
  *       }
  *     }
  *   }
  * }
  * *\/
- * // example id: modify-data-provider-1689720700567
  * ```
  *
+ * @public
  */
 export class ModifyDataProviderCommand extends $Command
   .classBuilder<

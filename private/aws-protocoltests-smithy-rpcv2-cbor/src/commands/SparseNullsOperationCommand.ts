@@ -64,6 +64,7 @@ export interface SparseNullsOperationCommandOutput extends SparseNullsOperationI
  * @throws {@link RpcV2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from RpcV2Protocol service.</p>
  *
+ *
  */
 export class SparseNullsOperationCommand extends $Command
   .classBuilder<

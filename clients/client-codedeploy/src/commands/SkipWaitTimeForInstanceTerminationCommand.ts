@@ -77,6 +77,7 @@ export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __Metad
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class SkipWaitTimeForInstanceTerminationCommand extends $Command

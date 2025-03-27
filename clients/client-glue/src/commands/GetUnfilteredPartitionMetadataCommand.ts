@@ -182,6 +182,7 @@ export interface GetUnfilteredPartitionMetadataCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetUnfilteredPartitionMetadataCommand extends $Command

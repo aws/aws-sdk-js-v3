@@ -97,6 +97,7 @@ export interface BatchSuspendUserCommandOutput extends BatchSuspendUserResponse,
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class BatchSuspendUserCommand extends $Command

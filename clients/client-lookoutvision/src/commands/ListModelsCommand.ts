@@ -96,6 +96,7 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ *
  * @public
  */
 export class ListModelsCommand extends $Command

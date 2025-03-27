@@ -106,6 +106,7 @@ export interface CreateTopicRuleDestinationCommandOutput extends CreateTopicRule
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class CreateTopicRuleDestinationCommand extends $Command

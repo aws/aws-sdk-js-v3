@@ -112,6 +112,7 @@ export interface AssociateResourceToProfileCommandOutput extends AssociateResour
  * @throws {@link Route53ProfilesServiceException}
  * <p>Base exception class for all service exceptions from Route53Profiles service.</p>
  *
+ *
  * @public
  */
 export class AssociateResourceToProfileCommand extends $Command

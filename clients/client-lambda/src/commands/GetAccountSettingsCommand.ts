@@ -69,31 +69,31 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To get account settings
  * ```javascript
  * // This operation takes no parameters and returns details about storage and concurrency quotas in the current Region.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new GetAccountSettingsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AccountLimit": {
- *     "CodeSizeUnzipped": 262144000,
- *     "CodeSizeZipped": 52428800,
- *     "ConcurrentExecutions": 1000,
- *     "TotalCodeSize": 80530636800,
- *     "UnreservedConcurrentExecutions": 1000
+ *   AccountLimit: {
+ *     CodeSizeUnzipped: 262144000,
+ *     CodeSizeZipped: 52428800,
+ *     ConcurrentExecutions: 1000,
+ *     TotalCodeSize: 80530636800,
+ *     UnreservedConcurrentExecutions: 1000
  *   },
- *   "AccountUsage": {
- *     "FunctionCount": 4,
- *     "TotalCodeSize": 9426
+ *   AccountUsage: {
+ *     FunctionCount: 4,
+ *     TotalCodeSize: 9426
  *   }
  * }
  * *\/
- * // example id: to-get-account-settings-1481657495274
  * ```
  *
+ * @public
  */
 export class GetAccountSettingsCommand extends $Command
   .classBuilder<

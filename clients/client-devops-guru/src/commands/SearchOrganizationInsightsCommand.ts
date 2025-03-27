@@ -189,6 +189,7 @@ export interface SearchOrganizationInsightsCommandOutput extends SearchOrganizat
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class SearchOrganizationInsightsCommand extends $Command

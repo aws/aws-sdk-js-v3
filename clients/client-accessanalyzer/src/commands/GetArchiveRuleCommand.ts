@@ -90,6 +90,7 @@ export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __M
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class GetArchiveRuleCommand extends $Command

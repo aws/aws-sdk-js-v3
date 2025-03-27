@@ -69,6 +69,7 @@ export interface DeleteBackupVaultNotificationsCommandOutput extends __MetadataB
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class DeleteBackupVaultNotificationsCommand extends $Command

@@ -86,6 +86,7 @@ export interface GetReadSetActivationJobCommandOutput extends GetReadSetActivati
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class GetReadSetActivationJobCommand extends $Command

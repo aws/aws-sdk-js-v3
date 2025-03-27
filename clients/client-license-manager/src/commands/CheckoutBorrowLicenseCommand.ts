@@ -123,6 +123,7 @@ export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicens
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class CheckoutBorrowLicenseCommand extends $Command

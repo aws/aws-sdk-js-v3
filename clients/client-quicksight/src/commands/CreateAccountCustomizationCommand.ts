@@ -123,6 +123,7 @@ export interface CreateAccountCustomizationCommandOutput extends CreateAccountCu
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateAccountCustomizationCommand extends $Command

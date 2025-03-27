@@ -116,6 +116,7 @@ export interface UpdateViewContentCommandOutput extends UpdateViewContentRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateViewContentCommand extends $Command

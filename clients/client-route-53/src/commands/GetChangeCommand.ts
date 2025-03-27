@@ -81,6 +81,7 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class GetChangeCommand extends $Command

@@ -65,19 +65,22 @@ export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __Met
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example UpdateConfigurationSetReputationMetricsEnabled
  * ```javascript
  * // Set the sending enabled flag for a specific configuration set.
  * const input = {
- *   "ConfigurationSetName": "foo",
- *   "Enabled": true
+ *   ConfigurationSetName: "foo",
+ *   Enabled: true
  * };
  * const command = new UpdateConfigurationSetSendingEnabledCommand(input);
- * await client.send(command);
- * // example id: updateconfigurationsetsendingenabled-2362747741333
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateConfigurationSetSendingEnabledCommand extends $Command
   .classBuilder<

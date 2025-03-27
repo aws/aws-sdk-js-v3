@@ -79,6 +79,7 @@ export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataB
  * @throws {@link CodestarNotificationsServiceException}
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ *
  * @public
  */
 export class ListTargetsCommand extends $Command

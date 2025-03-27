@@ -100,6 +100,7 @@ export interface DescribeHsmCommandOutput extends DescribeHsmResponse, __Metadat
  * @throws {@link CloudHSMServiceException}
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ *
  * @public
  */
 export class DescribeHsmCommand extends $Command

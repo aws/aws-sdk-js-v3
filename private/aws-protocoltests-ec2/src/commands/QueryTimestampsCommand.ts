@@ -57,6 +57,7 @@ export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
+ *
  * @public
  */
 export class QueryTimestampsCommand extends $Command

@@ -104,6 +104,7 @@ export interface DescribeBotVersionCommandOutput extends DescribeBotVersionRespo
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeBotVersionCommand extends $Command

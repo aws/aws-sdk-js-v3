@@ -98,6 +98,7 @@ export interface StartBatchDeleteConfigurationTaskCommandOutput
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class StartBatchDeleteConfigurationTaskCommand extends $Command

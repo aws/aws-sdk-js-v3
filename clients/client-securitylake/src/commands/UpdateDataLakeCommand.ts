@@ -150,6 +150,7 @@ export interface UpdateDataLakeCommandOutput extends UpdateDataLakeResponse, __M
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class UpdateDataLakeCommand extends $Command

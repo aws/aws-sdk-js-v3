@@ -135,6 +135,7 @@ export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __Met
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ *
  * @public
  */
 export class DescribeCasesCommand extends $Command

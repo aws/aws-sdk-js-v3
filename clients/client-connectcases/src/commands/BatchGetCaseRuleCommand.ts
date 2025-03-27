@@ -132,6 +132,7 @@ export interface BatchGetCaseRuleCommandOutput extends BatchGetCaseRuleResponse,
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class BatchGetCaseRuleCommand extends $Command

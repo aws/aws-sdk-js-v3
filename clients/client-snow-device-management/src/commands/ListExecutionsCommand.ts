@@ -85,6 +85,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ *
  * @public
  */
 export class ListExecutionsCommand extends $Command

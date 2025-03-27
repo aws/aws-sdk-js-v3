@@ -92,6 +92,7 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class DescribeCanariesLastRunCommand extends $Command

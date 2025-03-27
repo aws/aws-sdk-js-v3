@@ -88,6 +88,7 @@ export interface DeleteOptOutListCommandOutput extends DeleteOptOutListResult, _
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteOptOutListCommand extends $Command

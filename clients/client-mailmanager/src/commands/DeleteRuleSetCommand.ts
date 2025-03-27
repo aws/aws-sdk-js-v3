@@ -59,6 +59,7 @@ export interface DeleteRuleSetCommandOutput extends DeleteRuleSetResponse, __Met
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteRuleSetCommand extends $Command

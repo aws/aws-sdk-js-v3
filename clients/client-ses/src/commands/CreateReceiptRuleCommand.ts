@@ -141,33 +141,36 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example CreateReceiptRule
  * ```javascript
  * // The following example creates a new receipt rule:
  * const input = {
- *   "After": "",
- *   "Rule": {
- *     "Actions": [
+ *   After: "",
+ *   Rule: {
+ *     Actions: [
  *       {
- *         "S3Action": {
- *           "BucketName": "MyBucket",
- *           "ObjectKeyPrefix": "email"
+ *         S3Action: {
+ *           BucketName: "MyBucket",
+ *           ObjectKeyPrefix: "email"
  *         }
  *       }
  *     ],
- *     "Enabled": true,
- *     "Name": "MyRule",
- *     "ScanEnabled": true,
- *     "TlsPolicy": "Optional"
+ *     Enabled: true,
+ *     Name: "MyRule",
+ *     ScanEnabled: true,
+ *     TlsPolicy: "Optional"
  *   },
- *   "RuleSetName": "MyRuleSet"
+ *   RuleSetName: "MyRuleSet"
  * };
  * const command = new CreateReceiptRuleCommand(input);
- * await client.send(command);
- * // example id: createreceiptrule-1469122946515
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateReceiptRuleCommand extends $Command
   .classBuilder<

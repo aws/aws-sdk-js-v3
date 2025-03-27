@@ -81,6 +81,7 @@ export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __M
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ *
  * @public
  */
 export class ConfigureAgentCommand extends $Command

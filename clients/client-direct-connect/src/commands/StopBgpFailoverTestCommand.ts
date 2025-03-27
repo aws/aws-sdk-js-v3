@@ -72,6 +72,7 @@ export interface StopBgpFailoverTestCommandOutput extends StopBgpFailoverTestRes
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class StopBgpFailoverTestCommand extends $Command

@@ -101,6 +101,7 @@ export interface DeleteStreamCommandOutput extends DeleteStreamOutput, __Metadat
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class DeleteStreamCommand extends $Command

@@ -142,35 +142,8 @@ export interface ListKeyRotationsCommandOutput extends ListKeyRotationsResponse,
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
- * @example To retrieve information about all completed key material rotations
- * ```javascript
- * // The following example returns information about all completed key material rotations for the specified KMS key.
- * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
- * };
- * const command = new ListKeyRotationsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Rotations": [
- *     {
- *       "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *       "RotationDate": "2024-03-02T10:11:36.564000+00:00",
- *       "RotationType": "AUTOMATIC"
- *     },
- *     {
- *       "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *       "RotationDate": "2024-04-05T15:14:47.757000+00:00",
- *       "RotationType": "ON_DEMAND"
- *     }
- *   ],
- *   "Truncated": false
- * }
- * *\/
- * // example id: to-retrieve-information-about-all-completed-key-material-rotations-1712585167775
- * ```
  *
+ * @public
  */
 export class ListKeyRotationsCommand extends $Command
   .classBuilder<

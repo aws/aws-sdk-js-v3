@@ -87,6 +87,7 @@ export interface DeleteEnvironmentTemplateCommandOutput extends DeleteEnvironmen
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class DeleteEnvironmentTemplateCommand extends $Command

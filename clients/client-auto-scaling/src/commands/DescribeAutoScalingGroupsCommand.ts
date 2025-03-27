@@ -297,75 +297,75 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe an Auto Scaling group
  * ```javascript
  * // This example describes the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupNames": [
+ *   AutoScalingGroupNames: [
  *     "my-auto-scaling-group"
  *   ]
  * };
  * const command = new DescribeAutoScalingGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AutoScalingGroups": [
+ *   AutoScalingGroups: [
  *     {
- *       "AutoScalingGroupARN": "arn:aws:autoscaling:us-west-1:123456789012:autoScalingGroup:12345678-1234-1234-1234-123456789012:autoScalingGroupName/my-auto-scaling-group",
- *       "AutoScalingGroupName": "my-auto-scaling-group",
- *       "AvailabilityZones": [
+ *       AutoScalingGroupARN: "arn:aws:autoscaling:us-west-1:123456789012:autoScalingGroup:12345678-1234-1234-1234-123456789012:autoScalingGroupName/my-auto-scaling-group",
+ *       AutoScalingGroupName: "my-auto-scaling-group",
+ *       AvailabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
  *         "us-west-2c"
  *       ],
- *       "CreatedTime": "2023-03-09T22:15:11.611Z",
- *       "DefaultCooldown": 300,
- *       "DesiredCapacity": 2,
- *       "EnabledMetrics": [],
- *       "HealthCheckGracePeriod": 300,
- *       "HealthCheckType": "EC2",
- *       "Instances": [
+ *       CreatedTime: "2023-03-09T22:15:11.611Z",
+ *       DefaultCooldown: 300,
+ *       DesiredCapacity: 2,
+ *       EnabledMetrics:       [],
+ *       HealthCheckGracePeriod: 300,
+ *       HealthCheckType: "EC2",
+ *       Instances: [
  *         {
- *           "AvailabilityZone": "us-west-2c",
- *           "HealthStatus": "Healthy",
- *           "InstanceId": "i-05b4f7d5be44822a6",
- *           "InstanceType": "t3.micro",
- *           "LaunchConfigurationName": "my-launch-config",
- *           "LifecycleState": "InService",
- *           "ProtectedFromScaleIn": false
+ *           AvailabilityZone: "us-west-2c",
+ *           HealthStatus: "Healthy",
+ *           InstanceId: "i-05b4f7d5be44822a6",
+ *           InstanceType: "t3.micro",
+ *           LaunchConfigurationName: "my-launch-config",
+ *           LifecycleState: "InService",
+ *           ProtectedFromScaleIn: false
  *         },
  *         {
- *           "AvailabilityZone": "us-west-2b",
- *           "HealthStatus": "Healthy",
- *           "InstanceId": "i-0c20ac468fa3049e8",
- *           "InstanceType": "t3.micro",
- *           "LaunchConfigurationName": "my-launch-config",
- *           "LifecycleState": "InService",
- *           "ProtectedFromScaleIn": false
+ *           AvailabilityZone: "us-west-2b",
+ *           HealthStatus: "Healthy",
+ *           InstanceId: "i-0c20ac468fa3049e8",
+ *           InstanceType: "t3.micro",
+ *           LaunchConfigurationName: "my-launch-config",
+ *           LifecycleState: "InService",
+ *           ProtectedFromScaleIn: false
  *         }
  *       ],
- *       "LaunchConfigurationName": "my-launch-config",
- *       "LoadBalancerNames": [],
- *       "MaxSize": 5,
- *       "MinSize": 1,
- *       "NewInstancesProtectedFromScaleIn": false,
- *       "ServiceLinkedRoleARN": "arn:aws:iam::123456789012:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
- *       "SuspendedProcesses": [],
- *       "Tags": [],
- *       "TargetGroupARNs": [],
- *       "TerminationPolicies": [
+ *       LaunchConfigurationName: "my-launch-config",
+ *       LoadBalancerNames:       [],
+ *       MaxSize: 5,
+ *       MinSize: 1,
+ *       NewInstancesProtectedFromScaleIn: false,
+ *       ServiceLinkedRoleARN: "arn:aws:iam::123456789012:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
+ *       SuspendedProcesses:       [],
+ *       Tags:       [],
+ *       TargetGroupARNs:       [],
+ *       TerminationPolicies: [
  *         "Default"
  *       ],
- *       "TrafficSources": [],
- *       "VPCZoneIdentifier": "subnet-5ea0c127,subnet-6194ea3b,subnet-c934b782"
+ *       TrafficSources:       [],
+ *       VPCZoneIdentifier: "subnet-5ea0c127,subnet-6194ea3b,subnet-c934b782"
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-auto-scaling-groups-1
  * ```
  *
+ * @public
  */
 export class DescribeAutoScalingGroupsCommand extends $Command
   .classBuilder<

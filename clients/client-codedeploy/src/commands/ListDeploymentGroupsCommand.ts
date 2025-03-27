@@ -73,6 +73,7 @@ export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsO
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class ListDeploymentGroupsCommand extends $Command

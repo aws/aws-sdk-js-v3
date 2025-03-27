@@ -72,6 +72,7 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupOutpu
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ *
  * @public
  */
 export class DeleteBillingGroupCommand extends $Command

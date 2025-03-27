@@ -96,61 +96,60 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  * @throws {@link SupplyChainServiceException}
  * <p>Base exception class for all service exceptions from SupplyChain service.</p>
  *
- * @public
+ *
  * @example Successful CreateInstance request with all input data
  * ```javascript
  * //
  * const input = {
- *   "instanceDescription": "example instance description",
- *   "instanceName": "example instance name",
- *   "kmsKeyArn": "arn:aws:kms:us-west-2:123456789012:key/b14ffc39-b7d4-45ab-991a-6257a7f0d24d",
- *   "tags": {
- *     "tagKey1": "tagValue1"
+ *   instanceDescription: "example instance description",
+ *   instanceName: "example instance name",
+ *   kmsKeyArn: "arn:aws:kms:us-west-2:123456789012:key/b14ffc39-b7d4-45ab-991a-6257a7f0d24d",
+ *   tags: {
+ *     tagKey1: "tagValue1"
  *   }
  * };
  * const command = new CreateInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "instance": {
- *     "awsAccountId": "123456789012",
- *     "createdTime": 172615383136,
- *     "instanceDescription": "example instance description",
- *     "instanceId": "9e193580-7cc5-45f7-9609-c43ba0ada793",
- *     "instanceName": "example instance name",
- *     "kmsKeyArn": "arn:aws:kms:us-west-2:123456789012:key/b14ffc39-b7d4-45ab-991a-6257a7f0d24d",
- *     "lastModifiedTime": 172615383136,
- *     "state": "Initializing",
- *     "versionNumber": 2
+ *   instance: {
+ *     awsAccountId: "123456789012",
+ *     createdTime: 172615383136,
+ *     instanceDescription: "example instance description",
+ *     instanceId: "9e193580-7cc5-45f7-9609-c43ba0ada793",
+ *     instanceName: "example instance name",
+ *     kmsKeyArn: "arn:aws:kms:us-west-2:123456789012:key/b14ffc39-b7d4-45ab-991a-6257a7f0d24d",
+ *     lastModifiedTime: 172615383136,
+ *     state: "Initializing",
+ *     versionNumber: 2.0
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
  * @example Successful CreateInstance request with no input data
  * ```javascript
  * //
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new CreateInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "instance": {
- *     "awsAccountId": "123456789012",
- *     "createdTime": 172615383136,
- *     "instanceDescription": "",
- *     "instanceId": "9e193580-7cc5-45f7-9609-c43ba0ada793",
- *     "kmsKeyArn": "arn:aws:kms:us-west-2:456789012345:key/7372eb6d-874c-4212-8d49-7804282d33a8",
- *     "lastModifiedTime": 172615383136,
- *     "state": "Initializing",
- *     "versionNumber": 2
+ *   instance: {
+ *     awsAccountId: "123456789012",
+ *     createdTime: 172615383136,
+ *     instanceDescription: "",
+ *     instanceId: "9e193580-7cc5-45f7-9609-c43ba0ada793",
+ *     kmsKeyArn: "arn:aws:kms:us-west-2:456789012345:key/7372eb6d-874c-4212-8d49-7804282d33a8",
+ *     lastModifiedTime: 172615383136,
+ *     state: "Initializing",
+ *     versionNumber: 2.0
  *   }
  * }
  * *\/
- * // example id: example-2
  * ```
  *
+ * @public
  */
 export class CreateInstanceCommand extends $Command
   .classBuilder<

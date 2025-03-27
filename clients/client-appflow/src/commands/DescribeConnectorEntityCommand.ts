@@ -125,6 +125,7 @@ export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorE
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ *
  * @public
  */
 export class DescribeConnectorEntityCommand extends $Command

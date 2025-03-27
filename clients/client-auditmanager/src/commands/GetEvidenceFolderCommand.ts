@@ -90,6 +90,7 @@ export interface GetEvidenceFolderCommandOutput extends GetEvidenceFolderRespons
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class GetEvidenceFolderCommand extends $Command

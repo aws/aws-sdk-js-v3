@@ -99,6 +99,45 @@ export interface StopClusterCommandOutput extends StopClusterOutput, __MetadataB
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ *
+ * @example Basic Stop Cluster Example
+ * ```javascript
+ * // update applied
+ * const input = {
+ *   clusterArn: "arn:aws:docdb-elastic:us-east-1:$AWS_ACCOUNT_ID:cluster/$CLUSTER_ID"
+ * };
+ * const command = new StopClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   cluster: {
+ *     adminUserName: "sampleAdminUser",
+ *     authType: "PLAIN_TEXT",
+ *     backupRetentionPeriod: 1,
+ *     clusterArn: "arn:aws:docdb-elastic:us-east-1:$AWS_ACCOUNT_ID:cluster/$CLUSTER_ID",
+ *     clusterEndpoint: "sampleClusterName.us-east-1.docdb-elastic.amazonaws.com",
+ *     clusterName: "sampleClusterName",
+ *     createTime: "2000-01-01T00:00:00.000Z",
+ *     kmsKeyId: "AWS_OWNED_KMS_KEY",
+ *     preferredBackupWindow: "01:00-01:30",
+ *     preferredMaintenanceWindow: "mon:00:00-mon:00:30",
+ *     shardCapacity: 2,
+ *     shardCount: 2,
+ *     shardInstanceCount: 1,
+ *     shards:     [],
+ *     status: "STOPPING",
+ *     subnetIds: [
+ *       "subnetId1",
+ *       "subnetId2"
+ *     ],
+ *     vpcSecurityGroupIds: [
+ *       "vpcSgId1, vpcSgId2"
+ *     ]
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class StopClusterCommand extends $Command

@@ -90,6 +90,7 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class CreateGrantCommand extends $Command

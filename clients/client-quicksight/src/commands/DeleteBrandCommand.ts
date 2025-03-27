@@ -77,6 +77,7 @@ export interface DeleteBrandCommandOutput extends DeleteBrandResponse, __Metadat
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DeleteBrandCommand extends $Command

@@ -101,6 +101,7 @@ export interface UpdateNotificationConfigurationCommandOutput
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class UpdateNotificationConfigurationCommand extends $Command

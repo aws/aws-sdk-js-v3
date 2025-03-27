@@ -137,6 +137,7 @@ export interface StartFailbackLaunchCommandOutput extends StartFailbackLaunchRes
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class StartFailbackLaunchCommand extends $Command

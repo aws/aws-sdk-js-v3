@@ -278,49 +278,94 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example CreateCacheCluster
  * ```javascript
  * // Creates a Memcached cluster with 2 nodes.
  * const input = {
- *   "AZMode": "cross-az",
- *   "CacheClusterId": "my-memcached-cluster",
- *   "CacheNodeType": "cache.r3.large",
- *   "CacheSubnetGroupName": "default",
- *   "Engine": "memcached",
- *   "EngineVersion": "1.4.24",
- *   "NumCacheNodes": 2,
- *   "Port": 11211
+ *   AZMode: "cross-az",
+ *   CacheClusterId: "my-memcached-cluster",
+ *   CacheNodeType: "cache.r3.large",
+ *   CacheSubnetGroupName: "default",
+ *   Engine: "memcached",
+ *   EngineVersion: "1.4.24",
+ *   NumCacheNodes: 2,
+ *   Port: 11211
  * };
  * const command = new CreateCacheClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CacheCluster": {
- *     "AutoMinorVersionUpgrade": true,
- *     "CacheClusterId": "my-memcached-cluster",
- *     "CacheClusterStatus": "creating",
- *     "CacheNodeType": "cache.r3.large",
- *     "CacheParameterGroup": {
- *       "CacheNodeIdsToReboot": [],
- *       "CacheParameterGroupName": "default.memcached1.4",
- *       "ParameterApplyStatus": "in-sync"
+ *   CacheCluster: {
+ *     AutoMinorVersionUpgrade: true,
+ *     CacheClusterId: "my-memcached-cluster",
+ *     CacheClusterStatus: "creating",
+ *     CacheNodeType: "cache.r3.large",
+ *     CacheParameterGroup: {
+ *       CacheNodeIdsToReboot:       [],
+ *       CacheParameterGroupName: "default.memcached1.4",
+ *       ParameterApplyStatus: "in-sync"
  *     },
- *     "CacheSecurityGroups": [],
- *     "CacheSubnetGroupName": "default",
- *     "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
- *     "Engine": "memcached",
- *     "EngineVersion": "1.4.24",
- *     "NumCacheNodes": 2,
- *     "PendingModifiedValues": {},
- *     "PreferredAvailabilityZone": "Multiple",
- *     "PreferredMaintenanceWindow": "wed:09:00-wed:10:00"
+ *     CacheSecurityGroups:     [],
+ *     CacheSubnetGroupName: "default",
+ *     ClientDownloadLandingPage: "https://console.aws.amazon.com/elasticache/home#client-download:",
+ *     Engine: "memcached",
+ *     EngineVersion: "1.4.24",
+ *     NumCacheNodes: 2,
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     PreferredAvailabilityZone: "Multiple",
+ *     PreferredMaintenanceWindow: "wed:09:00-wed:10:00"
  *   }
  * }
  * *\/
- * // example id: createcachecluster-1474994727381
  * ```
  *
+ * @example CreateCacheCluster
+ * ```javascript
+ * // Creates a Redis cluster with 1 node.
+ * const input = {
+ *   AutoMinorVersionUpgrade: true,
+ *   CacheClusterId: "my-redis",
+ *   CacheNodeType: "cache.r3.larage",
+ *   CacheSubnetGroupName: "default",
+ *   Engine: "redis",
+ *   EngineVersion: "3.2.4",
+ *   NumCacheNodes: 1,
+ *   Port: 6379,
+ *   PreferredAvailabilityZone: "us-east-1c",
+ *   SnapshotRetentionLimit: 7
+ * };
+ * const command = new CreateCacheClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   CacheCluster: {
+ *     AutoMinorVersionUpgrade: true,
+ *     CacheClusterId: "my-redis",
+ *     CacheClusterStatus: "creating",
+ *     CacheNodeType: "cache.m3.large",
+ *     CacheParameterGroup: {
+ *       CacheNodeIdsToReboot:       [],
+ *       CacheParameterGroupName: "default.redis3.2",
+ *       ParameterApplyStatus: "in-sync"
+ *     },
+ *     CacheSecurityGroups:     [],
+ *     CacheSubnetGroupName: "default",
+ *     ClientDownloadLandingPage: "https: //console.aws.amazon.com/elasticache/home#client-download: ",
+ *     Engine: "redis",
+ *     EngineVersion: "3.2.4",
+ *     NumCacheNodes: 1,
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     PreferredAvailabilityZone: "us-east-1c",
+ *     PreferredMaintenanceWindow: "fri: 05: 30-fri: 06: 30",
+ *     SnapshotRetentionLimit: 7,
+ *     SnapshotWindow: "10: 00-11: 00"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class CreateCacheClusterCommand extends $Command
   .classBuilder<

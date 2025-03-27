@@ -204,6 +204,7 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ *
  * @public
  */
 export class SendMessageBatchCommand extends $Command

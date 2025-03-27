@@ -118,6 +118,7 @@ export interface UpdateRepositoryCommandOutput extends UpdateRepositoryResult, _
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class UpdateRepositoryCommand extends $Command

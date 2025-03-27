@@ -78,6 +78,7 @@ export interface DeleteResourceGatewayCommandOutput extends DeleteResourceGatewa
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class DeleteResourceGatewayCommand extends $Command

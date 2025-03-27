@@ -84,6 +84,7 @@ export interface ListCoreNetworksCommandOutput extends ListCoreNetworksResponse,
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class ListCoreNetworksCommand extends $Command

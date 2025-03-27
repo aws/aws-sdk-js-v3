@@ -104,6 +104,7 @@ export interface CreateMitigationActionCommandOutput extends CreateMitigationAct
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class CreateMitigationActionCommand extends $Command

@@ -86,6 +86,7 @@ export interface UpdateUserCustomPermissionCommandOutput extends UpdateUserCusto
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateUserCustomPermissionCommand extends $Command

@@ -117,6 +117,7 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ *
  * @public
  */
 export class ListCustomLineItemVersionsCommand extends $Command

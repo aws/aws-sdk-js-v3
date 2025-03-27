@@ -713,6 +713,7 @@ export interface CreateVolumeFromBackupCommandOutput extends CreateVolumeFromBac
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ *
  * @public
  */
 export class CreateVolumeFromBackupCommand extends $Command

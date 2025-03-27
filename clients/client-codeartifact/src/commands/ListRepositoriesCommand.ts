@@ -91,6 +91,7 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesResult, _
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class ListRepositoriesCommand extends $Command

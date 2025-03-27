@@ -69,6 +69,7 @@ export interface CancelTrainedModelInferenceJobCommandOutput extends __MetadataB
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ *
  * @public
  */
 export class CancelTrainedModelInferenceJobCommand extends $Command

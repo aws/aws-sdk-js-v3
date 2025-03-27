@@ -77,27 +77,8 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
- * @public
- * @example To obtain an authorization token
- * ```javascript
- * // This example gets an authorization token for your default registry.
- * const input = {};
- * const command = new GetAuthorizationTokenCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "authorizationData": [
- *     {
- *       "authorizationToken": "QVdTOkNEXAMPLE",
- *       "expiresAt": "2022-05-17T06:56:13.652000+00:00",
- *       "proxyEndpoint": "https://012345678901.dkr.ecr.us-west-2.amazonaws.com"
- *     }
- *   ]
- * }
- * *\/
- * // example id: getauthorizationtoken-example-1470867047084
- * ```
  *
+ * @public
  */
 export class GetAuthorizationTokenCommand extends $Command
   .classBuilder<

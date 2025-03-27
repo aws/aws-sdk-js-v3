@@ -78,6 +78,7 @@ export interface DeleteKxScalingGroupCommandOutput extends DeleteKxScalingGroupR
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class DeleteKxScalingGroupCommand extends $Command

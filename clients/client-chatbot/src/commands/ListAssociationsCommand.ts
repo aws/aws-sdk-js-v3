@@ -62,27 +62,27 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
- * @public
+ *
  * @example List custom actions associated with a configuration
  * ```javascript
  * //
  * const input = {
- *   "ChatConfiguration": "arn:aws:chatbot::1234567890:chat-configuration/slack-channel/my-channel"
+ *   ChatConfiguration: "arn:aws:chatbot::1234567890:chat-configuration/slack-channel/my-channel"
  * };
  * const command = new ListAssociationsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Associations": [
+ *   Associations: [
  *     {
- *       "Resource": "arn:aws:chatbot::1234567890:custom-action/my-custom-action"
+ *       Resource: "arn:aws:chatbot::1234567890:custom-action/my-custom-action"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListAssociationsCommand extends $Command
   .classBuilder<

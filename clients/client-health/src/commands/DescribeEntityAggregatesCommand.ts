@@ -65,6 +65,7 @@ export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAgg
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ *
  * @public
  */
 export class DescribeEntityAggregatesCommand extends $Command

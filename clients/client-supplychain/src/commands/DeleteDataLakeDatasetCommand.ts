@@ -80,47 +80,46 @@ export interface DeleteDataLakeDatasetCommandOutput extends DeleteDataLakeDatase
  * @throws {@link SupplyChainServiceException}
  * <p>Base exception class for all service exceptions from SupplyChain service.</p>
  *
- * @public
+ *
  * @example Delete an AWS Supply Chain inbound_order dataset
  * ```javascript
  * //
  * const input = {
- *   "name": "inbound_order",
- *   "instanceId": "1877dd20-dee9-4639-8e99-cb67acf21fe5",
- *   "namespace": "asc"
+ *   instanceId: "1877dd20-dee9-4639-8e99-cb67acf21fe5",
+ *   name: "inbound_order",
+ *   namespace: "asc"
  * };
  * const command = new DeleteDataLakeDatasetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "name": "inbound_order",
- *   "instanceId": "1877dd20-dee9-4639-8e99-cb67acf21fe5",
- *   "namespace": "asc"
+ *   instanceId: "1877dd20-dee9-4639-8e99-cb67acf21fe5",
+ *   name: "inbound_order",
+ *   namespace: "asc"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
  * @example Delete a custom dataset
  * ```javascript
  * //
  * const input = {
- *   "name": "my_dataset",
- *   "instanceId": "1877dd20-dee9-4639-8e99-cb67acf21fe5",
- *   "namespace": "default"
+ *   instanceId: "1877dd20-dee9-4639-8e99-cb67acf21fe5",
+ *   name: "my_dataset",
+ *   namespace: "default"
  * };
  * const command = new DeleteDataLakeDatasetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "name": "my_dataset",
- *   "instanceId": "1877dd20-dee9-4639-8e99-cb67acf21fe5",
- *   "namespace": "default"
+ *   instanceId: "1877dd20-dee9-4639-8e99-cb67acf21fe5",
+ *   name: "my_dataset",
+ *   namespace: "default"
  * }
  * *\/
- * // example id: example-2
  * ```
  *
+ * @public
  */
 export class DeleteDataLakeDatasetCommand extends $Command
   .classBuilder<

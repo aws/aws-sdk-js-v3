@@ -102,48 +102,48 @@ export interface UpdateLibraryItemCommandOutput extends UpdateLibraryItemOutput,
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example Sets the status of a library item to DISABLED
  * ```javascript
  * //
  * const input = {
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
- *   "libraryItemId": "cb9ecf72-8563-450d-9db9-994f98297316",
- *   "status": "DISABLED"
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   libraryItemId: "cb9ecf72-8563-450d-9db9-994f98297316",
+ *   status: "DISABLED"
  * };
  * const command = new UpdateLibraryItemCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "appId": "7a11f34b-42d4-4bc8-b668-ae4a788dae1e",
- *   "appVersion": 6,
- *   "categories": [
+ *   appId: "7a11f34b-42d4-4bc8-b668-ae4a788dae1e",
+ *   appVersion: 6,
+ *   categories: [
  *     {
- *       "id": "9c871ed4-1c41-4065-aefe-321cd4b61cf8",
- *       "title": "HR"
+ *       id: "9c871ed4-1c41-4065-aefe-321cd4b61cf8",
+ *       title: "HR"
  *     },
  *     {
- *       "id": "fdc4b483-c4e2-44c9-b4b2-6c850bbdb579",
- *       "title": "General"
+ *       id: "fdc4b483-c4e2-44c9-b4b2-6c850bbdb579",
+ *       title: "General"
  *     },
  *     {
- *       "id": "c1c4e374-118c-446f-81fb-cba6225d88da",
- *       "title": "IT"
+ *       id: "c1c4e374-118c-446f-81fb-cba6225d88da",
+ *       title: "IT"
  *     }
  *   ],
- *   "createdAt": "2024-05-21T23:17:27.350Z",
- *   "createdBy": "a841e300-40c1-7062-fa34-5b46dadbbaac",
- *   "isVerified": false,
- *   "libraryItemId": "cb9ecf72-8563-450d-9db9-994f98297316",
- *   "ratingCount": 24,
- *   "status": "DISABLED",
- *   "updatedAt": "2024-05-28T19:43:48.577Z",
- *   "updatedBy": "a841e300-40c1-7062-fa34-5b46dadbbaac"
+ *   createdAt: "2024-05-21T23:17:27.350Z",
+ *   createdBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *   isVerified: false,
+ *   libraryItemId: "cb9ecf72-8563-450d-9db9-994f98297316",
+ *   ratingCount: 24,
+ *   status: "DISABLED",
+ *   updatedAt: "2024-05-28T19:43:48.577Z",
+ *   updatedBy: "a841e300-40c1-7062-fa34-5b46dadbbaac"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class UpdateLibraryItemCommand extends $Command
   .classBuilder<

@@ -101,6 +101,7 @@ export interface SetResourceAccessForBucketCommandOutput extends SetResourceAcce
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class SetResourceAccessForBucketCommand extends $Command

@@ -92,6 +92,7 @@ export interface GetIpAccessSettingsCommandOutput extends GetIpAccessSettingsRes
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class GetIpAccessSettingsCommand extends $Command

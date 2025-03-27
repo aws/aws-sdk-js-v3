@@ -114,6 +114,7 @@ export interface UpdateWorkerCommandOutput extends UpdateWorkerResponse, __Metad
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class UpdateWorkerCommand extends $Command

@@ -69,6 +69,7 @@ export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataB
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class StopCanaryCommand extends $Command

@@ -68,6 +68,7 @@ export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, _
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeVirtualGatewaysCommand extends $Command

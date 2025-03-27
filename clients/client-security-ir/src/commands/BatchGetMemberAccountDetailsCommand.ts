@@ -103,32 +103,32 @@ export interface BatchGetMemberAccountDetailsCommandOutput
  * @throws {@link SecurityIRServiceException}
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
- * @public
+ *
  * @example Invoke BatchGetMemberAccountDetails
  * ```javascript
  * //
  * const input = {
- *   "accountIds": [
+ *   accountIds: [
  *     "123412341234"
  *   ],
- *   "membershipId": "m-abcd1234efgh"
+ *   membershipId: "m-abcd1234efgh"
  * };
  * const command = new BatchGetMemberAccountDetailsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "items": [
+ *   items: [
  *     {
- *       "accountId": "123412341234",
- *       "relationshipStatus": "Associated",
- *       "relationshipType": "Organization"
+ *       accountId: "123412341234",
+ *       relationshipStatus: "Associated",
+ *       relationshipType: "Organization"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class BatchGetMemberAccountDetailsCommand extends $Command
   .classBuilder<

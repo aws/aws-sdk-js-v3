@@ -97,6 +97,7 @@ export interface CreateSubscriptionCommandOutput extends CreateSubscriptionRespo
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class CreateSubscriptionCommand extends $Command

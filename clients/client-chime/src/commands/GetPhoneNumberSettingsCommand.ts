@@ -72,6 +72,7 @@ export interface GetPhoneNumberSettingsCommandOutput extends GetPhoneNumberSetti
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class GetPhoneNumberSettingsCommand extends $Command

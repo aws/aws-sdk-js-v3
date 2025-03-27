@@ -163,6 +163,7 @@ export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansR
  * @throws {@link AutoScalingPlansServiceException}
  * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
+ *
  * @public
  */
 export class DescribeScalingPlansCommand extends $Command

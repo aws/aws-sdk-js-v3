@@ -87,6 +87,7 @@ export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadM
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class UpdateChannelReadMarkerCommand extends $Command

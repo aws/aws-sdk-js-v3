@@ -124,6 +124,7 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class DescribeInsightCommand extends $Command

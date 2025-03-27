@@ -80,6 +80,7 @@ export interface PutPolicyCommandOutput extends PutPolicyOutput, __MetadataBeare
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ *
  * @public
  */
 export class PutPolicyCommand extends $Command

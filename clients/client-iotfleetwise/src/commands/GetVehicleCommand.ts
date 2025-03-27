@@ -92,6 +92,7 @@ export interface GetVehicleCommandOutput extends GetVehicleResponse, __MetadataB
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class GetVehicleCommand extends $Command

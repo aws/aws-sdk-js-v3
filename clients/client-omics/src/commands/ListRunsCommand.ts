@@ -102,6 +102,7 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class ListRunsCommand extends $Command

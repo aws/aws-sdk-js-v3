@@ -188,6 +188,7 @@ export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput,
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class CreateGlobalTableCommand extends $Command

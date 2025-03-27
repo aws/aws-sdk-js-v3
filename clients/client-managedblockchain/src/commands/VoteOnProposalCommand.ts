@@ -82,6 +82,7 @@ export interface VoteOnProposalCommandOutput extends VoteOnProposalOutput, __Met
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class VoteOnProposalCommand extends $Command

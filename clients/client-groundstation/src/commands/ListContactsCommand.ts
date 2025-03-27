@@ -100,6 +100,7 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class ListContactsCommand extends $Command

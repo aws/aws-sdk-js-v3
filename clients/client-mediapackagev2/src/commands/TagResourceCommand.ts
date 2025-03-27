@@ -64,22 +64,25 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
- * @public
+ *
  * @example Add tags to a resource
  * ```javascript
  * //
  * const input = {
- *   "ResourceArn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel",
- *   "Tags": {
- *     "key3": "value3",
- *     "key4": "value4"
+ *   ResourceArn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel",
+ *   Tags: {
+ *     key3: "value3",
+ *     key4: "value4"
  *   }
  * };
  * const command = new TagResourceCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

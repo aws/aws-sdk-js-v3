@@ -118,48 +118,48 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To create a DB cluster snapshot
  * ```javascript
  * // The following example creates a DB cluster snapshot.
  * const input = {
- *   "DBClusterIdentifier": "mydbclustersnapshot",
- *   "DBClusterSnapshotIdentifier": "mydbcluster"
+ *   DBClusterIdentifier: "mydbclustersnapshot",
+ *   DBClusterSnapshotIdentifier: "mydbcluster"
  * };
  * const command = new CreateDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBClusterSnapshot": {
- *     "AllocatedStorage": 1,
- *     "AvailabilityZones": [
+ *   DBClusterSnapshot: {
+ *     AllocatedStorage: 1,
+ *     AvailabilityZones: [
  *       "us-east-1a",
  *       "us-east-1b",
  *       "us-east-1e"
  *     ],
- *     "ClusterCreateTime": "2019-04-15T14:18:42.785Z",
- *     "DBClusterIdentifier": "mydbcluster",
- *     "DBClusterSnapshotArn": "arn:aws:rds:us-east-1:123456789012:cluster-snapshot:mydbclustersnapshot",
- *     "DBClusterSnapshotIdentifier": "mydbclustersnapshot",
- *     "Engine": "aurora-mysql",
- *     "EngineVersion": "5.7.mysql_aurora.2.04.2",
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
- *     "LicenseModel": "aurora-mysql",
- *     "MasterUsername": "myadmin",
- *     "PercentProgress": 0,
- *     "Port": 0,
- *     "SnapshotCreateTime": "2019-06-18T21:21:00.469Z",
- *     "SnapshotType": "manual",
- *     "Status": "creating",
- *     "StorageEncrypted": true,
- *     "VpcId": "vpc-6594f31c"
+ *     ClusterCreateTime: "2019-04-15T14:18:42.785Z",
+ *     DBClusterIdentifier: "mydbcluster",
+ *     DBClusterSnapshotArn: "arn:aws:rds:us-east-1:123456789012:cluster-snapshot:mydbclustersnapshot",
+ *     DBClusterSnapshotIdentifier: "mydbclustersnapshot",
+ *     Engine: "aurora-mysql",
+ *     EngineVersion: "5.7.mysql_aurora.2.04.2",
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     KmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
+ *     LicenseModel: "aurora-mysql",
+ *     MasterUsername: "myadmin",
+ *     PercentProgress: 0,
+ *     Port: 0,
+ *     SnapshotCreateTime: "2019-06-18T21:21:00.469Z",
+ *     SnapshotType: "manual",
+ *     Status: "creating",
+ *     StorageEncrypted: true,
+ *     VpcId: "vpc-6594f31c"
  *   }
  * }
  * *\/
- * // example id: to-create-a-db-cluster-snapshot-1679703154423
  * ```
  *
+ * @public
  */
 export class CreateDBClusterSnapshotCommand extends $Command
   .classBuilder<

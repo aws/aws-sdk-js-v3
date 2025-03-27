@@ -74,6 +74,7 @@ export interface UpdateConfigurationManagerCommandOutput extends __MetadataBeare
  * @throws {@link SSMQuickSetupServiceException}
  * <p>Base exception class for all service exceptions from SSMQuickSetup service.</p>
  *
+ *
  * @public
  */
 export class UpdateConfigurationManagerCommand extends $Command

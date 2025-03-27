@@ -99,6 +99,7 @@ export interface UpdateApnsVoipChannelCommandOutput extends UpdateApnsVoipChanne
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class UpdateApnsVoipChannelCommand extends $Command

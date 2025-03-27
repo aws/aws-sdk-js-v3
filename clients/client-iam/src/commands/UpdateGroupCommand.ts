@@ -85,19 +85,22 @@ export interface UpdateGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To rename an IAM group
  * ```javascript
  * // The following command changes the name of the IAM group Test to Test-1.
  * const input = {
- *   "GroupName": "Test",
- *   "NewGroupName": "Test-1"
+ *   GroupName: "Test",
+ *   NewGroupName: "Test-1"
  * };
  * const command = new UpdateGroupCommand(input);
- * await client.send(command);
- * // example id: f0cf1662-91ae-4278-a80e-7db54256ccba
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateGroupCommand extends $Command
   .classBuilder<

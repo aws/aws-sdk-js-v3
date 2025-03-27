@@ -99,6 +99,7 @@ export interface CreateSyncConfigurationCommandOutput extends CreateSyncConfigur
  * @throws {@link CodeConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ *
  * @public
  */
 export class CreateSyncConfigurationCommand extends $Command

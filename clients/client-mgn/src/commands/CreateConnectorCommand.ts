@@ -88,6 +88,7 @@ export interface CreateConnectorCommandOutput extends Connector, __MetadataBeare
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectorCommand extends $Command

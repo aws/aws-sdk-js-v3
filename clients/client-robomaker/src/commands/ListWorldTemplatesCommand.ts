@@ -83,6 +83,7 @@ export interface ListWorldTemplatesCommandOutput extends ListWorldTemplatesRespo
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class ListWorldTemplatesCommand extends $Command

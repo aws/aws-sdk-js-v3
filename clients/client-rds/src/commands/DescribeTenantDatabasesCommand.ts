@@ -100,6 +100,7 @@ export interface DescribeTenantDatabasesCommandOutput extends TenantDatabasesMes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class DescribeTenantDatabasesCommand extends $Command

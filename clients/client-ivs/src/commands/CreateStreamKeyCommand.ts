@@ -87,6 +87,7 @@ export interface CreateStreamKeyCommandOutput extends CreateStreamKeyResponse, _
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class CreateStreamKeyCommand extends $Command

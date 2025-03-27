@@ -73,6 +73,7 @@ export interface PutAccountDetailsCommandOutput extends PutAccountDetailsRespons
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ *
  * @public
  */
 export class PutAccountDetailsCommand extends $Command

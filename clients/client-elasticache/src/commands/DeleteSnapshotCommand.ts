@@ -124,50 +124,50 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example DeleteSnapshot
  * ```javascript
  * // Deletes the Redis snapshot snapshot-20160822.
  * const input = {
- *   "SnapshotName": "snapshot-20161212"
+ *   SnapshotName: "snapshot-20161212"
  * };
  * const command = new DeleteSnapshotCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Snapshot": {
- *     "AutoMinorVersionUpgrade": true,
- *     "CacheClusterCreateTime": "2016-12-21T22:27:12.543Z",
- *     "CacheClusterId": "my-redis5",
- *     "CacheNodeType": "cache.m3.large",
- *     "CacheParameterGroupName": "default.redis3.2",
- *     "CacheSubnetGroupName": "default",
- *     "Engine": "redis",
- *     "EngineVersion": "3.2.4",
- *     "NodeSnapshots": [
+ *   Snapshot: {
+ *     AutoMinorVersionUpgrade: true,
+ *     CacheClusterCreateTime: "2016-12-21T22:27:12.543Z",
+ *     CacheClusterId: "my-redis5",
+ *     CacheNodeType: "cache.m3.large",
+ *     CacheParameterGroupName: "default.redis3.2",
+ *     CacheSubnetGroupName: "default",
+ *     Engine: "redis",
+ *     EngineVersion: "3.2.4",
+ *     NodeSnapshots: [
  *       {
- *         "CacheNodeCreateTime": "2016-12-21T22:27:12.543Z",
- *         "CacheNodeId": "0001",
- *         "CacheSize": "3 MB",
- *         "SnapshotCreateTime": "2016-12-21T22:30:26Z"
+ *         CacheNodeCreateTime: "2016-12-21T22:27:12.543Z",
+ *         CacheNodeId: "0001",
+ *         CacheSize: "3 MB",
+ *         SnapshotCreateTime: "2016-12-21T22:30:26Z"
  *       }
  *     ],
- *     "NumCacheNodes": 1,
- *     "Port": 6379,
- *     "PreferredAvailabilityZone": "us-east-1c",
- *     "PreferredMaintenanceWindow": "fri:05:30-fri:06:30",
- *     "SnapshotName": "snapshot-20161212",
- *     "SnapshotRetentionLimit": 7,
- *     "SnapshotSource": "manual",
- *     "SnapshotStatus": "deleting",
- *     "SnapshotWindow": "10:00-11:00",
- *     "VpcId": "vpc-91280df6"
+ *     NumCacheNodes: 1,
+ *     Port: 6379,
+ *     PreferredAvailabilityZone: "us-east-1c",
+ *     PreferredMaintenanceWindow: "fri:05:30-fri:06:30",
+ *     SnapshotName: "snapshot-20161212",
+ *     SnapshotRetentionLimit: 7,
+ *     SnapshotSource: "manual",
+ *     SnapshotStatus: "deleting",
+ *     SnapshotWindow: "10:00-11:00",
+ *     VpcId: "vpc-91280df6"
  *   }
  * }
  * *\/
- * // example id: deletesnapshot-1475011945779
  * ```
  *
+ * @public
  */
 export class DeleteSnapshotCommand extends $Command
   .classBuilder<

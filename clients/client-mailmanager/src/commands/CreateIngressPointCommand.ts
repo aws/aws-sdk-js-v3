@@ -82,6 +82,85 @@ export interface CreateIngressPointCommandOutput extends CreateIngressPointRespo
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
+ * @example Create Open IngressPoint
+ * ```javascript
+ * //
+ * const input = {
+ *   IngressPointName: "ingressPointName",
+ *   RuleSetId: "rs-12345",
+ *   Tags: [
+ *     {
+ *       Key: "key",
+ *       Value: "value"
+ *     }
+ *   ],
+ *   TrafficPolicyId: "tp-12345",
+ *   Type: "OPEN"
+ * };
+ * const command = new CreateIngressPointCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   IngressPointId: "inp-12345"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Create Auth IngressPoint with Password
+ * ```javascript
+ * //
+ * const input = {
+ *   IngressPointConfiguration: {
+ *     SmtpPassword: "smtpPassword"
+ *   },
+ *   IngressPointName: "ingressPointName",
+ *   RuleSetId: "rs-12345",
+ *   Tags: [
+ *     {
+ *       Key: "key",
+ *       Value: "value"
+ *     }
+ *   ],
+ *   TrafficPolicyId: "tp-12345",
+ *   Type: "AUTH"
+ * };
+ * const command = new CreateIngressPointCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   IngressPointId: "inp-12345"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Create Auth IngressPoint with SecretsManager Secret
+ * ```javascript
+ * //
+ * const input = {
+ *   IngressPointConfiguration: {
+ *     SecretArn: "arn:aws:secretsmanager:us-west-2:123456789012:secret:abcde"
+ *   },
+ *   IngressPointName: "ingressPointName",
+ *   RuleSetId: "rs-12345",
+ *   Tags: [
+ *     {
+ *       Key: "key",
+ *       Value: "value"
+ *     }
+ *   ],
+ *   TrafficPolicyId: "tp-12345",
+ *   Type: "AUTH"
+ * };
+ * const command = new CreateIngressPointCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   IngressPointId: "inp-12345"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateIngressPointCommand extends $Command

@@ -108,6 +108,7 @@ export interface DescribeUserCommandOutput extends DescribeUserResult, __Metadat
  * @throws {@link DirectoryServiceDataServiceException}
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
+ *
  * @public
  */
 export class DescribeUserCommand extends $Command

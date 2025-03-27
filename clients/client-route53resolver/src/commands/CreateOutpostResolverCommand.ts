@@ -98,6 +98,7 @@ export interface CreateOutpostResolverCommandOutput extends CreateOutpostResolve
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class CreateOutpostResolverCommand extends $Command

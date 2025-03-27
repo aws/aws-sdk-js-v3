@@ -93,6 +93,7 @@ export interface IsMemberInGroupsCommandOutput extends IsMemberInGroupsResponse,
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ *
  * @public
  */
 export class IsMemberInGroupsCommand extends $Command

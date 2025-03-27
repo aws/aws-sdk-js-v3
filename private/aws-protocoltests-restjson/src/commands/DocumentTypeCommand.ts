@@ -55,6 +55,7 @@ export interface DocumentTypeCommandOutput extends DocumentTypeInputOutput, __Me
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class DocumentTypeCommand extends $Command

@@ -75,6 +75,7 @@ export interface ListRestoreTestingPlansCommandOutput extends ListRestoreTesting
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class ListRestoreTestingPlansCommand extends $Command

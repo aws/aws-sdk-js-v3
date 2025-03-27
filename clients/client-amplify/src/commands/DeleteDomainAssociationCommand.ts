@@ -98,6 +98,7 @@ export interface DeleteDomainAssociationCommandOutput extends DeleteDomainAssoci
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class DeleteDomainAssociationCommand extends $Command

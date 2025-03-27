@@ -75,6 +75,7 @@ export interface GetFunctionCommandOutput extends GetFunctionCommandOutputType, 
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetFunctionCommand extends $Command

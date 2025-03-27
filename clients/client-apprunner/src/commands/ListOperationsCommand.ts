@@ -79,6 +79,7 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ *
  * @public
  */
 export class ListOperationsCommand extends $Command

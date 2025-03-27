@@ -78,6 +78,7 @@ export interface ListMFADevicesCommandOutput extends ListMFADevicesResponse, __M
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class ListMFADevicesCommand extends $Command

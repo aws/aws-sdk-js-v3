@@ -81,6 +81,26 @@ export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBea
  * @throws {@link CloudFrontKeyValueStoreServiceException}
  * <p>Base exception class for all service exceptions from CloudFrontKeyValueStore service.</p>
  *
+ *
+ * @example Delete 'key1' from the key value store with ARN 'arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58'
+ * ```javascript
+ * //
+ * const input = {
+ *   IfMatch: "KV0AB12C3DEF456",
+ *   Key: "key1",
+ *   KvsARN: "arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58"
+ * };
+ * const command = new DeleteKeyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ETag: "KV7XY89Z0ABC012",
+ *   ItemCount: 3,
+ *   TotalSizeInBytes: 5
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteKeyCommand extends $Command

@@ -107,45 +107,45 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To delete a replicated automated backup from a Region
  * ```javascript
  * // The following example deletes the automated backup with the specified Amazon Resource Name (ARN).
  * const input = {
- *   "DBInstanceAutomatedBackupsArn": "arn:aws:rds:us-west-2:123456789012:auto-backup:ab-jkib2gfq5rv7replzadausbrktni2bn4example"
+ *   DBInstanceAutomatedBackupsArn: "arn:aws:rds:us-west-2:123456789012:auto-backup:ab-jkib2gfq5rv7replzadausbrktni2bn4example"
  * };
  * const command = new DeleteDBInstanceAutomatedBackupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstanceAutomatedBackup": {
- *     "AllocatedStorage": 20,
- *     "AvailabilityZone": "us-east-1b",
- *     "BackupRetentionPeriod": 7,
- *     "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db",
- *     "DBInstanceAutomatedBackupsArn": "arn:aws:rds:us-west-2:123456789012:auto-backup:ab-jkib2gfq5rv7replzadausbrktni2bn4example",
- *     "DBInstanceIdentifier": "new-orcl-db",
- *     "DbiResourceId": "db-JKIB2GFQ5RV7REPLZA4EXAMPLE",
- *     "Encrypted": false,
- *     "Engine": "oracle-se2",
- *     "EngineVersion": "12.1.0.2.v21",
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "InstanceCreateTime": "2020-12-04T15:28:31Z",
- *     "LicenseModel": "bring-your-own-license",
- *     "MasterUsername": "admin",
- *     "OptionGroupName": "default:oracle-se2-12-1",
- *     "Port": 1521,
- *     "Region": "us-east-1",
- *     "RestoreWindow": {},
- *     "Status": "deleting",
- *     "StorageType": "gp2",
- *     "VpcId": "vpc-########"
+ *   DBInstanceAutomatedBackup: {
+ *     AllocatedStorage: 20,
+ *     AvailabilityZone: "us-east-1b",
+ *     BackupRetentionPeriod: 7,
+ *     DBInstanceArn: "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db",
+ *     DBInstanceAutomatedBackupsArn: "arn:aws:rds:us-west-2:123456789012:auto-backup:ab-jkib2gfq5rv7replzadausbrktni2bn4example",
+ *     DBInstanceIdentifier: "new-orcl-db",
+ *     DbiResourceId: "db-JKIB2GFQ5RV7REPLZA4EXAMPLE",
+ *     Encrypted: false,
+ *     Engine: "oracle-se2",
+ *     EngineVersion: "12.1.0.2.v21",
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     InstanceCreateTime: "2020-12-04T15:28:31Z",
+ *     LicenseModel: "bring-your-own-license",
+ *     MasterUsername: "admin",
+ *     OptionGroupName: "default:oracle-se2-12-1",
+ *     Port: 1521,
+ *     Region: "us-east-1",
+ *     RestoreWindow:     { /* empty *\/ },
+ *     Status: "deleting",
+ *     StorageType: "gp2",
+ *     VpcId: "vpc-########"
  *   }
  * }
  * *\/
- * // example id: to-delete-a-replicated-automated-backup-from-a-region-1679963187406
  * ```
  *
+ * @public
  */
 export class DeleteDBInstanceAutomatedBackupCommand extends $Command
   .classBuilder<

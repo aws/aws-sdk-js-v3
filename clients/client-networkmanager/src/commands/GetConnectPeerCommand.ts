@@ -108,6 +108,7 @@ export interface GetConnectPeerCommandOutput extends GetConnectPeerResponse, __M
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetConnectPeerCommand extends $Command

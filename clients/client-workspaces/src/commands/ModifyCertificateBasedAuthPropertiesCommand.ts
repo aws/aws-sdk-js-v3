@@ -81,6 +81,7 @@ export interface ModifyCertificateBasedAuthPropertiesCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class ModifyCertificateBasedAuthPropertiesCommand extends $Command

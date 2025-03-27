@@ -192,38 +192,38 @@ export interface GetPolicyCommandOutput extends GetPolicyOutput, __MetadataBeare
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
- * @public
+ *
  * @example To retrieve details about a policy
  * ```javascript
  * // The following example retrieves information about the specified policy contained in the specified policy store. In this example, the requested policy is a template-linked policy, so it returns the ID of the policy template, and the specific principal and resource used by this policy.
  * const input = {
- *   "policyId": "9wYixMplbbZQb5fcZHyJhY",
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a"
+ *   policyId: "9wYixMplbbZQb5fcZHyJhY",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
  * };
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "createdDate": "2024-08-12T18:20:50.99Z",
- *   "definition": {
- *     "static": {
- *       "description": "Grant everyone of janeFriends UserGroup access to the vacationFolder Album",
- *       "statement": "permit(principal, action, resource in Album::\"publicFolder\");"
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   definition: {
+ *     static: {
+ *       description: "Grant everyone of janeFriends UserGroup access to the vacationFolder Album",
+ *       statement: `permit(principal, action, resource in Album::"publicFolder");`
  *     }
  *   },
- *   "lastUpdatedDate": "2024-08-12T18:20:50.99Z",
- *   "policyId": "9wYxMpljbbZQb5fcZHyJhY",
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
- *   "policyType": "STATIC",
- *   "resource": {
- *     "entityId": "publicFolder",
- *     "entityType": "Album"
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyId: "9wYxMpljbbZQb5fcZHyJhY",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   policyType: "STATIC",
+ *   resource: {
+ *     entityId: "publicFolder",
+ *     entityType: "Album"
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetPolicyCommand extends $Command
   .classBuilder<

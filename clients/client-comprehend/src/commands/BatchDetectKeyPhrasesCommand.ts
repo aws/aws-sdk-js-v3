@@ -100,6 +100,7 @@ export interface BatchDetectKeyPhrasesCommandOutput extends BatchDetectKeyPhrase
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class BatchDetectKeyPhrasesCommand extends $Command

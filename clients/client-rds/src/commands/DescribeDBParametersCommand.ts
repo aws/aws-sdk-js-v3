@@ -88,44 +88,44 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe the parameters in a DB parameter group
  * ```javascript
  * // The following example retrieves the details of the specified DB parameter group.
  * const input = {
- *   "DBParameterGroupName": "mydbpg"
+ *   DBParameterGroupName: "mydbpg"
  * };
  * const command = new DescribeDBParametersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Parameters": [
+ *   Parameters: [
  *     {
- *       "AllowedValues": "0,1",
- *       "ApplyMethod": "pending-reboot",
- *       "ApplyType": "static",
- *       "DataType": "boolean",
- *       "Description": "Controls whether user-defined functions that have only an xxx symbol for the main function can be loaded",
- *       "IsModifiable": false,
- *       "ParameterName": "allow-suspicious-udfs",
- *       "Source": "engine-default"
+ *       AllowedValues: "0,1",
+ *       ApplyMethod: "pending-reboot",
+ *       ApplyType: "static",
+ *       DataType: "boolean",
+ *       Description: "Controls whether user-defined functions that have only an xxx symbol for the main function can be loaded",
+ *       IsModifiable: false,
+ *       ParameterName: "allow-suspicious-udfs",
+ *       Source: "engine-default"
  *     },
  *     {
- *       "AllowedValues": "0,1",
- *       "ApplyMethod": "pending-reboot",
- *       "ApplyType": "static",
- *       "DataType": "boolean",
- *       "Description": "Controls whether the server autogenerates SSL key and certificate files in the data directory, if they do not already exist.",
- *       "IsModifiable": false,
- *       "ParameterName": "auto_generate_certs",
- *       "Source": "engine-default"
+ *       AllowedValues: "0,1",
+ *       ApplyMethod: "pending-reboot",
+ *       ApplyType: "static",
+ *       DataType: "boolean",
+ *       Description: "Controls whether the server autogenerates SSL key and certificate files in the data directory, if they do not already exist.",
+ *       IsModifiable: false,
+ *       ParameterName: "auto_generate_certs",
+ *       Source: "engine-default"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-the-parameters-in-a-db-parameter-group-1680279500600
  * ```
  *
+ * @public
  */
 export class DescribeDBParametersCommand extends $Command
   .classBuilder<

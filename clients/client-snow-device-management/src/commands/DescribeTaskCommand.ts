@@ -86,6 +86,7 @@ export interface DescribeTaskCommandOutput extends DescribeTaskOutput, __Metadat
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ *
  * @public
  */
 export class DescribeTaskCommand extends $Command

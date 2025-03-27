@@ -555,6 +555,7 @@ export interface ListTopicReviewedAnswersCommandOutput extends ListTopicReviewed
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class ListTopicReviewedAnswersCommand extends $Command

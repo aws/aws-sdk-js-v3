@@ -93,6 +93,7 @@ export interface DescribeAcceleratorCommandOutput extends DescribeAcceleratorRes
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class DescribeAcceleratorCommand extends $Command

@@ -124,6 +124,7 @@ export interface StartKeyUsageCommandOutput extends StartKeyUsageOutput, __Metad
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ *
  * @public
  */
 export class StartKeyUsageCommand extends $Command

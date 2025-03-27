@@ -400,6 +400,7 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeFlowCommand extends $Command

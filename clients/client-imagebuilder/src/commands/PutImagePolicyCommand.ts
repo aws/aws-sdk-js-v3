@@ -86,6 +86,7 @@ export interface PutImagePolicyCommandOutput extends PutImagePolicyResponse, __M
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class PutImagePolicyCommand extends $Command

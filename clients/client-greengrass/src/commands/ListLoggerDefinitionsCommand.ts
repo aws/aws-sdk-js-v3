@@ -70,6 +70,7 @@ export interface ListLoggerDefinitionsCommandOutput extends ListLoggerDefinition
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ *
  * @public
  */
 export class ListLoggerDefinitionsCommand extends $Command

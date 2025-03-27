@@ -93,6 +93,7 @@ export interface ListMultiplexesCommandOutput extends ListMultiplexesResponse, _
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class ListMultiplexesCommand extends $Command

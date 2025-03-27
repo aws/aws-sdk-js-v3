@@ -81,6 +81,7 @@ export interface ResendContactReachabilityEmailCommandOutput
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ *
  * @public
  */
 export class ResendContactReachabilityEmailCommand extends $Command

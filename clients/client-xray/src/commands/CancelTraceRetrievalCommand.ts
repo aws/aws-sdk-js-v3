@@ -65,6 +65,7 @@ export interface CancelTraceRetrievalCommandOutput extends CancelTraceRetrievalR
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ *
  * @public
  */
 export class CancelTraceRetrievalCommand extends $Command

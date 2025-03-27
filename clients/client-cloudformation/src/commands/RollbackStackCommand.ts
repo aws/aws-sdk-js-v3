@@ -95,6 +95,7 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class RollbackStackCommand extends $Command

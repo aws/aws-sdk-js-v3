@@ -76,6 +76,7 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class ListReplaysCommand extends $Command

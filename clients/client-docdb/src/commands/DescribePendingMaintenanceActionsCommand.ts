@@ -89,6 +89,7 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class DescribePendingMaintenanceActionsCommand extends $Command

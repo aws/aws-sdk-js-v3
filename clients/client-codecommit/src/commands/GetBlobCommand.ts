@@ -98,6 +98,7 @@ export interface GetBlobCommandOutput extends GetBlobOutput, __MetadataBearer {}
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class GetBlobCommand extends $Command

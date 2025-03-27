@@ -154,25 +154,8 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
- * @example To schedule a KMS key for deletion
- * ```javascript
- * // The following example schedules the specified KMS key for deletion.
- * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "PendingWindowInDays": 7
- * };
- * const command = new ScheduleKeyDeletionCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DeletionDate": "2016-12-17T16:00:00-08:00",
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
- * }
- * *\/
- * // example id: to-schedule-a-cmk-for-deletion-1481331111094
- * ```
  *
+ * @public
  */
 export class ScheduleKeyDeletionCommand extends $Command
   .classBuilder<

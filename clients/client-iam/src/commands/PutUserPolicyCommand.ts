@@ -89,20 +89,23 @@ export interface PutUserPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To attach a policy to an IAM user
  * ```javascript
  * // The following command attaches a policy to the IAM user named Bob.
  * const input = {
- *   "PolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Action\":\"*\",\"Resource\":\"*\"}}",
- *   "PolicyName": "AllAccessPolicy",
- *   "UserName": "Bob"
+ *   PolicyDocument: `{"Version":"2012-10-17","Statement":{"Effect":"Allow","Action":"*","Resource":"*"}}`,
+ *   PolicyName: "AllAccessPolicy",
+ *   UserName: "Bob"
  * };
  * const command = new PutUserPolicyCommand(input);
- * await client.send(command);
- * // example id: 2551ffc6-3576-4d39-823f-30b60bffc2c7
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutUserPolicyCommand extends $Command
   .classBuilder<

@@ -123,6 +123,7 @@ export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesBy
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class MergeBranchesByFastForwardCommand extends $Command

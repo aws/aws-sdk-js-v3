@@ -102,6 +102,7 @@ export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __Met
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ *
  * @public
  */
 export class GetSampleDataCommand extends $Command

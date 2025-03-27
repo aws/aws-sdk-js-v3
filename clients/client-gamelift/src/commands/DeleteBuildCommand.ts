@@ -85,6 +85,7 @@ export interface DeleteBuildCommandOutput extends __MetadataBearer {}
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class DeleteBuildCommand extends $Command

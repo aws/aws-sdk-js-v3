@@ -148,6 +148,7 @@ export interface DeleteResourceCommandOutput extends DeleteResourceOutput, __Met
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ *
  * @public
  */
 export class DeleteResourceCommand extends $Command

@@ -98,32 +98,32 @@ export interface StartConfigurationPolicyAssociationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To associate a configuration with a target
  * ```javascript
  * // This operation associates a configuration policy or self-managed behavior with the target account, organizational unit, or the root.
  * const input = {
- *   "ConfigurationPolicyIdentifier": "arn:aws:securityhub:us-east-1:123456789012:configuration-policy/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "Target": {
- *     "AccountId": "111122223333"
+ *   ConfigurationPolicyIdentifier: "arn:aws:securityhub:us-east-1:123456789012:configuration-policy/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   Target: {
+ *     AccountId: "111122223333"
  *   }
  * };
  * const command = new StartConfigurationPolicyAssociationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AssociationStatus": "SUCCESS",
- *   "AssociationStatusMessage": "This field is populated only if the association fails",
- *   "AssociationType": "APPLIED",
- *   "ConfigurationPolicyId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "TargetId": "111122223333",
- *   "TargetType": "ACCOUNT",
- *   "UpdatedAt": "2023-01-11T06:17:17.154Z"
+ *   AssociationStatus: "SUCCESS",
+ *   AssociationStatusMessage: "This field is populated only if the association fails",
+ *   AssociationType: "APPLIED",
+ *   ConfigurationPolicyId: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   TargetId: "111122223333",
+ *   TargetType: "ACCOUNT",
+ *   UpdatedAt: "2023-01-11T06:17:17.154Z"
  * }
  * *\/
- * // example id: to-associate-a-configuration-with-a-target-1695176455638
  * ```
  *
+ * @public
  */
 export class StartConfigurationPolicyAssociationCommand extends $Command
   .classBuilder<

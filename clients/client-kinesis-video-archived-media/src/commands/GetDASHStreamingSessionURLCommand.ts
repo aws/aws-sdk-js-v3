@@ -256,6 +256,7 @@ export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamin
  * @throws {@link KinesisVideoArchivedMediaServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
+ *
  * @public
  */
 export class GetDASHStreamingSessionURLCommand extends $Command

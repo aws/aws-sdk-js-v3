@@ -70,19 +70,22 @@ export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To request tailed logs
  * ```javascript
  * // The following operation requests logs from an environment named my-env:
  * const input = {
- *   "EnvironmentName": "my-env",
- *   "InfoType": "tail"
+ *   EnvironmentName: "my-env",
+ *   InfoType: "tail"
  * };
  * const command = new RequestEnvironmentInfoCommand(input);
- * await client.send(command);
- * // example id: to-request-tailed-logs-1456277657045
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RequestEnvironmentInfoCommand extends $Command
   .classBuilder<

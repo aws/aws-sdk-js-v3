@@ -90,6 +90,7 @@ export interface UpdateFileSystemProtectionCommandOutput extends FileSystemProte
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ *
  * @public
  */
 export class UpdateFileSystemProtectionCommand extends $Command

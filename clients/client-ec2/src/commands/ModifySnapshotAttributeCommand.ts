@@ -83,39 +83,44 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
- * @example To modify a snapshot attribute
- * ```javascript
- * // This example modifies snapshot ``snap-1234567890abcdef0`` to remove the create volume permission for a user with the account ID ``123456789012``. If the command succeeds, no output is returned.
- * const input = {
- *   "Attribute": "createVolumePermission",
- *   "OperationType": "remove",
- *   "SnapshotId": "snap-1234567890abcdef0",
- *   "UserIds": [
- *     "123456789012"
- *   ]
- * };
- * const command = new ModifySnapshotAttributeCommand(input);
- * await client.send(command);
- * // example id: to-modify-a-snapshot-attribute-1472508385907
- * ```
  *
  * @example To make a snapshot public
  * ```javascript
  * // This example makes the snapshot ``snap-1234567890abcdef0`` public.
  * const input = {
- *   "Attribute": "createVolumePermission",
- *   "GroupNames": [
+ *   Attribute: "createVolumePermission",
+ *   GroupNames: [
  *     "all"
  *   ],
- *   "OperationType": "add",
- *   "SnapshotId": "snap-1234567890abcdef0"
+ *   OperationType: "add",
+ *   SnapshotId: "snap-1234567890abcdef0"
  * };
  * const command = new ModifySnapshotAttributeCommand(input);
- * await client.send(command);
- * // example id: to-make-a-snapshot-public-1472508470529
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @example To modify a snapshot attribute
+ * ```javascript
+ * // This example modifies snapshot ``snap-1234567890abcdef0`` to remove the create volume permission for a user with the account ID ``123456789012``. If the command succeeds, no output is returned.
+ * const input = {
+ *   Attribute: "createVolumePermission",
+ *   OperationType: "remove",
+ *   SnapshotId: "snap-1234567890abcdef0",
+ *   UserIds: [
+ *     "123456789012"
+ *   ]
+ * };
+ * const command = new ModifySnapshotAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class ModifySnapshotAttributeCommand extends $Command
   .classBuilder<

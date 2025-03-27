@@ -86,6 +86,7 @@ export interface ListPermissionGroupsByUserCommandOutput extends ListPermissionG
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ *
  * @public
  */
 export class ListPermissionGroupsByUserCommand extends $Command

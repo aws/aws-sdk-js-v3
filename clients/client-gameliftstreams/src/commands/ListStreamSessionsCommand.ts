@@ -95,6 +95,7 @@ export interface ListStreamSessionsCommandOutput extends ListStreamSessionsOutpu
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>
  *
+ *
  * @public
  */
 export class ListStreamSessionsCommand extends $Command

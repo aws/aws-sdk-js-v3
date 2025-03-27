@@ -78,6 +78,7 @@ export interface UpdatePackageScopeCommandOutput extends UpdatePackageScopeRespo
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class UpdatePackageScopeCommand extends $Command

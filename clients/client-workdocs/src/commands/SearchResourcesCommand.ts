@@ -228,6 +228,7 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class SearchResourcesCommand extends $Command

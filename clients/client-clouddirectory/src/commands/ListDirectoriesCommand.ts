@@ -87,52 +87,52 @@ export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, _
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To list all directories in your AWS account
  * ```javascript
  * //
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListDirectoriesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Directories": [
+ *   Directories: [
  *     {
- *       "CreationDateTime": 1506121791.167,
- *       "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/Ae89hOKmw0bRpvYgW8EAsus",
- *       "Name": "ExampleCD4",
- *       "State": "ENABLED"
+ *       CreationDateTime: 1.506121791167E9,
+ *       DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/Ae89hOKmw0bRpvYgW8EAsus",
+ *       Name: "ExampleCD4",
+ *       State: "ENABLED"
  *     },
  *     {
- *       "CreationDateTime": 1485473189.746,
- *       "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AXQXDXvdgkOWktRXV4HnRa8",
- *       "Name": "testCD",
- *       "State": "DELETED"
+ *       CreationDateTime: 1.485473189746E9,
+ *       DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AXQXDXvdgkOWktRXV4HnRa8",
+ *       Name: "testCD",
+ *       State: "DELETED"
  *     },
  *     {
- *       "CreationDateTime": 1506115781.186,
- *       "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
- *       "Name": "ExampleCD",
- *       "State": "ENABLED"
+ *       CreationDateTime: 1.506115781186E9,
+ *       DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *       Name: "ExampleCD",
+ *       State: "ENABLED"
  *     },
  *     {
- *       "CreationDateTime": 1506118003.859,
- *       "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AfMr4qym1kZTvwqOafAYfqI",
- *       "Name": "ExampleCD2",
- *       "State": "ENABLED"
+ *       CreationDateTime: 1.506118003859E9,
+ *       DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AfMr4qym1kZTvwqOafAYfqI",
+ *       Name: "ExampleCD2",
+ *       State: "ENABLED"
  *     },
  *     {
- *       "CreationDateTime": 1485477107.925,
- *       "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AWeI1yjiB0SylWVTvQklCD0",
- *       "Name": "testCD2",
- *       "State": "DELETED"
+ *       CreationDateTime: 1.485477107925E9,
+ *       DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AWeI1yjiB0SylWVTvQklCD0",
+ *       Name: "testCD2",
+ *       State: "DELETED"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-all-directories-in-your-aws-account-1508262706411
  * ```
  *
+ * @public
  */
 export class ListDirectoriesCommand extends $Command
   .classBuilder<

@@ -72,6 +72,7 @@ export interface NestedXmlMapsCommandOutput extends NestedXmlMapsResponse, __Met
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class NestedXmlMapsCommand extends $Command
   .classBuilder<

@@ -100,6 +100,7 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResul
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ProvisionByoipCidrCommand extends $Command

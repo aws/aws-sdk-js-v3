@@ -84,6 +84,7 @@ export interface DescribeTrackerCommandOutput extends DescribeTrackerResponse, _
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class DescribeTrackerCommand extends $Command

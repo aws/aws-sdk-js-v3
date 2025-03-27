@@ -94,6 +94,7 @@ export interface BatchGetGraphMemberDatasourcesCommandOutput
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ *
  * @public
  */
 export class BatchGetGraphMemberDatasourcesCommand extends $Command

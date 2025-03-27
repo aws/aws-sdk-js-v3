@@ -91,6 +91,7 @@ export interface GetThingShadowCommandOutput extends GetThingShadowCommandOutput
  * @throws {@link IoTDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
+ *
  * @public
  */
 export class GetThingShadowCommand extends $Command

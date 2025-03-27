@@ -68,6 +68,7 @@ export interface CancelBatchImportJobCommandOutput extends CancelBatchImportJobR
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class CancelBatchImportJobCommand extends $Command

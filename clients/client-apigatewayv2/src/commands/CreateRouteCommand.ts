@@ -106,6 +106,7 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateRouteCommand extends $Command

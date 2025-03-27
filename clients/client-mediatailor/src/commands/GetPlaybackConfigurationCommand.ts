@@ -124,6 +124,7 @@ export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfig
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class GetPlaybackConfigurationCommand extends $Command

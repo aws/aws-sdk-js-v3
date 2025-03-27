@@ -82,6 +82,7 @@ export interface GetSiteAddressCommandOutput extends GetSiteAddressOutput, __Met
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class GetSiteAddressCommand extends $Command

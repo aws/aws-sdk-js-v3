@@ -78,6 +78,7 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class ListArchivesCommand extends $Command

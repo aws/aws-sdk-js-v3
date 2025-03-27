@@ -114,6 +114,7 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ *
  * @public
  */
 export class PutLoggingConfigurationCommand extends $Command

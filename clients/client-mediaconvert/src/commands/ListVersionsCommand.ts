@@ -80,6 +80,7 @@ export interface ListVersionsCommandOutput extends ListVersionsResponse, __Metad
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ *
  * @public
  */
 export class ListVersionsCommand extends $Command

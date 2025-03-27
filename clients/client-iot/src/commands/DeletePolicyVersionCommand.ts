@@ -79,6 +79,7 @@ export interface DeletePolicyVersionCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DeletePolicyVersionCommand extends $Command

@@ -68,6 +68,7 @@ export interface DisassociateAccessPolicyCommandOutput extends DisassociateAcces
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class DisassociateAccessPolicyCommand extends $Command

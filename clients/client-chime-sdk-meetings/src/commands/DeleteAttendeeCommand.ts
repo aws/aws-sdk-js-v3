@@ -78,6 +78,7 @@ export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ *
  * @public
  */
 export class DeleteAttendeeCommand extends $Command

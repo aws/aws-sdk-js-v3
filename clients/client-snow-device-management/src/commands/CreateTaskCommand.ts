@@ -89,6 +89,7 @@ export interface CreateTaskCommandOutput extends CreateTaskOutput, __MetadataBea
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ *
  * @public
  */
 export class CreateTaskCommand extends $Command

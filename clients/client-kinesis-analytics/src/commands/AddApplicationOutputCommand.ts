@@ -106,6 +106,7 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  * @throws {@link KinesisAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
+ *
  * @public
  */
 export class AddApplicationOutputCommand extends $Command

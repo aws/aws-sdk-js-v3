@@ -149,6 +149,7 @@ export interface DescribePipelinesCommandOutput extends DescribePipelinesOutput,
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class DescribePipelinesCommand extends $Command

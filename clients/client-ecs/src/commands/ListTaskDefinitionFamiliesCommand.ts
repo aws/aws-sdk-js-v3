@@ -90,16 +90,34 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
+ * @example To filter your registered task definition families
+ * ```javascript
+ * // This example lists the task definition revisions that start with "hpcc".
+ * const input = {
+ *   familyPrefix: "hpcc"
+ * };
+ * const command = new ListTaskDefinitionFamiliesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   families: [
+ *     "hpcc",
+ *     "hpcc-c4-8xlarge"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @example To list your registered task definition families
  * ```javascript
  * // This example lists all of your registered task definition families.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListTaskDefinitionFamiliesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "families": [
+ *   families: [
  *     "node-js-app",
  *     "web-timer",
  *     "hpcc",
@@ -107,28 +125,9 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  *   ]
  * }
  * *\/
- * // example id: b5c89769-1d94-4ca2-a79e-8069103c7f75
  * ```
  *
- * @example To filter your registered task definition families
- * ```javascript
- * // This example lists the task definition revisions that start with "hpcc".
- * const input = {
- *   "familyPrefix": "hpcc"
- * };
- * const command = new ListTaskDefinitionFamiliesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "families": [
- *     "hpcc",
- *     "hpcc-c4-8xlarge"
- *   ]
- * }
- * *\/
- * // example id: 8a4cf9a6-42c1-4fe3-852d-99ac8968e11b
- * ```
- *
+ * @public
  */
 export class ListTaskDefinitionFamiliesCommand extends $Command
   .classBuilder<

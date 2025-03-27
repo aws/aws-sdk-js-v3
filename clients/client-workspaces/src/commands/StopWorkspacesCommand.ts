@@ -68,6 +68,7 @@ export interface StopWorkspacesCommandOutput extends StopWorkspacesResult, __Met
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class StopWorkspacesCommand extends $Command

@@ -84,6 +84,7 @@ export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBeare
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class AbortDocumentVersionUploadCommand extends $Command

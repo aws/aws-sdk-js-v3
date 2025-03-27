@@ -350,6 +350,7 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ *
  * @public
  */
 export class UpdateFindingsCommand extends $Command

@@ -114,57 +114,8 @@ export interface BatchGetStandardsControlAssociationsCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
- * @example To get enablement status of a batch of controls
- * ```javascript
- * // The following example retrieves the enablement status of the specified controls in the specified standards.
- * const input = {
- *   "StandardsControlAssociationIds": [
- *     {
- *       "SecurityControlId": "CloudTrail.1",
- *       "StandardsArn": "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"
- *     },
- *     {
- *       "SecurityControlId": "CloudWatch.12",
- *       "StandardsArn": "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"
- *     }
- *   ]
- * };
- * const command = new BatchGetStandardsControlAssociationsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "StandardsControlAssociationDetails": [
- *     {
- *       "AssociationStatus": "ENABLED",
- *       "RelatedRequirements": [
- *         "CIS AWS Foundations 2.1"
- *       ],
- *       "SecurityControlArn": "arn:aws:securityhub:us-west-2:110479873537:security-control/CloudTrail.1",
- *       "SecurityControlId": "CloudTrail.1",
- *       "StandardsArn": "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
- *       "StandardsControlDescription": "AWS CloudTrail is a web service that records AWS API calls for your account and delivers log files to you. The recorded information includes the identity of the API caller, the time of the API call, the source IP address of the API caller, the request parameters, and the response elements returned by the AWS service.",
- *       "StandardsControlTitle": "Ensure CloudTrail is enabled in all regions",
- *       "UpdatedAt": "2022-01-13T18:52:29.539000+00:00"
- *     },
- *     {
- *       "AssociationStatus": "ENABLED",
- *       "RelatedRequirements": [
- *         "CIS AWS Foundations 3.12"
- *       ],
- *       "SecurityControlArn": "arn:aws:securityhub:us-west-2:110479873537:security-control/CloudWatch.12",
- *       "SecurityControlId": "CloudWatch.12",
- *       "StandardsArn": "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
- *       "StandardsControlDescription": "Real-time monitoring of API calls can be achieved by directing CloudTrail Logs to CloudWatch Logs and establishing corresponding metric filters and alarms. Network gateways are required to send/receive traffic to a destination outside of a VPC. It is recommended that a metric filter and alarm be established for changes to network gateways.",
- *       "StandardsControlTitle": "Ensure a log metric filter and alarm exist for changes to network gateways",
- *       "UpdatedAt": "2022-01-13T18:52:29.686000+00:00"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-get-enablement-status-of-a-batch-of-controls-1683301618357
- * ```
  *
+ * @public
  */
 export class BatchGetStandardsControlAssociationsCommand extends $Command
   .classBuilder<

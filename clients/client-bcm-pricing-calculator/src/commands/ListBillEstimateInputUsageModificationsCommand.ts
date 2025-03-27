@@ -194,6 +194,7 @@ export interface ListBillEstimateInputUsageModificationsCommandOutput
  * @throws {@link BCMPricingCalculatorServiceException}
  * <p>Base exception class for all service exceptions from BCMPricingCalculator service.</p>
  *
+ *
  * @public
  */
 export class ListBillEstimateInputUsageModificationsCommand extends $Command

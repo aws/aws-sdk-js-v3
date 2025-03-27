@@ -120,6 +120,7 @@ export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreR
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class DeleteEventDataStoreCommand extends $Command

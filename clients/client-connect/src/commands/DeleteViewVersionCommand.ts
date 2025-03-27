@@ -76,6 +76,7 @@ export interface DeleteViewVersionCommandOutput extends DeleteViewVersionRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DeleteViewVersionCommand extends $Command

@@ -112,6 +112,7 @@ export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __M
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class ChangePasswordCommand extends $Command

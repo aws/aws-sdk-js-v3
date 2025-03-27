@@ -74,6 +74,7 @@ export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBear
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DeleteConfigurationRecorderCommand extends $Command

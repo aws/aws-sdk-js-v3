@@ -94,6 +94,7 @@ export interface DeleteResourceTreeCommandOutput extends __MetadataBearer {}
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class DeleteResourceTreeCommand extends $Command

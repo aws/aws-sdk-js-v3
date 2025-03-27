@@ -83,6 +83,7 @@ export interface ListFieldsCommandOutput extends ListFieldsResponse, __MetadataB
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class ListFieldsCommand extends $Command

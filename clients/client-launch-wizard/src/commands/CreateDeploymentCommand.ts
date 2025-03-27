@@ -84,6 +84,71 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ *
+ * @example Deploy a given workload with given settings.
+ * ```javascript
+ * //
+ * const input = {
+ *   deploymentPatternName: "SapHanaSingle",
+ *   dryRun: false,
+ *   name: "SapHanaSingleForTest",
+ *   specifications: {
+ *     DisableDeploymentRollback: "true",
+ *     Encryption: "Yes",
+ *     KeyName: "testLinuxInstance",
+ *     SAPTZ: "America/Vancouver",
+ *     VPCID: "vpc-1234567",
+ *     applicationName: "SapHanaSingleForTest",
+ *     deploymentScenario: "SapHanaSingle",
+ *     environmentType: "production",
+ *     saveArtifactsS3Uri: "s3://testbucket",
+ *     saveDeploymentArtifacts: "Yes"
+ *   },
+ *   workloadName: "SAP"
+ * };
+ * const command = new CreateDeploymentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   deploymentId: "4c1b59c1-659c-467f-b6e9-6ef6f9d28e1d"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Deploy a given workload with given settings and passing tags for Launch Wizard deployment resource.
+ * ```javascript
+ * //
+ * const input = {
+ *   deploymentPatternName: "SapHanaSingle",
+ *   dryRun: false,
+ *   name: "SapHanaSingleForTest",
+ *   specifications: {
+ *     DisableDeploymentRollback: "true",
+ *     Encryption: "Yes",
+ *     KeyName: "testLinuxInstance",
+ *     SAPTZ: "America/Vancouver",
+ *     VPCID: "vpc-1234567",
+ *     applicationName: "SapHanaSingleForTest",
+ *     deploymentScenario: "SapHanaSingle",
+ *     environmentType: "production",
+ *     saveArtifactsS3Uri: "s3://testbucket",
+ *     saveDeploymentArtifacts: "Yes"
+ *   },
+ *   tags: {
+ *     key1: "val1",
+ *     key2: "val2"
+ *   },
+ *   workloadName: "SAP"
+ * };
+ * const command = new CreateDeploymentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   deploymentId: "1111111-1111-1111-1111-111111111111"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateDeploymentCommand extends $Command

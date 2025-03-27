@@ -75,6 +75,7 @@ export interface UpdateRoutingProfileNameCommandOutput extends __MetadataBearer 
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateRoutingProfileNameCommand extends $Command

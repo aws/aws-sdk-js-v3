@@ -106,6 +106,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResult, __MetadataB
  * @throws {@link DirectoryServiceDataServiceException}
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
+ *
  * @public
  */
 export class CreateGroupCommand extends $Command

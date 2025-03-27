@@ -89,6 +89,7 @@ export interface DeleteFolderCommandOutput extends DeleteFolderResponse, __Metad
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DeleteFolderCommand extends $Command

@@ -189,6 +189,7 @@ export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ *
  * @public
  */
 export class DeleteOrganizationCommand extends $Command

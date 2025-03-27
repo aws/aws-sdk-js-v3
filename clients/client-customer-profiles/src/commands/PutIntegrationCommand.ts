@@ -172,6 +172,7 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class PutIntegrationCommand extends $Command

@@ -83,6 +83,7 @@ export interface SearchSessionsCommandOutput extends SearchSessionsResponse, __M
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class SearchSessionsCommand extends $Command

@@ -82,6 +82,36 @@ export interface PutProjectEventsCommandOutput extends PutProjectEventsResponse,
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ *
+ * @example Post evaluation Event for Project
+ * ```javascript
+ * //
+ * const input = {
+ *   events: [
+ *     {
+ *       data: `{"feature":"ExampleFeature","entityId":"username@email.com","entityAttributes":{"browser":{"s":"Chrome"}},"variation":"variationA","type":"EXPERIMENT_RULE_MATCH","details":{"experiment":"Jan2020_landing_page_banner","treatment":"control","salt":"ADJNC1237ASDNU"}}`,
+ *       timestamp: 1627580583,
+ *       type: "aws.evidently.evaluation"
+ *     }
+ *   ],
+ *   project: "ExampleProject"
+ * };
+ * const command = new PutProjectEventsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   eventResults: [
+ *     {
+ *       errorCode: "null",
+ *       errorMessage: "null",
+ *       eventId: "e55c1f5f-309b-440e-b0d8-64506987c20f"
+ *     }
+ *   ],
+ *   failedEventCount: 0
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class PutProjectEventsCommand extends $Command

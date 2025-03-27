@@ -78,6 +78,7 @@ export interface GetMacieSessionCommandOutput extends GetMacieSessionResponse, _
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class GetMacieSessionCommand extends $Command

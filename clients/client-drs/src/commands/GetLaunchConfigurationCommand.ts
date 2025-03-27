@@ -80,6 +80,7 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class GetLaunchConfigurationCommand extends $Command

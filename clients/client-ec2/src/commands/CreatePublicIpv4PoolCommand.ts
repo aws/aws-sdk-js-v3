@@ -67,6 +67,7 @@ export interface CreatePublicIpv4PoolCommandOutput extends CreatePublicIpv4PoolR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class CreatePublicIpv4PoolCommand extends $Command

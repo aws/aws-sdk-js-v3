@@ -80,6 +80,7 @@ export interface UpdateDataQualityRulesetCommandOutput extends UpdateDataQuality
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class UpdateDataQualityRulesetCommand extends $Command

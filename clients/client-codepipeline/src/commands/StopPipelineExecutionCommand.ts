@@ -84,6 +84,7 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class StopPipelineExecutionCommand extends $Command

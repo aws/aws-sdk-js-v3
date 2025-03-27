@@ -75,6 +75,7 @@ export interface GetOperationCommandOutput extends GetOperationOutput, __Metadat
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ *
  * @public
  */
 export class GetOperationCommand extends $Command

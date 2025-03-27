@@ -98,22 +98,25 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
+ *
  * @example To remove tags from a secret
  * ```javascript
  * // The following example shows how to remove two tags from a secret's metadata. For each, both the tag and the associated value are removed. There is no output from this API. To see the result, use the DescribeSecret operation.
  * const input = {
- *   "SecretId": "MyTestDatabaseSecret",
- *   "TagKeys": [
+ *   SecretId: "MyTestDatabaseSecret",
+ *   TagKeys: [
  *     "FirstTag",
  *     "SecondTag"
  *   ]
  * };
  * const command = new UntagResourceCommand(input);
- * await client.send(command);
- * // example id: to-remove-tags-from-a-secret-1524002239065
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

@@ -157,6 +157,7 @@ export interface CreateGroupCommandOutput extends CreateGroupOutput, __MetadataB
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class CreateGroupCommand extends $Command

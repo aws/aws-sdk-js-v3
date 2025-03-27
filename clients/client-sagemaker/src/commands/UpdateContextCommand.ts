@@ -69,6 +69,7 @@ export interface UpdateContextCommandOutput extends UpdateContextResponse, __Met
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateContextCommand extends $Command

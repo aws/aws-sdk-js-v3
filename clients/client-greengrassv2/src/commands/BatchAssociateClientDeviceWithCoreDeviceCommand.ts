@@ -103,6 +103,7 @@ export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ *
  * @public
  */
 export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command

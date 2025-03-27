@@ -73,6 +73,39 @@ export interface UpdateSolFunctionPackageCommandOutput extends UpdateSolFunction
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example Enable a function package's Operational State
+ * ```javascript
+ * //
+ * const input = {
+ *   operationalState: "ENABLED",
+ *   vnfPkgId: "fp-07aa863e53460a2a6"
+ * };
+ * const command = new UpdateSolFunctionPackageCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   operationalState: "ENABLED"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Disable a function package's Operational State
+ * ```javascript
+ * //
+ * const input = {
+ *   operationalState: "DISABLED",
+ *   vnfPkgId: "fp-07aa863e53460a2a6"
+ * };
+ * const command = new UpdateSolFunctionPackageCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   operationalState: "DISABLED"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateSolFunctionPackageCommand extends $Command

@@ -99,6 +99,7 @@ export interface DescribeSafetyRuleCommandOutput extends DescribeSafetyRuleRespo
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ *
  * @public
  */
 export class DescribeSafetyRuleCommand extends $Command

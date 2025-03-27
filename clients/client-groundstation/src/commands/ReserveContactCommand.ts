@@ -71,6 +71,7 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class ReserveContactCommand extends $Command

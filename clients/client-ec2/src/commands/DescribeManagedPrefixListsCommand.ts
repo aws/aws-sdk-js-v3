@@ -88,6 +88,7 @@ export interface DescribeManagedPrefixListsCommandOutput extends DescribeManaged
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeManagedPrefixListsCommand extends $Command

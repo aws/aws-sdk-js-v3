@@ -85,6 +85,7 @@ export interface BatchDeleteGeofenceCommandOutput extends BatchDeleteGeofenceRes
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class BatchDeleteGeofenceCommand extends $Command

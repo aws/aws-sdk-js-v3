@@ -133,6 +133,7 @@ export interface CreateResourceConfigurationCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class CreateResourceConfigurationCommand extends $Command

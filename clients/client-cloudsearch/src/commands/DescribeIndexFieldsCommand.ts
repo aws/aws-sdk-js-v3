@@ -168,6 +168,7 @@ export interface DescribeIndexFieldsCommandOutput extends DescribeIndexFieldsRes
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class DescribeIndexFieldsCommand extends $Command

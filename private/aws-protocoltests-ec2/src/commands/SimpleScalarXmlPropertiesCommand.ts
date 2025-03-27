@@ -61,6 +61,7 @@ export interface SimpleScalarXmlPropertiesCommandOutput extends SimpleScalarXmlP
  * @throws {@link EC2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
+ *
  */
 export class SimpleScalarXmlPropertiesCommand extends $Command
   .classBuilder<

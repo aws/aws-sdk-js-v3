@@ -107,6 +107,7 @@ export interface GetOperationsCommandOutput extends GetOperationsResult, __Metad
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetOperationsCommand extends $Command

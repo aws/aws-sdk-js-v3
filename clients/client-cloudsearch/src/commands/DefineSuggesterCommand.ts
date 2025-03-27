@@ -98,6 +98,7 @@ export interface DefineSuggesterCommandOutput extends DefineSuggesterResponse, _
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class DefineSuggesterCommand extends $Command

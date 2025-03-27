@@ -84,22 +84,25 @@ export interface SetLoadBalancerPoliciesOfListenerCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To replace the policies associated with a listener
  * ```javascript
  * // This example replaces the policies that are currently associated with the specified listener.
  * const input = {
- *   "LoadBalancerName": "my-load-balancer",
- *   "LoadBalancerPort": 80,
- *   "PolicyNames": [
+ *   LoadBalancerName: "my-load-balancer",
+ *   LoadBalancerPort: 80,
+ *   PolicyNames: [
  *     "my-SSLNegotiation-policy"
  *   ]
  * };
  * const command = new SetLoadBalancerPoliciesOfListenerCommand(input);
- * await client.send(command);
- * // example id: elb-set-load-balancer-policies-of-listener-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetLoadBalancerPoliciesOfListenerCommand extends $Command
   .classBuilder<

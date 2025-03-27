@@ -176,6 +176,7 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class SearchProfilesCommand extends $Command

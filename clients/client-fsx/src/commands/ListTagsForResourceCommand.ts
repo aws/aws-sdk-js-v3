@@ -102,28 +102,28 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
- * @public
+ *
  * @example To list tags for a resource
  * ```javascript
  * // This operation lists tags for an Amazon FSx resource.
  * const input = {
- *   "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:file-system/fs-0498eed5fe91001ec"
+ *   ResourceARN: "arn:aws:fsx:us-east-1:012345678912:file-system/fs-0498eed5fe91001ec"
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "Key": "Name",
- *       "Value": "MyFileSystem"
+ *       Key: "Name",
+ *       Value: "MyFileSystem"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-tags-for-a-fsx-resource-1481847318372
  * ```
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

@@ -51,6 +51,11 @@ export interface GetWorkUnitResultsCommandOutput
  * };
  * const command = new GetWorkUnitResultsCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.ResultStream.transformToByteArray();
+ * // const str = await response.ResultStream.transformToString();
+ * // response.ResultStream.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetWorkUnitResultsResponse
  * //   ResultStream: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * // };
@@ -80,6 +85,7 @@ export interface GetWorkUnitResultsCommandOutput
  *
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
+ *
  *
  * @public
  */

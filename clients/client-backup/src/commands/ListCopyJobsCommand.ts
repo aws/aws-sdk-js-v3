@@ -107,6 +107,7 @@ export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __Metadat
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class ListCopyJobsCommand extends $Command

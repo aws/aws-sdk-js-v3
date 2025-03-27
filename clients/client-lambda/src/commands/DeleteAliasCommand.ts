@@ -66,19 +66,22 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To delete a Lambda function alias
  * ```javascript
  * // The following example deletes an alias named BLUE from a function named my-function
  * const input = {
- *   "FunctionName": "my-function",
- *   "Name": "BLUE"
+ *   FunctionName: "my-function",
+ *   Name: "BLUE"
  * };
  * const command = new DeleteAliasCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-lambda-function-alias-1481660370804
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteAliasCommand extends $Command
   .classBuilder<

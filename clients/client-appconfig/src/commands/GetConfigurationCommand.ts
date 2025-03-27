@@ -94,27 +94,27 @@ export interface GetConfigurationCommandOutput extends GetConfigurationCommandOu
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To retrieve configuration details
  * ```javascript
  * // The following get-configuration example returns the configuration details of the example application. On subsequent calls to get-configuration, use the client-configuration-version parameter to only update the configuration of your application if the version has changed. Only updating the configuration when the version has changed avoids excess charges incurred by calling get-configuration.
  * const input = {
- *   "Application": "example-application",
- *   "ClientId": "example-id",
- *   "Configuration": "Example-Configuration-Profile",
- *   "Environment": "Example-Environment"
+ *   Application: "example-application",
+ *   ClientId: "example-id",
+ *   Configuration: "Example-Configuration-Profile",
+ *   Environment: "Example-Environment"
  * };
  * const command = new GetConfigurationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ConfigurationVersion": "1",
- *   "ContentType": "application/octet-stream"
+ *   ConfigurationVersion: "1",
+ *   ContentType: "application/octet-stream"
  * }
  * *\/
- * // example id: to-retrieve-configuration-details-1632265954314
  * ```
  *
+ * @public
  */
 export class GetConfigurationCommand extends $Command
   .classBuilder<

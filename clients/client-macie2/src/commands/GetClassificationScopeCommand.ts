@@ -78,6 +78,7 @@ export interface GetClassificationScopeCommandOutput extends GetClassificationSc
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class GetClassificationScopeCommand extends $Command

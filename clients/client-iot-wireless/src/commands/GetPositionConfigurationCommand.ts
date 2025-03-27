@@ -85,6 +85,7 @@ export interface GetPositionConfigurationCommandOutput extends GetPositionConfig
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class GetPositionConfigurationCommand extends $Command

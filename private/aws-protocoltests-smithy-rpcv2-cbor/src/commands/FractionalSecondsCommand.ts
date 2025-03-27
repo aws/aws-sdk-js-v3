@@ -52,6 +52,7 @@ export interface FractionalSecondsCommandOutput extends FractionalSecondsOutput,
  * @throws {@link RpcV2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from RpcV2Protocol service.</p>
  *
+ *
  */
 export class FractionalSecondsCommand extends $Command
   .classBuilder<

@@ -76,6 +76,7 @@ export interface DeleteRecordingConfigurationCommandOutput extends __MetadataBea
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class DeleteRecordingConfigurationCommand extends $Command

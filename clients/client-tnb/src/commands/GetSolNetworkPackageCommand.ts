@@ -101,6 +101,48 @@ export interface GetSolNetworkPackageCommandOutput extends GetSolNetworkPackageO
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example Describe an individual Sol network package
+ * ```javascript
+ * //
+ * const input = {
+ *   nsdInfoId: "np-0d5b823eb5c2a9241"
+ * };
+ * const command = new GetSolNetworkPackageCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   arn: "arn:aws:tnb:us-west-2:123456789000:network-package/np-0d5b823eb5c2a9241",
+ *   id: "np-0d5b823eb5c2a9241",
+ *   metadata: {
+ *     createdAt: "2022-06-10T19:48:34Z",
+ *     lastModified: "2022-06-10T21:48:33Z",
+ *     nsd: {
+ *       overrides: [
+ *         {
+ *           defaultValue: "10.0.0.0/24",
+ *           name: "cidr_block"
+ *         },
+ *         {
+ *           name: "some_vnf.vnf_prop"
+ *         }
+ *       ]
+ *     }
+ *   },
+ *   nsdId: "be1abe66-1fcc-11ec-9621-0242ac130002",
+ *   nsdName: "Sample-City",
+ *   nsdOnboardingState: "ONBOARDED",
+ *   nsdOperationalState: "ENABLED",
+ *   nsdUsageState: "IN_USE",
+ *   nsdVersion: "1.0",
+ *   vnfPkgIds: [
+ *     "fp-0b627c4a170a97f79",
+ *     "fp-8c253b2e898d23f92"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetSolNetworkPackageCommand extends $Command

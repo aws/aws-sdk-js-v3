@@ -68,6 +68,7 @@ export interface DeleteSystemTemplateCommandOutput extends DeleteSystemTemplateR
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class DeleteSystemTemplateCommand extends $Command

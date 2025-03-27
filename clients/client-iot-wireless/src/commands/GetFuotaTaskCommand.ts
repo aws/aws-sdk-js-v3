@@ -85,6 +85,7 @@ export interface GetFuotaTaskCommandOutput extends GetFuotaTaskResponse, __Metad
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class GetFuotaTaskCommand extends $Command

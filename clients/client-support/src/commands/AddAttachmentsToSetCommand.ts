@@ -97,6 +97,7 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ *
  * @public
  */
 export class AddAttachmentsToSetCommand extends $Command

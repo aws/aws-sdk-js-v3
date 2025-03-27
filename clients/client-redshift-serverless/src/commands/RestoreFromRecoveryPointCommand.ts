@@ -96,6 +96,7 @@ export interface RestoreFromRecoveryPointCommandOutput extends RestoreFromRecove
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class RestoreFromRecoveryPointCommand extends $Command

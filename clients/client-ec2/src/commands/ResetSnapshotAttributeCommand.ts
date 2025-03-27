@@ -57,19 +57,22 @@ export interface ResetSnapshotAttributeCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To reset a snapshot attribute
  * ```javascript
  * // This example resets the create volume permissions for snapshot ``snap-1234567890abcdef0``. If the command succeeds, no output is returned.
  * const input = {
- *   "Attribute": "createVolumePermission",
- *   "SnapshotId": "snap-1234567890abcdef0"
+ *   Attribute: "createVolumePermission",
+ *   SnapshotId: "snap-1234567890abcdef0"
  * };
  * const command = new ResetSnapshotAttributeCommand(input);
- * await client.send(command);
- * // example id: to-reset-a-snapshot-attribute-1472508825735
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ResetSnapshotAttributeCommand extends $Command
   .classBuilder<

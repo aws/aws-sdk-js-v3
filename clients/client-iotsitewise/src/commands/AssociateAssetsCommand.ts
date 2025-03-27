@@ -87,6 +87,7 @@ export interface AssociateAssetsCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class AssociateAssetsCommand extends $Command

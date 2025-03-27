@@ -100,6 +100,7 @@ export interface UpdateRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * @throws {@link KendraRankingServiceException}
  * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
+ *
  * @public
  */
 export class UpdateRescoreExecutionPlanCommand extends $Command

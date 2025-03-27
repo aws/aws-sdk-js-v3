@@ -65,6 +65,7 @@ export interface DeleteNetworkProfileCommandOutput extends DeleteNetworkProfileR
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class DeleteNetworkProfileCommand extends $Command

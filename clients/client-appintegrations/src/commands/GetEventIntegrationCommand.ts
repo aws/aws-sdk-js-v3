@@ -79,6 +79,7 @@ export interface GetEventIntegrationCommandOutput extends GetEventIntegrationRes
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ *
  * @public
  */
 export class GetEventIntegrationCommand extends $Command

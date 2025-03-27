@@ -93,6 +93,7 @@ export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCance
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class DeleteObjectsOnCancelCommand extends $Command

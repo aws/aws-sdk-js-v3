@@ -84,6 +84,7 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ *
  * @public
  */
 export class UpdateSessionCommand extends $Command

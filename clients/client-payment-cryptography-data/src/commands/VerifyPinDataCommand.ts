@@ -134,6 +134,7 @@ export interface VerifyPinDataCommandOutput extends VerifyPinDataOutput, __Metad
  * @throws {@link PaymentCryptographyDataServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptographyData service.</p>
  *
+ *
  * @public
  */
 export class VerifyPinDataCommand extends $Command

@@ -150,6 +150,7 @@ export interface InvokeEndpointWithResponseStreamCommandOutput
  * @throws {@link SageMakerRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerRuntime service.</p>
  *
+ *
  * @public
  */
 export class InvokeEndpointWithResponseStreamCommand extends $Command

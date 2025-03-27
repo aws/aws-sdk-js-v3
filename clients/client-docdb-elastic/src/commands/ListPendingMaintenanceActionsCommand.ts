@@ -88,6 +88,7 @@ export interface ListPendingMaintenanceActionsCommandOutput
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ *
  * @public
  */
 export class ListPendingMaintenanceActionsCommand extends $Command

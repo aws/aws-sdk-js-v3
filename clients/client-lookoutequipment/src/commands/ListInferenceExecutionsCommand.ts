@@ -117,6 +117,7 @@ export interface ListInferenceExecutionsCommandOutput extends ListInferenceExecu
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class ListInferenceExecutionsCommand extends $Command

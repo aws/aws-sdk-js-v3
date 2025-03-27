@@ -80,28 +80,28 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To associate a security group with a load balancer
  * ```javascript
  * // This example associates the specified security group with the specified load balancer.
  * const input = {
- *   "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
- *   "SecurityGroups": [
+ *   LoadBalancerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+ *   SecurityGroups: [
  *     "sg-5943793c"
  *   ]
  * };
  * const command = new SetSecurityGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SecurityGroupIds": [
+ *   SecurityGroupIds: [
  *     "sg-5943793c"
  *   ]
  * }
  * *\/
- * // example id: elbv2-set-security-groups-1
  * ```
  *
+ * @public
  */
 export class SetSecurityGroupsCommand extends $Command
   .classBuilder<

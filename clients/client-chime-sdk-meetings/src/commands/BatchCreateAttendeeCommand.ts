@@ -116,6 +116,7 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ *
  * @public
  */
 export class BatchCreateAttendeeCommand extends $Command

@@ -79,6 +79,7 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class ListControlsCommand extends $Command

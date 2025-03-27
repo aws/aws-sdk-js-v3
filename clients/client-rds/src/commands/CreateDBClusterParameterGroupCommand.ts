@@ -109,30 +109,30 @@ export interface CreateDBClusterParameterGroupCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To create a DB cluster parameter group
  * ```javascript
  * // The following example creates a DB cluster parameter group.
  * const input = {
- *   "DBClusterParameterGroupName": "mydbclusterparametergroup",
- *   "DBParameterGroupFamily": "aurora5.6",
- *   "Description": "My new cluster parameter group"
+ *   DBClusterParameterGroupName: "mydbclusterparametergroup",
+ *   DBParameterGroupFamily: "aurora5.6",
+ *   Description: "My new cluster parameter group"
  * };
  * const command = new CreateDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBClusterParameterGroup": {
- *     "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:mydbclusterparametergroup",
- *     "DBClusterParameterGroupName": "mydbclusterparametergroup",
- *     "DBParameterGroupFamily": "aurora5.6",
- *     "Description": "My new cluster parameter group"
+ *   DBClusterParameterGroup: {
+ *     DBClusterParameterGroupArn: "arn:aws:rds:us-east-1:123456789012:cluster-pg:mydbclusterparametergroup",
+ *     DBClusterParameterGroupName: "mydbclusterparametergroup",
+ *     DBParameterGroupFamily: "aurora5.6",
+ *     Description: "My new cluster parameter group"
  *   }
  * }
  * *\/
- * // example id: to-create-a-db-cluster-parameter-group-1679702915771
  * ```
  *
+ * @public
  */
 export class CreateDBClusterParameterGroupCommand extends $Command
   .classBuilder<

@@ -104,6 +104,7 @@ export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, _
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class SetUserSettingsCommand extends $Command

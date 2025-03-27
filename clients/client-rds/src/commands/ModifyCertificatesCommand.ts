@@ -94,32 +94,32 @@ export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResul
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To temporarily override the system-default SSL/TLS certificate for new DB instances
  * ```javascript
  * // The following example temporarily overrides the system-default SSL/TLS certificate for new DB instances.
  * const input = {
- *   "CertificateIdentifier": "rds-ca-2019"
+ *   CertificateIdentifier: "rds-ca-2019"
  * };
  * const command = new ModifyCertificatesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Certificate": {
- *     "CertificateArn": "arn:aws:rds:us-east-1::cert:rds-ca-2019",
- *     "CertificateIdentifier": "rds-ca-2019",
- *     "CertificateType": "CA",
- *     "CustomerOverride": true,
- *     "CustomerOverrideValidTill": "2024-08-22T17:08:50Z",
- *     "Thumbprint": "EXAMPLE123456789012",
- *     "ValidFrom": "2019-09-19T18:16:53Z",
- *     "ValidTill": "2024-08-22T17:08:50Z"
+ *   Certificate: {
+ *     CertificateArn: "arn:aws:rds:us-east-1::cert:rds-ca-2019",
+ *     CertificateIdentifier: "rds-ca-2019",
+ *     CertificateType: "CA",
+ *     CustomerOverride: true,
+ *     CustomerOverrideValidTill: "2024-08-22T17:08:50Z",
+ *     Thumbprint: "EXAMPLE123456789012",
+ *     ValidFrom: "2019-09-19T18:16:53Z",
+ *     ValidTill: "2024-08-22T17:08:50Z"
  *   }
  * }
  * *\/
- * // example id: to-temporarily-override-the-system-default-ssltls-certificate-for-new-db-instances-1680306491984
  * ```
  *
+ * @public
  */
 export class ModifyCertificatesCommand extends $Command
   .classBuilder<

@@ -180,196 +180,195 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To update a cluster's observability settings.
  * ```javascript
  * // This example turns on enhanced containerInsights in an existing cluster.
  * const input = {
- *   "cluster": "ECS-project-update-cluster",
- *   "settings": [
+ *   cluster: "ECS-project-update-cluster",
+ *   settings: [
  *     {
- *       "name": "containerInsights",
- *       "value": "enhanced"
+ *       name: "containerInsights",
+ *       value: "enhanced"
  *     }
  *   ]
  * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "cluster": {
- *     "activeServicesCount": 0,
- *     "attachments": [
+ *   cluster: {
+ *     activeServicesCount: 0,
+ *     attachments: [
  *       {
- *         "type": "as_policy",
- *         "details": [
+ *         details: [
  *           {
- *             "name": "capacityProviderName",
- *             "value": "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt"
+ *             name: "capacityProviderName",
+ *             value: "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt"
  *           },
  *           {
- *             "name": "scalingPolicyName",
- *             "value": "ECSManagedAutoScalingPolicy-152363a6-8c65-484c-b721-42c3e070ae93"
+ *             name: "scalingPolicyName",
+ *             value: "ECSManagedAutoScalingPolicy-152363a6-8c65-484c-b721-42c3e070ae93"
  *           }
  *         ],
- *         "id": "069d002b-7634-42e4-b1d4-544f4c8f6380",
- *         "status": "CREATED"
+ *         id: "069d002b-7634-42e4-b1d4-544f4c8f6380",
+ *         status: "CREATED",
+ *         type: "as_policy"
  *       },
  *       {
- *         "type": "managed_draining",
- *         "details": [
+ *         details: [
  *           {
- *             "name": "capacityProviderName",
- *             "value": "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt"
+ *             name: "capacityProviderName",
+ *             value: "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt"
  *           },
  *           {
- *             "name": "autoScalingLifecycleHookName",
- *             "value": "ecs-managed-draining-termination-hook"
+ *             name: "autoScalingLifecycleHookName",
+ *             value: "ecs-managed-draining-termination-hook"
  *           }
  *         ],
- *         "id": "08b5b6ca-45e9-4209-a65d-e962a27c490a",
- *         "status": "CREATED"
+ *         id: "08b5b6ca-45e9-4209-a65d-e962a27c490a",
+ *         status: "CREATED",
+ *         type: "managed_draining"
  *       },
  *       {
- *         "type": "sc",
- *         "details": [],
- *         "id": "45d0b36f-8cff-46b6-9380-1288744802ab",
- *         "status": "ATTACHED"
+ *         details:         [],
+ *         id: "45d0b36f-8cff-46b6-9380-1288744802ab",
+ *         status: "ATTACHED",
+ *         type: "sc"
  *       }
  *     ],
- *     "attachmentsStatus": "UPDATE_COMPLETE",
- *     "capacityProviders": [
+ *     attachmentsStatus: "UPDATE_COMPLETE",
+ *     capacityProviders: [
  *       "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt"
  *     ],
- *     "clusterArn": "arn:aws:ecs:us-west-2:123456789012:cluster/ECS-project-update-cluster",
- *     "clusterName": "ECS-project-update-cluster",
- *     "defaultCapacityProviderStrategy": [
+ *     clusterArn: "arn:aws:ecs:us-west-2:123456789012:cluster/ECS-project-update-cluster",
+ *     clusterName: "ECS-project-update-cluster",
+ *     defaultCapacityProviderStrategy: [
  *       {
- *         "base": 0,
- *         "capacityProvider": "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt",
- *         "weight": 1
+ *         base: 0,
+ *         capacityProvider: "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt",
+ *         weight: 1
  *       }
  *     ],
- *     "pendingTasksCount": 0,
- *     "registeredContainerInstancesCount": 0,
- *     "runningTasksCount": 0,
- *     "serviceConnectDefaults": {
- *       "namespace": "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-igwrsylmy3kwvcdx"
+ *     pendingTasksCount: 0,
+ *     registeredContainerInstancesCount: 0,
+ *     runningTasksCount: 0,
+ *     serviceConnectDefaults: {
+ *       namespace: "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-igwrsylmy3kwvcdx"
  *     },
- *     "settings": [
+ *     settings: [
  *       {
- *         "name": "containerInsights",
- *         "value": "enhanced"
+ *         name: "containerInsights",
+ *         value: "enhanced"
  *       }
  *     ],
- *     "statistics": [],
- *     "status": "ACTIVE",
- *     "tags": []
+ *     statistics:     [],
+ *     status: "ACTIVE",
+ *     tags:     []
  *   }
  * }
  * *\/
- * // example id: to-update-a-clusters-observability-settings-1734626018966
  * ```
  *
  * @example To update a cluster's Service Connect defaults.
  * ```javascript
  * // This example sets a default Service Connect namespace.
  * const input = {
- *   "cluster": "ECS-project-update-cluster",
- *   "serviceConnectDefaults": {
- *     "namespace": "test"
+ *   cluster: "ECS-project-update-cluster",
+ *   serviceConnectDefaults: {
+ *     namespace: "test"
  *   }
  * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "cluster": {
- *     "activeServicesCount": 0,
- *     "attachments": [
+ *   cluster: {
+ *     activeServicesCount: 0,
+ *     attachments: [
  *       {
- *         "type": "as_policy",
- *         "details": [
+ *         details: [
  *           {
- *             "name": "capacityProviderName",
- *             "value": "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt"
+ *             name: "capacityProviderName",
+ *             value: "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt"
  *           },
  *           {
- *             "name": "scalingPolicyName",
- *             "value": "ECSManagedAutoScalingPolicy-152363a6-8c65-484c-b721-42c3e070ae93"
+ *             name: "scalingPolicyName",
+ *             value: "ECSManagedAutoScalingPolicy-152363a6-8c65-484c-b721-42c3e070ae93"
  *           }
  *         ],
- *         "id": "069d002b-7634-42e4-b1d4-544f4c8f6380",
- *         "status": "CREATED"
+ *         id: "069d002b-7634-42e4-b1d4-544f4c8f6380",
+ *         status: "CREATED",
+ *         type: "as_policy"
  *       },
  *       {
- *         "type": "managed_draining",
- *         "details": [
+ *         details: [
  *           {
- *             "name": "capacityProviderName",
- *             "value": "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt"
+ *             name: "capacityProviderName",
+ *             value: "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt"
  *           },
  *           {
- *             "name": "autoScalingLifecycleHookName",
- *             "value": "ecs-managed-draining-termination-hook"
+ *             name: "autoScalingLifecycleHookName",
+ *             value: "ecs-managed-draining-termination-hook"
  *           }
  *         ],
- *         "id": "08b5b6ca-45e9-4209-a65d-e962a27c490a",
- *         "status": "CREATED"
+ *         id: "08b5b6ca-45e9-4209-a65d-e962a27c490a",
+ *         status: "CREATED",
+ *         type: "managed_draining"
  *       },
  *       {
- *         "type": "sc",
- *         "details": [],
- *         "id": "45d0b36f-8cff-46b6-9380-1288744802ab",
- *         "status": "DELETED"
+ *         details:         [],
+ *         id: "45d0b36f-8cff-46b6-9380-1288744802ab",
+ *         status: "DELETED",
+ *         type: "sc"
  *       },
  *       {
- *         "type": "sc",
- *         "details": [],
- *         "id": "3e6890c3-609c-4832-91de-d6ca891b3ef1",
- *         "status": "ATTACHED"
+ *         details:         [],
+ *         id: "3e6890c3-609c-4832-91de-d6ca891b3ef1",
+ *         status: "ATTACHED",
+ *         type: "sc"
  *       },
  *       {
- *         "type": "sc",
- *         "details": [],
- *         "id": "961b8ec1-c2f1-4070-8495-e669b7668e90",
- *         "status": "DELETED"
+ *         details:         [],
+ *         id: "961b8ec1-c2f1-4070-8495-e669b7668e90",
+ *         status: "DELETED",
+ *         type: "sc"
  *       }
  *     ],
- *     "attachmentsStatus": "UPDATE_COMPLETE",
- *     "capacityProviders": [
+ *     attachmentsStatus: "UPDATE_COMPLETE",
+ *     capacityProviders: [
  *       "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt"
  *     ],
- *     "clusterArn": "arn:aws:ecs:us-west-2:123456789012:cluster/ECS-project-update-cluster",
- *     "clusterName": "ECS-project-update-cluster",
- *     "defaultCapacityProviderStrategy": [
+ *     clusterArn: "arn:aws:ecs:us-west-2:123456789012:cluster/ECS-project-update-cluster",
+ *     clusterName: "ECS-project-update-cluster",
+ *     defaultCapacityProviderStrategy: [
  *       {
- *         "base": 0,
- *         "capacityProvider": "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt",
- *         "weight": 1
+ *         base: 0,
+ *         capacityProvider: "Infra-ECS-Cluster-ECS-project-update-cluster-d6bb6d5b-EC2CapacityProvider-3fIpdkLywwFt",
+ *         weight: 1
  *       }
  *     ],
- *     "pendingTasksCount": 0,
- *     "registeredContainerInstancesCount": 0,
- *     "runningTasksCount": 0,
- *     "serviceConnectDefaults": {
- *       "namespace": "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-dtjmxqpfi46ht7dr"
+ *     pendingTasksCount: 0,
+ *     registeredContainerInstancesCount: 0,
+ *     runningTasksCount: 0,
+ *     serviceConnectDefaults: {
+ *       namespace: "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-dtjmxqpfi46ht7dr"
  *     },
- *     "settings": [
+ *     settings: [
  *       {
- *         "name": "containerInsights",
- *         "value": "enhanced"
+ *         name: "containerInsights",
+ *         value: "enhanced"
  *       }
  *     ],
- *     "statistics": [],
- *     "status": "ACTIVE",
- *     "tags": []
+ *     statistics:     [],
+ *     status: "ACTIVE",
+ *     tags:     []
  *   }
  * }
  * *\/
- * // example id: to-update-a-clusters-service-connect-defaults-1734626891648
  * ```
  *
+ * @public
  */
 export class UpdateClusterCommand extends $Command
   .classBuilder<

@@ -83,6 +83,7 @@ export interface PutDashboardCommandOutput extends PutDashboardOutput, __Metadat
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class PutDashboardCommand extends $Command

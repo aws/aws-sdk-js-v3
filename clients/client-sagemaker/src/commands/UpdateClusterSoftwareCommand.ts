@@ -68,6 +68,7 @@ export interface UpdateClusterSoftwareCommandOutput extends UpdateClusterSoftwar
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateClusterSoftwareCommand extends $Command

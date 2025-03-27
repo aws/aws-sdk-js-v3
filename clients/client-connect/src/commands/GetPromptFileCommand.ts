@@ -73,6 +73,7 @@ export interface GetPromptFileCommandOutput extends GetPromptFileResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class GetPromptFileCommand extends $Command

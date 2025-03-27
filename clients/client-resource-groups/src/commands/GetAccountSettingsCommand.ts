@@ -73,6 +73,7 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsOutpu
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class GetAccountSettingsCommand extends $Command

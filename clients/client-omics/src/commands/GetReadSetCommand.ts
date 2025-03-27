@@ -45,6 +45,11 @@ export interface GetReadSetCommandOutput extends Omit<GetReadSetResponse, "paylo
  * };
  * const command = new GetReadSetCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.payload.transformToByteArray();
+ * // const str = await response.payload.transformToString();
+ * // response.payload.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetReadSetResponse
  * //   payload: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * // };
@@ -83,6 +88,7 @@ export interface GetReadSetCommandOutput extends Omit<GetReadSetResponse, "paylo
  *
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
+ *
  *
  * @public
  */

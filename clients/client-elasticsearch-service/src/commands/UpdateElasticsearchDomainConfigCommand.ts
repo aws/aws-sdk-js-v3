@@ -388,6 +388,7 @@ export interface UpdateElasticsearchDomainConfigCommandOutput
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ *
  * @public
  */
 export class UpdateElasticsearchDomainConfigCommand extends $Command

@@ -95,45 +95,45 @@ export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __Met
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
- * @public
+ *
  * @example To describe available voices
  * ```javascript
  * // Returns the list of voices that are available for use when requesting speech synthesis. Displayed languages are those within the specified language code. If no language code is specified, voices for all available languages are displayed.
  * const input = {
- *   "LanguageCode": "en-GB"
+ *   LanguageCode: "en-GB"
  * };
  * const command = new DescribeVoicesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Voices": [
+ *   Voices: [
  *     {
- *       "Gender": "Female",
- *       "Id": "Emma",
- *       "LanguageCode": "en-GB",
- *       "LanguageName": "British English",
- *       "Name": "Emma"
+ *       Gender: "Female",
+ *       Id: "Emma",
+ *       LanguageCode: "en-GB",
+ *       LanguageName: "British English",
+ *       Name: "Emma"
  *     },
  *     {
- *       "Gender": "Male",
- *       "Id": "Brian",
- *       "LanguageCode": "en-GB",
- *       "LanguageName": "British English",
- *       "Name": "Brian"
+ *       Gender: "Male",
+ *       Id: "Brian",
+ *       LanguageCode: "en-GB",
+ *       LanguageName: "British English",
+ *       Name: "Brian"
  *     },
  *     {
- *       "Gender": "Female",
- *       "Id": "Amy",
- *       "LanguageCode": "en-GB",
- *       "LanguageName": "British English",
- *       "Name": "Amy"
+ *       Gender: "Female",
+ *       Id: "Amy",
+ *       LanguageCode: "en-GB",
+ *       LanguageName: "British English",
+ *       Name: "Amy"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-available-voices-1482180557753
  * ```
  *
+ * @public
  */
 export class DescribeVoicesCommand extends $Command
   .classBuilder<

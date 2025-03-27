@@ -81,6 +81,7 @@ export interface PutApplicationAccessScopeCommandOutput extends __MetadataBearer
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class PutApplicationAccessScopeCommand extends $Command

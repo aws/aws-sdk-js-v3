@@ -86,6 +86,7 @@ export interface ListDataSetImportHistoryCommandOutput extends ListDataSetImport
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ *
  * @public
  */
 export class ListDataSetImportHistoryCommand extends $Command

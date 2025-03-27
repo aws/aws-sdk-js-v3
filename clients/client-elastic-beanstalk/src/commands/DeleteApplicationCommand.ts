@@ -63,18 +63,21 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To delete an application
  * ```javascript
  * // The following operation deletes an application named my-app:
  * const input = {
- *   "ApplicationName": "my-app"
+ *   ApplicationName: "my-app"
  * };
  * const command = new DeleteApplicationCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-application-1456269699366
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteApplicationCommand extends $Command
   .classBuilder<

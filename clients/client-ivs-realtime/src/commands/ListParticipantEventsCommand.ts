@@ -75,6 +75,7 @@ export interface ListParticipantEventsCommandOutput extends ListParticipantEvent
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class ListParticipantEventsCommand extends $Command

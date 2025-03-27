@@ -106,6 +106,7 @@ export interface ListIntentPathsCommandOutput extends ListIntentPathsResponse, _
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class ListIntentPathsCommand extends $Command

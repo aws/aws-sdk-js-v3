@@ -97,6 +97,7 @@ export interface CreateDataGrantCommandOutput extends CreateDataGrantResponse, _
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class CreateDataGrantCommand extends $Command

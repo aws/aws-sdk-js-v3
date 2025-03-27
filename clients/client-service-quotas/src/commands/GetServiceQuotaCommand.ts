@@ -107,6 +107,7 @@ export interface GetServiceQuotaCommandOutput extends GetServiceQuotaResponse, _
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ *
  * @public
  */
 export class GetServiceQuotaCommand extends $Command

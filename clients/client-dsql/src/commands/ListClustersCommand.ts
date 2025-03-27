@@ -78,18 +78,21 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * @throws {@link DSQLServiceException}
  * <p>Base exception class for all service exceptions from DSQL service.</p>
  *
- * @public
+ *
  * @example List Clusters
  * ```javascript
  * //
  * const input = {
- *   "maxResults": 20
+ *   maxResults: 20
  * };
  * const command = new ListClustersCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ListClustersCommand extends $Command
   .classBuilder<

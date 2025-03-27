@@ -80,6 +80,7 @@ export interface DeleteApplicationAccessScopeCommandOutput extends __MetadataBea
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class DeleteApplicationAccessScopeCommand extends $Command

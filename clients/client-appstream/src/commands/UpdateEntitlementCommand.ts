@@ -89,6 +89,7 @@ export interface UpdateEntitlementCommandOutput extends UpdateEntitlementResult,
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class UpdateEntitlementCommand extends $Command

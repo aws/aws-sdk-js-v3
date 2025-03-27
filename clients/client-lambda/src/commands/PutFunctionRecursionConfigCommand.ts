@@ -77,6 +77,7 @@ export interface PutFunctionRecursionConfigCommandOutput extends PutFunctionRecu
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class PutFunctionRecursionConfigCommand extends $Command

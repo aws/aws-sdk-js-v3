@@ -112,6 +112,7 @@ export interface StartAsyncInvokeCommandOutput extends StartAsyncInvokeResponse,
  * @throws {@link BedrockRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockRuntime service.</p>
  *
+ *
  * @public
  */
 export class StartAsyncInvokeCommand extends $Command

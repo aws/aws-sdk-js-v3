@@ -149,6 +149,7 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  * @throws {@link ResourceGroupsTaggingAPIServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
+ *
  * @public
  */
 export class TagResourcesCommand extends $Command

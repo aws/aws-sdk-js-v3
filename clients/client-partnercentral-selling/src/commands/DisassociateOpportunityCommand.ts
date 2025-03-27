@@ -98,6 +98,7 @@ export interface DisassociateOpportunityCommandOutput extends __MetadataBearer {
  * @throws {@link PartnerCentralSellingServiceException}
  * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>
  *
+ *
  * @public
  */
 export class DisassociateOpportunityCommand extends $Command

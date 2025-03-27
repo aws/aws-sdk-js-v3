@@ -78,21 +78,24 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
- * @public
+ *
  * @example To delete tags for an EFS file system
  * ```javascript
  * // This operation deletes tags for an EFS file system.
  * const input = {
- *   "FileSystemId": "fs-01234567",
- *   "TagKeys": [
+ *   FileSystemId: "fs-01234567",
+ *   TagKeys: [
  *     "Name"
  *   ]
  * };
  * const command = new DeleteTagsCommand(input);
- * await client.send(command);
- * // example id: to-delete-tags-for-an-efs-file-system-1481848189061
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteTagsCommand extends $Command
   .classBuilder<

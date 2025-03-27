@@ -95,6 +95,7 @@ export interface ListAccessControlRulesCommandOutput extends ListAccessControlRu
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class ListAccessControlRulesCommand extends $Command

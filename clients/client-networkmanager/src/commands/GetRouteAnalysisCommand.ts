@@ -135,6 +135,7 @@ export interface GetRouteAnalysisCommandOutput extends GetRouteAnalysisResponse,
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetRouteAnalysisCommand extends $Command

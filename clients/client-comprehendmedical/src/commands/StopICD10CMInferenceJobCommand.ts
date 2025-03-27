@@ -70,6 +70,7 @@ export interface StopICD10CMInferenceJobCommandOutput extends StopICD10CMInferen
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ *
  * @public
  */
 export class StopICD10CMInferenceJobCommand extends $Command

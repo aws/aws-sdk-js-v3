@@ -79,6 +79,7 @@ export interface GetScanCommandOutput extends GetScanResponse, __MetadataBearer 
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ *
  * @public
  */
 export class GetScanCommand extends $Command

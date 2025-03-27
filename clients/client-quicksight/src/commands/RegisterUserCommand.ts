@@ -117,6 +117,7 @@ export interface RegisterUserCommandOutput extends RegisterUserResponse, __Metad
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class RegisterUserCommand extends $Command

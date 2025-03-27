@@ -93,6 +93,7 @@ export interface ListCollaborationPrivacyBudgetTemplatesCommandOutput
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class ListCollaborationPrivacyBudgetTemplatesCommand extends $Command

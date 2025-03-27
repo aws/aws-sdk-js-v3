@@ -66,6 +66,7 @@ export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostO
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class EstimateTemplateCostCommand extends $Command

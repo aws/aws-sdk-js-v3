@@ -92,6 +92,7 @@ export interface ListServiceLevelObjectiveExclusionWindowsCommandOutput
  * @throws {@link ApplicationSignalsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationSignals service.</p>
  *
+ *
  * @public
  */
 export class ListServiceLevelObjectiveExclusionWindowsCommand extends $Command

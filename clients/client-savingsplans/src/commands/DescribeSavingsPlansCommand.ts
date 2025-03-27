@@ -106,6 +106,7 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  * @throws {@link SavingsplansServiceException}
  * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
+ *
  * @public
  */
 export class DescribeSavingsPlansCommand extends $Command

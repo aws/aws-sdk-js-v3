@@ -124,6 +124,7 @@ export interface UpdateMarketplaceModelEndpointCommandOutput
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class UpdateMarketplaceModelEndpointCommand extends $Command

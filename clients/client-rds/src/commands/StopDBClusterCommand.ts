@@ -262,33 +262,33 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To stop a DB cluster
  * ```javascript
  * // The following example stops a DB cluster and its DB instances.
  * const input = {
- *   "DBClusterIdentifier": "mydbcluster"
+ *   DBClusterIdentifier: "mydbcluster"
  * };
  * const command = new StopDBClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBCluster": {
- *     "AllocatedStorage": 1,
- *     "AvailabilityZones": [
+ *   DBCluster: {
+ *     AllocatedStorage: 1,
+ *     AvailabilityZones: [
  *       "us-east-1a",
  *       "us-east-1e",
  *       "us-east-1b"
  *     ],
- *     "BackupRetentionPeriod": 1,
- *     "DBClusterIdentifier": "mydbcluster",
- *     "DatabaseName": "mydb"
+ *     BackupRetentionPeriod: 1,
+ *     DBClusterIdentifier: "mydbcluster",
+ *     DatabaseName: "mydb"
  *   }
  * }
  * *\/
- * // example id: to-stop-a-db-cluster-1679701988603
  * ```
  *
+ * @public
  */
 export class StopDBClusterCommand extends $Command
   .classBuilder<

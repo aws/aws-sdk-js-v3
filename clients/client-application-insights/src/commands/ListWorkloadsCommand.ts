@@ -82,6 +82,7 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsResponse, __Met
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class ListWorkloadsCommand extends $Command

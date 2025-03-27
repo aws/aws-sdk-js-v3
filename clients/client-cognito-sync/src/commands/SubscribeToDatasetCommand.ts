@@ -121,6 +121,7 @@ export interface SubscribeToDatasetCommandOutput extends SubscribeToDatasetRespo
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class SubscribeToDatasetCommand extends $Command

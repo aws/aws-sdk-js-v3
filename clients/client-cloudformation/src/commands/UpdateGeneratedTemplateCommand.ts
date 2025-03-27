@@ -87,74 +87,72 @@ export interface UpdateGeneratedTemplateCommandOutput extends UpdateGeneratedTem
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
- * @public
+ *
+ * @example To add resources to a generated template
+ * ```javascript
+ * // This example adds resources to a generated template
+ * const input = {
+ *   AddResources: [
+ *     {
+ *       ResourceIdentifier: {
+ *         BucketName: "jazz-bucket"
+ *       },
+ *       ResourceType: "AWS::S3::Bucket"
+ *     },
+ *     {
+ *       ResourceIdentifier: {
+ *         DhcpOptionsId: "random-id123"
+ *       },
+ *       ResourceType: "AWS::EC2::DHCPOptions"
+ *     }
+ *   ],
+ *   GeneratedTemplateName: "JazzyTemplate"
+ * };
+ * const command = new UpdateGeneratedTemplateCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   GeneratedTemplateId: "arn:aws:cloudformation:us-east-1:123456789012:generatedtemplate/88f09db1-d211-4cb7-964b-434e2b8469ca"
+ * }
+ * *\/
+ * ```
+ *
  * @example To update a generated template's name
  * ```javascript
  * // This example updates a generated template with a new name.
  * const input = {
- *   "GeneratedTemplateName": "JazzyTemplate",
- *   "NewGeneratedTemplateName": "JazzierTemplate"
+ *   GeneratedTemplateName: "JazzyTemplate",
+ *   NewGeneratedTemplateName: "JazzierTemplate"
  * };
  * const command = new UpdateGeneratedTemplateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GeneratedTemplateId": "arn:aws:cloudformation:us-east-1:123456789012:generatedtemplate/88f09db1-d211-4cb7-964b-434e2b8469ca"
+ *   GeneratedTemplateId: "arn:aws:cloudformation:us-east-1:123456789012:generatedtemplate/88f09db1-d211-4cb7-964b-434e2b8469ca"
  * }
  * *\/
- * // example id: to-update-a-generated-template-new-name
  * ```
  *
  * @example To remove resources from a generated template
  * ```javascript
  * // This example removes resources from a generated template
  * const input = {
- *   "GeneratedTemplateName": "JazzyTemplate",
- *   "RemoveResources": [
+ *   GeneratedTemplateName: "JazzyTemplate",
+ *   RemoveResources: [
  *     "LogicalResourceId1",
  *     "LogicalResourceId2"
  *   ]
  * };
  * const command = new UpdateGeneratedTemplateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GeneratedTemplateId": "arn:aws:cloudformation:us-east-1:123456789012:generatedtemplate/88f09db1-d211-4cb7-964b-434e2b8469ca"
+ *   GeneratedTemplateId: "arn:aws:cloudformation:us-east-1:123456789012:generatedtemplate/88f09db1-d211-4cb7-964b-434e2b8469ca"
  * }
  * *\/
- * // example id: to-update-a-generated-template-remove-resources
  * ```
  *
- * @example To add resources to a generated template
- * ```javascript
- * // This example adds resources to a generated template
- * const input = {
- *   "AddResources": [
- *     {
- *       "ResourceIdentifier": {
- *         "BucketName": "jazz-bucket"
- *       },
- *       "ResourceType": "AWS::S3::Bucket"
- *     },
- *     {
- *       "ResourceIdentifier": {
- *         "DhcpOptionsId": "random-id123"
- *       },
- *       "ResourceType": "AWS::EC2::DHCPOptions"
- *     }
- *   ],
- *   "GeneratedTemplateName": "JazzyTemplate"
- * };
- * const command = new UpdateGeneratedTemplateCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "GeneratedTemplateId": "arn:aws:cloudformation:us-east-1:123456789012:generatedtemplate/88f09db1-d211-4cb7-964b-434e2b8469ca"
- * }
- * *\/
- * // example id: to-update-a-generated-template-add-resources
- * ```
- *
+ * @public
  */
 export class UpdateGeneratedTemplateCommand extends $Command
   .classBuilder<

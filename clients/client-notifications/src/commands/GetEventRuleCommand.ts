@@ -87,6 +87,7 @@ export interface GetEventRuleCommandOutput extends GetEventRuleResponse, __Metad
  * @throws {@link NotificationsServiceException}
  * <p>Base exception class for all service exceptions from Notifications service.</p>
  *
+ *
  * @public
  */
 export class GetEventRuleCommand extends $Command

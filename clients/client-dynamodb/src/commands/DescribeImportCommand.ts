@@ -148,6 +148,7 @@ export interface DescribeImportCommandOutput extends DescribeImportOutput, __Met
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeImportCommand extends $Command

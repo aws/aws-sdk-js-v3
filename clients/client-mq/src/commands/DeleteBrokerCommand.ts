@@ -67,6 +67,7 @@ export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __Metad
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ *
  * @public
  */
 export class DeleteBrokerCommand extends $Command

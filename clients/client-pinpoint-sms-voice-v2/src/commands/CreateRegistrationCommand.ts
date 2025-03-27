@@ -104,6 +104,7 @@ export interface CreateRegistrationCommandOutput extends CreateRegistrationResul
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateRegistrationCommand extends $Command

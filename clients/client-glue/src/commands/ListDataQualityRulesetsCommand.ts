@@ -99,6 +99,7 @@ export interface ListDataQualityRulesetsCommandOutput extends ListDataQualityRul
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class ListDataQualityRulesetsCommand extends $Command

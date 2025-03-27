@@ -80,6 +80,7 @@ export interface ListEventTypesCommandOutput extends ListEventTypesResult, __Met
  * @throws {@link CodestarNotificationsServiceException}
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ *
  * @public
  */
 export class ListEventTypesCommand extends $Command

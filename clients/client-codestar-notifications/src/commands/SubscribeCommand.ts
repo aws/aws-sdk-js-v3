@@ -75,6 +75,7 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  * @throws {@link CodestarNotificationsServiceException}
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ *
  * @public
  */
 export class SubscribeCommand extends $Command

@@ -209,33 +209,33 @@ export interface ListChildrenCommandOutput extends ListChildrenResponse, __Metad
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To retrieve a list of all of the child accounts and OUs in a parent root or OU
  * ```javascript
  * // The following example shows how to request a list of the child OUs in a parent root or OU:/n/n
  * const input = {
- *   "ChildType": "ORGANIZATIONAL_UNIT",
- *   "ParentId": "ou-examplerootid111-exampleouid111"
+ *   ChildType: "ORGANIZATIONAL_UNIT",
+ *   ParentId: "ou-examplerootid111-exampleouid111"
  * };
  * const command = new ListChildrenCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Children": [
+ *   Children: [
  *     {
- *       "Id": "ou-examplerootid111-exampleouid111",
- *       "Type": "ORGANIZATIONAL_UNIT"
+ *       Id: "ou-examplerootid111-exampleouid111",
+ *       Type: "ORGANIZATIONAL_UNIT"
  *     },
  *     {
- *       "Id": "ou-examplerootid111-exampleouid222",
- *       "Type": "ORGANIZATIONAL_UNIT"
+ *       Id: "ou-examplerootid111-exampleouid222",
+ *       Type: "ORGANIZATIONAL_UNIT"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-a-list-of-all-of-the-child-accounts-and-OUs-in-a-parent-container
  * ```
  *
+ * @public
  */
 export class ListChildrenCommand extends $Command
   .classBuilder<

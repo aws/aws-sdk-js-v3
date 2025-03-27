@@ -174,67 +174,67 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To update Security Hub findings
  * ```javascript
  * // The following example updates Security Hub findings. The finding identifier parameter specifies which findings to update. Only specific finding fields can be updated with this operation.
  * const input = {
- *   "Confidence": 80,
- *   "Criticality": 80,
- *   "FindingIdentifiers": [
+ *   Confidence: 80,
+ *   Criticality: 80,
+ *   FindingIdentifiers: [
  *     {
- *       "Id": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "ProductArn": "arn:aws:securityhub:us-west-1::product/aws/securityhub"
+ *       Id: "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       ProductArn: "arn:aws:securityhub:us-west-1::product/aws/securityhub"
  *     },
  *     {
- *       "Id": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
- *       "ProductArn": "arn:aws:securityhub:us-west-1::product/aws/securityhub"
+ *       Id: "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+ *       ProductArn: "arn:aws:securityhub:us-west-1::product/aws/securityhub"
  *     }
  *   ],
- *   "Note": {
- *     "Text": "Known issue that is not a risk.",
- *     "UpdatedBy": "user1"
+ *   Note: {
+ *     Text: "Known issue that is not a risk.",
+ *     UpdatedBy: "user1"
  *   },
- *   "RelatedFindings": [
+ *   RelatedFindings: [
  *     {
- *       "Id": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
- *       "ProductArn": "arn:aws:securityhub:us-west-1::product/aws/securityhub"
+ *       Id: "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+ *       ProductArn: "arn:aws:securityhub:us-west-1::product/aws/securityhub"
  *     }
  *   ],
- *   "Severity": {
- *     "Label": "LOW"
+ *   Severity: {
+ *     Label: "LOW"
  *   },
- *   "Types": [
+ *   Types: [
  *     "Software and Configuration Checks/Vulnerabilities/CVE"
  *   ],
- *   "UserDefinedFields": {
- *     "reviewedByCio": "true"
+ *   UserDefinedFields: {
+ *     reviewedByCio: "true"
  *   },
- *   "VerificationState": "TRUE_POSITIVE",
- *   "Workflow": {
- *     "Status": "RESOLVED"
+ *   VerificationState: "TRUE_POSITIVE",
+ *   Workflow: {
+ *     Status: "RESOLVED"
  *   }
  * };
  * const command = new BatchUpdateFindingsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ProcessedFindings": [
+ *   ProcessedFindings: [
  *     {
- *       "Id": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "ProductArn": "arn:aws:securityhub:us-west-1::product/aws/securityhub"
+ *       Id: "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       ProductArn: "arn:aws:securityhub:us-west-1::product/aws/securityhub"
  *     },
  *     {
- *       "Id": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
- *       "ProductArn": "arn:aws:securityhub:us-west-1::product/aws/securityhub"
+ *       Id: "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+ *       ProductArn: "arn:aws:securityhub:us-west-1::product/aws/securityhub"
  *     }
  *   ],
- *   "UnprocessedFindings": []
+ *   UnprocessedFindings:   []
  * }
  * *\/
- * // example id: to-update-security-hub-findings-1675183938248
  * ```
  *
+ * @public
  */
 export class BatchUpdateFindingsCommand extends $Command
   .classBuilder<

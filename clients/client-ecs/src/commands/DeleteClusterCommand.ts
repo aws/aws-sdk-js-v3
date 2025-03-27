@@ -177,31 +177,31 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To delete an empty cluster
  * ```javascript
  * // This example deletes an empty cluster in your default region.
  * const input = {
- *   "cluster": "my_cluster"
+ *   cluster: "my_cluster"
  * };
  * const command = new DeleteClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "cluster": {
- *     "activeServicesCount": 0,
- *     "clusterArn": "arn:aws:ecs:us-east-1:012345678910:cluster/my_cluster",
- *     "clusterName": "my_cluster",
- *     "pendingTasksCount": 0,
- *     "registeredContainerInstancesCount": 0,
- *     "runningTasksCount": 0,
- *     "status": "INACTIVE"
+ *   cluster: {
+ *     activeServicesCount: 0,
+ *     clusterArn: "arn:aws:ecs:us-east-1:012345678910:cluster/my_cluster",
+ *     clusterName: "my_cluster",
+ *     pendingTasksCount: 0,
+ *     registeredContainerInstancesCount: 0,
+ *     runningTasksCount: 0,
+ *     status: "INACTIVE"
  *   }
  * }
  * *\/
- * // example id: to-delete-an-empty-cluster-1472512705352
  * ```
  *
+ * @public
  */
 export class DeleteClusterCommand extends $Command
   .classBuilder<

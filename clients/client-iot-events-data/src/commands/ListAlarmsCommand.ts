@@ -83,6 +83,7 @@ export interface ListAlarmsCommandOutput extends ListAlarmsResponse, __MetadataB
  * @throws {@link IoTEventsDataServiceException}
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
+ *
  * @public
  */
 export class ListAlarmsCommand extends $Command

@@ -84,6 +84,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookResult, __Metad
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class CreateWebhookCommand extends $Command

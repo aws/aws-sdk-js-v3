@@ -157,6 +157,7 @@ export interface DescribeTrustedAdvisorCheckResultCommandOutput
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ *
  * @public
  */
 export class DescribeTrustedAdvisorCheckResultCommand extends $Command

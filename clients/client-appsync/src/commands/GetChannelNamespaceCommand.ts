@@ -93,6 +93,7 @@ export interface GetChannelNamespaceCommandOutput extends GetChannelNamespaceRes
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class GetChannelNamespaceCommand extends $Command

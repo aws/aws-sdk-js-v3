@@ -84,6 +84,7 @@ export interface DescribeDefaultQBusinessApplicationCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeDefaultQBusinessApplicationCommand extends $Command

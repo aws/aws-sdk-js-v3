@@ -171,33 +171,33 @@ export interface DescribeJobCommandOutput extends GlacierJobDescription, __Metad
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To get information about a previously initiated job
  * ```javascript
  * // The example returns information about the previously initiated job specified by the job ID.
  * const input = {
- *   "accountId": "-",
- *   "jobId": "zbxcm3Z_3z5UkoroF7SuZKrxgGoDc3RloGduS7Eg-RO47Yc6FxsdGBgf_Q2DK5Ejh18CnTS5XW4_XqlNHS61dsO4Cn",
- *   "vaultName": "my-vault"
+ *   accountId: "-",
+ *   jobId: "zbxcm3Z_3z5UkoroF7SuZKrxgGoDc3RloGduS7Eg-RO47Yc6FxsdGBgf_Q2DK5Ejh18CnTS5XW4_XqlNHS61dsO4Cn",
+ *   vaultName: "my-vault"
  * };
  * const command = new DescribeJobCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Action": "InventoryRetrieval",
- *   "Completed": false,
- *   "CreationDate": "2015-07-17T20:23:41.616Z",
- *   "InventoryRetrievalParameters": {
- *     "Format": "JSON"
+ *   Action: "InventoryRetrieval",
+ *   Completed: false,
+ *   CreationDate: "2015-07-17T20:23:41.616Z",
+ *   InventoryRetrievalParameters: {
+ *     Format: "JSON"
  *   },
- *   "JobId": "zbxcm3Z_3z5UkoroF7SuZKrxgGoDc3RloGduS7Eg-RO47Yc6FxsdGBgf_Q2DK5Ejh18CnTS5XW4_XqlNHS61dsO4CnMW",
- *   "StatusCode": "InProgress",
- *   "VaultARN": "arn:aws:glacier:us-west-2:0123456789012:vaults/my-vault"
+ *   JobId: "zbxcm3Z_3z5UkoroF7SuZKrxgGoDc3RloGduS7Eg-RO47Yc6FxsdGBgf_Q2DK5Ejh18CnTS5XW4_XqlNHS61dsO4CnMW",
+ *   StatusCode: "InProgress",
+ *   VaultARN: "arn:aws:glacier:us-west-2:0123456789012:vaults/my-vault"
  * }
  * *\/
- * // example id: to-get-information-about-a-job-you-previously-initiated-1481840928592
  * ```
  *
+ * @public
  */
 export class DescribeJobCommand extends $Command
   .classBuilder<

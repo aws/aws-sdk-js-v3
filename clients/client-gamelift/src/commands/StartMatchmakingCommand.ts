@@ -168,6 +168,7 @@ export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, _
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class StartMatchmakingCommand extends $Command

@@ -80,6 +80,7 @@ export interface ListSuiteRunsCommandOutput extends ListSuiteRunsResponse, __Met
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ *
  * @public
  */
 export class ListSuiteRunsCommand extends $Command

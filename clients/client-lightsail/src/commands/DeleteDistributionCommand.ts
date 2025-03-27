@@ -97,6 +97,7 @@ export interface DeleteDistributionCommandOutput extends DeleteDistributionResul
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class DeleteDistributionCommand extends $Command

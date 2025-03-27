@@ -88,6 +88,7 @@ export interface GetAuthorizersCommandOutput extends GetAuthorizersResponse, __M
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class GetAuthorizersCommand extends $Command

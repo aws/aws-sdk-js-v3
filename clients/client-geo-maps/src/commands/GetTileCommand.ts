@@ -88,6 +88,7 @@ export interface GetTileCommandOutput extends GetTileCommandOutputType, __Metada
  * @throws {@link GeoMapsServiceException}
  * <p>Base exception class for all service exceptions from GeoMaps service.</p>
  *
+ *
  * @public
  */
 export class GetTileCommand extends $Command

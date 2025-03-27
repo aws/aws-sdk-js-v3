@@ -87,6 +87,7 @@ export interface DescribeAuthorizerCommandOutput extends DescribeAuthorizerRespo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeAuthorizerCommand extends $Command

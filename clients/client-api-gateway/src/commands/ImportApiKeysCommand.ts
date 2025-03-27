@@ -87,6 +87,7 @@ export interface ImportApiKeysCommandOutput extends ApiKeyIds, __MetadataBearer 
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class ImportApiKeysCommand extends $Command

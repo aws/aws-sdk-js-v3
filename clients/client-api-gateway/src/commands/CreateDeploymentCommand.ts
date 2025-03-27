@@ -102,6 +102,7 @@ export interface CreateDeploymentCommandOutput extends Deployment, __MetadataBea
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class CreateDeploymentCommand extends $Command

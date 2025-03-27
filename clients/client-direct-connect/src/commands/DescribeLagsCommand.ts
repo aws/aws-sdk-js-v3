@@ -134,6 +134,7 @@ export interface DescribeLagsCommandOutput extends Lags, __MetadataBearer {}
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeLagsCommand extends $Command

@@ -99,6 +99,7 @@ export interface ListConfigurationHistoryCommandOutput extends ListConfiguration
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class ListConfigurationHistoryCommand extends $Command

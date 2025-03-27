@@ -83,6 +83,7 @@ export interface UpdateClusterKafkaVersionCommandOutput extends UpdateClusterKaf
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class UpdateClusterKafkaVersionCommand extends $Command

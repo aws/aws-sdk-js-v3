@@ -75,6 +75,7 @@ export interface DeregisterAppInstanceUserEndpointCommandOutput extends __Metada
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ *
  * @public
  */
 export class DeregisterAppInstanceUserEndpointCommand extends $Command

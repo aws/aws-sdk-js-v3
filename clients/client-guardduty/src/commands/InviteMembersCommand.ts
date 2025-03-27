@@ -96,6 +96,7 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class InviteMembersCommand extends $Command

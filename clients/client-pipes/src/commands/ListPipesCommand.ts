@@ -89,6 +89,7 @@ export interface ListPipesCommandOutput extends ListPipesResponse, __MetadataBea
  * @throws {@link PipesServiceException}
  * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ *
  * @public
  */
 export class ListPipesCommand extends $Command

@@ -80,6 +80,7 @@ export interface ListMetricStreamsCommandOutput extends ListMetricStreamsOutput,
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class ListMetricStreamsCommand extends $Command

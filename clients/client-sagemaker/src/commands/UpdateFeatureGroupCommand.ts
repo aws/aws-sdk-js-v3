@@ -99,6 +99,7 @@ export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupRespo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateFeatureGroupCommand extends $Command

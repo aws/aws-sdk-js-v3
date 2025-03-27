@@ -134,6 +134,7 @@ export interface DescribeAuditFindingCommandOutput extends DescribeAuditFindingR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeAuditFindingCommand extends $Command

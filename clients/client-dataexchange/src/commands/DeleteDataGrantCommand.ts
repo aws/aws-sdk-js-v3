@@ -68,6 +68,7 @@ export interface DeleteDataGrantCommandOutput extends __MetadataBearer {}
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class DeleteDataGrantCommand extends $Command

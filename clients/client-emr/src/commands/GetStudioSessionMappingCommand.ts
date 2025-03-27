@@ -74,6 +74,7 @@ export interface GetStudioSessionMappingCommandOutput extends GetStudioSessionMa
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class GetStudioSessionMappingCommand extends $Command

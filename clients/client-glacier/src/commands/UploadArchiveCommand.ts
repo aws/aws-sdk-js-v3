@@ -112,29 +112,29 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To upload an archive
  * ```javascript
  * // The example adds an archive to a vault.
  * const input = {
- *   "accountId": "-",
- *   "archiveDescription": "",
- *   "body": "example-data-to-upload",
- *   "checksum": "",
- *   "vaultName": "my-vault"
+ *   accountId: "-",
+ *   archiveDescription: "",
+ *   body: "example-data-to-upload",
+ *   checksum: "",
+ *   vaultName: "my-vault"
  * };
  * const command = new UploadArchiveCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "archiveId": "kKB7ymWJVpPSwhGP6ycSOAekp9ZYe_--zM_mw6k76ZFGEIWQX-ybtRDvc2VkPSDtfKmQrj0IRQLSGsNuDp-AJVlu2ccmDSyDUmZwKbwbpAdGATGDiB3hHO0bjbGehXTcApVud_wyDw",
- *   "checksum": "969fb39823836d81f0cc028195fcdbcbbe76cdde932d4646fa7de5f21e18aa67",
- *   "location": "/0123456789012/vaults/my-vault/archives/kKB7ymWJVpPSwhGP6ycSOAekp9ZYe_--zM_mw6k76ZFGEIWQX-ybtRDvc2VkPSDtfKmQrj0IRQLSGsNuDp-AJVlu2ccmDSyDUmZwKbwbpAdGATGDiB3hHO0bjbGehXTcApVud_wyDw"
+ *   archiveId: "kKB7ymWJVpPSwhGP6ycSOAekp9ZYe_--zM_mw6k76ZFGEIWQX-ybtRDvc2VkPSDtfKmQrj0IRQLSGsNuDp-AJVlu2ccmDSyDUmZwKbwbpAdGATGDiB3hHO0bjbGehXTcApVud_wyDw",
+ *   checksum: "969fb39823836d81f0cc028195fcdbcbbe76cdde932d4646fa7de5f21e18aa67",
+ *   location: "/0123456789012/vaults/my-vault/archives/kKB7ymWJVpPSwhGP6ycSOAekp9ZYe_--zM_mw6k76ZFGEIWQX-ybtRDvc2VkPSDtfKmQrj0IRQLSGsNuDp-AJVlu2ccmDSyDUmZwKbwbpAdGATGDiB3hHO0bjbGehXTcApVud_wyDw"
  * }
  * *\/
- * // example id: upload-archive-1481668510494
  * ```
  *
+ * @public
  */
 export class UploadArchiveCommand extends $Command
   .classBuilder<

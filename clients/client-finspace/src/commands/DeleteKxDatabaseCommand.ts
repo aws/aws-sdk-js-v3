@@ -74,6 +74,7 @@ export interface DeleteKxDatabaseCommandOutput extends DeleteKxDatabaseResponse,
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class DeleteKxDatabaseCommand extends $Command

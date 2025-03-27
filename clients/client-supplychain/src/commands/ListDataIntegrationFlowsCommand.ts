@@ -129,86 +129,86 @@ export interface ListDataIntegrationFlowsCommandOutput extends ListDataIntegrati
  * @throws {@link SupplyChainServiceException}
  * <p>Base exception class for all service exceptions from SupplyChain service.</p>
  *
- * @public
+ *
  * @example Successful ListDataIntegrationFlow
  * ```javascript
  * //
  * const input = {
- *   "instanceId": "8850c54e-e187-4fa7-89d4-6370f165174d"
+ *   instanceId: "8850c54e-e187-4fa7-89d4-6370f165174d"
  * };
  * const command = new ListDataIntegrationFlowsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "flows": [
+ *   flows: [
  *     {
- *       "name": "testStagingFlow",
- *       "createdTime": 1724956400.44,
- *       "instanceId": "8850c54e-e187-4fa7-89d4-6370f165174d",
- *       "lastModifiedTime": 1724956400.44,
- *       "sources": [
+ *       createdTime: 1.72495640044E9,
+ *       instanceId: "8850c54e-e187-4fa7-89d4-6370f165174d",
+ *       lastModifiedTime: 1.72495640044E9,
+ *       name: "testStagingFlow",
+ *       sources: [
  *         {
- *           "s3Source": {
- *             "bucketName": "aws-supply-chain-data-b8c7bb28-a576-4334-b481-6d6e8e47371f",
- *             "prefix": "example-prefix"
+ *           s3Source: {
+ *             bucketName: "aws-supply-chain-data-b8c7bb28-a576-4334-b481-6d6e8e47371f",
+ *             prefix: "example-prefix"
  *           },
- *           "sourceName": "testSourceName",
- *           "sourceType": "S3"
+ *           sourceName: "testSourceName",
+ *           sourceType: "S3"
  *         }
  *       ],
- *       "target": {
- *         "datasetTarget": {
- *           "datasetIdentifier": "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset"
+ *       target: {
+ *         datasetTarget: {
+ *           datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset"
  *         },
- *         "targetType": "DATASET"
+ *         targetType: "DATASET"
  *       },
- *       "transformation": {
- *         "sqlTransformation": {
- *           "query": "SELECT * FROM testSourceName"
+ *       transformation: {
+ *         sqlTransformation: {
+ *           query: "SELECT * FROM testSourceName"
  *         },
- *         "transformationType": "SQL"
+ *         transformationType: "SQL"
  *       }
  *     },
  *     {
- *       "name": "trading-partner",
- *       "createdTime": 17235763506.88,
- *       "instanceId": "8850c54e-e187-4fa7-89d4-6370f165174d",
- *       "lastModifiedTime": 17235763506.88,
- *       "sources": [
+ *       createdTime: 1.723576350688E10,
+ *       instanceId: "8850c54e-e187-4fa7-89d4-6370f165174d",
+ *       lastModifiedTime: 1.723576350688E10,
+ *       name: "trading-partner",
+ *       sources: [
  *         {
- *           "datasetSource": {
- *             "datasetIdentifier": "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset1"
+ *           datasetSource: {
+ *             datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset1"
  *           },
- *           "sourceName": "testSourceName1",
- *           "sourceType": "DATASET"
+ *           sourceName: "testSourceName1",
+ *           sourceType: "DATASET"
  *         },
  *         {
- *           "datasetSource": {
- *             "datasetIdentifier": "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset2"
+ *           datasetSource: {
+ *             datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset2"
  *           },
- *           "sourceName": "testSourceName2",
- *           "sourceType": "DATASET"
+ *           sourceName: "testSourceName2",
+ *           sourceType: "DATASET"
  *         }
  *       ],
- *       "target": {
- *         "datasetTarget": {
- *           "datasetIdentifier": "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/asc/datasets/trading_partner"
+ *       target: {
+ *         datasetTarget: {
+ *           datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/asc/datasets/trading_partner"
  *         },
- *         "targetType": "DATASET"
+ *         targetType: "DATASET"
  *       },
- *       "transformation": {
- *         "sqlTransformation": {
- *           "query": "SELECT S1.id AS id, S1.poc_org_unit_description AS description, S1.company_id AS company_id, S1.tpartner_type AS tpartner_type, S1.geo_id AS geo_id, S1.eff_start_date AS eff_start_date, S1.eff_end_date AS eff_end_date FROM testSourceName1 AS S1 LEFT JOIN testSourceName2 as S2 ON S1.id=S2.id"
+ *       transformation: {
+ *         sqlTransformation: {
+ *           query: "SELECT S1.id AS id, S1.poc_org_unit_description AS description, S1.company_id AS company_id, S1.tpartner_type AS tpartner_type, S1.geo_id AS geo_id, S1.eff_start_date AS eff_start_date, S1.eff_end_date AS eff_end_date FROM testSourceName1 AS S1 LEFT JOIN testSourceName2 as S2 ON S1.id=S2.id"
  *         },
- *         "transformationType": "SQL"
+ *         transformationType: "SQL"
  *       }
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListDataIntegrationFlowsCommand extends $Command
   .classBuilder<

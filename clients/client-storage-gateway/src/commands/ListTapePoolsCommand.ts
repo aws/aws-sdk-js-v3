@@ -84,6 +84,7 @@ export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __Metad
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class ListTapePoolsCommand extends $Command

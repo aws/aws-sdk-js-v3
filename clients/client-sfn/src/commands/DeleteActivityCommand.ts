@@ -56,6 +56,7 @@ export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __Met
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class DeleteActivityCommand extends $Command

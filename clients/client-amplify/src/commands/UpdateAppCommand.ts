@@ -184,6 +184,7 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class UpdateAppCommand extends $Command

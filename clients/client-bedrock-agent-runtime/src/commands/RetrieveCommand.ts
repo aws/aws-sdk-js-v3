@@ -238,6 +238,7 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ *
  * @public
  */
 export class RetrieveCommand extends $Command

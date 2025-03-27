@@ -61,6 +61,7 @@ export interface DeleteSourceCredentialsCommandOutput extends DeleteSourceCreden
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class DeleteSourceCredentialsCommand extends $Command

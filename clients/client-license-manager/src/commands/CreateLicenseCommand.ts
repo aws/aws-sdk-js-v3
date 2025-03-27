@@ -118,6 +118,7 @@ export interface CreateLicenseCommandOutput extends CreateLicenseResponse, __Met
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class CreateLicenseCommand extends $Command

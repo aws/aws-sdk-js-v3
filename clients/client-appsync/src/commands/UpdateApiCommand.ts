@@ -176,6 +176,7 @@ export interface UpdateApiCommandOutput extends UpdateApiResponse, __MetadataBea
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class UpdateApiCommand extends $Command

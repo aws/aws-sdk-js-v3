@@ -93,6 +93,31 @@ export interface CreateSolNetworkPackageCommandOutput extends CreateSolNetworkPa
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example Create a Sol network package
+ * ```javascript
+ * //
+ * const input = {
+ *   tags: {
+ *     Name: "Resource"
+ *   }
+ * };
+ * const command = new CreateSolNetworkPackageCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   arn: "arn:aws:tnb:us-west-2:123456789000:network-package/np-0d5b823eb5c2a9241",
+ *   id: "np-0d5b823eb5c2a9241",
+ *   nsdOnboardingState: "CREATED",
+ *   nsdOperationalState: "DISABLED",
+ *   nsdUsageState: "NOT_IN_USE",
+ *   tags: {
+ *     Name: "Resource"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateSolNetworkPackageCommand extends $Command

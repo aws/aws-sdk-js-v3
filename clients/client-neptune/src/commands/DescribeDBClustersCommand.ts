@@ -171,6 +171,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class DescribeDBClustersCommand extends $Command

@@ -96,6 +96,7 @@ export interface GetMigrationCommandOutput extends GetMigrationResponse, __Metad
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ *
  * @public
  */
 export class GetMigrationCommand extends $Command

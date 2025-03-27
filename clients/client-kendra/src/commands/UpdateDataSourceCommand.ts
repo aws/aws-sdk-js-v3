@@ -636,6 +636,7 @@ export interface UpdateDataSourceCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class UpdateDataSourceCommand extends $Command

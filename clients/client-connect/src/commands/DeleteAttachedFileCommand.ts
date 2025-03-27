@@ -74,6 +74,7 @@ export interface DeleteAttachedFileCommandOutput extends DeleteAttachedFileRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DeleteAttachedFileCommand extends $Command

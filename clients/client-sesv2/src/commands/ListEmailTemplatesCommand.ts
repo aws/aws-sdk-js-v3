@@ -70,6 +70,7 @@ export interface ListEmailTemplatesCommandOutput extends ListEmailTemplatesRespo
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ *
  * @public
  */
 export class ListEmailTemplatesCommand extends $Command

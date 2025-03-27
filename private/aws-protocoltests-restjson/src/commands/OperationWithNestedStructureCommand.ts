@@ -109,6 +109,7 @@ export interface OperationWithNestedStructureCommandOutput
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class OperationWithNestedStructureCommand extends $Command
   .classBuilder<

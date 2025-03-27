@@ -73,6 +73,7 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ *
  */
 export class UploadArchiveCommand extends $Command
   .classBuilder<

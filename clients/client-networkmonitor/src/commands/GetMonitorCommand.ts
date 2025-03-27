@@ -99,6 +99,7 @@ export interface GetMonitorCommandOutput extends GetMonitorOutput, __MetadataBea
  * @throws {@link NetworkMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ *
  * @public
  */
 export class GetMonitorCommand extends $Command

@@ -84,6 +84,7 @@ export interface SendEventCommandOutput extends SendEventResult, __MetadataBeare
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class SendEventCommand extends $Command

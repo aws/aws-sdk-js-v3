@@ -123,18 +123,21 @@ export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To delete imported key material
  * ```javascript
  * // The following example deletes the imported key material from the specified KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new DeleteImportedKeyMaterialCommand(input);
- * await client.send(command);
- * // example id: to-delete-imported-key-material-1478561674507
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteImportedKeyMaterialCommand extends $Command
   .classBuilder<

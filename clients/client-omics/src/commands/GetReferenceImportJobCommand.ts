@@ -93,6 +93,7 @@ export interface GetReferenceImportJobCommandOutput extends GetReferenceImportJo
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class GetReferenceImportJobCommand extends $Command

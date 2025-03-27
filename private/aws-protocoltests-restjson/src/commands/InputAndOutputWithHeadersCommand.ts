@@ -116,6 +116,7 @@ export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWi
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class InputAndOutputWithHeadersCommand extends $Command

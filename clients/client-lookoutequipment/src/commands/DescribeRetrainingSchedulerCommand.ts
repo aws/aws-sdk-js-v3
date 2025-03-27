@@ -85,31 +85,31 @@ export interface DescribeRetrainingSchedulerCommandOutput
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
- * @public
+ *
  * @example Describes a retraining scheduler
  * ```javascript
  * //
  * const input = {
- *   "ModelName": "sample-model"
+ *   ModelName: "sample-model"
  * };
  * const command = new DescribeRetrainingSchedulerCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CreatedAt": "2023-10-01T15:00:00Z",
- *   "LookbackWindow": "P360D",
- *   "ModelArn": "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "ModelName": "sample-model",
- *   "PromoteMode": "MANAGED",
- *   "RetrainingFrequency": "P1M",
- *   "RetrainingStartDate": "2023-11-01T00:00:00Z",
- *   "Status": "RUNNING",
- *   "UpdatedAt": "2023-10-01T15:00:00Z"
+ *   CreatedAt: "2023-10-01T15:00:00Z",
+ *   LookbackWindow: "P360D",
+ *   ModelArn: "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   ModelName: "sample-model",
+ *   PromoteMode: "MANAGED",
+ *   RetrainingFrequency: "P1M",
+ *   RetrainingStartDate: "2023-11-01T00:00:00Z",
+ *   Status: "RUNNING",
+ *   UpdatedAt: "2023-10-01T15:00:00Z"
  * }
  * *\/
- * // example id: describes-a-retraining-scheduler-1694019344252
  * ```
  *
+ * @public
  */
 export class DescribeRetrainingSchedulerCommand extends $Command
   .classBuilder<

@@ -95,6 +95,7 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ *
  * @public
  */
 export class SubscribeCommand extends $Command

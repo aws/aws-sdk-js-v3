@@ -72,6 +72,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ *
  * @public
  */
 export class ListConnectionsCommand extends $Command

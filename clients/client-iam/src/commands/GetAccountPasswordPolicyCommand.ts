@@ -75,32 +75,32 @@ export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswor
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To see the current account password policy
  * ```javascript
  * // The following command displays details about the password policy for the current AWS account.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new GetAccountPasswordPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "PasswordPolicy": {
- *     "AllowUsersToChangePassword": false,
- *     "ExpirePasswords": false,
- *     "HardExpiry": false,
- *     "MaxPasswordAge": 90,
- *     "MinimumPasswordLength": 8,
- *     "PasswordReusePrevention": 12,
- *     "RequireLowercaseCharacters": false,
- *     "RequireNumbers": true,
- *     "RequireSymbols": true,
- *     "RequireUppercaseCharacters": false
+ *   PasswordPolicy: {
+ *     AllowUsersToChangePassword: false,
+ *     ExpirePasswords: false,
+ *     HardExpiry: false,
+ *     MaxPasswordAge: 90,
+ *     MinimumPasswordLength: 8,
+ *     PasswordReusePrevention: 12,
+ *     RequireLowercaseCharacters: false,
+ *     RequireNumbers: true,
+ *     RequireSymbols: true,
+ *     RequireUppercaseCharacters: false
  *   }
  * }
  * *\/
- * // example id: 5e4598c7-c425-431f-8af1-19073b3c4a5f
  * ```
  *
+ * @public
  */
 export class GetAccountPasswordPolicyCommand extends $Command
   .classBuilder<

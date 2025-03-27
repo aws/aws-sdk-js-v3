@@ -74,6 +74,7 @@ export interface PutConfigurationCommandOutput extends __MetadataBearer {}
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ *
  * @public
  */
 export class PutConfigurationCommand extends $Command

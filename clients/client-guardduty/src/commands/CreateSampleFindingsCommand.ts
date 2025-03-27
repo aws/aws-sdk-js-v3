@@ -64,6 +64,7 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class CreateSampleFindingsCommand extends $Command

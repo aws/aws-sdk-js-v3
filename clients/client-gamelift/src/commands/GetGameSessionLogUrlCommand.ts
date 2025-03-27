@@ -79,6 +79,7 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class GetGameSessionLogUrlCommand extends $Command

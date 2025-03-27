@@ -89,6 +89,7 @@ export interface GetSearchResultExportJobCommandOutput extends GetSearchResultEx
  * @throws {@link BackupSearchServiceException}
  * <p>Base exception class for all service exceptions from BackupSearch service.</p>
  *
+ *
  * @public
  */
 export class GetSearchResultExportJobCommand extends $Command

@@ -98,6 +98,7 @@ export interface BatchStartCommandOutput extends BatchStartResponse, __MetadataB
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class BatchStartCommand extends $Command

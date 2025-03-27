@@ -87,6 +87,7 @@ export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, _
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ *
  * @public
  */
 export class CancelChangeSetCommand extends $Command

@@ -73,6 +73,7 @@ export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionP
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ *
  * @public
  */
 export class GetDataProtectionPolicyCommand extends $Command

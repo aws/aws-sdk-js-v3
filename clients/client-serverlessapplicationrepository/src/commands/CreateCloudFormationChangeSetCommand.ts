@@ -115,6 +115,7 @@ export interface CreateCloudFormationChangeSetCommandOutput
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ *
  * @public
  */
 export class CreateCloudFormationChangeSetCommand extends $Command

@@ -85,6 +85,7 @@ export interface ListProposalVotesCommandOutput extends ListProposalVotesOutput,
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class ListProposalVotesCommand extends $Command

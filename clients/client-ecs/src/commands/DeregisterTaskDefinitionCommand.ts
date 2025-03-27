@@ -366,46 +366,46 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To deregister a revision of a task definition
  * ```javascript
  * // This example deregisters the first revision of the curler task definition
  * const input = {
- *   "taskDefinition": "curler:1"
+ *   taskDefinition: "curler:1"
  * };
  * const command = new DeregisterTaskDefinitionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "taskDefinition": {
- *     "containerDefinitions": [
+ *   taskDefinition: {
+ *     containerDefinitions: [
  *       {
- *         "name": "curler",
- *         "command": [
+ *         command: [
  *           "curl -v http://example.com/"
  *         ],
- *         "cpu": 100,
- *         "entryPoint": [],
- *         "environment": [],
- *         "essential": true,
- *         "image": "curl:latest",
- *         "memory": 256,
- *         "mountPoints": [],
- *         "portMappings": [],
- *         "volumesFrom": []
+ *         cpu: 100,
+ *         entryPoint:         [],
+ *         environment:         [],
+ *         essential: true,
+ *         image: "curl:latest",
+ *         memory: 256,
+ *         mountPoints:         [],
+ *         name: "curler",
+ *         portMappings:         [],
+ *         volumesFrom:         []
  *       }
  *     ],
- *     "family": "curler",
- *     "revision": 1,
- *     "status": "INACTIVE",
- *     "taskDefinitionArn": "arn:aws:ecs:us-west-2:123456789012:task-definition/curler:1",
- *     "volumes": []
+ *     family: "curler",
+ *     revision: 1,
+ *     status: "INACTIVE",
+ *     taskDefinitionArn: "arn:aws:ecs:us-west-2:123456789012:task-definition/curler:1",
+ *     volumes:     []
  *   }
  * }
  * *\/
- * // example id: to-deregister-a-revision-of-a-task-definition-1733950214421
  * ```
  *
+ * @public
  */
 export class DeregisterTaskDefinitionCommand extends $Command
   .classBuilder<

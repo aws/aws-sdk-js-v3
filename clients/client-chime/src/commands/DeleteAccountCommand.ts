@@ -87,6 +87,7 @@ export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __Met
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class DeleteAccountCommand extends $Command

@@ -136,6 +136,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResult, __MetadataBeare
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class DeleteAppCommand extends $Command

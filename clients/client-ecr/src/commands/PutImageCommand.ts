@@ -114,6 +114,7 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class PutImageCommand extends $Command

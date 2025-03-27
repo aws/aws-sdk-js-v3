@@ -97,6 +97,7 @@ export interface UpdateMultiRegionClusterCommandOutput extends UpdateMultiRegion
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class UpdateMultiRegionClusterCommand extends $Command

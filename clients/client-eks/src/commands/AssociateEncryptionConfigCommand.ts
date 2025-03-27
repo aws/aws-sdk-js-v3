@@ -118,6 +118,7 @@ export interface AssociateEncryptionConfigCommandOutput extends AssociateEncrypt
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class AssociateEncryptionConfigCommand extends $Command

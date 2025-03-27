@@ -88,6 +88,7 @@ export interface ListAnalyticsDataAssociationsCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListAnalyticsDataAssociationsCommand extends $Command

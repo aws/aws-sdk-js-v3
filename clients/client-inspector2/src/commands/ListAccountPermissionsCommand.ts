@@ -76,6 +76,7 @@ export interface ListAccountPermissionsCommandOutput extends ListAccountPermissi
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class ListAccountPermissionsCommand extends $Command

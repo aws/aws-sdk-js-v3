@@ -88,6 +88,7 @@ export interface CreateLabelCommandOutput extends CreateLabelResponse, __Metadat
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class CreateLabelCommand extends $Command

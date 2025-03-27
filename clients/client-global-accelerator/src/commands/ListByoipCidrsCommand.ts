@@ -85,6 +85,7 @@ export interface ListByoipCidrsCommandOutput extends ListByoipCidrsResponse, __M
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class ListByoipCidrsCommand extends $Command

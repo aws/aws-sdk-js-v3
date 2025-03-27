@@ -66,6 +66,7 @@ export interface ArchiveFindingsCommandOutput extends ArchiveFindingsResponse, _
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class ArchiveFindingsCommand extends $Command

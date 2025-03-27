@@ -118,6 +118,7 @@ export interface OperationWithDefaultsCommandOutput extends OperationWithDefault
  * @throws {@link RpcV2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from RpcV2Protocol service.</p>
  *
+ *
  */
 export class OperationWithDefaultsCommand extends $Command
   .classBuilder<

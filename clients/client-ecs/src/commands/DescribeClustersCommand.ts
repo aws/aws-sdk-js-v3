@@ -163,32 +163,32 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To describe a cluster
  * ```javascript
  * // This example provides a description of the specified cluster in your default region.
  * const input = {
- *   "clusters": [
+ *   clusters: [
  *     "default"
  *   ]
  * };
  * const command = new DescribeClustersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "clusters": [
+ *   clusters: [
  *     {
- *       "clusterArn": "arn:aws:ecs:us-east-1:aws_account_id:cluster/default",
- *       "clusterName": "default",
- *       "status": "ACTIVE"
+ *       clusterArn: "arn:aws:ecs:us-east-1:aws_account_id:cluster/default",
+ *       clusterName: "default",
+ *       status: "ACTIVE"
  *     }
  *   ],
- *   "failures": []
+ *   failures:   []
  * }
  * *\/
- * // example id: ba88d100-9672-4231-80da-a4bd210bf728
  * ```
  *
+ * @public
  */
 export class DescribeClustersCommand extends $Command
   .classBuilder<

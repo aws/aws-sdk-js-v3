@@ -108,6 +108,7 @@ export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTarg
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class RegisterDBProxyTargetsCommand extends $Command

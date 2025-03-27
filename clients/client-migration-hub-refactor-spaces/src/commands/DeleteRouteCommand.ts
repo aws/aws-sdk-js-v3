@@ -85,6 +85,7 @@ export interface DeleteRouteCommandOutput extends DeleteRouteResponse, __Metadat
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ *
  * @public
  */
 export class DeleteRouteCommand extends $Command

@@ -83,6 +83,23 @@ export interface UpdateOrganizationRecommendationLifecycleCommandOutput extends 
  * @throws {@link TrustedAdvisorServiceException}
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ *
+ * @example Update the lifecycle stage of an AWS Organization's Recommendation that is managed by AWS Trusted Advisor Priority
+ * ```javascript
+ * //
+ * const input = {
+ *   lifecycleStage: "dismissed",
+ *   organizationRecommendationIdentifier: "arn:aws:trustedadvisor:::organization-recommendation/96b5e5ca-7930-444c-90c6-06d386128100",
+ *   updateReason: "Does not apply to this resource",
+ *   updateReasonCode: "not_applicable"
+ * };
+ * const command = new UpdateOrganizationRecommendationLifecycleCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateOrganizationRecommendationLifecycleCommand extends $Command

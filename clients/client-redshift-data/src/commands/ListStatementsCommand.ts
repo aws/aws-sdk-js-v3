@@ -100,6 +100,7 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ *
  * @public
  */
 export class ListStatementsCommand extends $Command

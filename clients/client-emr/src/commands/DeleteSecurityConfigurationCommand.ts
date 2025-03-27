@@ -60,6 +60,7 @@ export interface DeleteSecurityConfigurationCommandOutput extends DeleteSecurity
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class DeleteSecurityConfigurationCommand extends $Command

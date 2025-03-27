@@ -99,6 +99,7 @@ export interface ResetPersonalPINCommandOutput extends ResetPersonalPINResponse,
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class ResetPersonalPINCommand extends $Command

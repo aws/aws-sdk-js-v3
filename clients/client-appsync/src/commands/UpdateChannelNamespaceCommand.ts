@@ -108,6 +108,7 @@ export interface UpdateChannelNamespaceCommandOutput extends UpdateChannelNamesp
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class UpdateChannelNamespaceCommand extends $Command

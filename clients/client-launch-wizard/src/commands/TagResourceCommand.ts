@@ -66,6 +66,24 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ *
+ * @example Adding tags to a Launch Wizard deployment resource.
+ * ```javascript
+ * //
+ * const input = {
+ *   resourceArn: "arn:aws:launchwizard:us-east-1:123456789012:deployment/11111111-1111-1111-1111-111111111111",
+ *   tags: {
+ *     key1: "value1",
+ *     key2: "value2"
+ *   }
+ * };
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

@@ -231,6 +231,7 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class StartCallAnalyticsJobCommand extends $Command

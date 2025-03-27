@@ -80,6 +80,7 @@ export interface DeleteDataAutomationProjectCommandOutput
  * @throws {@link BedrockDataAutomationServiceException}
  * <p>Base exception class for all service exceptions from BedrockDataAutomation service.</p>
  *
+ *
  * @public
  */
 export class DeleteDataAutomationProjectCommand extends $Command

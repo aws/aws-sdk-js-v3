@@ -54,6 +54,7 @@ export interface XmlEmptyStringsCommandOutput extends XmlEmptyStringsResponse, _
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class XmlEmptyStringsCommand extends $Command
   .classBuilder<

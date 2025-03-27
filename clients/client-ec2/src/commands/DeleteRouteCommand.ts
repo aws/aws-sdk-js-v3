@@ -57,19 +57,22 @@ export interface DeleteRouteCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete a route
  * ```javascript
  * // This example deletes the specified route from the specified route table.
  * const input = {
- *   "DestinationCidrBlock": "0.0.0.0/0",
- *   "RouteTableId": "rtb-22574640"
+ *   DestinationCidrBlock: "0.0.0.0/0",
+ *   RouteTableId: "rtb-22574640"
  * };
  * const command = new DeleteRouteCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-route-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteRouteCommand extends $Command
   .classBuilder<

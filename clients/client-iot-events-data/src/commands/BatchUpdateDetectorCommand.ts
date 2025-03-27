@@ -95,6 +95,7 @@ export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorRes
  * @throws {@link IoTEventsDataServiceException}
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
+ *
  * @public
  */
 export class BatchUpdateDetectorCommand extends $Command

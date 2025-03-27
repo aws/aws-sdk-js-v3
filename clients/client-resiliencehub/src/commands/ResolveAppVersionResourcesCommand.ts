@@ -83,6 +83,7 @@ export interface ResolveAppVersionResourcesCommandOutput extends ResolveAppVersi
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ResolveAppVersionResourcesCommand extends $Command

@@ -120,6 +120,7 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class SearchRelatedItemsCommand extends $Command

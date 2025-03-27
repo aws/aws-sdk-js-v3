@@ -62,6 +62,7 @@ export interface DeleteAssistantCommandOutput extends DeleteAssistantResponse, _
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class DeleteAssistantCommand extends $Command

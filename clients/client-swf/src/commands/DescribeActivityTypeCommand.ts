@@ -122,6 +122,7 @@ export interface DescribeActivityTypeCommandOutput extends ActivityTypeDetail, _
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class DescribeActivityTypeCommand extends $Command

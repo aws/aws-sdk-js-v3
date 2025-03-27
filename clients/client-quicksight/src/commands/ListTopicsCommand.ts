@@ -85,6 +85,7 @@ export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataB
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class ListTopicsCommand extends $Command

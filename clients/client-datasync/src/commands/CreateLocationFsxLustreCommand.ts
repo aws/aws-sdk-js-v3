@@ -76,6 +76,7 @@ export interface CreateLocationFsxLustreCommandOutput extends CreateLocationFsxL
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class CreateLocationFsxLustreCommand extends $Command

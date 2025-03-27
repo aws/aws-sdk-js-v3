@@ -68,6 +68,7 @@ export interface DeleteTimelineEventCommandOutput extends DeleteTimelineEventOut
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ *
  * @public
  */
 export class DeleteTimelineEventCommand extends $Command

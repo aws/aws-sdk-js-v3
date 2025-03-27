@@ -105,60 +105,60 @@ export interface DescribeEnvironmentHealthCommandOutput extends DescribeEnvironm
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To view environment health
  * ```javascript
  * // The following operation retrieves overall health information for an environment named my-env:
  * const input = {
- *   "AttributeNames": [
+ *   AttributeNames: [
  *     "All"
  *   ],
- *   "EnvironmentName": "my-env"
+ *   EnvironmentName: "my-env"
  * };
  * const command = new DescribeEnvironmentHealthCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplicationMetrics": {
- *     "Duration": 10,
- *     "Latency": {
- *       "P10": 0.001,
- *       "P50": 0.001,
- *       "P75": 0.002,
- *       "P85": 0.003,
- *       "P90": 0.003,
- *       "P95": 0.004,
- *       "P99": 0.004,
- *       "P999": 0.004
+ *   ApplicationMetrics: {
+ *     Duration: 10,
+ *     Latency: {
+ *       P10: 0.001,
+ *       P50: 0.001,
+ *       P75: 0.002,
+ *       P85: 0.003,
+ *       P90: 0.003,
+ *       P95: 0.004,
+ *       P99: 0.004,
+ *       P999: 0.004
  *     },
- *     "RequestCount": 45,
- *     "StatusCodes": {
- *       "Status2xx": 45,
- *       "Status3xx": 0,
- *       "Status4xx": 0,
- *       "Status5xx": 0
+ *     RequestCount: 45,
+ *     StatusCodes: {
+ *       Status2xx: 45,
+ *       Status3xx: 0,
+ *       Status4xx: 0,
+ *       Status5xx: 0
  *     }
  *   },
- *   "Causes": [],
- *   "Color": "Green",
- *   "EnvironmentName": "my-env",
- *   "HealthStatus": "Ok",
- *   "InstancesHealth": {
- *     "Degraded": 0,
- *     "Info": 0,
- *     "NoData": 0,
- *     "Ok": 1,
- *     "Pending": 0,
- *     "Severe": 0,
- *     "Unknown": 0,
- *     "Warning": 0
+ *   Causes:   [],
+ *   Color: "Green",
+ *   EnvironmentName: "my-env",
+ *   HealthStatus: "Ok",
+ *   InstancesHealth: {
+ *     Degraded: 0,
+ *     Info: 0,
+ *     NoData: 0,
+ *     Ok: 1,
+ *     Pending: 0,
+ *     Severe: 0,
+ *     Unknown: 0,
+ *     Warning: 0
  *   },
- *   "RefreshedAt": "2015-08-20T21:09:18Z"
+ *   RefreshedAt: "2015-08-20T21:09:18Z"
  * }
  * *\/
- * // example id: to-view-environment-health-1456277109510
  * ```
  *
+ * @public
  */
 export class DescribeEnvironmentHealthCommand extends $Command
   .classBuilder<

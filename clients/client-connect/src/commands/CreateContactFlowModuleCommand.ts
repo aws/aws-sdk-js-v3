@@ -93,6 +93,7 @@ export interface CreateContactFlowModuleCommandOutput extends CreateContactFlowM
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateContactFlowModuleCommand extends $Command

@@ -113,6 +113,7 @@ export interface GetResourceSharesCommandOutput extends GetResourceSharesRespons
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ *
  * @public
  */
 export class GetResourceSharesCommand extends $Command

@@ -96,6 +96,7 @@ export interface CreateAccessCommandOutput extends CreateAccessResponse, __Metad
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class CreateAccessCommand extends $Command

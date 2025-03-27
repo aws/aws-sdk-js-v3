@@ -78,6 +78,7 @@ export interface DescribeFeedbackCommandOutput extends DescribeFeedbackResponse,
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class DescribeFeedbackCommand extends $Command

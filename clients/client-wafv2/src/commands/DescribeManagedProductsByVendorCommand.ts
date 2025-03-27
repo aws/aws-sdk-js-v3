@@ -101,6 +101,7 @@ export interface DescribeManagedProductsByVendorCommandOutput
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeManagedProductsByVendorCommand extends $Command

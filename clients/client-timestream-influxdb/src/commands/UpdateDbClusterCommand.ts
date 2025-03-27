@@ -87,6 +87,7 @@ export interface UpdateDbClusterCommandOutput extends UpdateDbClusterOutput, __M
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ *
  * @public
  */
 export class UpdateDbClusterCommand extends $Command

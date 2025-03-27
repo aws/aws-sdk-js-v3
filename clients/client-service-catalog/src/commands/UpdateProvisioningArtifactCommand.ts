@@ -81,6 +81,7 @@ export interface UpdateProvisioningArtifactCommandOutput extends UpdateProvision
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class UpdateProvisioningArtifactCommand extends $Command

@@ -134,6 +134,7 @@ export interface ListLicensesCommandOutput extends ListLicensesResponse, __Metad
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class ListLicensesCommand extends $Command

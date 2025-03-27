@@ -93,6 +93,7 @@ export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataB
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ *
  * @public
  */
 export class GetQueueUrlCommand extends $Command

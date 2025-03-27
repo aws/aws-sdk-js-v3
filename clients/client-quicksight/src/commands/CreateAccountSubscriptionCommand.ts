@@ -141,6 +141,7 @@ export interface CreateAccountSubscriptionCommandOutput extends CreateAccountSub
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateAccountSubscriptionCommand extends $Command

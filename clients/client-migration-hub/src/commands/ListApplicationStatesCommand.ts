@@ -89,6 +89,7 @@ export interface ListApplicationStatesCommandOutput extends ListApplicationState
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationStatesCommand extends $Command

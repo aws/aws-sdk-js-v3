@@ -61,6 +61,7 @@ export interface DeleteTargetCommandOutput extends DeleteTargetResult, __Metadat
  * @throws {@link CodestarNotificationsServiceException}
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ *
  * @public
  */
 export class DeleteTargetCommand extends $Command

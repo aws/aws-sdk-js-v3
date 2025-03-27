@@ -96,40 +96,40 @@ export interface DescribeMetadataModelExportsAsScriptCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe Metadata Model Exports As Script
  * ```javascript
  * // Returns a paginated list of metadata model exports.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "request-id",
- *       "Values": [
+ *       Name: "request-id",
+ *       Values: [
  *         "01234567-89ab-cdef-0123-456789abcdef"
  *       ]
  *     }
  *   ],
- *   "Marker": "0123456789abcdefghijklmnopqrs",
- *   "MaxRecords": 20,
- *   "MigrationProjectIdentifier": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
+ *   Marker: "0123456789abcdefghijklmnopqrs",
+ *   MaxRecords: 20,
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
  * };
  * const command = new DescribeMetadataModelExportsAsScriptCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "0123456789abcdefghijklmnopqrs",
- *   "Requests": [
+ *   Marker: "0123456789abcdefghijklmnopqrs",
+ *   Requests: [
  *     {
- *       "MigrationProjectArn": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *       "RequestIdentifier": "01234567-89ab-cdef-0123-456789abcdef",
- *       "Status": "SUCCESS"
+ *       MigrationProjectArn: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *       RequestIdentifier: "01234567-89ab-cdef-0123-456789abcdef",
+ *       Status: "SUCCESS"
  *     }
  *   ]
  * }
  * *\/
- * // example id: describe-metadata-model-exports-as-script-1689719253938
  * ```
  *
+ * @public
  */
 export class DescribeMetadataModelExportsAsScriptCommand extends $Command
   .classBuilder<

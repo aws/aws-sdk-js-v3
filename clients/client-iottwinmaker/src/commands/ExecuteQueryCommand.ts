@@ -94,6 +94,7 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class ExecuteQueryCommand extends $Command

@@ -100,6 +100,7 @@ export interface AddNotificationChannelCommandOutput extends AddNotificationChan
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class AddNotificationChannelCommand extends $Command

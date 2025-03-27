@@ -77,21 +77,24 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To disassociate member accounts from administrator account
  * ```javascript
  * // The following example dissociates the specified member accounts from the associated administrator account.
  * const input = {
- *   "AccountIds": [
+ *   AccountIds: [
  *     "123456789012",
  *     "111122223333"
  *   ]
  * };
  * const command = new DisassociateMembersCommand(input);
- * await client.send(command);
- * // example id: to-disassociate-member-accounts-from-administrator-account-1676918349164
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DisassociateMembersCommand extends $Command
   .classBuilder<

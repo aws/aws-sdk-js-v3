@@ -92,6 +92,7 @@ export interface ListAdaptersCommandOutput extends ListAdaptersResponse, __Metad
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ *
  * @public
  */
 export class ListAdaptersCommand extends $Command

@@ -57,6 +57,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ *
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

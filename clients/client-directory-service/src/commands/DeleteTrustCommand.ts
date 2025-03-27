@@ -72,6 +72,7 @@ export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataB
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DeleteTrustCommand extends $Command

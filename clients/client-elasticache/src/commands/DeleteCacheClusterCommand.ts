@@ -227,47 +227,47 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example DeleteCacheCluster
  * ```javascript
  * // Deletes an Amazon ElastiCache cluster.
  * const input = {
- *   "CacheClusterId": "my-memcached"
+ *   CacheClusterId: "my-memcached"
  * };
  * const command = new DeleteCacheClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CacheCluster": {
- *     "AutoMinorVersionUpgrade": true,
- *     "CacheClusterCreateTime": "2016-12-22T16:05:17.314Z",
- *     "CacheClusterId": "my-memcached",
- *     "CacheClusterStatus": "deleting",
- *     "CacheNodeType": "cache.r3.large",
- *     "CacheParameterGroup": {
- *       "CacheNodeIdsToReboot": [],
- *       "CacheParameterGroupName": "default.memcached1.4",
- *       "ParameterApplyStatus": "in-sync"
+ *   CacheCluster: {
+ *     AutoMinorVersionUpgrade: true,
+ *     CacheClusterCreateTime: "2016-12-22T16:05:17.314Z",
+ *     CacheClusterId: "my-memcached",
+ *     CacheClusterStatus: "deleting",
+ *     CacheNodeType: "cache.r3.large",
+ *     CacheParameterGroup: {
+ *       CacheNodeIdsToReboot:       [],
+ *       CacheParameterGroupName: "default.memcached1.4",
+ *       ParameterApplyStatus: "in-sync"
  *     },
- *     "CacheSecurityGroups": [],
- *     "CacheSubnetGroupName": "default",
- *     "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
- *     "ConfigurationEndpoint": {
- *       "Address": "my-memcached2.ameaqx.cfg.use1.cache.amazonaws.com",
- *       "Port": 11211
+ *     CacheSecurityGroups:     [],
+ *     CacheSubnetGroupName: "default",
+ *     ClientDownloadLandingPage: "https://console.aws.amazon.com/elasticache/home#client-download:",
+ *     ConfigurationEndpoint: {
+ *       Address: "my-memcached2.ameaqx.cfg.use1.cache.amazonaws.com",
+ *       Port: 11211
  *     },
- *     "Engine": "memcached",
- *     "EngineVersion": "1.4.24",
- *     "NumCacheNodes": 2,
- *     "PendingModifiedValues": {},
- *     "PreferredAvailabilityZone": "Multiple",
- *     "PreferredMaintenanceWindow": "tue:07:30-tue:08:30"
+ *     Engine: "memcached",
+ *     EngineVersion: "1.4.24",
+ *     NumCacheNodes: 2,
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     PreferredAvailabilityZone: "Multiple",
+ *     PreferredMaintenanceWindow: "tue:07:30-tue:08:30"
  *   }
  * }
  * *\/
- * // example id: deletecachecluster-1475010605291
  * ```
  *
+ * @public
  */
 export class DeleteCacheClusterCommand extends $Command
   .classBuilder<

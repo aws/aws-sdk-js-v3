@@ -101,6 +101,7 @@ export interface DeleteSparqlStatisticsCommandOutput extends DeleteSparqlStatist
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class DeleteSparqlStatisticsCommand extends $Command

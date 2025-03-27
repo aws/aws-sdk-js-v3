@@ -53,6 +53,7 @@ export interface FlattenedXmlMapCommandOutput extends FlattenedXmlMapOutput, __M
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  * @public
  */
 export class FlattenedXmlMapCommand extends $Command

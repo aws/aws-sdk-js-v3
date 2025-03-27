@@ -54,6 +54,7 @@ export interface DeletePrefetchScheduleCommandOutput extends DeletePrefetchSched
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class DeletePrefetchScheduleCommand extends $Command

@@ -232,69 +232,8 @@ export interface CancelHandshakeCommandOutput extends CancelHandshakeResponse, _
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
- * @example To cancel a handshake sent to a member account
- * ```javascript
- * // Bill previously sent an invitation to Susan's account to join his organization. He changes his mind and decides to cancel the invitation before Susan accepts it. The following example shows Bill's cancellation:
- * //
- * const input = {
- *   "HandshakeId": "h-examplehandshakeid111"
- * };
- * const command = new CancelHandshakeCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Handshake": {
- *     "Action": "INVITE",
- *     "Arn": "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
- *     "ExpirationTimestamp": "20170228T1215Z",
- *     "Id": "h-examplehandshakeid111",
- *     "Parties": [
- *       {
- *         "Id": "o-exampleorgid",
- *         "Type": "ORGANIZATION"
- *       },
- *       {
- *         "Id": "susan@example.com",
- *         "Type": "EMAIL"
- *       }
- *     ],
- *     "RequestedTimestamp": "20170214T1215Z",
- *     "Resources": [
- *       {
- *         "Resources": [
- *           {
- *             "Type": "MASTER_EMAIL",
- *             "Value": "bill@example.com"
- *           },
- *           {
- *             "Type": "MASTER_NAME",
- *             "Value": "Master Account"
- *           },
- *           {
- *             "Type": "ORGANIZATION_FEATURE_SET",
- *             "Value": "CONSOLIDATED_BILLING"
- *           }
- *         ],
- *         "Type": "ORGANIZATION",
- *         "Value": "o-exampleorgid"
- *       },
- *       {
- *         "Type": "ACCOUNT",
- *         "Value": "222222222222"
- *       },
- *       {
- *         "Type": "NOTES",
- *         "Value": "This is a request for Susan's account to join Bob's organization."
- *       }
- *     ],
- *     "State": "CANCELED"
- *   }
- * }
- * *\/
- * // example id: to-cancel-a-handshake-sent-to-a-member-account-1472501320506
- * ```
  *
+ * @public
  */
 export class CancelHandshakeCommand extends $Command
   .classBuilder<

@@ -95,6 +95,7 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class RemoveTargetsCommand extends $Command

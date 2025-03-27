@@ -72,6 +72,20 @@ export interface DeleteSolFunctionPackageCommandOutput extends __MetadataBearer 
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example Delete a function package
+ * ```javascript
+ * //
+ * const input = {
+ *   vnfPkgId: "fp-07aa863e53460a2a6"
+ * };
+ * const command = new DeleteSolFunctionPackageCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteSolFunctionPackageCommand extends $Command

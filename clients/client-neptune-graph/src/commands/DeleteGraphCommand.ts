@@ -87,6 +87,7 @@ export interface DeleteGraphCommandOutput extends DeleteGraphOutput, __MetadataB
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class DeleteGraphCommand extends $Command

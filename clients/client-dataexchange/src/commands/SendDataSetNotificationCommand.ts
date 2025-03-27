@@ -121,6 +121,7 @@ export interface SendDataSetNotificationCommandOutput extends SendDataSetNotific
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class SendDataSetNotificationCommand extends $Command

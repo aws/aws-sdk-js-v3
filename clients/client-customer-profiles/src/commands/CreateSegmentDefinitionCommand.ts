@@ -210,6 +210,7 @@ export interface CreateSegmentDefinitionCommandOutput extends CreateSegmentDefin
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class CreateSegmentDefinitionCommand extends $Command

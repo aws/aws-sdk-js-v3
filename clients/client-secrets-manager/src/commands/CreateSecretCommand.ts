@@ -169,28 +169,28 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
+ *
  * @example To create a basic secret
  * ```javascript
  * // The following example shows how to create a secret. The credentials stored in the encrypted secret value are retrieved from a file on disk named mycreds.json.
  * const input = {
- *   "ClientRequestToken": "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
- *   "Description": "My test database secret created with the CLI",
- *   "Name": "MyTestDatabaseSecret",
- *   "SecretString": "{\"username\":\"david\",\"password\":\"EXAMPLE-PASSWORD\"}"
+ *   ClientRequestToken: "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
+ *   Description: "My test database secret created with the CLI",
+ *   Name: "MyTestDatabaseSecret",
+ *   SecretString: `{"username":"david","password":"EXAMPLE-PASSWORD"}`
  * };
  * const command = new CreateSecretCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "Name": "MyTestDatabaseSecret",
- *   "VersionId": "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1"
+ *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   Name: "MyTestDatabaseSecret",
+ *   VersionId: "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1"
  * }
  * *\/
- * // example id: to-create-a-basic-secret-1523996473658
  * ```
  *
+ * @public
  */
 export class CreateSecretCommand extends $Command
   .classBuilder<

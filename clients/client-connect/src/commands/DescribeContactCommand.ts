@@ -326,6 +326,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DescribeContactCommand extends $Command

@@ -159,38 +159,38 @@ export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstrai
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To create a size constraint
  * ```javascript
  * // The following example creates size constraint set named MySampleSizeConstraintSet.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "Name": "MySampleSizeConstraintSet"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   Name: "MySampleSizeConstraintSet"
  * };
  * const command = new CreateSizeConstraintSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "SizeConstraintSet": {
- *     "Name": "MySampleSizeConstraintSet",
- *     "SizeConstraintSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
- *     "SizeConstraints": [
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   SizeConstraintSet: {
+ *     Name: "MySampleSizeConstraintSet",
+ *     SizeConstraintSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *     SizeConstraints: [
  *       {
- *         "ComparisonOperator": "GT",
- *         "FieldToMatch": {
- *           "Type": "QUERY_STRING"
+ *         ComparisonOperator: "GT",
+ *         FieldToMatch: {
+ *           Type: "QUERY_STRING"
  *         },
- *         "Size": 0,
- *         "TextTransformation": "NONE"
+ *         Size: 0,
+ *         TextTransformation: "NONE"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: createsizeconstraint-1474299140754
  * ```
  *
+ * @public
  */
 export class CreateSizeConstraintSetCommand extends $Command
   .classBuilder<

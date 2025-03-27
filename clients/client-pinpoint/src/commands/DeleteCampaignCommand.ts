@@ -470,6 +470,7 @@ export interface DeleteCampaignCommandOutput extends DeleteCampaignResponse, __M
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class DeleteCampaignCommand extends $Command

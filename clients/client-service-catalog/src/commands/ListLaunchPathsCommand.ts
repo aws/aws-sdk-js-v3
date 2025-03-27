@@ -107,6 +107,7 @@ export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __M
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListLaunchPathsCommand extends $Command

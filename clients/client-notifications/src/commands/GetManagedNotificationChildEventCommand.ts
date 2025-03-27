@@ -119,6 +119,7 @@ export interface GetManagedNotificationChildEventCommandOutput
  * @throws {@link NotificationsServiceException}
  * <p>Base exception class for all service exceptions from Notifications service.</p>
  *
+ *
  * @public
  */
 export class GetManagedNotificationChildEventCommand extends $Command

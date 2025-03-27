@@ -159,6 +159,7 @@ export interface ListClosedWorkflowExecutionsCommandOutput extends WorkflowExecu
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class ListClosedWorkflowExecutionsCommand extends $Command

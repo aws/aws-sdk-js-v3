@@ -69,6 +69,7 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class ListAlertsCommand extends $Command

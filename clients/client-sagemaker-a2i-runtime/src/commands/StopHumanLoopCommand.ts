@@ -74,6 +74,7 @@ export interface StopHumanLoopCommandOutput extends StopHumanLoopResponse, __Met
  * @throws {@link SageMakerA2IRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerA2IRuntime service.</p>
  *
+ *
  * @public
  */
 export class StopHumanLoopCommand extends $Command

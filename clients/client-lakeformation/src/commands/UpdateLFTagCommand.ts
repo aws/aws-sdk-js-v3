@@ -78,6 +78,7 @@ export interface UpdateLFTagCommandOutput extends UpdateLFTagResponse, __Metadat
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class UpdateLFTagCommand extends $Command

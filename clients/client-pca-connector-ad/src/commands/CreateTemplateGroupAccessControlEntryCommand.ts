@@ -94,6 +94,7 @@ export interface CreateTemplateGroupAccessControlEntryCommandOutput extends __Me
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ *
  * @public
  */
 export class CreateTemplateGroupAccessControlEntryCommand extends $Command

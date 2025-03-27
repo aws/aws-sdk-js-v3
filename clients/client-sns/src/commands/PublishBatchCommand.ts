@@ -176,6 +176,7 @@ export interface PublishBatchCommandOutput extends PublishBatchResponse, __Metad
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ *
  * @public
  */
 export class PublishBatchCommand extends $Command

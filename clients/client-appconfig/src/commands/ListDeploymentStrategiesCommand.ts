@@ -74,31 +74,31 @@ export interface ListDeploymentStrategiesCommandOutput extends DeploymentStrateg
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To list the available deployment strategies
  * ```javascript
  * // The following list-deployment-strategies example lists the available deployment strategies in your AWS account.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListDeploymentStrategiesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Items": [
+ *   Items: [
  *     {
- *       "DeploymentDurationInMinutes": 15,
- *       "FinalBakeTimeInMinutes": 0,
- *       "GrowthFactor": 25,
- *       "GrowthType": "LINEAR",
- *       "Id": "1225qzk",
- *       "Name": "Example-Deployment",
- *       "ReplicateTo": "SSM_DOCUMENT"
+ *       DeploymentDurationInMinutes: 15,
+ *       FinalBakeTimeInMinutes: 0,
+ *       GrowthFactor: 25,
+ *       GrowthType: "LINEAR",
+ *       Id: "1225qzk",
+ *       Name: "Example-Deployment",
+ *       ReplicateTo: "SSM_DOCUMENT"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-the-available-deployment-strategies-1632267364180
  * ```
  *
+ * @public
  */
 export class ListDeploymentStrategiesCommand extends $Command
   .classBuilder<

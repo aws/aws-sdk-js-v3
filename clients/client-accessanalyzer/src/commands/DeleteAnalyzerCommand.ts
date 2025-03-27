@@ -71,6 +71,7 @@ export interface DeleteAnalyzerCommandOutput extends __MetadataBearer {}
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class DeleteAnalyzerCommand extends $Command

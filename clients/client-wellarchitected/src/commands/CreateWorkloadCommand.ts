@@ -158,6 +158,7 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class CreateWorkloadCommand extends $Command

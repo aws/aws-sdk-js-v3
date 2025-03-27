@@ -168,6 +168,7 @@ export interface UpdateMatchingWorkflowCommandOutput extends UpdateMatchingWorkf
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ *
  * @public
  */
 export class UpdateMatchingWorkflowCommand extends $Command

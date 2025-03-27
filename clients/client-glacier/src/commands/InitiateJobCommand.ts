@@ -153,31 +153,31 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To initiate an inventory-retrieval job
  * ```javascript
  * // The example initiates an inventory-retrieval job for the vault named examplevault.
  * const input = {
- *   "accountId": "-",
- *   "jobParameters": {
- *     "Description": "My inventory job",
- *     "Format": "CSV",
- *     "SNSTopic": "arn:aws:sns:us-west-2:111111111111:Glacier-InventoryRetrieval-topic-Example",
- *     "Type": "inventory-retrieval"
+ *   accountId: "-",
+ *   jobParameters: {
+ *     Description: "My inventory job",
+ *     Format: "CSV",
+ *     SNSTopic: "arn:aws:sns:us-west-2:111111111111:Glacier-InventoryRetrieval-topic-Example",
+ *     Type: "inventory-retrieval"
  *   },
- *   "vaultName": "examplevault"
+ *   vaultName: "examplevault"
  * };
  * const command = new InitiateJobCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "jobId": " HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID",
- *   "location": "/111122223333/vaults/examplevault/jobs/HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID"
+ *   jobId: " HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID",
+ *   location: "/111122223333/vaults/examplevault/jobs/HkF9p6o7yjhFx-K3CGl6fuSm6VzW9T7esGQfco8nUXVYwS0jlb5gq1JZ55yHgt5vP54ZShjoQzQVVh7vEXAMPLEjobID"
  * }
  * *\/
- * // example id: to-initiate-an-inventory-retrieval-job-1482186883826
  * ```
  *
+ * @public
  */
 export class InitiateJobCommand extends $Command
   .classBuilder<

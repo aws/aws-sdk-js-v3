@@ -107,6 +107,7 @@ export interface DescribeSentimentDetectionJobCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class DescribeSentimentDetectionJobCommand extends $Command

@@ -179,74 +179,74 @@ export interface ListVersionsByFunctionCommandOutput extends ListVersionsByFunct
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To list versions of a function
  * ```javascript
  * // The following example returns a list of versions of a function named my-function
  * const input = {
- *   "FunctionName": "my-function"
+ *   FunctionName: "my-function"
  * };
  * const command = new ListVersionsByFunctionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Versions": [
+ *   Versions: [
  *     {
- *       "CodeSha256": "YFgDgEKG3ugvF1+pX64gV6tu9qNuIYNUdgJm8nCxsm4=",
- *       "CodeSize": 5797206,
- *       "Description": "Process image objects from Amazon S3.",
- *       "Environment": {
- *         "Variables": {
- *           "BUCKET": "my-bucket-1xpuxmplzrlbh",
- *           "PREFIX": "inbound"
+ *       CodeSha256: "YFgDgEKG3ugvF1+pX64gV6tu9qNuIYNUdgJm8nCxsm4=",
+ *       CodeSize: 5797206,
+ *       Description: "Process image objects from Amazon S3.",
+ *       Environment: {
+ *         Variables: {
+ *           BUCKET: "my-bucket-1xpuxmplzrlbh",
+ *           PREFIX: "inbound"
  *         }
  *       },
- *       "FunctionArn": "arn:aws:lambda:us-west-2:123456789012:function:my-function",
- *       "FunctionName": "my-function",
- *       "Handler": "index.handler",
- *       "KMSKeyArn": "arn:aws:kms:us-west-2:123456789012:key/b0844d6c-xmpl-4463-97a4-d49f50839966",
- *       "LastModified": "2020-04-10T19:06:32.563+0000",
- *       "MemorySize": 256,
- *       "RevisionId": "850ca006-2d98-4ff4-86db-8766e9d32fe9",
- *       "Role": "arn:aws:iam::123456789012:role/lambda-role",
- *       "Runtime": "nodejs12.x",
- *       "Timeout": 15,
- *       "TracingConfig": {
- *         "Mode": "Active"
+ *       FunctionArn: "arn:aws:lambda:us-west-2:123456789012:function:my-function",
+ *       FunctionName: "my-function",
+ *       Handler: "index.handler",
+ *       KMSKeyArn: "arn:aws:kms:us-west-2:123456789012:key/b0844d6c-xmpl-4463-97a4-d49f50839966",
+ *       LastModified: "2020-04-10T19:06:32.563+0000",
+ *       MemorySize: 256,
+ *       RevisionId: "850ca006-2d98-4ff4-86db-8766e9d32fe9",
+ *       Role: "arn:aws:iam::123456789012:role/lambda-role",
+ *       Runtime: "nodejs12.x",
+ *       Timeout: 15,
+ *       TracingConfig: {
+ *         Mode: "Active"
  *       },
- *       "Version": "$LATEST"
+ *       Version: "$LATEST"
  *     },
  *     {
- *       "CodeSha256": "YFgDgEKG3ugvF1+pX64gV6tu9qNuIYNUdgJm8nCxsm4=",
- *       "CodeSize": 5797206,
- *       "Description": "Process image objects from Amazon S3.",
- *       "Environment": {
- *         "Variables": {
- *           "BUCKET": "my-bucket-1xpuxmplzrlbh",
- *           "PREFIX": "inbound"
+ *       CodeSha256: "YFgDgEKG3ugvF1+pX64gV6tu9qNuIYNUdgJm8nCxsm4=",
+ *       CodeSize: 5797206,
+ *       Description: "Process image objects from Amazon S3.",
+ *       Environment: {
+ *         Variables: {
+ *           BUCKET: "my-bucket-1xpuxmplzrlbh",
+ *           PREFIX: "inbound"
  *         }
  *       },
- *       "FunctionArn": "arn:aws:lambda:us-west-2:123456789012:function:my-function",
- *       "FunctionName": "my-function",
- *       "Handler": "index.handler",
- *       "KMSKeyArn": "arn:aws:kms:us-west-2:123456789012:key/b0844d6c-xmpl-4463-97a4-d49f50839966",
- *       "LastModified": "2020-04-10T19:06:32.563+0000",
- *       "MemorySize": 256,
- *       "RevisionId": "b75dcd81-xmpl-48a8-a75a-93ba8b5b9727",
- *       "Role": "arn:aws:iam::123456789012:role/lambda-role",
- *       "Runtime": "nodejs12.x",
- *       "Timeout": 5,
- *       "TracingConfig": {
- *         "Mode": "Active"
+ *       FunctionArn: "arn:aws:lambda:us-west-2:123456789012:function:my-function",
+ *       FunctionName: "my-function",
+ *       Handler: "index.handler",
+ *       KMSKeyArn: "arn:aws:kms:us-west-2:123456789012:key/b0844d6c-xmpl-4463-97a4-d49f50839966",
+ *       LastModified: "2020-04-10T19:06:32.563+0000",
+ *       MemorySize: 256,
+ *       RevisionId: "b75dcd81-xmpl-48a8-a75a-93ba8b5b9727",
+ *       Role: "arn:aws:iam::123456789012:role/lambda-role",
+ *       Runtime: "nodejs12.x",
+ *       Timeout: 5,
+ *       TracingConfig: {
+ *         Mode: "Active"
  *       },
- *       "Version": "1"
+ *       Version: "1"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-versions-1481650603750
  * ```
  *
+ * @public
  */
 export class ListVersionsByFunctionCommand extends $Command
   .classBuilder<

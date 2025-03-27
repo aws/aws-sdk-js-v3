@@ -74,6 +74,7 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class WithdrawByoipCidrCommand extends $Command

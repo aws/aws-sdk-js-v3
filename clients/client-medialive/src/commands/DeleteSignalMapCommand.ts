@@ -71,6 +71,7 @@ export interface DeleteSignalMapCommandOutput extends __MetadataBearer {}
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class DeleteSignalMapCommand extends $Command

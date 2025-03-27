@@ -116,6 +116,7 @@ export interface DisableFederationCommandOutput extends DisableFederationRespons
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class DisableFederationCommand extends $Command

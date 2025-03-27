@@ -95,38 +95,8 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
- * @example To create an AMI from an Amazon EBS-backed instance
- * ```javascript
- * // This example creates an AMI from the specified instance and adds an EBS volume with the device name /dev/sdh and an instance store volume with the device name /dev/sdc.
- * const input = {
- *   "BlockDeviceMappings": [
- *     {
- *       "DeviceName": "/dev/sdh",
- *       "Ebs": {
- *         "VolumeSize": "100"
- *       }
- *     },
- *     {
- *       "DeviceName": "/dev/sdc",
- *       "VirtualName": "ephemeral1"
- *     }
- *   ],
- *   "Description": "An AMI for my server",
- *   "InstanceId": "i-1234567890abcdef0",
- *   "Name": "My server",
- *   "NoReboot": true
- * };
- * const command = new CreateImageCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ImageId": "ami-1a2b3c4d"
- * }
- * *\/
- * // example id: to-create-an-ami-from-an-amazon-ebs-backed-instance-1529023150636
- * ```
  *
+ * @public
  */
 export class CreateImageCommand extends $Command
   .classBuilder<

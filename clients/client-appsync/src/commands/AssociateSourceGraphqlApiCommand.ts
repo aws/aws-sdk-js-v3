@@ -96,6 +96,7 @@ export interface AssociateSourceGraphqlApiCommandOutput extends AssociateSourceG
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class AssociateSourceGraphqlApiCommand extends $Command

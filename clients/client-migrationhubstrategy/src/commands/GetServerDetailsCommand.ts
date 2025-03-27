@@ -137,6 +137,7 @@ export interface GetServerDetailsCommandOutput extends GetServerDetailsResponse,
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ *
  * @public
  */
 export class GetServerDetailsCommand extends $Command

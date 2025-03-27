@@ -96,6 +96,7 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class ListFunctionsCommand extends $Command

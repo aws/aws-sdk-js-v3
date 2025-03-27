@@ -120,6 +120,45 @@ export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse,
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
+ * @example Get TrafficPolicy
+ * ```javascript
+ * //
+ * const input = {
+ *   TrafficPolicyId: "tp-12345"
+ * };
+ * const command = new GetTrafficPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DefaultAction: "DENY",
+ *   MaxMessageSizeBytes: 1000,
+ *   PolicyStatements: [
+ *     {
+ *       Action: "ALLOW",
+ *       Conditions: [
+ *         {
+ *           StringExpression: {
+ *             Evaluate: {
+ *               Attribute: "RECIPIENT"
+ *             },
+ *             Operator: "EQUALS",
+ *             Values: [
+ *               "example@amazon.com",
+ *               "example@gmail.com"
+ *             ]
+ *           }
+ *         }
+ *       ]
+ *     }
+ *   ],
+ *   TrafficPolicyArn: "arn:aws:ses:us-east-1:123456789012:mailmanager-traffic-policy/tp-12345",
+ *   TrafficPolicyId: "tp-12345",
+ *   TrafficPolicyName: "trafficPolicyName"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetTrafficPolicyCommand extends $Command

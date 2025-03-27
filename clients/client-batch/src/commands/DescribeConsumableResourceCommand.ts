@@ -72,33 +72,33 @@ export interface DescribeConsumableResourceCommandOutput extends DescribeConsuma
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To get a description of a consumable resource
  * ```javascript
  * // Returns a description of the specified consumable resource.
  * const input = {
- *   "consumableResource": "myConsumableResource"
+ *   consumableResource: "myConsumableResource"
  * };
  * const command = new DescribeConsumableResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "availableQuantity": 123,
- *   "consumableResourceArn": "arn:aws:batch:us-east-1:012345678910:consumable-resource/myConsumableResource",
- *   "consumableResourceName": "myConsumableResource",
- *   "createdAt": 123,
- *   "inUseQuantity": 123,
- *   "resourceType": "REPLENISHABLE",
- *   "tags": {
- *     "Department": "Engineering",
- *     "User": "JaneDoe"
+ *   availableQuantity: 123,
+ *   consumableResourceArn: "arn:aws:batch:us-east-1:012345678910:consumable-resource/myConsumableResource",
+ *   consumableResourceName: "myConsumableResource",
+ *   createdAt: 123,
+ *   inUseQuantity: 123,
+ *   resourceType: "REPLENISHABLE",
+ *   tags: {
+ *     Department: "Engineering",
+ *     User: "JaneDoe"
  *   },
- *   "totalQuantity": 123
+ *   totalQuantity: 123
  * }
  * *\/
- * // example id: to-get-a-description-of-a-consumable-resource-1739495864808
  * ```
  *
+ * @public
  */
 export class DescribeConsumableResourceCommand extends $Command
   .classBuilder<

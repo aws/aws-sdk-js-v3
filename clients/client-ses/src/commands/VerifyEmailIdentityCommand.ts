@@ -56,18 +56,21 @@ export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityRes
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example VerifyEmailIdentity
  * ```javascript
  * // The following example starts the email address verification process with Amazon SES:
  * const input = {
- *   "EmailAddress": "user@example.com"
+ *   EmailAddress: "user@example.com"
  * };
  * const command = new VerifyEmailIdentityCommand(input);
- * await client.send(command);
- * // example id: verifyemailidentity-1469049068623
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class VerifyEmailIdentityCommand extends $Command
   .classBuilder<

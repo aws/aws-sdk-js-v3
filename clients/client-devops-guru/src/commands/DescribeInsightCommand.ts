@@ -132,6 +132,7 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class DescribeInsightCommand extends $Command

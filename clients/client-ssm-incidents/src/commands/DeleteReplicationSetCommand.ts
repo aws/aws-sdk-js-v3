@@ -71,6 +71,7 @@ export interface DeleteReplicationSetCommandOutput extends DeleteReplicationSetO
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ *
  * @public
  */
 export class DeleteReplicationSetCommand extends $Command

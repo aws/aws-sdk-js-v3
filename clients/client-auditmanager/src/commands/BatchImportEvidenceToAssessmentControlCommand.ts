@@ -127,6 +127,7 @@ export interface BatchImportEvidenceToAssessmentControlCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class BatchImportEvidenceToAssessmentControlCommand extends $Command

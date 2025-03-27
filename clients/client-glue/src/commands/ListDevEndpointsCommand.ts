@@ -79,6 +79,7 @@ export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class ListDevEndpointsCommand extends $Command

@@ -71,6 +71,7 @@ export interface DeletePlaybackRestrictionPolicyCommandOutput extends __Metadata
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class DeletePlaybackRestrictionPolicyCommand extends $Command

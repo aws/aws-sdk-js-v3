@@ -111,6 +111,7 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class UpdateListenerCommand extends $Command

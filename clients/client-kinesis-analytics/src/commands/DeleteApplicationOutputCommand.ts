@@ -75,6 +75,7 @@ export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationO
  * @throws {@link KinesisAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
+ *
  * @public
  */
 export class DeleteApplicationOutputCommand extends $Command

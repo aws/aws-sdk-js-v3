@@ -93,31 +93,31 @@ export interface ListCaseEditsCommandOutput extends ListCaseEditsResponse, __Met
  * @throws {@link SecurityIRServiceException}
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
- * @public
+ *
  * @example Invoke ListCaseEdits
  * ```javascript
  * //
  * const input = {
- *   "caseId": "8403556009"
+ *   caseId: "8403556009"
  * };
  * const command = new ListCaseEditsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "items": [
+ *   items: [
  *     {
- *       "action": "Add comment",
- *       "eventTimestamp": "2023-03-27T15:32:01.789Z",
- *       "message": "Added comment to ask question to responder.",
- *       "principal": "00000000000"
+ *       action: "Add comment",
+ *       eventTimestamp: "2023-03-27T15:32:01.789Z",
+ *       message: "Added comment to ask question to responder.",
+ *       principal: "00000000000"
  *     }
  *   ],
- *   "total": 1
+ *   total: 1
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListCaseEditsCommand extends $Command
   .classBuilder<

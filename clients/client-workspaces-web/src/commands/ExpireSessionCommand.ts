@@ -69,6 +69,7 @@ export interface ExpireSessionCommandOutput extends ExpireSessionResponse, __Met
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class ExpireSessionCommand extends $Command

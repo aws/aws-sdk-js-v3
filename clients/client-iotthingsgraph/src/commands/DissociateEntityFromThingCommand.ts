@@ -69,6 +69,7 @@ export interface DissociateEntityFromThingCommandOutput extends DissociateEntity
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class DissociateEntityFromThingCommand extends $Command

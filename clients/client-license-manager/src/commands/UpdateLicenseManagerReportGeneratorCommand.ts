@@ -102,6 +102,7 @@ export interface UpdateLicenseManagerReportGeneratorCommandOutput
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class UpdateLicenseManagerReportGeneratorCommand extends $Command

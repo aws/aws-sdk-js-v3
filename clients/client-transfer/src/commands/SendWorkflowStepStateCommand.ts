@@ -79,6 +79,7 @@ export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStat
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class SendWorkflowStepStateCommand extends $Command

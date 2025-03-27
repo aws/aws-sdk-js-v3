@@ -122,6 +122,7 @@ export interface SearchGroupsCommandOutput extends SearchGroupsResult, __Metadat
  * @throws {@link DirectoryServiceDataServiceException}
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
+ *
  * @public
  */
 export class SearchGroupsCommand extends $Command

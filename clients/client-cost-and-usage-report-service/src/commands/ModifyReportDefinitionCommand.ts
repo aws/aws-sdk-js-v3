@@ -85,6 +85,7 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
  * @throws {@link CostAndUsageReportServiceServiceException}
  * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
+ *
  * @public
  */
 export class ModifyReportDefinitionCommand extends $Command

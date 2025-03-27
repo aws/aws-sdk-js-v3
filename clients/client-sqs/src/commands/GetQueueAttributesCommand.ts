@@ -93,6 +93,7 @@ export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResul
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ *
  * @public
  */
 export class GetQueueAttributesCommand extends $Command

@@ -320,6 +320,7 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeEndpointCommand extends $Command

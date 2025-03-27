@@ -68,6 +68,7 @@ export interface DescribePartnerEventSourceCommandOutput extends DescribePartner
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class DescribePartnerEventSourceCommand extends $Command

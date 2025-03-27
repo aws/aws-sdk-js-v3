@@ -115,6 +115,7 @@ export interface ListServiceQuotasCommandOutput extends ListServiceQuotasRespons
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ *
  * @public
  */
 export class ListServiceQuotasCommand extends $Command

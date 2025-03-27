@@ -121,26 +121,26 @@ export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, _
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To list key policies for a KMS key
  * ```javascript
  * // The following example lists key policies for the specified KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new ListKeyPoliciesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "PolicyNames": [
+ *   PolicyNames: [
  *     "default"
  *   ],
- *   "Truncated": false
+ *   Truncated: false
  * }
  * *\/
- * // example id: to-list-key-policies-for-a-cmk-1481069780998
  * ```
  *
+ * @public
  */
 export class ListKeyPoliciesCommand extends $Command
   .classBuilder<

@@ -79,6 +79,7 @@ export interface DeleteProvisioningProfileCommandOutput extends __MetadataBearer
  * @throws {@link IoTManagedIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from IoTManagedIntegrations service.</p>
  *
+ *
  * @public
  */
 export class DeleteProvisioningProfileCommand extends $Command

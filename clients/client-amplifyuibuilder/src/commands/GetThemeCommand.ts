@@ -94,6 +94,7 @@ export interface GetThemeCommandOutput extends GetThemeResponse, __MetadataBeare
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class GetThemeCommand extends $Command

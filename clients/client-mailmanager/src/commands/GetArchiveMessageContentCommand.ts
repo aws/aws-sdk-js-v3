@@ -70,6 +70,7 @@ export interface GetArchiveMessageContentCommandOutput extends GetArchiveMessage
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class GetArchiveMessageContentCommand extends $Command

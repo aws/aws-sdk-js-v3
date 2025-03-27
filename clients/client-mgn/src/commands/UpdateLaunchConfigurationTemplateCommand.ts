@@ -177,6 +177,7 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class UpdateLaunchConfigurationTemplateCommand extends $Command

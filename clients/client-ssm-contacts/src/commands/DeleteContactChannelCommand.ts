@@ -72,6 +72,7 @@ export interface DeleteContactChannelCommandOutput extends DeleteContactChannelR
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class DeleteContactChannelCommand extends $Command

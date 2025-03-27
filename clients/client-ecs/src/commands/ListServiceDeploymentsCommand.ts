@@ -116,35 +116,35 @@ export interface ListServiceDeploymentsCommandOutput extends ListServiceDeployme
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To list service deployments that meet the specified criteria
  * ```javascript
  * // This example lists all successful service deployments for the service "sd-example" in the cluster "example".
  * const input = {
- *   "cluster": "example",
- *   "service": "sd-example",
- *   "status": [
+ *   cluster: "example",
+ *   service: "sd-example",
+ *   status: [
  *     "SUCCESSFUL"
  *   ]
  * };
  * const command = new ListServiceDeploymentsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "serviceDeployments": [
+ *   serviceDeployments: [
  *     {
- *       "clusterArn": "arn:aws:ecs:us-west-2:123456789012:cluster/example",
- *       "serviceArn": "arn:aws:ecs:us-west-2:123456789012:service/example/sd-example",
- *       "serviceDeploymentArn": "arn:aws:ecs:us-west-2:123456789012:service-deployment/example/sd-example/NCWGC2ZR-taawPAYrIaU5",
- *       "status": "SUCCESSFUL",
- *       "targetServiceRevisionArn": "arn:aws:ecs:us-west-2:123456789012:service-revision/example/sd-example/4980306466373577095"
+ *       clusterArn: "arn:aws:ecs:us-west-2:123456789012:cluster/example",
+ *       serviceArn: "arn:aws:ecs:us-west-2:123456789012:service/example/sd-example",
+ *       serviceDeploymentArn: "arn:aws:ecs:us-west-2:123456789012:service-deployment/example/sd-example/NCWGC2ZR-taawPAYrIaU5",
+ *       status: "SUCCESSFUL",
+ *       targetServiceRevisionArn: "arn:aws:ecs:us-west-2:123456789012:service-revision/example/sd-example/4980306466373577095"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-service-deployments-that-meet-the-specified-criteria-1734370445427
  * ```
  *
+ * @public
  */
 export class ListServiceDeploymentsCommand extends $Command
   .classBuilder<

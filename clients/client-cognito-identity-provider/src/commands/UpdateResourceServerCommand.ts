@@ -120,6 +120,7 @@ export interface UpdateResourceServerCommandOutput extends UpdateResourceServerR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class UpdateResourceServerCommand extends $Command

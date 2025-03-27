@@ -129,42 +129,42 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To create an event subscription
  * ```javascript
  * // The following example creates a subscription for backup and recovery events for DB instances in the current AWS account. Notifications are sent to an Amazon Simple Notification Service topic.
  * const input = {
- *   "EventCategories": [
+ *   EventCategories: [
  *     "backup",
  *     "recovery"
  *   ],
- *   "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
- *   "SourceType": "db-instance",
- *   "SubscriptionName": "my-instance-events"
+ *   SnsTopicArn: "arn:aws:sns:us-east-1:123456789012:interesting-events",
+ *   SourceType: "db-instance",
+ *   SubscriptionName: "my-instance-events"
  * };
  * const command = new CreateEventSubscriptionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EventSubscription": {
- *     "CustSubscriptionId": "my-instance-events",
- *     "CustomerAwsId": "123456789012",
- *     "Enabled": true,
- *     "EventCategoriesList": [
+ *   EventSubscription: {
+ *     CustSubscriptionId: "my-instance-events",
+ *     CustomerAwsId: "123456789012",
+ *     Enabled: true,
+ *     EventCategoriesList: [
  *       "backup",
  *       "recovery"
  *     ],
- *     "EventSubscriptionArn": "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
- *     "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
- *     "SourceType": "db-instance",
- *     "Status": "creating",
- *     "SubscriptionCreationTime": "Tue Jul 31 23:22:01 UTC 2018"
+ *     EventSubscriptionArn: "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
+ *     SnsTopicArn: "arn:aws:sns:us-east-1:123456789012:interesting-events",
+ *     SourceType: "db-instance",
+ *     Status: "creating",
+ *     SubscriptionCreationTime: "Tue Jul 31 23:22:01 UTC 2018"
  *   }
  * }
  * *\/
- * // example id: to-create-an-event-subscription-1679956709288
  * ```
  *
+ * @public
  */
 export class CreateEventSubscriptionCommand extends $Command
   .classBuilder<

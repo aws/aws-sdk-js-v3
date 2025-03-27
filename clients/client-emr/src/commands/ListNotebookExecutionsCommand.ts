@@ -85,6 +85,7 @@ export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecuti
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class ListNotebookExecutionsCommand extends $Command

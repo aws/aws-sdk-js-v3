@@ -86,6 +86,23 @@ export interface GetSolNetworkPackageDescriptorCommandOutput
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example Get the descriptor of a Network Pacakge
+ * ```javascript
+ * //
+ * const input = {
+ *   nsdInfoId: "np-0d5b823eb5c2a9241"
+ * };
+ * const command = new GetSolNetworkPackageDescriptorCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   contentType: "text/plain",
+ *   nsd: "dGVzdCBjb250ZW50IGhlcmU="
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetSolNetworkPackageDescriptorCommand extends $Command

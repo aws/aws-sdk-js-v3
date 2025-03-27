@@ -78,6 +78,7 @@ export interface GetRegexPatternSetCommandOutput extends GetRegexPatternSetRespo
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ *
  * @public
  */
 export class GetRegexPatternSetCommand extends $Command

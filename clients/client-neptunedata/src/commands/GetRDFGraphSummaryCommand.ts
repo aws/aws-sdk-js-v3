@@ -124,6 +124,7 @@ export interface GetRDFGraphSummaryCommandOutput extends GetRDFGraphSummaryOutpu
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class GetRDFGraphSummaryCommand extends $Command

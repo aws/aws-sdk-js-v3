@@ -75,6 +75,7 @@ export interface GetRegistryCommandOutput extends GetRegistryResponse, __Metadat
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetRegistryCommand extends $Command

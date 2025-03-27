@@ -94,6 +94,7 @@ export interface UpdateAccountCommandOutput extends UpdateAccountResponse, __Met
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class UpdateAccountCommand extends $Command

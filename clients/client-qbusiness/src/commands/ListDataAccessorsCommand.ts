@@ -94,6 +94,7 @@ export interface ListDataAccessorsCommandOutput extends ListDataAccessorsRespons
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class ListDataAccessorsCommand extends $Command

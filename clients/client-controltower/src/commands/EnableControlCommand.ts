@@ -91,6 +91,7 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class EnableControlCommand extends $Command

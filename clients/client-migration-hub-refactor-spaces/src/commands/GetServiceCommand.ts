@@ -109,6 +109,7 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ *
  * @public
  */
 export class GetServiceCommand extends $Command

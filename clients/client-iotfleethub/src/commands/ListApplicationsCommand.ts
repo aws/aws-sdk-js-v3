@@ -75,6 +75,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link IoTFleetHubServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetHub service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationsCommand extends $Command

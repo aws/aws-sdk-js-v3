@@ -107,6 +107,7 @@ export interface ModifyUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class ModifyUserGroupCommand extends $Command

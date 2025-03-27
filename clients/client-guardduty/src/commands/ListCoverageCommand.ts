@@ -130,6 +130,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class ListCoverageCommand extends $Command

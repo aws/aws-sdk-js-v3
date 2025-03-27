@@ -89,6 +89,7 @@ export interface DeleteApnsChannelCommandOutput extends DeleteApnsChannelRespons
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class DeleteApnsChannelCommand extends $Command

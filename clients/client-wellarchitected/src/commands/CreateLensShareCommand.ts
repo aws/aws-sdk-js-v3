@@ -98,6 +98,7 @@ export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __M
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class CreateLensShareCommand extends $Command

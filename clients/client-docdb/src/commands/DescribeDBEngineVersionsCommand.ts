@@ -96,6 +96,7 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeDBEngineVersionsCommand extends $Command

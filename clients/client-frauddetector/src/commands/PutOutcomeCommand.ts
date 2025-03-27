@@ -75,6 +75,7 @@ export interface PutOutcomeCommandOutput extends PutOutcomeResult, __MetadataBea
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class PutOutcomeCommand extends $Command

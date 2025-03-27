@@ -242,6 +242,7 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetConnectionCommand extends $Command

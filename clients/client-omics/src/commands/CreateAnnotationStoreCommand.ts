@@ -123,6 +123,7 @@ export interface CreateAnnotationStoreCommandOutput extends CreateAnnotationStor
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class CreateAnnotationStoreCommand extends $Command

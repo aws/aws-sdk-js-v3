@@ -105,6 +105,7 @@ export interface CancelReplicationTaskAssessmentRunCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class CancelReplicationTaskAssessmentRunCommand extends $Command

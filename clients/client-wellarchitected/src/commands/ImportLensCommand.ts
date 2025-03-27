@@ -101,6 +101,7 @@ export interface ImportLensCommandOutput extends ImportLensOutput, __MetadataBea
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class ImportLensCommand extends $Command

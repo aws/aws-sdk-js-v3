@@ -139,6 +139,7 @@ export interface StopPipelineCommandOutput extends StopPipelineResponse, __Metad
  * @throws {@link OSISServiceException}
  * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ *
  * @public
  */
 export class StopPipelineCommand extends $Command

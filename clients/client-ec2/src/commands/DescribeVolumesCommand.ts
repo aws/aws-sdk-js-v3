@@ -121,56 +121,55 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe all volumes
  * ```javascript
  * // This example describes all of your volumes in the default region.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeVolumesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NextToken": "",
- *   "Volumes": [
+ *   NextToken: "",
+ *   Volumes: [
  *     {
- *       "Attachments": [
+ *       Attachments: [
  *         {
- *           "AttachTime": "2013-12-18T22:35:00.000Z",
- *           "DeleteOnTermination": true,
- *           "Device": "/dev/sda1",
- *           "InstanceId": "i-1234567890abcdef0",
- *           "State": "attached",
- *           "VolumeId": "vol-049df61146c4d7901"
+ *           AttachTime: "2013-12-18T22:35:00.000Z",
+ *           DeleteOnTermination: true,
+ *           Device: "/dev/sda1",
+ *           InstanceId: "i-1234567890abcdef0",
+ *           State: "attached",
+ *           VolumeId: "vol-049df61146c4d7901"
  *         }
  *       ],
- *       "AvailabilityZone": "us-east-1a",
- *       "CreateTime": "2013-12-18T22:35:00.084Z",
- *       "Size": 8,
- *       "SnapshotId": "snap-1234567890abcdef0",
- *       "State": "in-use",
- *       "VolumeId": "vol-049df61146c4d7901",
- *       "VolumeType": "standard"
+ *       AvailabilityZone: "us-east-1a",
+ *       CreateTime: "2013-12-18T22:35:00.084Z",
+ *       Size: 8,
+ *       SnapshotId: "snap-1234567890abcdef0",
+ *       State: "in-use",
+ *       VolumeId: "vol-049df61146c4d7901",
+ *       VolumeType: "standard"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-all-volumes-1472506358883
  * ```
  *
  * @example To describe volumes that are attached to a specific instance
  * ```javascript
  * // This example describes all volumes that are both attached to the instance with the ID i-1234567890abcdef0 and set to delete when the instance terminates.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "attachment.instance-id",
- *       "Values": [
+ *       Name: "attachment.instance-id",
+ *       Values: [
  *         "i-1234567890abcdef0"
  *       ]
  *     },
  *     {
- *       "Name": "attachment.delete-on-termination",
- *       "Values": [
+ *       Name: "attachment.delete-on-termination",
+ *       Values: [
  *         "true"
  *       ]
  *     }
@@ -178,34 +177,34 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * };
  * const command = new DescribeVolumesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Volumes": [
+ *   Volumes: [
  *     {
- *       "Attachments": [
+ *       Attachments: [
  *         {
- *           "AttachTime": "2013-12-18T22:35:00.000Z",
- *           "DeleteOnTermination": true,
- *           "Device": "/dev/sda1",
- *           "InstanceId": "i-1234567890abcdef0",
- *           "State": "attached",
- *           "VolumeId": "vol-049df61146c4d7901"
+ *           AttachTime: "2013-12-18T22:35:00.000Z",
+ *           DeleteOnTermination: true,
+ *           Device: "/dev/sda1",
+ *           InstanceId: "i-1234567890abcdef0",
+ *           State: "attached",
+ *           VolumeId: "vol-049df61146c4d7901"
  *         }
  *       ],
- *       "AvailabilityZone": "us-east-1a",
- *       "CreateTime": "2013-12-18T22:35:00.084Z",
- *       "Size": 8,
- *       "SnapshotId": "snap-1234567890abcdef0",
- *       "State": "in-use",
- *       "VolumeId": "vol-049df61146c4d7901",
- *       "VolumeType": "standard"
+ *       AvailabilityZone: "us-east-1a",
+ *       CreateTime: "2013-12-18T22:35:00.084Z",
+ *       Size: 8,
+ *       SnapshotId: "snap-1234567890abcdef0",
+ *       State: "in-use",
+ *       VolumeId: "vol-049df61146c4d7901",
+ *       VolumeType: "standard"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-volumes-that-are-attached-to-a-specific-instance-1472506613578
  * ```
  *
+ * @public
  */
 export class DescribeVolumesCommand extends $Command
   .classBuilder<

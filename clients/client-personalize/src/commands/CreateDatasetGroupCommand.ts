@@ -163,6 +163,7 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class CreateDatasetGroupCommand extends $Command

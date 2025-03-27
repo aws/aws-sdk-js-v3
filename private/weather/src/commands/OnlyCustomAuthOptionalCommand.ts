@@ -48,6 +48,7 @@ export interface OnlyCustomAuthOptionalCommandOutput extends __MetadataBearer {}
  * @throws {@link WeatherServiceException}
  * <p>Base exception class for all service exceptions from Weather service.</p>
  *
+ *
  */
 export class OnlyCustomAuthOptionalCommand extends $Command
   .classBuilder<

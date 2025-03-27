@@ -77,34 +77,8 @@ export interface GetLexiconCommandOutput extends GetLexiconOutput, __MetadataBea
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
- * @public
- * @example To retrieve a lexicon
- * ```javascript
- * // Returns the content of the specified pronunciation lexicon stored in an AWS Region.
- * const input = {
- *   "Name": ""
- * };
- * const command = new GetLexiconCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Lexicon": {
- *     "Content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<lexicon version=\"1.0\" \r\n      xmlns=\"http://www.w3.org/2005/01/pronunciation-lexicon\"\r\n      xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \r\n      xsi:schemaLocation=\"http://www.w3.org/2005/01/pronunciation-lexicon \r\n        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd\"\r\n      alphabet=\"ipa\" \r\n      xml:lang=\"en-US\">\r\n  <lexeme>\r\n    <grapheme>W3C</grapheme>\r\n    <alias>World Wide Web Consortium</alias>\r\n  </lexeme>\r\n</lexicon>",
- *     "Name": "example"
- *   },
- *   "LexiconAttributes": {
- *     "Alphabet": "ipa",
- *     "LanguageCode": "en-US",
- *     "LastModified": 1478542980.117,
- *     "LexemesCount": 1,
- *     "LexiconArn": "arn:aws:polly:us-east-1:123456789012:lexicon/example",
- *     "Size": 503
- *   }
- * }
- * *\/
- * // example id: to-retrieve-a-lexicon-1481912870836
- * ```
  *
+ * @public
  */
 export class GetLexiconCommand extends $Command
   .classBuilder<

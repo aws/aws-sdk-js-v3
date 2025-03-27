@@ -98,133 +98,130 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @throws {@link SupplyChainServiceException}
  * <p>Base exception class for all service exceptions from SupplyChain service.</p>
  *
- * @public
+ *
  * @example Successful ListInstance request with no input data
  * ```javascript
  * //
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "instances": [
+ *   instances: [
  *     {
- *       "awsAccountId": "123456789012",
- *       "createdTime": 172615383136,
- *       "instanceDescription": "example instance description",
- *       "instanceId": "9e193580-7cc5-45f7-9609-c43ba0ada793",
- *       "instanceName": "example instance name",
- *       "kmsKeyArn": "arn:aws:kms:us-west-2:123456789012:key/b14ffc39-b7d4-45ab-991a-6257a7f0d24d",
- *       "lastModifiedTime": 172615383136,
- *       "state": "Active",
- *       "versionNumber": 2
+ *       awsAccountId: "123456789012",
+ *       createdTime: 172615383136,
+ *       instanceDescription: "example instance description",
+ *       instanceId: "9e193580-7cc5-45f7-9609-c43ba0ada793",
+ *       instanceName: "example instance name",
+ *       kmsKeyArn: "arn:aws:kms:us-west-2:123456789012:key/b14ffc39-b7d4-45ab-991a-6257a7f0d24d",
+ *       lastModifiedTime: 172615383136,
+ *       state: "Active",
+ *       versionNumber: 2.0
  *     },
  *     {
- *       "awsAccountId": "123456789012",
- *       "createdTime": 17261674383136,
- *       "instanceDescription": "example instance description",
- *       "instanceId": "3ad8116a-644d-4172-8dcb-20e51d314c14",
- *       "kmsKeyArn": "arn:aws:kms:us-west-2:123456789012:key/b14ffc39-b7d4-45ab-991a-6257a7f0d24d",
- *       "lastModifiedTime": 17261674383136,
- *       "state": "Initializing",
- *       "versionNumber": 2
+ *       awsAccountId: "123456789012",
+ *       createdTime: 17261674383136,
+ *       instanceDescription: "example instance description",
+ *       instanceId: "3ad8116a-644d-4172-8dcb-20e51d314c14",
+ *       kmsKeyArn: "arn:aws:kms:us-west-2:123456789012:key/b14ffc39-b7d4-45ab-991a-6257a7f0d24d",
+ *       lastModifiedTime: 17261674383136,
+ *       state: "Initializing",
+ *       versionNumber: 2.0
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
  * @example Successful ListInstance request with filters
  * ```javascript
  * //
  * const input = {
- *   "instanceNameFilter": [
+ *   instanceNameFilter: [
  *     "example instance name"
  *   ],
- *   "instanceStateFilter": [
+ *   instanceStateFilter: [
  *     "Active"
  *   ]
  * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "instances": [
+ *   instances: [
  *     {
- *       "awsAccountId": "123456789012",
- *       "createdTime": 172615383136,
- *       "instanceDescription": "example instance description",
- *       "instanceId": "9e193580-7cc5-45f7-9609-c43ba0ada793",
- *       "instanceName": "example instance name",
- *       "kmsKeyArn": "arn:aws:kms:us-west-2:123456789012:key/b14ffc39-b7d4-45ab-991a-6257a7f0d24d",
- *       "lastModifiedTime": 172615383136,
- *       "state": "Active",
- *       "versionNumber": 2
+ *       awsAccountId: "123456789012",
+ *       createdTime: 172615383136,
+ *       instanceDescription: "example instance description",
+ *       instanceId: "9e193580-7cc5-45f7-9609-c43ba0ada793",
+ *       instanceName: "example instance name",
+ *       kmsKeyArn: "arn:aws:kms:us-west-2:123456789012:key/b14ffc39-b7d4-45ab-991a-6257a7f0d24d",
+ *       lastModifiedTime: 172615383136,
+ *       state: "Active",
+ *       versionNumber: 2.0
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-2
  * ```
  *
  * @example Successful ListInstance request with maxResult override
  * ```javascript
  * //
  * const input = {
- *   "maxResults": 1
+ *   maxResults: 1
  * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "instances": [
+ *   instances: [
  *     {
- *       "awsAccountId": "123456789012",
- *       "createdTime": 172615383136,
- *       "instanceDescription": "example instance description",
- *       "instanceId": "9e193580-7cc5-45f7-9609-c43ba0ada793",
- *       "instanceName": "example instance name",
- *       "kmsKeyArn": "arn:aws:kms:us-west-2:123456789012:key/b14ffc39-b7d4-45ab-991a-6257a7f0d24d",
- *       "lastModifiedTime": 172615383136,
- *       "state": "Active",
- *       "versionNumber": 2
+ *       awsAccountId: "123456789012",
+ *       createdTime: 172615383136,
+ *       instanceDescription: "example instance description",
+ *       instanceId: "9e193580-7cc5-45f7-9609-c43ba0ada793",
+ *       instanceName: "example instance name",
+ *       kmsKeyArn: "arn:aws:kms:us-west-2:123456789012:key/b14ffc39-b7d4-45ab-991a-6257a7f0d24d",
+ *       lastModifiedTime: 172615383136,
+ *       state: "Active",
+ *       versionNumber: 2.0
  *     }
  *   ],
- *   "nextToken": "AAQA-EFRSURBSGhtcng0c0dxbENwUHdnckVIbkFYNU1QVjRTZWN2ak5iMFVicC8zemlHOVF3SEpjSC9WTWJVVXBMV2Z1N3ZvZlQ0WEFBQUFmakI4QmdrcWhraUc5dzBCQndhZ2J6QnRBZ0VBTUdnR0NTcUdTSWIzRFFFSEFUQWVCZ2xnaGtnQlpRTUVBUzR3RVFRTTJibW9LemgrSWZTY0RaZEdBZ0VRZ0R2dDhsQnVGbGJ0dnFTZityWmNSWEVPbG93emJoSjhxOGNMbGQ1UGMvY0VRbWlTR3pQUFd4N2RraXY5Y0ovcS9vSmFYZVBGdWVHaU0zWmd0dz09n-rC1ejA5--7ltJxpDT2xP_i8xGqDPMOZfjpp8q6l5NuP9_bnBURvwwYhdqDriMK5_f96LuPEnPbuML-ItfgEiCcUy0p2tApvpZkZqOG5fbqP-4C5aDYPTffHLyq-MMqvfrGVJzL1nvkpZcnTkVR9VJsu5b8I0qqDW0H8EMKGgTo78U9lr4sj3Usi9VMwZxgKCBmr03HhFLYXOW--XMbIx0CTZF0fYIcRxmA_sVS6J7gpaB9yMcnzs5VUKokoA5JTcAPY5d1Y1VyE8KKxv51cfPgXw8OYCDbFQncw8mZPmE-VqxjFbksmk_FmghpPn9j2Ppoe-zr0LQ%3D"
+ *   nextToken: "AAQA-EFRSURBSGhtcng0c0dxbENwUHdnckVIbkFYNU1QVjRTZWN2ak5iMFVicC8zemlHOVF3SEpjSC9WTWJVVXBMV2Z1N3ZvZlQ0WEFBQUFmakI4QmdrcWhraUc5dzBCQndhZ2J6QnRBZ0VBTUdnR0NTcUdTSWIzRFFFSEFUQWVCZ2xnaGtnQlpRTUVBUzR3RVFRTTJibW9LemgrSWZTY0RaZEdBZ0VRZ0R2dDhsQnVGbGJ0dnFTZityWmNSWEVPbG93emJoSjhxOGNMbGQ1UGMvY0VRbWlTR3pQUFd4N2RraXY5Y0ovcS9vSmFYZVBGdWVHaU0zWmd0dz09n-rC1ejA5--7ltJxpDT2xP_i8xGqDPMOZfjpp8q6l5NuP9_bnBURvwwYhdqDriMK5_f96LuPEnPbuML-ItfgEiCcUy0p2tApvpZkZqOG5fbqP-4C5aDYPTffHLyq-MMqvfrGVJzL1nvkpZcnTkVR9VJsu5b8I0qqDW0H8EMKGgTo78U9lr4sj3Usi9VMwZxgKCBmr03HhFLYXOW--XMbIx0CTZF0fYIcRxmA_sVS6J7gpaB9yMcnzs5VUKokoA5JTcAPY5d1Y1VyE8KKxv51cfPgXw8OYCDbFQncw8mZPmE-VqxjFbksmk_FmghpPn9j2Ppoe-zr0LQ%3D"
  * }
  * *\/
- * // example id: example-3
  * ```
  *
  * @example Successful ListInstance request with nextToken
  * ```javascript
  * //
  * const input = {
- *   "maxResults": 1,
- *   "nextToken": "AAQA-EFRSURBSGhtcng0c0dxbENwUHdnckVIbkFYNU1QVjRTZWN2ak5iMFVicC8zemlHOVF3SEpjSC9WTWJVVXBMV2Z1N3ZvZlQ0WEFBQUFmakI4QmdrcWhraUc5dzBCQndhZ2J6QnRBZ0VBTUdnR0NTcUdTSWIzRFFFSEFUQWVCZ2xnaGtnQlpRTUVBUzR3RVFRTTJibW9LemgrSWZTY0RaZEdBZ0VRZ0R2dDhsQnVGbGJ0dnFTZityWmNSWEVPbG93emJoSjhxOGNMbGQ1UGMvY0VRbWlTR3pQUFd4N2RraXY5Y0ovcS9vSmFYZVBGdWVHaU0zWmd0dz09n-rC1ejA5--7ltJxpDT2xP_i8xGqDPMOZfjpp8q6l5NuP9_bnBURvwwYhdqDriMK5_f96LuPEnPbuML-ItfgEiCcUy0p2tApvpZkZqOG5fbqP-4C5aDYPTffHLyq-MMqvfrGVJzL1nvkpZcnTkVR9VJsu5b8I0qqDW0H8EMKGgTo78U9lr4sj3Usi9VMwZxgKCBmr03HhFLYXOW--XMbIx0CTZF0fYIcRxmA_sVS6J7gpaB9yMcnzs5VUKokoA5JTcAPY5d1Y1VyE8KKxv51cfPgXw8OYCDbFQncw8mZPmE-VqxjFbksmk_FmghpPn9j2Ppoe-zr0LQ%3D"
+ *   maxResults: 1,
+ *   nextToken: "AAQA-EFRSURBSGhtcng0c0dxbENwUHdnckVIbkFYNU1QVjRTZWN2ak5iMFVicC8zemlHOVF3SEpjSC9WTWJVVXBMV2Z1N3ZvZlQ0WEFBQUFmakI4QmdrcWhraUc5dzBCQndhZ2J6QnRBZ0VBTUdnR0NTcUdTSWIzRFFFSEFUQWVCZ2xnaGtnQlpRTUVBUzR3RVFRTTJibW9LemgrSWZTY0RaZEdBZ0VRZ0R2dDhsQnVGbGJ0dnFTZityWmNSWEVPbG93emJoSjhxOGNMbGQ1UGMvY0VRbWlTR3pQUFd4N2RraXY5Y0ovcS9vSmFYZVBGdWVHaU0zWmd0dz09n-rC1ejA5--7ltJxpDT2xP_i8xGqDPMOZfjpp8q6l5NuP9_bnBURvwwYhdqDriMK5_f96LuPEnPbuML-ItfgEiCcUy0p2tApvpZkZqOG5fbqP-4C5aDYPTffHLyq-MMqvfrGVJzL1nvkpZcnTkVR9VJsu5b8I0qqDW0H8EMKGgTo78U9lr4sj3Usi9VMwZxgKCBmr03HhFLYXOW--XMbIx0CTZF0fYIcRxmA_sVS6J7gpaB9yMcnzs5VUKokoA5JTcAPY5d1Y1VyE8KKxv51cfPgXw8OYCDbFQncw8mZPmE-VqxjFbksmk_FmghpPn9j2Ppoe-zr0LQ%3D"
  * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "instances": [
+ *   instances: [
  *     {
- *       "awsAccountId": "123456789012",
- *       "createdTime": 17261674383136,
- *       "instanceDescription": "example instance description",
- *       "instanceId": "3ad8116a-644d-4172-8dcb-20e51d314c14",
- *       "kmsKeyArn": "arn:aws:kms:us-west-2:123456789012:key/b14ffc39-b7d4-45ab-991a-6257a7f0d24d",
- *       "lastModifiedTime": 17261674383136,
- *       "state": "Initializing",
- *       "versionNumber": 2
+ *       awsAccountId: "123456789012",
+ *       createdTime: 17261674383136,
+ *       instanceDescription: "example instance description",
+ *       instanceId: "3ad8116a-644d-4172-8dcb-20e51d314c14",
+ *       kmsKeyArn: "arn:aws:kms:us-west-2:123456789012:key/b14ffc39-b7d4-45ab-991a-6257a7f0d24d",
+ *       lastModifiedTime: 17261674383136,
+ *       state: "Initializing",
+ *       versionNumber: 2.0
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-4
  * ```
  *
+ * @public
  */
 export class ListInstancesCommand extends $Command
   .classBuilder<

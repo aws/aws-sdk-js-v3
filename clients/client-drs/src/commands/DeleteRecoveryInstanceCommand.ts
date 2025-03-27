@@ -68,6 +68,7 @@ export interface DeleteRecoveryInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class DeleteRecoveryInstanceCommand extends $Command

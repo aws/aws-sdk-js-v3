@@ -272,45 +272,45 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
- * @public
+ *
  * @example To apply a target tracking scaling policy with a predefined metric specification
  * ```javascript
  * // The following example applies a target tracking scaling policy with a predefined metric specification to an Amazon ECS service called web-app in the default cluster. The policy keeps the average CPU utilization of the service at 75 percent, with scale-out and scale-in cooldown periods of 60 seconds.
  * const input = {
- *   "PolicyName": "cpu75-target-tracking-scaling-policy",
- *   "PolicyType": "TargetTrackingScaling",
- *   "ResourceId": "service/default/web-app",
- *   "ScalableDimension": "ecs:service:DesiredCount",
- *   "ServiceNamespace": "ecs",
- *   "TargetTrackingScalingPolicyConfiguration": {
- *     "PredefinedMetricSpecification": {
- *       "PredefinedMetricType": "ECSServiceAverageCPUUtilization"
+ *   PolicyName: "cpu75-target-tracking-scaling-policy",
+ *   PolicyType: "TargetTrackingScaling",
+ *   ResourceId: "service/default/web-app",
+ *   ScalableDimension: "ecs:service:DesiredCount",
+ *   ServiceNamespace: "ecs",
+ *   TargetTrackingScalingPolicyConfiguration: {
+ *     PredefinedMetricSpecification: {
+ *       PredefinedMetricType: "ECSServiceAverageCPUUtilization"
  *     },
- *     "ScaleInCooldown": 60,
- *     "ScaleOutCooldown": 60,
- *     "TargetValue": 75
+ *     ScaleInCooldown: 60,
+ *     ScaleOutCooldown: 60,
+ *     TargetValue: 75
  *   }
  * };
  * const command = new PutScalingPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Alarms": [
+ *   Alarms: [
  *     {
- *       "AlarmARN": "arn:aws:cloudwatch:us-west-2:012345678910:alarm:TargetTracking-service/default/web-app-AlarmHigh-d4f0770c-b46e-434a-a60f-3b36d653feca",
- *       "AlarmName": "TargetTracking-service/default/web-app-AlarmHigh-d4f0770c-b46e-434a-a60f-3b36d653feca"
+ *       AlarmARN: "arn:aws:cloudwatch:us-west-2:012345678910:alarm:TargetTracking-service/default/web-app-AlarmHigh-d4f0770c-b46e-434a-a60f-3b36d653feca",
+ *       AlarmName: "TargetTracking-service/default/web-app-AlarmHigh-d4f0770c-b46e-434a-a60f-3b36d653feca"
  *     },
  *     {
- *       "AlarmARN": "arn:aws:cloudwatch:us-west-2:012345678910:alarm:TargetTracking-service/default/web-app-AlarmLow-1b437334-d19b-4a63-a812-6c67aaf2910d",
- *       "AlarmName": "TargetTracking-service/default/web-app-AlarmLow-1b437334-d19b-4a63-a812-6c67aaf2910d"
+ *       AlarmARN: "arn:aws:cloudwatch:us-west-2:012345678910:alarm:TargetTracking-service/default/web-app-AlarmLow-1b437334-d19b-4a63-a812-6c67aaf2910d",
+ *       AlarmName: "TargetTracking-service/default/web-app-AlarmLow-1b437334-d19b-4a63-a812-6c67aaf2910d"
  *     }
  *   ],
- *   "PolicyARN": "arn:aws:autoscaling:us-west-2:012345678910:scalingPolicy:6d8972f3-efc8-437c-92d1-6270f29a66e7:resource/ecs/service/default/web-app:policyName/cpu75-target-tracking-scaling-policy"
+ *   PolicyARN: "arn:aws:autoscaling:us-west-2:012345678910:scalingPolicy:6d8972f3-efc8-437c-92d1-6270f29a66e7:resource/ecs/service/default/web-app:policyName/cpu75-target-tracking-scaling-policy"
  * }
  * *\/
- * // example id: to-apply-a-target-tracking-scaling-policy-with-a-predefined-metric-specification-1569364247984
  * ```
  *
+ * @public
  */
 export class PutScalingPolicyCommand extends $Command
   .classBuilder<

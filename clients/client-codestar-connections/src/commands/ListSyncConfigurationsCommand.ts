@@ -92,6 +92,7 @@ export interface ListSyncConfigurationsCommandOutput extends ListSyncConfigurati
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ *
  * @public
  */
 export class ListSyncConfigurationsCommand extends $Command

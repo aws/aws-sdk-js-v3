@@ -220,6 +220,7 @@ export interface DescribeClassificationJobCommandOutput extends DescribeClassifi
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeClassificationJobCommand extends $Command

@@ -86,26 +86,26 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To copy an AMI to another region
  * ```javascript
  * // This example copies the specified AMI from the us-east-1 region to the current region.
  * const input = {
- *   "Description": "",
- *   "Name": "My server",
- *   "SourceImageId": "ami-5731123e",
- *   "SourceRegion": "us-east-1"
+ *   Description: "",
+ *   Name: "My server",
+ *   SourceImageId: "ami-5731123e",
+ *   SourceRegion: "us-east-1"
  * };
  * const command = new CopyImageCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ImageId": "ami-438bea42"
+ *   ImageId: "ami-438bea42"
  * }
  * *\/
- * // example id: to-copy-an-ami-to-another-region-1529022820832
  * ```
  *
+ * @public
  */
 export class CopyImageCommand extends $Command
   .classBuilder<

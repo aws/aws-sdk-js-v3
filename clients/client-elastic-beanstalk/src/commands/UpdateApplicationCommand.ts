@@ -87,25 +87,25 @@ export interface UpdateApplicationCommandOutput extends ApplicationDescriptionMe
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To change an application's description
  * ```javascript
  * // The following operation updates the description of an application named my-app:
  * const input = {
- *   "ApplicationName": "my-app",
- *   "Description": "my Elastic Beanstalk application"
+ *   ApplicationName: "my-app",
+ *   Description: "my Elastic Beanstalk application"
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Application": {
- *     "ApplicationName": "my-app",
- *     "ConfigurationTemplates": [],
- *     "DateCreated": "2015-08-13T19:15:50.449Z",
- *     "DateUpdated": "2015-08-20T22:34:56.195Z",
- *     "Description": "my Elastic Beanstalk application",
- *     "Versions": [
+ *   Application: {
+ *     ApplicationName: "my-app",
+ *     ConfigurationTemplates:     [],
+ *     DateCreated: "2015-08-13T19:15:50.449Z",
+ *     DateUpdated: "2015-08-20T22:34:56.195Z",
+ *     Description: "my Elastic Beanstalk application",
+ *     Versions: [
  *       "2fba-stage-150819_234450",
  *       "bf07-stage-150820_214945",
  *       "93f8",
@@ -115,9 +115,9 @@ export interface UpdateApplicationCommandOutput extends ApplicationDescriptionMe
  *   }
  * }
  * *\/
- * // example id: to-change-an-applications-description-1456277957075
  * ```
  *
+ * @public
  */
 export class UpdateApplicationCommand extends $Command
   .classBuilder<

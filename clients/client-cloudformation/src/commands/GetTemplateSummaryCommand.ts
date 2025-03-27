@@ -114,6 +114,7 @@ export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutpu
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class GetTemplateSummaryCommand extends $Command

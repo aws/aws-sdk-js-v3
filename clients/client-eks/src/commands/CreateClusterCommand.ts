@@ -325,30 +325,33 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
- * @public
+ *
  * @example To create a new cluster
  * ```javascript
  * // The following example creates an Amazon EKS cluster called prod.
  * const input = {
- *   "version": "1.10",
- *   "name": "prod",
- *   "clientRequestToken": "1d2129a1-3d38-460a-9756-e5b91fddb951",
- *   "resourcesVpcConfig": {
- *     "securityGroupIds": [
+ *   clientRequestToken: "1d2129a1-3d38-460a-9756-e5b91fddb951",
+ *   name: "prod",
+ *   resourcesVpcConfig: {
+ *     securityGroupIds: [
  *       "sg-6979fe18"
  *     ],
- *     "subnetIds": [
+ *     subnetIds: [
  *       "subnet-6782e71e",
  *       "subnet-e7e761ac"
  *     ]
  *   },
- *   "roleArn": "arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-J7ONKE3BQ4PI"
+ *   roleArn: "arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-J7ONKE3BQ4PI",
+ *   version: "1.10"
  * };
  * const command = new CreateClusterCommand(input);
- * await client.send(command);
- * // example id: to-create-a-new-cluster-1527868185648
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateClusterCommand extends $Command
   .classBuilder<

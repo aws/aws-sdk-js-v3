@@ -245,6 +245,7 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ *
  * @public
  */
 export class ListOriginEndpointsCommand extends $Command

@@ -113,6 +113,7 @@ export interface PutSourceServerActionCommandOutput extends SourceServerActionDo
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class PutSourceServerActionCommand extends $Command

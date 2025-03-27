@@ -76,26 +76,26 @@ export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyO
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To  get the access-policy set on the vault
  * ```javascript
  * // The example retrieves the access-policy set on the vault named example-vault.
  * const input = {
- *   "accountId": "-",
- *   "vaultName": "example-vault"
+ *   accountId: "-",
+ *   vaultName: "example-vault"
  * };
  * const command = new GetVaultAccessPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "policy": {
- *     "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Define-owner-access-rights\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::999999999999:root\"},\"Action\":\"glacier:DeleteArchive\",\"Resource\":\"arn:aws:glacier:us-west-2:999999999999:vaults/examplevault\"}]}"
+ *   policy: {
+ *     Policy: `{"Version":"2012-10-17","Statement":[{"Sid":"Define-owner-access-rights","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::999999999999:root"},"Action":"glacier:DeleteArchive","Resource":"arn:aws:glacier:us-west-2:999999999999:vaults/examplevault"}]}`
  *   }
  * }
  * *\/
- * // example id: to--get-the-access-policy-set-on-the-vault-1481936004590
  * ```
  *
+ * @public
  */
 export class GetVaultAccessPolicyCommand extends $Command
   .classBuilder<

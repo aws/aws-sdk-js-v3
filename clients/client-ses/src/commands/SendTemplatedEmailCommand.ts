@@ -155,6 +155,7 @@ export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailRespo
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ *
  * @public
  */
 export class SendTemplatedEmailCommand extends $Command

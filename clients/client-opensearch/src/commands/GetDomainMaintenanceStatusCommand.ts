@@ -76,6 +76,7 @@ export interface GetDomainMaintenanceStatusCommandOutput extends GetDomainMainte
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class GetDomainMaintenanceStatusCommand extends $Command

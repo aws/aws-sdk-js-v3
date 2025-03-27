@@ -154,6 +154,7 @@ export interface TestStateCommandOutput extends TestStateOutput, __MetadataBeare
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class TestStateCommand extends $Command

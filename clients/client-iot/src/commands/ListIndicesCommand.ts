@@ -75,6 +75,7 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListIndicesCommand extends $Command

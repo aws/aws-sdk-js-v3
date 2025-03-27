@@ -81,6 +81,7 @@ export interface DeleteWatchlistCommandOutput extends __MetadataBearer {}
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ *
  * @public
  */
 export class DeleteWatchlistCommand extends $Command

@@ -143,6 +143,7 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class UpdateServerCommand extends $Command

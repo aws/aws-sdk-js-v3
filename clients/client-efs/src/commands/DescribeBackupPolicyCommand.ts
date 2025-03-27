@@ -74,6 +74,7 @@ export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescripti
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ *
  * @public
  */
 export class DescribeBackupPolicyCommand extends $Command

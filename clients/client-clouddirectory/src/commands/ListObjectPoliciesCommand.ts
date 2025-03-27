@@ -92,6 +92,7 @@ export interface ListObjectPoliciesCommandOutput extends ListObjectPoliciesRespo
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
  * @public
  */
 export class ListObjectPoliciesCommand extends $Command

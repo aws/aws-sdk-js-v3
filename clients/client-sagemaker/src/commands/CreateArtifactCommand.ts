@@ -88,6 +88,7 @@ export interface CreateArtifactCommandOutput extends CreateArtifactResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateArtifactCommand extends $Command

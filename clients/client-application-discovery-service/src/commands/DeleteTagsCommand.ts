@@ -87,6 +87,7 @@ export interface DeleteTagsCommandOutput extends DeleteTagsResponse, __MetadataB
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class DeleteTagsCommand extends $Command

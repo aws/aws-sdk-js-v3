@@ -66,6 +66,7 @@ export interface DeleteConnectionCommandOutput extends __MetadataBearer {}
  * @throws {@link ApiGatewayManagementApiServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayManagementApi service.</p>
  *
+ *
  * @public
  */
 export class DeleteConnectionCommand extends $Command

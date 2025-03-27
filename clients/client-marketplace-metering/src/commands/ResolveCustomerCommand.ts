@@ -97,6 +97,7 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  * @throws {@link MarketplaceMeteringServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
+ *
  * @public
  */
 export class ResolveCustomerCommand extends $Command

@@ -148,6 +148,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class UpdateDashboardCommand extends $Command

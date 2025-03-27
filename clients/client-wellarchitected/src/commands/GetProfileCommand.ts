@@ -102,6 +102,7 @@ export interface GetProfileCommandOutput extends GetProfileOutput, __MetadataBea
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class GetProfileCommand extends $Command

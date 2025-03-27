@@ -54,6 +54,7 @@ export interface HttpStringPayloadCommandOutput extends StringPayloadInput, __Me
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class HttpStringPayloadCommand extends $Command
   .classBuilder<

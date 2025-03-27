@@ -77,18 +77,21 @@ export interface DeleteRetrainingSchedulerCommandOutput extends __MetadataBearer
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
- * @public
+ *
  * @example Deletes a retraining scheduler
  * ```javascript
  * //
  * const input = {
- *   "ModelName": "sample-model"
+ *   ModelName: "sample-model"
  * };
  * const command = new DeleteRetrainingSchedulerCommand(input);
- * await client.send(command);
- * // example id: deletes-a-retraining-scheduler-1694019240097
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteRetrainingSchedulerCommand extends $Command
   .classBuilder<

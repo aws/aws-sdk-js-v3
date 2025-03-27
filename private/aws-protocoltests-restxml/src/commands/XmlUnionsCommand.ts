@@ -134,6 +134,7 @@ export interface XmlUnionsCommandOutput extends XmlUnionsResponse, __MetadataBea
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class XmlUnionsCommand extends $Command
   .classBuilder<

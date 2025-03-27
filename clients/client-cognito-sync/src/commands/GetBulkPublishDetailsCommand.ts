@@ -75,6 +75,7 @@ export interface GetBulkPublishDetailsCommandOutput extends GetBulkPublishDetail
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class GetBulkPublishDetailsCommand extends $Command

@@ -63,6 +63,7 @@ export interface HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class HttpPayloadWithXmlNamespaceAndPrefixCommand extends $Command

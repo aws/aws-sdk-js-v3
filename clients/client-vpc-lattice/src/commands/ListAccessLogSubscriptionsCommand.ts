@@ -82,6 +82,7 @@ export interface ListAccessLogSubscriptionsCommandOutput extends ListAccessLogSu
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class ListAccessLogSubscriptionsCommand extends $Command

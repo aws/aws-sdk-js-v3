@@ -78,6 +78,7 @@ export interface DisableBaselineCommandOutput extends DisableBaselineOutput, __M
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class DisableBaselineCommand extends $Command

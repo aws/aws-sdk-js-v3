@@ -108,6 +108,7 @@ export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __Metad
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class GetAnomaliesCommand extends $Command

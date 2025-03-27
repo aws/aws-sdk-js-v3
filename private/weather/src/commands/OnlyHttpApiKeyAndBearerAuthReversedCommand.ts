@@ -51,6 +51,7 @@ export interface OnlyHttpApiKeyAndBearerAuthReversedCommandOutput extends __Meta
  * @throws {@link WeatherServiceException}
  * <p>Base exception class for all service exceptions from Weather service.</p>
  *
+ *
  */
 export class OnlyHttpApiKeyAndBearerAuthReversedCommand extends $Command
   .classBuilder<

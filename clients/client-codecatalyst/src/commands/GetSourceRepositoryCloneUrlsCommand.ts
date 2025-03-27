@@ -83,6 +83,7 @@ export interface GetSourceRepositoryCloneUrlsCommandOutput
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class GetSourceRepositoryCloneUrlsCommand extends $Command

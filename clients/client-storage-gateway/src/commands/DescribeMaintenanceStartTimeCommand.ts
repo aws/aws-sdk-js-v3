@@ -78,27 +78,27 @@ export interface DescribeMaintenanceStartTimeCommandOutput
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To describe gateway's maintenance start time
  * ```javascript
  * // Returns your gateway's weekly maintenance start time including the day and time of the week.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * };
  * const command = new DescribeMaintenanceStartTimeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DayOfWeek": 2,
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "HourOfDay": 15,
- *   "MinuteOfHour": 35,
- *   "Timezone": "GMT+7:00"
+ *   DayOfWeek: 2,
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   HourOfDay: 15,
+ *   MinuteOfHour: 35,
+ *   Timezone: "GMT+7:00"
  * }
  * *\/
- * // example id: to-describe-gateways-maintenance-start-time-1471470727387
  * ```
  *
+ * @public
  */
 export class DescribeMaintenanceStartTimeCommand extends $Command
   .classBuilder<

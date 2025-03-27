@@ -78,6 +78,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link SocialMessagingServiceException}
  * <p>Base exception class for all service exceptions from SocialMessaging service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

@@ -125,6 +125,7 @@ export interface ListAccessPreviewFindingsCommandOutput extends ListAccessPrevie
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class ListAccessPreviewFindingsCommand extends $Command

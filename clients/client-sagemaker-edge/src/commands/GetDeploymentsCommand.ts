@@ -77,6 +77,7 @@ export interface GetDeploymentsCommandOutput extends GetDeploymentsResult, __Met
  * @throws {@link SagemakerEdgeServiceException}
  * <p>Base exception class for all service exceptions from SagemakerEdge service.</p>
  *
+ *
  * @public
  */
 export class GetDeploymentsCommand extends $Command

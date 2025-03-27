@@ -85,6 +85,7 @@ export interface DeleteUserCustomPermissionCommandOutput extends DeleteUserCusto
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserCustomPermissionCommand extends $Command

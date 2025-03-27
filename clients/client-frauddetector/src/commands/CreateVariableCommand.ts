@@ -76,6 +76,7 @@ export interface CreateVariableCommandOutput extends CreateVariableResult, __Met
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class CreateVariableCommand extends $Command

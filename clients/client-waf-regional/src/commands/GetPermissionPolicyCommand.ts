@@ -69,6 +69,7 @@ export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyRes
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ *
  * @public
  */
 export class GetPermissionPolicyCommand extends $Command

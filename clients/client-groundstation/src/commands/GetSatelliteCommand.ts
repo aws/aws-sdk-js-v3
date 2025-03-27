@@ -75,6 +75,7 @@ export interface GetSatelliteCommandOutput extends GetSatelliteResponse, __Metad
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class GetSatelliteCommand extends $Command

@@ -87,6 +87,7 @@ export interface GetDetectorsCommandOutput extends GetDetectorsResult, __Metadat
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class GetDetectorsCommand extends $Command

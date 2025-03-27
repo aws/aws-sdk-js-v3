@@ -56,16 +56,19 @@ export interface DeleteSpotDatafeedSubscriptionCommandOutput extends __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To cancel a Spot Instance data feed subscription
  * ```javascript
  * // This example deletes a Spot data feed subscription for the account.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DeleteSpotDatafeedSubscriptionCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-spot-datafeed-subscription-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteSpotDatafeedSubscriptionCommand extends $Command
   .classBuilder<

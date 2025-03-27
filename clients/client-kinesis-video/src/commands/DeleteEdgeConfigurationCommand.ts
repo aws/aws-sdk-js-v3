@@ -73,6 +73,7 @@ export interface DeleteEdgeConfigurationCommandOutput extends DeleteEdgeConfigur
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class DeleteEdgeConfigurationCommand extends $Command

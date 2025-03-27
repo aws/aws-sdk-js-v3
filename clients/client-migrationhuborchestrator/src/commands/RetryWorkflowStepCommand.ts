@@ -76,6 +76,7 @@ export interface RetryWorkflowStepCommandOutput extends RetryWorkflowStepRespons
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ *
  * @public
  */
 export class RetryWorkflowStepCommand extends $Command

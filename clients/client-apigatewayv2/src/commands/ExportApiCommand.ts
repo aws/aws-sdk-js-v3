@@ -78,6 +78,7 @@ export interface ExportApiCommandOutput extends ExportApiCommandOutputType, __Me
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  */
 export class ExportApiCommand extends $Command
   .classBuilder<

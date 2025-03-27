@@ -85,6 +85,7 @@ export interface DescribeAccountAuditConfigurationCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccountAuditConfigurationCommand extends $Command

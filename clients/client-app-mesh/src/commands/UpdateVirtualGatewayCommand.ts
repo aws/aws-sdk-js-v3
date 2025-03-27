@@ -342,6 +342,7 @@ export interface UpdateVirtualGatewayCommandOutput extends UpdateVirtualGatewayO
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ *
  * @public
  */
 export class UpdateVirtualGatewayCommand extends $Command

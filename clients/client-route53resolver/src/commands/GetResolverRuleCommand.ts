@@ -91,6 +91,7 @@ export interface GetResolverRuleCommandOutput extends GetResolverRuleResponse, _
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class GetResolverRuleCommand extends $Command

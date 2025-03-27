@@ -95,6 +95,7 @@ export interface ListCommonControlsCommandOutput extends ListCommonControlsRespo
  * @throws {@link ControlCatalogServiceException}
  * <p>Base exception class for all service exceptions from ControlCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListCommonControlsCommand extends $Command

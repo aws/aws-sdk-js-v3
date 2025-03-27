@@ -126,6 +126,7 @@ export interface GetLaunchCommandOutput extends GetLaunchResponse, __MetadataBea
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ *
  * @public
  */
 export class GetLaunchCommand extends $Command

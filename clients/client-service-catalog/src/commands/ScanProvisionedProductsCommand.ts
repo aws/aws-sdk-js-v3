@@ -83,6 +83,7 @@ export interface ScanProvisionedProductsCommandOutput extends ScanProvisionedPro
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class ScanProvisionedProductsCommand extends $Command

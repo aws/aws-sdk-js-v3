@@ -123,6 +123,7 @@ export interface OperationWithDefaultsCommandOutput extends OperationWithDefault
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class OperationWithDefaultsCommand extends $Command
   .classBuilder<

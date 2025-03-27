@@ -224,6 +224,7 @@ export interface CreateMediaLiveConnectorPipelineCommandOutput
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class CreateMediaLiveConnectorPipelineCommand extends $Command

@@ -74,26 +74,26 @@ export interface GenerateMappingCommandOutput extends GenerateMappingResponse, _
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample GenerateMapping call
  * ```javascript
  * //
  * const input = {
- *   "inputFileContent": "Sample input file content",
- *   "mappingType": "JSONATA",
- *   "outputFileContent": "Sample output file content"
+ *   inputFileContent: "Sample input file content",
+ *   mappingType: "JSONATA",
+ *   outputFileContent: "Sample output file content"
  * };
  * const command = new GenerateMappingCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "mappingAccuracy": 0.95,
- *   "mappingTemplate": "Sample mapping content"
+ *   mappingAccuracy: 0.95,
+ *   mappingTemplate: "Sample mapping content"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GenerateMappingCommand extends $Command
   .classBuilder<

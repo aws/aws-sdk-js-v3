@@ -144,6 +144,7 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class CreateStageCommand extends $Command

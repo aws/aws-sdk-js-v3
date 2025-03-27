@@ -76,6 +76,7 @@ export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBea
  * @throws {@link CodeConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ *
  * @public
  */
 export class UpdateHostCommand extends $Command

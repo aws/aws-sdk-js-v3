@@ -111,6 +111,7 @@ export interface UpdateSafetyRuleCommandOutput extends UpdateSafetyRuleResponse,
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ *
  * @public
  */
 export class UpdateSafetyRuleCommand extends $Command

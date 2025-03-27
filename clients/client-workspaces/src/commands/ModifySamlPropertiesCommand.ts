@@ -75,6 +75,7 @@ export interface ModifySamlPropertiesCommandOutput extends ModifySamlPropertiesR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class ModifySamlPropertiesCommand extends $Command

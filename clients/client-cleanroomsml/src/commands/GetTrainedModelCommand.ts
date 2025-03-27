@@ -106,6 +106,7 @@ export interface GetTrainedModelCommandOutput extends GetTrainedModelResponse, _
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ *
  * @public
  */
 export class GetTrainedModelCommand extends $Command

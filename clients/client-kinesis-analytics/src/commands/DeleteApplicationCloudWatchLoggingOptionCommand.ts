@@ -84,6 +84,7 @@ export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
  * @throws {@link KinesisAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
+ *
  * @public
  */
 export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command

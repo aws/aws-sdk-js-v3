@@ -81,6 +81,7 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class CreateProfileCommand extends $Command

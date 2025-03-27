@@ -106,6 +106,7 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class CreateActivityCommand extends $Command

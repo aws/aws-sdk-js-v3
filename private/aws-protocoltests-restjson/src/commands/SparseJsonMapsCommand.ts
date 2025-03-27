@@ -89,6 +89,7 @@ export interface SparseJsonMapsCommandOutput extends SparseJsonMapsInputOutput, 
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class SparseJsonMapsCommand extends $Command

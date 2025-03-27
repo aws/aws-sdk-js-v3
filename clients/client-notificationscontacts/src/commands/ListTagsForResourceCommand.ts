@@ -76,6 +76,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link NotificationsContactsServiceException}
  * <p>Base exception class for all service exceptions from NotificationsContacts service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

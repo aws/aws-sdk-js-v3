@@ -93,6 +93,7 @@ export interface UpdateScheduledActionCommandOutput extends UpdateScheduledActio
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class UpdateScheduledActionCommand extends $Command

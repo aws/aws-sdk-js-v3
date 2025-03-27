@@ -103,6 +103,7 @@ export interface GetOriginRequestPolicyConfigCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetOriginRequestPolicyConfigCommand extends $Command

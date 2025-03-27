@@ -177,6 +177,7 @@ export interface SearchUserHierarchyGroupsCommandOutput extends SearchUserHierar
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class SearchUserHierarchyGroupsCommand extends $Command

@@ -90,35 +90,35 @@ export interface UpdateInstanceCommandOutput extends UpdateInstanceResponse, __M
  * @throws {@link SupplyChainServiceException}
  * <p>Base exception class for all service exceptions from SupplyChain service.</p>
  *
- * @public
+ *
  * @example Successful UpdateInstance request
  * ```javascript
  * //
  * const input = {
- *   "instanceDescription": "updated example instance description",
- *   "instanceId": "9e193580-7cc5-45f7-9609-c43ba0ada793",
- *   "instanceName": "updated example instance name"
+ *   instanceDescription: "updated example instance description",
+ *   instanceId: "9e193580-7cc5-45f7-9609-c43ba0ada793",
+ *   instanceName: "updated example instance name"
  * };
  * const command = new UpdateInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "instance": {
- *     "awsAccountId": "123456789012",
- *     "createdTime": 172615383136,
- *     "instanceDescription": "updated example instance description",
- *     "instanceId": "9e193580-7cc5-45f7-9609-c43ba0ada793",
- *     "instanceName": "updated example instance name",
- *     "kmsKeyArn": "arn:aws:kms:us-west-2:123456789012:key/b14ffc39-b7d4-45ab-991a-6257a7f0d24d",
- *     "lastModifiedTime": 172615383136,
- *     "state": "Active",
- *     "versionNumber": 2
+ *   instance: {
+ *     awsAccountId: "123456789012",
+ *     createdTime: 172615383136,
+ *     instanceDescription: "updated example instance description",
+ *     instanceId: "9e193580-7cc5-45f7-9609-c43ba0ada793",
+ *     instanceName: "updated example instance name",
+ *     kmsKeyArn: "arn:aws:kms:us-west-2:123456789012:key/b14ffc39-b7d4-45ab-991a-6257a7f0d24d",
+ *     lastModifiedTime: 172615383136,
+ *     state: "Active",
+ *     versionNumber: 2.0
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class UpdateInstanceCommand extends $Command
   .classBuilder<

@@ -90,6 +90,7 @@ export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class RestoreAnalysisCommand extends $Command

@@ -94,6 +94,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationsCommand extends $Command

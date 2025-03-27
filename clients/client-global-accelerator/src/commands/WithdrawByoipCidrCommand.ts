@@ -90,6 +90,7 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrRespons
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class WithdrawByoipCidrCommand extends $Command

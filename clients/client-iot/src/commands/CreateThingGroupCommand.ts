@@ -93,6 +93,7 @@ export interface CreateThingGroupCommandOutput extends CreateThingGroupResponse,
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class CreateThingGroupCommand extends $Command

@@ -76,6 +76,7 @@ export interface DeletePullThroughCacheRuleCommandOutput extends DeletePullThrou
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class DeletePullThroughCacheRuleCommand extends $Command

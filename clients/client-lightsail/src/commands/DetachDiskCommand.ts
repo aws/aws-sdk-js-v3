@@ -108,6 +108,7 @@ export interface DetachDiskCommandOutput extends DetachDiskResult, __MetadataBea
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class DetachDiskCommand extends $Command

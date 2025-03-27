@@ -463,6 +463,7 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  * @throws {@link LexRuntimeV2ServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
+ *
  * @public
  */
 export class StartConversationCommand extends $Command

@@ -84,31 +84,31 @@ export interface ListSigningCertificatesCommandOutput extends ListSigningCertifi
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To list the signing certificates for an IAM user
  * ```javascript
  * // The following command lists the signing certificates for the IAM user named Bob.
  * const input = {
- *   "UserName": "Bob"
+ *   UserName: "Bob"
  * };
  * const command = new ListSigningCertificatesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Certificates": [
+ *   Certificates: [
  *     {
- *       "CertificateBody": "-----BEGIN CERTIFICATE-----<certificate-body>-----END CERTIFICATE-----",
- *       "CertificateId": "TA7SMP42TDN5Z26OBPJE7EXAMPLE",
- *       "Status": "Active",
- *       "UploadDate": "2013-06-06T21:40:08Z",
- *       "UserName": "Bob"
+ *       CertificateBody: "-----BEGIN CERTIFICATE-----<certificate-body>-----END CERTIFICATE-----",
+ *       CertificateId: "TA7SMP42TDN5Z26OBPJE7EXAMPLE",
+ *       Status: "Active",
+ *       UploadDate: "2013-06-06T21:40:08Z",
+ *       UserName: "Bob"
  *     }
  *   ]
  * }
  * *\/
- * // example id: b4c10256-4fc9-457e-b3fd-4a110d4d73dc
  * ```
  *
+ * @public
  */
 export class ListSigningCertificatesCommand extends $Command
   .classBuilder<

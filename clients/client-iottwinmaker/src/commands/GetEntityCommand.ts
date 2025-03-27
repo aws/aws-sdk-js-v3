@@ -208,6 +208,7 @@ export interface GetEntityCommandOutput extends GetEntityResponse, __MetadataBea
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class GetEntityCommand extends $Command

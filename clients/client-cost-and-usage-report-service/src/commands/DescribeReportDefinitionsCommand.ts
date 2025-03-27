@@ -87,54 +87,54 @@ export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDe
  * @throws {@link CostAndUsageReportServiceServiceException}
  * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
- * @public
+ *
  * @example To list the AWS Cost and Usage reports for the account.
  * ```javascript
  * // The following example lists the AWS Cost and Usage reports for the account.
  * const input = {
- *   "MaxResults": 5
+ *   MaxResults: 5
  * };
  * const command = new DescribeReportDefinitionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReportDefinitions": [
+ *   ReportDefinitions: [
  *     {
- *       "AdditionalArtifacts": [
+ *       AdditionalArtifacts: [
  *         "QUICKSIGHT"
  *       ],
- *       "AdditionalSchemaElements": [
+ *       AdditionalSchemaElements: [
  *         "RESOURCES"
  *       ],
- *       "Compression": "GZIP",
- *       "Format": "textORcsv",
- *       "ReportName": "ExampleReport",
- *       "S3Bucket": "example-s3-bucket",
- *       "S3Prefix": "exampleprefix",
- *       "S3Region": "us-east-1",
- *       "TimeUnit": "HOURLY"
+ *       Compression: "GZIP",
+ *       Format: "textORcsv",
+ *       ReportName: "ExampleReport",
+ *       S3Bucket: "example-s3-bucket",
+ *       S3Prefix: "exampleprefix",
+ *       S3Region: "us-east-1",
+ *       TimeUnit: "HOURLY"
  *     },
  *     {
- *       "AdditionalArtifacts": [
+ *       AdditionalArtifacts: [
  *         "QUICKSIGHT"
  *       ],
- *       "AdditionalSchemaElements": [
+ *       AdditionalSchemaElements: [
  *         "RESOURCES"
  *       ],
- *       "Compression": "GZIP",
- *       "Format": "textORcsv",
- *       "ReportName": "ExampleReport2",
- *       "S3Bucket": "example-s3-bucket",
- *       "S3Prefix": "exampleprefix",
- *       "S3Region": "us-east-1",
- *       "TimeUnit": "HOURLY"
+ *       Compression: "GZIP",
+ *       Format: "textORcsv",
+ *       ReportName: "ExampleReport2",
+ *       S3Bucket: "example-s3-bucket",
+ *       S3Prefix: "exampleprefix",
+ *       S3Region: "us-east-1",
+ *       TimeUnit: "HOURLY"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-report-definitions
  * ```
  *
+ * @public
  */
 export class DescribeReportDefinitionsCommand extends $Command
   .classBuilder<

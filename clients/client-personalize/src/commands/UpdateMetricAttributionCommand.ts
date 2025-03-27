@@ -84,6 +84,7 @@ export interface UpdateMetricAttributionCommandOutput extends UpdateMetricAttrib
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class UpdateMetricAttributionCommand extends $Command

@@ -71,6 +71,7 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ *
  * @public
  */
 export class GetEmailTemplateCommand extends $Command

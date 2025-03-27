@@ -91,6 +91,7 @@ export interface DeleteOutboundConnectionCommandOutput extends DeleteOutboundCon
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class DeleteOutboundConnectionCommand extends $Command

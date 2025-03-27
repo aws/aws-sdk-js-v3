@@ -112,6 +112,7 @@ export interface UpdateSlackChannelConfigurationCommandOutput
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ *
  * @public
  */
 export class UpdateSlackChannelConfigurationCommand extends $Command

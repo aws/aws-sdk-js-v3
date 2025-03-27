@@ -146,6 +146,7 @@ export interface ListUserAssociationsCommandOutput extends ListUserAssociationsR
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ *
  * @public
  */
 export class ListUserAssociationsCommand extends $Command

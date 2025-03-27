@@ -77,6 +77,7 @@ export interface DeleteApplicationGrantCommandOutput extends __MetadataBearer {}
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class DeleteApplicationGrantCommand extends $Command

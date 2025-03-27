@@ -97,6 +97,7 @@ export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOut
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class StartQueryExecutionCommand extends $Command

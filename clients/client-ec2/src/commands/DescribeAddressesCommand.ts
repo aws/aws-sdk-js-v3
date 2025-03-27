@@ -92,37 +92,37 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe your Elastic IP addresses
  * ```javascript
  * // This example describes your Elastic IP addresses.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeAddressesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Addresses": [
+ *   Addresses: [
  *     {
- *       "Domain": "standard",
- *       "InstanceId": "i-1234567890abcdef0",
- *       "PublicIp": "198.51.100.0"
+ *       Domain: "standard",
+ *       InstanceId: "i-1234567890abcdef0",
+ *       PublicIp: "198.51.100.0"
  *     },
  *     {
- *       "AllocationId": "eipalloc-12345678",
- *       "AssociationId": "eipassoc-12345678",
- *       "Domain": "vpc",
- *       "InstanceId": "i-1234567890abcdef0",
- *       "NetworkInterfaceId": "eni-12345678",
- *       "NetworkInterfaceOwnerId": "123456789012",
- *       "PrivateIpAddress": "10.0.1.241",
- *       "PublicIp": "203.0.113.0"
+ *       AllocationId: "eipalloc-12345678",
+ *       AssociationId: "eipassoc-12345678",
+ *       Domain: "vpc",
+ *       InstanceId: "i-1234567890abcdef0",
+ *       NetworkInterfaceId: "eni-12345678",
+ *       NetworkInterfaceOwnerId: "123456789012",
+ *       PrivateIpAddress: "10.0.1.241",
+ *       PublicIp: "203.0.113.0"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-addresses-1
  * ```
  *
+ * @public
  */
 export class DescribeAddressesCommand extends $Command
   .classBuilder<

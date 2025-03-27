@@ -106,6 +106,7 @@ export interface RemoveRegionsFromReplicationCommandOutput
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ *
  * @public
  */
 export class RemoveRegionsFromReplicationCommand extends $Command

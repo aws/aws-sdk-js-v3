@@ -75,6 +75,7 @@ export interface StopDataSourceSyncJobCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class StopDataSourceSyncJobCommand extends $Command

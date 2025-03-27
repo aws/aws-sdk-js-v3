@@ -71,28 +71,28 @@ export interface GetIdentityPoliciesCommandOutput extends GetIdentityPoliciesRes
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example GetIdentityPolicies
  * ```javascript
  * // The following example returns a sending authorization policy for an identity:
  * const input = {
- *   "Identity": "example.com",
- *   "PolicyNames": [
+ *   Identity: "example.com",
+ *   PolicyNames: [
  *     "MyPolicy"
  *   ]
  * };
  * const command = new GetIdentityPoliciesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Policies": {
- *     "MyPolicy": "{\"Version\":\"2008-10-17\",\"Statement\":[{\"Sid\":\"stmt1469123904194\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::123456789012:root\"},\"Action\":[\"ses:SendEmail\",\"ses:SendRawEmail\"],\"Resource\":\"arn:aws:ses:us-east-1:EXAMPLE65304:identity/example.com\"}]}"
+ *   Policies: {
+ *     MyPolicy: `{"Version":"2008-10-17","Statement":[{"Sid":"stmt1469123904194","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::123456789012:root"},"Action":["ses:SendEmail","ses:SendRawEmail"],"Resource":"arn:aws:ses:us-east-1:EXAMPLE65304:identity/example.com"}]}`
  *   }
  * }
  * *\/
- * // example id: getidentitypolicies-1469123949351
  * ```
  *
+ * @public
  */
 export class GetIdentityPoliciesCommand extends $Command
   .classBuilder<

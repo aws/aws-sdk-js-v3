@@ -84,6 +84,7 @@ export interface PutWhatsAppBusinessAccountEventDestinationsCommandOutput
  * @throws {@link SocialMessagingServiceException}
  * <p>Base exception class for all service exceptions from SocialMessaging service.</p>
  *
+ *
  * @public
  */
 export class PutWhatsAppBusinessAccountEventDestinationsCommand extends $Command

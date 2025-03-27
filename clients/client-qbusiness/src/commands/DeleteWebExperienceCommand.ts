@@ -78,6 +78,7 @@ export interface DeleteWebExperienceCommandOutput extends DeleteWebExperienceRes
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class DeleteWebExperienceCommand extends $Command

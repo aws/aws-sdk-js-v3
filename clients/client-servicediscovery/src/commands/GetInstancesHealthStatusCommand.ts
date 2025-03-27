@@ -79,26 +79,26 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example GetInstancesHealthStatus example
  * ```javascript
  * // This example gets the current health status of one or more instances that are associate with a specified service.
  * const input = {
- *   "ServiceId": "srv-e4anhexample0004"
+ *   ServiceId: "srv-e4anhexample0004"
  * };
  * const command = new GetInstancesHealthStatusCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Status": {
- *     "i-abcd1234": "HEALTHY",
- *     "i-abcd1235": "UNHEALTHY"
+ *   Status: {
+ *     i-abcd1234: "HEALTHY",
+ *     i-abcd1235: "UNHEALTHY"
  *   }
  * }
  * *\/
- * // example id: getinstanceshealthstatus-example-1590115176146
  * ```
  *
+ * @public
  */
 export class GetInstancesHealthStatusCommand extends $Command
   .classBuilder<

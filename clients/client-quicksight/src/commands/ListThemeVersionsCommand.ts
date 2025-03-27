@@ -96,6 +96,7 @@ export interface ListThemeVersionsCommandOutput extends ListThemeVersionsRespons
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class ListThemeVersionsCommand extends $Command

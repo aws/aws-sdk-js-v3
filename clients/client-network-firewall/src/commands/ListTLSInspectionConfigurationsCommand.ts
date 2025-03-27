@@ -90,6 +90,7 @@ export interface ListTLSInspectionConfigurationsCommandOutput
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class ListTLSInspectionConfigurationsCommand extends $Command

@@ -110,6 +110,7 @@ export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __M
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class CreateLegalHoldCommand extends $Command

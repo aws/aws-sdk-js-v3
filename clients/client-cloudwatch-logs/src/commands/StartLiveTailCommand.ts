@@ -158,6 +158,7 @@ export interface StartLiveTailCommandOutput extends StartLiveTailResponse, __Met
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class StartLiveTailCommand extends $Command

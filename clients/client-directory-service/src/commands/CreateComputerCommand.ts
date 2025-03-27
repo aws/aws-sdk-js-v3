@@ -101,6 +101,7 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class CreateComputerCommand extends $Command

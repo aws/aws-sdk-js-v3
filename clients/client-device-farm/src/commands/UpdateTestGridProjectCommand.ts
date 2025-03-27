@@ -93,6 +93,7 @@ export interface UpdateTestGridProjectCommandOutput extends UpdateTestGridProjec
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class UpdateTestGridProjectCommand extends $Command

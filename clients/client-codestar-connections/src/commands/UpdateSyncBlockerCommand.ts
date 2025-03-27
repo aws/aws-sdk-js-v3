@@ -99,6 +99,7 @@ export interface UpdateSyncBlockerCommandOutput extends UpdateSyncBlockerOutput,
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ *
  * @public
  */
 export class UpdateSyncBlockerCommand extends $Command

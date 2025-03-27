@@ -93,6 +93,7 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class DeletePipelineCommand extends $Command

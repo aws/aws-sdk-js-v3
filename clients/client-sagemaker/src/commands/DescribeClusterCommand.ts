@@ -111,6 +111,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeClusterCommand extends $Command

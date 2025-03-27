@@ -109,6 +109,7 @@ export interface ExecuteFastResetCommandOutput extends ExecuteFastResetOutput, _
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class ExecuteFastResetCommand extends $Command

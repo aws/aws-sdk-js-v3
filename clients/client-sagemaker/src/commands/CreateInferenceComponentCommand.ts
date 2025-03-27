@@ -98,6 +98,7 @@ export interface CreateInferenceComponentCommandOutput extends CreateInferenceCo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateInferenceComponentCommand extends $Command

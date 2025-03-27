@@ -120,15 +120,15 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe the subnets for a VPC
  * ```javascript
  * // This example describes the subnets for the specified VPC.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "vpc-id",
- *       "Values": [
+ *       Name: "vpc-id",
+ *       Values: [
  *         "vpc-a01106c2"
  *       ]
  *     }
@@ -136,25 +136,25 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  * };
  * const command = new DescribeSubnetsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Subnets": [
+ *   Subnets: [
  *     {
- *       "AvailabilityZone": "us-east-1c",
- *       "AvailableIpAddressCount": 251,
- *       "CidrBlock": "10.0.1.0/24",
- *       "DefaultForAz": false,
- *       "MapPublicIpOnLaunch": false,
- *       "State": "available",
- *       "SubnetId": "subnet-9d4a7b6c",
- *       "VpcId": "vpc-a01106c2"
+ *       AvailabilityZone: "us-east-1c",
+ *       AvailableIpAddressCount: 251,
+ *       CidrBlock: "10.0.1.0/24",
+ *       DefaultForAz: false,
+ *       MapPublicIpOnLaunch: false,
+ *       State: "available",
+ *       SubnetId: "subnet-9d4a7b6c",
+ *       VpcId: "vpc-a01106c2"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-subnets-1
  * ```
  *
+ * @public
  */
 export class DescribeSubnetsCommand extends $Command
   .classBuilder<

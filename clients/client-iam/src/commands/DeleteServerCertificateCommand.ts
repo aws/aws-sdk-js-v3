@@ -83,6 +83,7 @@ export interface DeleteServerCertificateCommandOutput extends __MetadataBearer {
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class DeleteServerCertificateCommand extends $Command

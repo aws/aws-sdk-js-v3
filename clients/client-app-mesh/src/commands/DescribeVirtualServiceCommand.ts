@@ -103,6 +103,7 @@ export interface DescribeVirtualServiceCommandOutput extends DescribeVirtualServ
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ *
  * @public
  */
 export class DescribeVirtualServiceCommand extends $Command

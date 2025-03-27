@@ -74,6 +74,7 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class ListComponentsCommand extends $Command

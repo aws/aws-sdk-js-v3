@@ -96,6 +96,7 @@ export interface ListNetworksCommandOutput extends ListNetworksResponse, __Metad
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class ListNetworksCommand extends $Command

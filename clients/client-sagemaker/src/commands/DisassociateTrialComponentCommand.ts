@@ -65,6 +65,7 @@ export interface DisassociateTrialComponentCommandOutput extends DisassociateTri
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DisassociateTrialComponentCommand extends $Command

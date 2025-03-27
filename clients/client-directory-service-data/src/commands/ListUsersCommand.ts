@@ -106,6 +106,7 @@ export interface ListUsersCommandOutput extends ListUsersResult, __MetadataBeare
  * @throws {@link DirectoryServiceDataServiceException}
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
+ *
  * @public
  */
 export class ListUsersCommand extends $Command

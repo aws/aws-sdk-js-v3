@@ -68,6 +68,7 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class ListEventBusesCommand extends $Command

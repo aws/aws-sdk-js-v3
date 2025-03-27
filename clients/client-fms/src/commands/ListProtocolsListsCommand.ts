@@ -81,6 +81,7 @@ export interface ListProtocolsListsCommandOutput extends ListProtocolsListsRespo
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class ListProtocolsListsCommand extends $Command

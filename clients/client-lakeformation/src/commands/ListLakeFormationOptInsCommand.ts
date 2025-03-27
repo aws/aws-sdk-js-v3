@@ -207,6 +207,7 @@ export interface ListLakeFormationOptInsCommandOutput extends ListLakeFormationO
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class ListLakeFormationOptInsCommand extends $Command

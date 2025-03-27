@@ -62,6 +62,7 @@ export interface DeleteApiDestinationCommandOutput extends DeleteApiDestinationR
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class DeleteApiDestinationCommand extends $Command

@@ -65,6 +65,7 @@ export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBea
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class StopQueryCommand extends $Command

@@ -101,6 +101,7 @@ export interface ActivateUserCommandOutput extends ActivateUserResponse, __Metad
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class ActivateUserCommand extends $Command

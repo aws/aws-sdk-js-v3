@@ -86,6 +86,7 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeJobExecutionCommand extends $Command

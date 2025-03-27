@@ -96,6 +96,7 @@ export interface UpdatePlaybackRestrictionPolicyCommandOutput
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class UpdatePlaybackRestrictionPolicyCommand extends $Command

@@ -91,35 +91,35 @@ export interface CreateLibraryItemCommandOutput extends CreateLibraryItemOutput,
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example Create a Library Item
  * ```javascript
  * //
  * const input = {
- *   "appId": "7a11f34b-42d4-4bc8-b668-ae4a788dae1e",
- *   "appVersion": 6,
- *   "categories": [
+ *   appId: "7a11f34b-42d4-4bc8-b668-ae4a788dae1e",
+ *   appVersion: 6,
+ *   categories: [
  *     "9c871ed4-1c41-4065-aefe-321cd4b61cf8"
  *   ],
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
  * };
  * const command = new CreateLibraryItemCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "createdAt": "2024-05-21T23:17:27.350Z",
- *   "createdBy": "a841e300-40c1-7062-fa34-5b46dadbbaac",
- *   "isVerified": false,
- *   "libraryItemId": "cb9ecf72-8563-450d-9db9-994f98297316",
- *   "ratingCount": 0,
- *   "status": "PUBLISHED",
- *   "updatedAt": "2024-05-21T23:17:27.350Z",
- *   "updatedBy": "a841e300-40c1-7062-fa34-5b46dadbbaac"
+ *   createdAt: "2024-05-21T23:17:27.350Z",
+ *   createdBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *   isVerified: false,
+ *   libraryItemId: "cb9ecf72-8563-450d-9db9-994f98297316",
+ *   ratingCount: 0,
+ *   status: "PUBLISHED",
+ *   updatedAt: "2024-05-21T23:17:27.350Z",
+ *   updatedBy: "a841e300-40c1-7062-fa34-5b46dadbbaac"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class CreateLibraryItemCommand extends $Command
   .classBuilder<

@@ -109,6 +109,7 @@ export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __M
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class ValidatePolicyCommand extends $Command

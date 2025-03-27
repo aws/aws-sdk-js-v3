@@ -73,6 +73,7 @@ export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCol
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class DeleteGeofenceCollectionCommand extends $Command

@@ -106,6 +106,7 @@ export interface CreateWorldExportJobCommandOutput extends CreateWorldExportJobR
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateWorldExportJobCommand extends $Command

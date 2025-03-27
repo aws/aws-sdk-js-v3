@@ -97,19 +97,22 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
- * @public
+ *
  * @example To update an application
  * ```javascript
  * // The following updates an existing application named with a new name.
  * const input = {
- *   "Arn": "arn:aws:app-integrations:us-west-2:0123456789012:application/98542c53-e8ac-4570-9c85-c6552c8d9c5e",
- *   "Name": "My New Application Name"
+ *   Arn: "arn:aws:app-integrations:us-west-2:0123456789012:application/98542c53-e8ac-4570-9c85-c6552c8d9c5e",
+ *   Name: "My New Application Name"
  * };
  * const command = new UpdateApplicationCommand(input);
- * await client.send(command);
- * // example id: update-an-application
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateApplicationCommand extends $Command
   .classBuilder<

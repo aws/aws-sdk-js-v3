@@ -77,6 +77,7 @@ export interface ResetLandingZoneCommandOutput extends ResetLandingZoneOutput, _
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class ResetLandingZoneCommand extends $Command

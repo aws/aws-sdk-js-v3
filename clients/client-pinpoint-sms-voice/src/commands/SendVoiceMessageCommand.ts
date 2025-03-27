@@ -82,6 +82,7 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResponse,
  * @throws {@link PinpointSMSVoiceServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
+ *
  * @public
  */
 export class SendVoiceMessageCommand extends $Command

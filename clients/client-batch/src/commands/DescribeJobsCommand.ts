@@ -776,53 +776,53 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To describe a specific job
  * ```javascript
  * // This example describes a job with the specified job ID.
  * const input = {
- *   "jobs": [
+ *   jobs: [
  *     "24fa2d7a-64c4-49d2-8b47-f8da4fbde8e9"
  *   ]
  * };
  * const command = new DescribeJobsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "jobs": [
+ *   jobs: [
  *     {
- *       "container": {
- *         "command": [
+ *       container: {
+ *         command: [
  *           "sleep",
  *           "60"
  *         ],
- *         "containerInstanceArn": "arn:aws:ecs:us-east-1:012345678910:container-instance/5406d7cd-58bd-4b8f-9936-48d7c6b1526c",
- *         "environment": [],
- *         "exitCode": 0,
- *         "image": "busybox",
- *         "memory": 128,
- *         "mountPoints": [],
- *         "ulimits": [],
- *         "vcpus": 1,
- *         "volumes": []
+ *         containerInstanceArn: "arn:aws:ecs:us-east-1:012345678910:container-instance/5406d7cd-58bd-4b8f-9936-48d7c6b1526c",
+ *         environment:         [],
+ *         exitCode: 0,
+ *         image: "busybox",
+ *         memory: 128,
+ *         mountPoints:         [],
+ *         ulimits:         [],
+ *         vcpus: 1,
+ *         volumes:         []
  *       },
- *       "createdAt": 1480460782010,
- *       "dependsOn": [],
- *       "jobDefinition": "sleep60",
- *       "jobId": "24fa2d7a-64c4-49d2-8b47-f8da4fbde8e9",
- *       "jobName": "example",
- *       "jobQueue": "arn:aws:batch:us-east-1:012345678910:job-queue/HighPriority",
- *       "parameters": {},
- *       "startedAt": 1480460816500,
- *       "status": "SUCCEEDED",
- *       "stoppedAt": 1480460880699
+ *       createdAt: 1480460782010,
+ *       dependsOn:       [],
+ *       jobDefinition: "sleep60",
+ *       jobId: "24fa2d7a-64c4-49d2-8b47-f8da4fbde8e9",
+ *       jobName: "example",
+ *       jobQueue: "arn:aws:batch:us-east-1:012345678910:job-queue/HighPriority",
+ *       parameters:       { /* empty *\/ },
+ *       startedAt: 1480460816500,
+ *       status: "SUCCEEDED",
+ *       stoppedAt: 1480460880699
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-a-specific-job-1481154090490
  * ```
  *
+ * @public
  */
 export class DescribeJobsCommand extends $Command
   .classBuilder<

@@ -87,6 +87,7 @@ export interface ListAppInstancesCommandOutput extends ListAppInstancesResponse,
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ *
  * @public
  */
 export class ListAppInstancesCommand extends $Command

@@ -128,6 +128,7 @@ export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __Met
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class ListUserPoolsCommand extends $Command

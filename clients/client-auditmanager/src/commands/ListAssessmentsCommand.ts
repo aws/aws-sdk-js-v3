@@ -103,6 +103,7 @@ export interface ListAssessmentsCommandOutput extends ListAssessmentsResponse, _
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class ListAssessmentsCommand extends $Command

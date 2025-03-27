@@ -109,6 +109,7 @@ export interface DescribeTestSetDiscrepancyReportCommandOutput
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeTestSetDiscrepancyReportCommand extends $Command

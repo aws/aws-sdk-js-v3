@@ -67,25 +67,25 @@ export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredential
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To delete CHAP credentials
  * ```javascript
  * // Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target and initiator pair.
  * const input = {
- *   "InitiatorName": "iqn.1991-05.com.microsoft:computername.domain.example.com",
- *   "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+ *   InitiatorName: "iqn.1991-05.com.microsoft:computername.domain.example.com",
+ *   TargetARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
  * };
  * const command = new DeleteChapCredentialsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InitiatorName": "iqn.1991-05.com.microsoft:computername.domain.example.com",
- *   "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+ *   InitiatorName: "iqn.1991-05.com.microsoft:computername.domain.example.com",
+ *   TargetARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
  * }
  * *\/
- * // example id: to-delete-chap-credentials-1471375025612
  * ```
  *
+ * @public
  */
 export class DeleteChapCredentialsCommand extends $Command
   .classBuilder<

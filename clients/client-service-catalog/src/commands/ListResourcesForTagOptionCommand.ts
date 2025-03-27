@@ -78,6 +78,7 @@ export interface ListResourcesForTagOptionCommandOutput extends ListResourcesFor
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListResourcesForTagOptionCommand extends $Command

@@ -84,6 +84,7 @@ export interface ListUserHierarchyGroupsCommandOutput extends ListUserHierarchyG
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListUserHierarchyGroupsCommand extends $Command

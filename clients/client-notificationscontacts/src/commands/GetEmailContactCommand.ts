@@ -85,6 +85,7 @@ export interface GetEmailContactCommandOutput extends GetEmailContactResponse, _
  * @throws {@link NotificationsContactsServiceException}
  * <p>Base exception class for all service exceptions from NotificationsContacts service.</p>
  *
+ *
  * @public
  */
 export class GetEmailContactCommand extends $Command

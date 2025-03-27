@@ -152,18 +152,21 @@ export interface DeletePolicyStoreCommandOutput extends DeletePolicyStoreOutput,
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
- * @public
+ *
  * @example To delete a policy store
  * ```javascript
  * // The following example deletes the specified policy store.
  * const input = {
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a"
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
  * };
  * const command = new DeletePolicyStoreCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeletePolicyStoreCommand extends $Command
   .classBuilder<

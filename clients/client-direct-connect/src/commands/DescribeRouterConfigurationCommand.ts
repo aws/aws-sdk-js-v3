@@ -76,6 +76,7 @@ export interface DescribeRouterConfigurationCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeRouterConfigurationCommand extends $Command

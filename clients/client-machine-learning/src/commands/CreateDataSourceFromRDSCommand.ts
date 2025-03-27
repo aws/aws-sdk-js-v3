@@ -103,6 +103,7 @@ export interface CreateDataSourceFromRDSCommandOutput extends CreateDataSourceFr
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class CreateDataSourceFromRDSCommand extends $Command

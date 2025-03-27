@@ -127,6 +127,7 @@ export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __Met
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class ConfirmDeviceCommand extends $Command

@@ -116,6 +116,7 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class RegisterWorkspaceDirectoryCommand extends $Command

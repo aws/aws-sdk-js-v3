@@ -60,6 +60,7 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class DeleteEventBusCommand extends $Command

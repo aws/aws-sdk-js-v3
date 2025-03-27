@@ -83,6 +83,7 @@ export interface DescribeVocabularyCommandOutput extends DescribeVocabularyRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DescribeVocabularyCommand extends $Command

@@ -154,6 +154,7 @@ export interface GetLicenseRecommendationsCommandOutput extends GetLicenseRecomm
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetLicenseRecommendationsCommand extends $Command

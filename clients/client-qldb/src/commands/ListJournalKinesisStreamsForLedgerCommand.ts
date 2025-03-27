@@ -98,6 +98,7 @@ export interface ListJournalKinesisStreamsForLedgerCommandOutput
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ *
  * @public
  */
 export class ListJournalKinesisStreamsForLedgerCommand extends $Command

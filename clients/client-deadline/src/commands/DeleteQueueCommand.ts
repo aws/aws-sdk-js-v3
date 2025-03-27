@@ -78,6 +78,7 @@ export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __Metadat
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class DeleteQueueCommand extends $Command

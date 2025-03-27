@@ -78,31 +78,31 @@ export interface GetTransformerJobCommandOutput extends GetTransformerJobRespons
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample GetTransformerJob call
  * ```javascript
  * //
  * const input = {
- *   "transformerId": "tr-974c129999f84d8c9",
- *   "transformerJobId": "tj-vpYxfV7yQOqjMSYllEslLw"
+ *   transformerId: "tr-974c129999f84d8c9",
+ *   transformerJobId: "tj-vpYxfV7yQOqjMSYllEslLw"
  * };
  * const command = new GetTransformerJobCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "message": "Transformed, writing output",
- *   "outputFiles": [
+ *   message: "Transformed, writing output",
+ *   outputFiles: [
  *     {
- *       "key": "output/sample-214.edi.2023-11-01T10:44:03.353Z.json",
- *       "bucketName": "gt-edi-test"
+ *       bucketName: "gt-edi-test",
+ *       key: "output/sample-214.edi.2023-11-01T10:44:03.353Z.json"
  *     }
  *   ],
- *   "status": "succeeded"
+ *   status: "succeeded"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetTransformerJobCommand extends $Command
   .classBuilder<

@@ -56,6 +56,7 @@ export interface XmlMapsXmlNameCommandOutput extends XmlMapsXmlNameOutput, __Met
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  */
 export class XmlMapsXmlNameCommand extends $Command
   .classBuilder<

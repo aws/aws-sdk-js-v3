@@ -70,6 +70,7 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ *
  * @public
  */
 export class UpdateConnectivityInfoCommand extends $Command

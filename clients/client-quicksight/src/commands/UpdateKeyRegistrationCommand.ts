@@ -90,6 +90,7 @@ export interface UpdateKeyRegistrationCommandOutput extends UpdateKeyRegistratio
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateKeyRegistrationCommand extends $Command

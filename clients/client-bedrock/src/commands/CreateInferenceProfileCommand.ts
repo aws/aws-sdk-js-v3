@@ -96,6 +96,7 @@ export interface CreateInferenceProfileCommandOutput extends CreateInferenceProf
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class CreateInferenceProfileCommand extends $Command

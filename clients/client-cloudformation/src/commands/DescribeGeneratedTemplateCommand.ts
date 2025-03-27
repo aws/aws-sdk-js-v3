@@ -101,39 +101,8 @@ export interface DescribeGeneratedTemplateCommandOutput extends DescribeGenerate
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
- * @public
- * @example To describe a generated template
- * ```javascript
- * // This example describes a generated template
- * const input = {
- *   "GeneratedTemplateName": "JazzyTemplate"
- * };
- * const command = new DescribeGeneratedTemplateCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CreationTime": "2023-12-28T17:55:20.086000+00:00",
- *   "GeneratedTemplateId": "arn:aws:cloudformation:us-east-1:*:generatedtemplate/*",
- *   "GeneratedTemplateName": "DeletedResourceTest",
- *   "LastUpdatedTime": "2023-12-28T17:57:16.610000+00:00",
- *   "Progress": {
- *     "ResourcesFailed": 0,
- *     "ResourcesPending": 0,
- *     "ResourcesProcessing": 0,
- *     "ResourcesSucceeded": 0
- *   },
- *   "Status": "COMPLETE",
- *   "StatusReason": "All resources complete",
- *   "TemplateConfiguration": {
- *     "DeletionPolicy": "RETAIN",
- *     "UpdateReplacePolicy": "RETAIN"
- *   },
- *   "TotalWarnings": 0
- * }
- * *\/
- * // example id: to-describe-a-generated-template
- * ```
  *
+ * @public
  */
 export class DescribeGeneratedTemplateCommand extends $Command
   .classBuilder<

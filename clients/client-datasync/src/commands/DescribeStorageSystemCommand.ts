@@ -77,6 +77,7 @@ export interface DescribeStorageSystemCommandOutput extends DescribeStorageSyste
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeStorageSystemCommand extends $Command

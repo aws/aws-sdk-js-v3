@@ -136,6 +136,7 @@ export interface AllocatePrivateVirtualInterfaceCommandOutput extends VirtualInt
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class AllocatePrivateVirtualInterfaceCommand extends $Command

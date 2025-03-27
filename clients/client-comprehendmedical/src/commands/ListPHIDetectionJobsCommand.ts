@@ -107,6 +107,7 @@ export interface ListPHIDetectionJobsCommandOutput extends ListPHIDetectionJobsR
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ *
  * @public
  */
 export class ListPHIDetectionJobsCommand extends $Command

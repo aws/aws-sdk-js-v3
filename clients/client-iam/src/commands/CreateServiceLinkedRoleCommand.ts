@@ -104,6 +104,7 @@ export interface CreateServiceLinkedRoleCommandOutput extends CreateServiceLinke
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class CreateServiceLinkedRoleCommand extends $Command

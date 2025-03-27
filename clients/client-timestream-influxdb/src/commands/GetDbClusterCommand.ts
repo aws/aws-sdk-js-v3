@@ -101,6 +101,7 @@ export interface GetDbClusterCommandOutput extends GetDbClusterOutput, __Metadat
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ *
  * @public
  */
 export class GetDbClusterCommand extends $Command

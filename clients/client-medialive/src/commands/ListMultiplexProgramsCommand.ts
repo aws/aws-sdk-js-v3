@@ -84,6 +84,7 @@ export interface ListMultiplexProgramsCommandOutput extends ListMultiplexProgram
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class ListMultiplexProgramsCommand extends $Command

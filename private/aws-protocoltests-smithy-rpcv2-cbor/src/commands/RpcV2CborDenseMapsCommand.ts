@@ -94,6 +94,7 @@ export interface RpcV2CborDenseMapsCommandOutput extends RpcV2CborDenseMapsInput
  * @throws {@link RpcV2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from RpcV2Protocol service.</p>
  *
+ *
  * @public
  */
 export class RpcV2CborDenseMapsCommand extends $Command

@@ -57,19 +57,22 @@ export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To detach an Internet gateway from a VPC
  * ```javascript
  * // This example detaches the specified Internet gateway from the specified VPC.
  * const input = {
- *   "InternetGatewayId": "igw-c0a643a9",
- *   "VpcId": "vpc-a01106c2"
+ *   InternetGatewayId: "igw-c0a643a9",
+ *   VpcId: "vpc-a01106c2"
  * };
  * const command = new DetachInternetGatewayCommand(input);
- * await client.send(command);
- * // example id: ec2-detach-internet-gateway-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DetachInternetGatewayCommand extends $Command
   .classBuilder<

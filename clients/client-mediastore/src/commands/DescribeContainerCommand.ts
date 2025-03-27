@@ -74,6 +74,7 @@ export interface DescribeContainerCommandOutput extends DescribeContainerOutput,
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ *
  * @public
  */
 export class DescribeContainerCommand extends $Command

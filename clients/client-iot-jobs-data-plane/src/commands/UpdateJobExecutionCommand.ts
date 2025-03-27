@@ -94,6 +94,7 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
  * @throws {@link IoTJobsDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
+ *
  * @public
  */
 export class UpdateJobExecutionCommand extends $Command

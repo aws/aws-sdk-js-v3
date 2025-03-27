@@ -86,6 +86,7 @@ export interface BatchDeletePartitionCommandOutput extends BatchDeletePartitionR
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class BatchDeletePartitionCommand extends $Command

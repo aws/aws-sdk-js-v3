@@ -79,6 +79,7 @@ export interface DisableDomainTransferLockCommandOutput extends DisableDomainTra
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ *
  * @public
  */
 export class DisableDomainTransferLockCommand extends $Command

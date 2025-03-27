@@ -127,6 +127,7 @@ export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataB
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class GetMatchesCommand extends $Command

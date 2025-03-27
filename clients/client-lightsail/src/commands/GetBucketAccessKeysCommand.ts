@@ -99,6 +99,7 @@ export interface GetBucketAccessKeysCommandOutput extends GetBucketAccessKeysRes
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetBucketAccessKeysCommand extends $Command

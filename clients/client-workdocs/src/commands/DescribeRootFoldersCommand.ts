@@ -104,6 +104,7 @@ export interface DescribeRootFoldersCommandOutput extends DescribeRootFoldersRes
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class DescribeRootFoldersCommand extends $Command

@@ -79,6 +79,7 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeParametersCommand extends $Command

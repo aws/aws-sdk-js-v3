@@ -79,6 +79,7 @@ export interface GetBaselineOperationCommandOutput extends GetBaselineOperationO
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class GetBaselineOperationCommand extends $Command

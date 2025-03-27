@@ -75,6 +75,7 @@ export interface UpdatePromptCommandOutput extends UpdatePromptResponse, __Metad
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdatePromptCommand extends $Command

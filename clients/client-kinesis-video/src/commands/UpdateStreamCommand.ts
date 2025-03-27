@@ -104,6 +104,7 @@ export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __Metadat
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class UpdateStreamCommand extends $Command

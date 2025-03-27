@@ -60,6 +60,7 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResult, __MetadataB
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ *
  * @public
  */
 export class DeleteGroupCommand extends $Command

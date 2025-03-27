@@ -68,6 +68,7 @@ export interface StartApplicationCommandOutput extends StartApplicationOutput, _
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ *
  * @public
  */
 export class StartApplicationCommand extends $Command

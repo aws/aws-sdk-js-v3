@@ -99,6 +99,7 @@ export interface CreateTrustedTokenIssuerCommandOutput extends CreateTrustedToke
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class CreateTrustedTokenIssuerCommand extends $Command

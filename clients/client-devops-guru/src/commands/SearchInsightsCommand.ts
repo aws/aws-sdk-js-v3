@@ -185,6 +185,7 @@ export interface SearchInsightsCommandOutput extends SearchInsightsResponse, __M
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class SearchInsightsCommand extends $Command

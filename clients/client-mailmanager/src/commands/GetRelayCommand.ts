@@ -71,6 +71,7 @@ export interface GetRelayCommandOutput extends GetRelayResponse, __MetadataBeare
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class GetRelayCommand extends $Command

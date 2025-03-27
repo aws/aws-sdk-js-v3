@@ -76,6 +76,7 @@ export interface DeleteCampaignChannelSubtypeConfigCommandOutput extends __Metad
  * @throws {@link ConnectCampaignsV2ServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaignsV2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteCampaignChannelSubtypeConfigCommand extends $Command

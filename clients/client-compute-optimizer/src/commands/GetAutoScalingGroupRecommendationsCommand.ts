@@ -245,6 +245,7 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetAutoScalingGroupRecommendationsCommand extends $Command

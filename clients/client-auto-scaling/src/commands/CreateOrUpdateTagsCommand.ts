@@ -81,33 +81,36 @@ export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To create or update tags for an Auto Scaling group
  * ```javascript
  * // This example adds two tags to the specified Auto Scaling group.
  * const input = {
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "Key": "Role",
- *       "PropagateAtLaunch": true,
- *       "ResourceId": "my-auto-scaling-group",
- *       "ResourceType": "auto-scaling-group",
- *       "Value": "WebServer"
+ *       Key: "Role",
+ *       PropagateAtLaunch: true,
+ *       ResourceId: "my-auto-scaling-group",
+ *       ResourceType: "auto-scaling-group",
+ *       Value: "WebServer"
  *     },
  *     {
- *       "Key": "Dept",
- *       "PropagateAtLaunch": true,
- *       "ResourceId": "my-auto-scaling-group",
- *       "ResourceType": "auto-scaling-group",
- *       "Value": "Research"
+ *       Key: "Dept",
+ *       PropagateAtLaunch: true,
+ *       ResourceId: "my-auto-scaling-group",
+ *       ResourceType: "auto-scaling-group",
+ *       Value: "Research"
  *     }
  *   ]
  * };
  * const command = new CreateOrUpdateTagsCommand(input);
- * await client.send(command);
- * // example id: autoscaling-create-or-update-tags-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateOrUpdateTagsCommand extends $Command
   .classBuilder<

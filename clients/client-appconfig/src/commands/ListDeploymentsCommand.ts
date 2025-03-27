@@ -83,38 +83,8 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
- * @example To list the available deployments
- * ```javascript
- * // The following list-deployments example lists the available deployments in your AWS account for the specified application and environment.
- * const input = {
- *   "ApplicationId": "339ohji",
- *   "EnvironmentId": "54j1r29"
- * };
- * const command = new ListDeploymentsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Items": [
- *     {
- *       "CompletedAt": "2021-09-17T21:59:03.888000+00:00",
- *       "ConfigurationName": "Example-Configuration-Profile",
- *       "ConfigurationVersion": "1",
- *       "DeploymentDurationInMinutes": 15,
- *       "DeploymentNumber": 1,
- *       "FinalBakeTimeInMinutes": 0,
- *       "GrowthFactor": 25,
- *       "GrowthType": "LINEAR",
- *       "PercentageComplete": 100,
- *       "StartedAt": "2021-09-17T21:43:54.205000+00:00",
- *       "State": "COMPLETE"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-list-the-available-deployments-1632267282025
- * ```
  *
+ * @public
  */
 export class ListDeploymentsCommand extends $Command
   .classBuilder<

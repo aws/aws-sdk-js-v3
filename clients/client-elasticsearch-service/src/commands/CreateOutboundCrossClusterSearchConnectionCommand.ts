@@ -105,6 +105,7 @@ export interface CreateOutboundCrossClusterSearchConnectionCommandOutput
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ *
  * @public
  */
 export class CreateOutboundCrossClusterSearchConnectionCommand extends $Command

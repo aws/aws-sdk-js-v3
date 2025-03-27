@@ -162,6 +162,7 @@ export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse,
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class DescribeSolutionCommand extends $Command

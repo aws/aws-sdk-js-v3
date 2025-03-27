@@ -91,6 +91,7 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class SearchEntitiesCommand extends $Command

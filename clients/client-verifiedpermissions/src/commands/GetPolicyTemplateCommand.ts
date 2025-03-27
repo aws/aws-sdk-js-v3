@@ -165,29 +165,35 @@ export interface GetPolicyTemplateCommandOutput extends GetPolicyTemplateOutput,
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
- * @public
+ *
  * @example GetPolicyTemplate
  * ```javascript
  * // The following example displays the details of the specified policy template.
  * const input = {
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
- *   "policyTemplateId": "PTEXAMPLEabcdefg111111"
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   policyTemplateId: "PTEXAMPLEabcdefg111111"
  * };
  * const command = new GetPolicyTemplateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "createdDate": "2024-08-12T18:20:50.99Z",
- *   "description": "Template for research dept",
- *   "lastUpdatedDate": "2024-08-12T18:20:50.99Z",
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
- *   "policyTemplateId": "PTEXAMPLEabcdefg111111",
- *   "statement": "permit(\n  principal ?principal,\n  action == Action::\"view\",\n  resource in ?resource\n) when {\n  principal has department && principal.department == \"research\" \n};"
+ *   createdDate: "2024-08-12T18:20:50.99Z",
+ *   description: "Template for research dept",
+ *   lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   policyTemplateId: "PTEXAMPLEabcdefg111111",
+ *   statement: `permit(
+ *   principal ?principal,
+ *   action == Action::"view",
+ *   resource in ?resource
+ * ) when {
+ *   principal has department && principal.department == "research"
+ * };`
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetPolicyTemplateCommand extends $Command
   .classBuilder<

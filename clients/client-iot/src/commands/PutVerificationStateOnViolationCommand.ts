@@ -69,6 +69,7 @@ export interface PutVerificationStateOnViolationCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class PutVerificationStateOnViolationCommand extends $Command

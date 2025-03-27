@@ -83,6 +83,7 @@ export interface DescribeAppInstanceCommandOutput extends DescribeAppInstanceRes
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ *
  * @public
  */
 export class DescribeAppInstanceCommand extends $Command

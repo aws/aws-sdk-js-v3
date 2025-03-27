@@ -189,6 +189,7 @@ export interface ListAIAgentsCommandOutput extends ListAIAgentsResponse, __Metad
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class ListAIAgentsCommand extends $Command

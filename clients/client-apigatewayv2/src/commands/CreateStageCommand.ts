@@ -132,6 +132,7 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateStageCommand extends $Command

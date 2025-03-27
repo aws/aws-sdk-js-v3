@@ -1732,6 +1732,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ *
  * @public
  */
 export class CreatePresetCommand extends $Command

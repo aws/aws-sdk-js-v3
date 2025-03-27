@@ -429,34 +429,34 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Delete Endpoint
  * ```javascript
  * // Deletes the specified endpoint. All tasks associated with the endpoint must be deleted before you can delete the endpoint.
- * //
+ *
  * const input = {
- *   "EndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM"
+ *   EndpointArn: "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM"
  * };
  * const command = new DeleteEndpointCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Endpoint": {
- *     "EndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM",
- *     "EndpointIdentifier": "test-endpoint-1",
- *     "EndpointType": "source",
- *     "EngineName": "mysql",
- *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
- *     "Port": 3306,
- *     "ServerName": "mydb.cx1llnox7iyx.us-west-2.rds.amazonaws.com",
- *     "Status": "active",
- *     "Username": "username"
+ *   Endpoint: {
+ *     EndpointArn: "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM",
+ *     EndpointIdentifier: "test-endpoint-1",
+ *     EndpointType: "source",
+ *     EngineName: "mysql",
+ *     KmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
+ *     Port: 3306,
+ *     ServerName: "mydb.cx1llnox7iyx.us-west-2.rds.amazonaws.com",
+ *     Status: "active",
+ *     Username: "username"
  *   }
  * }
  * *\/
- * // example id: delete-endpoint-1481752425530
  * ```
  *
+ * @public
  */
 export class DeleteEndpointCommand extends $Command
   .classBuilder<

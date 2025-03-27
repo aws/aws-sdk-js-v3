@@ -81,6 +81,7 @@ export interface ListMatchingJobsCommandOutput extends ListMatchingJobsOutput, _
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ *
  * @public
  */
 export class ListMatchingJobsCommand extends $Command

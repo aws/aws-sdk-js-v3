@@ -75,6 +75,7 @@ export interface UpdateHostKeyCommandOutput extends UpdateHostKeyResponse, __Met
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class UpdateHostKeyCommand extends $Command

@@ -81,6 +81,7 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * @throws {@link SSOServiceException}
  * <p>Base exception class for all service exceptions from SSO service.</p>
  *
+ *
  * @public
  */
 export class ListAccountsCommand extends $Command

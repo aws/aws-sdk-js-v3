@@ -64,24 +64,24 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe your Auto Scaling account limits
  * ```javascript
  * // This example describes the Amazon EC2 Auto Scaling service quotas for your account.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeAccountLimitsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "MaxNumberOfAutoScalingGroups": 20,
- *   "MaxNumberOfLaunchConfigurations": 100,
- *   "NumberOfAutoScalingGroups": 3,
- *   "NumberOfLaunchConfigurations": 5
+ *   MaxNumberOfAutoScalingGroups: 20,
+ *   MaxNumberOfLaunchConfigurations: 100,
+ *   NumberOfAutoScalingGroups: 3,
+ *   NumberOfLaunchConfigurations: 5
  * }
  * *\/
- * // example id: autoscaling-describe-account-limits-1
  * ```
  *
+ * @public
  */
 export class DescribeAccountLimitsCommand extends $Command
   .classBuilder<

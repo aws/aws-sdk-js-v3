@@ -83,6 +83,7 @@ export interface GetLinkAssociationsCommandOutput extends GetLinkAssociationsRes
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetLinkAssociationsCommand extends $Command

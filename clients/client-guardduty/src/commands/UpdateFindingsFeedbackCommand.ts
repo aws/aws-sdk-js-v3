@@ -64,6 +64,7 @@ export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedb
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class UpdateFindingsFeedbackCommand extends $Command

@@ -71,6 +71,7 @@ export interface DeleteOrganizationCommandOutput extends DeleteOrganizationRespo
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class DeleteOrganizationCommand extends $Command

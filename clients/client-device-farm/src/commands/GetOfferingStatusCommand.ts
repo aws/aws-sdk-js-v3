@@ -118,45 +118,8 @@ export interface GetOfferingStatusCommandOutput extends GetOfferingStatusResult,
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
- * @example To get status information about device offerings
- * ```javascript
- * // The following example returns information about Device Farm offerings available to your account.
- * const input = {
- *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE="
- * };
- * const command = new GetOfferingStatusCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "current": {
- *     "D68B3C05-1BA6-4360-BC69-12345EXAMPLE": {
- *       "offering": {
- *         "type": "RECURRING",
- *         "description": "Android Remote Access Unmetered Device Slot",
- *         "id": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
- *         "platform": "ANDROID"
- *       },
- *       "quantity": 1
- *     }
- *   },
- *   "nextPeriod": {
- *     "D68B3C05-1BA6-4360-BC69-12345EXAMPLE": {
- *       "effectiveOn": "1472688000",
- *       "offering": {
- *         "type": "RECURRING",
- *         "description": "Android Remote Access Unmetered Device Slot",
- *         "id": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
- *         "platform": "ANDROID"
- *       },
- *       "quantity": 1
- *     }
- *   }
- * }
- * *\/
- * // example id: to-get-status-information-about-device-offerings-1472568124402
- * ```
  *
+ * @public
  */
 export class GetOfferingStatusCommand extends $Command
   .classBuilder<

@@ -90,6 +90,7 @@ export interface DeletePermissionVersionCommandOutput extends DeletePermissionVe
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ *
  * @public
  */
 export class DeletePermissionVersionCommand extends $Command

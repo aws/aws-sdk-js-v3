@@ -415,6 +415,7 @@ export interface DeregisterDelegatedAdministratorCommandOutput extends __Metadat
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ *
  * @public
  */
 export class DeregisterDelegatedAdministratorCommand extends $Command

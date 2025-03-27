@@ -86,6 +86,7 @@ export interface ListTypedLinkFacetNamesCommandOutput extends ListTypedLinkFacet
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
  * @public
  */
 export class ListTypedLinkFacetNamesCommand extends $Command

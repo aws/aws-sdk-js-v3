@@ -82,6 +82,7 @@ export interface StartViewerSessionRevocationCommandOutput
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class StartViewerSessionRevocationCommand extends $Command

@@ -64,6 +64,7 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ *
  * @public
  */
 export class StopApplicationCommand extends $Command

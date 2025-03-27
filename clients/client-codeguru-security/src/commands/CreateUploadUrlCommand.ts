@@ -78,6 +78,7 @@ export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, _
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ *
  * @public
  */
 export class CreateUploadUrlCommand extends $Command

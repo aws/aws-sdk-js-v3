@@ -441,30 +441,30 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To create a DB instance read replica
  * ```javascript
  * // This example creates a read replica of an existing DB instance named test-instance. The read replica is named test-instance-repl.
  * const input = {
- *   "DBInstanceIdentifier": "test-instance-repl",
- *   "SourceDBInstanceIdentifier": "test-instance"
+ *   DBInstanceIdentifier: "test-instance-repl",
+ *   SourceDBInstanceIdentifier: "test-instance"
  * };
  * const command = new CreateDBInstanceReadReplicaCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstance": {
- *     "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:test-instance-repl",
- *     "DBInstanceIdentifier": "test-instance-repl",
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "MonitoringInterval": 0,
- *     "ReadReplicaSourceDBInstanceIdentifier": "test-instance"
+ *   DBInstance: {
+ *     DBInstanceArn: "arn:aws:rds:us-east-1:123456789012:db:test-instance-repl",
+ *     DBInstanceIdentifier: "test-instance-repl",
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     MonitoringInterval: 0,
+ *     ReadReplicaSourceDBInstanceIdentifier: "test-instance"
  *   }
  * }
  * *\/
- * // example id: to-create-a-db-instance-read-replica-1680129486105
  * ```
  *
+ * @public
  */
 export class CreateDBInstanceReadReplicaCommand extends $Command
   .classBuilder<

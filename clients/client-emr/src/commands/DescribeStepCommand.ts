@@ -95,6 +95,7 @@ export interface DescribeStepCommandOutput extends DescribeStepOutput, __Metadat
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class DescribeStepCommand extends $Command

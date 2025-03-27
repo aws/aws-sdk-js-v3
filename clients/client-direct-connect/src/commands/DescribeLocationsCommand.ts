@@ -75,6 +75,7 @@ export interface DescribeLocationsCommandOutput extends Locations, __MetadataBea
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeLocationsCommand extends $Command

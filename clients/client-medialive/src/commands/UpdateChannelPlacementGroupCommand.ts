@@ -99,6 +99,7 @@ export interface UpdateChannelPlacementGroupCommandOutput
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class UpdateChannelPlacementGroupCommand extends $Command

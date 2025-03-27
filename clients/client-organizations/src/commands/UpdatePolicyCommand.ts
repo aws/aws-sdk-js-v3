@@ -425,62 +425,61 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
- * @example To update the details of a policy
- * ```javascript
- * // The following example shows how to rename a policy and give it a new description and new content. The output confirms the new name and description text:/n/n
- * const input = {
- *   "Description": "This description replaces the original.",
- *   "Name": "Renamed-Policy",
- *   "PolicyId": "p-examplepolicyid111"
- * };
- * const command = new UpdatePolicyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Policy": {
- *     "Content": "{ \"Version\": \"2012-10-17\", \"Statement\": { \"Effect\": \"Allow\", \"Action\": \"ec2:*\", \"Resource\": \"*\" } }",
- *     "PolicySummary": {
- *       "Arn": "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
- *       "AwsManaged": false,
- *       "Description": "This description replaces the original.",
- *       "Id": "p-examplepolicyid111",
- *       "Name": "Renamed-Policy",
- *       "Type": "SERVICE_CONTROL_POLICY"
- *     }
- *   }
- * }
- * *\/
- * // example id: to-update-the-details-of-a-policy
- * ```
  *
  * @example To update the content of a policy
  * ```javascript
  * // The following example shows how to replace the JSON text of the SCP from the preceding example with a new JSON policy text string that allows S3 actions instead of EC2 actions:/n/n
  * const input = {
- *   "Content": "{ \\\"Version\\\": \\\"2012-10-17\\\", \\\"Statement\\\": {\\\"Effect\\\": \\\"Allow\\\", \\\"Action\\\": \\\"s3:*\\\", \\\"Resource\\\": \\\"*\\\" } }",
- *   "PolicyId": "p-examplepolicyid111"
+ *   Content: `{ \"Version\": \"2012-10-17\", \"Statement\": {\"Effect\": \"Allow\", \"Action\": \"s3:*\", \"Resource\": \"*\" } }`,
+ *   PolicyId: "p-examplepolicyid111"
  * };
  * const command = new UpdatePolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Policy": {
- *     "Content": "{ \\\"Version\\\": \\\"2012-10-17\\\", \\\"Statement\\\": { \\\"Effect\\\": \\\"Allow\\\", \\\"Action\\\": \\\"s3:*\\\", \\\"Resource\\\": \\\"*\\\" } }",
- *     "PolicySummary": {
- *       "Arn": "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
- *       "AwsManaged": false,
- *       "Description": "This description replaces the original.",
- *       "Id": "p-examplepolicyid111",
- *       "Name": "Renamed-Policy",
- *       "Type": "SERVICE_CONTROL_POLICY"
+ *   Policy: {
+ *     Content: `{ \"Version\": \"2012-10-17\", \"Statement\": { \"Effect\": \"Allow\", \"Action\": \"s3:*\", \"Resource\": \"*\" } }`,
+ *     PolicySummary: {
+ *       Arn: "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
+ *       AwsManaged: false,
+ *       Description: "This description replaces the original.",
+ *       Id: "p-examplepolicyid111",
+ *       Name: "Renamed-Policy",
+ *       Type: "SERVICE_CONTROL_POLICY"
  *     }
  *   }
  * }
  * *\/
- * // example id: to-update-the-content-of-a-policy
  * ```
  *
+ * @example To update the details of a policy
+ * ```javascript
+ * // The following example shows how to rename a policy and give it a new description and new content. The output confirms the new name and description text:/n/n
+ * const input = {
+ *   Description: "This description replaces the original.",
+ *   Name: "Renamed-Policy",
+ *   PolicyId: "p-examplepolicyid111"
+ * };
+ * const command = new UpdatePolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Policy: {
+ *     Content: `{ "Version": "2012-10-17", "Statement": { "Effect": "Allow", "Action": "ec2:*", "Resource": "*" } }`,
+ *     PolicySummary: {
+ *       Arn: "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid111",
+ *       AwsManaged: false,
+ *       Description: "This description replaces the original.",
+ *       Id: "p-examplepolicyid111",
+ *       Name: "Renamed-Policy",
+ *       Type: "SERVICE_CONTROL_POLICY"
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class UpdatePolicyCommand extends $Command
   .classBuilder<

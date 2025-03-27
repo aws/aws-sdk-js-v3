@@ -84,6 +84,7 @@ export interface StartAssessmentCommandOutput extends StartAssessmentResponse, _
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ *
  * @public
  */
 export class StartAssessmentCommand extends $Command

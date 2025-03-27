@@ -87,6 +87,7 @@ export interface GetResolverQueryLogConfigCommandOutput extends GetResolverQuery
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class GetResolverQueryLogConfigCommand extends $Command

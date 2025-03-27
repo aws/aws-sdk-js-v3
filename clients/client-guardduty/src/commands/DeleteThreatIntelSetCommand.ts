@@ -60,6 +60,7 @@ export interface DeleteThreatIntelSetCommandOutput extends DeleteThreatIntelSetR
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class DeleteThreatIntelSetCommand extends $Command

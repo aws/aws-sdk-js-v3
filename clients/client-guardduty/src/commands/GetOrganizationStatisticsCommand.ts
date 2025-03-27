@@ -82,6 +82,7 @@ export interface GetOrganizationStatisticsCommandOutput extends GetOrganizationS
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class GetOrganizationStatisticsCommand extends $Command

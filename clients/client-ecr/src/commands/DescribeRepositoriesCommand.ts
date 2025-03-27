@@ -88,32 +88,32 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
- * @public
+ *
  * @example To describe all repositories in the current account
  * ```javascript
  * // The following example obtains a list and description of all repositories in the default registry to which the current user has access.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeRepositoriesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "repositories": [
+ *   repositories: [
  *     {
- *       "registryId": "012345678910",
- *       "repositoryArn": "arn:aws:ecr:us-west-2:012345678910:repository/ubuntu",
- *       "repositoryName": "ubuntu"
+ *       registryId: "012345678910",
+ *       repositoryArn: "arn:aws:ecr:us-west-2:012345678910:repository/ubuntu",
+ *       repositoryName: "ubuntu"
  *     },
  *     {
- *       "registryId": "012345678910",
- *       "repositoryArn": "arn:aws:ecr:us-west-2:012345678910:repository/test",
- *       "repositoryName": "test"
+ *       registryId: "012345678910",
+ *       repositoryArn: "arn:aws:ecr:us-west-2:012345678910:repository/test",
+ *       repositoryName: "test"
  *     }
  *   ]
  * }
  * *\/
- * // example id: describe-repositories-1470856017467
  * ```
  *
+ * @public
  */
 export class DescribeRepositoriesCommand extends $Command
   .classBuilder<

@@ -360,6 +360,7 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateDataSetCommand extends $Command

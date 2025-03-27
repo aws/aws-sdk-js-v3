@@ -85,38 +85,8 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
- * @example To list member account details
- * ```javascript
- * // The following example returns details about member accounts for the calling Security Hub administrator account. The response includes member accounts that are managed through AWS Organizations and those that were invited manually.
- * const input = {};
- * const command = new ListMembersCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Members": [
- *     {
- *       "AccountId": "111122223333",
- *       "AdministratorId": "123456789012",
- *       "InvitedAt": "2020-06-01T20:15:15.289000+00:00",
- *       "MasterId": "123456789012",
- *       "MemberStatus": "ASSOCIATED",
- *       "UpdatedAt": "2020-06-01T20:15:15.289000+00:00"
- *     },
- *     {
- *       "AccountId": "444455556666",
- *       "AdministratorId": "123456789012",
- *       "InvitedAt": "2020-06-01T20:15:15.289000+00:00",
- *       "MasterId": "123456789012",
- *       "MemberStatus": "ASSOCIATED",
- *       "UpdatedAt": "2020-06-01T20:15:15.289000+00:00"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-list-member-account-details-1678385639113
- * ```
  *
+ * @public
  */
 export class ListMembersCommand extends $Command
   .classBuilder<

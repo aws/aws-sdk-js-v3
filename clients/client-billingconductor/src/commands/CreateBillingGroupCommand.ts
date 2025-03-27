@@ -99,6 +99,7 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutpu
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ *
  * @public
  */
 export class CreateBillingGroupCommand extends $Command

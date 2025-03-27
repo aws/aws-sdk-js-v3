@@ -160,6 +160,7 @@ export interface GetSubscriptionRequestDetailsCommandOutput
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetSubscriptionRequestDetailsCommand extends $Command

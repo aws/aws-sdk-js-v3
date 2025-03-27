@@ -144,6 +144,7 @@ export interface UpdateVpcAttachmentCommandOutput extends UpdateVpcAttachmentRes
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class UpdateVpcAttachmentCommand extends $Command

@@ -75,6 +75,7 @@ export interface UpdateEventSourcesConfigCommandOutput extends UpdateEventSource
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class UpdateEventSourcesConfigCommand extends $Command

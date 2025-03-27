@@ -75,18 +75,21 @@ export interface DeleteAssessmentTemplateCommandOutput extends __MetadataBearer 
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example Delete assessment template
  * ```javascript
  * // Deletes the assessment template that is specified by the ARN of the assessment template.
  * const input = {
- *   "assessmentTemplateArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T"
+ *   assessmentTemplateArn: "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T"
  * };
  * const command = new DeleteAssessmentTemplateCommand(input);
- * await client.send(command);
- * // example id: delete-assessment-template-1481064364074
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteAssessmentTemplateCommand extends $Command
   .classBuilder<

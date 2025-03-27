@@ -114,6 +114,7 @@ export interface ListReceivedGrantsForOrganizationCommandOutput
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class ListReceivedGrantsForOrganizationCommand extends $Command

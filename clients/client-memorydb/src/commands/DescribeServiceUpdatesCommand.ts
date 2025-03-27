@@ -82,6 +82,7 @@ export interface DescribeServiceUpdatesCommandOutput extends DescribeServiceUpda
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeServiceUpdatesCommand extends $Command

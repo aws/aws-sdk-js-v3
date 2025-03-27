@@ -133,6 +133,7 @@ export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __Met
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ *
  * @public
  */
 export class GetHealthEventCommand extends $Command

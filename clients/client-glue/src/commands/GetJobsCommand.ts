@@ -1167,6 +1167,7 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetJobsCommand extends $Command

@@ -272,6 +272,7 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  * @throws {@link GeoRoutesServiceException}
  * <p>Base exception class for all service exceptions from GeoRoutes service.</p>
  *
+ *
  * @public
  */
 export class CalculateRouteMatrixCommand extends $Command

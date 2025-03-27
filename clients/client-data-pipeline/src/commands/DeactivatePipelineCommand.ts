@@ -69,6 +69,7 @@ export interface DeactivatePipelineCommandOutput extends DeactivatePipelineOutpu
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class DeactivatePipelineCommand extends $Command

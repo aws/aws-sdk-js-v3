@@ -90,6 +90,7 @@ export interface ListObjectivesCommandOutput extends ListObjectivesResponse, __M
  * @throws {@link ControlCatalogServiceException}
  * <p>Base exception class for all service exceptions from ControlCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListObjectivesCommand extends $Command

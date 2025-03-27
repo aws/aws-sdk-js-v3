@@ -93,6 +93,7 @@ export interface GetWorkflowStepExecutionCommandOutput extends GetWorkflowStepEx
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class GetWorkflowStepExecutionCommand extends $Command

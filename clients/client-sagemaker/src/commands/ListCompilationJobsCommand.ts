@@ -81,6 +81,7 @@ export interface ListCompilationJobsCommandOutput extends ListCompilationJobsRes
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListCompilationJobsCommand extends $Command

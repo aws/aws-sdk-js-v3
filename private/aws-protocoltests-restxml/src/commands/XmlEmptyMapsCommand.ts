@@ -62,6 +62,7 @@ export interface XmlEmptyMapsCommandOutput extends XmlEmptyMapsResponse, __Metad
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class XmlEmptyMapsCommand extends $Command
   .classBuilder<

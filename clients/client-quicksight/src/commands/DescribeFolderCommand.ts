@@ -93,6 +93,7 @@ export interface DescribeFolderCommandOutput extends DescribeFolderResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeFolderCommand extends $Command

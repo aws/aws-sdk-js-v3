@@ -92,6 +92,7 @@ export interface DescribeStreamCommandOutput extends DescribeStreamResponse, __M
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeStreamCommand extends $Command

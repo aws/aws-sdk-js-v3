@@ -89,6 +89,7 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class GetFunctionCommand extends $Command

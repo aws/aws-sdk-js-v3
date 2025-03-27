@@ -71,21 +71,24 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To add tags to an existing Lambda function
  * ```javascript
  * // The following example adds a tag with the key name DEPARTMENT and a value of 'Department A' to the specified Lambda function.
  * const input = {
- *   "Resource": "arn:aws:lambda:us-west-2:123456789012:function:my-function",
- *   "Tags": {
- *     "DEPARTMENT": "Department A"
+ *   Resource: "arn:aws:lambda:us-west-2:123456789012:function:my-function",
+ *   Tags: {
+ *     DEPARTMENT: "Department A"
  *   }
  * };
  * const command = new TagResourceCommand(input);
- * await client.send(command);
- * // example id: to-add-tags-to-an-existing-lambda-function-1586491890446
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

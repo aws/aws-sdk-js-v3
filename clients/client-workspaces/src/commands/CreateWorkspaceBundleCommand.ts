@@ -111,6 +111,7 @@ export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundl
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class CreateWorkspaceBundleCommand extends $Command

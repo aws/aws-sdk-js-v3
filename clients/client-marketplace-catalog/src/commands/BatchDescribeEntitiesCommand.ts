@@ -94,6 +94,7 @@ export interface BatchDescribeEntitiesCommandOutput extends BatchDescribeEntitie
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ *
  * @public
  */
 export class BatchDescribeEntitiesCommand extends $Command

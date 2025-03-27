@@ -122,6 +122,37 @@ export interface GetCisScanResultDetailsCommandOutput extends GetCisScanResultDe
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
+ * @example Sample GetCisScanResultDetails Call
+ * ```javascript
+ * //
+ * const input = {
+ *   accountId: "123412341234",
+ *   scanArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-scan/624b746d-e080-44ae-8c1d-48e653365a38",
+ *   targetResourceId: "i-12341234"
+ * };
+ * const command = new GetCisScanResultDetailsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   scanResultDetails: [
+ *     {
+ *       accountId: "123412341234",
+ *       checkDescription: "description",
+ *       checkId: "1.1.1.1",
+ *       level: "LEVEL_1",
+ *       platform: "AMAZON_LINUX_2",
+ *       remediation: "fix",
+ *       scanArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-scan/624b746d-e080-44ae-8c1d-48e653365a38",
+ *       status: "PASSED",
+ *       targetResourceId: "i-12341234",
+ *       title: "title1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetCisScanResultDetailsCommand extends $Command

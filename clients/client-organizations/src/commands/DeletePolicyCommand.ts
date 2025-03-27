@@ -201,20 +201,23 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To delete a policy
  * ```javascript
  * // The following example shows how to delete a policy from an organization. The example assumes that you previously detached the policy from all entities:
- * //
- * //
+ *
+ *
  * const input = {
- *   "PolicyId": "p-examplepolicyid111"
+ *   PolicyId: "p-examplepolicyid111"
  * };
  * const command = new DeletePolicyCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-policy
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeletePolicyCommand extends $Command
   .classBuilder<

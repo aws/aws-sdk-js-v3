@@ -84,19 +84,22 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  * @throws {@link DSQLServiceException}
  * <p>Base exception class for all service exceptions from DSQL service.</p>
  *
- * @public
+ *
  * @example Update Cluster
  * ```javascript
  * //
  * const input = {
- *   "deletionProtectionEnabled": false,
- *   "identifier": "kiqenqglxyl2snyvkvnj2c3s2e"
+ *   deletionProtectionEnabled: false,
+ *   identifier: "kiqenqglxyl2snyvkvnj2c3s2e"
  * };
  * const command = new UpdateClusterCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateClusterCommand extends $Command
   .classBuilder<

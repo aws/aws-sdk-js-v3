@@ -92,6 +92,7 @@ export interface GetContactInformationCommandOutput extends GetContactInformatio
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ *
  * @public
  */
 export class GetContactInformationCommand extends $Command

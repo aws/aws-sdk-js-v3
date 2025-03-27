@@ -80,37 +80,37 @@ export interface ListKeyValueStoresCommandOutput extends ListKeyValueStoresResul
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
- * @public
+ *
  * @example To get a list of KeyValueStores
  * ```javascript
  * // The following command retrieves a list of KeyValueStores with READY status.
  * const input = {
- *   "Status": "READY"
+ *   Status: "READY"
  * };
  * const command = new ListKeyValueStoresCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "KeyValueStoreList": {
- *     "Items": [
+ *   KeyValueStoreList: {
+ *     Items: [
  *       {
- *         "ARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889",
- *         "Comment": "",
- *         "Id": "54947df8-0e9e-4471-a2f9-9af509fb5889",
- *         "LastModifiedTime": "2023-11-07T18:45:21.069Z",
- *         "Name": "my-keyvaluestore-name",
- *         "Status": "READY"
+ *         ARN: "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889",
+ *         Comment: "",
+ *         Id: "54947df8-0e9e-4471-a2f9-9af509fb5889",
+ *         LastModifiedTime: "2023-11-07T18:45:21.069Z",
+ *         Name: "my-keyvaluestore-name",
+ *         Status: "READY"
  *       }
  *     ],
- *     "MaxItems": 100,
- *     "NextMarker": "",
- *     "Quantity": 1
+ *     MaxItems: 100,
+ *     NextMarker: "",
+ *     Quantity: 1
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListKeyValueStoresCommand extends $Command
   .classBuilder<

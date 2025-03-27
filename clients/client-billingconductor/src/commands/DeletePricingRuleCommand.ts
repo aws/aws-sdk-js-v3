@@ -74,6 +74,7 @@ export interface DeletePricingRuleCommandOutput extends DeletePricingRuleOutput,
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ *
  * @public
  */
 export class DeletePricingRuleCommand extends $Command

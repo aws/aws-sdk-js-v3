@@ -80,6 +80,7 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResult,
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class GetNetworkProfileCommand extends $Command

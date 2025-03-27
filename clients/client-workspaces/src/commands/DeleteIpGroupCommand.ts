@@ -66,6 +66,7 @@ export interface DeleteIpGroupCommandOutput extends DeleteIpGroupResult, __Metad
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DeleteIpGroupCommand extends $Command

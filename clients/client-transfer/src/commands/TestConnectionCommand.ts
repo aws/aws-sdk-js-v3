@@ -72,6 +72,7 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class TestConnectionCommand extends $Command

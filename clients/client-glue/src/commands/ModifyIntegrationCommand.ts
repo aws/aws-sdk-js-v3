@@ -114,6 +114,7 @@ export interface ModifyIntegrationCommandOutput extends ModifyIntegrationRespons
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class ModifyIntegrationCommand extends $Command

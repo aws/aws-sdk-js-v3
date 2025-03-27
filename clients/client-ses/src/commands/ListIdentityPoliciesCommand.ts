@@ -68,25 +68,25 @@ export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesR
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example ListIdentityPolicies
  * ```javascript
  * // The following example returns a list of sending authorization policies that are attached to an identity:
  * const input = {
- *   "Identity": "example.com"
+ *   Identity: "example.com"
  * };
  * const command = new ListIdentityPoliciesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "PolicyNames": [
+ *   PolicyNames: [
  *     "MyPolicy"
  *   ]
  * }
  * *\/
- * // example id: listidentitypolicies-1469124417674
  * ```
  *
+ * @public
  */
 export class ListIdentityPoliciesCommand extends $Command
   .classBuilder<

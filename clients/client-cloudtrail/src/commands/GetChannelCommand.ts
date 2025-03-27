@@ -113,6 +113,7 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class GetChannelCommand extends $Command

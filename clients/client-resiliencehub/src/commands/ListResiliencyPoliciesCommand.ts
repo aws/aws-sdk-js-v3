@@ -99,6 +99,7 @@ export interface ListResiliencyPoliciesCommandOutput extends ListResiliencyPolic
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListResiliencyPoliciesCommand extends $Command

@@ -129,6 +129,7 @@ export interface CreateBackupCommandOutput extends CreateBackupOutput, __Metadat
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class CreateBackupCommand extends $Command

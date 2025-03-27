@@ -176,6 +176,7 @@ export interface CreateApiCommandOutput extends CreateApiResponse, __MetadataBea
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class CreateApiCommand extends $Command

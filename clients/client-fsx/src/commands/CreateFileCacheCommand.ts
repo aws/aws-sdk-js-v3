@@ -186,6 +186,7 @@ export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, _
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ *
  * @public
  */
 export class CreateFileCacheCommand extends $Command

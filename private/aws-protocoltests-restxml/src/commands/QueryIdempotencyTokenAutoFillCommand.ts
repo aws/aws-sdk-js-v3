@@ -54,6 +54,7 @@ export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBe
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class QueryIdempotencyTokenAutoFillCommand extends $Command

@@ -86,6 +86,7 @@ export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ *
  * @public
  */
 export class GetLinkCommand extends $Command

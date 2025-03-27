@@ -88,6 +88,7 @@ export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncS
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ *
  * @public
  */
 export class GetRepositorySyncStatusCommand extends $Command

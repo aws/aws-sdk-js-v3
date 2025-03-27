@@ -92,6 +92,7 @@ export interface GetVoiceTemplateCommandOutput extends GetVoiceTemplateResponse,
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetVoiceTemplateCommand extends $Command

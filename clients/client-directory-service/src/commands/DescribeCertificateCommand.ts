@@ -85,6 +85,7 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DescribeCertificateCommand extends $Command

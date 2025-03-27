@@ -101,6 +101,7 @@ export interface GetReadSetImportJobCommandOutput extends GetReadSetImportJobRes
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class GetReadSetImportJobCommand extends $Command

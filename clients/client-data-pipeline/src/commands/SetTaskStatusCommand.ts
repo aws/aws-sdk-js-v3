@@ -102,6 +102,7 @@ export interface SetTaskStatusCommandOutput extends SetTaskStatusOutput, __Metad
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class SetTaskStatusCommand extends $Command

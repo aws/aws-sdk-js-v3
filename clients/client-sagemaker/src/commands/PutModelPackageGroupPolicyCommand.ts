@@ -63,6 +63,7 @@ export interface PutModelPackageGroupPolicyCommandOutput extends PutModelPackage
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class PutModelPackageGroupPolicyCommand extends $Command

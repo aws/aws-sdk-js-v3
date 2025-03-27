@@ -109,6 +109,7 @@ export interface ListTransactionEventsCommandOutput extends ListTransactionEvent
  * @throws {@link ManagedBlockchainQueryServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
+ *
  * @public
  */
 export class ListTransactionEventsCommand extends $Command

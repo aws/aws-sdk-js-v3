@@ -94,6 +94,7 @@ export interface AssociateCustomerGatewayCommandOutput extends AssociateCustomer
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class AssociateCustomerGatewayCommand extends $Command

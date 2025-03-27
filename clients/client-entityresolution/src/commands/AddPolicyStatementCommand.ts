@@ -88,6 +88,7 @@ export interface AddPolicyStatementCommandOutput extends AddPolicyStatementOutpu
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ *
  * @public
  */
 export class AddPolicyStatementCommand extends $Command

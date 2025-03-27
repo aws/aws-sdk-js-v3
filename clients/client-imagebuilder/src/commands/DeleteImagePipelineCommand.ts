@@ -81,6 +81,7 @@ export interface DeleteImagePipelineCommandOutput extends DeleteImagePipelineRes
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class DeleteImagePipelineCommand extends $Command

@@ -75,6 +75,7 @@ export interface ListMetricAttributionMetricsCommandOutput
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class ListMetricAttributionMetricsCommand extends $Command

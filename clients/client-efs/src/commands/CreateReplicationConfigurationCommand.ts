@@ -153,6 +153,7 @@ export interface CreateReplicationConfigurationCommandOutput
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ *
  * @public
  */
 export class CreateReplicationConfigurationCommand extends $Command

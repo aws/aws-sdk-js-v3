@@ -110,6 +110,7 @@ export interface CreateFunctionUrlConfigCommandOutput extends CreateFunctionUrlC
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class CreateFunctionUrlConfigCommand extends $Command

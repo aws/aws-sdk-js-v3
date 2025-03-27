@@ -96,6 +96,7 @@ export interface GetManagedThingStateCommandOutput extends GetManagedThingStateR
  * @throws {@link IoTManagedIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from IoTManagedIntegrations service.</p>
  *
+ *
  * @public
  */
 export class GetManagedThingStateCommand extends $Command

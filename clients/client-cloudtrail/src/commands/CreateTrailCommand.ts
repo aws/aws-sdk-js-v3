@@ -232,6 +232,7 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class CreateTrailCommand extends $Command

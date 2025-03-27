@@ -76,6 +76,7 @@ export interface DisableLDAPSCommandOutput extends DisableLDAPSResult, __Metadat
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DisableLDAPSCommand extends $Command

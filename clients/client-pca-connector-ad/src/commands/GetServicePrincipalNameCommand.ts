@@ -86,6 +86,7 @@ export interface GetServicePrincipalNameCommandOutput extends GetServicePrincipa
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ *
  * @public
  */
 export class GetServicePrincipalNameCommand extends $Command

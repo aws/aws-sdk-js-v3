@@ -77,6 +77,7 @@ export interface GetMatchIdCommandOutput extends GetMatchIdOutput, __MetadataBea
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ *
  * @public
  */
 export class GetMatchIdCommand extends $Command

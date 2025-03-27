@@ -229,40 +229,40 @@ export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, 
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To update a Lambda function's code
  * ```javascript
  * // The following example replaces the code of the unpublished ($LATEST) version of a function named my-function with the contents of the specified zip file in Amazon S3.
  * const input = {
- *   "FunctionName": "my-function",
- *   "S3Bucket": "my-bucket-1xpuxmplzrlbh",
- *   "S3Key": "function.zip"
+ *   FunctionName: "my-function",
+ *   S3Bucket: "my-bucket-1xpuxmplzrlbh",
+ *   S3Key: "function.zip"
  * };
  * const command = new UpdateFunctionCodeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CodeSha256": "PFn4S+er27qk+UuZSTKEQfNKG/XNn7QJs90mJgq6oH8=",
- *   "CodeSize": 308,
- *   "Description": "",
- *   "FunctionArn": "arn:aws:lambda:us-east-2:123456789012:function:my-function",
- *   "FunctionName": "my-function",
- *   "Handler": "index.handler",
- *   "LastModified": "2019-08-14T22:26:11.234+0000",
- *   "MemorySize": 128,
- *   "RevisionId": "873282ed-xmpl-4dc8-a069-d0c647e470c6",
- *   "Role": "arn:aws:iam::123456789012:role/lambda-role",
- *   "Runtime": "nodejs12.x",
- *   "Timeout": 3,
- *   "TracingConfig": {
- *     "Mode": "PassThrough"
+ *   CodeSha256: "PFn4S+er27qk+UuZSTKEQfNKG/XNn7QJs90mJgq6oH8=",
+ *   CodeSize: 308,
+ *   Description: "",
+ *   FunctionArn: "arn:aws:lambda:us-east-2:123456789012:function:my-function",
+ *   FunctionName: "my-function",
+ *   Handler: "index.handler",
+ *   LastModified: "2019-08-14T22:26:11.234+0000",
+ *   MemorySize: 128,
+ *   RevisionId: "873282ed-xmpl-4dc8-a069-d0c647e470c6",
+ *   Role: "arn:aws:iam::123456789012:role/lambda-role",
+ *   Runtime: "nodejs12.x",
+ *   Timeout: 3,
+ *   TracingConfig: {
+ *     Mode: "PassThrough"
  *   },
- *   "Version": "$LATEST"
+ *   Version: "$LATEST"
  * }
  * *\/
- * // example id: to-update-a-lambda-functions-code-1481650992672
  * ```
  *
+ * @public
  */
 export class UpdateFunctionCodeCommand extends $Command
   .classBuilder<

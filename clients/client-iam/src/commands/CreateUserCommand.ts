@@ -106,29 +106,29 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To create an IAM user
  * ```javascript
  * // The following create-user command creates an IAM user named Bob in the current account.
  * const input = {
- *   "UserName": "Bob"
+ *   UserName: "Bob"
  * };
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "User": {
- *     "Arn": "arn:aws:iam::123456789012:user/Bob",
- *     "CreateDate": "2013-06-08T03:20:41.270Z",
- *     "Path": "/",
- *     "UserId": "AKIAIOSFODNN7EXAMPLE",
- *     "UserName": "Bob"
+ *   User: {
+ *     Arn: "arn:aws:iam::123456789012:user/Bob",
+ *     CreateDate: "2013-06-08T03:20:41.270Z",
+ *     Path: "/",
+ *     UserId: "AKIAIOSFODNN7EXAMPLE",
+ *     UserName: "Bob"
  *   }
  * }
  * *\/
- * // example id: eb15f90b-e5f5-4af8-a594-e4e82b181a62
  * ```
  *
+ * @public
  */
 export class CreateUserCommand extends $Command
   .classBuilder<

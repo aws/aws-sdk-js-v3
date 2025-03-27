@@ -131,6 +131,7 @@ export interface CreateAddonCommandOutput extends CreateAddonResponse, __Metadat
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class CreateAddonCommand extends $Command

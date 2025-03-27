@@ -75,6 +75,7 @@ export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetIm
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class DescribeDatasetImportJobCommand extends $Command

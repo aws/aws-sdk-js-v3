@@ -108,6 +108,7 @@ export interface ListFindingsV2CommandOutput extends ListFindingsV2Response, __M
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class ListFindingsV2Command extends $Command

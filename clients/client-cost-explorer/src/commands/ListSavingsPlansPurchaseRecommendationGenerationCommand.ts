@@ -88,6 +88,7 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class ListSavingsPlansPurchaseRecommendationGenerationCommand extends $Command

@@ -141,6 +141,7 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class GetFindingsStatisticsCommand extends $Command

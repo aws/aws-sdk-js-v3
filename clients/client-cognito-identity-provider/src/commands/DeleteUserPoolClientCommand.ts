@@ -81,6 +81,7 @@ export interface DeleteUserPoolClientCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserPoolClientCommand extends $Command

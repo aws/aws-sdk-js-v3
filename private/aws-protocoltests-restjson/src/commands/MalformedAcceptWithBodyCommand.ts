@@ -52,6 +52,7 @@ export interface MalformedAcceptWithBodyCommandOutput extends GreetingStruct, __
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedAcceptWithBodyCommand extends $Command
   .classBuilder<

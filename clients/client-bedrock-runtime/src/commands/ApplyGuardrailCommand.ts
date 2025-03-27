@@ -211,6 +211,7 @@ export interface ApplyGuardrailCommandOutput extends ApplyGuardrailResponse, __M
  * @throws {@link BedrockRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockRuntime service.</p>
  *
+ *
  * @public
  */
 export class ApplyGuardrailCommand extends $Command

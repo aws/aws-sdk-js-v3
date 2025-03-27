@@ -81,6 +81,7 @@ export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput,
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class PutApprovalResultCommand extends $Command

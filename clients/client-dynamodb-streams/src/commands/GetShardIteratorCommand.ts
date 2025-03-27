@@ -87,25 +87,25 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * @throws {@link DynamoDBStreamsServiceException}
  * <p>Base exception class for all service exceptions from DynamoDBStreams service.</p>
  *
- * @public
+ *
  * @example To obtain a shard iterator for the provided stream ARN and shard ID
  * ```javascript
  * // The following example returns a shard iterator for the provided stream ARN and shard ID.
  * const input = {
- *   "ShardId": "00000001414576573621-f55eea83",
- *   "ShardIteratorType": "TRIM_HORIZON",
- *   "StreamArn": "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252"
+ *   ShardId: "00000001414576573621-f55eea83",
+ *   ShardIteratorType: "TRIM_HORIZON",
+ *   StreamArn: "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252"
  * };
  * const command = new GetShardIteratorCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ShardIterator": "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252|1|AAAAAAAAAAEvJp6D+zaQ...  <remaining characters omitted> ..."
+ *   ShardIterator: "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252|1|AAAAAAAAAAEvJp6D+zaQ...  <remaining characters omitted> ..."
  * }
  * *\/
- * // example id: to-obtain-a-shard-iterator-for-the-provided-stream-arn-and-shard-id-1473459941476
  * ```
  *
+ * @public
  */
 export class GetShardIteratorCommand extends $Command
   .classBuilder<

@@ -86,6 +86,7 @@ export interface CreateLensVersionCommandOutput extends CreateLensVersionOutput,
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class CreateLensVersionCommand extends $Command

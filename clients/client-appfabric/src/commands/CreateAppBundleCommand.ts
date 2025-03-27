@@ -84,6 +84,7 @@ export interface CreateAppBundleCommandOutput extends CreateAppBundleResponse, _
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ *
  * @public
  */
 export class CreateAppBundleCommand extends $Command

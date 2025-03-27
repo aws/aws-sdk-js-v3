@@ -115,6 +115,7 @@ export interface AssumeRoleForPodIdentityCommandOutput extends AssumeRoleForPodI
  * @throws {@link EKSAuthServiceException}
  * <p>Base exception class for all service exceptions from EKSAuth service.</p>
  *
+ *
  * @public
  */
 export class AssumeRoleForPodIdentityCommand extends $Command

@@ -92,6 +92,7 @@ export interface BatchAssociateAssessmentReportEvidenceCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class BatchAssociateAssessmentReportEvidenceCommand extends $Command

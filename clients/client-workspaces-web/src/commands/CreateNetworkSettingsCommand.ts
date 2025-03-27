@@ -92,6 +92,7 @@ export interface CreateNetworkSettingsCommandOutput extends CreateNetworkSetting
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class CreateNetworkSettingsCommand extends $Command

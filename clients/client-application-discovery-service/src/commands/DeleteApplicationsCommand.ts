@@ -77,6 +77,7 @@ export interface DeleteApplicationsCommandOutput extends DeleteApplicationsRespo
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class DeleteApplicationsCommand extends $Command

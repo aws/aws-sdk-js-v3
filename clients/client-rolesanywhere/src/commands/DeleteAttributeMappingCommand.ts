@@ -96,6 +96,52 @@ export interface DeleteAttributeMappingCommandOutput extends DeleteAttributeMapp
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ *
+ * @example DeleteAttributeMapping - Deletes a custom attribute mapping rule
+ * ```javascript
+ * //
+ * const input = {
+ *   certificateField: "x509Subject",
+ *   profileId: "00000000-0000-0000-0000-000000000000",
+ *   specifiers: [
+ *     "OU"
+ *   ]
+ * };
+ * const command = new DeleteAttributeMappingCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   profile: {
+ *     acceptRoleSessionName: false,
+ *     attributeMappings: [
+ *       {
+ *         certificateField: "x509Subject",
+ *         mappingRules: [
+ *           {
+ *             specifier: "CN"
+ *           }
+ *         ]
+ *       }
+ *     ],
+ *     createdAt: "2021-07-19T15:55:25.986591Z",
+ *     createdBy: "arn:aws:sts::123456789012:assumed-role/Admin/DummyRole",
+ *     durationSeconds: 3600,
+ *     enabled: true,
+ *     managedPolicyArns:     [],
+ *     name: "Dummy Profile",
+ *     profileArn: "arn:aws:rolesanywhere:us-east-1:123456789012:profile/00000000-0000-0000-0000-000000000000",
+ *     profileId: "00000000-0000-0000-0000-000000000000",
+ *     requireInstanceProperties: false,
+ *     roleArns: [
+ *       "arn:aws:iam::123456789012:role/DummyRole"
+ *     ],
+ *     sessionPolicy: "",
+ *     updatedAt: "2021-07-19T15:55:25.986591Z"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteAttributeMappingCommand extends $Command

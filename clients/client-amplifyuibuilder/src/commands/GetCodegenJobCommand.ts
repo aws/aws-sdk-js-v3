@@ -189,6 +189,7 @@ export interface GetCodegenJobCommandOutput extends GetCodegenJobResponse, __Met
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class GetCodegenJobCommand extends $Command

@@ -95,6 +95,7 @@ export interface CreateServiceNetworkCommandOutput extends CreateServiceNetworkR
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class CreateServiceNetworkCommand extends $Command

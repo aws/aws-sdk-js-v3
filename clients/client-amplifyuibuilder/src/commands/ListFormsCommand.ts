@@ -77,6 +77,7 @@ export interface ListFormsCommandOutput extends ListFormsResponse, __MetadataBea
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class ListFormsCommand extends $Command

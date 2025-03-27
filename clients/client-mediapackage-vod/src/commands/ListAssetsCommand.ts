@@ -89,6 +89,7 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  * @throws {@link MediaPackageVodServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ *
  * @public
  */
 export class ListAssetsCommand extends $Command

@@ -64,6 +64,7 @@ export interface CancelContactCommandOutput extends ContactIdResponse, __Metadat
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class CancelContactCommand extends $Command

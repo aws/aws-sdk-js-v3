@@ -81,6 +81,7 @@ export interface GetRevisionCommandOutput extends GetRevisionResponse, __Metadat
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class GetRevisionCommand extends $Command

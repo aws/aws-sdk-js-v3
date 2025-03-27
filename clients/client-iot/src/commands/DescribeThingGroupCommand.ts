@@ -94,6 +94,7 @@ export interface DescribeThingGroupCommandOutput extends DescribeThingGroupRespo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeThingGroupCommand extends $Command

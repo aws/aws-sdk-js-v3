@@ -64,23 +64,8 @@ export interface DescribeCrossAccountAccessRoleCommandOutput
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
- * @example Describte cross account access role
- * ```javascript
- * // Describes the IAM role that enables Amazon Inspector to access your AWS account.
- * const input = {};
- * const command = new DescribeCrossAccountAccessRoleCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "registeredAt": "1458069182.826",
- *   "roleArn": "arn:aws:iam::123456789012:role/inspector",
- *   "valid": true
- * }
- * *\/
- * // example id: describte-cross-account-access-role-1481064682267
- * ```
  *
+ * @public
  */
 export class DescribeCrossAccountAccessRoleCommand extends $Command
   .classBuilder<

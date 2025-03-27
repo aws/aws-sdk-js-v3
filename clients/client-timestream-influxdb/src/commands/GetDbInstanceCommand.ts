@@ -103,6 +103,7 @@ export interface GetDbInstanceCommandOutput extends GetDbInstanceOutput, __Metad
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ *
  * @public
  */
 export class GetDbInstanceCommand extends $Command

@@ -107,45 +107,45 @@ export interface CreateNetworkAclCommandOutput extends CreateNetworkAclResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To create a network ACL
  * ```javascript
  * // This example creates a network ACL for the specified VPC.
  * const input = {
- *   "VpcId": "vpc-a01106c2"
+ *   VpcId: "vpc-a01106c2"
  * };
  * const command = new CreateNetworkAclCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NetworkAcl": {
- *     "Associations": [],
- *     "Entries": [
+ *   NetworkAcl: {
+ *     Associations:     [],
+ *     Entries: [
  *       {
- *         "CidrBlock": "0.0.0.0/0",
- *         "Egress": true,
- *         "Protocol": "-1",
- *         "RuleAction": "deny",
- *         "RuleNumber": 32767
+ *         CidrBlock: "0.0.0.0/0",
+ *         Egress: true,
+ *         Protocol: "-1",
+ *         RuleAction: "deny",
+ *         RuleNumber: 32767
  *       },
  *       {
- *         "CidrBlock": "0.0.0.0/0",
- *         "Egress": false,
- *         "Protocol": "-1",
- *         "RuleAction": "deny",
- *         "RuleNumber": 32767
+ *         CidrBlock: "0.0.0.0/0",
+ *         Egress: false,
+ *         Protocol: "-1",
+ *         RuleAction: "deny",
+ *         RuleNumber: 32767
  *       }
  *     ],
- *     "IsDefault": false,
- *     "NetworkAclId": "acl-5fb85d36",
- *     "Tags": [],
- *     "VpcId": "vpc-a01106c2"
+ *     IsDefault: false,
+ *     NetworkAclId: "acl-5fb85d36",
+ *     Tags:     [],
+ *     VpcId: "vpc-a01106c2"
  *   }
  * }
  * *\/
- * // example id: ec2-create-network-acl-1
  * ```
  *
+ * @public
  */
 export class CreateNetworkAclCommand extends $Command
   .classBuilder<

@@ -124,6 +124,7 @@ export interface UpdateCoreNetworkCommandOutput extends UpdateCoreNetworkRespons
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class UpdateCoreNetworkCommand extends $Command

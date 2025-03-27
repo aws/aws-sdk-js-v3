@@ -328,6 +328,7 @@ export interface ListJobsByPipelineCommandOutput extends ListJobsByPipelineRespo
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ *
  * @public
  */
 export class ListJobsByPipelineCommand extends $Command

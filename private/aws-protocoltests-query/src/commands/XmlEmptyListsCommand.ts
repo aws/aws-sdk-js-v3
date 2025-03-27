@@ -98,6 +98,7 @@ export interface XmlEmptyListsCommandOutput extends XmlListsOutput, __MetadataBe
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  */
 export class XmlEmptyListsCommand extends $Command
   .classBuilder<

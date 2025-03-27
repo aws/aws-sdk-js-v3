@@ -130,6 +130,7 @@ export interface GetEventPredictionCommandOutput extends GetEventPredictionResul
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class GetEventPredictionCommand extends $Command

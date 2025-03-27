@@ -81,6 +81,7 @@ export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBeare
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ *
  * @public
  */
 export class UpdateCampaignDialerConfigCommand extends $Command

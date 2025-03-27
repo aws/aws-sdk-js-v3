@@ -97,6 +97,7 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ *
  * @public
  */
 export class ListScheduledQueriesCommand extends $Command

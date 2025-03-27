@@ -81,6 +81,7 @@ export interface DeleteGrantCommandOutput extends DeleteGrantResponse, __Metadat
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteGrantCommand extends $Command

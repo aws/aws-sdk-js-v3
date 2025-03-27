@@ -75,6 +75,7 @@ export interface UpdateMailboxQuotaCommandOutput extends UpdateMailboxQuotaRespo
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class UpdateMailboxQuotaCommand extends $Command

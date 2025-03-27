@@ -76,6 +76,7 @@ export interface GetApplicationAccessScopeCommandOutput extends GetApplicationAc
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class GetApplicationAccessScopeCommand extends $Command

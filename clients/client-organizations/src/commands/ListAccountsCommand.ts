@@ -208,58 +208,8 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
- * @example To retrieve a list of all of the accounts in an organization
- * ```javascript
- * // The following example shows you how to request a list of the accounts in an organization:
- * const input = {};
- * const command = new ListAccountsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Accounts": [
- *     {
- *       "Arn": "arn:aws:organizations::111111111111:account/o-exampleorgid/111111111111",
- *       "Email": "bill@example.com",
- *       "Id": "111111111111",
- *       "JoinedMethod": "INVITED",
- *       "JoinedTimestamp": "20161215T193015Z",
- *       "Name": "Master Account",
- *       "Status": "ACTIVE"
- *     },
- *     {
- *       "Arn": "arn:aws:organizations::111111111111:account/o-exampleorgid/222222222222",
- *       "Email": "alice@example.com",
- *       "Id": "222222222222",
- *       "JoinedMethod": "INVITED",
- *       "JoinedTimestamp": "20161215T210221Z",
- *       "Name": "Developer Account",
- *       "Status": "ACTIVE"
- *     },
- *     {
- *       "Arn": "arn:aws:organizations::111111111111:account/o-exampleorgid/333333333333",
- *       "Email": "juan@example.com",
- *       "Id": "333333333333",
- *       "JoinedMethod": "INVITED",
- *       "JoinedTimestamp": "20161215T210347Z",
- *       "Name": "Test Account",
- *       "Status": "ACTIVE"
- *     },
- *     {
- *       "Arn": "arn:aws:organizations::111111111111:account/o-exampleorgid/444444444444",
- *       "Email": "anika@example.com",
- *       "Id": "444444444444",
- *       "JoinedMethod": "INVITED",
- *       "JoinedTimestamp": "20161215T210332Z",
- *       "Name": "Production Account",
- *       "Status": "ACTIVE"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-retrieve-a-list-of-all-of-the-accounts-in-an-organization-1472509590974
- * ```
  *
+ * @public
  */
 export class ListAccountsCommand extends $Command
   .classBuilder<

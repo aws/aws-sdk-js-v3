@@ -98,6 +98,7 @@ export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, _
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class ListCatalogItemsCommand extends $Command

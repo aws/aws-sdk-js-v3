@@ -111,6 +111,7 @@ export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderRespo
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class CreateSAMLProviderCommand extends $Command

@@ -80,6 +80,7 @@ export interface GetClientCertificatesCommandOutput extends ClientCertificates, 
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetClientCertificatesCommand extends $Command

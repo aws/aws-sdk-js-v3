@@ -92,28 +92,28 @@ export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __Metadat
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To delete a face
  * ```javascript
  * // This operation deletes one or more faces from a Rekognition collection.
  * const input = {
- *   "CollectionId": "myphotos",
- *   "FaceIds": [
+ *   CollectionId: "myphotos",
+ *   FaceIds: [
  *     "ff43d742-0c13-5d16-a3e8-03d3f58e980b"
  *   ]
  * };
  * const command = new DeleteFacesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DeletedFaces": [
+ *   DeletedFaces: [
  *     "ff43d742-0c13-5d16-a3e8-03d3f58e980b"
  *   ]
  * }
  * *\/
- * // example id: to-delete-a-face-1482182799377
  * ```
  *
+ * @public
  */
 export class DeleteFacesCommand extends $Command
   .classBuilder<

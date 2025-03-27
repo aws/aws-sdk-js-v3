@@ -168,151 +168,150 @@ export interface UpdateDataIntegrationFlowCommandOutput extends UpdateDataIntegr
  * @throws {@link SupplyChainServiceException}
  * <p>Base exception class for all service exceptions from SupplyChain service.</p>
  *
- * @public
+ *
  * @example Successful UpdateDataIntegrationFlow for s3 to dataset flow to update SQL transformation
  * ```javascript
  * //
  * const input = {
- *   "name": "testStagingFlow",
- *   "instanceId": "8850c54e-e187-4fa7-89d4-6370f165174d",
- *   "sources": [
+ *   instanceId: "8850c54e-e187-4fa7-89d4-6370f165174d",
+ *   name: "testStagingFlow",
+ *   sources: [
  *     {
- *       "s3Source": {
- *         "bucketName": "aws-supply-chain-data-b8c7bb28-a576-4334-b481-6d6e8e47371f",
- *         "prefix": "example-prefix"
+ *       s3Source: {
+ *         bucketName: "aws-supply-chain-data-b8c7bb28-a576-4334-b481-6d6e8e47371f",
+ *         prefix: "example-prefix"
  *       },
- *       "sourceName": "testSourceName",
- *       "sourceType": "S3"
+ *       sourceName: "testSourceName",
+ *       sourceType: "S3"
  *     }
  *   ],
- *   "target": {
- *     "datasetTarget": {
- *       "datasetIdentifier": "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset"
+ *   target: {
+ *     datasetTarget: {
+ *       datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset"
  *     },
- *     "targetType": "DATASET"
+ *     targetType: "DATASET"
  *   },
- *   "transformation": {
- *     "sqlTransformation": {
- *       "query": "SELECT connection_id, bukrs AS id, txtmd AS description FROM testSourceName WHERE langu = 'E'"
+ *   transformation: {
+ *     sqlTransformation: {
+ *       query: "SELECT connection_id, bukrs AS id, txtmd AS description FROM testSourceName WHERE langu = 'E'"
  *     },
- *     "transformationType": "SQL"
+ *     transformationType: "SQL"
  *   }
  * };
  * const command = new UpdateDataIntegrationFlowCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "flow": {
- *     "name": "testStagingFlow",
- *     "createdTime": 1724956400.44,
- *     "instanceId": "8850c54e-e187-4fa7-89d4-6370f165174d",
- *     "lastModifiedTime": 1732456405.77,
- *     "sources": [
+ *   flow: {
+ *     createdTime: 1.72495640044E9,
+ *     instanceId: "8850c54e-e187-4fa7-89d4-6370f165174d",
+ *     lastModifiedTime: 1.73245640577E9,
+ *     name: "testStagingFlow",
+ *     sources: [
  *       {
- *         "s3Source": {
- *           "bucketName": "aws-supply-chain-data-b8c7bb28-a576-4334-b481-6d6e8e47371f",
- *           "prefix": "example-prefix"
+ *         s3Source: {
+ *           bucketName: "aws-supply-chain-data-b8c7bb28-a576-4334-b481-6d6e8e47371f",
+ *           prefix: "example-prefix"
  *         },
- *         "sourceName": "testSourceName",
- *         "sourceType": "S3"
+ *         sourceName: "testSourceName",
+ *         sourceType: "S3"
  *       }
  *     ],
- *     "target": {
- *       "datasetTarget": {
- *         "datasetIdentifier": "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset"
+ *     target: {
+ *       datasetTarget: {
+ *         datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset"
  *       },
- *       "targetType": "DATASET"
+ *       targetType: "DATASET"
  *     },
- *     "transformation": {
- *       "sqlTransformation": {
- *         "query": "SELECT connection_id, bukrs AS id, txtmd AS description FROM testSourceName WHERE langu = 'E'"
+ *     transformation: {
+ *       sqlTransformation: {
+ *         query: "SELECT connection_id, bukrs AS id, txtmd AS description FROM testSourceName WHERE langu = 'E'"
  *       },
- *       "transformationType": "SQL"
+ *       transformationType: "SQL"
  *     }
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
  * @example Successful UpdateDataIntegrationFlow for dataset to dataset flow to update sources
  * ```javascript
  * //
  * const input = {
- *   "name": "trading-partner",
- *   "instanceId": "8850c54e-e187-4fa7-89d4-6370f165174d",
- *   "sources": [
+ *   instanceId: "8850c54e-e187-4fa7-89d4-6370f165174d",
+ *   name: "trading-partner",
+ *   sources: [
  *     {
- *       "datasetSource": {
- *         "datasetIdentifier": "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset1"
+ *       datasetSource: {
+ *         datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset1"
  *       },
- *       "sourceName": "testSourceName1",
- *       "sourceType": "DATASET"
+ *       sourceName: "testSourceName1",
+ *       sourceType: "DATASET"
  *     },
  *     {
- *       "datasetSource": {
- *         "datasetIdentifier": "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset2_updated"
+ *       datasetSource: {
+ *         datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset2_updated"
  *       },
- *       "sourceName": "testSourceName2",
- *       "sourceType": "DATASET"
+ *       sourceName: "testSourceName2",
+ *       sourceType: "DATASET"
  *     }
  *   ],
- *   "target": {
- *     "datasetTarget": {
- *       "datasetIdentifier": "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/asc/datasets/trading_partner"
+ *   target: {
+ *     datasetTarget: {
+ *       datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/asc/datasets/trading_partner"
  *     },
- *     "targetType": "DATASET"
+ *     targetType: "DATASET"
  *   },
- *   "transformation": {
- *     "sqlTransformation": {
- *       "query": "SELECT S1.id AS id, S1.poc_org_unit_description AS description, S1.company_id AS company_id, S1.tpartner_type AS tpartner_type, S1.geo_id AS geo_id, S1.eff_start_date AS eff_start_date, S1.eff_end_date AS eff_end_date FROM testSourceName1 AS S1 LEFT JOIN testSourceName2 as S2 ON S1.id=S2.id"
+ *   transformation: {
+ *     sqlTransformation: {
+ *       query: "SELECT S1.id AS id, S1.poc_org_unit_description AS description, S1.company_id AS company_id, S1.tpartner_type AS tpartner_type, S1.geo_id AS geo_id, S1.eff_start_date AS eff_start_date, S1.eff_end_date AS eff_end_date FROM testSourceName1 AS S1 LEFT JOIN testSourceName2 as S2 ON S1.id=S2.id"
  *     },
- *     "transformationType": "SQL"
+ *     transformationType: "SQL"
  *   }
  * };
  * const command = new UpdateDataIntegrationFlowCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "flow": {
- *     "name": "trading-partner",
- *     "createdTime": 1724956400.44,
- *     "instanceId": "8850c54e-e187-4fa7-89d4-6370f165174d",
- *     "lastModifiedTime": 1732456405.77,
- *     "sources": [
+ *   flow: {
+ *     createdTime: 1.72495640044E9,
+ *     instanceId: "8850c54e-e187-4fa7-89d4-6370f165174d",
+ *     lastModifiedTime: 1.73245640577E9,
+ *     name: "trading-partner",
+ *     sources: [
  *       {
- *         "datasetSource": {
- *           "datasetIdentifier": "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset1"
+ *         datasetSource: {
+ *           datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset1"
  *         },
- *         "sourceName": "testSourceName1",
- *         "sourceType": "DATASET"
+ *         sourceName: "testSourceName1",
+ *         sourceType: "DATASET"
  *       },
  *       {
- *         "datasetSource": {
- *           "datasetIdentifier": "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset2_updated"
+ *         datasetSource: {
+ *           datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset2_updated"
  *         },
- *         "sourceName": "testSourceName2",
- *         "sourceType": "DATASET"
+ *         sourceName: "testSourceName2",
+ *         sourceType: "DATASET"
  *       }
  *     ],
- *     "target": {
- *       "datasetTarget": {
- *         "datasetIdentifier": "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/asc/datasets/trading_partner"
+ *     target: {
+ *       datasetTarget: {
+ *         datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/asc/datasets/trading_partner"
  *       },
- *       "targetType": "DATASET"
+ *       targetType: "DATASET"
  *     },
- *     "transformation": {
- *       "sqlTransformation": {
- *         "query": "SELECT S1.id AS id, S1.poc_org_unit_description AS description, S1.company_id AS company_id, S1.tpartner_type AS tpartner_type, S1.geo_id AS geo_id, S1.eff_start_date AS eff_start_date, S1.eff_end_date AS eff_end_date FROM testSourceName1 AS S1 LEFT JOIN testSourceName2 as S2 ON S1.id=S2.id"
+ *     transformation: {
+ *       sqlTransformation: {
+ *         query: "SELECT S1.id AS id, S1.poc_org_unit_description AS description, S1.company_id AS company_id, S1.tpartner_type AS tpartner_type, S1.geo_id AS geo_id, S1.eff_start_date AS eff_start_date, S1.eff_end_date AS eff_end_date FROM testSourceName1 AS S1 LEFT JOIN testSourceName2 as S2 ON S1.id=S2.id"
  *       },
- *       "transformationType": "SQL"
+ *       transformationType: "SQL"
  *     }
  *   }
  * }
  * *\/
- * // example id: example-2
  * ```
  *
+ * @public
  */
 export class UpdateDataIntegrationFlowCommand extends $Command
   .classBuilder<

@@ -80,6 +80,7 @@ export interface UpdateCertificateProviderCommandOutput extends UpdateCertificat
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdateCertificateProviderCommand extends $Command

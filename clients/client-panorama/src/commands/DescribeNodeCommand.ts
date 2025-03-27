@@ -101,6 +101,7 @@ export interface DescribeNodeCommandOutput extends DescribeNodeResponse, __Metad
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class DescribeNodeCommand extends $Command

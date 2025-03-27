@@ -176,6 +176,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupOutput, __Metadat
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class DeleteBackupCommand extends $Command

@@ -95,6 +95,7 @@ export interface DescribeTrustsCommandOutput extends DescribeTrustsResult, __Met
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DescribeTrustsCommand extends $Command

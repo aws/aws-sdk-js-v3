@@ -68,19 +68,22 @@ export interface DisassociateFromConfigurationCommandOutput
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
- * @public
+ *
  * @example Disassociate a custom action from a configuration
  * ```javascript
  * //
  * const input = {
- *   "ChatConfiguration": "arn:aws:chatbot::1234567890:chat-configuration/slack-channel/my-channel",
- *   "Resource": "arn:aws:chatbot::1234567890:custom-action/my-custom-action"
+ *   ChatConfiguration: "arn:aws:chatbot::1234567890:chat-configuration/slack-channel/my-channel",
+ *   Resource: "arn:aws:chatbot::1234567890:custom-action/my-custom-action"
  * };
  * const command = new DisassociateFromConfigurationCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DisassociateFromConfigurationCommand extends $Command
   .classBuilder<

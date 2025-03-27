@@ -101,6 +101,7 @@ export interface UpdateChimeWebhookConfigurationCommandOutput
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ *
  * @public
  */
 export class UpdateChimeWebhookConfigurationCommand extends $Command

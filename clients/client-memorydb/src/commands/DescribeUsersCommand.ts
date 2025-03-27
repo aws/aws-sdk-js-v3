@@ -87,6 +87,7 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeUsersCommand extends $Command

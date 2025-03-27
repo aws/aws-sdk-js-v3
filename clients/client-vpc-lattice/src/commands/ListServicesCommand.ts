@@ -84,6 +84,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class ListServicesCommand extends $Command

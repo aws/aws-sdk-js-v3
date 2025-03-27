@@ -169,6 +169,7 @@ export interface UpdateDistributionConfigurationCommandOutput
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class UpdateDistributionConfigurationCommand extends $Command

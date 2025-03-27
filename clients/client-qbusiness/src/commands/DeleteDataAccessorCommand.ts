@@ -79,6 +79,7 @@ export interface DeleteDataAccessorCommandOutput extends DeleteDataAccessorRespo
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class DeleteDataAccessorCommand extends $Command

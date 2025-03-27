@@ -70,6 +70,7 @@ export interface GetSubscriptionAttributesCommandOutput extends GetSubscriptionA
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ *
  * @public
  */
 export class GetSubscriptionAttributesCommand extends $Command

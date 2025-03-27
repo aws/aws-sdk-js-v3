@@ -90,6 +90,7 @@ export interface RegisterContainerImageCommandOutput extends RegisterContainerIm
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class RegisterContainerImageCommand extends $Command

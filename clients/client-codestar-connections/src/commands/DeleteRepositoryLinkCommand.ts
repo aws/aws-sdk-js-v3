@@ -81,6 +81,7 @@ export interface DeleteRepositoryLinkCommandOutput extends DeleteRepositoryLinkO
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ *
  * @public
  */
 export class DeleteRepositoryLinkCommand extends $Command

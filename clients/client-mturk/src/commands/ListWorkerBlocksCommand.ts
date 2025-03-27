@@ -69,6 +69,7 @@ export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse,
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class ListWorkerBlocksCommand extends $Command

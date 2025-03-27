@@ -91,6 +91,7 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ *
  * @public
  */
 export class CreateInputCommand extends $Command

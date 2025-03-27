@@ -114,6 +114,7 @@ export interface DeleteGlobalReplicationGroupCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class DeleteGlobalReplicationGroupCommand extends $Command

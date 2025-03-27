@@ -98,6 +98,7 @@ export interface UpdateRoomMembershipCommandOutput extends UpdateRoomMembershipR
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class UpdateRoomMembershipCommand extends $Command

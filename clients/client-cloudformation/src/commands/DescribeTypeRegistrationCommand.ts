@@ -67,6 +67,7 @@ export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegis
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeTypeRegistrationCommand extends $Command

@@ -92,6 +92,7 @@ export interface DescribeUserImportJobCommandOutput extends DescribeUserImportJo
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class DescribeUserImportJobCommand extends $Command

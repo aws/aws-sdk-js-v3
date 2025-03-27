@@ -97,6 +97,7 @@ export interface UpdateApplicationResourceLifecycleCommandOutput
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ *
  * @public
  */
 export class UpdateApplicationResourceLifecycleCommand extends $Command

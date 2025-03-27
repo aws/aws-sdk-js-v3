@@ -83,6 +83,7 @@ export interface ListBrandsCommandOutput extends ListBrandsResponse, __MetadataB
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class ListBrandsCommand extends $Command

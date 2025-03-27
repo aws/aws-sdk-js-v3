@@ -76,6 +76,7 @@ export interface SetCognitoEventsCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class SetCognitoEventsCommand extends $Command

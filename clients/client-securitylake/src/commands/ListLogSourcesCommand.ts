@@ -135,6 +135,7 @@ export interface ListLogSourcesCommandOutput extends ListLogSourcesResponse, __M
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class ListLogSourcesCommand extends $Command

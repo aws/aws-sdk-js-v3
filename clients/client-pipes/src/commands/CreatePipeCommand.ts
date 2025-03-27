@@ -431,6 +431,7 @@ export interface CreatePipeCommandOutput extends CreatePipeResponse, __MetadataB
  * @throws {@link PipesServiceException}
  * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ *
  * @public
  */
 export class CreatePipeCommand extends $Command

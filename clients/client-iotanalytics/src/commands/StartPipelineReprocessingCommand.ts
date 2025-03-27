@@ -80,6 +80,7 @@ export interface StartPipelineReprocessingCommandOutput extends StartPipelineRep
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ *
  * @public
  */
 export class StartPipelineReprocessingCommand extends $Command

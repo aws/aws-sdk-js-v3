@@ -75,6 +75,7 @@ export interface ListEventTrackersCommandOutput extends ListEventTrackersRespons
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class ListEventTrackersCommand extends $Command

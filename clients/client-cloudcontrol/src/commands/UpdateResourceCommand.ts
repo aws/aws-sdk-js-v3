@@ -161,6 +161,7 @@ export interface UpdateResourceCommandOutput extends UpdateResourceOutput, __Met
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ *
  * @public
  */
 export class UpdateResourceCommand extends $Command

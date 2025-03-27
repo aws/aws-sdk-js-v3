@@ -95,6 +95,7 @@ export interface BatchDeletePhoneNumberCommandOutput extends BatchDeletePhoneNum
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class BatchDeletePhoneNumberCommand extends $Command

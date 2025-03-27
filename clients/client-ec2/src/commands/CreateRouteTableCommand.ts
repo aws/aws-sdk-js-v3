@@ -119,36 +119,36 @@ export interface CreateRouteTableCommandOutput extends CreateRouteTableResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To create a route table
  * ```javascript
  * // This example creates a route table for the specified VPC.
  * const input = {
- *   "VpcId": "vpc-a01106c2"
+ *   VpcId: "vpc-a01106c2"
  * };
  * const command = new CreateRouteTableCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "RouteTable": {
- *     "Associations": [],
- *     "PropagatingVgws": [],
- *     "RouteTableId": "rtb-22574640",
- *     "Routes": [
+ *   RouteTable: {
+ *     Associations:     [],
+ *     PropagatingVgws:     [],
+ *     RouteTableId: "rtb-22574640",
+ *     Routes: [
  *       {
- *         "DestinationCidrBlock": "10.0.0.0/16",
- *         "GatewayId": "local",
- *         "State": "active"
+ *         DestinationCidrBlock: "10.0.0.0/16",
+ *         GatewayId: "local",
+ *         State: "active"
  *       }
  *     ],
- *     "Tags": [],
- *     "VpcId": "vpc-a01106c2"
+ *     Tags:     [],
+ *     VpcId: "vpc-a01106c2"
  *   }
  * }
  * *\/
- * // example id: ec2-create-route-table-1
  * ```
  *
+ * @public
  */
 export class CreateRouteTableCommand extends $Command
   .classBuilder<

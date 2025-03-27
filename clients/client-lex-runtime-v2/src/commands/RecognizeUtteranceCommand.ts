@@ -126,6 +126,11 @@ export interface RecognizeUtteranceCommandOutput
  * };
  * const command = new RecognizeUtteranceCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.audioStream.transformToByteArray();
+ * // const str = await response.audioStream.transformToString();
+ * // response.audioStream.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // RecognizeUtteranceResponse
  * //   inputMode: "STRING_VALUE",
  * //   contentType: "STRING_VALUE",
@@ -173,6 +178,7 @@ export interface RecognizeUtteranceCommandOutput
  *
  * @throws {@link LexRuntimeV2ServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
+ *
  *
  * @public
  */

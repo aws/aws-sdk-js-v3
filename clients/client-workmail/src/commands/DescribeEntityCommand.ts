@@ -73,6 +73,7 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class DescribeEntityCommand extends $Command

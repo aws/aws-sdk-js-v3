@@ -106,6 +106,7 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class GetFindingsStatisticsCommand extends $Command

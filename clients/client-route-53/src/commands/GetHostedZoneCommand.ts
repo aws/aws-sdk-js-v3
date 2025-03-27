@@ -92,39 +92,39 @@ export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __Met
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
- * @public
+ *
  * @example To get information about a hosted zone
  * ```javascript
  * // The following example gets information about the Z3M3LMPEXAMPLE hosted zone.
  * const input = {
- *   "Id": "Z3M3LMPEXAMPLE"
+ *   Id: "Z3M3LMPEXAMPLE"
  * };
  * const command = new GetHostedZoneCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DelegationSet": {
- *     "NameServers": [
+ *   DelegationSet: {
+ *     NameServers: [
  *       "ns-2048.awsdns-64.com",
  *       "ns-2049.awsdns-65.net",
  *       "ns-2050.awsdns-66.org",
  *       "ns-2051.awsdns-67.co.uk"
  *     ]
  *   },
- *   "HostedZone": {
- *     "CallerReference": "C741617D-04E4-F8DE-B9D7-0D150FC61C2E",
- *     "Config": {
- *       "PrivateZone": false
+ *   HostedZone: {
+ *     CallerReference: "C741617D-04E4-F8DE-B9D7-0D150FC61C2E",
+ *     Config: {
+ *       PrivateZone: false
  *     },
- *     "Id": "/hostedzone/Z3M3LMPEXAMPLE",
- *     "Name": "myawsbucket.com.",
- *     "ResourceRecordSetCount": 8
+ *     Id: "/hostedzone/Z3M3LMPEXAMPLE",
+ *     Name: "myawsbucket.com.",
+ *     ResourceRecordSetCount: 8
  *   }
  * }
  * *\/
- * // example id: to-get-information-about-a-hosted-zone-1481752361124
  * ```
  *
+ * @public
  */
 export class GetHostedZoneCommand extends $Command
   .classBuilder<

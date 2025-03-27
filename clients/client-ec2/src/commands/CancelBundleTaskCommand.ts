@@ -80,6 +80,7 @@ export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class CancelBundleTaskCommand extends $Command

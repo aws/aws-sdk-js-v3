@@ -80,6 +80,7 @@ export interface GetTelemetryEvaluationStatusForOrganizationCommandOutput
  * @throws {@link ObservabilityAdminServiceException}
  * <p>Base exception class for all service exceptions from ObservabilityAdmin service.</p>
  *
+ *
  * @public
  */
 export class GetTelemetryEvaluationStatusForOrganizationCommand extends $Command

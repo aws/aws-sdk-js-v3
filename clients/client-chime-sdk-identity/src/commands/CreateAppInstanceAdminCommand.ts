@@ -104,6 +104,7 @@ export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAd
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ *
  * @public
  */
 export class CreateAppInstanceAdminCommand extends $Command

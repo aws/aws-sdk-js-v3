@@ -94,6 +94,7 @@ export interface ListEventBridgeRuleTemplateGroupsCommandOutput
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class ListEventBridgeRuleTemplateGroupsCommand extends $Command

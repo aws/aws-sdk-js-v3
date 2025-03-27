@@ -302,6 +302,7 @@ export interface CreateAIAgentCommandOutput extends CreateAIAgentResponse, __Met
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class CreateAIAgentCommand extends $Command

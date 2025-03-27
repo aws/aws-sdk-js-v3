@@ -93,6 +93,7 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class StopContactCommand extends $Command

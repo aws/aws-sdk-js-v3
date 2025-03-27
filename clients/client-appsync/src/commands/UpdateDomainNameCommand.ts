@@ -84,6 +84,7 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class UpdateDomainNameCommand extends $Command

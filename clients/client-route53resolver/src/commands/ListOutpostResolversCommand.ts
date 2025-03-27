@@ -90,6 +90,7 @@ export interface ListOutpostResolversCommandOutput extends ListOutpostResolversR
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class ListOutpostResolversCommand extends $Command

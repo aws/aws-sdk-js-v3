@@ -65,6 +65,7 @@ export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class SetV2LoggingOptionsCommand extends $Command

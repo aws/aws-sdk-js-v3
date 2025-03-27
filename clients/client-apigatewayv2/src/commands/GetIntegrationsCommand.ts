@@ -100,6 +100,7 @@ export interface GetIntegrationsCommandOutput extends GetIntegrationsResponse, _
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class GetIntegrationsCommand extends $Command

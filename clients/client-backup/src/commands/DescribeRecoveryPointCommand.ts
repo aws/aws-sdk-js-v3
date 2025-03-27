@@ -108,6 +108,7 @@ export interface DescribeRecoveryPointCommandOutput extends DescribeRecoveryPoin
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class DescribeRecoveryPointCommand extends $Command

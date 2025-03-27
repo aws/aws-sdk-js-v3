@@ -321,6 +321,7 @@ export interface UpdateMessageTemplateCommandOutput extends UpdateMessageTemplat
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class UpdateMessageTemplateCommand extends $Command

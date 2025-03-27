@@ -136,6 +136,7 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetListingCommand extends $Command

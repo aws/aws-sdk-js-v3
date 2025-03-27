@@ -90,6 +90,28 @@ export interface TerminateSolNetworkInstanceCommandOutput extends TerminateSolNe
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example Terminate a Sol Network Instance
+ * ```javascript
+ * //
+ * const input = {
+ *   nsInstanceId: "ni-0d5b823eb5c2a9241",
+ *   tags: {
+ *     Name: "Resource"
+ *   }
+ * };
+ * const command = new TerminateSolNetworkInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   nsLcmOpOccId: "no-0d5b823eb5c2a9241",
+ *   tags: {
+ *     Name: "Resource"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class TerminateSolNetworkInstanceCommand extends $Command

@@ -71,26 +71,26 @@ export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, _
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe schemas
  * ```javascript
  * // Returns information about the schema for the specified endpoint.
  * const input = {
- *   "EndpointArn": "",
- *   "Marker": "",
- *   "MaxRecords": 123
+ *   EndpointArn: "",
+ *   Marker: "",
+ *   MaxRecords: 123
  * };
  * const command = new DescribeSchemasCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "",
- *   "Schemas": []
+ *   Marker: "",
+ *   Schemas:   []
  * }
  * *\/
- * // example id: describe-schemas-1481755933924
  * ```
  *
+ * @public
  */
 export class DescribeSchemasCommand extends $Command
   .classBuilder<

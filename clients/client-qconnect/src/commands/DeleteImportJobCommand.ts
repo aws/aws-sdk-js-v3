@@ -69,6 +69,7 @@ export interface DeleteImportJobCommandOutput extends DeleteImportJobResponse, _
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class DeleteImportJobCommand extends $Command

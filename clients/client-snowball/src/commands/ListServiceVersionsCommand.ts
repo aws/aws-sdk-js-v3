@@ -89,6 +89,7 @@ export interface ListServiceVersionsCommandOutput extends ListServiceVersionsRes
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ *
  * @public
  */
 export class ListServiceVersionsCommand extends $Command

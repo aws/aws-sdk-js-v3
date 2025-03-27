@@ -70,6 +70,7 @@ export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataB
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class PublishTypeCommand extends $Command

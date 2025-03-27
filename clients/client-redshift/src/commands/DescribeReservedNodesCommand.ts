@@ -86,6 +86,7 @@ export interface DescribeReservedNodesCommandOutput extends ReservedNodesMessage
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeReservedNodesCommand extends $Command

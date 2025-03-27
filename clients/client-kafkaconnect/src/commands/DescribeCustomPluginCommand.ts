@@ -107,6 +107,7 @@ export interface DescribeCustomPluginCommandOutput extends DescribeCustomPluginR
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeCustomPluginCommand extends $Command

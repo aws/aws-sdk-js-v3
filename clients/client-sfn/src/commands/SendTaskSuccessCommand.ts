@@ -81,6 +81,7 @@ export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __M
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class SendTaskSuccessCommand extends $Command

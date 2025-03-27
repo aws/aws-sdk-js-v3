@@ -83,6 +83,7 @@ export interface StartRestoreJobCommandOutput extends StartRestoreJobOutput, __M
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class StartRestoreJobCommand extends $Command

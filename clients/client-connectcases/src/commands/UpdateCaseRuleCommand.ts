@@ -113,6 +113,7 @@ export interface UpdateCaseRuleCommandOutput extends UpdateCaseRuleResponse, __M
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class UpdateCaseRuleCommand extends $Command

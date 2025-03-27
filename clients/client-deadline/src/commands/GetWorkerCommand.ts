@@ -103,6 +103,7 @@ export interface GetWorkerCommandOutput extends GetWorkerResponse, __MetadataBea
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class GetWorkerCommand extends $Command

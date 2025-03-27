@@ -80,6 +80,7 @@ export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOut
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class DescribeBackupVaultCommand extends $Command

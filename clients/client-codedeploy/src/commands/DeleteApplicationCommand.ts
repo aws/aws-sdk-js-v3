@@ -64,6 +64,7 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class DeleteApplicationCommand extends $Command

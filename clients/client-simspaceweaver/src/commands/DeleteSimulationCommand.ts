@@ -72,6 +72,7 @@ export interface DeleteSimulationCommandOutput extends DeleteSimulationOutput, _
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ *
  * @public
  */
 export class DeleteSimulationCommand extends $Command

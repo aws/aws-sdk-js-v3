@@ -99,6 +99,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class CreatePipelineCommand extends $Command

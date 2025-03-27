@@ -100,6 +100,7 @@ export interface GetModelVersionCommandOutput extends GetModelVersionResult, __M
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class GetModelVersionCommand extends $Command

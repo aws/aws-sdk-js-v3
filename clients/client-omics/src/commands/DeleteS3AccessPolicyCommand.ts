@@ -76,6 +76,7 @@ export interface DeleteS3AccessPolicyCommandOutput extends DeleteS3AccessPolicyR
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class DeleteS3AccessPolicyCommand extends $Command

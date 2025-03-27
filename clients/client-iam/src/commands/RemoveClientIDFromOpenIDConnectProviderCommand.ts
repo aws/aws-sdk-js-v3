@@ -74,6 +74,7 @@ export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command

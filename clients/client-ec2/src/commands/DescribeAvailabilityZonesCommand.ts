@@ -98,46 +98,46 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe your Availability Zones
  * ```javascript
  * // This example describes the Availability Zones that are available to you. The response includes Availability Zones only for the current region.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeAvailabilityZonesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AvailabilityZones": [
+ *   AvailabilityZones: [
  *     {
- *       "Messages": [],
- *       "RegionName": "us-east-1",
- *       "State": "available",
- *       "ZoneName": "us-east-1b"
+ *       Messages:       [],
+ *       RegionName: "us-east-1",
+ *       State: "available",
+ *       ZoneName: "us-east-1b"
  *     },
  *     {
- *       "Messages": [],
- *       "RegionName": "us-east-1",
- *       "State": "available",
- *       "ZoneName": "us-east-1c"
+ *       Messages:       [],
+ *       RegionName: "us-east-1",
+ *       State: "available",
+ *       ZoneName: "us-east-1c"
  *     },
  *     {
- *       "Messages": [],
- *       "RegionName": "us-east-1",
- *       "State": "available",
- *       "ZoneName": "us-east-1d"
+ *       Messages:       [],
+ *       RegionName: "us-east-1",
+ *       State: "available",
+ *       ZoneName: "us-east-1d"
  *     },
  *     {
- *       "Messages": [],
- *       "RegionName": "us-east-1",
- *       "State": "available",
- *       "ZoneName": "us-east-1e"
+ *       Messages:       [],
+ *       RegionName: "us-east-1",
+ *       State: "available",
+ *       ZoneName: "us-east-1e"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-availability-zones-1
  * ```
  *
+ * @public
  */
 export class DescribeAvailabilityZonesCommand extends $Command
   .classBuilder<

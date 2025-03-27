@@ -108,6 +108,7 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class UpdateRecoveryPointLifecycleCommand extends $Command

@@ -79,6 +79,7 @@ export interface ListManagedInsightRulesCommandOutput extends ListManagedInsight
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class ListManagedInsightRulesCommand extends $Command

@@ -156,6 +156,7 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ *
  * @public
  */
 export class CreateMeetingCommand extends $Command

@@ -118,6 +118,7 @@ export interface GetNodeCommandOutput extends GetNodeOutput, __MetadataBearer {}
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class GetNodeCommand extends $Command

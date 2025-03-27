@@ -177,6 +177,7 @@ export interface ListInstanceGroupsCommandOutput extends ListInstanceGroupsOutpu
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class ListInstanceGroupsCommand extends $Command

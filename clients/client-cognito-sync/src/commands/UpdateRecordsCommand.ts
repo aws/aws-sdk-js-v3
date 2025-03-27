@@ -114,6 +114,7 @@ export interface UpdateRecordsCommandOutput extends UpdateRecordsResponse, __Met
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class UpdateRecordsCommand extends $Command

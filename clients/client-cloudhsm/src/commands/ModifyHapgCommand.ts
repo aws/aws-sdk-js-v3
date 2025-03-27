@@ -80,6 +80,7 @@ export interface ModifyHapgCommandOutput extends ModifyHapgResponse, __MetadataB
  * @throws {@link CloudHSMServiceException}
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ *
  * @public
  */
 export class ModifyHapgCommand extends $Command

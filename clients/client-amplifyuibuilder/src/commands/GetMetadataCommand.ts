@@ -64,6 +64,7 @@ export interface GetMetadataCommandOutput extends GetMetadataResponse, __Metadat
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class GetMetadataCommand extends $Command

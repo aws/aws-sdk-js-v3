@@ -163,19 +163,22 @@ export interface DeletePolicyTemplateCommandOutput extends DeletePolicyTemplateO
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
- * @public
+ *
  * @example To delete a policy template
  * ```javascript
  * // The following example deletes a policy template. Before you can perform this operation, you must first delete any template-linked policies that were instantiated from this policy template. To delete them, use DeletePolicy.
  * const input = {
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
- *   "policyTemplateId": "PTEXAMPLEabcdefg111111"
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   policyTemplateId: "PTEXAMPLEabcdefg111111"
  * };
  * const command = new DeletePolicyTemplateCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeletePolicyTemplateCommand extends $Command
   .classBuilder<

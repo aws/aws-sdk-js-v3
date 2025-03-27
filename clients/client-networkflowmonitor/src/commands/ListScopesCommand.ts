@@ -82,6 +82,7 @@ export interface ListScopesCommandOutput extends ListScopesOutput, __MetadataBea
  * @throws {@link NetworkFlowMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkFlowMonitor service.</p>
  *
+ *
  * @public
  */
 export class ListScopesCommand extends $Command

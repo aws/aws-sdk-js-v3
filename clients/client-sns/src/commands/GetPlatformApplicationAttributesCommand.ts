@@ -77,6 +77,7 @@ export interface GetPlatformApplicationAttributesCommandOutput
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ *
  * @public
  */
 export class GetPlatformApplicationAttributesCommand extends $Command

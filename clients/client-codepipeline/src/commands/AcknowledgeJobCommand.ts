@@ -66,6 +66,7 @@ export interface AcknowledgeJobCommandOutput extends AcknowledgeJobOutput, __Met
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class AcknowledgeJobCommand extends $Command

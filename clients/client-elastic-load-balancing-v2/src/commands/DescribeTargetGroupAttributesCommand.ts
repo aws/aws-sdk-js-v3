@@ -93,40 +93,40 @@ export interface DescribeTargetGroupAttributesCommandOutput
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To describe target group attributes
  * ```javascript
  * // This example describes the attributes of the specified target group.
  * const input = {
- *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ *   TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
  * };
  * const command = new DescribeTargetGroupAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Attributes": [
+ *   Attributes: [
  *     {
- *       "Key": "stickiness.enabled",
- *       "Value": "false"
+ *       Key: "stickiness.enabled",
+ *       Value: "false"
  *     },
  *     {
- *       "Key": "deregistration_delay.timeout_seconds",
- *       "Value": "300"
+ *       Key: "deregistration_delay.timeout_seconds",
+ *       Value: "300"
  *     },
  *     {
- *       "Key": "stickiness.type",
- *       "Value": "lb_cookie"
+ *       Key: "stickiness.type",
+ *       Value: "lb_cookie"
  *     },
  *     {
- *       "Key": "stickiness.lb_cookie.duration_seconds",
- *       "Value": "86400"
+ *       Key: "stickiness.lb_cookie.duration_seconds",
+ *       Value: "86400"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-describe-target-group-attributes-1
  * ```
  *
+ * @public
  */
 export class DescribeTargetGroupAttributesCommand extends $Command
   .classBuilder<

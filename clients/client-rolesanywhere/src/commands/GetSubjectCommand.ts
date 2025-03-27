@@ -95,6 +95,7 @@ export interface GetSubjectCommandOutput extends SubjectDetailResponse, __Metada
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ *
  * @public
  */
 export class GetSubjectCommand extends $Command

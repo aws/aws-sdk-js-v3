@@ -108,6 +108,7 @@ export interface AdminDeleteUserAttributesCommandOutput extends AdminDeleteUserA
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminDeleteUserAttributesCommand extends $Command

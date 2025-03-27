@@ -65,6 +65,7 @@ export interface StreamingTraitsRequireLengthCommandOutput extends __MetadataBea
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class StreamingTraitsRequireLengthCommand extends $Command

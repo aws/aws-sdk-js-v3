@@ -427,29 +427,29 @@ export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeRespons
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To disable a policy type in a root
  * ```javascript
  * // The following example shows how to disable the service control policy (SCP) policy type in a root. The response shows that the PolicyTypes response element no longer includes SERVICE_CONTROL_POLICY:/n/n
  * const input = {
- *   "PolicyType": "SERVICE_CONTROL_POLICY",
- *   "RootId": "r-examplerootid111"
+ *   PolicyType: "SERVICE_CONTROL_POLICY",
+ *   RootId: "r-examplerootid111"
  * };
  * const command = new DisablePolicyTypeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Root": {
- *     "Arn": "arn:aws:organizations::111111111111:root/o-exampleorgid/r-examplerootid111",
- *     "Id": "r-examplerootid111",
- *     "Name": "Root",
- *     "PolicyTypes": []
+ *   Root: {
+ *     Arn: "arn:aws:organizations::111111111111:root/o-exampleorgid/r-examplerootid111",
+ *     Id: "r-examplerootid111",
+ *     Name: "Root",
+ *     PolicyTypes:     []
  *   }
  * }
  * *\/
- * // example id: to-disable-a-policy-type-in-a-root
  * ```
  *
+ * @public
  */
 export class DisablePolicyTypeCommand extends $Command
   .classBuilder<

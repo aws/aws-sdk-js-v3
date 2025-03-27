@@ -114,6 +114,7 @@ export interface ExportEBSVolumeRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class ExportEBSVolumeRecommendationsCommand extends $Command

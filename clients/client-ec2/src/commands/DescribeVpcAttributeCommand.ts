@@ -66,47 +66,46 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe the enableDnsSupport attribute
  * ```javascript
  * // This example describes the enableDnsSupport attribute. This attribute indicates whether DNS resolution is enabled for the VPC. If this attribute is true, the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not.
  * const input = {
- *   "Attribute": "enableDnsSupport",
- *   "VpcId": "vpc-a01106c2"
+ *   Attribute: "enableDnsSupport",
+ *   VpcId: "vpc-a01106c2"
  * };
  * const command = new DescribeVpcAttributeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EnableDnsSupport": {
- *     "Value": true
+ *   EnableDnsSupport: {
+ *     Value: true
  *   },
- *   "VpcId": "vpc-a01106c2"
+ *   VpcId: "vpc-a01106c2"
  * }
  * *\/
- * // example id: ec2-describe-vpc-attribute-1
  * ```
  *
  * @example To describe the enableDnsHostnames attribute
  * ```javascript
  * // This example describes the enableDnsHostnames attribute. This attribute indicates whether the instances launched in the VPC get DNS hostnames. If this attribute is true, instances in the VPC get DNS hostnames; otherwise, they do not.
  * const input = {
- *   "Attribute": "enableDnsHostnames",
- *   "VpcId": "vpc-a01106c2"
+ *   Attribute: "enableDnsHostnames",
+ *   VpcId: "vpc-a01106c2"
  * };
  * const command = new DescribeVpcAttributeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EnableDnsHostnames": {
- *     "Value": true
+ *   EnableDnsHostnames: {
+ *     Value: true
  *   },
- *   "VpcId": "vpc-a01106c2"
+ *   VpcId: "vpc-a01106c2"
  * }
  * *\/
- * // example id: ec2-describe-vpc-attribute-2
  * ```
  *
+ * @public
  */
 export class DescribeVpcAttributeCommand extends $Command
   .classBuilder<

@@ -82,6 +82,7 @@ export interface GetStorageConfigurationCommandOutput extends GetStorageConfigur
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class GetStorageConfigurationCommand extends $Command

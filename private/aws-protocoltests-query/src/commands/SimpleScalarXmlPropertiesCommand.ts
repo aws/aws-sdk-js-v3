@@ -61,6 +61,7 @@ export interface SimpleScalarXmlPropertiesCommandOutput extends SimpleScalarXmlP
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  */
 export class SimpleScalarXmlPropertiesCommand extends $Command
   .classBuilder<

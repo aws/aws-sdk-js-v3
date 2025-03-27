@@ -89,6 +89,7 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * @throws {@link S3OutpostsServiceException}
  * <p>Base exception class for all service exceptions from S3Outposts service.</p>
  *
+ *
  * @public
  */
 export class DeleteEndpointCommand extends $Command

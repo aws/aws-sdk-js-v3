@@ -80,6 +80,7 @@ export interface StopSearchJobCommandOutput extends StopSearchJobOutput, __Metad
  * @throws {@link BackupSearchServiceException}
  * <p>Base exception class for all service exceptions from BackupSearch service.</p>
  *
+ *
  * @public
  */
 export class StopSearchJobCommand extends $Command

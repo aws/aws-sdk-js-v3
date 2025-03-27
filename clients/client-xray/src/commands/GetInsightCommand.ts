@@ -104,6 +104,7 @@ export interface GetInsightCommandOutput extends GetInsightResult, __MetadataBea
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ *
  * @public
  */
 export class GetInsightCommand extends $Command

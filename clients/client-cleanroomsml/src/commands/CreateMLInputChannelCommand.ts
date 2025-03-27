@@ -104,6 +104,7 @@ export interface CreateMLInputChannelCommandOutput extends CreateMLInputChannelR
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ *
  * @public
  */
 export class CreateMLInputChannelCommand extends $Command

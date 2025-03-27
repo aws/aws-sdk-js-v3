@@ -129,6 +129,7 @@ export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ *
  * @public
  */
 export class ChangeMessageVisibilityCommand extends $Command

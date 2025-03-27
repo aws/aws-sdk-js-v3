@@ -69,22 +69,25 @@ export interface ReorderReceiptRuleSetCommandOutput extends ReorderReceiptRuleSe
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example ReorderReceiptRuleSet
  * ```javascript
  * // The following example reorders the receipt rules within a receipt rule set:
  * const input = {
- *   "RuleNames": [
+ *   RuleNames: [
  *     "MyRule",
  *     "MyOtherRule"
  *   ],
- *   "RuleSetName": "MyRuleSet"
+ *   RuleSetName: "MyRuleSet"
  * };
  * const command = new ReorderReceiptRuleSetCommand(input);
- * await client.send(command);
- * // example id: reorderreceiptruleset-1469058156806
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ReorderReceiptRuleSetCommand extends $Command
   .classBuilder<

@@ -91,28 +91,28 @@ export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __Metad
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To retrieve information about a vault
  * ```javascript
  * // The example retrieves data about a vault named my-vault.
  * const input = {
- *   "accountId": "-",
- *   "vaultName": "my-vault"
+ *   accountId: "-",
+ *   vaultName: "my-vault"
  * };
  * const command = new DescribeVaultCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CreationDate": "2016-09-23T19:27:18.665Z",
- *   "NumberOfArchives": 0,
- *   "SizeInBytes": 0,
- *   "VaultARN": "arn:aws:glacier:us-west-2:111122223333:vaults/my-vault",
- *   "VaultName": "my-vault"
+ *   CreationDate: "2016-09-23T19:27:18.665Z",
+ *   NumberOfArchives: 0,
+ *   SizeInBytes: 0,
+ *   VaultARN: "arn:aws:glacier:us-west-2:111122223333:vaults/my-vault",
+ *   VaultName: "my-vault"
  * }
  * *\/
- * // example id: 3c1c6e9d-f5a2-427a-aa6a-f439eacfc05f
  * ```
  *
+ * @public
  */
 export class DescribeVaultCommand extends $Command
   .classBuilder<

@@ -61,6 +61,7 @@ export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, _
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class DeleteConstraintCommand extends $Command

@@ -84,23 +84,23 @@ export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionR
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To delete an Amazon Rekognition Custom Labels model
  * ```javascript
  * // Deletes a version of an Amazon Rekognition Custom Labels model.
  * const input = {
- *   "ProjectVersionArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/version/1/1690556751958"
+ *   ProjectVersionArn: "arn:aws:rekognition:us-east-1:111122223333:project/my-project/version/1/1690556751958"
  * };
  * const command = new DeleteProjectVersionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Status": "DELETING"
+ *   Status: "DELETING"
  * }
  * *\/
- * // example id: to-delete-an-amazon-rekognition-custom-labels-model-1690827562055
  * ```
  *
+ * @public
  */
 export class DeleteProjectVersionCommand extends $Command
   .classBuilder<

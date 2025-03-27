@@ -103,6 +103,7 @@ export interface CreateInvocationCommandOutput extends CreateInvocationResponse,
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ *
  * @public
  */
 export class CreateInvocationCommand extends $Command

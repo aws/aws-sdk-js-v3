@@ -100,24 +100,24 @@ export interface EnableOrganizationsRootCredentialsManagementCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To enable the RootCredentialsManagement feature in your organization
  * ```javascript
  * // The following command enables the management of privileged root user credentials across member accounts in your organization.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new EnableOrganizationsRootCredentialsManagementCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EnabledFeatures": [
+ *   EnabledFeatures: [
  *     "RootCredentialsManagement"
  *   ],
- *   "OrganizationId": "o-aa111bb222"
+ *   OrganizationId: "o-aa111bb222"
  * }
  * *\/
- * // example id: to-enable-the-rootcredentialsmanagement-feature-in-your-organization-1730908602395
  * ```
  *
+ * @public
  */
 export class EnableOrganizationsRootCredentialsManagementCommand extends $Command
   .classBuilder<

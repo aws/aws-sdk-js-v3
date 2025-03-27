@@ -100,6 +100,7 @@ export interface DisassociateRepositoryCommandOutput extends DisassociateReposit
  * @throws {@link CodeGuruReviewerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ *
  * @public
  */
 export class DisassociateRepositoryCommand extends $Command

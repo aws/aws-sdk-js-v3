@@ -497,6 +497,7 @@ export interface UpdateComponentCommandOutput extends UpdateComponentResponse, _
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class UpdateComponentCommand extends $Command

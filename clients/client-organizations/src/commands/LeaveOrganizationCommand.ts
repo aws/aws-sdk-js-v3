@@ -460,16 +460,19 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To leave an organization as a member account
  * ```javascript
  * // TThe following example shows how to remove your member account from an organization:
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new LeaveOrganizationCommand(input);
- * await client.send(command);
- * // example id: to-leave-an-organization-as-a-member-account-1472508784736
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class LeaveOrganizationCommand extends $Command
   .classBuilder<

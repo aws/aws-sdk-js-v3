@@ -94,6 +94,7 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class CreateListenerCommand extends $Command

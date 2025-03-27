@@ -130,6 +130,7 @@ export interface ChangeMessageVisibilityBatchCommandOutput
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ *
  * @public
  */
 export class ChangeMessageVisibilityBatchCommand extends $Command

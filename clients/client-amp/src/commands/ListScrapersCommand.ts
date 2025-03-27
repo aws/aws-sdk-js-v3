@@ -113,6 +113,140 @@ export interface ListScrapersCommandOutput extends ListScrapersResponse, __Metad
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
+ * @example ListScrapers, with a max result of 2, using a pagination token from a previous call to ListScrapers
+ * ```javascript
+ * //
+ * const input = {
+ *   maxResults: 2,
+ *   nextToken: "previouslyGeneratedToken"
+ * };
+ * const command = new ListScrapersCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   scrapers: [
+ *     {
+ *       alias: "alias1",
+ *       arn: "arn:aws:aps:us-west-2:123456789012:scraper/scraper-123",
+ *       createdAt: "2023-01-01T00:00:00Z",
+ *       destination: {
+ *         ampConfiguration: {
+ *           workspaceArn: "arn:aws:aps:us-west-2:123456789012:workspace/ws-ogh2u499-ce12-hg89-v6c7-123412341234"
+ *         }
+ *       },
+ *       lastModifiedAt: "2020-01-02T00:00:00Z",
+ *       roleArn: "arn:aws:iam::123456789012:role/exampleRole",
+ *       scraperId: "scraper-123",
+ *       source: {
+ *         eksConfiguration: {
+ *           clusterArn: "arn:aws:eks:us-west-2:123456789012:cluster/example1",
+ *           securityGroupIds: [
+ *             "sg-abc123"
+ *           ],
+ *           subnetIds: [
+ *             "subnet-abc123"
+ *           ]
+ *         }
+ *       },
+ *       status: {
+ *         statusCode: "ACTIVE"
+ *       },
+ *       tags: {
+ *         exampleTag: "exampleValue"
+ *       }
+ *     },
+ *     {
+ *       alias: "alias2",
+ *       arn: "arn:aws:aps:us-west-2:123456789012:scraper/scraper-456",
+ *       createdAt: "2023-01-01T00:00:00Z",
+ *       destination: {
+ *         ampConfiguration: {
+ *           workspaceArn: "arn:aws:aps:us-west-2:123456789012:workspace/ws-ogh2u499-ce12-hg89-v6c7-123412341234"
+ *         }
+ *       },
+ *       lastModifiedAt: "2020-01-02T00:00:00Z",
+ *       roleArn: "arn:aws:iam::123456789012:role/exampleRole",
+ *       scraperId: "scraper-456",
+ *       source: {
+ *         eksConfiguration: {
+ *           clusterArn: "arn:aws:eks:us-west-2:123456789012:cluster/example2",
+ *           securityGroupIds: [
+ *             "sg-abc456"
+ *           ],
+ *           subnetIds: [
+ *             "subnet-abc456"
+ *           ]
+ *         }
+ *       },
+ *       status: {
+ *         statusCode: "CREATING"
+ *       },
+ *       tags: {
+ *         exampleTag: "exampleValue"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example ListScrapers, with filters
+ * ```javascript
+ * //
+ * const input = {
+ *   filters: {
+ *     alias: [
+ *       "alias1"
+ *     ],
+ *     sourceArn: [
+ *       "arn:aws:eks:us-west-2:123456789012:cluster/example1"
+ *     ],
+ *     status: [
+ *       "ACTIVE"
+ *     ]
+ *   }
+ * };
+ * const command = new ListScrapersCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   scrapers: [
+ *     {
+ *       alias: "alias1",
+ *       arn: "arn:aws:aps:us-west-2:123456789012:scraper/scraper-123",
+ *       createdAt: "2023-01-01T00:00:00Z",
+ *       destination: {
+ *         ampConfiguration: {
+ *           workspaceArn: "arn:aws:aps:us-west-2:123456789012:workspace/ws-ogh2u499-ce12-hg89-v6c7-123412341234"
+ *         }
+ *       },
+ *       lastModifiedAt: "2020-01-02T00:00:00Z",
+ *       roleArn: "arn:aws:iam::123456789012:role/exampleRole",
+ *       scraperId: "scraper-123",
+ *       source: {
+ *         eksConfiguration: {
+ *           clusterArn: "arn:aws:eks:us-west-2:123456789012:cluster/example1",
+ *           securityGroupIds: [
+ *             "sg-abc123"
+ *           ],
+ *           subnetIds: [
+ *             "subnet-abc123"
+ *           ]
+ *         }
+ *       },
+ *       status: {
+ *         statusCode: "ACTIVE"
+ *       },
+ *       tags: {
+ *         exampleTag: "exampleValue"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListScrapersCommand extends $Command

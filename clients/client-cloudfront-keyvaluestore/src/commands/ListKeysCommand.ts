@@ -82,6 +82,68 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * @throws {@link CloudFrontKeyValueStoreServiceException}
  * <p>Base exception class for all service exceptions from CloudFrontKeyValueStore service.</p>
  *
+ *
+ * @example List keys in the key value store with ARN 'arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58'
+ * ```javascript
+ * //
+ * const input = {
+ *   KvsARN: "arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58",
+ *   MaxResults: 3
+ * };
+ * const command = new ListKeysCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Items: [
+ *     {
+ *       Key: "key1",
+ *       Value: "value1"
+ *     },
+ *     {
+ *       Key: "key2",
+ *       Value: "value2"
+ *     },
+ *     {
+ *       Key: "key3",
+ *       Value: "value3"
+ *     }
+ *   ],
+ *   NextToken: "hVTTZndkpBZ0VRZ0R1RF"
+ * }
+ * *\/
+ * ```
+ *
+ * @example List the next page in the key value store with ARN 'arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58'
+ * ```javascript
+ * //
+ * const input = {
+ *   KvsARN: "arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58",
+ *   MaxResults: 3,
+ *   NextToken: "hVTTZndkpBZ0VRZ0R1RF"
+ * };
+ * const command = new ListKeysCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Items: [
+ *     {
+ *       Key: "key4",
+ *       Value: "value4"
+ *     },
+ *     {
+ *       Key: "key5",
+ *       Value: "value5"
+ *     },
+ *     {
+ *       Key: "key6",
+ *       Value: "value6"
+ *     }
+ *   ],
+ *   NextToken: "hQTlB5YmM5UFNoFQvMk"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListKeysCommand extends $Command

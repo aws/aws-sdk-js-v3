@@ -124,6 +124,7 @@ export interface ListTrialComponentsCommandOutput extends ListTrialComponentsRes
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListTrialComponentsCommand extends $Command

@@ -113,47 +113,47 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To update a capacity provider's parameters
  * ```javascript
  * // This example updates the targetCapacity and instanceWarmupPeriod parameters for the capacity provider MyCapacityProvider to 90 and 150 respectively.
  * const input = {
- *   "name": "MyCapacityProvider",
- *   "autoScalingGroupProvider": {
- *     "managedScaling": {
- *       "instanceWarmupPeriod": 150,
- *       "status": "ENABLED",
- *       "targetCapacity": 90
+ *   autoScalingGroupProvider: {
+ *     managedScaling: {
+ *       instanceWarmupPeriod: 150,
+ *       status: "ENABLED",
+ *       targetCapacity: 90
  *     }
- *   }
+ *   },
+ *   name: "MyCapacityProvider"
  * };
  * const command = new UpdateCapacityProviderCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "capacityProvider": {
- *     "name": "MyCapacityProvider",
- *     "autoScalingGroupProvider": {
- *       "autoScalingGroupArn": "arn:aws:autoscaling:us-east-1:132456789012:autoScalingGroup:57ffcb94-11f0-4d6d-bf60-3bac5EXAMPLE:autoScalingGroupName/MyASG",
- *       "managedScaling": {
- *         "instanceWarmupPeriod": 150,
- *         "maximumScalingStepSize": 10000,
- *         "minimumScalingStepSize": 1,
- *         "status": "ENABLED",
- *         "targetCapacity": 90
+ *   capacityProvider: {
+ *     autoScalingGroupProvider: {
+ *       autoScalingGroupArn: "arn:aws:autoscaling:us-east-1:132456789012:autoScalingGroup:57ffcb94-11f0-4d6d-bf60-3bac5EXAMPLE:autoScalingGroupName/MyASG",
+ *       managedScaling: {
+ *         instanceWarmupPeriod: 150,
+ *         maximumScalingStepSize: 10000,
+ *         minimumScalingStepSize: 1,
+ *         status: "ENABLED",
+ *         targetCapacity: 90
  *       },
- *       "managedTerminationProtection": "ENABLED"
+ *       managedTerminationProtection: "ENABLED"
  *     },
- *     "capacityProviderArn": "arn:aws:ecs:us-east-1:123456789012:capacity-provider/MyCapacityProvider",
- *     "status": "ACTIVE",
- *     "tags": [],
- *     "updateStatus": "UPDATE_COMPLETE"
+ *     capacityProviderArn: "arn:aws:ecs:us-east-1:123456789012:capacity-provider/MyCapacityProvider",
+ *     name: "MyCapacityProvider",
+ *     status: "ACTIVE",
+ *     tags:     [],
+ *     updateStatus: "UPDATE_COMPLETE"
  *   }
  * }
  * *\/
- * // example id: to-update-a-capacity-providers-parameters-1734557290198
  * ```
  *
+ * @public
  */
 export class UpdateCapacityProviderCommand extends $Command
   .classBuilder<

@@ -81,6 +81,7 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class DeleteComponentCommand extends $Command

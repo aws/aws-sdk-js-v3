@@ -142,6 +142,7 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ *
  * @public
  */
 export class DetectEntitiesCommand extends $Command

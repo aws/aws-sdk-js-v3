@@ -102,6 +102,7 @@ export interface StopAppBlockBuilderCommandOutput extends StopAppBlockBuilderRes
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class StopAppBlockBuilderCommand extends $Command

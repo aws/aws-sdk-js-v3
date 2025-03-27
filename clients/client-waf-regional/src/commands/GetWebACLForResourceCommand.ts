@@ -119,6 +119,7 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ *
  * @public
  */
 export class GetWebACLForResourceCommand extends $Command

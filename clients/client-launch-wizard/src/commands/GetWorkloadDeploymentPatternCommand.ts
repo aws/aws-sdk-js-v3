@@ -99,6 +99,47 @@ export interface GetWorkloadDeploymentPatternCommandOutput
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ *
+ * @example Get details about a specific Workload deployment pattern
+ * ```javascript
+ * //
+ * const input = {
+ *   deploymentPatternName: "adSelfManagedNewVpc",
+ *   workloadName: "MicrosoftActiveDirectory"
+ * };
+ * const command = new GetWorkloadDeploymentPatternCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   workloadDeploymentPattern: {
+ *     deploymentPatternName: "adSelfManagedNewVpc",
+ *     description: "Builds a new AWS environment (VPC and other components), and deploys AD DS into this new VPC.",
+ *     displayName: "Self-managed AD - new VPC",
+ *     specifications: [
+ *       {
+ *         description: "Number of Availability Zones to use in the VPC.",
+ *         name: "NumberOfAZs",
+ *         required: "Yes"
+ *       },
+ *       {
+ *         description: "List of Availability Zones (AZs) to use for the subnets in the VPC.",
+ *         name: "AvailabilityZones",
+ *         required: "Yes"
+ *       },
+ *       {
+ *         description: "CIDR block for the VPC.",
+ *         name: "VPCCIDR",
+ *         required: "Yes"
+ *       }
+ *     ],
+ *     status: "ACTIVE",
+ *     workloadName: "MicrosoftActiveDirectory",
+ *     workloadVersionName: "2024-03-19-14-00-09"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetWorkloadDeploymentPatternCommand extends $Command

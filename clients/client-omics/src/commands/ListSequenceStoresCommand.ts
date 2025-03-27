@@ -97,6 +97,7 @@ export interface ListSequenceStoresCommandOutput extends ListSequenceStoresRespo
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class ListSequenceStoresCommand extends $Command

@@ -85,6 +85,7 @@ export interface ValidatePullThroughCacheRuleCommandOutput
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class ValidatePullThroughCacheRuleCommand extends $Command

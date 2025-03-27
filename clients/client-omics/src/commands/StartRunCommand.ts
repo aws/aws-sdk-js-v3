@@ -116,6 +116,7 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class StartRunCommand extends $Command

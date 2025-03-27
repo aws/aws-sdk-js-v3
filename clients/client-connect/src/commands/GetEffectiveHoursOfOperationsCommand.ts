@@ -95,6 +95,7 @@ export interface GetEffectiveHoursOfOperationsCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class GetEffectiveHoursOfOperationsCommand extends $Command

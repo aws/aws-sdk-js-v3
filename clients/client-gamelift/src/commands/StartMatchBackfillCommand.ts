@@ -177,6 +177,7 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class StartMatchBackfillCommand extends $Command

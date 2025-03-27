@@ -118,6 +118,7 @@ export interface ListDataLakesCommandOutput extends ListDataLakesResponse, __Met
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class ListDataLakesCommand extends $Command

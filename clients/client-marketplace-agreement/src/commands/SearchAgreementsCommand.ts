@@ -199,6 +199,7 @@ export interface SearchAgreementsCommandOutput extends SearchAgreementsOutput, _
  * @throws {@link MarketplaceAgreementServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceAgreement service.</p>
  *
+ *
  * @public
  */
 export class SearchAgreementsCommand extends $Command

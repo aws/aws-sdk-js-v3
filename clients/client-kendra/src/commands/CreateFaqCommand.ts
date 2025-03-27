@@ -104,6 +104,7 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class CreateFaqCommand extends $Command

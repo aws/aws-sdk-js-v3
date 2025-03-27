@@ -106,6 +106,7 @@ export interface GetClassifiersCommandOutput extends GetClassifiersResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetClassifiersCommand extends $Command

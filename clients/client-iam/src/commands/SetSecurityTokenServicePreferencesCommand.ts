@@ -78,18 +78,21 @@ export interface SetSecurityTokenServicePreferencesCommandOutput extends __Metad
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To delete an access key for an IAM user
  * ```javascript
  * // The following command sets the STS global endpoint token to version 2. Version 2 tokens are valid in all Regions.
  * const input = {
- *   "GlobalEndpointTokenVersion": "v2Token"
+ *   GlobalEndpointTokenVersion: "v2Token"
  * };
  * const command = new SetSecurityTokenServicePreferencesCommand(input);
- * await client.send(command);
- * // example id: 61a785a7-d30a-415a-ae18-ab9236e56871
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetSecurityTokenServicePreferencesCommand extends $Command
   .classBuilder<

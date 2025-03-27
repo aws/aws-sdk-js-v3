@@ -74,6 +74,7 @@ export interface ListTagsForResourceCommandOutput extends ResourceTagsDescriptio
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

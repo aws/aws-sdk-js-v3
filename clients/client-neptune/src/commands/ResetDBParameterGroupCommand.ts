@@ -85,6 +85,7 @@ export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupName
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class ResetDBParameterGroupCommand extends $Command

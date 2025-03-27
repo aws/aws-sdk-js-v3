@@ -124,6 +124,7 @@ export interface RegisterDeviceCommandOutput extends RegisterDeviceResponse, __M
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class RegisterDeviceCommand extends $Command

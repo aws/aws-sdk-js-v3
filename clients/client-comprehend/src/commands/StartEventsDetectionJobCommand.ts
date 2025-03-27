@@ -106,6 +106,7 @@ export interface StartEventsDetectionJobCommandOutput extends StartEventsDetecti
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class StartEventsDetectionJobCommand extends $Command

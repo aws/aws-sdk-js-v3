@@ -79,6 +79,7 @@ export interface UpdateQueueEnvironmentCommandOutput extends UpdateQueueEnvironm
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class UpdateQueueEnvironmentCommand extends $Command

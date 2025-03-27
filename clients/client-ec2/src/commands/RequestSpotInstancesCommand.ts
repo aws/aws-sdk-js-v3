@@ -327,58 +327,63 @@ export interface RequestSpotInstancesCommandOutput extends RequestSpotInstancesR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To create a one-time Spot Instance request
  * ```javascript
  * // This example creates a one-time Spot Instance request for five instances in the specified Availability Zone. If your account supports EC2-VPC only, Amazon EC2 launches the instances in the default subnet of the specified Availability Zone.
  * const input = {
- *   "InstanceCount": 5,
- *   "LaunchSpecification": {
- *     "IamInstanceProfile": {
- *       "Arn": "arn:aws:iam::123456789012:instance-profile/my-iam-role"
+ *   InstanceCount: 5,
+ *   LaunchSpecification: {
+ *     IamInstanceProfile: {
+ *       Arn: "arn:aws:iam::123456789012:instance-profile/my-iam-role"
  *     },
- *     "ImageId": "ami-1a2b3c4d",
- *     "InstanceType": "m3.medium",
- *     "KeyName": "my-key-pair",
- *     "Placement": {
- *       "AvailabilityZone": "us-west-2a"
+ *     ImageId: "ami-1a2b3c4d",
+ *     InstanceType: "m3.medium",
+ *     KeyName: "my-key-pair",
+ *     Placement: {
+ *       AvailabilityZone: "us-west-2a"
  *     },
- *     "SecurityGroupIds": [
+ *     SecurityGroupIds: [
  *       "sg-1a2b3c4d"
  *     ]
  *   },
- *   "SpotPrice": "0.03",
- *   "Type": "one-time"
+ *   SpotPrice: "0.03",
+ *   Type: "one-time"
  * };
  * const command = new RequestSpotInstancesCommand(input);
- * await client.send(command);
- * // example id: ec2-request-spot-instances-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To create a one-time Spot Instance request
  * ```javascript
  * // This example command creates a one-time Spot Instance request for five instances in the specified subnet. Amazon EC2 launches the instances in the specified subnet. If the VPC is a nondefault VPC, the instances do not receive a public IP address by default.
  * const input = {
- *   "InstanceCount": 5,
- *   "LaunchSpecification": {
- *     "IamInstanceProfile": {
- *       "Arn": "arn:aws:iam::123456789012:instance-profile/my-iam-role"
+ *   InstanceCount: 5,
+ *   LaunchSpecification: {
+ *     IamInstanceProfile: {
+ *       Arn: "arn:aws:iam::123456789012:instance-profile/my-iam-role"
  *     },
- *     "ImageId": "ami-1a2b3c4d",
- *     "InstanceType": "m3.medium",
- *     "SecurityGroupIds": [
+ *     ImageId: "ami-1a2b3c4d",
+ *     InstanceType: "m3.medium",
+ *     SecurityGroupIds: [
  *       "sg-1a2b3c4d"
  *     ],
- *     "SubnetId": "subnet-1a2b3c4d"
+ *     SubnetId: "subnet-1a2b3c4d"
  *   },
- *   "SpotPrice": "0.050",
- *   "Type": "one-time"
+ *   SpotPrice: "0.050",
+ *   Type: "one-time"
  * };
  * const command = new RequestSpotInstancesCommand(input);
- * await client.send(command);
- * // example id: ec2-request-spot-instances-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RequestSpotInstancesCommand extends $Command
   .classBuilder<

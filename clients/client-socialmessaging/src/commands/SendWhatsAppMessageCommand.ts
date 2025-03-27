@@ -87,6 +87,7 @@ export interface SendWhatsAppMessageCommandOutput extends SendWhatsAppMessageOut
  * @throws {@link SocialMessagingServiceException}
  * <p>Base exception class for all service exceptions from SocialMessaging service.</p>
  *
+ *
  * @public
  */
 export class SendWhatsAppMessageCommand extends $Command

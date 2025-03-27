@@ -95,25 +95,25 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
- * @public
+ *
  * @example To describe the security groups for a mount target
  * ```javascript
  * // This operation describes all of the security groups for a file system's mount target.
  * const input = {
- *   "MountTargetId": "fsmt-12340abc"
+ *   MountTargetId: "fsmt-12340abc"
  * };
  * const command = new DescribeMountTargetSecurityGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SecurityGroups": [
+ *   SecurityGroups: [
  *     "sg-4567abcd"
  *   ]
  * }
  * *\/
- * // example id: to-describe-the-security-groups-for-a-mount-target-1481849317823
  * ```
  *
+ * @public
  */
 export class DescribeMountTargetSecurityGroupsCommand extends $Command
   .classBuilder<

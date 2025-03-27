@@ -67,6 +67,7 @@ export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class DeleteWorkflowCommand extends $Command

@@ -121,6 +121,7 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ *
  * @public
  */
 export class DescribeAffectedEntitiesCommand extends $Command

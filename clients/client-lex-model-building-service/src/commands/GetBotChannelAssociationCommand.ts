@@ -93,6 +93,7 @@ export interface GetBotChannelAssociationCommandOutput extends GetBotChannelAsso
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ *
  * @public
  */
 export class GetBotChannelAssociationCommand extends $Command

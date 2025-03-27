@@ -194,103 +194,102 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To create an Internet-facing load balancer
  * ```javascript
  * // This example creates an Internet-facing load balancer and enables the Availability Zones for the specified subnets.
  * const input = {
- *   "Name": "my-load-balancer",
- *   "Subnets": [
+ *   Name: "my-load-balancer",
+ *   Subnets: [
  *     "subnet-b7d581c0",
  *     "subnet-8360a9e7"
  *   ]
  * };
  * const command = new CreateLoadBalancerCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LoadBalancers": [
+ *   LoadBalancers: [
  *     {
- *       "AvailabilityZones": [
+ *       AvailabilityZones: [
  *         {
- *           "SubnetId": "subnet-8360a9e7",
- *           "ZoneName": "us-west-2a"
+ *           SubnetId: "subnet-8360a9e7",
+ *           ZoneName: "us-west-2a"
  *         },
  *         {
- *           "SubnetId": "subnet-b7d581c0",
- *           "ZoneName": "us-west-2b"
+ *           SubnetId: "subnet-b7d581c0",
+ *           ZoneName: "us-west-2b"
  *         }
  *       ],
- *       "CanonicalHostedZoneId": "Z2P70J7EXAMPLE",
- *       "CreatedTime": "2016-03-25T21:26:12.920Z",
- *       "DNSName": "my-load-balancer-424835706.us-west-2.elb.amazonaws.com",
- *       "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
- *       "LoadBalancerName": "my-load-balancer",
- *       "Scheme": "internet-facing",
- *       "SecurityGroups": [
+ *       CanonicalHostedZoneId: "Z2P70J7EXAMPLE",
+ *       CreatedTime: "2016-03-25T21:26:12.920Z",
+ *       DNSName: "my-load-balancer-424835706.us-west-2.elb.amazonaws.com",
+ *       LoadBalancerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+ *       LoadBalancerName: "my-load-balancer",
+ *       Scheme: "internet-facing",
+ *       SecurityGroups: [
  *         "sg-5943793c"
  *       ],
- *       "State": {
- *         "Code": "provisioning"
+ *       State: {
+ *         Code: "provisioning"
  *       },
- *       "Type": "application",
- *       "VpcId": "vpc-3ac0fb5f"
+ *       Type: "application",
+ *       VpcId: "vpc-3ac0fb5f"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-create-load-balancer-1
  * ```
  *
  * @example To create an internal load balancer
  * ```javascript
  * // This example creates an internal load balancer and enables the Availability Zones for the specified subnets.
  * const input = {
- *   "Name": "my-internal-load-balancer",
- *   "Scheme": "internal",
- *   "SecurityGroups": [],
- *   "Subnets": [
+ *   Name: "my-internal-load-balancer",
+ *   Scheme: "internal",
+ *   SecurityGroups:   [],
+ *   Subnets: [
  *     "subnet-b7d581c0",
  *     "subnet-8360a9e7"
  *   ]
  * };
  * const command = new CreateLoadBalancerCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LoadBalancers": [
+ *   LoadBalancers: [
  *     {
- *       "AvailabilityZones": [
+ *       AvailabilityZones: [
  *         {
- *           "SubnetId": "subnet-8360a9e7",
- *           "ZoneName": "us-west-2a"
+ *           SubnetId: "subnet-8360a9e7",
+ *           ZoneName: "us-west-2a"
  *         },
  *         {
- *           "SubnetId": "subnet-b7d581c0",
- *           "ZoneName": "us-west-2b"
+ *           SubnetId: "subnet-b7d581c0",
+ *           ZoneName: "us-west-2b"
  *         }
  *       ],
- *       "CanonicalHostedZoneId": "Z2P70J7EXAMPLE",
- *       "CreatedTime": "2016-03-25T21:29:48.850Z",
- *       "DNSName": "internal-my-internal-load-balancer-1529930873.us-west-2.elb.amazonaws.com",
- *       "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-internal-load-balancer/5b49b8d4303115c2",
- *       "LoadBalancerName": "my-internal-load-balancer",
- *       "Scheme": "internal",
- *       "SecurityGroups": [
+ *       CanonicalHostedZoneId: "Z2P70J7EXAMPLE",
+ *       CreatedTime: "2016-03-25T21:29:48.850Z",
+ *       DNSName: "internal-my-internal-load-balancer-1529930873.us-west-2.elb.amazonaws.com",
+ *       LoadBalancerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-internal-load-balancer/5b49b8d4303115c2",
+ *       LoadBalancerName: "my-internal-load-balancer",
+ *       Scheme: "internal",
+ *       SecurityGroups: [
  *         "sg-5943793c"
  *       ],
- *       "State": {
- *         "Code": "provisioning"
+ *       State: {
+ *         Code: "provisioning"
  *       },
- *       "Type": "application",
- *       "VpcId": "vpc-3ac0fb5f"
+ *       Type: "application",
+ *       VpcId: "vpc-3ac0fb5f"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-create-load-balancer-2
  * ```
  *
+ * @public
  */
 export class CreateLoadBalancerCommand extends $Command
   .classBuilder<

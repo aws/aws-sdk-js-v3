@@ -116,6 +116,7 @@ export interface DescribeGameSessionQueuesCommandOutput extends DescribeGameSess
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class DescribeGameSessionQueuesCommand extends $Command

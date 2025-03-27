@@ -142,6 +142,11 @@ export interface PostContentCommandOutput extends Omit<PostContentResponse, "aud
  * };
  * const command = new PostContentCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.audioStream.transformToByteArray();
+ * // const str = await response.audioStream.transformToString();
+ * // response.audioStream.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // PostContentResponse
  * //   contentType: "STRING_VALUE",
  * //   intentName: "STRING_VALUE",
@@ -228,6 +233,7 @@ export interface PostContentCommandOutput extends Omit<PostContentResponse, "aud
  *
  * @throws {@link LexRuntimeServiceServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
+ *
  *
  * @public
  */

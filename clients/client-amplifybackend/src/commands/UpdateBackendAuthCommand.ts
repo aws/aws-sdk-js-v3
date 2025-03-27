@@ -155,6 +155,7 @@ export interface UpdateBackendAuthCommandOutput extends UpdateBackendAuthRespons
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ *
  * @public
  */
 export class UpdateBackendAuthCommand extends $Command

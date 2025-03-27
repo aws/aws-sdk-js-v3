@@ -125,6 +125,7 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class CreateModelCommand extends $Command

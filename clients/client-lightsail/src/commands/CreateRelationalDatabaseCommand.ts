@@ -124,6 +124,7 @@ export interface CreateRelationalDatabaseCommandOutput extends CreateRelationalD
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class CreateRelationalDatabaseCommand extends $Command

@@ -220,6 +220,7 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class UpdateUserPoolClientCommand extends $Command

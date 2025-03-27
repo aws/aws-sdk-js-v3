@@ -98,6 +98,7 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResult, __Metad
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListFunctionsCommand extends $Command

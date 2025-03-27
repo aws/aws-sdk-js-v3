@@ -79,6 +79,7 @@ export interface ListContactsCommandOutput extends ListContactsResult, __Metadat
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class ListContactsCommand extends $Command

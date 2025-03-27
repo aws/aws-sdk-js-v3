@@ -107,6 +107,7 @@ export interface GetProfileObjectTypeCommandOutput extends GetProfileObjectTypeR
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class GetProfileObjectTypeCommand extends $Command

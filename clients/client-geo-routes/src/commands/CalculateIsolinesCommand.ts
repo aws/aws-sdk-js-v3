@@ -305,6 +305,7 @@ export interface CalculateIsolinesCommandOutput extends CalculateIsolinesRespons
  * @throws {@link GeoRoutesServiceException}
  * <p>Base exception class for all service exceptions from GeoRoutes service.</p>
  *
+ *
  * @public
  */
 export class CalculateIsolinesCommand extends $Command

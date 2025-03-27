@@ -98,6 +98,7 @@ export interface DescribeFeaturedResultsSetCommandOutput extends DescribeFeature
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class DescribeFeaturedResultsSetCommand extends $Command

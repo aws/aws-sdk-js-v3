@@ -310,6 +310,7 @@ export interface SendMessagesCommandOutput extends SendMessagesResponse, __Metad
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class SendMessagesCommand extends $Command

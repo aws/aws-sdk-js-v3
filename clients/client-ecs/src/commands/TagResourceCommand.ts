@@ -91,24 +91,27 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To tag a cluster.
  * ```javascript
  * // This example tags the 'dev' cluster with key 'team' and value 'dev'.
  * const input = {
- *   "resourceArn": "arn:aws:ecs:region:aws_account_id:cluster/dev",
- *   "tags": [
+ *   resourceArn: "arn:aws:ecs:region:aws_account_id:cluster/dev",
+ *   tags: [
  *     {
- *       "key": "team",
- *       "value": "dev"
+ *       key: "team",
+ *       value: "dev"
  *     }
  *   ]
  * };
  * const command = new TagResourceCommand(input);
- * await client.send(command);
- * // example id: to-tag-a-cluster-1540581863751
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

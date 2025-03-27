@@ -209,6 +209,7 @@ export interface StartMedicalStreamTranscriptionCommandOutput
  * @throws {@link TranscribeStreamingServiceException}
  * <p>Base exception class for all service exceptions from TranscribeStreaming service.</p>
  *
+ *
  * @public
  */
 export class StartMedicalStreamTranscriptionCommand extends $Command

@@ -94,51 +94,8 @@ export interface ListStandardsControlAssociationsCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
- * @example To say whether standard
- * ```javascript
- * // The following example specifies whether a control is currently enabled or disabled in each enabled standard in the calling account. The response also provides other details about the control.
- * const input = {
- *   "SecurityControlId": "S3.1"
- * };
- * const command = new ListStandardsControlAssociationsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "StandardsControlAssociationSummaries": [
- *     {
- *       "AssociationStatus": "ENABLED",
- *       "RelatedRequirements": [
- *         "PCI DSS 1.2.1",
- *         "PCI DSS 1.3.1",
- *         "PCI DSS 1.3.2",
- *         "PCI DSS 1.3.4",
- *         "PCI DSS 1.3.6"
- *       ],
- *       "SecurityControlArn": "arn:aws:securityhub:us-west-2:110479873537:security-control/S3.1",
- *       "SecurityControlId": "S3.1",
- *       "StandardsArn": "arn:aws:securityhub:us-west-2::standards/pci-dss/v/3.2.1",
- *       "StandardsControlDescription": "This AWS control checks whether the following public access block settings are configured from account level: ignorePublicAcls: True, blockPublicPolicy: True, blockPublicAcls: True, restrictPublicBuckets: True.",
- *       "StandardsControlTitle": "S3 Block Public Access setting should be enabled",
- *       "UpdatedAt": "2022-01-13T23:03:46.648000+00:00"
- *     },
- *     {
- *       "AssociationStatus": "DISABLED",
- *       "RelatedRequirements": [],
- *       "SecurityControlArn": "arn:aws:securityhub:us-west-2:110479873537:security-control/S3.1",
- *       "SecurityControlId": "S3.1",
- *       "StandardsArn": "arn:aws:securityhub:us-west-2::standards/aws-foundational-security-best-practices/v/1.0.0",
- *       "StandardsControlDescription": "This AWS control checks whether the following public access block settings are configured from account level: ignorePublicAcls: True, blockPublicPolicy: True, blockPublicAcls: True, restrictPublicBuckets: True.",
- *       "StandardsControlTitle": "S3 Block Public Access setting should be enabled",
- *       "UpdatedAt": "2022-08-12T22:59:04.924000+00:00",
- *       "UpdatedReason": "Not relevant to environment"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-say-whether-standard-1678389297986
- * ```
  *
+ * @public
  */
 export class ListStandardsControlAssociationsCommand extends $Command
   .classBuilder<

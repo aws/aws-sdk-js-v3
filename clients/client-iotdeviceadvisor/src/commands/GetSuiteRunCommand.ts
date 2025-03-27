@@ -117,6 +117,7 @@ export interface GetSuiteRunCommandOutput extends GetSuiteRunResponse, __Metadat
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ *
  * @public
  */
 export class GetSuiteRunCommand extends $Command

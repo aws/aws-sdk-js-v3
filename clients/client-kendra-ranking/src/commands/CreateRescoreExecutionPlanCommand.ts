@@ -108,6 +108,7 @@ export interface CreateRescoreExecutionPlanCommandOutput extends CreateRescoreEx
  * @throws {@link KendraRankingServiceException}
  * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
+ *
  * @public
  */
 export class CreateRescoreExecutionPlanCommand extends $Command

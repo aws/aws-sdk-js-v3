@@ -90,6 +90,7 @@ export interface ListAccessControlConfigurationsCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class ListAccessControlConfigurationsCommand extends $Command

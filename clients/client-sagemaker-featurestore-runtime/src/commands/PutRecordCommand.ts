@@ -101,6 +101,7 @@ export interface PutRecordCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
+ *
  * @public
  */
 export class PutRecordCommand extends $Command

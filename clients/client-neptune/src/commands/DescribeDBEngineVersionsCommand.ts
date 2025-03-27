@@ -110,6 +110,7 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class DescribeDBEngineVersionsCommand extends $Command

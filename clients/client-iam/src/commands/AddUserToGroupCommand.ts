@@ -66,19 +66,22 @@ export interface AddUserToGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To add a user to an IAM group
  * ```javascript
  * // The following command adds an IAM user named Bob to the IAM group named Admins:
  * const input = {
- *   "GroupName": "Admins",
- *   "UserName": "Bob"
+ *   GroupName: "Admins",
+ *   UserName: "Bob"
  * };
  * const command = new AddUserToGroupCommand(input);
- * await client.send(command);
- * // example id: 619c7e6b-09f8-4036-857b-51a6ea5027ca
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AddUserToGroupCommand extends $Command
   .classBuilder<

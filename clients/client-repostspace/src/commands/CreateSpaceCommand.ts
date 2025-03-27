@@ -84,6 +84,7 @@ export interface CreateSpaceCommandOutput extends CreateSpaceOutput, __MetadataB
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ *
  * @public
  */
 export class CreateSpaceCommand extends $Command

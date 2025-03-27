@@ -112,6 +112,7 @@ export interface StopRelationalDatabaseCommandOutput extends StopRelationalDatab
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class StopRelationalDatabaseCommand extends $Command

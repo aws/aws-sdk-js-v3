@@ -154,6 +154,7 @@ export interface DescribeLayersCommandOutput extends DescribeLayersResult, __Met
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class DescribeLayersCommand extends $Command

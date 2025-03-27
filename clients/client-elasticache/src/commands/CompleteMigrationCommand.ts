@@ -185,6 +185,7 @@ export interface CompleteMigrationCommandOutput extends CompleteMigrationRespons
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class CompleteMigrationCommand extends $Command

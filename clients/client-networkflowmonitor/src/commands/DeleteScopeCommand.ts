@@ -75,6 +75,7 @@ export interface DeleteScopeCommandOutput extends DeleteScopeOutput, __MetadataB
  * @throws {@link NetworkFlowMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkFlowMonitor service.</p>
  *
+ *
  * @public
  */
 export class DeleteScopeCommand extends $Command

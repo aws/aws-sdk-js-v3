@@ -52,6 +52,7 @@ export interface ContentTypeParametersCommandOutput extends ContentTypeParameter
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class ContentTypeParametersCommand extends $Command

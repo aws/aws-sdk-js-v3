@@ -125,6 +125,7 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class PutStorageConfigurationCommand extends $Command

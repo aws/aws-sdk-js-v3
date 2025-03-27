@@ -133,71 +133,74 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
  * @throws {@link SecurityIRServiceException}
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
- * @public
+ *
  * @example Invoke UpdateCase
  * ```javascript
  * //
  * const input = {
- *   "actualIncidentStartDate": "2023-03-25T15:32:01.789Z",
- *   "caseId": "8403556009",
- *   "description": "Case description",
- *   "engagementType": "Investigation",
- *   "impactedAccountsToAdd": [
+ *   actualIncidentStartDate: "2023-03-25T15:32:01.789Z",
+ *   caseId: "8403556009",
+ *   description: "Case description",
+ *   engagementType: "Investigation",
+ *   impactedAccountsToAdd: [
  *     "000000000000"
  *   ],
- *   "impactedAccountsToDelete": [
+ *   impactedAccountsToDelete: [
  *     "111111111111"
  *   ],
- *   "impactedAwsRegionsToAdd": [
+ *   impactedAwsRegionsToAdd: [
  *     {
- *       "region": "ap-southeast-1"
+ *       region: "ap-southeast-1"
  *     }
  *   ],
- *   "impactedAwsRegionsToDelete": [
+ *   impactedAwsRegionsToDelete: [
  *     {
- *       "region": "us-east-1"
+ *       region: "us-east-1"
  *     }
  *   ],
- *   "impactedServicesToAdd": [
+ *   impactedServicesToAdd: [
  *     "Amazon EC2"
  *   ],
- *   "impactedServicesToDelete": [
+ *   impactedServicesToDelete: [
  *     "Amazon EKS"
  *   ],
- *   "reportedIncidentStartDate": "2023-03-27T15:32:01.789Z",
- *   "threatActorIpAddressesToAdd": [
+ *   reportedIncidentStartDate: "2023-03-27T15:32:01.789Z",
+ *   threatActorIpAddressesToAdd: [
  *     {
- *       "ipAddress": "190.160.190.160",
- *       "userAgent": "Browser"
+ *       ipAddress: "190.160.190.160",
+ *       userAgent: "Browser"
  *     }
  *   ],
- *   "threatActorIpAddressesToDelete": [
+ *   threatActorIpAddressesToDelete: [
  *     {
- *       "ipAddress": "192.168.192.168",
- *       "userAgent": "Browser"
+ *       ipAddress: "192.168.192.168",
+ *       userAgent: "Browser"
  *     }
  *   ],
- *   "title": "My sample case",
- *   "watchersToAdd": [
+ *   title: "My sample case",
+ *   watchersToAdd: [
  *     {
- *       "name": "Same",
- *       "email": "Sam@example.com",
- *       "jobTitle": "CEO"
+ *       email: "Sam@example.com",
+ *       jobTitle: "CEO",
+ *       name: "Same"
  *     }
  *   ],
- *   "watchersToDelete": [
+ *   watchersToDelete: [
  *     {
- *       "name": "Bob",
- *       "email": "bob@example.com",
- *       "jobTitle": "CFO"
+ *       email: "bob@example.com",
+ *       jobTitle: "CFO",
+ *       name: "Bob"
  *     }
  *   ]
  * };
  * const command = new UpdateCaseCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateCaseCommand extends $Command
   .classBuilder<

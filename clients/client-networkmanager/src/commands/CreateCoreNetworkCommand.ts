@@ -135,6 +135,7 @@ export interface CreateCoreNetworkCommandOutput extends CreateCoreNetworkRespons
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class CreateCoreNetworkCommand extends $Command

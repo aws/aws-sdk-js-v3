@@ -116,6 +116,7 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class CreateStackCommand extends $Command

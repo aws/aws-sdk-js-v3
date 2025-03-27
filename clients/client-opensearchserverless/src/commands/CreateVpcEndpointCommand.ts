@@ -87,6 +87,7 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ *
  * @public
  */
 export class CreateVpcEndpointCommand extends $Command

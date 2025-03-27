@@ -80,6 +80,7 @@ export interface GetHypervisorCommandOutput extends GetHypervisorOutput, __Metad
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ *
  * @public
  */
 export class GetHypervisorCommand extends $Command

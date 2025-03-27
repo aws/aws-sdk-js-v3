@@ -109,6 +109,7 @@ export interface ListFlywheelIterationHistoryCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class ListFlywheelIterationHistoryCommand extends $Command

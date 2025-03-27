@@ -102,6 +102,7 @@ export interface GetLinksCommandOutput extends GetLinksResponse, __MetadataBeare
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetLinksCommand extends $Command

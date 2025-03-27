@@ -118,6 +118,7 @@ export interface CreateConnectionCommandOutput extends Connection, __MetadataBea
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectionCommand extends $Command

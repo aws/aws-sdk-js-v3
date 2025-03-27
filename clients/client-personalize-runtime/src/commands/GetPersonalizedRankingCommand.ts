@@ -104,6 +104,7 @@ export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRank
  * @throws {@link PersonalizeRuntimeServiceException}
  * <p>Base exception class for all service exceptions from PersonalizeRuntime service.</p>
  *
+ *
  * @public
  */
 export class GetPersonalizedRankingCommand extends $Command

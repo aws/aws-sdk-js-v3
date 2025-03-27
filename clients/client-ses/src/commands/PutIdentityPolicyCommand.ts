@@ -69,20 +69,23 @@ export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyRespons
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example PutIdentityPolicy
  * ```javascript
  * // The following example adds a sending authorization policy to an identity:
  * const input = {
- *   "Identity": "example.com",
- *   "Policy": "{\"Version\":\"2008-10-17\",\"Statement\":[{\"Sid\":\"stmt1469123904194\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::123456789012:root\"},\"Action\":[\"ses:SendEmail\",\"ses:SendRawEmail\"],\"Resource\":\"arn:aws:ses:us-east-1:EXAMPLE65304:identity/example.com\"}]}",
- *   "PolicyName": "MyPolicy"
+ *   Identity: "example.com",
+ *   Policy: `{"Version":"2008-10-17","Statement":[{"Sid":"stmt1469123904194","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::123456789012:root"},"Action":["ses:SendEmail","ses:SendRawEmail"],"Resource":"arn:aws:ses:us-east-1:EXAMPLE65304:identity/example.com"}]}`,
+ *   PolicyName: "MyPolicy"
  * };
  * const command = new PutIdentityPolicyCommand(input);
- * await client.send(command);
- * // example id: putidentitypolicy-1469124560016
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutIdentityPolicyCommand extends $Command
   .classBuilder<

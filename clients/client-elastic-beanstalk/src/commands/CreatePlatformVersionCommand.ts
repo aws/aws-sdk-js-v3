@@ -105,6 +105,7 @@ export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersio
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ *
  * @public
  */
 export class CreatePlatformVersionCommand extends $Command

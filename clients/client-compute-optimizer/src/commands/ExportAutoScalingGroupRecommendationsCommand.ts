@@ -123,6 +123,7 @@ export interface ExportAutoScalingGroupRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class ExportAutoScalingGroupRecommendationsCommand extends $Command

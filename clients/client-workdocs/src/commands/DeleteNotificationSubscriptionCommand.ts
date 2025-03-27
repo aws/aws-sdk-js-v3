@@ -69,6 +69,7 @@ export interface DeleteNotificationSubscriptionCommandOutput extends __MetadataB
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class DeleteNotificationSubscriptionCommand extends $Command

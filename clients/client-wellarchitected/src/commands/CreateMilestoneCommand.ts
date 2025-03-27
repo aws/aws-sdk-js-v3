@@ -79,6 +79,7 @@ export interface CreateMilestoneCommandOutput extends CreateMilestoneOutput, __M
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class CreateMilestoneCommand extends $Command

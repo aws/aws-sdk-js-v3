@@ -160,6 +160,7 @@ export interface ListApplicationComponentsCommandOutput extends ListApplicationC
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationComponentsCommand extends $Command

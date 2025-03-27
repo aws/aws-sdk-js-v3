@@ -70,6 +70,7 @@ export interface DeleteAccessEntryCommandOutput extends DeleteAccessEntryRespons
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class DeleteAccessEntryCommand extends $Command

@@ -131,6 +131,7 @@ export interface UpdateBillEstimateCommandOutput extends UpdateBillEstimateRespo
  * @throws {@link BCMPricingCalculatorServiceException}
  * <p>Base exception class for all service exceptions from BCMPricingCalculator service.</p>
  *
+ *
  * @public
  */
 export class UpdateBillEstimateCommand extends $Command

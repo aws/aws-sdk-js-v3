@@ -71,6 +71,7 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class ListEventBusesCommand extends $Command

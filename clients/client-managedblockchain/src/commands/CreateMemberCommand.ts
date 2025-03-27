@@ -116,6 +116,7 @@ export interface CreateMemberCommandOutput extends CreateMemberOutput, __Metadat
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class CreateMemberCommand extends $Command

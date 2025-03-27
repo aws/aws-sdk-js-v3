@@ -80,6 +80,7 @@ export interface DescribeRouteCalculatorCommandOutput extends DescribeRouteCalcu
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class DescribeRouteCalculatorCommand extends $Command

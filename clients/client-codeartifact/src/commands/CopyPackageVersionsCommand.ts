@@ -120,6 +120,7 @@ export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsRes
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class CopyPackageVersionsCommand extends $Command

@@ -103,6 +103,7 @@ export interface ListObjectParentsCommandOutput extends ListObjectParentsRespons
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
  * @public
  */
 export class ListObjectParentsCommand extends $Command

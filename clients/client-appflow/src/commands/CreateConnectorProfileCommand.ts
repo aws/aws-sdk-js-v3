@@ -321,6 +321,7 @@ export interface CreateConnectorProfileCommandOutput extends CreateConnectorProf
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectorProfileCommand extends $Command

@@ -112,6 +112,7 @@ export interface ListVPCConnectionsCommandOutput extends ListVPCConnectionsRespo
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class ListVPCConnectionsCommand extends $Command

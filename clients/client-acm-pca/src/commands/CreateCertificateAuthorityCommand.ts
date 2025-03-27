@@ -201,6 +201,7 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ *
  * @public
  */
 export class CreateCertificateAuthorityCommand extends $Command

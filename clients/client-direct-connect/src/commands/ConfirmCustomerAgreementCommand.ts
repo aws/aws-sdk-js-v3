@@ -63,6 +63,7 @@ export interface ConfirmCustomerAgreementCommandOutput extends ConfirmCustomerAg
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class ConfirmCustomerAgreementCommand extends $Command

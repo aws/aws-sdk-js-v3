@@ -83,6 +83,7 @@ export interface DeleteAdapterCommandOutput extends DeleteAdapterResponse, __Met
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ *
  * @public
  */
 export class DeleteAdapterCommand extends $Command

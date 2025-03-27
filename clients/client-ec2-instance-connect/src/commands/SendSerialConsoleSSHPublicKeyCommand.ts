@@ -112,6 +112,7 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput
  * @throws {@link EC2InstanceConnectServiceException}
  * <p>Base exception class for all service exceptions from EC2InstanceConnect service.</p>
  *
+ *
  * @public
  */
 export class SendSerialConsoleSSHPublicKeyCommand extends $Command

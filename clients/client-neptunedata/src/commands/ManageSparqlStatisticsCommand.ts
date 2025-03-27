@@ -101,6 +101,7 @@ export interface ManageSparqlStatisticsCommandOutput extends ManageSparqlStatist
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class ManageSparqlStatisticsCommand extends $Command

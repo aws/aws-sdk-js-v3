@@ -99,6 +99,7 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class GetFederationTokenCommand extends $Command

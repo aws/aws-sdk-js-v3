@@ -73,6 +73,7 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class DescribeScheduleCommand extends $Command

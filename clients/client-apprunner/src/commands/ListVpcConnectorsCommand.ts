@@ -78,6 +78,7 @@ export interface ListVpcConnectorsCommandOutput extends ListVpcConnectorsRespons
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ *
  * @public
  */
 export class ListVpcConnectorsCommand extends $Command

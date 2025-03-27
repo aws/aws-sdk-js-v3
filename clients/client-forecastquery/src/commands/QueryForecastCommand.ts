@@ -97,6 +97,7 @@ export interface QueryForecastCommandOutput extends QueryForecastResponse, __Met
  * @throws {@link ForecastqueryServiceException}
  * <p>Base exception class for all service exceptions from Forecastquery service.</p>
  *
+ *
  * @public
  */
 export class QueryForecastCommand extends $Command

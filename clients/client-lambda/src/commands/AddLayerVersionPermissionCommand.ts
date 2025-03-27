@@ -98,28 +98,28 @@ export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionP
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To add permissions to a layer version
  * ```javascript
  * // The following example grants permission for the account 223456789012 to use version 1 of a layer named my-layer.
  * const input = {
- *   "Action": "lambda:GetLayerVersion",
- *   "LayerName": "my-layer",
- *   "Principal": "223456789012",
- *   "StatementId": "xaccount",
- *   "VersionNumber": 1
+ *   Action: "lambda:GetLayerVersion",
+ *   LayerName: "my-layer",
+ *   Principal: "223456789012",
+ *   StatementId: "xaccount",
+ *   VersionNumber: 1
  * };
  * const command = new AddLayerVersionPermissionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "RevisionId": "35d87451-f796-4a3f-a618-95a3671b0a0c",
- *   "Statement": "{\"Sid\":\"xaccount\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::223456789012:root\"},\"Action\":\"lambda:GetLayerVersion\",\"Resource\":\"arn:aws:lambda:us-east-2:123456789012:layer:my-layer:1\"}"
+ *   RevisionId: "35d87451-f796-4a3f-a618-95a3671b0a0c",
+ *   Statement: `{"Sid":"xaccount","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::223456789012:root"},"Action":"lambda:GetLayerVersion","Resource":"arn:aws:lambda:us-east-2:123456789012:layer:my-layer:1"}`
  * }
  * *\/
- * // example id: to-add-permissions-to-a-layer-version-1586479797163
  * ```
  *
+ * @public
  */
 export class AddLayerVersionPermissionCommand extends $Command
   .classBuilder<

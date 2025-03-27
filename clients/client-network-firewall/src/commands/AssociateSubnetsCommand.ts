@@ -113,6 +113,7 @@ export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse,
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class AssociateSubnetsCommand extends $Command

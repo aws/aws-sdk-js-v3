@@ -67,6 +67,7 @@ export interface GetAccountConfigurationCommandOutput extends GetAccountConfigur
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ *
  * @public
  */
 export class GetAccountConfigurationCommand extends $Command

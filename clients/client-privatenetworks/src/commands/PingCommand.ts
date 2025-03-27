@@ -56,6 +56,7 @@ export interface PingCommandOutput extends PingResponse, __MetadataBearer {}
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ *
  * @public
  */
 export class PingCommand extends $Command

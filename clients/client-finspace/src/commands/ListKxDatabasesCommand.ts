@@ -80,6 +80,7 @@ export interface ListKxDatabasesCommandOutput extends ListKxDatabasesResponse, _
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class ListKxDatabasesCommand extends $Command

@@ -173,6 +173,7 @@ export interface GetTaxRegistrationCommandOutput extends GetTaxRegistrationRespo
  * @throws {@link TaxSettingsServiceException}
  * <p>Base exception class for all service exceptions from TaxSettings service.</p>
  *
+ *
  * @public
  */
 export class GetTaxRegistrationCommand extends $Command

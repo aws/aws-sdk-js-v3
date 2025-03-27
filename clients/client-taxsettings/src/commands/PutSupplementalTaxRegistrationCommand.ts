@@ -91,6 +91,7 @@ export interface PutSupplementalTaxRegistrationCommandOutput
  * @throws {@link TaxSettingsServiceException}
  * <p>Base exception class for all service exceptions from TaxSettings service.</p>
  *
+ *
  * @public
  */
 export class PutSupplementalTaxRegistrationCommand extends $Command

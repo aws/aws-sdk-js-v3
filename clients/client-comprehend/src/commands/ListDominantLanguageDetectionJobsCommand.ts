@@ -119,6 +119,7 @@ export interface ListDominantLanguageDetectionJobsCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class ListDominantLanguageDetectionJobsCommand extends $Command

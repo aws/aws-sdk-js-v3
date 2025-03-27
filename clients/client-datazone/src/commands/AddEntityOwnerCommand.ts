@@ -88,6 +88,7 @@ export interface AddEntityOwnerCommandOutput extends AddEntityOwnerOutput, __Met
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class AddEntityOwnerCommand extends $Command

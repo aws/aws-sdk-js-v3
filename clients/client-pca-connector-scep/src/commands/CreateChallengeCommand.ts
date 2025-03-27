@@ -100,6 +100,7 @@ export interface CreateChallengeCommandOutput extends CreateChallengeResponse, _
  * @throws {@link PcaConnectorScepServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorScep service.</p>
  *
+ *
  * @public
  */
 export class CreateChallengeCommand extends $Command

@@ -68,6 +68,7 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleResponse, __M
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class UpdateScheduleCommand extends $Command

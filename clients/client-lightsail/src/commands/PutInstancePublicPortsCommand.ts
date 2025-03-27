@@ -125,6 +125,7 @@ export interface PutInstancePublicPortsCommandOutput extends PutInstancePublicPo
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class PutInstancePublicPortsCommand extends $Command

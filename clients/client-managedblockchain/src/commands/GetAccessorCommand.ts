@@ -89,6 +89,7 @@ export interface GetAccessorCommandOutput extends GetAccessorOutput, __MetadataB
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class GetAccessorCommand extends $Command

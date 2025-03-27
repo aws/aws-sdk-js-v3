@@ -265,6 +265,7 @@ export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRole
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class ModifyClusterIamRolesCommand extends $Command

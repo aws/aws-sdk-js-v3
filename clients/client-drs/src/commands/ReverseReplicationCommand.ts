@@ -79,6 +79,7 @@ export interface ReverseReplicationCommandOutput extends ReverseReplicationRespo
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class ReverseReplicationCommand extends $Command

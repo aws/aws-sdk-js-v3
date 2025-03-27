@@ -85,23 +85,23 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To get the change token status
  * ```javascript
  * // The following example returns the status of a change token with the ID abcd12f2-46da-4fdb-b8d5-fbd4c466928f.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * };
  * const command = new GetChangeTokenStatusCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeTokenStatus": "PENDING"
+ *   ChangeTokenStatus: "PENDING"
  * }
  * *\/
- * // example id: getchangetokenstatus-1474658417107
  * ```
  *
+ * @public
  */
 export class GetChangeTokenStatusCommand extends $Command
   .classBuilder<

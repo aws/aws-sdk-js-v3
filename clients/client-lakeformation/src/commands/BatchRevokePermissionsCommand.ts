@@ -224,6 +224,7 @@ export interface BatchRevokePermissionsCommandOutput extends BatchRevokePermissi
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class BatchRevokePermissionsCommand extends $Command

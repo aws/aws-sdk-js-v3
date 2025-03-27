@@ -132,6 +132,7 @@ export interface StartEngagementByAcceptingInvitationTaskCommandOutput
  * @throws {@link PartnerCentralSellingServiceException}
  * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>
  *
+ *
  * @public
  */
 export class StartEngagementByAcceptingInvitationTaskCommand extends $Command

@@ -72,19 +72,22 @@ export interface DeleteProvisionedConcurrencyConfigCommandOutput extends __Metad
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To delete a provisioned concurrency configuration
  * ```javascript
  * // The following example deletes the provisioned concurrency configuration for the GREEN alias of a function named my-function.
  * const input = {
- *   "FunctionName": "my-function",
- *   "Qualifier": "GREEN"
+ *   FunctionName: "my-function",
+ *   Qualifier: "GREEN"
  * };
  * const command = new DeleteProvisionedConcurrencyConfigCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-provisioned-concurrency-configuration-1586481032551
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteProvisionedConcurrencyConfigCommand extends $Command
   .classBuilder<

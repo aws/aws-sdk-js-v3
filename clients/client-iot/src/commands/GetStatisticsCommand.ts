@@ -97,6 +97,7 @@ export interface GetStatisticsCommandOutput extends GetStatisticsResponse, __Met
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class GetStatisticsCommand extends $Command

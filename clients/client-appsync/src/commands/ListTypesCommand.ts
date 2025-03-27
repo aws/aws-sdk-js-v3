@@ -85,6 +85,7 @@ export interface ListTypesCommandOutput extends ListTypesResponse, __MetadataBea
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class ListTypesCommand extends $Command

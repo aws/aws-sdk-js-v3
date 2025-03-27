@@ -91,23 +91,23 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To list the collections
  * ```javascript
  * // This operation returns a list of Rekognition collections.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListCollectionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CollectionIds": [
+ *   CollectionIds: [
  *     "myphotos"
  *   ]
  * }
  * *\/
- * // example id: to-list-the-collections-1482179199088
  * ```
  *
+ * @public
  */
 export class ListCollectionsCommand extends $Command
   .classBuilder<

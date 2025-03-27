@@ -106,6 +106,7 @@ export interface GetAdminScopeCommandOutput extends GetAdminScopeResponse, __Met
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class GetAdminScopeCommand extends $Command

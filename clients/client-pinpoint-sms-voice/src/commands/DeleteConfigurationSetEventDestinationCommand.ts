@@ -75,6 +75,7 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  * @throws {@link PinpointSMSVoiceServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
+ *
  * @public
  */
 export class DeleteConfigurationSetEventDestinationCommand extends $Command

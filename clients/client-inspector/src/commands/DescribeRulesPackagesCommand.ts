@@ -80,34 +80,34 @@ export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackage
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example Describe rules packages
  * ```javascript
  * // Describes the rules packages that are specified by the ARNs of the rules packages.
  * const input = {
- *   "rulesPackageArns": [
+ *   rulesPackageArns: [
  *     "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ"
  *   ]
  * };
  * const command = new DescribeRulesPackagesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "failedItems": {},
- *   "rulesPackages": [
+ *   failedItems:   { /* empty *\/ },
+ *   rulesPackages: [
  *     {
- *       "version": "1.1",
- *       "name": "Security Best Practices",
- *       "arn": "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
- *       "description": "The rules in this package help determine whether your systems are configured securely.",
- *       "provider": "Amazon Web Services, Inc."
+ *       arn: "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
+ *       description: "The rules in this package help determine whether your systems are configured securely.",
+ *       name: "Security Best Practices",
+ *       provider: "Amazon Web Services, Inc.",
+ *       version: "1.1"
  *     }
  *   ]
  * }
  * *\/
- * // example id: describe-rules-packages-1481069641979
  * ```
  *
+ * @public
  */
 export class DescribeRulesPackagesCommand extends $Command
   .classBuilder<

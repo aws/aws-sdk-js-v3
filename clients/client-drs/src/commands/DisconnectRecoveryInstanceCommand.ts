@@ -71,6 +71,7 @@ export interface DisconnectRecoveryInstanceCommandOutput extends __MetadataBeare
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class DisconnectRecoveryInstanceCommand extends $Command

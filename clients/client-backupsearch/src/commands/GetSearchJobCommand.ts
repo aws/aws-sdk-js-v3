@@ -171,6 +171,7 @@ export interface GetSearchJobCommandOutput extends GetSearchJobOutput, __Metadat
  * @throws {@link BackupSearchServiceException}
  * <p>Base exception class for all service exceptions from BackupSearch service.</p>
  *
+ *
  * @public
  */
 export class GetSearchJobCommand extends $Command

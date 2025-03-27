@@ -68,6 +68,7 @@ export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSetting
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class DeleteNetworkSettingsCommand extends $Command

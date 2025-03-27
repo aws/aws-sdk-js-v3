@@ -108,6 +108,7 @@ export interface ListChannelsModeratedByAppInstanceUserCommandOutput
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class ListChannelsModeratedByAppInstanceUserCommand extends $Command

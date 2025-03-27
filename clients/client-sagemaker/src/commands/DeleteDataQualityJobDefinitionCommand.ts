@@ -59,6 +59,7 @@ export interface DeleteDataQualityJobDefinitionCommandOutput extends __MetadataB
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteDataQualityJobDefinitionCommand extends $Command

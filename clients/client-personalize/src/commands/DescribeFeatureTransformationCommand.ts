@@ -75,6 +75,7 @@ export interface DescribeFeatureTransformationCommandOutput
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class DescribeFeatureTransformationCommand extends $Command

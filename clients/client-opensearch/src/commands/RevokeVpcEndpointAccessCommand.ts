@@ -71,6 +71,7 @@ export interface RevokeVpcEndpointAccessCommandOutput extends RevokeVpcEndpointA
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class RevokeVpcEndpointAccessCommand extends $Command

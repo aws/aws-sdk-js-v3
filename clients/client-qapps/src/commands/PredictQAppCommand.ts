@@ -213,6 +213,7 @@ export interface PredictQAppCommandOutput extends PredictQAppOutput, __MetadataB
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
+ *
  * @public
  */
 export class PredictQAppCommand extends $Command

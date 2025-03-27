@@ -104,6 +104,7 @@ export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentCon
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class CreateDeploymentConfigCommand extends $Command

@@ -140,6 +140,7 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ *
  * @public
  */
 export class DescribeClustersCommand extends $Command

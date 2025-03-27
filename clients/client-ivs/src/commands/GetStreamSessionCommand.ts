@@ -183,6 +183,7 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class GetStreamSessionCommand extends $Command

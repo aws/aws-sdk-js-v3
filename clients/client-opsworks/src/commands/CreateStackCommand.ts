@@ -96,6 +96,7 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class CreateStackCommand extends $Command

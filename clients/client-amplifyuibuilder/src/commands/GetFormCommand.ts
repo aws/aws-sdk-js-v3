@@ -222,6 +222,7 @@ export interface GetFormCommandOutput extends GetFormResponse, __MetadataBearer 
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class GetFormCommand extends $Command

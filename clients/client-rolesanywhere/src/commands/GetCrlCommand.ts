@@ -71,6 +71,7 @@ export interface GetCrlCommandOutput extends CrlDetailResponse, __MetadataBearer
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ *
  * @public
  */
 export class GetCrlCommand extends $Command

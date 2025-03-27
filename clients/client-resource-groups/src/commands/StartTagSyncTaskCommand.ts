@@ -106,6 +106,7 @@ export interface StartTagSyncTaskCommandOutput extends StartTagSyncTaskOutput, _
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class StartTagSyncTaskCommand extends $Command

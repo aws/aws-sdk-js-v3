@@ -86,6 +86,7 @@ export interface ListQueueQuickConnectsCommandOutput extends ListQueueQuickConne
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListQueueQuickConnectsCommand extends $Command

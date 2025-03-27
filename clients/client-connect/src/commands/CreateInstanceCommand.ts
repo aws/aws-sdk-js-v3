@@ -91,6 +91,7 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateInstanceCommand extends $Command

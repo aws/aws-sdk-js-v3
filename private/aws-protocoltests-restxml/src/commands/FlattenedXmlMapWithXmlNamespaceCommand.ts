@@ -58,6 +58,7 @@ export interface FlattenedXmlMapWithXmlNamespaceCommandOutput
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class FlattenedXmlMapWithXmlNamespaceCommand extends $Command

@@ -86,101 +86,101 @@ export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOut
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To describe a policy used for SSL negotiation
  * ```javascript
  * // This example describes the specified policy used for SSL negotiation.
  * const input = {
- *   "Names": [
+ *   Names: [
  *     "ELBSecurityPolicy-2015-05"
  *   ]
  * };
  * const command = new DescribeSSLPoliciesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SslPolicies": [
+ *   SslPolicies: [
  *     {
- *       "Ciphers": [
+ *       Ciphers: [
  *         {
- *           "Name": "ECDHE-ECDSA-AES128-GCM-SHA256",
- *           "Priority": 1
+ *           Name: "ECDHE-ECDSA-AES128-GCM-SHA256",
+ *           Priority: 1
  *         },
  *         {
- *           "Name": "ECDHE-RSA-AES128-GCM-SHA256",
- *           "Priority": 2
+ *           Name: "ECDHE-RSA-AES128-GCM-SHA256",
+ *           Priority: 2
  *         },
  *         {
- *           "Name": "ECDHE-ECDSA-AES128-SHA256",
- *           "Priority": 3
+ *           Name: "ECDHE-ECDSA-AES128-SHA256",
+ *           Priority: 3
  *         },
  *         {
- *           "Name": "ECDHE-RSA-AES128-SHA256",
- *           "Priority": 4
+ *           Name: "ECDHE-RSA-AES128-SHA256",
+ *           Priority: 4
  *         },
  *         {
- *           "Name": "ECDHE-ECDSA-AES128-SHA",
- *           "Priority": 5
+ *           Name: "ECDHE-ECDSA-AES128-SHA",
+ *           Priority: 5
  *         },
  *         {
- *           "Name": "ECDHE-RSA-AES128-SHA",
- *           "Priority": 6
+ *           Name: "ECDHE-RSA-AES128-SHA",
+ *           Priority: 6
  *         },
  *         {
- *           "Name": "DHE-RSA-AES128-SHA",
- *           "Priority": 7
+ *           Name: "DHE-RSA-AES128-SHA",
+ *           Priority: 7
  *         },
  *         {
- *           "Name": "ECDHE-ECDSA-AES256-GCM-SHA384",
- *           "Priority": 8
+ *           Name: "ECDHE-ECDSA-AES256-GCM-SHA384",
+ *           Priority: 8
  *         },
  *         {
- *           "Name": "ECDHE-RSA-AES256-GCM-SHA384",
- *           "Priority": 9
+ *           Name: "ECDHE-RSA-AES256-GCM-SHA384",
+ *           Priority: 9
  *         },
  *         {
- *           "Name": "ECDHE-ECDSA-AES256-SHA384",
- *           "Priority": 10
+ *           Name: "ECDHE-ECDSA-AES256-SHA384",
+ *           Priority: 10
  *         },
  *         {
- *           "Name": "ECDHE-RSA-AES256-SHA384",
- *           "Priority": 11
+ *           Name: "ECDHE-RSA-AES256-SHA384",
+ *           Priority: 11
  *         },
  *         {
- *           "Name": "ECDHE-RSA-AES256-SHA",
- *           "Priority": 12
+ *           Name: "ECDHE-RSA-AES256-SHA",
+ *           Priority: 12
  *         },
  *         {
- *           "Name": "ECDHE-ECDSA-AES256-SHA",
- *           "Priority": 13
+ *           Name: "ECDHE-ECDSA-AES256-SHA",
+ *           Priority: 13
  *         },
  *         {
- *           "Name": "AES128-GCM-SHA256",
- *           "Priority": 14
+ *           Name: "AES128-GCM-SHA256",
+ *           Priority: 14
  *         },
  *         {
- *           "Name": "AES128-SHA256",
- *           "Priority": 15
+ *           Name: "AES128-SHA256",
+ *           Priority: 15
  *         },
  *         {
- *           "Name": "AES128-SHA",
- *           "Priority": 16
+ *           Name: "AES128-SHA",
+ *           Priority: 16
  *         },
  *         {
- *           "Name": "AES256-GCM-SHA384",
- *           "Priority": 17
+ *           Name: "AES256-GCM-SHA384",
+ *           Priority: 17
  *         },
  *         {
- *           "Name": "AES256-SHA256",
- *           "Priority": 18
+ *           Name: "AES256-SHA256",
+ *           Priority: 18
  *         },
  *         {
- *           "Name": "AES256-SHA",
- *           "Priority": 19
+ *           Name: "AES256-SHA",
+ *           Priority: 19
  *         }
  *       ],
- *       "Name": "ELBSecurityPolicy-2015-05",
- *       "SslProtocols": [
+ *       Name: "ELBSecurityPolicy-2015-05",
+ *       SslProtocols: [
  *         "TLSv1",
  *         "TLSv1.1",
  *         "TLSv1.2"
@@ -189,9 +189,9 @@ export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOut
  *   ]
  * }
  * *\/
- * // example id: elbv2-describe-ssl-policies-1
  * ```
  *
+ * @public
  */
 export class DescribeSSLPoliciesCommand extends $Command
   .classBuilder<

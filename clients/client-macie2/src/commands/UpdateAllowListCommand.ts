@@ -80,6 +80,7 @@ export interface UpdateAllowListCommandOutput extends UpdateAllowListResponse, _
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class UpdateAllowListCommand extends $Command

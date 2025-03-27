@@ -69,6 +69,7 @@ export interface SubmitFeedbackCommandOutput extends SubmitFeedbackResponse, __M
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ *
  * @public
  */
 export class SubmitFeedbackCommand extends $Command

@@ -75,6 +75,7 @@ export interface GetAuthPolicyCommandOutput extends GetAuthPolicyResponse, __Met
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class GetAuthPolicyCommand extends $Command

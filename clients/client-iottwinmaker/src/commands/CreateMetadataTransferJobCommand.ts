@@ -135,6 +135,7 @@ export interface CreateMetadataTransferJobCommandOutput extends CreateMetadataTr
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateMetadataTransferJobCommand extends $Command

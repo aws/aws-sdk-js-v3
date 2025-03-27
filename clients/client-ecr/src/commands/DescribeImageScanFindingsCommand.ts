@@ -209,6 +209,7 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class DescribeImageScanFindingsCommand extends $Command

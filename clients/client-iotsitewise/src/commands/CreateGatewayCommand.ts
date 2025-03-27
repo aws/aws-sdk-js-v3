@@ -96,6 +96,7 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class CreateGatewayCommand extends $Command

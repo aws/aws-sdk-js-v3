@@ -107,6 +107,7 @@ export interface UpdateThemeForStackCommandOutput extends UpdateThemeForStackRes
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class UpdateThemeForStackCommand extends $Command

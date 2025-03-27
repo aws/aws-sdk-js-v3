@@ -103,6 +103,7 @@ export interface PutResourceSetCommandOutput extends PutResourceSetResponse, __M
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class PutResourceSetCommand extends $Command

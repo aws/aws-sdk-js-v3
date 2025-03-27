@@ -85,6 +85,7 @@ export interface ListStreamGroupsCommandOutput extends ListStreamGroupsOutput, _
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>
  *
+ *
  * @public
  */
 export class ListStreamGroupsCommand extends $Command

@@ -80,6 +80,7 @@ export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput,
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ *
  * @public
  */
 export class TagDeliveryStreamCommand extends $Command

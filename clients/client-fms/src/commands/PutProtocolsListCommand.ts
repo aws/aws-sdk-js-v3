@@ -113,6 +113,7 @@ export interface PutProtocolsListCommandOutput extends PutProtocolsListResponse,
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class PutProtocolsListCommand extends $Command

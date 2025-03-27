@@ -131,6 +131,7 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class DescribeModelCommand extends $Command

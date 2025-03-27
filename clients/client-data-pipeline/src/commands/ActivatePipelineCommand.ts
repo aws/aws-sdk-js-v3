@@ -102,6 +102,7 @@ export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, _
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class ActivatePipelineCommand extends $Command

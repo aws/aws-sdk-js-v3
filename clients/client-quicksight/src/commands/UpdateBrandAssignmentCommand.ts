@@ -78,6 +78,7 @@ export interface UpdateBrandAssignmentCommandOutput extends UpdateBrandAssignmen
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateBrandAssignmentCommand extends $Command

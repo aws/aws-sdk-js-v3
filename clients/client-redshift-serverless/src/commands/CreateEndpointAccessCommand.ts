@@ -115,6 +115,7 @@ export interface CreateEndpointAccessCommandOutput extends CreateEndpointAccessR
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class CreateEndpointAccessCommand extends $Command

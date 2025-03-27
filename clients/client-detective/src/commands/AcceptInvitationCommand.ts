@@ -72,6 +72,7 @@ export interface AcceptInvitationCommandOutput extends __MetadataBearer {}
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ *
  * @public
  */
 export class AcceptInvitationCommand extends $Command

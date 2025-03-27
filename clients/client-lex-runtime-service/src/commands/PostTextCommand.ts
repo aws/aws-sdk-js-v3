@@ -265,6 +265,7 @@ export interface PostTextCommandOutput extends PostTextResponse, __MetadataBeare
  * @throws {@link LexRuntimeServiceServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
+ *
  * @public
  */
 export class PostTextCommand extends $Command

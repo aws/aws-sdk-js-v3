@@ -124,6 +124,7 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * @throws {@link EBSServiceException}
  * <p>Base exception class for all service exceptions from EBS service.</p>
  *
+ *
  * @public
  */
 export class StartSnapshotCommand extends $Command

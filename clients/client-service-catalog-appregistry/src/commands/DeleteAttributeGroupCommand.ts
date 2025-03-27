@@ -76,6 +76,7 @@ export interface DeleteAttributeGroupCommandOutput extends DeleteAttributeGroupR
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ *
  * @public
  */
 export class DeleteAttributeGroupCommand extends $Command

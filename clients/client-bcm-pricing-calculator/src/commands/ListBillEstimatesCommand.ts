@@ -117,6 +117,7 @@ export interface ListBillEstimatesCommandOutput extends ListBillEstimatesRespons
  * @throws {@link BCMPricingCalculatorServiceException}
  * <p>Base exception class for all service exceptions from BCMPricingCalculator service.</p>
  *
+ *
  * @public
  */
 export class ListBillEstimatesCommand extends $Command

@@ -82,6 +82,7 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class DescribeEndpointCommand extends $Command

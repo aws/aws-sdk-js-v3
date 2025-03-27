@@ -82,36 +82,36 @@ export interface ListCategoriesCommandOutput extends ListCategoriesOutput, __Met
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example List categories available for the library items in this instance
  * ```javascript
  * //
  * const input = {
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
  * };
  * const command = new ListCategoriesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "categories": [
+ *   categories: [
  *     {
- *       "appCount": 10,
- *       "color": "#FF6600",
- *       "id": "549abfe0-f5c4-45a2-bb9b-c05987a49c6d",
- *       "title": "HR"
+ *       appCount: 10,
+ *       color: "#FF6600",
+ *       id: "549abfe0-f5c4-45a2-bb9b-c05987a49c6d",
+ *       title: "HR"
  *     },
  *     {
- *       "appCount": 11,
- *       "color": "#FFFF00",
- *       "id": "18cbebaa-196a-4aa5-a840-88d548e07f8f",
- *       "title": "Marketing"
+ *       appCount: 11,
+ *       color: "#FFFF00",
+ *       id: "18cbebaa-196a-4aa5-a840-88d548e07f8f",
+ *       title: "Marketing"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListCategoriesCommand extends $Command
   .classBuilder<

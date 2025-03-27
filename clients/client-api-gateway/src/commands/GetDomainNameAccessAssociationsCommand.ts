@@ -83,6 +83,7 @@ export interface GetDomainNameAccessAssociationsCommandOutput extends DomainName
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetDomainNameAccessAssociationsCommand extends $Command

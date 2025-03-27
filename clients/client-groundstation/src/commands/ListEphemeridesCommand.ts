@@ -86,6 +86,7 @@ export interface ListEphemeridesCommandOutput extends ListEphemeridesResponse, _
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class ListEphemeridesCommand extends $Command

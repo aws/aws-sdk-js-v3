@@ -92,6 +92,7 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class CreateVpcPeeringConnectionCommand extends $Command

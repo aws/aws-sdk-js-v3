@@ -78,6 +78,7 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
  * @throws {@link SSOServiceException}
  * <p>Base exception class for all service exceptions from SSO service.</p>
  *
+ *
  * @public
  */
 export class LogoutCommand extends $Command

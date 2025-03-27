@@ -88,6 +88,7 @@ export interface UpdateKeyCommandOutput extends UpdateKeyResponse, __MetadataBea
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class UpdateKeyCommand extends $Command

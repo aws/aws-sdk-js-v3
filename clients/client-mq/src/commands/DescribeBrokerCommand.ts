@@ -188,6 +188,7 @@ export interface DescribeBrokerCommandOutput extends DescribeBrokerResponse, __M
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ *
  * @public
  */
 export class DescribeBrokerCommand extends $Command

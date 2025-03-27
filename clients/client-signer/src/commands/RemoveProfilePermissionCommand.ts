@@ -76,6 +76,7 @@ export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermi
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ *
  * @public
  */
 export class RemoveProfilePermissionCommand extends $Command

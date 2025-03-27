@@ -85,43 +85,43 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To list a function's aliases
  * ```javascript
  * // The following example returns a list of aliases for a function named my-function.
  * const input = {
- *   "FunctionName": "my-function"
+ *   FunctionName: "my-function"
  * };
  * const command = new ListAliasesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Aliases": [
+ *   Aliases: [
  *     {
- *       "AliasArn": "arn:aws:lambda:us-west-2:123456789012:function:my-function:BETA",
- *       "Description": "Production environment BLUE.",
- *       "FunctionVersion": "2",
- *       "Name": "BLUE",
- *       "RevisionId": "a410117f-xmpl-494e-8035-7e204bb7933b",
- *       "RoutingConfig": {
- *         "AdditionalVersionWeights": {
- *           "1": 0.7
+ *       AliasArn: "arn:aws:lambda:us-west-2:123456789012:function:my-function:BETA",
+ *       Description: "Production environment BLUE.",
+ *       FunctionVersion: "2",
+ *       Name: "BLUE",
+ *       RevisionId: "a410117f-xmpl-494e-8035-7e204bb7933b",
+ *       RoutingConfig: {
+ *         AdditionalVersionWeights: {
+ *           1: 0.7
  *         }
  *       }
  *     },
  *     {
- *       "AliasArn": "arn:aws:lambda:us-west-2:123456789012:function:my-function:LIVE",
- *       "Description": "Production environment GREEN.",
- *       "FunctionVersion": "1",
- *       "Name": "GREEN",
- *       "RevisionId": "21d40116-xmpl-40ba-9360-3ea284da1bb5"
+ *       AliasArn: "arn:aws:lambda:us-west-2:123456789012:function:my-function:LIVE",
+ *       Description: "Production environment GREEN.",
+ *       FunctionVersion: "1",
+ *       Name: "GREEN",
+ *       RevisionId: "21d40116-xmpl-40ba-9360-3ea284da1bb5"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-a-functions-aliases-1481650199732
  * ```
  *
+ * @public
  */
 export class ListAliasesCommand extends $Command
   .classBuilder<

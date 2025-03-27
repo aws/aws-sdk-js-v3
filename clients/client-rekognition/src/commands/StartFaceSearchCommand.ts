@@ -117,6 +117,7 @@ export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, _
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ *
  * @public
  */
 export class StartFaceSearchCommand extends $Command

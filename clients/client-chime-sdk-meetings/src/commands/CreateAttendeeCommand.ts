@@ -107,6 +107,7 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ *
  * @public
  */
 export class CreateAttendeeCommand extends $Command

@@ -89,6 +89,7 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ *
  * @public
  */
 export class DescribeParametersCommand extends $Command

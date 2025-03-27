@@ -220,40 +220,40 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To start an instance refresh
  * ```javascript
  * // This example starts an instance refresh for the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "DesiredConfiguration": {
- *     "LaunchTemplate": {
- *       "LaunchTemplateName": "my-template-for-auto-scaling",
- *       "Version": "$Latest"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   DesiredConfiguration: {
+ *     LaunchTemplate: {
+ *       LaunchTemplateName: "my-template-for-auto-scaling",
+ *       Version: "$Latest"
  *     }
  *   },
- *   "Preferences": {
- *     "AlarmSpecification": {
- *       "Alarms": [
+ *   Preferences: {
+ *     AlarmSpecification: {
+ *       Alarms: [
  *         "my-alarm"
  *       ]
  *     },
- *     "AutoRollback": true,
- *     "InstanceWarmup": 200,
- *     "MaxHealthyPercentage": 120,
- *     "MinHealthyPercentage": 90
+ *     AutoRollback: true,
+ *     InstanceWarmup: 200,
+ *     MaxHealthyPercentage: 120,
+ *     MinHealthyPercentage: 90
  *   }
  * };
  * const command = new StartInstanceRefreshCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InstanceRefreshId": "08b91cf7-8fa6-48af-b6a6-d227f40f1b9b"
+ *   InstanceRefreshId: "08b91cf7-8fa6-48af-b6a6-d227f40f1b9b"
  * }
  * *\/
- * // example id: to-start-an-instance-refresh-1592957271522
  * ```
  *
+ * @public
  */
 export class StartInstanceRefreshCommand extends $Command
   .classBuilder<

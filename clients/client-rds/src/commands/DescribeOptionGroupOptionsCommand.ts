@@ -112,57 +112,57 @@ export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOpti
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe all available options
  * ```javascript
  * // The following example lists the options for an RDS for MySQL version 8.0 DB instance.
  * const input = {
- *   "EngineName": "mysql",
- *   "MajorEngineVersion": "8.0"
+ *   EngineName: "mysql",
+ *   MajorEngineVersion: "8.0"
  * };
  * const command = new DescribeOptionGroupOptionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OptionGroupOptions": [
+ *   OptionGroupOptions: [
  *     {
- *       "Description": "MariaDB Audit Plugin",
- *       "EngineName": "mysql",
- *       "MajorEngineVersion": "8.0",
- *       "MinimumRequiredMinorEngineVersion": "25",
- *       "Name": "MARIADB_AUDIT_PLUGIN",
- *       "OptionGroupOptionSettings": [
+ *       Description: "MariaDB Audit Plugin",
+ *       EngineName: "mysql",
+ *       MajorEngineVersion: "8.0",
+ *       MinimumRequiredMinorEngineVersion: "25",
+ *       Name: "MARIADB_AUDIT_PLUGIN",
+ *       OptionGroupOptionSettings: [
  *         {
- *           "ApplyType": "DYNAMIC",
- *           "IsModifiable": true,
- *           "IsRequired": false,
- *           "MinimumEngineVersionPerAllowedValue": [],
- *           "SettingDescription": "Include specified users",
- *           "SettingName": "SERVER_AUDIT_INCL_USERS"
+ *           ApplyType: "DYNAMIC",
+ *           IsModifiable: true,
+ *           IsRequired: false,
+ *           MinimumEngineVersionPerAllowedValue:           [],
+ *           SettingDescription: "Include specified users",
+ *           SettingName: "SERVER_AUDIT_INCL_USERS"
  *         },
  *         {
- *           "ApplyType": "DYNAMIC",
- *           "IsModifiable": true,
- *           "IsRequired": false,
- *           "MinimumEngineVersionPerAllowedValue": [],
- *           "SettingDescription": "Exclude specified users",
- *           "SettingName": "SERVER_AUDIT_EXCL_USERS"
+ *           ApplyType: "DYNAMIC",
+ *           IsModifiable: true,
+ *           IsRequired: false,
+ *           MinimumEngineVersionPerAllowedValue:           [],
+ *           SettingDescription: "Exclude specified users",
+ *           SettingName: "SERVER_AUDIT_EXCL_USERS"
  *         }
  *       ],
- *       "OptionsConflictsWith": [],
- *       "OptionsDependedOn": [],
- *       "Permanent": false,
- *       "Persistent": false,
- *       "PortRequired": false,
- *       "RequiresAutoMinorEngineVersionUpgrade": false,
- *       "VpcOnly": false
+ *       OptionsConflictsWith:       [],
+ *       OptionsDependedOn:       [],
+ *       Permanent: false,
+ *       Persistent: false,
+ *       PortRequired: false,
+ *       RequiresAutoMinorEngineVersionUpgrade: false,
+ *       VpcOnly: false
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-all-available-options-1680286049492
  * ```
  *
+ * @public
  */
 export class DescribeOptionGroupOptionsCommand extends $Command
   .classBuilder<

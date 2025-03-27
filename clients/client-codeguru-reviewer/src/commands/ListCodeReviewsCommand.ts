@@ -130,6 +130,7 @@ export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, _
  * @throws {@link CodeGuruReviewerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ *
  * @public
  */
 export class ListCodeReviewsCommand extends $Command

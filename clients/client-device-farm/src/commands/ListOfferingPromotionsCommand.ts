@@ -79,6 +79,7 @@ export interface ListOfferingPromotionsCommandOutput extends ListOfferingPromoti
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class ListOfferingPromotionsCommand extends $Command

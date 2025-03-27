@@ -97,6 +97,7 @@ export interface DeleteTenantDatabaseCommandOutput extends DeleteTenantDatabaseR
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class DeleteTenantDatabaseCommand extends $Command

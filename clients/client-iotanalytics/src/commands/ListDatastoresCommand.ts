@@ -105,6 +105,7 @@ export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __M
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ *
  * @public
  */
 export class ListDatastoresCommand extends $Command

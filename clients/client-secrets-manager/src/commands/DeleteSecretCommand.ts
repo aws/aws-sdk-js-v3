@@ -114,26 +114,8 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
- * @example To delete a secret
- * ```javascript
- * // The following example shows how to delete a secret. The secret stays in your account in a deprecated and inaccessible state until the recovery window ends. After the date and time in the DeletionDate response field has passed, you can no longer recover this secret with restore-secret.
- * const input = {
- *   "RecoveryWindowInDays": 7,
- *   "SecretId": "MyTestDatabaseSecret1"
- * };
- * const command = new DeleteSecretCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "DeletionDate": "1524085349.095",
- *   "Name": "MyTestDatabaseSecret"
- * }
- * *\/
- * // example id: to-delete-a-secret-1523996905092
- * ```
  *
+ * @public
  */
 export class DeleteSecretCommand extends $Command
   .classBuilder<

@@ -129,6 +129,7 @@ export interface GetImagePipelineCommandOutput extends GetImagePipelineResponse,
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class GetImagePipelineCommand extends $Command

@@ -67,6 +67,7 @@ export interface ListManagedAccountsCommandOutput extends ListManagedAccountsRes
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class ListManagedAccountsCommand extends $Command

@@ -94,6 +94,7 @@ export interface AssociateAccessPolicyCommandOutput extends AssociateAccessPolic
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class AssociateAccessPolicyCommand extends $Command

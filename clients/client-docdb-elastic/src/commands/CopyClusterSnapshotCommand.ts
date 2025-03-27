@@ -98,6 +98,40 @@ export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotOut
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ *
+ * @example Basic Copy Cluster Snapshot Example
+ * ```javascript
+ * // update applied
+ * const input = {
+ *   snapshotArn: "arn:aws:docdb-elastic:us-east-1:$AWS_ACCOUNT_ID:cluster-snapshot/$SOURCE_SNAPSHOT_ID",
+ *   targetSnapshotName: "sampleSnapshotName"
+ * };
+ * const command = new CopyClusterSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   snapshot: {
+ *     adminUserName: "sampleAdminUser",
+ *     clusterArn: "arn:aws:docdb-elastic:us-east-1:$AWS_ACCOUNT_ID:cluster/$CLUSTER_ID",
+ *     clusterCreationTime: "2000-01-01T00:00:00.000Z",
+ *     kmsKeyId: "AWS_OWNED_KMS_KEY",
+ *     snapshotArn: "arn:aws:docdb-elastic:us-east-1:$AWS_ACCOUNT_ID:cluster-snapshot/$TARGET_SNAPSHOT_ID",
+ *     snapshotCreationTime: "2000-01-01T00:00:00.000Z",
+ *     snapshotName: "sampleSnapshotName",
+ *     snapshotType: "MANUAL",
+ *     status: "ACTIVE",
+ *     subnetIds: [
+ *       "subnetId1",
+ *       "subnetId2"
+ *     ],
+ *     vpcSecurityGroupIds: [
+ *       "vpcSgId1, vpcSgId2"
+ *     ]
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CopyClusterSnapshotCommand extends $Command

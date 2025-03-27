@@ -95,6 +95,7 @@ export interface ListAssetPropertiesCommandOutput extends ListAssetPropertiesRes
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class ListAssetPropertiesCommand extends $Command

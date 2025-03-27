@@ -66,6 +66,7 @@ export interface DeregisterWirelessDeviceCommandOutput extends DeregisterWireles
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class DeregisterWirelessDeviceCommand extends $Command

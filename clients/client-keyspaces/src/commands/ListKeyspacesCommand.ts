@@ -83,6 +83,7 @@ export interface ListKeyspacesCommandOutput extends ListKeyspacesResponse, __Met
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ *
  * @public
  */
 export class ListKeyspacesCommand extends $Command

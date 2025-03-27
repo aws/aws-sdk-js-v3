@@ -79,6 +79,7 @@ export interface GetServiceSettingsCommandOutput extends GetServiceSettingsRespo
  * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
+ *
  * @public
  */
 export class GetServiceSettingsCommand extends $Command

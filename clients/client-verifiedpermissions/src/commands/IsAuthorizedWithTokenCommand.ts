@@ -246,44 +246,44 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
- * @public
+ *
  * @example IsAuthorizedWithToken - Example 1
  * ```javascript
  * // The following example requests an authorization decision for a user who was authenticated by Amazon Cognito. The request uses the identity token provided by Amazon Cognito instead of the access token. In this example, the specified information store is configured to return principals as entities of type CognitoUser. The policy store contains a policy with the following statement.
- * //
- * // permit(
- * //     principal == CognitoUser::"us-east-1_1a2b3c4d5|a1b2c3d4e5f6g7h8i9j0kalbmc",
- * //     action,
- * //     resource == Photo::"VacationPhoto94.jpg"
- * // );
+ *
+ * permit(
+ *     principal == CognitoUser::"us-east-1_1a2b3c4d5|a1b2c3d4e5f6g7h8i9j0kalbmc",
+ *     action,
+ *     resource == Photo::"VacationPhoto94.jpg"
+ * );
  * const input = {
- *   "action": {
- *     "actionId": "View",
- *     "actionType": "Action"
+ *   action: {
+ *     actionId: "View",
+ *     actionType: "Action"
  *   },
- *   "identityToken": "EgZjxMPlbWUyBggAEEUYOdIBCDM3NDlqMGo3qAIAsAIA",
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
- *   "resource": {
- *     "entityId": "vacationPhoto94.jpg",
- *     "entityType": "Photo"
+ *   identityToken: "EgZjxMPlbWUyBggAEEUYOdIBCDM3NDlqMGo3qAIAsAIA",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *   resource: {
+ *     entityId: "vacationPhoto94.jpg",
+ *     entityType: "Photo"
  *   }
  * };
  * const command = new IsAuthorizedWithTokenCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "errors": [],
- *   "decision": "ALLOW",
- *   "determiningPolicies": [
+ *   decision: "ALLOW",
+ *   determiningPolicies: [
  *     {
- *       "policyId": "9wYxMpljbbZQb5fcZHyJhY"
+ *       policyId: "9wYxMpljbbZQb5fcZHyJhY"
  *     }
- *   ]
+ *   ],
+ *   errors:   []
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class IsAuthorizedWithTokenCommand extends $Command
   .classBuilder<

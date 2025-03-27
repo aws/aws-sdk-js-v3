@@ -111,6 +111,7 @@ export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBea
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DeleteOrganizationConfigRuleCommand extends $Command

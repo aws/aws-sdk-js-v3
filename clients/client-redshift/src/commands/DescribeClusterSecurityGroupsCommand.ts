@@ -125,6 +125,7 @@ export interface DescribeClusterSecurityGroupsCommandOutput extends ClusterSecur
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeClusterSecurityGroupsCommand extends $Command

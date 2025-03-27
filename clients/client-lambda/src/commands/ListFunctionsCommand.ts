@@ -184,64 +184,64 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To get a list of Lambda functions
  * ```javascript
  * // This operation returns a list of Lambda functions.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListFunctionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Functions": [
+ *   Functions: [
  *     {
- *       "CodeSha256": "dBG9m8SGdmlEjw/JYXlhhvCrAv5TxvXsbL/RMr0fT/I=",
- *       "CodeSize": 294,
- *       "Description": "",
- *       "FunctionArn": "arn:aws:lambda:us-west-2:123456789012:function:helloworld",
- *       "FunctionName": "helloworld",
- *       "Handler": "helloworld.handler",
- *       "LastModified": "2019-09-23T18:32:33.857+0000",
- *       "MemorySize": 128,
- *       "RevisionId": "1718e831-badf-4253-9518-d0644210af7b",
- *       "Role": "arn:aws:iam::123456789012:role/service-role/MyTestFunction-role-zgur6bf4",
- *       "Runtime": "nodejs10.x",
- *       "Timeout": 3,
- *       "TracingConfig": {
- *         "Mode": "PassThrough"
+ *       CodeSha256: "dBG9m8SGdmlEjw/JYXlhhvCrAv5TxvXsbL/RMr0fT/I=",
+ *       CodeSize: 294,
+ *       Description: "",
+ *       FunctionArn: "arn:aws:lambda:us-west-2:123456789012:function:helloworld",
+ *       FunctionName: "helloworld",
+ *       Handler: "helloworld.handler",
+ *       LastModified: "2019-09-23T18:32:33.857+0000",
+ *       MemorySize: 128,
+ *       RevisionId: "1718e831-badf-4253-9518-d0644210af7b",
+ *       Role: "arn:aws:iam::123456789012:role/service-role/MyTestFunction-role-zgur6bf4",
+ *       Runtime: "nodejs10.x",
+ *       Timeout: 3,
+ *       TracingConfig: {
+ *         Mode: "PassThrough"
  *       },
- *       "Version": "$LATEST"
+ *       Version: "$LATEST"
  *     },
  *     {
- *       "CodeSha256": "sU0cJ2/hOZevwV/lTxCuQqK3gDZP3i8gUoqUUVRmY6E=",
- *       "CodeSize": 266,
- *       "Description": "",
- *       "FunctionArn": "arn:aws:lambda:us-west-2:123456789012:function:my-function",
- *       "FunctionName": "my-function",
- *       "Handler": "index.handler",
- *       "LastModified": "2019-10-01T16:47:28.490+0000",
- *       "MemorySize": 256,
- *       "RevisionId": "93017fc9-59cb-41dc-901b-4845ce4bf668",
- *       "Role": "arn:aws:iam::123456789012:role/service-role/helloWorldPython-role-uy3l9qyq",
- *       "Runtime": "nodejs10.x",
- *       "Timeout": 3,
- *       "TracingConfig": {
- *         "Mode": "PassThrough"
+ *       CodeSha256: "sU0cJ2/hOZevwV/lTxCuQqK3gDZP3i8gUoqUUVRmY6E=",
+ *       CodeSize: 266,
+ *       Description: "",
+ *       FunctionArn: "arn:aws:lambda:us-west-2:123456789012:function:my-function",
+ *       FunctionName: "my-function",
+ *       Handler: "index.handler",
+ *       LastModified: "2019-10-01T16:47:28.490+0000",
+ *       MemorySize: 256,
+ *       RevisionId: "93017fc9-59cb-41dc-901b-4845ce4bf668",
+ *       Role: "arn:aws:iam::123456789012:role/service-role/helloWorldPython-role-uy3l9qyq",
+ *       Runtime: "nodejs10.x",
+ *       Timeout: 3,
+ *       TracingConfig: {
+ *         Mode: "PassThrough"
  *       },
- *       "Version": "$LATEST",
- *       "VpcConfig": {
- *         "SecurityGroupIds": [],
- *         "SubnetIds": [],
- *         "VpcId": ""
+ *       Version: "$LATEST",
+ *       VpcConfig: {
+ *         SecurityGroupIds:         [],
+ *         SubnetIds:         [],
+ *         VpcId: ""
  *       }
  *     }
  *   ],
- *   "NextMarker": ""
+ *   NextMarker: ""
  * }
  * *\/
- * // example id: to-get-a-list-of-lambda-functions-1481650507425
  * ```
  *
+ * @public
  */
 export class ListFunctionsCommand extends $Command
   .classBuilder<

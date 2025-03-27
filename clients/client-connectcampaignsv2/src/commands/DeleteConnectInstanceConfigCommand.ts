@@ -79,6 +79,7 @@ export interface DeleteConnectInstanceConfigCommandOutput extends __MetadataBear
  * @throws {@link ConnectCampaignsV2ServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaignsV2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteConnectInstanceConfigCommand extends $Command

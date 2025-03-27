@@ -90,6 +90,7 @@ export interface DeleteGcmChannelCommandOutput extends DeleteGcmChannelResponse,
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class DeleteGcmChannelCommand extends $Command

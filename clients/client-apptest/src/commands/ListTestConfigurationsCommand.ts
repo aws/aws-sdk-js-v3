@@ -86,6 +86,7 @@ export interface ListTestConfigurationsCommandOutput extends ListTestConfigurati
  * @throws {@link AppTestServiceException}
  * <p>Base exception class for all service exceptions from AppTest service.</p>
  *
+ *
  * @public
  */
 export class ListTestConfigurationsCommand extends $Command

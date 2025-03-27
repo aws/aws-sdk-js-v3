@@ -224,6 +224,7 @@ export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermission
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class BatchGrantPermissionsCommand extends $Command

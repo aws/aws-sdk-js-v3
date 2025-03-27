@@ -101,6 +101,7 @@ export interface DescribeForecastExportJobCommandOutput extends DescribeForecast
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class DescribeForecastExportJobCommand extends $Command

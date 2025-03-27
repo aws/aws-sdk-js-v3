@@ -105,6 +105,7 @@ export interface GetMultiRegionAccessPointCommandOutput extends GetMultiRegionAc
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class GetMultiRegionAccessPointCommand extends $Command

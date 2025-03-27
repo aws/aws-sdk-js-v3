@@ -100,6 +100,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainOutput, __Metadat
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class UpdateDomainCommand extends $Command

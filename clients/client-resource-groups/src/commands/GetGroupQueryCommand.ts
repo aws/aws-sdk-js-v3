@@ -94,6 +94,7 @@ export interface GetGroupQueryCommandOutput extends GetGroupQueryOutput, __Metad
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class GetGroupQueryCommand extends $Command

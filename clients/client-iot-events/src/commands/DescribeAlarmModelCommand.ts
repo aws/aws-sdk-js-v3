@@ -224,6 +224,7 @@ export interface DescribeAlarmModelCommandOutput extends DescribeAlarmModelRespo
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ *
  * @public
  */
 export class DescribeAlarmModelCommand extends $Command

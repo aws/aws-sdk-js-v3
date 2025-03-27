@@ -76,39 +76,39 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To delete an event subscription
  * ```javascript
  * // The following example deletes the specified event subscription.
  * const input = {
- *   "SubscriptionName": "my-instance-events"
+ *   SubscriptionName: "my-instance-events"
  * };
  * const command = new DeleteEventSubscriptionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EventSubscription": {
- *     "CustSubscriptionId": "my-instance-events",
- *     "CustomerAwsId": "123456789012",
- *     "Enabled": false,
- *     "EventCategoriesList": [
+ *   EventSubscription: {
+ *     CustSubscriptionId: "my-instance-events",
+ *     CustomerAwsId: "123456789012",
+ *     Enabled: false,
+ *     EventCategoriesList: [
  *       "backup",
  *       "recovery"
  *     ],
- *     "EventSubscriptionArn": "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
- *     "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
- *     "SourceIdsList": [
+ *     EventSubscriptionArn: "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
+ *     SnsTopicArn: "arn:aws:sns:us-east-1:123456789012:interesting-events",
+ *     SourceIdsList: [
  *       "test-instance"
  *     ],
- *     "SourceType": "db-instance",
- *     "Status": "deleting",
- *     "SubscriptionCreationTime": "2018-07-31 23:22:01.893"
+ *     SourceType: "db-instance",
+ *     Status: "deleting",
+ *     SubscriptionCreationTime: "2018-07-31 23:22:01.893"
  *   }
  * }
  * *\/
- * // example id: to-delete-an-event-subscription-1680128383147
  * ```
  *
+ * @public
  */
 export class DeleteEventSubscriptionCommand extends $Command
   .classBuilder<

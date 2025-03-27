@@ -71,6 +71,7 @@ export interface ActivateContactChannelCommandOutput extends ActivateContactChan
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class ActivateContactChannelCommand extends $Command

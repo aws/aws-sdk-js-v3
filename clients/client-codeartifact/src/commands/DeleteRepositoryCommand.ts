@@ -107,6 +107,7 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResult, _
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class DeleteRepositoryCommand extends $Command

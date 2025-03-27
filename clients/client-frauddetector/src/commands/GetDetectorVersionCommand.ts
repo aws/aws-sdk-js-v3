@@ -96,6 +96,7 @@ export interface GetDetectorVersionCommandOutput extends GetDetectorVersionResul
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class GetDetectorVersionCommand extends $Command

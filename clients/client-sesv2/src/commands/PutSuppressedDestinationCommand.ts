@@ -60,6 +60,7 @@ export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDest
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ *
  * @public
  */
 export class PutSuppressedDestinationCommand extends $Command

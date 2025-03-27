@@ -212,25 +212,25 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To generate an encrypted data key
  * ```javascript
  * // The following example generates an encrypted copy of a 256-bit symmetric data encryption key (data key). The data key is encrypted with the specified KMS key.
  * const input = {
- *   "KeyId": "alias/ExampleAlias",
- *   "KeySpec": "AES_256"
+ *   KeyId: "alias/ExampleAlias",
+ *   KeySpec: "AES_256"
  * };
  * const command = new GenerateDataKeyWithoutPlaintextCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CiphertextBlob": "<binary data>",
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   CiphertextBlob: "<binary data>",
+ *   KeyId: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
  * }
  * *\/
- * // example id: to-generate-an-encrypted-data-key-1478914121134
  * ```
  *
+ * @public
  */
 export class GenerateDataKeyWithoutPlaintextCommand extends $Command
   .classBuilder<

@@ -114,6 +114,7 @@ export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __Metadat
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class GetEntitiesCommand extends $Command

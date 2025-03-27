@@ -84,6 +84,7 @@ export interface DescribeLabelCommandOutput extends DescribeLabelResponse, __Met
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class DescribeLabelCommand extends $Command

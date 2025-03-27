@@ -77,6 +77,7 @@ export interface ListBaselinesCommandOutput extends ListBaselinesOutput, __Metad
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class ListBaselinesCommand extends $Command

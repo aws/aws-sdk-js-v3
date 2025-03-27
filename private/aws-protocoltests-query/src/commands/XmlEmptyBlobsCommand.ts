@@ -52,6 +52,7 @@ export interface XmlEmptyBlobsCommandOutput extends XmlBlobsOutput, __MetadataBe
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  */
 export class XmlEmptyBlobsCommand extends $Command
   .classBuilder<

@@ -104,6 +104,7 @@ export interface ListPackagesCommandOutput extends ListPackagesResult, __Metadat
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class ListPackagesCommand extends $Command

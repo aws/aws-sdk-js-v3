@@ -533,6 +533,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * @throws {@link BedrockRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockRuntime service.</p>
  *
+ *
  * @public
  */
 export class ConverseStreamCommand extends $Command

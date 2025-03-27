@@ -97,6 +97,7 @@ export interface UpdateGroupQueryCommandOutput extends UpdateGroupQueryOutput, _
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class UpdateGroupQueryCommand extends $Command

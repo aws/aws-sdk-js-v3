@@ -116,6 +116,7 @@ export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescription
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ *
  * @public
  */
 export class ComposeEnvironmentsCommand extends $Command

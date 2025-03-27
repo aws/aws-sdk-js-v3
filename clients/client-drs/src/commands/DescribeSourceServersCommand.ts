@@ -189,6 +189,7 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class DescribeSourceServersCommand extends $Command

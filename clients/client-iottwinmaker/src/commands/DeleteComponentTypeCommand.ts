@@ -71,6 +71,7 @@ export interface DeleteComponentTypeCommandOutput extends DeleteComponentTypeRes
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteComponentTypeCommand extends $Command

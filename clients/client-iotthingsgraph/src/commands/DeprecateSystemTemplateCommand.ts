@@ -67,6 +67,7 @@ export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTem
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class DeprecateSystemTemplateCommand extends $Command

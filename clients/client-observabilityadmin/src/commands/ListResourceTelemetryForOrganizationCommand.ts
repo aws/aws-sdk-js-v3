@@ -112,6 +112,7 @@ export interface ListResourceTelemetryForOrganizationCommandOutput
  * @throws {@link ObservabilityAdminServiceException}
  * <p>Base exception class for all service exceptions from ObservabilityAdmin service.</p>
  *
+ *
  * @public
  */
 export class ListResourceTelemetryForOrganizationCommand extends $Command

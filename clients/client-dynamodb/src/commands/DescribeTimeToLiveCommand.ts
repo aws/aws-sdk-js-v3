@@ -67,6 +67,7 @@ export interface DescribeTimeToLiveCommandOutput extends DescribeTimeToLiveOutpu
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeTimeToLiveCommand extends $Command

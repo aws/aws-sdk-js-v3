@@ -5597,6 +5597,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateDashboardCommand extends $Command

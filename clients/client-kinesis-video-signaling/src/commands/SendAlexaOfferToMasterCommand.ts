@@ -79,6 +79,7 @@ export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMas
  * @throws {@link KinesisVideoSignalingServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoSignaling service.</p>
  *
+ *
  * @public
  */
 export class SendAlexaOfferToMasterCommand extends $Command

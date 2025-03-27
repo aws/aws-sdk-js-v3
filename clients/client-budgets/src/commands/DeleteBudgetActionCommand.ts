@@ -130,6 +130,7 @@ export interface DeleteBudgetActionCommandOutput extends DeleteBudgetActionRespo
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ *
  * @public
  */
 export class DeleteBudgetActionCommand extends $Command

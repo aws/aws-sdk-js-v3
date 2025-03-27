@@ -139,6 +139,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeDBClustersCommand extends $Command

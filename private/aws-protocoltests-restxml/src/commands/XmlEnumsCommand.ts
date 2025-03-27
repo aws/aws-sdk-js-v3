@@ -75,6 +75,7 @@ export interface XmlEnumsCommandOutput extends XmlEnumsResponse, __MetadataBeare
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class XmlEnumsCommand extends $Command

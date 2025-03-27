@@ -112,6 +112,7 @@ export interface StopInstanceCommandOutput extends StopInstanceResult, __Metadat
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class StopInstanceCommand extends $Command

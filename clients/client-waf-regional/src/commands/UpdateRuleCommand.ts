@@ -224,34 +224,34 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To update a rule
  * ```javascript
  * // The following example deletes a Predicate object in a rule with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "RuleId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
- *   "Updates": [
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   RuleId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *   Updates: [
  *     {
- *       "Action": "DELETE",
- *       "Predicate": {
- *         "DataId": "MyByteMatchSetID",
- *         "Negated": false,
- *         "Type": "ByteMatch"
+ *       Action: "DELETE",
+ *       Predicate: {
+ *         DataId: "MyByteMatchSetID",
+ *         Negated: false,
+ *         Type: "ByteMatch"
  *       }
  *     }
  *   ]
  * };
  * const command = new UpdateRuleCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: updaterule-1475260064720
  * ```
  *
+ * @public
  */
 export class UpdateRuleCommand extends $Command
   .classBuilder<

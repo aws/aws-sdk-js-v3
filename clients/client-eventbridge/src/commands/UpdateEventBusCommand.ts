@@ -78,6 +78,7 @@ export interface UpdateEventBusCommandOutput extends UpdateEventBusResponse, __M
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class UpdateEventBusCommand extends $Command

@@ -73,23 +73,23 @@ export interface StartGatewayCommandOutput extends StartGatewayOutput, __Metadat
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To start a gateway service
  * ```javascript
  * // Starts a gateway service that was previously shut down.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
  * };
  * const command = new StartGatewayCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
  * }
  * *\/
- * // example id: to-start-a-gateway-service-1472150722315
  * ```
  *
+ * @public
  */
 export class StartGatewayCommand extends $Command
   .classBuilder<

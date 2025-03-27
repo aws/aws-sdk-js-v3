@@ -107,6 +107,7 @@ export interface UpdateAnalysisPermissionsCommandOutput extends UpdateAnalysisPe
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateAnalysisPermissionsCommand extends $Command

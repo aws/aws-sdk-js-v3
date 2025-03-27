@@ -76,6 +76,7 @@ export interface ListLiveSourcesCommandOutput extends ListLiveSourcesResponse, _
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class ListLiveSourcesCommand extends $Command
