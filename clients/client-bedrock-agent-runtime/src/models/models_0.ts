@@ -1775,6 +1775,43 @@ export interface FlowTraceConditionNodeResultEvent {
 }
 
 /**
+ * <p>Contains information about an action (operation) called by a node in an Amazon Bedrock flow. The service generates action events for calls made by prompt nodes,
+ *             agent nodes, and Amazon Web Services Lambda nodes. </p>
+ * @public
+ */
+export interface FlowTraceNodeActionEvent {
+  /**
+   * <p>The name of the node that called the operation.</p>
+   * @public
+   */
+  nodeName: string | undefined;
+
+  /**
+   * <p>The date and time that the operation was called.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The ID of the request that the node made to the operation.</p>
+   * @public
+   */
+  requestId: string | undefined;
+
+  /**
+   * <p>The name of the service that the node called.</p>
+   * @public
+   */
+  serviceName: string | undefined;
+
+  /**
+   * <p>The name of the operation that the node called.</p>
+   * @public
+   */
+  operationName: string | undefined;
+}
+
+/**
  * <p>Contains the content of the node input. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</p>
  * @public
  */
@@ -1944,6 +1981,7 @@ export interface FlowTraceNodeOutputEvent {
  */
 export type FlowTrace =
   | FlowTrace.ConditionNodeResultTraceMember
+  | FlowTrace.NodeActionTraceMember
   | FlowTrace.NodeInputTraceMember
   | FlowTrace.NodeOutputTraceMember
   | FlowTrace.$UnknownMember;
@@ -1960,6 +1998,7 @@ export namespace FlowTrace {
     nodeInputTrace: FlowTraceNodeInputEvent;
     nodeOutputTrace?: never;
     conditionNodeResultTrace?: never;
+    nodeActionTrace?: never;
     $unknown?: never;
   }
 
@@ -1971,6 +2010,7 @@ export namespace FlowTrace {
     nodeInputTrace?: never;
     nodeOutputTrace: FlowTraceNodeOutputEvent;
     conditionNodeResultTrace?: never;
+    nodeActionTrace?: never;
     $unknown?: never;
   }
 
@@ -1982,6 +2022,20 @@ export namespace FlowTrace {
     nodeInputTrace?: never;
     nodeOutputTrace?: never;
     conditionNodeResultTrace: FlowTraceConditionNodeResultEvent;
+    nodeActionTrace?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information about an action (operation) called by a node.
+   *             For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</p>
+   * @public
+   */
+  export interface NodeActionTraceMember {
+    nodeInputTrace?: never;
+    nodeOutputTrace?: never;
+    conditionNodeResultTrace?: never;
+    nodeActionTrace: FlowTraceNodeActionEvent;
     $unknown?: never;
   }
 
@@ -1992,6 +2046,7 @@ export namespace FlowTrace {
     nodeInputTrace?: never;
     nodeOutputTrace?: never;
     conditionNodeResultTrace?: never;
+    nodeActionTrace?: never;
     $unknown: [string, any];
   }
 
@@ -1999,6 +2054,7 @@ export namespace FlowTrace {
     nodeInputTrace: (value: FlowTraceNodeInputEvent) => T;
     nodeOutputTrace: (value: FlowTraceNodeOutputEvent) => T;
     conditionNodeResultTrace: (value: FlowTraceConditionNodeResultEvent) => T;
+    nodeActionTrace: (value: FlowTraceNodeActionEvent) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2007,6 +2063,7 @@ export namespace FlowTrace {
     if (value.nodeOutputTrace !== undefined) return visitor.nodeOutputTrace(value.nodeOutputTrace);
     if (value.conditionNodeResultTrace !== undefined)
       return visitor.conditionNodeResultTrace(value.conditionNodeResultTrace);
+    if (value.nodeActionTrace !== undefined) return visitor.nodeActionTrace(value.nodeActionTrace);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -3114,8 +3171,7 @@ export interface VectorSearchRerankingConfiguration {
 }
 
 /**
- * <p>
- *             Configurations for streaming.</p>
+ * <p>Configurations for streaming.</p>
  * @public
  */
 export interface StreamingConfigurations {
@@ -3128,9 +3184,24 @@ export interface StreamingConfigurations {
   streamFinalResponse?: boolean | undefined;
 
   /**
-   * <p>
-   *             The guardrail interval to apply as response is generated.
-   *         </p>
+   * <p> The guardrail interval to apply as response is generated. By default, the guardrail
+   *             interval is set to 50 characters. If a larger interval is specified, the response will
+   *             be generated in larger chunks with fewer <code>ApplyGuardrail</code> calls. The
+   *             following examples show the response generated for <i>Hello, I am an
+   *                 agent</i> input string.</p>
+   *          <p>
+   *             <b>Example response in chunks: Interval set to 3 characters</b>
+   *          </p>
+   *          <p>
+   *             <code>'Hel', 'lo, ','I am', ' an', ' Age', 'nt'</code>
+   *          </p>
+   *          <p>Each chunk has at least 3 characters except for the last chunk</p>
+   *          <p>
+   *             <b>Example response in chunks: Interval set to 20 or more characters</b>
+   *          </p>
+   *          <p>
+   *             <code>Hello, I am an Agent</code>
+   *          </p>
    * @public
    */
   applyGuardrailInterval?: number | undefined;
@@ -9124,41 +9195,6 @@ export interface UpdateSessionRequest {
 }
 
 /**
- * @public
- */
-export interface UpdateSessionResponse {
-  /**
-   * <p>The unique identifier of the session you updated.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the session that was updated.</p>
-   * @public
-   */
-  sessionArn: string | undefined;
-
-  /**
-   * <p>The status of the session you updated.</p>
-   * @public
-   */
-  sessionStatus: SessionStatus | undefined;
-
-  /**
-   * <p>The timestamp for when the session was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp for when the session was last modified.</p>
-   * @public
-   */
-  lastUpdatedAt: Date | undefined;
-}
-
-/**
  * @internal
  */
 export const ActionGroupInvocationInputFilterSensitiveLog = (obj: ActionGroupInvocationInput): any => ({
@@ -9389,6 +9425,13 @@ export const FlowTraceConditionNodeResultEventFilterSensitiveLog = (obj: FlowTra
 /**
  * @internal
  */
+export const FlowTraceNodeActionEventFilterSensitiveLog = (obj: FlowTraceNodeActionEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const FlowTraceNodeInputContentFilterSensitiveLog = (obj: FlowTraceNodeInputContent): any => {
   if (obj.document !== undefined) return { document: obj.document };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
@@ -9433,6 +9476,7 @@ export const FlowTraceFilterSensitiveLog = (obj: FlowTrace): any => {
   if (obj.nodeInputTrace !== undefined) return { nodeInputTrace: SENSITIVE_STRING };
   if (obj.nodeOutputTrace !== undefined) return { nodeOutputTrace: SENSITIVE_STRING };
   if (obj.conditionNodeResultTrace !== undefined) return { conditionNodeResultTrace: SENSITIVE_STRING };
+  if (obj.nodeActionTrace !== undefined) return { nodeActionTrace: SENSITIVE_STRING };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 

@@ -34,10 +34,46 @@ import {
   RetrieveAndGenerateSessionConfiguration,
   RetrieveAndGenerateType,
   SearchType,
+  SessionStatus,
   StreamingConfigurations,
   VectorSearchRerankingConfiguration,
   VectorSearchRerankingConfigurationFilterSensitiveLog,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UpdateSessionResponse {
+  /**
+   * <p>The unique identifier of the session you updated.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the session that was updated.</p>
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * <p>The status of the session you updated.</p>
+   * @public
+   */
+  sessionStatus: SessionStatus | undefined;
+
+  /**
+   * <p>The timestamp for when the session was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp for when the session was last modified.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+}
 
 /**
  * @public

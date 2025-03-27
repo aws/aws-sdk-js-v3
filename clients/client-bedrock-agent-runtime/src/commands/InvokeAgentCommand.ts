@@ -44,25 +44,6 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *                <p>To activate trace enablement, turn <code>enableTrace</code> to <code>true</code>. Trace enablement helps you follow the agent's reasoning process that led it to the information it processed, the actions it took, and the final result it yielded. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace enablement</a>.</p>
  *             </li>
  *             <li>
- *                <p>To stream agent responses, make sure that only orchestration prompt is enabled. Agent streaming is not supported for the following steps:
- *         </p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <code>Pre-processing</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>Post-processing</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Agent with 1 Knowledge base and <code>User Input</code> not enabled</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
  *                <p>End a conversation by setting <code>endSession</code> to <code>true</code>.</p>
  *             </li>
  *             <li>

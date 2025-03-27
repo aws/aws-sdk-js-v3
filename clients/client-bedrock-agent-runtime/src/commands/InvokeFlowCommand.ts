@@ -117,6 +117,13 @@ export interface InvokeFlowCommandOutput extends InvokeFlowResponse, __MetadataB
  * //             },
  * //           ],
  * //         },
+ * //         nodeActionTrace: { // FlowTraceNodeActionEvent
+ * //           nodeName: "STRING_VALUE", // required
+ * //           timestamp: new Date("TIMESTAMP"), // required
+ * //           requestId: "STRING_VALUE", // required
+ * //           serviceName: "STRING_VALUE", // required
+ * //           operationName: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //     },
  * //     internalServerException: { // InternalServerException

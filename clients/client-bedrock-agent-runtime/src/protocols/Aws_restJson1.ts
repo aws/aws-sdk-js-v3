@@ -117,6 +117,7 @@ import {
   FlowTrace,
   FlowTraceConditionNodeResultEvent,
   FlowTraceEvent,
+  FlowTraceNodeActionEvent,
   FlowTraceNodeInputContent,
   FlowTraceNodeInputEvent,
   FlowTraceNodeInputField,
@@ -3260,6 +3261,11 @@ const de_FlowTrace = (output: any, context: __SerdeContext): FlowTrace => {
       conditionNodeResultTrace: de_FlowTraceConditionNodeResultEvent(output.conditionNodeResultTrace, context),
     };
   }
+  if (output.nodeActionTrace != null) {
+    return {
+      nodeActionTrace: de_FlowTraceNodeActionEvent(output.nodeActionTrace, context),
+    };
+  }
   if (output.nodeInputTrace != null) {
     return {
       nodeInputTrace: de_FlowTraceNodeInputEvent(output.nodeInputTrace, context),
@@ -3297,6 +3303,19 @@ const de_FlowTraceConditionNodeResultEvent = (
 const de_FlowTraceEvent = (output: any, context: __SerdeContext): FlowTraceEvent => {
   return take(output, {
     trace: (_: any) => de_FlowTrace(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FlowTraceNodeActionEvent
+ */
+const de_FlowTraceNodeActionEvent = (output: any, context: __SerdeContext): FlowTraceNodeActionEvent => {
+  return take(output, {
+    nodeName: __expectString,
+    operationName: __expectString,
+    requestId: __expectString,
+    serviceName: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
 
