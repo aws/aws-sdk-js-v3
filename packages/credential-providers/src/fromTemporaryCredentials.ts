@@ -1,4 +1,6 @@
 import type { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
+import { NODE_REGION_CONFIG_FILE_OPTIONS } from "@smithy/config-resolver";
+import { loadConfig } from "@smithy/node-config-provider";
 
 import { fromNodeProviderChain } from "./fromNodeProviderChain";
 import type { FromTemporaryCredentialsOptions } from "./fromTemporaryCredentials.base";
@@ -54,5 +56,19 @@ export { FromTemporaryCredentialsOptions };
 export const fromTemporaryCredentials = (
   options: FromTemporaryCredentialsOptions
 ): RuntimeConfigAwsCredentialIdentityProvider => {
-  return fromTemporaryCredentialsBase(options, fromNodeProviderChain);
+  return fromTemporaryCredentialsBase(
+    options,
+    fromNodeProviderChain,
+    async ({ profile = process.env.AWS_PROFILE }: { profile?: string }) =>
+      loadConfig(
+        {
+          environmentVariableSelector: (env) => env.AWS_REGION,
+          configFileSelector: (profileData) => {
+            return profileData.region;
+          },
+          default: () => undefined,
+        },
+        { ...NODE_REGION_CONFIG_FILE_OPTIONS, profile }
+      )()
+  );
 };

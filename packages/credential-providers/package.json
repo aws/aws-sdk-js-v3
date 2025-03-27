@@ -17,7 +17,7 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
     "test": "yarn g:vitest run",
-    "test:integration": "jest -c jest.config.integ.js",
+    "test:integration": "npx jest -c jest.config.integ.js",
     "test:watch": "yarn g:vitest watch"
   },
   "keywords": [
@@ -42,8 +42,10 @@
     "@aws-sdk/credential-provider-web-identity": "*",
     "@aws-sdk/nested-clients": "*",
     "@aws-sdk/types": "*",
+    "@smithy/config-resolver": "^4.1.0",
     "@smithy/core": "^3.2.0",
     "@smithy/credential-provider-imds": "^4.0.2",
+    "@smithy/node-config-provider": "^4.0.2",
     "@smithy/property-provider": "^4.0.2",
     "@smithy/types": "^4.2.0",
     "tslib": "^2.6.2"
