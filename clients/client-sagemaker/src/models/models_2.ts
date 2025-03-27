@@ -5428,6 +5428,14 @@ export interface DescribeAppResponse {
   Status?: AppStatus | undefined;
 
   /**
+   * <p>
+   *       Indicates whether the application is launched in recovery mode.
+   *     </p>
+   * @public
+   */
+  RecoveryMode?: boolean | undefined;
+
+  /**
    * <p>The timestamp of the last health check.</p>
    * @public
    */

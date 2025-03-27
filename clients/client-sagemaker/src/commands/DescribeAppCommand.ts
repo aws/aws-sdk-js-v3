@@ -52,6 +52,7 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
  * //   UserProfileName: "STRING_VALUE",
  * //   SpaceName: "STRING_VALUE",
  * //   Status: "Deleted" || "Deleting" || "Failed" || "InService" || "Pending",
+ * //   RecoveryMode: true || false,
  * //   LastHealthCheckTimestamp: new Date("TIMESTAMP"),
  * //   LastUserActivityTimestamp: new Date("TIMESTAMP"),
  * //   CreationTime: new Date("TIMESTAMP"),

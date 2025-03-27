@@ -606,6 +606,14 @@ export interface CreateAppRequest {
    * @public
    */
   ResourceSpec?: ResourceSpec | undefined;
+
+  /**
+   * <p>
+   *       Indicates whether the application is launched in recovery mode.
+   *     </p>
+   * @public
+   */
+  RecoveryMode?: boolean | undefined;
 }
 
 /**

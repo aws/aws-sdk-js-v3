@@ -21186,6 +21186,7 @@ const de_DescribeAppResponse = (output: any, context: __SerdeContext): DescribeA
     FailureReason: __expectString,
     LastHealthCheckTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastUserActivityTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RecoveryMode: __expectBoolean,
     ResourceSpec: (_: any) => de_ResourceSpec(_, context),
     SpaceName: __expectString,
     Status: __expectString,
