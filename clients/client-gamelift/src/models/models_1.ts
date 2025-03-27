@@ -1119,9 +1119,11 @@ export interface StartGameSessionPlacementInput {
    * <p>A prioritized list of locations to use for the game session placement and instructions
    *             on how to use it. This list overrides a queue's prioritized location list for this game
    *             session placement request only. You can include Amazon Web Services Regions, local zones, and custom
-   *             locations (for Anywhere fleets). Choose a fallback strategy to instruct Amazon GameLift to use
-   *             the override list for the first placement attempt only or for all placement
-   *             attempts.</p>
+   *             locations (for Anywhere fleets). You can choose to limit placements to locations on the
+   *             override list only, or you can prioritize locations on the override list first and then
+   *             fall back to the queue's other locations if needed. Choose a fallback strategy to use in
+   *             the event that Amazon GameLift fails to place a game session in any of the locations on the
+   *             priority override list. </p>
    * @public
    */
   PriorityConfigurationOverride?: PriorityConfigurationOverride | undefined;
@@ -1411,7 +1413,7 @@ export type TerminationMode = (typeof TerminationMode)[keyof typeof TerminationM
 export interface TerminateGameSessionInput {
   /**
    * <p>A unique identifier for the game session to be terminated. A game session ARN has the following format:
-   *     <code>arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token></code>.</p>
+   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<custom ID string or idempotency token></code>.</p>
    * @public
    */
   GameSessionId: string | undefined;
@@ -1764,9 +1766,9 @@ export interface UpdateContainerGroupDefinitionInput {
    *       same operating system.</p>
    *          <note>
    *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the <a href="https://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For game
-   *         servers that are hosted on AL2 and use Amazon GameLift server SDK 4.x, first update the game
+   *       servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift, first update the game
    *         server build to server SDK 5.x, and then deploy to AL2023 instances. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html"> Migrate to
-   *           Amazon GameLift server SDK version 5.</a>
+   *           server SDK version 5.</a>
    *             </p>
    *          </note>
    * @public
@@ -2422,7 +2424,7 @@ export interface UpdateRuntimeConfigurationInput {
 
   /**
    * <p>Instructions for launching server processes on fleet computes. Server processes run
-   *             either a custom game build executable or a Realtime Servers script. The runtime configuration lists
+   *             either a custom game build executable or a Amazon GameLift Realtime script. The runtime configuration lists
    *             the types of server processes to run, how to launch them, and the number of processes to
    *             run concurrently.</p>
    * @public

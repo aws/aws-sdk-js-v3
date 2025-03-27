@@ -43,7 +43,7 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  *                     the build ID.</p>
  *             </li>
  *             <li>
- *                <p>To get a list of all Realtime Servers fleets with a specific configuration script,
+ *                <p>To get a list of all Amazon GameLift Realtime fleets with a specific configuration script,
  *                     provide the script ID. </p>
  *             </li>
  *          </ul>

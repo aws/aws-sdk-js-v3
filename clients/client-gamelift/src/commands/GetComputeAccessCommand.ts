@@ -37,7 +37,19 @@ export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, _
  *          <p>
  *             <b>Request options</b>
  *          </p>
- *          <p>To request access to a compute, specify the compute name and the fleet ID.</p>
+ *          <p>Provide the fleet ID and compute name. The compute name varies depending on the type
+ *             of fleet.</p>
+ *          <ul>
+ *             <li>
+ *                <p>For a compute in a managed EC2 fleet, provide an instance ID. Each instance in
+ *                     the fleet is a compute.</p>
+ *             </li>
+ *             <li>
+ *                <p>For a compute in a managed container fleet, provide a compute name. In a
+ *                     container fleet, each game server container group on a fleet instance is
+ *                     assigned a compute name. </p>
+ *             </li>
+ *          </ul>
  *          <p>
  *             <b>Results</b>
  *          </p>

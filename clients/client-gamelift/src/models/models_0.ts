@@ -476,10 +476,10 @@ export interface Build {
    *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in
    *             the <a href="https://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>.
    *             For game servers
-   *             that are hosted on AL2 and use Amazon GameLift server SDK 4.x., first update the
+   *             that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift, first update the
    *             game server build to server SDK 5.x, and then deploy to AL2023 instances. See
    *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html">
-   *                 Migrate to Amazon GameLift server SDK version 5.</a>
+   *                 Migrate to server SDK version 5.</a>
    *             </p>
    *          </note>
    * @public
@@ -911,6 +911,14 @@ export const EC2InstanceType = {
   c5a_8xlarge: "c5a.8xlarge",
   c5a_large: "c5a.large",
   c5a_xlarge: "c5a.xlarge",
+  c5ad_12xlarge: "c5ad.12xlarge",
+  c5ad_16xlarge: "c5ad.16xlarge",
+  c5ad_24xlarge: "c5ad.24xlarge",
+  c5ad_2xlarge: "c5ad.2xlarge",
+  c5ad_4xlarge: "c5ad.4xlarge",
+  c5ad_8xlarge: "c5ad.8xlarge",
+  c5ad_large: "c5ad.large",
+  c5ad_xlarge: "c5ad.xlarge",
   c5d_12xlarge: "c5d.12xlarge",
   c5d_18xlarge: "c5d.18xlarge",
   c5d_24xlarge: "c5d.24xlarge",
@@ -919,10 +927,18 @@ export const EC2InstanceType = {
   c5d_9xlarge: "c5d.9xlarge",
   c5d_large: "c5d.large",
   c5d_xlarge: "c5d.xlarge",
+  c5n_18xlarge: "c5n.18xlarge",
+  c5n_2xlarge: "c5n.2xlarge",
+  c5n_4xlarge: "c5n.4xlarge",
+  c5n_9xlarge: "c5n.9xlarge",
+  c5n_large: "c5n.large",
+  c5n_xlarge: "c5n.xlarge",
   c6a_12xlarge: "c6a.12xlarge",
   c6a_16xlarge: "c6a.16xlarge",
   c6a_24xlarge: "c6a.24xlarge",
   c6a_2xlarge: "c6a.2xlarge",
+  c6a_32xlarge: "c6a.32xlarge",
+  c6a_48xlarge: "c6a.48xlarge",
   c6a_4xlarge: "c6a.4xlarge",
   c6a_8xlarge: "c6a.8xlarge",
   c6a_large: "c6a.large",
@@ -935,6 +951,14 @@ export const EC2InstanceType = {
   c6g_large: "c6g.large",
   c6g_medium: "c6g.medium",
   c6g_xlarge: "c6g.xlarge",
+  c6gd_12xlarge: "c6gd.12xlarge",
+  c6gd_16xlarge: "c6gd.16xlarge",
+  c6gd_2xlarge: "c6gd.2xlarge",
+  c6gd_4xlarge: "c6gd.4xlarge",
+  c6gd_8xlarge: "c6gd.8xlarge",
+  c6gd_large: "c6gd.large",
+  c6gd_medium: "c6gd.medium",
+  c6gd_xlarge: "c6gd.xlarge",
   c6gn_12xlarge: "c6gn.12xlarge",
   c6gn_16xlarge: "c6gn.16xlarge",
   c6gn_2xlarge: "c6gn.2xlarge",
@@ -947,10 +971,40 @@ export const EC2InstanceType = {
   c6i_16xlarge: "c6i.16xlarge",
   c6i_24xlarge: "c6i.24xlarge",
   c6i_2xlarge: "c6i.2xlarge",
+  c6i_32xlarge: "c6i.32xlarge",
   c6i_4xlarge: "c6i.4xlarge",
   c6i_8xlarge: "c6i.8xlarge",
   c6i_large: "c6i.large",
   c6i_xlarge: "c6i.xlarge",
+  c6id_12xlarge: "c6id.12xlarge",
+  c6id_16xlarge: "c6id.16xlarge",
+  c6id_24xlarge: "c6id.24xlarge",
+  c6id_2xlarge: "c6id.2xlarge",
+  c6id_32xlarge: "c6id.32xlarge",
+  c6id_4xlarge: "c6id.4xlarge",
+  c6id_8xlarge: "c6id.8xlarge",
+  c6id_large: "c6id.large",
+  c6id_xlarge: "c6id.xlarge",
+  c6in_12xlarge: "c6in.12xlarge",
+  c6in_16xlarge: "c6in.16xlarge",
+  c6in_24xlarge: "c6in.24xlarge",
+  c6in_2xlarge: "c6in.2xlarge",
+  c6in_32xlarge: "c6in.32xlarge",
+  c6in_4xlarge: "c6in.4xlarge",
+  c6in_8xlarge: "c6in.8xlarge",
+  c6in_large: "c6in.large",
+  c6in_xlarge: "c6in.xlarge",
+  c7a_12xlarge: "c7a.12xlarge",
+  c7a_16xlarge: "c7a.16xlarge",
+  c7a_24xlarge: "c7a.24xlarge",
+  c7a_2xlarge: "c7a.2xlarge",
+  c7a_32xlarge: "c7a.32xlarge",
+  c7a_48xlarge: "c7a.48xlarge",
+  c7a_4xlarge: "c7a.4xlarge",
+  c7a_8xlarge: "c7a.8xlarge",
+  c7a_large: "c7a.large",
+  c7a_medium: "c7a.medium",
+  c7a_xlarge: "c7a.xlarge",
   c7g_12xlarge: "c7g.12xlarge",
   c7g_16xlarge: "c7g.16xlarge",
   c7g_2xlarge: "c7g.2xlarge",
@@ -959,6 +1013,41 @@ export const EC2InstanceType = {
   c7g_large: "c7g.large",
   c7g_medium: "c7g.medium",
   c7g_xlarge: "c7g.xlarge",
+  c7gd_12xlarge: "c7gd.12xlarge",
+  c7gd_16xlarge: "c7gd.16xlarge",
+  c7gd_2xlarge: "c7gd.2xlarge",
+  c7gd_4xlarge: "c7gd.4xlarge",
+  c7gd_8xlarge: "c7gd.8xlarge",
+  c7gd_large: "c7gd.large",
+  c7gd_medium: "c7gd.medium",
+  c7gd_xlarge: "c7gd.xlarge",
+  c7gn_12xlarge: "c7gn.12xlarge",
+  c7gn_16xlarge: "c7gn.16xlarge",
+  c7gn_2xlarge: "c7gn.2xlarge",
+  c7gn_4xlarge: "c7gn.4xlarge",
+  c7gn_8xlarge: "c7gn.8xlarge",
+  c7gn_large: "c7gn.large",
+  c7gn_medium: "c7gn.medium",
+  c7gn_xlarge: "c7gn.xlarge",
+  c7i_12xlarge: "c7i.12xlarge",
+  c7i_16xlarge: "c7i.16xlarge",
+  c7i_24xlarge: "c7i.24xlarge",
+  c7i_2xlarge: "c7i.2xlarge",
+  c7i_48xlarge: "c7i.48xlarge",
+  c7i_4xlarge: "c7i.4xlarge",
+  c7i_8xlarge: "c7i.8xlarge",
+  c7i_large: "c7i.large",
+  c7i_xlarge: "c7i.xlarge",
+  c8g_12xlarge: "c8g.12xlarge",
+  c8g_16xlarge: "c8g.16xlarge",
+  c8g_24xlarge: "c8g.24xlarge",
+  c8g_2xlarge: "c8g.2xlarge",
+  c8g_48xlarge: "c8g.48xlarge",
+  c8g_4xlarge: "c8g.4xlarge",
+  c8g_8xlarge: "c8g.8xlarge",
+  c8g_large: "c8g.large",
+  c8g_medium: "c8g.medium",
+  c8g_xlarge: "c8g.xlarge",
   g5g_16xlarge: "g5g.16xlarge",
   g5g_2xlarge: "g5g.2xlarge",
   g5g_4xlarge: "g5g.4xlarge",
@@ -969,6 +1058,7 @@ export const EC2InstanceType = {
   m3_medium: "m3.medium",
   m3_xlarge: "m3.xlarge",
   m4_10xlarge: "m4.10xlarge",
+  m4_16xlarge: "m4.16xlarge",
   m4_2xlarge: "m4.2xlarge",
   m4_4xlarge: "m4.4xlarge",
   m4_large: "m4.large",
@@ -989,6 +1079,48 @@ export const EC2InstanceType = {
   m5a_8xlarge: "m5a.8xlarge",
   m5a_large: "m5a.large",
   m5a_xlarge: "m5a.xlarge",
+  m5ad_12xlarge: "m5ad.12xlarge",
+  m5ad_16xlarge: "m5ad.16xlarge",
+  m5ad_24xlarge: "m5ad.24xlarge",
+  m5ad_2xlarge: "m5ad.2xlarge",
+  m5ad_4xlarge: "m5ad.4xlarge",
+  m5ad_8xlarge: "m5ad.8xlarge",
+  m5ad_large: "m5ad.large",
+  m5ad_xlarge: "m5ad.xlarge",
+  m5d_12xlarge: "m5d.12xlarge",
+  m5d_16xlarge: "m5d.16xlarge",
+  m5d_24xlarge: "m5d.24xlarge",
+  m5d_2xlarge: "m5d.2xlarge",
+  m5d_4xlarge: "m5d.4xlarge",
+  m5d_8xlarge: "m5d.8xlarge",
+  m5d_large: "m5d.large",
+  m5d_xlarge: "m5d.xlarge",
+  m5dn_12xlarge: "m5dn.12xlarge",
+  m5dn_16xlarge: "m5dn.16xlarge",
+  m5dn_24xlarge: "m5dn.24xlarge",
+  m5dn_2xlarge: "m5dn.2xlarge",
+  m5dn_4xlarge: "m5dn.4xlarge",
+  m5dn_8xlarge: "m5dn.8xlarge",
+  m5dn_large: "m5dn.large",
+  m5dn_xlarge: "m5dn.xlarge",
+  m5n_12xlarge: "m5n.12xlarge",
+  m5n_16xlarge: "m5n.16xlarge",
+  m5n_24xlarge: "m5n.24xlarge",
+  m5n_2xlarge: "m5n.2xlarge",
+  m5n_4xlarge: "m5n.4xlarge",
+  m5n_8xlarge: "m5n.8xlarge",
+  m5n_large: "m5n.large",
+  m5n_xlarge: "m5n.xlarge",
+  m6a_12xlarge: "m6a.12xlarge",
+  m6a_16xlarge: "m6a.16xlarge",
+  m6a_24xlarge: "m6a.24xlarge",
+  m6a_2xlarge: "m6a.2xlarge",
+  m6a_32xlarge: "m6a.32xlarge",
+  m6a_48xlarge: "m6a.48xlarge",
+  m6a_4xlarge: "m6a.4xlarge",
+  m6a_8xlarge: "m6a.8xlarge",
+  m6a_large: "m6a.large",
+  m6a_xlarge: "m6a.xlarge",
   m6g_12xlarge: "m6g.12xlarge",
   m6g_16xlarge: "m6g.16xlarge",
   m6g_2xlarge: "m6g.2xlarge",
@@ -997,6 +1129,61 @@ export const EC2InstanceType = {
   m6g_large: "m6g.large",
   m6g_medium: "m6g.medium",
   m6g_xlarge: "m6g.xlarge",
+  m6gd_12xlarge: "m6gd.12xlarge",
+  m6gd_16xlarge: "m6gd.16xlarge",
+  m6gd_2xlarge: "m6gd.2xlarge",
+  m6gd_4xlarge: "m6gd.4xlarge",
+  m6gd_8xlarge: "m6gd.8xlarge",
+  m6gd_large: "m6gd.large",
+  m6gd_medium: "m6gd.medium",
+  m6gd_xlarge: "m6gd.xlarge",
+  m6i_12xlarge: "m6i.12xlarge",
+  m6i_16xlarge: "m6i.16xlarge",
+  m6i_24xlarge: "m6i.24xlarge",
+  m6i_2xlarge: "m6i.2xlarge",
+  m6i_32xlarge: "m6i.32xlarge",
+  m6i_4xlarge: "m6i.4xlarge",
+  m6i_8xlarge: "m6i.8xlarge",
+  m6i_large: "m6i.large",
+  m6i_xlarge: "m6i.xlarge",
+  m6id_12xlarge: "m6id.12xlarge",
+  m6id_16xlarge: "m6id.16xlarge",
+  m6id_24xlarge: "m6id.24xlarge",
+  m6id_2xlarge: "m6id.2xlarge",
+  m6id_32xlarge: "m6id.32xlarge",
+  m6id_4xlarge: "m6id.4xlarge",
+  m6id_8xlarge: "m6id.8xlarge",
+  m6id_large: "m6id.large",
+  m6id_xlarge: "m6id.xlarge",
+  m6idn_12xlarge: "m6idn.12xlarge",
+  m6idn_16xlarge: "m6idn.16xlarge",
+  m6idn_24xlarge: "m6idn.24xlarge",
+  m6idn_2xlarge: "m6idn.2xlarge",
+  m6idn_32xlarge: "m6idn.32xlarge",
+  m6idn_4xlarge: "m6idn.4xlarge",
+  m6idn_8xlarge: "m6idn.8xlarge",
+  m6idn_large: "m6idn.large",
+  m6idn_xlarge: "m6idn.xlarge",
+  m6in_12xlarge: "m6in.12xlarge",
+  m6in_16xlarge: "m6in.16xlarge",
+  m6in_24xlarge: "m6in.24xlarge",
+  m6in_2xlarge: "m6in.2xlarge",
+  m6in_32xlarge: "m6in.32xlarge",
+  m6in_4xlarge: "m6in.4xlarge",
+  m6in_8xlarge: "m6in.8xlarge",
+  m6in_large: "m6in.large",
+  m6in_xlarge: "m6in.xlarge",
+  m7a_12xlarge: "m7a.12xlarge",
+  m7a_16xlarge: "m7a.16xlarge",
+  m7a_24xlarge: "m7a.24xlarge",
+  m7a_2xlarge: "m7a.2xlarge",
+  m7a_32xlarge: "m7a.32xlarge",
+  m7a_48xlarge: "m7a.48xlarge",
+  m7a_4xlarge: "m7a.4xlarge",
+  m7a_8xlarge: "m7a.8xlarge",
+  m7a_large: "m7a.large",
+  m7a_medium: "m7a.medium",
+  m7a_xlarge: "m7a.xlarge",
   m7g_12xlarge: "m7g.12xlarge",
   m7g_16xlarge: "m7g.16xlarge",
   m7g_2xlarge: "m7g.2xlarge",
@@ -1005,6 +1192,33 @@ export const EC2InstanceType = {
   m7g_large: "m7g.large",
   m7g_medium: "m7g.medium",
   m7g_xlarge: "m7g.xlarge",
+  m7gd_12xlarge: "m7gd.12xlarge",
+  m7gd_16xlarge: "m7gd.16xlarge",
+  m7gd_2xlarge: "m7gd.2xlarge",
+  m7gd_4xlarge: "m7gd.4xlarge",
+  m7gd_8xlarge: "m7gd.8xlarge",
+  m7gd_large: "m7gd.large",
+  m7gd_medium: "m7gd.medium",
+  m7gd_xlarge: "m7gd.xlarge",
+  m7i_12xlarge: "m7i.12xlarge",
+  m7i_16xlarge: "m7i.16xlarge",
+  m7i_24xlarge: "m7i.24xlarge",
+  m7i_2xlarge: "m7i.2xlarge",
+  m7i_48xlarge: "m7i.48xlarge",
+  m7i_4xlarge: "m7i.4xlarge",
+  m7i_8xlarge: "m7i.8xlarge",
+  m7i_large: "m7i.large",
+  m7i_xlarge: "m7i.xlarge",
+  m8g_12xlarge: "m8g.12xlarge",
+  m8g_16xlarge: "m8g.16xlarge",
+  m8g_24xlarge: "m8g.24xlarge",
+  m8g_2xlarge: "m8g.2xlarge",
+  m8g_48xlarge: "m8g.48xlarge",
+  m8g_4xlarge: "m8g.4xlarge",
+  m8g_8xlarge: "m8g.8xlarge",
+  m8g_large: "m8g.large",
+  m8g_medium: "m8g.medium",
+  m8g_xlarge: "m8g.xlarge",
   r3_2xlarge: "r3.2xlarge",
   r3_4xlarge: "r3.4xlarge",
   r3_8xlarge: "r3.8xlarge",
@@ -1032,6 +1246,14 @@ export const EC2InstanceType = {
   r5a_8xlarge: "r5a.8xlarge",
   r5a_large: "r5a.large",
   r5a_xlarge: "r5a.xlarge",
+  r5ad_12xlarge: "r5ad.12xlarge",
+  r5ad_16xlarge: "r5ad.16xlarge",
+  r5ad_24xlarge: "r5ad.24xlarge",
+  r5ad_2xlarge: "r5ad.2xlarge",
+  r5ad_4xlarge: "r5ad.4xlarge",
+  r5ad_8xlarge: "r5ad.8xlarge",
+  r5ad_large: "r5ad.large",
+  r5ad_xlarge: "r5ad.xlarge",
   r5d_12xlarge: "r5d.12xlarge",
   r5d_16xlarge: "r5d.16xlarge",
   r5d_24xlarge: "r5d.24xlarge",
@@ -1040,6 +1262,32 @@ export const EC2InstanceType = {
   r5d_8xlarge: "r5d.8xlarge",
   r5d_large: "r5d.large",
   r5d_xlarge: "r5d.xlarge",
+  r5dn_12xlarge: "r5dn.12xlarge",
+  r5dn_16xlarge: "r5dn.16xlarge",
+  r5dn_24xlarge: "r5dn.24xlarge",
+  r5dn_2xlarge: "r5dn.2xlarge",
+  r5dn_4xlarge: "r5dn.4xlarge",
+  r5dn_8xlarge: "r5dn.8xlarge",
+  r5dn_large: "r5dn.large",
+  r5dn_xlarge: "r5dn.xlarge",
+  r5n_12xlarge: "r5n.12xlarge",
+  r5n_16xlarge: "r5n.16xlarge",
+  r5n_24xlarge: "r5n.24xlarge",
+  r5n_2xlarge: "r5n.2xlarge",
+  r5n_4xlarge: "r5n.4xlarge",
+  r5n_8xlarge: "r5n.8xlarge",
+  r5n_large: "r5n.large",
+  r5n_xlarge: "r5n.xlarge",
+  r6a_12xlarge: "r6a.12xlarge",
+  r6a_16xlarge: "r6a.16xlarge",
+  r6a_24xlarge: "r6a.24xlarge",
+  r6a_2xlarge: "r6a.2xlarge",
+  r6a_32xlarge: "r6a.32xlarge",
+  r6a_48xlarge: "r6a.48xlarge",
+  r6a_4xlarge: "r6a.4xlarge",
+  r6a_8xlarge: "r6a.8xlarge",
+  r6a_large: "r6a.large",
+  r6a_xlarge: "r6a.xlarge",
   r6g_12xlarge: "r6g.12xlarge",
   r6g_16xlarge: "r6g.16xlarge",
   r6g_2xlarge: "r6g.2xlarge",
@@ -1048,6 +1296,61 @@ export const EC2InstanceType = {
   r6g_large: "r6g.large",
   r6g_medium: "r6g.medium",
   r6g_xlarge: "r6g.xlarge",
+  r6gd_12xlarge: "r6gd.12xlarge",
+  r6gd_16xlarge: "r6gd.16xlarge",
+  r6gd_2xlarge: "r6gd.2xlarge",
+  r6gd_4xlarge: "r6gd.4xlarge",
+  r6gd_8xlarge: "r6gd.8xlarge",
+  r6gd_large: "r6gd.large",
+  r6gd_medium: "r6gd.medium",
+  r6gd_xlarge: "r6gd.xlarge",
+  r6i_12xlarge: "r6i.12xlarge",
+  r6i_16xlarge: "r6i.16xlarge",
+  r6i_24xlarge: "r6i.24xlarge",
+  r6i_2xlarge: "r6i.2xlarge",
+  r6i_32xlarge: "r6i.32xlarge",
+  r6i_4xlarge: "r6i.4xlarge",
+  r6i_8xlarge: "r6i.8xlarge",
+  r6i_large: "r6i.large",
+  r6i_xlarge: "r6i.xlarge",
+  r6id_12xlarge: "r6id.12xlarge",
+  r6id_16xlarge: "r6id.16xlarge",
+  r6id_24xlarge: "r6id.24xlarge",
+  r6id_2xlarge: "r6id.2xlarge",
+  r6id_32xlarge: "r6id.32xlarge",
+  r6id_4xlarge: "r6id.4xlarge",
+  r6id_8xlarge: "r6id.8xlarge",
+  r6id_large: "r6id.large",
+  r6id_xlarge: "r6id.xlarge",
+  r6idn_12xlarge: "r6idn.12xlarge",
+  r6idn_16xlarge: "r6idn.16xlarge",
+  r6idn_24xlarge: "r6idn.24xlarge",
+  r6idn_2xlarge: "r6idn.2xlarge",
+  r6idn_32xlarge: "r6idn.32xlarge",
+  r6idn_4xlarge: "r6idn.4xlarge",
+  r6idn_8xlarge: "r6idn.8xlarge",
+  r6idn_large: "r6idn.large",
+  r6idn_xlarge: "r6idn.xlarge",
+  r6in_12xlarge: "r6in.12xlarge",
+  r6in_16xlarge: "r6in.16xlarge",
+  r6in_24xlarge: "r6in.24xlarge",
+  r6in_2xlarge: "r6in.2xlarge",
+  r6in_32xlarge: "r6in.32xlarge",
+  r6in_4xlarge: "r6in.4xlarge",
+  r6in_8xlarge: "r6in.8xlarge",
+  r6in_large: "r6in.large",
+  r6in_xlarge: "r6in.xlarge",
+  r7a_12xlarge: "r7a.12xlarge",
+  r7a_16xlarge: "r7a.16xlarge",
+  r7a_24xlarge: "r7a.24xlarge",
+  r7a_2xlarge: "r7a.2xlarge",
+  r7a_32xlarge: "r7a.32xlarge",
+  r7a_48xlarge: "r7a.48xlarge",
+  r7a_4xlarge: "r7a.4xlarge",
+  r7a_8xlarge: "r7a.8xlarge",
+  r7a_large: "r7a.large",
+  r7a_medium: "r7a.medium",
+  r7a_xlarge: "r7a.xlarge",
   r7g_12xlarge: "r7g.12xlarge",
   r7g_16xlarge: "r7g.16xlarge",
   r7g_2xlarge: "r7g.2xlarge",
@@ -1056,6 +1359,33 @@ export const EC2InstanceType = {
   r7g_large: "r7g.large",
   r7g_medium: "r7g.medium",
   r7g_xlarge: "r7g.xlarge",
+  r7gd_12xlarge: "r7gd.12xlarge",
+  r7gd_16xlarge: "r7gd.16xlarge",
+  r7gd_2xlarge: "r7gd.2xlarge",
+  r7gd_4xlarge: "r7gd.4xlarge",
+  r7gd_8xlarge: "r7gd.8xlarge",
+  r7gd_large: "r7gd.large",
+  r7gd_medium: "r7gd.medium",
+  r7gd_xlarge: "r7gd.xlarge",
+  r7i_12xlarge: "r7i.12xlarge",
+  r7i_16xlarge: "r7i.16xlarge",
+  r7i_24xlarge: "r7i.24xlarge",
+  r7i_2xlarge: "r7i.2xlarge",
+  r7i_48xlarge: "r7i.48xlarge",
+  r7i_4xlarge: "r7i.4xlarge",
+  r7i_8xlarge: "r7i.8xlarge",
+  r7i_large: "r7i.large",
+  r7i_xlarge: "r7i.xlarge",
+  r8g_12xlarge: "r8g.12xlarge",
+  r8g_16xlarge: "r8g.16xlarge",
+  r8g_24xlarge: "r8g.24xlarge",
+  r8g_2xlarge: "r8g.2xlarge",
+  r8g_48xlarge: "r8g.48xlarge",
+  r8g_4xlarge: "r8g.4xlarge",
+  r8g_8xlarge: "r8g.8xlarge",
+  r8g_large: "r8g.large",
+  r8g_medium: "r8g.medium",
+  r8g_xlarge: "r8g.xlarge",
   t2_large: "t2.large",
   t2_medium: "t2.medium",
   t2_micro: "t2.micro",
@@ -1149,10 +1479,10 @@ export interface Compute {
    *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in
    *             the <a href="https://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>.
    *             For game servers
-   *             that are hosted on AL2 and use Amazon GameLift server SDK 4.x., first update the
+   *             that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift, first update the
    *             game server build to server SDK 5.x, and then deploy to AL2023 instances. See
    *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html">
-   *                 Migrate to Amazon GameLift server SDK version 5.</a>
+   *                 Migrate to server SDK version 5.</a>
    *             </p>
    *          </note>
    * @public
@@ -1405,7 +1735,7 @@ export type IpProtocol = (typeof IpProtocol)[keyof typeof IpProtocol];
  *             processes on an instance in a fleet. Processes are assigned an IP address/port number
  *             combination, which must fall into the fleet's allowed ranges.
  *             </p>
- *          <p>For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging
+ *          <p>For Amazon GameLift Realtime fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging
  *             and one for UDP.</p>
  * @public
  */
@@ -1542,7 +1872,7 @@ export interface LogConfiguration {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>S3</code> -- Store logs in an Amazon S3 bucket that you define.</p>
+   *                   <code>S3</code> -- Store logs in an Amazon S3 bucket that you define. This bucket must reside in the fleet's home Amazon Web Services Region.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2256,9 +2586,9 @@ export interface ContainerGroupDefinition {
    * <p>The platform that all containers in the container group definition run on.</p>
    *          <note>
    *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the <a href="https://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For game
-   *         servers that are hosted on AL2 and use Amazon GameLift server SDK 4.x, first update the game
+   *       servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift, first update the game
    *         server build to server SDK 5.x, and then deploy to AL2023 instances. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html"> Migrate to
-   *           Amazon GameLift server SDK version 5.</a>
+   *           server SDK version 5.</a>
    *             </p>
    *          </note>
    * @public
@@ -2625,10 +2955,10 @@ export interface CreateBuildInput {
    *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in
    *             the <a href="https://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>.
    *             For game servers
-   *                 that are hosted on AL2 and use Amazon GameLift server SDK 4.x., first update the
+   *                 that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift, first update the
    *                 game server build to server SDK 5.x, and then deploy to AL2023 instances. See
    *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html">
-   *                 Migrate to Amazon GameLift server SDK version 5.</a>
+   *                 Migrate to server SDK version 5.</a>
    *             </p>
    *          </note>
    * @public
@@ -3229,9 +3559,9 @@ export interface CreateContainerGroupDefinitionInput {
    *          </p>
    *          <note>
    *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the <a href="https://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For game
-   *         servers that are hosted on AL2 and use Amazon GameLift server SDK 4.x, first update the game
+   *     servers that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift, first update the game
    *         server build to server SDK 5.x, and then deploy to AL2023 instances. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html"> Migrate to
-   *           Amazon GameLift server SDK version 5.</a>
+   *           server SDK version 5.</a>
    *             </p>
    *          </note>
    * @public
@@ -3326,7 +3656,7 @@ export interface ResourceCreationLimitPolicy {
 
 /**
  * <p>A set of instructions for launching server processes on fleet computes. Server
- *             processes run either an executable in a custom game build or a Realtime Servers script. Server
+ *             processes run either an executable in a custom game build or a Amazon GameLift Realtime script. Server
  *             process configurations are part of a fleet's runtime configuration.</p>
  * @public
  */
@@ -3372,7 +3702,7 @@ export interface ServerProcess {
 
 /**
  * <p>A set of instructions that define the set of server processes to run on computes in a
- *             fleet. Server processes run either an executable in a custom game build or a Realtime Servers
+ *             fleet. Server processes run either an executable in a custom game build or a Amazon GameLift Realtime
  *             script. Amazon GameLift launches the processes, manages their life cycle, and replaces them as
  *             needed. Computes check regularly for an updated runtime configuration. </p>
  *          <p>An Amazon GameLift instance is limited to 50 processes running concurrently. To calculate the
@@ -3485,7 +3815,7 @@ export interface CreateFleetInput {
    *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetPortSettings">https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetPortSettings</a> to set it before players can connect to game sessions.
    *             As a best practice, we recommend
    *             opening ports for remote access only when you need them and closing them when you're finished.
-   *             For Realtime Servers fleets, Amazon GameLift automatically sets TCP and UDP ranges.</p>
+   *             For Amazon GameLift Realtime fleets, Amazon GameLift automatically sets TCP and UDP ranges.</p>
    * @public
    */
   EC2InboundPermissions?: IpPermission[] | undefined;
@@ -3701,7 +4031,7 @@ export type FleetAction = (typeof FleetAction)[keyof typeof FleetAction];
  *          <ul>
  *             <li>
  *                <p>EC2 fleet attributes identify a <code>Build</code> resource (for fleets with
- *                     customer game server builds) or a <code>Script</code> resource (for Realtime Servers fleets).</p>
+ *                     customer game server builds) or a <code>Script</code> resource (for Amazon GameLift Realtime fleets).</p>
  *             </li>
  *             <li>
  *                <p>Amazon GameLift Anywhere fleets have an abbreviated set of attributes, because most fleet configurations
@@ -3891,10 +4221,10 @@ export interface FleetAttributes {
    *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in
    *             the <a href="https://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>.
    *             For game servers
-   *             that are hosted on AL2 and use Amazon GameLift server SDK 4.x., first update the
+   *             that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift, first update the
    *             game server build to server SDK 5.x, and then deploy to AL2023 instances. See
    *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html">
-   *                 Migrate to Amazon GameLift server SDK version 5.</a>
+   *                 Migrate to server SDK version 5.</a>
    *             </p>
    *          </note>
    * @public
@@ -4832,7 +5162,7 @@ export interface CreateGameSessionInput {
    *                 <code>GameSession</code> object, with an updated status. Maximum token length is 48
    *             characters. If provided, this string is included in the new game session's ID.
    *             A game session ARN has the following format:
-   *     <code>arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token></code>. Idempotency tokens remain in use for 30 days after a game session has ended;
+   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<custom ID string or idempotency token></code>. Idempotency tokens remain in use for 30 days after a game session has ended;
    *             game session objects are retained for this time period and then deleted.</p>
    * @public
    */
@@ -4917,7 +5247,7 @@ export type GameSessionStatusReason = (typeof GameSessionStatusReason)[keyof typ
 export interface GameSession {
   /**
    * <p>A unique identifier for the game session. A game session ARN has the following format:
-   *     <code>arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token></code>.</p>
+   *     <code>arn:aws:gamelift:<location>::gamesession/<fleet ID>/<custom ID string or idempotency token></code>.</p>
    * @public
    */
   GameSessionId?: string | undefined;
@@ -5228,27 +5558,26 @@ export const PriorityType = {
 export type PriorityType = (typeof PriorityType)[keyof typeof PriorityType];
 
 /**
- * <p>Custom prioritization settings for a game session queue to use when searching for
- *             available game servers to place new game sessions. This configuration replaces the
- *             default FleetIQ prioritization process. </p>
- *          <p>By default, a queue makes placements based on the following default
- *             prioritizations:</p>
+ * <p>Custom prioritization settings to use with a game session queue. Prioritization
+ *             settings determine how the queue selects a game hosting resource to start a new game
+ *             session. This configuration replaces the default prioritization process for
+ *             queues.</p>
+ *          <p>By default, a queue makes game session placements based on the following
+ *             criteria:</p>
  *          <ul>
  *             <li>
- *                <p>If player latency data is included in a game session request, Amazon GameLift
- *                     prioritizes placing game sessions where the average player latency is lowest.
- *                     Amazon GameLift re-orders the queue's destinations and locations (for multi-location
- *                     fleets) based on the following priorities: (1) the lowest average latency across
- *                     all players, (2) the lowest hosting cost, (3) the queue's default destination
- *                     order, and then (4), an alphabetic list of locations.</p>
+ *                <p>When a game session request does not include player latency data, Amazon GameLift
+ *                     places game sessions based on the following priorities: (1) the queue's default
+ *                     destination order, and (2) for multi-location fleets, an alphabetic list of
+ *                     locations.</p>
  *             </li>
  *             <li>
- *                <p>If player latency data is not included, Amazon GameLift prioritizes placing game
- *                     sessions in the queue's first destination. If that fleet has multiple locations,
- *                     the game session is placed on the first location (when listed alphabetically).
- *                     Amazon GameLift re-orders the queue's destinations and locations (for multi-location
- *                     fleets) based on the following priorities: (1) the queue's default destination
- *                     order, and then (2) an alphabetic list of locations.</p>
+ *                <p>When a game session request includes player latency data, Amazon GameLift re-orders
+ *                     the queue's destinations to make placements where the average player latency is
+ *                     lowest. It reorders based the following priorities: (1) the lowest average
+ *                     latency across all players, (2) the lowest hosting cost, (3) the queue's default
+ *                     destination order, and (4) for multi-location fleets, an alphabetic list of
+ *                     locations.</p>
  *             </li>
  *          </ul>
  * @public
@@ -5266,9 +5595,9 @@ export interface PriorityConfiguration {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>COST</code> -- Amazon GameLift prioritizes destinations with the lowest current
-   *                     hosting costs. Cost is evaluated based on the location, instance type, and fleet
-   *                     type (Spot or On-Demand) of each destination in the queue.</p>
+   *                   <code>COST</code> -- Amazon GameLift prioritizes queue destinations with the lowest
+   *                     current hosting costs. Cost is evaluated based on the destination's location,
+   *                     instance type, and fleet type (Spot or On-Demand).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5308,7 +5637,7 @@ export interface CreateGameSessionQueueInput {
   Name: string | undefined;
 
   /**
-   * <p>The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a <code>TIMED_OUT</code> status.</p>
+   * <p>The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a <code>TIMED_OUT</code> status. If you don't specify a request timeout, the queue uses a default value.</p>
    * @public
    */
   TimeoutInSeconds?: number | undefined;
@@ -6941,9 +7270,9 @@ export interface DescribeComputeInput {
   FleetId: string | undefined;
 
   /**
-   * <p>The unique identifier of the compute resource to retrieve properties for. For an
-   *             Anywhere fleet compute, use the registered compute name. For an EC2 fleet instance, use
-   *             the instance ID. </p>
+   * <p>The unique identifier of the compute resource to retrieve properties for. For a
+   *             managed container fleet or Anywhere fleet, use a compute name. For an EC2 fleet, use an
+   *             instance ID. To retrieve a fleet's compute identifiers, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html">ListCompute</a>.</p>
    * @public
    */
   ComputeName: string | undefined;
@@ -7784,7 +8113,9 @@ export interface Event {
    *             <li>
    *                <p>SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT -- The server process did not call
    *                         <code>InitSDK()</code> within the time expected (5 minutes). Check your game
-   *                     session log to see why <code>InitSDK()</code> was not called in time.</p>
+   *                     session log to see why <code>InitSDK()</code> was not called in time. This event
+   *                     is not emitted for managed container fleets and Anywhere fleets unless they're
+   *                     deployed with the Amazon GameLift Agent.</p>
    *             </li>
    *             <li>
    *                <p>SERVER_PROCESS_PROCESS_READY_TIMEOUT -- The server process did not call
@@ -8546,34 +8877,35 @@ export type PlacementFallbackStrategy = (typeof PlacementFallbackStrategy)[keyof
 
 /**
  * <p>An alternate list of prioritized locations for use with a game session queue. When
- *             this property is included in a <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a> request, this list overrides the queue's default
- *             location prioritization, as defined in the queue's <a href="gamelift/latest/apireference/API_PriorityConfiguration.html">PriorityConfiguration</a> setting (<i>LocationOrder</i>). This
- *             property overrides the queue's default priority list for individual placement requests
- *             only. Use this property only with queues that have a <code>PriorityConfiguration</code>
- *             setting that prioritizes first. </p>
+ *             this property is included in a <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a> request, the alternate list overrides the queue's
+ *             default location priorities, as defined in the queue's <a href="gamelift/latest/apireference/API_PriorityConfiguration.html">PriorityConfiguration</a> setting (<i>LocationOrder</i>). The
+ *             override is valid for an individual placement request only. Use this property only with
+ *             queues that have a <code>PriorityConfiguration</code> setting that prioritizes
+ *                 <code>LOCATION</code> first. </p>
  *          <note>
  *             <p>A priority configuration override list does not override a queue's
  *                 FilterConfiguration setting, if the queue has one. Filter configurations are used to
  *                 limit placements to a subset of the locations in a queue's destinations. If the
- *                 override list includes a location that's not included in the FilterConfiguration
- *                 allowed list, Amazon GameLift won't attempt to place a game session there.</p>
+ *                 override list includes a location that's not on in the
+ *                     <code>FilterConfiguration</code> allowed list, Amazon GameLift won't attempt to place a
+ *                 game session there.</p>
  *          </note>
  * @public
  */
 export interface PriorityConfigurationOverride {
   /**
-   * <p>Instructions for how to use the override list if the first round of placement attempts fails. The first round is a failure if
-   *             Amazon GameLift searches all listed locations, in all of the queue's destinations, without finding an available hosting resource
-   *             for a new game session. Valid strategies include: </p>
+   * <p>Instructions for how to proceed if placement fails in every location on the priority
+   *             override list. Valid strategies include: </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>DEFAULT_AFTER_SINGLE_PASS</code> -- After the first round of placement attempts, discard the override list and
-   *             use the queue's default location priority list. Continue to use the queue's default list until the placement request times out.</p>
+   *                   <code>DEFAULT_AFTER_SINGLE_PASS</code> -- After attempting to place a new game session in
+   *                     every location on the priority override list, try to place a game session in
+   *                     queue's other locations. This is the default behavior.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NONE</code> -- Continue to use the override list for all rounds of placement attempts until the placement request times out.</p>
+   *                   <code>NONE</code> -- Limit placements to locations on the priority override list only. </p>
    *             </li>
    *          </ul>
    * @public
@@ -8788,12 +9120,11 @@ export interface GameSessionPlacement {
   MatchmakerData?: string | undefined;
 
   /**
-   * <p>A prioritized list of locations to use with a game session placement request and
-   *             instructions on how to use it. This list overrides a queue's prioritized location list
-   *             for a single game session placement request only. The list can include Amazon Web Services Regions,
-   *             local zones, and custom locations (for Anywhere fleets). The fallback strategy instructs
-   *             Amazon GameLift to use the override list for the first placement attempt only or for all
-   *             placement attempts.</p>
+   * <p>An alternative priority list of locations that's included with a game session
+   *             placement request. When provided, the list overrides a queue's location order list for
+   *             this game session placement request only. The list might include Amazon Web Services Regions, local
+   *             zones, and custom locations (for Anywhere fleets). The fallback strategy tells Amazon GameLift
+   *             what action to take (if any) in the event that it failed to place a new game session. </p>
    * @public
    */
   PriorityConfigurationOverride?: PriorityConfigurationOverride | undefined;
@@ -9028,10 +9359,10 @@ export interface Instance {
    *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in
    *             the <a href="https://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>.
    *             For game servers
-   *             that are hosted on AL2 and use Amazon GameLift server SDK 4.x., first update the
+   *             that are hosted on AL2 and use server SDK version 4.x for Amazon GameLift, first update the
    *             game server build to server SDK 5.x, and then deploy to AL2023 instances. See
    *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html">
-   *                 Migrate to Amazon GameLift server SDK version 5.</a>
+   *                 Migrate to server SDK version 5.</a>
    *             </p>
    *          </note>
    * @public
@@ -10185,8 +10516,8 @@ export interface GetComputeAccessInput {
 
   /**
    * <p>A unique identifier for the compute resource that you want to connect to. For an EC2
-   *             fleet compute, use the instance ID.  Use
-   *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html">https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html</a> to retrieve compute identifiers.</p>
+   *             fleet, use an instance ID. For a managed container fleet, use a compute name. You can
+   *             retrieve a fleet's compute names by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html">ListCompute</a>.</p>
    * @public
    */
   ComputeName: string | undefined;

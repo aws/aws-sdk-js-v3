@@ -854,8 +854,8 @@ export interface GameLiftClientResolvedConfig extends GameLiftClientResolvedConf
  *                     FlexMatch for matchmaking.</p>
  *             </li>
  *             <li>
- *                <p>Managed hosting with Realtime Servers -- With Amazon GameLift Realtime Servers, you can quickly configure
- *                     and set up ready-to-go game servers for your game. Realtime Servers provides a game server
+ *                <p>Managed hosting with Amazon GameLift Realtime -- With Amazon GameLift Amazon GameLift Realtime, you can quickly configure
+ *                     and set up ready-to-go game servers for your game. Amazon GameLift Realtime provides a game server
  *                     framework with core Amazon GameLift infrastructure already built in. Then use the full
  *                     range of Amazon GameLift managed hosting features, including FlexMatch, for your
  *                     game.</p>
