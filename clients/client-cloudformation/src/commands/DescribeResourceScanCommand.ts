@@ -52,6 +52,13 @@ export interface DescribeResourceScanCommandOutput extends DescribeResourceScanO
  * //   ],
  * //   ResourcesScanned: Number("int"),
  * //   ResourcesRead: Number("int"),
+ * //   ScanFilters: [ // ScanFilters
+ * //     { // ScanFilter
+ * //       Types: [ // ResourceTypeFilters
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
+ * //   ],
  * // };
  *
  * ```

@@ -28,7 +28,7 @@ export interface UpdateStackSetCommandInput extends UpdateStackSetInput {}
 export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the stack set, and associated stack instances in the specified accounts and
+ * <p>Updates the stack set and associated stack instances in the specified accounts and
  *       Amazon Web Services Regions.</p>
  *          <p>Even if the stack set operation created by updating the stack set fails (completely or
  *       partially, below or above a specified failure tolerance), the stack set is updated with your

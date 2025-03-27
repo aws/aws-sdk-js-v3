@@ -38,6 +38,13 @@ export interface StartResourceScanCommandOutput extends StartResourceScanOutput,
  * const client = new CloudFormationClient(config);
  * const input = { // StartResourceScanInput
  *   ClientRequestToken: "STRING_VALUE",
+ *   ScanFilters: [ // ScanFilters
+ *     { // ScanFilter
+ *       Types: [ // ResourceTypeFilters
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new StartResourceScanCommand(input);
  * const response = await client.send(command);

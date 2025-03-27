@@ -1866,10 +1866,10 @@ export interface CreateChangeSetInput {
   TemplateBody?: string | undefined;
 
   /**
-   * <p>The URL of the file that contains the revised template. The URL must point to a
-   *       template (max size: 1 MB) that's located in an Amazon S3 bucket or a Systems Manager
-   *       document. CloudFormation generates the change set by comparing this template with the stack that
-   *       you specified. The location for an Amazon S3 bucket must start with <code>https://</code>.</p>
+   * <p>The URL of the file that contains the revised template. The URL must point to a template
+   *       (max size: 1 MB) that's located in an Amazon S3 bucket or a Systems Manager document. CloudFormation
+   *       generates the change set by comparing this template with the stack that you specified. The
+   *       location for an Amazon S3 bucket must start with <code>https://</code>.</p>
    *          <p>Conditional: You must specify only <code>TemplateBody</code> or
    *       <code>TemplateURL</code>.</p>
    * @public
@@ -1979,7 +1979,8 @@ export interface CreateChangeSetInput {
    *           before actually creating the stack. If your stack template contains one or more macros,
    *           and you choose to create a stack directly from the processed template, without first
    *           reviewing the resulting changes in a change set, you must acknowledge this capability.
-   *           This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-include.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by CloudFormation.</p>
+   *           This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-include.html">AWS::Include</a>
+   *           and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by CloudFormation.</p>
    *                <note>
    *                   <p>This capacity doesn't apply to creating change sets, and specifying it when creating
    *             change sets has no effect.</p>
@@ -2434,9 +2435,9 @@ export interface CreateStackInput {
   TemplateBody?: string | undefined;
 
   /**
-   * <p>The URL of a file containing the template body. The URL must point to a template (max size:
-   *       1 MB) that's located in an Amazon S3 bucket or a Systems Manager document. The location
-   *       for an Amazon S3 bucket must start with <code>https://</code>.</p>
+   * <p>The URL of a file containing the template body. The URL must point to a template (max
+   *       size: 1 MB) that's located in an Amazon S3 bucket or a Systems Manager document. The location for
+   *       an Amazon S3 bucket must start with <code>https://</code>.</p>
    *          <p>Conditional: You must specify either the <code>TemplateBody</code> or the
    *         <code>TemplateURL</code> parameter, but not both.</p>
    * @public
@@ -2567,7 +2568,8 @@ export interface CreateStackInput {
    *           before actually creating the stack. If your stack template contains one or more macros,
    *           and you choose to create a stack directly from the processed template, without first
    *           reviewing the resulting changes in a change set, you must acknowledge this capability.
-   *           This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-include.html">AWS::Include</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by CloudFormation.</p>
+   *           This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-include.html">AWS::Include</a>
+   *           and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by CloudFormation.</p>
    *                <p>If you want to create a stack from a stack template that contains macros
    *             <i>and</i> nested stacks, you must create the stack directly from the
    *           template using this capability.</p>
@@ -2817,6 +2819,10 @@ export type RegionConcurrencyType = (typeof RegionConcurrencyType)[keyof typeof 
  * <p>The user-specified preferences for how CloudFormation performs a stack set operation.</p>
  *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html#stackset-ops-options">Stack
  *     set operation options</a>.</p>
+ *          <note>
+ *             <p>
+ *                <code>StackSetOperationPreferences</code> don't apply to <code>AutoDeployment</code>, even if it's enabled.</p>
+ *          </note>
  * @public
  */
 export interface StackSetOperationPreferences {
@@ -2829,10 +2835,6 @@ export interface StackSetOperationPreferences {
 
   /**
    * <p>The order of the Regions where you want to perform the stack operation.</p>
-   *          <note>
-   *             <p>
-   *                <code>RegionOrder</code> isn't followed if <code>AutoDeployment</code> is enabled.</p>
-   *          </note>
    * @public
    */
   RegionOrder?: string[] | undefined;
@@ -3150,18 +3152,21 @@ export interface ResourceLocation {
 }
 
 /**
- * <p>Specifies the current source of the resource and the destination of where it will be moved to.</p>
+ * <p>Specifies the current source of the resource and the destination of where it will be moved
+ *    to.</p>
  * @public
  */
 export interface ResourceMapping {
   /**
-   * <p>The source stack <code>StackName</code> and <code>LogicalResourceId</code> for the resource being refactored.</p>
+   * <p>The source stack <code>StackName</code> and <code>LogicalResourceId</code> for the resource
+   *    being refactored.</p>
    * @public
    */
   Source: ResourceLocation | undefined;
 
   /**
-   * <p>The destination stack <code>StackName</code> and <code>LogicalResourceId</code> for the resource being refactored.</p>
+   * <p>The destination stack <code>StackName</code> and <code>LogicalResourceId</code> for the
+   *    resource being refactored.</p>
    * @public
    */
   Destination: ResourceLocation | undefined;
@@ -3208,7 +3213,8 @@ export interface CreateStackRefactorInput {
   EnableStackCreation?: boolean | undefined;
 
   /**
-   * <p>The mappings for the stack resource <code>Source</code> and stack resource <code>Destination</code>.</p>
+   * <p>The mappings for the stack resource <code>Source</code> and stack resource
+   *         <code>Destination</code>.</p>
    * @public
    */
   ResourceMappings?: ResourceMapping[] | undefined;
@@ -3323,8 +3329,8 @@ export interface CreateStackSetInput {
 
   /**
    * <p>The URL of a file that contains the template body. The URL must point to a template
-   *       (maximum size: 1 MB) that's located in an Amazon S3 bucket or a Systems Manager document.
-   *       The location for an Amazon S3 bucket must start with <code>https://</code>.</p>
+   *       (maximum size: 1 MB) that's located in an Amazon S3 bucket or a Systems Manager document. The
+   *       location for an Amazon S3 bucket must start with <code>https://</code>.</p>
    *          <p>Conditional: You must specify either the TemplateBody or the TemplateURL parameter, but
    *       not both.</p>
    * @public
@@ -3449,8 +3455,9 @@ export interface CreateStackSetInput {
    * <p>The Amazon Resource Name (ARN) of the IAM role to use to create this stack set.</p>
    *          <p>Specify an IAM role only if you are using customized administrator roles to control
    *       which users or groups can manage specific stack sets within the same administrator account.
-   *       For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites for using
-   *         StackSets</a> in the <i>CloudFormation User Guide</i>.</p>
+   *       For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
+   *         self-managed permissions</a> in the <i>CloudFormation User Guide</i>.</p>
+   *          <p>Valid only if the permissions model is <code>SELF_MANAGED</code>.</p>
    * @public
    */
   AdministrationRoleARN?: string | undefined;
@@ -3461,6 +3468,7 @@ export interface CreateStackSetInput {
    *       role for the stack set operation.</p>
    *          <p>Specify an IAM role only if you are using customized execution roles to control which
    *       stack resources users and groups can include in their stack sets.</p>
+   *          <p>Valid only if the permissions model is <code>SELF_MANAGED</code>.</p>
    * @public
    */
   ExecutionRoleName?: string | undefined;
@@ -3486,16 +3494,18 @@ export interface CreateStackSetInput {
 
   /**
    * <p>Describes whether StackSets automatically deploys to Organizations accounts that
-   *       are added to the target organization or organizational unit (OU). Specify only if
-   *         <code>PermissionModel</code> is <code>SERVICE_MANAGED</code>.</p>
+   *       are added to the target organization or organizational unit (OU). For more information, see
+   *         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-manage-auto-deployment.html">Manage
+   *         automatic deployments for CloudFormation StackSets that use service-managed permissions</a>
+   *       in the <i>CloudFormation User Guide</i>.</p>
+   *          <p>Required if the permissions model is <code>SERVICE_MANAGED</code>. (Not used with
+   *       self-managed permissions.)</p>
    * @public
    */
   AutoDeployment?: AutoDeployment | undefined;
 
   /**
-   * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
-   *       in the organization's management account or as a delegated administrator in a
-   *       member account.</p>
+   * <p>Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p>
    *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
    *       self-managed permissions.</p>
    *          <ul>
@@ -3511,6 +3521,7 @@ export interface CreateStackSetInput {
    *          </ul>
    *          <p>Stack sets with service-managed permissions are created in the management account, including stack sets that are created by delegated
    *       administrators.</p>
+   *          <p>Valid only if the permissions model is <code>SERVICE_MANAGED</code>.</p>
    * @public
    */
   CallAs?: CallAs | undefined;
@@ -4256,7 +4267,7 @@ export interface DescribeChangeSetHooksInput {
 
   /**
    * <p>If specified, lists only the Hooks related to the specified
-   *       <code>LogicalResourceId</code>.</p>
+   *         <code>LogicalResourceId</code>.</p>
    * @public
    */
   LogicalResourceId?: string | undefined;
@@ -4810,6 +4821,25 @@ export interface DescribeResourceScanInput {
 }
 
 /**
+ * <p>A filter that is used to specify which resource types to scan.</p>
+ * @public
+ */
+export interface ScanFilter {
+  /**
+   * <p>An array of strings where each string represents an Amazon Web Services resource type you want to scan.
+   *    Each string defines the resource type using the format
+   *     <code>AWS::ServiceName::ResourceType</code>, for example, <code>AWS::DynamoDB::Table</code>. For
+   *    the full list of supported resource types, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html">Resource type
+   *     support</a> table in the <i>CloudFormation User Guide</i>.</p>
+   *          <p>To scan all resource types within a service, you can use a wildcard, represented by an
+   *    asterisk (<code>*</code>). You can place a asterisk at only the end of the string, for example,
+   *     <code>AWS::S3::*</code>.</p>
+   * @public
+   */
+  Types?: string[] | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -4844,7 +4874,7 @@ export interface DescribeResourceScanOutput {
    *          <dl>
    *             <dt>
    *
-   *             INPROGRESS
+   *             IN_PROGRESS
    *
    *         </dt>
    *             <dd>
@@ -4921,8 +4951,8 @@ export interface DescribeResourceScanOutput {
 
   /**
    * <p>The number of resources that were read. This is only available for scans with a
-   *         <code>Status</code> set to <code>COMPLETE</code>, <code>EXPIRED</code>, or <code>FAILED
-   *       </code>.</p>
+   *         <code>Status</code> set to <code>COMPLETE</code>, <code>EXPIRED</code>, or
+   *         <code>FAILED</code>.</p>
    *          <note>
    *             <p>This field may be 0 if the resource scan failed with a
    *           <code>ResourceScanLimitExceededException</code>.</p>
@@ -4930,6 +4960,12 @@ export interface DescribeResourceScanOutput {
    * @public
    */
   ResourcesRead?: number | undefined;
+
+  /**
+   * <p>The scan filters that were used.</p>
+   * @public
+   */
+  ScanFilters?: ScanFilter[] | undefined;
 }
 
 /**
@@ -5110,7 +5146,6 @@ export interface DescribeStackEventsInput {
    *                <p>Deleted stacks: You must specify the unique stack ID.</p>
    *             </li>
    *          </ul>
-   *          <p>Default: There is no default value.</p>
    * @public
    */
   StackName?: string | undefined;
@@ -5815,14 +5850,12 @@ export interface DescribeStackResourceInput {
    *                <p>Deleted stacks: You must specify the unique stack ID.</p>
    *             </li>
    *          </ul>
-   *          <p>Default: There is no default value.</p>
    * @public
    */
   StackName: string | undefined;
 
   /**
    * <p>The logical name of the resource as specified in the template.</p>
-   *          <p>Default: There is no default value.</p>
    * @public
    */
   LogicalResourceId: string | undefined;
@@ -6287,7 +6320,6 @@ export interface DescribeStackResourcesInput {
    *                <p>Deleted stacks: You must specify the unique stack ID.</p>
    *             </li>
    *          </ul>
-   *          <p>Default: There is no default value.</p>
    *          <p>Required: Conditional. If you don't specify <code>StackName</code>, you must specify
    *         <code>PhysicalResourceId</code>.</p>
    * @public
@@ -6296,7 +6328,6 @@ export interface DescribeStackResourcesInput {
 
   /**
    * <p>The logical name of the resource as specified in the template.</p>
-   *          <p>Default: There is no default value.</p>
    * @public
    */
   LogicalResourceId?: string | undefined;
@@ -6310,7 +6341,6 @@ export interface DescribeStackResourcesInput {
    *       instance belongs to and what other resources are part of the stack.</p>
    *          <p>Required: Conditional. If you don't specify <code>PhysicalResourceId</code>, you must
    *       specify <code>StackName</code>.</p>
-   *          <p>Default: There is no default value.</p>
    * @public
    */
   PhysicalResourceId?: string | undefined;
@@ -6435,7 +6465,6 @@ export interface DescribeStacksInput {
    *                <p>Deleted stacks: You must specify the unique stack ID.</p>
    *             </li>
    *          </ul>
-   *          <p>Default: There is no default value.</p>
    * @public
    */
   StackName?: string | undefined;
@@ -8307,7 +8336,6 @@ export interface GetTemplateInput {
    *                <p>Deleted stacks: You must specify the unique stack ID.</p>
    *             </li>
    *          </ul>
-   *          <p>Default: There is no default value.</p>
    * @public
    */
   StackName?: string | undefined;
@@ -8384,9 +8412,9 @@ export interface GetTemplateSummaryInput {
   TemplateBody?: string | undefined;
 
   /**
-   * <p>The URL of a file containing the template body. The URL must point to a template (max size:
-   *       1 MB) that's located in an Amazon S3 bucket or a Systems Manager document. The location
-   *       for an Amazon S3 bucket must start with <code>https://</code>.</p>
+   * <p>The URL of a file containing the template body. The URL must point to a template (max
+   *       size: 1 MB) that's located in an Amazon S3 bucket or a Systems Manager document. The location for
+   *       an Amazon S3 bucket must start with <code>https://</code>.</p>
    *          <p>Conditional: You must specify only one of the following parameters:
    *       <code>StackName</code>, <code>StackSetName</code>, <code>TemplateBody</code>, or
    *         <code>TemplateURL</code>.</p>
@@ -8994,10 +9022,11 @@ export interface ListHookResultsInput {
   TargetType: ListHookResultsTargetType | undefined;
 
   /**
-   * <p>The logical ID of the target the operation is acting on by the Hook. If the target is a change set,
-   *       it's the ARN of the change set.</p>
-   *          <p>If the target is a Cloud Control API operation, this will be the <code>HookRequestToken</code> returned by the Cloud Control API
-   *       operation request. For more information on the <code>HookRequestToken</code>, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_ProgressEvent.html">ProgressEvent</a>.</p>
+   * <p>The logical ID of the target the operation is acting on by the Hook. If the
+   *       target is a change set, it's the ARN of the change set.</p>
+   *          <p>If the target is a Cloud Control API operation, this will be the <code>HookRequestToken</code>
+   *       returned by the Cloud Control API operation request. For more information on the
+   *         <code>HookRequestToken</code>, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_ProgressEvent.html">ProgressEvent</a>.</p>
    * @public
    */
   TargetId: string | undefined;
@@ -9082,17 +9111,19 @@ export interface ListHookResultsOutput {
   TargetType?: ListHookResultsTargetType | undefined;
 
   /**
-   * <p>The logical ID of the target the operation is acting on by the Hook. If the target is a change set,
-   *       it's the ARN of the change set.</p>
-   *          <p>If the target is a Cloud Control API operation, this will be the <code>HooksRequestToken</code> returned by the Cloud Control API
-   *       operation request. For more information on the <code>HooksRequestToken</code>, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_ProgressEvent.html">ProgressEvent</a>.</p>
+   * <p>The logical ID of the target the operation is acting on by the Hook. If the
+   *       target is a change set, it's the ARN of the change set.</p>
+   *          <p>If the target is a Cloud Control API operation, this will be the <code>HooksRequestToken</code>
+   *       returned by the Cloud Control API operation request. For more information on the
+   *         <code>HooksRequestToken</code>, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_ProgressEvent.html">ProgressEvent</a>.</p>
    * @public
    */
   TargetId?: string | undefined;
 
   /**
-   * <p>A list of <code>HookResultSummary</code> structures that provides the status and Hook status reason for each Hook
-   *       invocation for the specified target.</p>
+   * <p>A list of <code>HookResultSummary</code> structures that provides the status and
+   *       Hook status reason for each Hook invocation for the specified
+   *       target.</p>
    * @public
    */
   HookResults?: HookResultSummary[] | undefined;
@@ -9354,6 +9385,20 @@ export interface ListResourceScanResourcesOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const ScanType = {
+  FULL: "FULL",
+  PARTIAL: "PARTIAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ScanType = (typeof ScanType)[keyof typeof ScanType];
+
+/**
+ * @public
  */
 export interface ListResourceScansInput {
   /**
@@ -9369,6 +9414,13 @@ export interface ListResourceScansInput {
    * @public
    */
   MaxResults?: number | undefined;
+
+  /**
+   * <p>The scan type that you want to get summary information about. The default is
+   *         <code>FULL</code>.</p>
+   * @public
+   */
+  ScanTypeFilter?: ScanType | undefined;
 }
 
 /**
@@ -9388,7 +9440,7 @@ export interface ResourceScanSummary {
    *          <dl>
    *             <dt>
    *
-   *       INPROGRESS
+   *       IN_PROGRESS
    *
    *     </dt>
    *             <dd>
@@ -9447,6 +9499,12 @@ export interface ResourceScanSummary {
    * @public
    */
   PercentageCompleted?: number | undefined;
+
+  /**
+   * <p>The scan type that has been completed.</p>
+   * @public
+   */
+  ScanType?: ScanType | undefined;
 }
 
 /**
@@ -9940,17 +9998,19 @@ export interface ListStackRefactorActionsInput {
   StackRefactorId: string | undefined;
 
   /**
-   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to a token. To retrieve
-   *       the next set of results, call this action again and assign that token to the request object's <code>NextToken</code>
-   *       parameter. If the request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
+   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
+   *       a token. To retrieve the next set of results, call this action again and assign that token to
+   *       the request object's <code>NextToken</code> parameter. If the request returns all results,
+   *         <code>NextToken</code> is set to <code>null</code>.</p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this
-   *       maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code>
-   *       request parameter to get the next set of results.</p>
+   * <p>The maximum number of results to be returned with a single call. If the number of
+   *       available results exceeds this maximum, the response includes a <code>NextToken</code> value
+   *       that you can assign to the <code>NextToken</code> request parameter to get the next set of
+   *       results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -9999,7 +10059,8 @@ export const StackRefactorActionEntity = {
 export type StackRefactorActionEntity = (typeof StackRefactorActionEntity)[keyof typeof StackRefactorActionEntity];
 
 /**
- * <p>Describes the stack and the action that CloudFormation will perform on it if you execute the stack refactor.</p>
+ * <p>Describes the stack and the action that CloudFormation will perform on it if you execute the
+ *    stack refactor.</p>
  * @public
  */
 export interface StackRefactorAction {
@@ -10010,7 +10071,8 @@ export interface StackRefactorAction {
   Action?: StackRefactorActionType | undefined;
 
   /**
-   * <p>The type that will be evaluated in the <code>StackRefactorAction</code>. The following are potential <code>Entity</code> types:</p>
+   * <p>The type that will be evaluated in the <code>StackRefactorAction</code>. The following are
+   *    potential <code>Entity</code> types:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -10034,9 +10096,9 @@ export interface StackRefactorAction {
   PhysicalResourceId?: string | undefined;
 
   /**
-   * <p>A key-value pair that identifies the target resource. The key is an identifier property (for example,
-   *    <code>BucketName</code> for <code>AWS::S3::Bucket</code> resources) and the value is the actual property value (for
-   *    example, <code>MyS3Bucket</code>).</p>
+   * <p>A key-value pair that identifies the target resource. The key is an identifier property (for
+   *    example, <code>BucketName</code> for <code>AWS::S3::Bucket</code> resources) and the value is the
+   *    actual property value (for example, <code>MyS3Bucket</code>).</p>
    * @public
    */
   ResourceIdentifier?: string | undefined;
@@ -10054,7 +10116,8 @@ export interface StackRefactorAction {
    *                <p>Auto: CloudFormation figured out the mapping on its own.</p>
    *             </li>
    *             <li>
-   *                <p>Manual: The customer provided the mapping in the <code>ResourceMapping</code> parameter.</p>
+   *                <p>Manual: The customer provided the mapping in the <code>ResourceMapping</code>
+   *      parameter.</p>
    *             </li>
    *          </ul>
    * @public
@@ -10080,7 +10143,8 @@ export interface StackRefactorAction {
   UntagResources?: string[] | undefined;
 
   /**
-   * <p>The mapping for the stack resource <code>Source</code> and stack resource <code>Destination</code>.</p>
+   * <p>The mapping for the stack resource <code>Source</code> and stack resource
+   *     <code>Destination</code>.</p>
    * @public
    */
   ResourceMapping?: ResourceMapping | undefined;
@@ -10097,9 +10161,10 @@ export interface ListStackRefactorActionsOutput {
   StackRefactorActions: StackRefactorAction[] | undefined;
 
   /**
-   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to a token. To retrieve
-   *       the next set of results, call this action again and assign that token to the request object's <code>NextToken</code>
-   *       parameter. If the request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
+   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
+   *       a token. To retrieve the next set of results, call this action again and assign that token to
+   *       the request object's <code>NextToken</code> parameter. If the request returns all results,
+   *         <code>NextToken</code> is set to <code>null</code>.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -10110,24 +10175,26 @@ export interface ListStackRefactorActionsOutput {
  */
 export interface ListStackRefactorsInput {
   /**
-   * <p>Execution status to use as a filter. Specify one or more execution status codes to list only stack refactors with the specified
-   *       execution status codes.</p>
+   * <p>Execution status to use as a filter. Specify one or more execution status codes to list
+   *       only stack refactors with the specified execution status codes.</p>
    * @public
    */
   ExecutionStatusFilter?: StackRefactorExecutionStatus[] | undefined;
 
   /**
-   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to a token. To retrieve
-   *       the next set of results, call this action again and assign that token to the request object's <code>NextToken</code>
-   *       parameter. If the request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
+   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
+   *       a token. To retrieve the next set of results, call this action again and assign that token to
+   *       the request object's <code>NextToken</code> parameter. If the request returns all results,
+   *         <code>NextToken</code> is set to <code>null</code>.</p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this
-   *       maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code>
-   *       request parameter to get the next set of results.</p>
+   * <p>The maximum number of results to be returned with a single call. If the number of
+   *       available results exceeds this maximum, the response includes a <code>NextToken</code> value
+   *       that you can assign to the <code>NextToken</code> request parameter to get the next set of
+   *       results.</p>
    * @public
    */
   MaxResults?: number | undefined;
@@ -10218,9 +10285,10 @@ export interface ListStackRefactorsOutput {
   StackRefactorSummaries: StackRefactorSummary[] | undefined;
 
   /**
-   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to a token. To retrieve
-   *       the next set of results, call this action again and assign that token to the request object's <code>NextToken</code>
-   *       parameter. If the request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
+   * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
+   *       a token. To retrieve the next set of results, call this action again and assign that token to
+   *       the request object's <code>NextToken</code> parameter. If the request returns all results,
+   *         <code>NextToken</code> is set to <code>null</code>.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -10242,7 +10310,6 @@ export interface ListStackResourcesInput {
    *                <p>Deleted stacks: You must specify the unique stack ID.</p>
    *             </li>
    *          </ul>
-   *          <p>Default: There is no default value.</p>
    * @public
    */
   StackName: string | undefined;
@@ -11017,156 +11084,4 @@ export interface ListStackSetOperationsOutput {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStackSetsInput {
-  /**
-   * <p>If the previous paginated request didn't return all the remaining results, the response
-   *       object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
-   *       results, call <code>ListStackSets</code> again and assign that token to the request object's
-   *         <code>NextToken</code> parameter. If there are no remaining results, the previous response
-   *       object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned with a single call. If the number of
-   *       available results exceeds this maximum, the response includes a <code>NextToken</code> value
-   *       that you can assign to the <code>NextToken</code> request parameter to get the next set of
-   *       results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The status of the stack sets that you want to get summary information about.</p>
-   * @public
-   */
-  Status?: StackSetStatus | undefined;
-
-  /**
-   * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
-   *       in the management account or as a delegated administrator in a member
-   *       account.</p>
-   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
-   *       self-managed permissions.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you are signed in to the management account, specify
-   *           <code>SELF</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you are signed in to a delegated administrator account, specify
-   *             <code>DELEGATED_ADMIN</code>.</p>
-   *                <p>Your Amazon Web Services account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a
-   *             delegated administrator</a> in the <i>CloudFormation User Guide</i>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  CallAs?: CallAs | undefined;
-}
-
-/**
- * <p>The structures that contain summary information about the specified stack set.</p>
- * @public
- */
-export interface StackSetSummary {
-  /**
-   * <p>The name of the stack set.</p>
-   * @public
-   */
-  StackSetName?: string | undefined;
-
-  /**
-   * <p>The ID of the stack set.</p>
-   * @public
-   */
-  StackSetId?: string | undefined;
-
-  /**
-   * <p>A description of the stack set that you specify when the stack set is created or
-   *    updated.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The status of the stack set.</p>
-   * @public
-   */
-  Status?: StackSetStatus | undefined;
-
-  /**
-   * <p>[Service-managed permissions] Describes whether StackSets automatically deploys to Organizations accounts that are added to a target organizational unit (OU).</p>
-   * @public
-   */
-  AutoDeployment?: AutoDeployment | undefined;
-
-  /**
-   * <p>Describes how the IAM roles required for stack set operations are created.</p>
-   *          <ul>
-   *             <li>
-   *                <p>With <code>self-managed</code> permissions, you must create the administrator and
-   *      execution roles required to deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
-   *       self-managed permissions</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the IAM
-   *      roles required to deploy to accounts managed by Organizations. For more information,
-   *      see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-activate-trusted-access.html">Activate
-   *       trusted access for stack sets with Organizations</a>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  PermissionModel?: PermissionModels | undefined;
-
-  /**
-   * <p>Status of the stack set's actual configuration compared to its expected template and
-   *    parameter configuration. A stack set is considered to have drifted if one or more of its stack
-   *    instances have drifted from their expected template and parameter configuration.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DRIFTED</code>: One or more of the stack instances belonging to the stack set stack
-   *      differs from the expected template and parameter configuration. A stack instance is considered
-   *      to have drifted if one or more of the resources in the associated stack have drifted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOT_CHECKED</code>: CloudFormation hasn't checked the stack set for drift.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_SYNC</code>: All the stack instances belonging to the stack set stack match from
-   *      the expected template and parameter configuration.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNKNOWN</code>: This value is reserved for future use.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  DriftStatus?: StackDriftStatus | undefined;
-
-  /**
-   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack set.
-   *    This value will be <code>NULL</code> for any stack set on which drift detection hasn't yet been
-   *    performed.</p>
-   * @public
-   */
-  LastDriftCheckTimestamp?: Date | undefined;
-
-  /**
-   * <p>Describes whether StackSets performs non-conflicting operations concurrently and queues
-   *    conflicting operations.</p>
-   * @public
-   */
-  ManagedExecution?: ManagedExecution | undefined;
 }

@@ -397,7 +397,6 @@ import {
   ListStackSetOperationResultsOutput,
   ListStackSetOperationsInput,
   ListStackSetOperationsOutput,
-  ListStackSetsInput,
   ListStacksInput,
   ListStacksOutput,
   LoggingConfig,
@@ -430,6 +429,7 @@ import {
   ResourceToImport,
   RollbackConfiguration,
   RollbackTrigger,
+  ScanFilter,
   ScannedResource,
   ScannedResourceIdentifier,
   Stack,
@@ -465,7 +465,6 @@ import {
   StackSetOperationResultSummary,
   StackSetOperationStatusDetails,
   StackSetOperationSummary,
-  StackSetSummary,
   StackStatus,
   StackSummary,
   StaleRequestException,
@@ -486,6 +485,7 @@ import {
 } from "../models/models_0";
 import {
   InvalidStateTransitionException,
+  ListStackSetsInput,
   ListStackSetsOutput,
   ListTypeRegistrationsInput,
   ListTypeRegistrationsOutput,
@@ -511,6 +511,7 @@ import {
   SetTypeDefaultVersionInput,
   SetTypeDefaultVersionOutput,
   SignalResourceInput,
+  StackSetSummary,
   StartResourceScanInput,
   StartResourceScanOutput,
   StopStackSetOperationInput,
@@ -5844,6 +5845,9 @@ const se_ListResourceScansInput = (input: ListResourceScansInput, context: __Ser
   if (input[_MR] != null) {
     entries[_MR] = input[_MR];
   }
+  if (input[_STF] != null) {
+    entries[_STF] = input[_STF];
+  }
   return entries;
 };
 
@@ -6610,6 +6614,22 @@ const se_ResourceToImport = (input: ResourceToImport, context: __SerdeContext): 
 };
 
 /**
+ * serializeAws_queryResourceTypeFilters
+ */
+const se_ResourceTypeFilters = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryResourceTypes
  */
 const se_ResourceTypes = (input: string[], context: __SerdeContext): any => {
@@ -6707,6 +6727,43 @@ const se_RollbackTriggers = (input: RollbackTrigger[], context: __SerdeContext):
       continue;
     }
     const memberEntries = se_RollbackTrigger(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryScanFilter
+ */
+const se_ScanFilter = (input: ScanFilter, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_Ty] != null) {
+    const memberEntries = se_ResourceTypeFilters(input[_Ty], context);
+    if (input[_Ty]?.length === 0) {
+      entries.Types = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Types.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryScanFilters
+ */
+const se_ScanFilters = (input: ScanFilter[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_ScanFilter(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
     });
@@ -7008,6 +7065,16 @@ const se_StartResourceScanInput = (input: StartResourceScanInput, context: __Ser
   const entries: any = {};
   if (input[_CRT] != null) {
     entries[_CRT] = input[_CRT];
+  }
+  if (input[_SF] != null) {
+    const memberEntries = se_ScanFilters(input[_SF], context);
+    if (input[_SF]?.length === 0) {
+      entries.ScanFilters = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ScanFilters.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -8301,6 +8368,11 @@ const de_DescribeResourceScanOutput = (output: any, context: __SerdeContext): De
   }
   if (output[_RRes] != null) {
     contents[_RRes] = __strictParseInt32(output[_RRes]) as number;
+  }
+  if (output.ScanFilters === "") {
+    contents[_SF] = [];
+  } else if (output[_SF] != null && output[_SF][_m] != null) {
+    contents[_SF] = de_ScanFilters(__getArrayIfSingleItem(output[_SF][_m]), context);
   }
   return contents;
 };
@@ -9956,6 +10028,9 @@ const de_ResourceScanSummary = (output: any, context: __SerdeContext): ResourceS
   if (output[_PC] != null) {
     contents[_PC] = __strictParseFloat(output[_PC]) as number;
   }
+  if (output[_STc] != null) {
+    contents[_STc] = __expectString(output[_STc]);
+  }
   return contents;
 };
 
@@ -9986,6 +10061,17 @@ const de_ResourceTargetDefinition = (output: any, context: __SerdeContext): Reso
     contents[_ACT] = __expectString(output[_ACT]);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_queryResourceTypeFilters
+ */
+const de_ResourceTypeFilters = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
 };
 
 /**
@@ -10048,6 +10134,30 @@ const de_RollbackTriggers = (output: any, context: __SerdeContext): RollbackTrig
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_RollbackTrigger(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryScanFilter
+ */
+const de_ScanFilter = (output: any, context: __SerdeContext): ScanFilter => {
+  const contents: any = {};
+  if (output.Types === "") {
+    contents[_Ty] = [];
+  } else if (output[_Ty] != null && output[_Ty][_m] != null) {
+    contents[_Ty] = de_ResourceTypeFilters(__getArrayIfSingleItem(output[_Ty][_m]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryScanFilters
+ */
+const de_ScanFilters = (output: any, context: __SerdeContext): ScanFilter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ScanFilter(entry, context);
     });
 };
 
@@ -12222,6 +12332,7 @@ const _SDDI = "StackDriftDetectionId";
 const _SDS = "StackDriftStatus";
 const _SDt = "StatusDetails";
 const _SE = "StackEvents";
+const _SF = "ScanFilters";
 const _SHP = "SchemaHandlerPackage";
 const _SI = "StackId";
 const _SIA = "StackInstanceAccount";
@@ -12266,6 +12377,8 @@ const _SSta = "StackStatus";
 const _ST = "StartTime";
 const _STC = "SetTypeConfiguration";
 const _STDV = "SetTypeDefaultVersion";
+const _STF = "ScanTypeFilter";
+const _STc = "ScanType";
 const _SU = "SourceUrl";
 const _Sc = "Schema";
 const _Sco = "Scope";
@@ -12311,6 +12424,7 @@ const _TW = "TotalWarnings";
 const _Ta = "Tags";
 const _Tar = "Target";
 const _Ti = "Timestamp";
+const _Ty = "Types";
 const _U = "Url";
 const _UGT = "UpdateGeneratedTemplate";
 const _UI = "UniqueId";

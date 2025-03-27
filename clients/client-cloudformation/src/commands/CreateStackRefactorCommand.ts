@@ -28,7 +28,8 @@ export interface CreateStackRefactorCommandInput extends CreateStackRefactorInpu
 export interface CreateStackRefactorCommandOutput extends CreateStackRefactorOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a refactor across multiple stacks, with the list of stacks and resources that are affected.</p>
+ * <p>Creates a refactor across multiple stacks, with the list of stacks and resources that are
+ *       affected.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -39,6 +39,7 @@ export interface ListResourceScansCommandOutput extends ListResourceScansOutput,
  * const input = { // ListResourceScansInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   ScanTypeFilter: "FULL" || "PARTIAL",
  * };
  * const command = new ListResourceScansCommand(input);
  * const response = await client.send(command);
@@ -51,6 +52,7 @@ export interface ListResourceScansCommandOutput extends ListResourceScansOutput,
  * //       StartTime: new Date("TIMESTAMP"),
  * //       EndTime: new Date("TIMESTAMP"),
  * //       PercentageCompleted: Number("double"),
+ * //       ScanType: "FULL" || "PARTIAL",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

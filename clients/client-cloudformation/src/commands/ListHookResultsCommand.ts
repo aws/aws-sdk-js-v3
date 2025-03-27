@@ -28,7 +28,8 @@ export interface ListHookResultsCommandInput extends ListHookResultsInput {}
 export interface ListHookResultsCommandOutput extends ListHookResultsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns summaries of invoked Hooks when a change set or Cloud Control API operation target is provided.</p>
+ * <p>Returns summaries of invoked Hooks when a change set or Cloud Control API operation target is
+ *       provided.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
