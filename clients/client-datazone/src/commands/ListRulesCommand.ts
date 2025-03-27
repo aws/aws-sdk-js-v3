@@ -46,7 +46,7 @@ export interface ListRulesCommandOutput extends ListRulesOutput, __MetadataBeare
  *   targetType: "DOMAIN_UNIT", // required
  *   targetIdentifier: "STRING_VALUE", // required
  *   ruleType: "METADATA_FORM_ENFORCEMENT",
- *   action: "CREATE_SUBSCRIPTION_REQUEST",
+ *   action: "CREATE_LISTING_CHANGE_SET" || "CREATE_SUBSCRIPTION_REQUEST",
  *   projectIds: [ // ProjectIds
  *     "STRING_VALUE",
  *   ],
@@ -74,7 +74,7 @@ export interface ListRulesCommandOutput extends ListRulesOutput, __MetadataBeare
  * //           includeChildDomainUnits: true || false,
  * //         },
  * //       },
- * //       action: "CREATE_SUBSCRIPTION_REQUEST",
+ * //       action: "CREATE_LISTING_CHANGE_SET" || "CREATE_SUBSCRIPTION_REQUEST",
  * //       scope: { // RuleScope
  * //         assetType: { // AssetTypesForRule
  * //           selectionMode: "ALL" || "SPECIFIC", // required

@@ -55,7 +55,7 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  *       includeChildDomainUnits: true || false,
  *     },
  *   },
- *   action: "CREATE_SUBSCRIPTION_REQUEST", // required
+ *   action: "CREATE_LISTING_CHANGE_SET" || "CREATE_SUBSCRIPTION_REQUEST", // required
  *   scope: { // RuleScope
  *     assetType: { // AssetTypesForRule
  *       selectionMode: "ALL" || "SPECIFIC", // required
@@ -96,7 +96,7 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * //       includeChildDomainUnits: true || false,
  * //     },
  * //   },
- * //   action: "CREATE_SUBSCRIPTION_REQUEST", // required
+ * //   action: "CREATE_LISTING_CHANGE_SET" || "CREATE_SUBSCRIPTION_REQUEST", // required
  * //   scope: { // RuleScope
  * //     assetType: { // AssetTypesForRule
  * //       selectionMode: "ALL" || "SPECIFIC", // required

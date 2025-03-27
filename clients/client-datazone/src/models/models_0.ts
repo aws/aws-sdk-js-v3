@@ -9872,6 +9872,7 @@ export interface CreateProjectProfileOutput {
  * @enum
  */
 export const RuleAction = {
+  CREATE_LISTING_CHANGE_SET: "CREATE_LISTING_CHANGE_SET",
   CREATE_SUBSCRIPTION_REQUEST: "CREATE_SUBSCRIPTION_REQUEST",
 } as const;
 
