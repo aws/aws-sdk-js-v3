@@ -52,6 +52,7 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class NoInputAndOutputCommand extends $Command

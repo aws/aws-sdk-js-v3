@@ -69,27 +69,30 @@ export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To replace a network ACL entry
  * ```javascript
  * // This example replaces an entry for the specified network ACL. The new rule 100 allows ingress traffic from 203.0.113.12/24 on UDP port 53 (DNS) into any associated subnet.
  * const input = {
- *   "CidrBlock": "203.0.113.12/24",
- *   "Egress": false,
- *   "NetworkAclId": "acl-5fb85d36",
- *   "PortRange": {
- *     "From": 53,
- *     "To": 53
+ *   CidrBlock: "203.0.113.12/24",
+ *   Egress: false,
+ *   NetworkAclId: "acl-5fb85d36",
+ *   PortRange: {
+ *     From: 53,
+ *     To: 53
  *   },
- *   "Protocol": "17",
- *   "RuleAction": "allow",
- *   "RuleNumber": 100
+ *   Protocol: "17",
+ *   RuleAction: "allow",
+ *   RuleNumber: 100
  * };
  * const command = new ReplaceNetworkAclEntryCommand(input);
- * await client.send(command);
- * // example id: ec2-replace-network-acl-entry-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ReplaceNetworkAclEntryCommand extends $Command
   .classBuilder<

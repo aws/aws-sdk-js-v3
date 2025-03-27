@@ -84,6 +84,7 @@ export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataB
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ *
  * @public
  */
 export class DeleteTypeCommand extends $Command

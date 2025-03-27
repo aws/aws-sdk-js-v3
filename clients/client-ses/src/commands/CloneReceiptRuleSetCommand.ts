@@ -69,19 +69,22 @@ export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetRes
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example CloneReceiptRuleSet
  * ```javascript
  * // The following example creates a receipt rule set by cloning an existing one:
  * const input = {
- *   "OriginalRuleSetName": "RuleSetToClone",
- *   "RuleSetName": "RuleSetToCreate"
+ *   OriginalRuleSetName: "RuleSetToClone",
+ *   RuleSetName: "RuleSetToCreate"
  * };
  * const command = new CloneReceiptRuleSetCommand(input);
- * await client.send(command);
- * // example id: clonereceiptruleset-1469055039770
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CloneReceiptRuleSetCommand extends $Command
   .classBuilder<

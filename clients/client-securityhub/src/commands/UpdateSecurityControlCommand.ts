@@ -103,27 +103,30 @@ export interface UpdateSecurityControlCommandOutput extends UpdateSecurityContro
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To update security control properties
  * ```javascript
  * // The following example updates the specified security control. Specifically, this example updates control parameters.
  * const input = {
- *   "LastUpdateReason": "Comply with internal requirements",
- *   "Parameters": {
- *     "maxCredentialUsageAge": {
- *       "Value": {
- *         "Integer": 15
+ *   LastUpdateReason: "Comply with internal requirements",
+ *   Parameters: {
+ *     maxCredentialUsageAge: {
+ *       Value: {
+ *         Integer: 15
  *       },
- *       "ValueType": "CUSTOM"
+ *       ValueType: "CUSTOM"
  *     }
  *   },
- *   "SecurityControlId": "ACM.1"
+ *   SecurityControlId: "ACM.1"
  * };
  * const command = new UpdateSecurityControlCommand(input);
- * await client.send(command);
- * // example id: to-update-security-control-properties-1699282942434
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateSecurityControlCommand extends $Command
   .classBuilder<

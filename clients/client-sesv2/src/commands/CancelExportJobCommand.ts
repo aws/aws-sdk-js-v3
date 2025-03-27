@@ -62,18 +62,21 @@ export interface CancelExportJobCommandOutput extends CancelExportJobResponse, _
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
- * @public
+ *
  * @example Cancel export job
  * ```javascript
  * // Cancels the export job with ID ef28cf62-9d8e-4b60-9283-b09816c99a99
  * const input = {
- *   "JobId": "ef28cf62-9d8e-4b60-9283-b09816c99a99"
+ *   JobId: "ef28cf62-9d8e-4b60-9283-b09816c99a99"
  * };
  * const command = new CancelExportJobCommand(input);
- * await client.send(command);
- * // example id: cancel-export-job-1685699696331
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CancelExportJobCommand extends $Command
   .classBuilder<

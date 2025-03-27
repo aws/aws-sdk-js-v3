@@ -114,6 +114,7 @@ export interface GetEngagementCommandOutput extends GetEngagementResponse, __Met
  * @throws {@link PartnerCentralSellingServiceException}
  * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>
  *
+ *
  * @public
  */
 export class GetEngagementCommand extends $Command

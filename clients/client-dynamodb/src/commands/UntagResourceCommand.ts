@@ -108,6 +108,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

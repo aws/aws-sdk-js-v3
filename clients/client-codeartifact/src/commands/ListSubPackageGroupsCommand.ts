@@ -113,6 +113,7 @@ export interface ListSubPackageGroupsCommandOutput extends ListSubPackageGroupsR
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class ListSubPackageGroupsCommand extends $Command

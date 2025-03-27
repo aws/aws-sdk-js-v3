@@ -445,42 +445,42 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To restore a DB instance from a DB snapshot
  * ```javascript
  * // The following example creates a new DB instance named db7-new-instance with the db.t3.small DB instance class from the specified DB snapshot. The source DB instance from which the snapshot was taken uses a deprecated DB instance class, so you can't upgrade it.
  * const input = {
- *   "DBInstanceClass": "db.t3.small",
- *   "DBInstanceIdentifier": "db7-new-instance",
- *   "DBSnapshotIdentifier": "db7-test-snapshot"
+ *   DBInstanceClass: "db.t3.small",
+ *   DBInstanceIdentifier: "db7-new-instance",
+ *   DBSnapshotIdentifier: "db7-test-snapshot"
  * };
  * const command = new RestoreDBInstanceFromDBSnapshotCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstance": {
- *     "AssociatedRoles": [],
- *     "AutoMinorVersionUpgrade": true,
- *     "DBInstanceArn": "arn:aws:rds:us-west-2:123456789012:db:db7-new-instance",
- *     "DBInstanceClass": "db.t3.small",
- *     "DBInstanceIdentifier": "db7-new-instance",
- *     "DBInstanceStatus": "creating",
- *     "DeletionProtection": false,
- *     "Engine": "mysql",
- *     "EngineVersion": "5.7.22",
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "LicenseModel": "general-public-license",
- *     "MultiAZ": false,
- *     "PendingModifiedValues": {},
- *     "PerformanceInsightsEnabled": false,
- *     "PreferredMaintenanceWindow": "mon:07:37-mon:08:07",
- *     "ReadReplicaDBInstanceIdentifiers": []
+ *   DBInstance: {
+ *     AssociatedRoles:     [],
+ *     AutoMinorVersionUpgrade: true,
+ *     DBInstanceArn: "arn:aws:rds:us-west-2:123456789012:db:db7-new-instance",
+ *     DBInstanceClass: "db.t3.small",
+ *     DBInstanceIdentifier: "db7-new-instance",
+ *     DBInstanceStatus: "creating",
+ *     DeletionProtection: false,
+ *     Engine: "mysql",
+ *     EngineVersion: "5.7.22",
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     LicenseModel: "general-public-license",
+ *     MultiAZ: false,
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     PerformanceInsightsEnabled: false,
+ *     PreferredMaintenanceWindow: "mon:07:37-mon:08:07",
+ *     ReadReplicaDBInstanceIdentifiers:     []
  *   }
  * }
  * *\/
- * // example id: to-restore-a-db-instance-from-a-db-snapshot-1680093236214
  * ```
  *
+ * @public
  */
 export class RestoreDBInstanceFromDBSnapshotCommand extends $Command
   .classBuilder<

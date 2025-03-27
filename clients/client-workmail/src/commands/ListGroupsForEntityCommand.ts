@@ -86,6 +86,7 @@ export interface ListGroupsForEntityCommandOutput extends ListGroupsForEntityRes
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class ListGroupsForEntityCommand extends $Command

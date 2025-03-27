@@ -115,6 +115,7 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ *
  * @public
  */
 export class ListCoreDevicesCommand extends $Command

@@ -77,6 +77,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link SocialMessagingServiceException}
  * <p>Base exception class for all service exceptions from SocialMessaging service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

@@ -80,23 +80,23 @@ export interface EnableImportFindingsForProductCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To activate an integration
  * ```javascript
  * // The following example activates an integration between Security Hub and a third party partner product that sends findings to Security Hub.
  * const input = {
- *   "ProductArn": "arn:aws:securityhub:us-east-1:517716713836:product/crowdstrike/crowdstrike-falcon"
+ *   ProductArn: "arn:aws:securityhub:us-east-1:517716713836:product/crowdstrike/crowdstrike-falcon"
  * };
  * const command = new EnableImportFindingsForProductCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ProductSubscriptionArn": "arn:aws:securityhub:us-east-1:517716713836:product-subscription/crowdstrike/crowdstrike-falcon"
+ *   ProductSubscriptionArn: "arn:aws:securityhub:us-east-1:517716713836:product-subscription/crowdstrike/crowdstrike-falcon"
  * }
  * *\/
- * // example id: to-activate-an-integration-1676918918114
  * ```
  *
+ * @public
  */
 export class EnableImportFindingsForProductCommand extends $Command
   .classBuilder<

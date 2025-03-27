@@ -74,6 +74,7 @@ export interface ListItemsCommandOutput extends ListItemsResponse, __MetadataBea
  * @throws {@link MediaStoreDataServiceException}
  * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
+ *
  * @public
  */
 export class ListItemsCommand extends $Command

@@ -76,6 +76,7 @@ export interface PutAccountPreferencesCommandOutput extends PutAccountPreference
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ *
  * @public
  */
 export class PutAccountPreferencesCommand extends $Command

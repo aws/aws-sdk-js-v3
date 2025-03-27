@@ -70,6 +70,7 @@ export interface DeleteClientBrandingCommandOutput extends DeleteClientBrandingR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DeleteClientBrandingCommand extends $Command

@@ -346,6 +346,7 @@ export interface RecognizeTextCommandOutput extends RecognizeTextResponse, __Met
  * @throws {@link LexRuntimeV2ServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
+ *
  * @public
  */
 export class RecognizeTextCommand extends $Command

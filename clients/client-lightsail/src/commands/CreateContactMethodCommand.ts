@@ -104,6 +104,7 @@ export interface CreateContactMethodCommandOutput extends CreateContactMethodRes
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class CreateContactMethodCommand extends $Command

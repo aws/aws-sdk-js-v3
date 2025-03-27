@@ -111,6 +111,7 @@ export interface ValidateStateMachineDefinitionCommandOutput
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class ValidateStateMachineDefinitionCommand extends $Command

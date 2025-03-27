@@ -106,6 +106,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectorCommand extends $Command

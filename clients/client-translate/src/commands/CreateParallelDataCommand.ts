@@ -104,6 +104,7 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ *
  * @public
  */
 export class CreateParallelDataCommand extends $Command

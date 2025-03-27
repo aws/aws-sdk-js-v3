@@ -104,6 +104,7 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * @throws {@link ApplicationSignalsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationSignals service.</p>
  *
+ *
  * @public
  */
 export class GetServiceCommand extends $Command

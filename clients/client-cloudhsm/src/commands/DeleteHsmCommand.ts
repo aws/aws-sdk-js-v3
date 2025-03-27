@@ -77,6 +77,7 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  * @throws {@link CloudHSMServiceException}
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ *
  * @public
  */
 export class DeleteHsmCommand extends $Command

@@ -103,6 +103,7 @@ export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityRe
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyCapacityReservationCommand extends $Command

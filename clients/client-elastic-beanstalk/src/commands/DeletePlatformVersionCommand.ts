@@ -86,6 +86,7 @@ export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersio
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ *
  * @public
  */
 export class DeletePlatformVersionCommand extends $Command

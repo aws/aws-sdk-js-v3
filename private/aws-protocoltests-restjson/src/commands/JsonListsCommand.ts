@@ -121,6 +121,7 @@ export interface JsonListsCommandOutput extends JsonListsInputOutput, __Metadata
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class JsonListsCommand extends $Command

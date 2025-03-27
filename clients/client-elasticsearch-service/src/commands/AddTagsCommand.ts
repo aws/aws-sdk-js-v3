@@ -76,6 +76,7 @@ export interface AddTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ *
  * @public
  */
 export class AddTagsCommand extends $Command

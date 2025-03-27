@@ -320,26 +320,26 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To submit a job to a queue
  * ```javascript
  * // This example submits a simple container job called example to the HighPriority job queue.
  * const input = {
- *   "jobDefinition": "sleep60",
- *   "jobName": "example",
- *   "jobQueue": "HighPriority"
+ *   jobDefinition: "sleep60",
+ *   jobName: "example",
+ *   jobQueue: "HighPriority"
  * };
  * const command = new SubmitJobCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "jobId": "876da822-4198-45f2-a252-6cea32512ea8",
- *   "jobName": "example"
+ *   jobId: "876da822-4198-45f2-a252-6cea32512ea8",
+ *   jobName: "example"
  * }
  * *\/
- * // example id: to-submit-a-job-to-a-queue-1481154481673
  * ```
  *
+ * @public
  */
 export class SubmitJobCommand extends $Command
   .classBuilder<

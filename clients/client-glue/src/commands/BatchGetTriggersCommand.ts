@@ -109,6 +109,7 @@ export interface BatchGetTriggersCommandOutput extends BatchGetTriggersResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class BatchGetTriggersCommand extends $Command

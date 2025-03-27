@@ -87,6 +87,7 @@ export interface UpdateAvailabilityOptionsCommandOutput extends UpdateAvailabili
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class UpdateAvailabilityOptionsCommand extends $Command

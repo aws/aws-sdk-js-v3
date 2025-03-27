@@ -326,64 +326,8 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
- * @example To accept a handshake from another account
- * ```javascript
- * // Bill is the owner of an organization, and he invites Juan's account (222222222222) to join his organization. The following example shows Juan's account accepting the handshake and thus agreeing to the invitation.
- * const input = {
- *   "HandshakeId": "h-examplehandshakeid111"
- * };
- * const command = new AcceptHandshakeCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Handshake": {
- *     "Action": "INVITE",
- *     "Arn": "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
- *     "ExpirationTimestamp": "20170228T1215Z",
- *     "Id": "h-examplehandshakeid111",
- *     "Parties": [
- *       {
- *         "Id": "o-exampleorgid",
- *         "Type": "ORGANIZATION"
- *       },
- *       {
- *         "Id": "juan@example.com",
- *         "Type": "EMAIL"
- *       }
- *     ],
- *     "RequestedTimestamp": "20170214T1215Z",
- *     "Resources": [
- *       {
- *         "Resources": [
- *           {
- *             "Type": "MASTER_EMAIL",
- *             "Value": "bill@amazon.com"
- *           },
- *           {
- *             "Type": "MASTER_NAME",
- *             "Value": "Org Master Account"
- *           },
- *           {
- *             "Type": "ORGANIZATION_FEATURE_SET",
- *             "Value": "ALL"
- *           }
- *         ],
- *         "Type": "ORGANIZATION",
- *         "Value": "o-exampleorgid"
- *       },
- *       {
- *         "Type": "ACCOUNT",
- *         "Value": "222222222222"
- *       }
- *     ],
- *     "State": "ACCEPTED"
- *   }
- * }
- * *\/
- * // example id: to-accept-a-handshake-from-another-account-1472500561150
- * ```
  *
+ * @public
  */
 export class AcceptHandshakeCommand extends $Command
   .classBuilder<

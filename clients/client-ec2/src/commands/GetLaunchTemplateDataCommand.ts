@@ -332,70 +332,70 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To get the launch template data for an instance
  * ```javascript
  * // This example gets the launch template data for the specified instance.
  * const input = {
- *   "InstanceId": "0123d646e8048babc"
+ *   InstanceId: "0123d646e8048babc"
  * };
  * const command = new GetLaunchTemplateDataCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LaunchTemplateData": {
- *     "BlockDeviceMappings": [
+ *   LaunchTemplateData: {
+ *     BlockDeviceMappings: [
  *       {
- *         "DeviceName": "/dev/xvda",
- *         "Ebs": {
- *           "DeleteOnTermination": true,
- *           "Encrypted": false,
- *           "Iops": 100,
- *           "SnapshotId": "snap-02594938353ef77d3",
- *           "VolumeSize": 8,
- *           "VolumeType": "gp2"
+ *         DeviceName: "/dev/xvda",
+ *         Ebs: {
+ *           DeleteOnTermination: true,
+ *           Encrypted: false,
+ *           Iops: 100,
+ *           SnapshotId: "snap-02594938353ef77d3",
+ *           VolumeSize: 8,
+ *           VolumeType: "gp2"
  *         }
  *       }
  *     ],
- *     "EbsOptimized": false,
- *     "ImageId": "ami-32cf7b4a",
- *     "InstanceType": "t2.medium",
- *     "KeyName": "my-key-pair",
- *     "Monitoring": {
- *       "Enabled": false
+ *     EbsOptimized: false,
+ *     ImageId: "ami-32cf7b4a",
+ *     InstanceType: "t2.medium",
+ *     KeyName: "my-key-pair",
+ *     Monitoring: {
+ *       Enabled: false
  *     },
- *     "NetworkInterfaces": [
+ *     NetworkInterfaces: [
  *       {
- *         "AssociatePublicIpAddress": false,
- *         "DeleteOnTermination": true,
- *         "Description": "",
- *         "DeviceIndex": 0,
- *         "Groups": [
+ *         AssociatePublicIpAddress: false,
+ *         DeleteOnTermination: true,
+ *         Description: "",
+ *         DeviceIndex: 0,
+ *         Groups: [
  *           "sg-d14e1bb4"
  *         ],
- *         "Ipv6Addresses": [],
- *         "NetworkInterfaceId": "eni-4338b5a9",
- *         "PrivateIpAddress": "10.0.3.233",
- *         "PrivateIpAddresses": [
+ *         Ipv6Addresses:         [],
+ *         NetworkInterfaceId: "eni-4338b5a9",
+ *         PrivateIpAddress: "10.0.3.233",
+ *         PrivateIpAddresses: [
  *           {
- *             "Primary": true,
- *             "PrivateIpAddress": "10.0.3.233"
+ *             Primary: true,
+ *             PrivateIpAddress: "10.0.3.233"
  *           }
  *         ],
- *         "SubnetId": "subnet-5264e837"
+ *         SubnetId: "subnet-5264e837"
  *       }
  *     ],
- *     "Placement": {
- *       "AvailabilityZone": "us-east-2b",
- *       "GroupName": "",
- *       "Tenancy": "default"
+ *     Placement: {
+ *       AvailabilityZone: "us-east-2b",
+ *       GroupName: "",
+ *       Tenancy: "default"
  *     }
  *   }
  * }
  * *\/
- * // example id: to-get-the-launch-template-data-for-an-instance--1529356515702
  * ```
  *
+ * @public
  */
 export class GetLaunchTemplateDataCommand extends $Command
   .classBuilder<

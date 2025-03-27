@@ -114,6 +114,7 @@ export interface RegisterOrganizationDelegatedAdminCommandOutput
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class RegisterOrganizationDelegatedAdminCommand extends $Command

@@ -109,6 +109,7 @@ export interface GetJourneyDateRangeKpiCommandOutput extends GetJourneyDateRange
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetJourneyDateRangeKpiCommand extends $Command

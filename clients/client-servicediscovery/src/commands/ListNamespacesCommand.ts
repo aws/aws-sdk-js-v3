@@ -91,66 +91,66 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example Example: List namespaces
  * ```javascript
  * // Example: List namespaces
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListNamespacesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Namespaces": [
+ *   Namespaces: [
  *     {
- *       "Arn": "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-a3ccy2e7e3a7rile",
- *       "CreateDate": 1585354387.357,
- *       "Id": "ns-a3ccy2e7e3a7rile",
- *       "Name": "local",
- *       "Properties": {
- *         "DnsProperties": {
- *           "HostedZoneId": "Z06752353VBUDTC32S84S"
+ *       Arn: "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-a3ccy2e7e3a7rile",
+ *       CreateDate: 1.585354387357E9,
+ *       Id: "ns-a3ccy2e7e3a7rile",
+ *       Name: "local",
+ *       Properties: {
+ *         DnsProperties: {
+ *           HostedZoneId: "Z06752353VBUDTC32S84S"
  *         },
- *         "HttpProperties": {
- *           "HttpName": "local"
+ *         HttpProperties: {
+ *           HttpName: "local"
  *         }
  *       },
- *       "Type": "DNS_PRIVATE"
+ *       Type: "DNS_PRIVATE"
  *     },
  *     {
- *       "Arn": "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-pocfyjtrsmwtvcxx",
- *       "CreateDate": 1586468974.698,
- *       "Description": "My second namespace",
- *       "Id": "ns-pocfyjtrsmwtvcxx",
- *       "Name": "My-second-namespace",
- *       "Properties": {
- *         "DnsProperties": {},
- *         "HttpProperties": {
- *           "HttpName": "My-second-namespace"
+ *       Arn: "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-pocfyjtrsmwtvcxx",
+ *       CreateDate: 1.586468974698E9,
+ *       Description: "My second namespace",
+ *       Id: "ns-pocfyjtrsmwtvcxx",
+ *       Name: "My-second-namespace",
+ *       Properties: {
+ *         DnsProperties:         { /* empty *\/ },
+ *         HttpProperties: {
+ *           HttpName: "My-second-namespace"
  *         }
  *       },
- *       "Type": "HTTP"
+ *       Type: "HTTP"
  *     },
  *     {
- *       "Arn": "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-ylexjili4cdxy3xm",
- *       "CreateDate": 1587055896.798,
- *       "Id": "ns-ylexjili4cdxy3xm",
- *       "Name": "example.com",
- *       "Properties": {
- *         "DnsProperties": {
- *           "HostedZoneId": "Z09983722P0QME1B3KC8I"
+ *       Arn: "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-ylexjili4cdxy3xm",
+ *       CreateDate: 1.587055896798E9,
+ *       Id: "ns-ylexjili4cdxy3xm",
+ *       Name: "example.com",
+ *       Properties: {
+ *         DnsProperties: {
+ *           HostedZoneId: "Z09983722P0QME1B3KC8I"
  *         },
- *         "HttpProperties": {
- *           "HttpName": "example.com"
+ *         HttpProperties: {
+ *           HttpName: "example.com"
  *         }
  *       },
- *       "Type": "DNS_PRIVATE"
+ *       Type: "DNS_PRIVATE"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-list-namespaces-1587401553154
  * ```
  *
+ * @public
  */
 export class ListNamespacesCommand extends $Command
   .classBuilder<

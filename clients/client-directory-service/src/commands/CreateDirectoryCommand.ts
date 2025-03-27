@@ -94,6 +94,7 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __M
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class CreateDirectoryCommand extends $Command

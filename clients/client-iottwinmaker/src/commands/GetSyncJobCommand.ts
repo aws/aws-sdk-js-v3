@@ -86,6 +86,7 @@ export interface GetSyncJobCommandOutput extends GetSyncJobResponse, __MetadataB
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class GetSyncJobCommand extends $Command

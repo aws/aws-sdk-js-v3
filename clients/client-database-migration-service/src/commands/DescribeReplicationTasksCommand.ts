@@ -108,34 +108,34 @@ export interface DescribeReplicationTasksCommandOutput extends DescribeReplicati
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe replication tasks
  * ```javascript
  * // Returns information about replication tasks for your account in the current region.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "string",
- *       "Values": [
+ *       Name: "string",
+ *       Values: [
  *         "string",
  *         "string"
  *       ]
  *     }
  *   ],
- *   "Marker": "",
- *   "MaxRecords": 123
+ *   Marker: "",
+ *   MaxRecords: 123
  * };
  * const command = new DescribeReplicationTasksCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "",
- *   "ReplicationTasks": []
+ *   Marker: "",
+ *   ReplicationTasks:   []
  * }
  * *\/
- * // example id: describe-replication-tasks-1481755777563
  * ```
  *
+ * @public
  */
 export class DescribeReplicationTasksCommand extends $Command
   .classBuilder<

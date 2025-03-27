@@ -415,134 +415,133 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To create a MySQL 5.7-compatible DB cluster
  * ```javascript
  * // The following example creates a MySQL 5.7-compatible Aurora DB cluster.
  * const input = {
- *   "DBClusterIdentifier": "sample-cluster",
- *   "DBSubnetGroupName": "default",
- *   "Engine": "aurora-mysql",
- *   "EngineVersion": "5.7.12",
- *   "MasterUserPassword": "mypassword",
- *   "MasterUsername": "admin",
- *   "VpcSecurityGroupIds": [
+ *   DBClusterIdentifier: "sample-cluster",
+ *   DBSubnetGroupName: "default",
+ *   Engine: "aurora-mysql",
+ *   EngineVersion: "5.7.12",
+ *   MasterUserPassword: "mypassword",
+ *   MasterUsername: "admin",
+ *   VpcSecurityGroupIds: [
  *     "sg-0b91305example"
  *   ]
  * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBCluster": {
- *     "AllocatedStorage": 1,
- *     "AssociatedRoles": [],
- *     "AvailabilityZones": [
+ *   DBCluster: {
+ *     AllocatedStorage: 1,
+ *     AssociatedRoles:     [],
+ *     AvailabilityZones: [
  *       "us-east-1a",
  *       "us-east-1b",
  *       "us-east-1e"
  *     ],
- *     "BackupRetentionPeriod": 1,
- *     "ClusterCreateTime": "2019-06-07T23:21:33.048Z",
- *     "CopyTagsToSnapshot": false,
- *     "DBClusterArn": "arn:aws:rds:us-east-1:123456789012:cluster:sample-cluster",
- *     "DBClusterIdentifier": "sample-cluster",
- *     "DBClusterMembers": [],
- *     "DBClusterParameterGroup": "default.aurora-mysql5.7",
- *     "DBSubnetGroup": "default",
- *     "DbClusterResourceId": "cluster-ANPAJ4AE5446DAEXAMPLE",
- *     "DeletionProtection": false,
- *     "Endpoint": "sample-cluster.cluster-cnpexample.us-east-1.rds.amazonaws.com",
- *     "Engine": "aurora-mysql",
- *     "EngineMode": "provisioned",
- *     "EngineVersion": "5.7.12",
- *     "HostedZoneId": "Z2R2ITUGPM61AM",
- *     "HttpEndpointEnabled": false,
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "MasterUsername": "master",
- *     "MultiAZ": false,
- *     "Port": 3306,
- *     "PreferredBackupWindow": "09:12-09:42",
- *     "PreferredMaintenanceWindow": "mon:04:31-mon:05:01",
- *     "ReadReplicaIdentifiers": [],
- *     "ReaderEndpoint": "sample-cluster.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
- *     "Status": "creating",
- *     "StorageEncrypted": false,
- *     "VpcSecurityGroups": [
+ *     BackupRetentionPeriod: 1,
+ *     ClusterCreateTime: "2019-06-07T23:21:33.048Z",
+ *     CopyTagsToSnapshot: false,
+ *     DBClusterArn: "arn:aws:rds:us-east-1:123456789012:cluster:sample-cluster",
+ *     DBClusterIdentifier: "sample-cluster",
+ *     DBClusterMembers:     [],
+ *     DBClusterParameterGroup: "default.aurora-mysql5.7",
+ *     DBSubnetGroup: "default",
+ *     DbClusterResourceId: "cluster-ANPAJ4AE5446DAEXAMPLE",
+ *     DeletionProtection: false,
+ *     Endpoint: "sample-cluster.cluster-cnpexample.us-east-1.rds.amazonaws.com",
+ *     Engine: "aurora-mysql",
+ *     EngineMode: "provisioned",
+ *     EngineVersion: "5.7.12",
+ *     HostedZoneId: "Z2R2ITUGPM61AM",
+ *     HttpEndpointEnabled: false,
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     MasterUsername: "master",
+ *     MultiAZ: false,
+ *     Port: 3306,
+ *     PreferredBackupWindow: "09:12-09:42",
+ *     PreferredMaintenanceWindow: "mon:04:31-mon:05:01",
+ *     ReadReplicaIdentifiers:     [],
+ *     ReaderEndpoint: "sample-cluster.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
+ *     Status: "creating",
+ *     StorageEncrypted: false,
+ *     VpcSecurityGroups: [
  *       {
- *         "Status": "active",
- *         "VpcSecurityGroupId": "sg-0b91305example"
+ *         Status: "active",
+ *         VpcSecurityGroupId: "sg-0b91305example"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: to-create-a-mysql-57-compatible-db-cluster-1679699416154
  * ```
  *
  * @example To create a PostgreSQL-compatible DB cluster
  * ```javascript
  * // The following example creates a PostgreSQL-compatible Aurora DB cluster.
  * const input = {
- *   "DBClusterIdentifier": "sample-pg-cluster",
- *   "DBSubnetGroupName": "default",
- *   "Engine": "aurora-postgresql",
- *   "MasterUserPassword": "mypassword",
- *   "MasterUsername": "admin",
- *   "VpcSecurityGroupIds": [
+ *   DBClusterIdentifier: "sample-pg-cluster",
+ *   DBSubnetGroupName: "default",
+ *   Engine: "aurora-postgresql",
+ *   MasterUserPassword: "mypassword",
+ *   MasterUsername: "admin",
+ *   VpcSecurityGroupIds: [
  *     "sg-0b91305example"
  *   ]
  * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBCluster": {
- *     "AllocatedStorage": 1,
- *     "AssociatedRoles": [],
- *     "AvailabilityZones": [
+ *   DBCluster: {
+ *     AllocatedStorage: 1,
+ *     AssociatedRoles:     [],
+ *     AvailabilityZones: [
  *       "us-east-1a",
  *       "us-east-1b",
  *       "us-east-1c"
  *     ],
- *     "BackupRetentionPeriod": 1,
- *     "ClusterCreateTime": "2019-06-07T23:26:08.371Z",
- *     "CopyTagsToSnapshot": false,
- *     "DBClusterArn": "arn:aws:rds:us-east-1:123456789012:cluster:sample-pg-cluster",
- *     "DBClusterIdentifier": "sample-pg-cluster",
- *     "DBClusterMembers": [],
- *     "DBClusterParameterGroup": "default.aurora-postgresql9.6",
- *     "DBSubnetGroup": "default",
- *     "DbClusterResourceId": "cluster-ANPAJ4AE5446DAEXAMPLE",
- *     "DeletionProtection": false,
- *     "Endpoint": "sample-pg-cluster.cluster-cnpexample.us-east-1.rds.amazonaws.com",
- *     "Engine": "aurora-postgresql",
- *     "EngineMode": "provisioned",
- *     "EngineVersion": "9.6.9",
- *     "HostedZoneId": "Z2R2ITUGPM61AM",
- *     "HttpEndpointEnabled": false,
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "MasterUsername": "master",
- *     "MultiAZ": false,
- *     "Port": 5432,
- *     "PreferredBackupWindow": "09:56-10:26",
- *     "PreferredMaintenanceWindow": "wed:03:33-wed:04:03",
- *     "ReadReplicaIdentifiers": [],
- *     "ReaderEndpoint": "sample-pg-cluster.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
- *     "Status": "creating",
- *     "StorageEncrypted": false,
- *     "VpcSecurityGroups": [
+ *     BackupRetentionPeriod: 1,
+ *     ClusterCreateTime: "2019-06-07T23:26:08.371Z",
+ *     CopyTagsToSnapshot: false,
+ *     DBClusterArn: "arn:aws:rds:us-east-1:123456789012:cluster:sample-pg-cluster",
+ *     DBClusterIdentifier: "sample-pg-cluster",
+ *     DBClusterMembers:     [],
+ *     DBClusterParameterGroup: "default.aurora-postgresql9.6",
+ *     DBSubnetGroup: "default",
+ *     DbClusterResourceId: "cluster-ANPAJ4AE5446DAEXAMPLE",
+ *     DeletionProtection: false,
+ *     Endpoint: "sample-pg-cluster.cluster-cnpexample.us-east-1.rds.amazonaws.com",
+ *     Engine: "aurora-postgresql",
+ *     EngineMode: "provisioned",
+ *     EngineVersion: "9.6.9",
+ *     HostedZoneId: "Z2R2ITUGPM61AM",
+ *     HttpEndpointEnabled: false,
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     MasterUsername: "master",
+ *     MultiAZ: false,
+ *     Port: 5432,
+ *     PreferredBackupWindow: "09:56-10:26",
+ *     PreferredMaintenanceWindow: "wed:03:33-wed:04:03",
+ *     ReadReplicaIdentifiers:     [],
+ *     ReaderEndpoint: "sample-pg-cluster.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
+ *     Status: "creating",
+ *     StorageEncrypted: false,
+ *     VpcSecurityGroups: [
  *       {
- *         "Status": "active",
- *         "VpcSecurityGroupId": "sg-0b91305example"
+ *         Status: "active",
+ *         VpcSecurityGroupId: "sg-0b91305example"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: to-create-a-postgresql-compatible-db-cluster-1679700161087
  * ```
  *
+ * @public
  */
 export class CreateDBClusterCommand extends $Command
   .classBuilder<

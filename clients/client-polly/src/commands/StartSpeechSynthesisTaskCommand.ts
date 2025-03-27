@@ -155,6 +155,7 @@ export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthe
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
+ *
  * @public
  */
 export class StartSpeechSynthesisTaskCommand extends $Command

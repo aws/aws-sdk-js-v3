@@ -137,6 +137,7 @@ export interface GetIdentityPoolConfigurationCommandOutput
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class GetIdentityPoolConfigurationCommand extends $Command

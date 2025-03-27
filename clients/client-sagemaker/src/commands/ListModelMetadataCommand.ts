@@ -74,6 +74,7 @@ export interface ListModelMetadataCommandOutput extends ListModelMetadataRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListModelMetadataCommand extends $Command

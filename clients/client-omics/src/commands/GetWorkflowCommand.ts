@@ -110,6 +110,7 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class GetWorkflowCommand extends $Command

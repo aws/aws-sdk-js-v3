@@ -78,6 +78,7 @@ export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributi
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListDistributionsByKeyGroupCommand extends $Command

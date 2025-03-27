@@ -141,48 +141,48 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To list objects in a bucket
  * ```javascript
  * // The following example list two objects in a bucket.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "MaxKeys": "2"
+ *   Bucket: "examplebucket",
+ *   MaxKeys: 2
  * };
  * const command = new ListObjectsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Contents": [
+ *   Contents: [
  *     {
- *       "ETag": "\"70ee1738b6b21e2c8a43f3a5ab0eee71\"",
- *       "Key": "example1.jpg",
- *       "LastModified": "2014-11-21T19:40:05.000Z",
- *       "Owner": {
- *         "DisplayName": "myname",
- *         "ID": "12345example25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       ETag: `"70ee1738b6b21e2c8a43f3a5ab0eee71"`,
+ *       Key: "example1.jpg",
+ *       LastModified: "2014-11-21T19:40:05.000Z",
+ *       Owner: {
+ *         DisplayName: "myname",
+ *         ID: "12345example25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
  *       },
- *       "Size": 11,
- *       "StorageClass": "STANDARD"
+ *       Size: 11,
+ *       StorageClass: "STANDARD"
  *     },
  *     {
- *       "ETag": "\"9c8af9a76df052144598c115ef33e511\"",
- *       "Key": "example2.jpg",
- *       "LastModified": "2013-11-15T01:10:49.000Z",
- *       "Owner": {
- *         "DisplayName": "myname",
- *         "ID": "12345example25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       ETag: `"9c8af9a76df052144598c115ef33e511"`,
+ *       Key: "example2.jpg",
+ *       LastModified: "2013-11-15T01:10:49.000Z",
+ *       Owner: {
+ *         DisplayName: "myname",
+ *         ID: "12345example25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
  *       },
- *       "Size": 713193,
- *       "StorageClass": "STANDARD"
+ *       Size: 713193,
+ *       StorageClass: "STANDARD"
  *     }
  *   ],
- *   "NextMarker": "eyJNYXJrZXIiOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiAyfQ=="
+ *   NextMarker: "eyJNYXJrZXIiOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiAyfQ=="
  * }
  * *\/
- * // example id: to-list-objects-in-a-bucket-1473447646507
  * ```
  *
+ * @public
  */
 export class ListObjectsCommand extends $Command
   .classBuilder<

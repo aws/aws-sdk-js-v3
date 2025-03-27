@@ -80,6 +80,7 @@ export interface DeleteAccountSubscriptionCommandOutput extends DeleteAccountSub
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DeleteAccountSubscriptionCommand extends $Command

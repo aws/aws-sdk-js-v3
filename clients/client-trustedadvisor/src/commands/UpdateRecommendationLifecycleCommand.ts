@@ -80,6 +80,23 @@ export interface UpdateRecommendationLifecycleCommandOutput extends __MetadataBe
  * @throws {@link TrustedAdvisorServiceException}
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ *
+ * @example Update the lifecycle stage of a Recommendation managed by AWS Trusted Advisor Priority
+ * ```javascript
+ * //
+ * const input = {
+ *   lifecycleStage: "resolved",
+ *   recommendationIdentifier: "arn:aws:trustedadvisor::000000000000:recommendation/861c9c6e-f169-405a-8b59-537a8caccd7a",
+ *   updateReason: "Resolved the recommendation",
+ *   updateReasonCode: "valid_business_case"
+ * };
+ * const command = new UpdateRecommendationLifecycleCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateRecommendationLifecycleCommand extends $Command

@@ -115,53 +115,8 @@ export interface UpdateRepositoryCreationTemplateCommandOutput
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
- * @public
- * @example Update a repository creation template
- * ```javascript
- * // This example updates a repository creation template.
- * const input = {
- *   "appliedFor": [
- *     "REPLICATION"
- *   ],
- *   "prefix": "eng/test",
- *   "resourceTags": [
- *     {
- *       "Key": "environment",
- *       "Value": "test"
- *     }
- *   ]
- * };
- * const command = new UpdateRepositoryCreationTemplateCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "registryId": "012345678901",
- *   "repositoryCreationTemplate": {
- *     "appliedFor": [
- *       "REPLICATION"
- *     ],
- *     "createdAt": "2023-12-16T17:29:02-07:00",
- *     "description": "Repos for testing images",
- *     "encryptionConfiguration": {
- *       "encryptionType": "AES256"
- *     },
- *     "imageTagMutability": "MUTABLE",
- *     "lifecyclePolicy": "{\r\n    \"rules\": [\r\n        {\r\n            \"rulePriority\": 1,\r\n            \"description\": \"Expire images older than 14 days\",\r\n            \"selection\": {\r\n                \"tagStatus\": \"untagged\",\r\n                \"countType\": \"sinceImagePushed\",\r\n                \"countUnit\": \"days\",\r\n                \"countNumber\": 14\r\n            },\r\n            \"action\": {\r\n                \"type\": \"expire\"\r\n            }\r\n        }\r\n    ]\r\n}",
- *     "prefix": "eng/test",
- *     "repositoryPolicy": "{\n  \"Version\" : \"2012-10-17\",\n  \"Statement\" : [ {\n    \"Sid\" : \"LambdaECRPullPolicy\",\n    \"Effect\" : \"Allow\",\n    \"Principal\" : {\n      \"Service\" : \"lambda.amazonaws.com\"\n    },\n    \"Action\" : \"ecr:BatchGetImage\"\n  } ]\n}",
- *     "resourceTags": [
- *       {
- *         "Key": "environment",
- *         "Value": "test"
- *       }
- *     ],
- *     "updatedAt": "2023-12-16T19:55:02-07:00"
- *   }
- * }
- * *\/
- * // example id: update-a-repository-creation-template-1713299261276
- * ```
  *
+ * @public
  */
 export class UpdateRepositoryCreationTemplateCommand extends $Command
   .classBuilder<

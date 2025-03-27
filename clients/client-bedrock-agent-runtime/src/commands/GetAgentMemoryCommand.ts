@@ -102,6 +102,7 @@ export interface GetAgentMemoryCommandOutput extends GetAgentMemoryResponse, __M
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ *
  * @public
  */
 export class GetAgentMemoryCommand extends $Command

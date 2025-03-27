@@ -75,6 +75,7 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class ListRecipesCommand extends $Command

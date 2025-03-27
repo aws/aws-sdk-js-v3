@@ -78,27 +78,27 @@ export interface ResetChannelStateCommandOutput extends ResetChannelStateRespons
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
- * @public
+ *
  * @example Reset a Channel
  * ```javascript
  * //
  * const input = {
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannel"
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel"
  * };
  * const command = new ResetChannelStateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Arn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel",
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannel",
- *   "ResetAt": "2024-10-09T09:36:00.00Z"
+ *   Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel",
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   ResetAt: "2024-10-09T09:36:00.00Z"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ResetChannelStateCommand extends $Command
   .classBuilder<

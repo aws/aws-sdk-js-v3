@@ -351,25 +351,28 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To restore an archived object
  * ```javascript
  * // The following example restores for one day an archived copy of an object back into Amazon S3 bucket.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "archivedobjectkey",
- *   "RestoreRequest": {
- *     "Days": 1,
- *     "GlacierJobParameters": {
- *       "Tier": "Expedited"
+ *   Bucket: "examplebucket",
+ *   Key: "archivedobjectkey",
+ *   RestoreRequest: {
+ *     Days: 1,
+ *     GlacierJobParameters: {
+ *       Tier: "Expedited"
  *     }
  *   }
  * };
  * const command = new RestoreObjectCommand(input);
- * await client.send(command);
- * // example id: to-restore-an-archived-object-1483049329953
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RestoreObjectCommand extends $Command
   .classBuilder<

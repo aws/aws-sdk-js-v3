@@ -91,6 +91,7 @@ export interface DeleteBotCommandOutput extends DeleteBotResponse, __MetadataBea
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteBotCommand extends $Command

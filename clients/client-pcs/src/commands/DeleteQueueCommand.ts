@@ -134,6 +134,7 @@ export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __Metadat
  * @throws {@link PCSServiceException}
  * <p>Base exception class for all service exceptions from PCS service.</p>
  *
+ *
  * @public
  */
 export class DeleteQueueCommand extends $Command

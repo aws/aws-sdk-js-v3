@@ -117,6 +117,7 @@ export interface GetGraphSummaryCommandOutput extends GetGraphSummaryOutput, __M
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class GetGraphSummaryCommand extends $Command

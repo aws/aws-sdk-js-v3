@@ -101,6 +101,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterOutput, __Metad
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ *
  * @public
  */
 export class DeleteClusterCommand extends $Command

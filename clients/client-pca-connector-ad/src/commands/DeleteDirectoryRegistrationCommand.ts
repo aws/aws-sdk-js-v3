@@ -79,6 +79,7 @@ export interface DeleteDirectoryRegistrationCommandOutput extends __MetadataBear
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ *
  * @public
  */
 export class DeleteDirectoryRegistrationCommand extends $Command

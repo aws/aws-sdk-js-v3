@@ -93,6 +93,7 @@ export interface PutExternalModelCommandOutput extends PutExternalModelResult, _
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class PutExternalModelCommand extends $Command

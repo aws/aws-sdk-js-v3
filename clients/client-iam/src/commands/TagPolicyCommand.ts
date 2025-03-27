@@ -114,6 +114,7 @@ export interface TagPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class TagPolicyCommand extends $Command

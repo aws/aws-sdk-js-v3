@@ -94,27 +94,8 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
- * @example To create a new project
- * ```javascript
- * // The following example creates a new project named MyProject.
- * const input = {
- *   "name": "MyProject"
- * };
- * const command = new CreateProjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "project": {
- *     "name": "MyProject",
- *     "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:5e01a8c7-c861-4c0a-b1d5-12345EXAMPLE",
- *     "created": "1472660939.152"
- *   }
- * }
- * *\/
- * // example id: createproject-example-1470862210860
- * ```
  *
+ * @public
  */
 export class CreateProjectCommand extends $Command
   .classBuilder<

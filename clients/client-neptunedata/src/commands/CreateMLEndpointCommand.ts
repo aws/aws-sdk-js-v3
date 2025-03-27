@@ -105,6 +105,7 @@ export interface CreateMLEndpointCommandOutput extends CreateMLEndpointOutput, _
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class CreateMLEndpointCommand extends $Command

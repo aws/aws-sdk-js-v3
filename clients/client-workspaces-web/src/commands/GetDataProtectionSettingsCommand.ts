@@ -117,6 +117,7 @@ export interface GetDataProtectionSettingsCommandOutput extends GetDataProtectio
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class GetDataProtectionSettingsCommand extends $Command

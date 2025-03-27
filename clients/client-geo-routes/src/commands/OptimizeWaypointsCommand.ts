@@ -249,6 +249,7 @@ export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsRespons
  * @throws {@link GeoRoutesServiceException}
  * <p>Base exception class for all service exceptions from GeoRoutes service.</p>
  *
+ *
  * @public
  */
 export class OptimizeWaypointsCommand extends $Command

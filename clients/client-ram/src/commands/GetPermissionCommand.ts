@@ -95,6 +95,7 @@ export interface GetPermissionCommandOutput extends GetPermissionResponse, __Met
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ *
  * @public
  */
 export class GetPermissionCommand extends $Command

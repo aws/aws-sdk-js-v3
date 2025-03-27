@@ -123,18 +123,21 @@ export interface DeleteBucketLifecycleCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To delete lifecycle configuration on a bucket.
  * ```javascript
  * // The following example deletes lifecycle configuration on a bucket.
  * const input = {
- *   "Bucket": "examplebucket"
+ *   Bucket: "examplebucket"
  * };
  * const command = new DeleteBucketLifecycleCommand(input);
- * await client.send(command);
- * // example id: to-delete-lifecycle-configuration-on-a-bucket-1483043310583
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteBucketLifecycleCommand extends $Command
   .classBuilder<

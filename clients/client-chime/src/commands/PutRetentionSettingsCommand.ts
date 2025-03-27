@@ -107,6 +107,7 @@ export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsR
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class PutRetentionSettingsCommand extends $Command

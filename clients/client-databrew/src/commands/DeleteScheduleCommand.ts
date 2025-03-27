@@ -61,6 +61,7 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class DeleteScheduleCommand extends $Command

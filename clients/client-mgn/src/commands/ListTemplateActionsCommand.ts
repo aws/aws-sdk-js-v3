@@ -96,6 +96,7 @@ export interface ListTemplateActionsCommandOutput extends ListTemplateActionsRes
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class ListTemplateActionsCommand extends $Command

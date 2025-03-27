@@ -77,6 +77,7 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class UpdateArchiveCommand extends $Command

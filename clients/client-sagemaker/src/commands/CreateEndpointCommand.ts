@@ -177,6 +177,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateEndpointCommand extends $Command

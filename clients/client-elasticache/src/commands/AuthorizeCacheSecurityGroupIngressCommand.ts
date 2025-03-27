@@ -100,20 +100,23 @@ export interface AuthorizeCacheSecurityGroupIngressCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example AuthorizeCacheCacheSecurityGroupIngress
  * ```javascript
  * // Allows network ingress to a cache security group. Applications using ElastiCache must be running on Amazon EC2. Amazon EC2 security groups are used as the authorization mechanism.
  * const input = {
- *   "CacheSecurityGroupName": "my-sec-grp",
- *   "EC2SecurityGroupName": "my-ec2-sec-grp",
- *   "EC2SecurityGroupOwnerId": "1234567890"
+ *   CacheSecurityGroupName: "my-sec-grp",
+ *   EC2SecurityGroupName: "my-ec2-sec-grp",
+ *   EC2SecurityGroupOwnerId: "1234567890"
  * };
  * const command = new AuthorizeCacheSecurityGroupIngressCommand(input);
- * await client.send(command);
- * // example id: authorizecachecachesecuritygroupingress-1483046446206
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AuthorizeCacheSecurityGroupIngressCommand extends $Command
   .classBuilder<

@@ -127,64 +127,64 @@ export interface GetCaseCommandOutput extends GetCaseResponse, __MetadataBearer 
  * @throws {@link SecurityIRServiceException}
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
- * @public
+ *
  * @example Invoke GetCase
  * ```javascript
  * //
  * const input = {
- *   "caseId": "8403556009"
+ *   caseId: "8403556009"
  * };
  * const command = new GetCaseCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "actualIncidentStartDate": "2023-03-27T15:32:01.789Z",
- *   "caseArn": "arn:aws:security-ir:us-west-1:123456789012:case/1234567890",
- *   "caseStatus": "Submitted",
- *   "createdDate": "2023-01-27T15:32:01.789Z",
- *   "description": "Case description",
- *   "engagementType": "Investigation",
- *   "impactedAccounts": [
+ *   actualIncidentStartDate: "2023-03-27T15:32:01.789Z",
+ *   caseArn: "arn:aws:security-ir:us-west-1:123456789012:case/1234567890",
+ *   caseStatus: "Submitted",
+ *   createdDate: "2023-01-27T15:32:01.789Z",
+ *   description: "Case description",
+ *   engagementType: "Investigation",
+ *   impactedAccounts: [
  *     "000000000000",
  *     "111111111111"
  *   ],
- *   "impactedAwsRegions": [
+ *   impactedAwsRegions: [
  *     {
- *       "region": "ap-southeast-1"
+ *       region: "ap-southeast-1"
  *     }
  *   ],
- *   "impactedServices": [
+ *   impactedServices: [
  *     "Amazon EC2",
  *     "Amazon EKS"
  *   ],
- *   "lastUpdatedDate": "2023-02-27T15:32:01.789Z",
- *   "pendingAction": "Customer",
- *   "reportedIncidentStartDate": "2023-03-27T15:32:01.789Z",
- *   "resolverType": "Self",
- *   "threatActorIpAddresses": [
+ *   lastUpdatedDate: "2023-02-27T15:32:01.789Z",
+ *   pendingAction: "Customer",
+ *   reportedIncidentStartDate: "2023-03-27T15:32:01.789Z",
+ *   resolverType: "Self",
+ *   threatActorIpAddresses: [
  *     {
- *       "ipAddress": "192.168.192.168",
- *       "userAgent": "Browser"
+ *       ipAddress: "192.168.192.168",
+ *       userAgent: "Browser"
  *     }
  *   ],
- *   "title": "My sample case",
- *   "watchers": [
+ *   title: "My sample case",
+ *   watchers: [
  *     {
- *       "name": "Alice",
- *       "email": "alice@example.com",
- *       "jobTitle": "CEO"
+ *       email: "alice@example.com",
+ *       jobTitle: "CEO",
+ *       name: "Alice"
  *     },
  *     {
- *       "name": "Bob",
- *       "email": "bob@example.com",
- *       "jobTitle": "CFO"
+ *       email: "bob@example.com",
+ *       jobTitle: "CFO",
+ *       name: "Bob"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetCaseCommand extends $Command
   .classBuilder<

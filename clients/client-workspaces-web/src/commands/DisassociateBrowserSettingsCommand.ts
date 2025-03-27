@@ -76,6 +76,7 @@ export interface DisassociateBrowserSettingsCommandOutput
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class DisassociateBrowserSettingsCommand extends $Command

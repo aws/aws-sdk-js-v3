@@ -56,6 +56,7 @@ export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropert
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  */
 export class SimpleScalarPropertiesCommand extends $Command
   .classBuilder<

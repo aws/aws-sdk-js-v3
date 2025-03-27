@@ -110,6 +110,7 @@ export interface DeleteBackendAPICommandOutput extends DeleteBackendAPIResponse,
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ *
  * @public
  */
 export class DeleteBackendAPICommand extends $Command

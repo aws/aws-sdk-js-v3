@@ -90,6 +90,7 @@ export interface ListFeaturesCommandOutput extends ListFeaturesResponse, __Metad
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ *
  * @public
  */
 export class ListFeaturesCommand extends $Command

@@ -106,6 +106,7 @@ export interface GetMemberCommandOutput extends GetMemberOutput, __MetadataBeare
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class GetMemberCommand extends $Command

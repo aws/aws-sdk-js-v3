@@ -75,6 +75,7 @@ export interface UpdateRulesOfIpGroupCommandOutput extends UpdateRulesOfIpGroupR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class UpdateRulesOfIpGroupCommand extends $Command

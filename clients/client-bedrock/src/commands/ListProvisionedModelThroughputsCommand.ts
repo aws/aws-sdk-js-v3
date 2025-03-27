@@ -96,6 +96,7 @@ export interface ListProvisionedModelThroughputsCommandOutput
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class ListProvisionedModelThroughputsCommand extends $Command

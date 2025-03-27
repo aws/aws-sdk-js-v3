@@ -91,6 +91,7 @@ export interface GetTrustAnchorCommandOutput extends TrustAnchorDetailResponse, 
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ *
  * @public
  */
 export class GetTrustAnchorCommand extends $Command

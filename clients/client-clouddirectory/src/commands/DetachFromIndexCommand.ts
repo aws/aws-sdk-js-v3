@@ -92,29 +92,29 @@ export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, _
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To detach an object from an index
  * ```javascript
  * //
  * const input = {
- *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
- *   "IndexReference": {
- *     "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TW45F26R1HTY2z-stwKBte_Q"
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   IndexReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TW45F26R1HTY2z-stwKBte_Q"
  *   },
- *   "TargetReference": {
- *     "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *   TargetReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
  *   }
  * };
  * const command = new DetachFromIndexCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DetachedObjectIdentifier": "AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *   DetachedObjectIdentifier: "AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
  * }
  * *\/
- * // example id: to-detach-an-object-from-an-index-1507579662964
  * ```
  *
+ * @public
  */
 export class DetachFromIndexCommand extends $Command
   .classBuilder<

@@ -93,6 +93,7 @@ export interface GetEmailChannelCommandOutput extends GetEmailChannelResponse, _
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetEmailChannelCommand extends $Command

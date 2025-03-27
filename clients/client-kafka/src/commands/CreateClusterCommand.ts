@@ -186,6 +186,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class CreateClusterCommand extends $Command

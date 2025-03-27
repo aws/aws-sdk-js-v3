@@ -86,6 +86,7 @@ export interface RegisterTransitGatewayCommandOutput extends RegisterTransitGate
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class RegisterTransitGatewayCommand extends $Command

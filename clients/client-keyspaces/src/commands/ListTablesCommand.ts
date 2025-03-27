@@ -84,6 +84,7 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ *
  * @public
  */
 export class ListTablesCommand extends $Command

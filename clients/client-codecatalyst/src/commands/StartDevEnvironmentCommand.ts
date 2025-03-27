@@ -88,6 +88,7 @@ export interface StartDevEnvironmentCommandOutput extends StartDevEnvironmentRes
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class StartDevEnvironmentCommand extends $Command

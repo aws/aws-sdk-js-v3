@@ -141,6 +141,7 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ *
  * @public
  */
 export class GetTableCommand extends $Command

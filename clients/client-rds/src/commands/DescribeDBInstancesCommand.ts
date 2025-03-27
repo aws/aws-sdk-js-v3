@@ -299,36 +299,36 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe a DB instance
  * ```javascript
  * // The following example retrieves details about the specified DB instance.
  * const input = {
- *   "DBInstanceIdentifier": "mydbinstancecf"
+ *   DBInstanceIdentifier: "mydbinstancecf"
  * };
  * const command = new DescribeDBInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstances": [
+ *   DBInstances: [
  *     {
- *       "DBInstanceClass": "db.t3.small",
- *       "DBInstanceIdentifier": "mydbinstancecf",
- *       "DBInstanceStatus": "available",
- *       "Endpoint": {
- *         "Address": "mydbinstancecf.abcexample.us-east-1.rds.amazonaws.com",
- *         "HostedZoneId": "Z2R2ITUGPM61AM",
- *         "Port": 3306
+ *       DBInstanceClass: "db.t3.small",
+ *       DBInstanceIdentifier: "mydbinstancecf",
+ *       DBInstanceStatus: "available",
+ *       Endpoint: {
+ *         Address: "mydbinstancecf.abcexample.us-east-1.rds.amazonaws.com",
+ *         HostedZoneId: "Z2R2ITUGPM61AM",
+ *         Port: 3306
  *       },
- *       "Engine": "mysql",
- *       "MasterUsername": "admin"
+ *       Engine: "mysql",
+ *       MasterUsername: "admin"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-a-db-instance-1680217544524
  * ```
  *
+ * @public
  */
 export class DescribeDBInstancesCommand extends $Command
   .classBuilder<

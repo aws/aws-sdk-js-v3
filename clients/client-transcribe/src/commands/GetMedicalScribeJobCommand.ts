@@ -120,6 +120,7 @@ export interface GetMedicalScribeJobCommandOutput extends GetMedicalScribeJobRes
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class GetMedicalScribeJobCommand extends $Command

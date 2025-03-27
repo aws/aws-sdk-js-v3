@@ -85,6 +85,7 @@ export interface UpdateWorldTemplateCommandOutput extends UpdateWorldTemplateRes
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateWorldTemplateCommand extends $Command

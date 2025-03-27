@@ -132,6 +132,7 @@ export interface GetAgentVersionCommandOutput extends GetAgentVersionResponse, _
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class GetAgentVersionCommand extends $Command

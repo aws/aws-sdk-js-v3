@@ -107,31 +107,31 @@ export interface ListAttachedIndicesCommandOutput extends ListAttachedIndicesRes
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To list the indices attached to an object
  * ```javascript
  * //
  * const input = {
- *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
- *   "TargetReference": {
- *     "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   TargetReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
  *   }
  * };
  * const command = new ListAttachedIndicesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "IndexAttachments": [
+ *   IndexAttachments: [
  *     {
- *       "IndexedAttributes": [],
- *       "ObjectIdentifier": "AQGG_ADlfNZBzYHY_JgDt3TW45F26R1HTY2z-stwKBte_Q"
+ *       IndexedAttributes:       [],
+ *       ObjectIdentifier: "AQGG_ADlfNZBzYHY_JgDt3TW45F26R1HTY2z-stwKBte_Q"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-the-indices-attached-to-an-object-1507579868633
  * ```
  *
+ * @public
  */
 export class ListAttachedIndicesCommand extends $Command
   .classBuilder<

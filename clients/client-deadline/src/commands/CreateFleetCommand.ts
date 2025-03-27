@@ -185,6 +185,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class CreateFleetCommand extends $Command

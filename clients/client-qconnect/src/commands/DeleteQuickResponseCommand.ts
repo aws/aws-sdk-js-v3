@@ -63,6 +63,7 @@ export interface DeleteQuickResponseCommandOutput extends DeleteQuickResponseRes
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class DeleteQuickResponseCommand extends $Command

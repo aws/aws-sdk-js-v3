@@ -84,6 +84,7 @@ export interface ListDeviceResourcesCommandOutput extends ListDeviceResourcesOut
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ *
  * @public
  */
 export class ListDeviceResourcesCommand extends $Command

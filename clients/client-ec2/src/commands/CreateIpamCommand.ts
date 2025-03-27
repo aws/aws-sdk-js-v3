@@ -107,6 +107,7 @@ export interface CreateIpamCommandOutput extends CreateIpamResult, __MetadataBea
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class CreateIpamCommand extends $Command

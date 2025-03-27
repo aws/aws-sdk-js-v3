@@ -136,6 +136,7 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeSecurityProfileCommand extends $Command

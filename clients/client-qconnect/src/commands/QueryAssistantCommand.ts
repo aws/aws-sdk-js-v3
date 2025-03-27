@@ -257,6 +257,7 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class QueryAssistantCommand extends $Command

@@ -95,6 +95,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class GetQueryResultsCommand extends $Command

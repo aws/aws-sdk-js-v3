@@ -66,27 +66,27 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example ListTagsForResource Example
  * ```javascript
  * // This demonstrates calling the ListTagsForResource action.
  * const input = {
- *   "resourceArn": "arn:aws:batch:us-east-1:123456789012:job-definition/sleep30:1"
+ *   resourceArn: "arn:aws:batch:us-east-1:123456789012:job-definition/sleep30:1"
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "tags": {
- *     "Department": "Engineering",
- *     "Stage": "Alpha",
- *     "User": "JaneDoe"
+ *   tags: {
+ *     Department: "Engineering",
+ *     Stage: "Alpha",
+ *     User: "JaneDoe"
  *   }
  * }
  * *\/
- * // example id: listtagsforresource-example-1591293003710
  * ```
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

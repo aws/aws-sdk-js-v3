@@ -72,6 +72,7 @@ export interface CreatePresignedNotebookUrlCommandOutput extends CreatePresigned
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class CreatePresignedNotebookUrlCommand extends $Command

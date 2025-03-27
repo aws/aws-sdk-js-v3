@@ -69,6 +69,7 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ *
  * @public
  */
 export class ListTagsCommand extends $Command

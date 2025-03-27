@@ -121,24 +121,24 @@ export interface DeleteSqlInjectionMatchSetCommandOutput extends DeleteSqlInject
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To delete a SQL injection match set
  * ```javascript
  * // The following example deletes a SQL injection match set  with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "SqlInjectionMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   SqlInjectionMatchSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
  * };
  * const command = new DeleteSqlInjectionMatchSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: deletesqlinjectionmatchset-1474493373197
  * ```
  *
+ * @public
  */
 export class DeleteSqlInjectionMatchSetCommand extends $Command
   .classBuilder<

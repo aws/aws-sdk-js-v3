@@ -70,6 +70,7 @@ export interface GetSpritesCommandOutput extends GetSpritesCommandOutputType, __
  * @throws {@link GeoMapsServiceException}
  * <p>Base exception class for all service exceptions from GeoMaps service.</p>
  *
+ *
  * @public
  */
 export class GetSpritesCommand extends $Command

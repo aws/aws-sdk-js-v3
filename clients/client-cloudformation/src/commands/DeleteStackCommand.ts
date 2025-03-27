@@ -66,6 +66,7 @@ export interface DeleteStackCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DeleteStackCommand extends $Command

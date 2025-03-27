@@ -65,6 +65,7 @@ export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput,
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class RegisterPublisherCommand extends $Command

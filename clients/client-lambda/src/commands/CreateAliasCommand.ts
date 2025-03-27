@@ -92,30 +92,30 @@ export interface CreateAliasCommandOutput extends AliasConfiguration, __Metadata
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To create an alias for a Lambda function
  * ```javascript
  * // The following example creates an alias named LIVE that points to version 1 of the my-function Lambda function.
  * const input = {
- *   "Description": "alias for live version of function",
- *   "FunctionName": "my-function",
- *   "FunctionVersion": "1",
- *   "Name": "LIVE"
+ *   Description: "alias for live version of function",
+ *   FunctionName: "my-function",
+ *   FunctionVersion: "1",
+ *   Name: "LIVE"
  * };
  * const command = new CreateAliasCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AliasArn": "arn:aws:lambda:us-east-2:123456789012:function:my-function:LIVE",
- *   "Description": "alias for live version of function",
- *   "FunctionVersion": "1",
- *   "Name": "LIVE",
- *   "RevisionId": "873282ed-xmpl-4dc8-a069-d0c647e470c6"
+ *   AliasArn: "arn:aws:lambda:us-east-2:123456789012:function:my-function:LIVE",
+ *   Description: "alias for live version of function",
+ *   FunctionVersion: "1",
+ *   Name: "LIVE",
+ *   RevisionId: "873282ed-xmpl-4dc8-a069-d0c647e470c6"
  * }
  * *\/
- * // example id: to-create-an-alias-for-a-lambda-function-1586480324259
  * ```
  *
+ * @public
  */
 export class CreateAliasCommand extends $Command
   .classBuilder<

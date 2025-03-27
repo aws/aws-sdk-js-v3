@@ -120,6 +120,7 @@ export interface ListKxDataviewsCommandOutput extends ListKxDataviewsResponse, _
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class ListKxDataviewsCommand extends $Command

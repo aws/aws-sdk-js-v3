@@ -113,6 +113,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class DescribeImagesCommand extends $Command

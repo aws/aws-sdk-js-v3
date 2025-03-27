@@ -135,6 +135,7 @@ export interface UpdateServicePipelineCommandOutput extends UpdateServicePipelin
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class UpdateServicePipelineCommand extends $Command

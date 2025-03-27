@@ -104,6 +104,7 @@ export interface ModifyEndpointAccessCommandOutput extends EndpointAccess, __Met
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class ModifyEndpointAccessCommand extends $Command

@@ -85,6 +85,7 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ *
  * @public
  */
 export class ListDeploymentsCommand extends $Command

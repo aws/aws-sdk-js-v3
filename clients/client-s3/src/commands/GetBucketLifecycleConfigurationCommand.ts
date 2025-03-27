@@ -216,35 +216,35 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To get lifecycle configuration on a bucket
  * ```javascript
  * // The following example retrieves lifecycle configuration on set on a bucket.
  * const input = {
- *   "Bucket": "examplebucket"
+ *   Bucket: "examplebucket"
  * };
  * const command = new GetBucketLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Rules": [
+ *   Rules: [
  *     {
- *       "ID": "Rule for TaxDocs/",
- *       "Prefix": "TaxDocs",
- *       "Status": "Enabled",
- *       "Transitions": [
+ *       ID: "Rule for TaxDocs/",
+ *       Prefix: "TaxDocs",
+ *       Status: "Enabled",
+ *       Transitions: [
  *         {
- *           "Days": 365,
- *           "StorageClass": "STANDARD_IA"
+ *           Days: 365,
+ *           StorageClass: "STANDARD_IA"
  *         }
  *       ]
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-lifecycle-configuration-on-a-bucket-1481666063200
  * ```
  *
+ * @public
  */
 export class GetBucketLifecycleConfigurationCommand extends $Command
   .classBuilder<

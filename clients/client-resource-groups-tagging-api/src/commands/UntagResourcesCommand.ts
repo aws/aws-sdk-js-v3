@@ -135,6 +135,7 @@ export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __Met
  * @throws {@link ResourceGroupsTaggingAPIServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
+ *
  * @public
  */
 export class UntagResourcesCommand extends $Command

@@ -54,6 +54,7 @@ export interface NullOperationCommandOutput extends NullOperationInputOutput, __
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  */
 export class NullOperationCommand extends $Command
   .classBuilder<

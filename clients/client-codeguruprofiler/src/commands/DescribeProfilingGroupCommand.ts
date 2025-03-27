@@ -92,6 +92,7 @@ export interface DescribeProfilingGroupCommandOutput extends DescribeProfilingGr
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ *
  * @public
  */
 export class DescribeProfilingGroupCommand extends $Command

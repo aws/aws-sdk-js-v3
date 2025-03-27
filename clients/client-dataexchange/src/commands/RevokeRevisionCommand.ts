@@ -86,6 +86,7 @@ export interface RevokeRevisionCommandOutput extends RevokeRevisionResponse, __M
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class RevokeRevisionCommand extends $Command

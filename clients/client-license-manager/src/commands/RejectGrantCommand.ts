@@ -79,6 +79,7 @@ export interface RejectGrantCommandOutput extends RejectGrantResponse, __Metadat
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class RejectGrantCommand extends $Command

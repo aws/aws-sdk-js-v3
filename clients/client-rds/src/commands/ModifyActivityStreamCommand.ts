@@ -75,6 +75,7 @@ export interface ModifyActivityStreamCommandOutput extends ModifyActivityStreamR
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class ModifyActivityStreamCommand extends $Command

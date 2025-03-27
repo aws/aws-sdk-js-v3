@@ -148,6 +148,7 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput,
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeChangeSetCommand extends $Command

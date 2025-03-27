@@ -119,6 +119,7 @@ export interface CancelEnvironmentDeploymentCommandOutput extends CancelEnvironm
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class CancelEnvironmentDeploymentCommand extends $Command

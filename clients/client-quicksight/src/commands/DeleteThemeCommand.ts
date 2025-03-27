@@ -87,6 +87,7 @@ export interface DeleteThemeCommandOutput extends DeleteThemeResponse, __Metadat
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DeleteThemeCommand extends $Command

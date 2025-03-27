@@ -195,27 +195,27 @@ export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganiz
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To get information about an organizational unit
  * ```javascript
  * // The following example shows how to request details about an OU:
  * const input = {
- *   "OrganizationalUnitId": "ou-examplerootid111-exampleouid111"
+ *   OrganizationalUnitId: "ou-examplerootid111-exampleouid111"
  * };
  * const command = new DescribeOrganizationalUnitCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OrganizationalUnit": {
- *     "Arn": "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
- *     "Id": "ou-examplerootid111-exampleouid111",
- *     "Name": "Accounting Group"
+ *   OrganizationalUnit: {
+ *     Arn: "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
+ *     Id: "ou-examplerootid111-exampleouid111",
+ *     Name: "Accounting Group"
  *   }
  * }
  * *\/
- * // example id: to-get-information-about-an-organizational-unit
  * ```
  *
+ * @public
  */
 export class DescribeOrganizationalUnitCommand extends $Command
   .classBuilder<

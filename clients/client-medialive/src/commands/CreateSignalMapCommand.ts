@@ -147,6 +147,7 @@ export interface CreateSignalMapCommandOutput extends CreateSignalMapResponse, _
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class CreateSignalMapCommand extends $Command

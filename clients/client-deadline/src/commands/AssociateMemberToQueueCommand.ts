@@ -78,6 +78,7 @@ export interface AssociateMemberToQueueCommandOutput extends AssociateMemberToQu
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class AssociateMemberToQueueCommand extends $Command

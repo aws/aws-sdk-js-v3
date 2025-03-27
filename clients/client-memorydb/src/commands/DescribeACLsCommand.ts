@@ -85,6 +85,7 @@ export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __Metad
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeACLsCommand extends $Command

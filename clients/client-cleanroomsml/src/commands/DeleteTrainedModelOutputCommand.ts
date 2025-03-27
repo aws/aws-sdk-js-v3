@@ -66,6 +66,7 @@ export interface DeleteTrainedModelOutputCommandOutput extends __MetadataBearer 
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ *
  * @public
  */
 export class DeleteTrainedModelOutputCommand extends $Command

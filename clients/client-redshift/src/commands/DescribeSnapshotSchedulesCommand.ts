@@ -91,6 +91,7 @@ export interface DescribeSnapshotSchedulesCommandOutput
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeSnapshotSchedulesCommand extends $Command

@@ -113,6 +113,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ *
  * @public
  */
 export class CreateRuleGroupCommand extends $Command

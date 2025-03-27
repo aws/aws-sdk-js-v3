@@ -108,6 +108,7 @@ export interface UpdateStreamProcessorCommandOutput extends UpdateStreamProcesso
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ *
  * @public
  */
 export class UpdateStreamProcessorCommand extends $Command

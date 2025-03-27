@@ -97,6 +97,7 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ *
  * @public
  */
 export class UpdateApplicationSettingsCommand extends $Command

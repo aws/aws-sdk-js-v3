@@ -95,6 +95,7 @@ export interface RemoveGroupMemberCommandOutput extends RemoveGroupMemberResult,
  * @throws {@link DirectoryServiceDataServiceException}
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
+ *
  * @public
  */
 export class RemoveGroupMemberCommand extends $Command

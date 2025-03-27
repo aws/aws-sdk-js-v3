@@ -124,48 +124,48 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe a DB snapshot for a DB instance
  * ```javascript
  * // The following example retrieves the details of a DB snapshot for a DB instance.
  * const input = {
- *   "DBSnapshotIdentifier": "mydbsnapshot"
+ *   DBSnapshotIdentifier: "mydbsnapshot"
  * };
  * const command = new DescribeDBSnapshotsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBSnapshots": [
+ *   DBSnapshots: [
  *     {
- *       "AllocatedStorage": 20,
- *       "AvailabilityZone": "us-east-1f",
- *       "DBInstanceIdentifier": "mysqldb",
- *       "DBSnapshotArn": "arn:aws:rds:us-east-1:123456789012:snapshot:mydbsnapshot",
- *       "DBSnapshotIdentifier": "mydbsnapshot",
- *       "DbiResourceId": "db-AKIAIOSFODNN7EXAMPLE",
- *       "Encrypted": false,
- *       "Engine": "mysql",
- *       "EngineVersion": "5.6.37",
- *       "IAMDatabaseAuthenticationEnabled": false,
- *       "InstanceCreateTime": "2018-02-08T22:24:55.973Z",
- *       "LicenseModel": "general-public-license",
- *       "MasterUsername": "mysqladmin",
- *       "OptionGroupName": "default:mysql-5-6",
- *       "PercentProgress": 100,
- *       "Port": 3306,
- *       "ProcessorFeatures": [],
- *       "SnapshotCreateTime": "2018-02-08T22:28:08.598Z",
- *       "SnapshotType": "manual",
- *       "Status": "available",
- *       "StorageType": "gp2",
- *       "VpcId": "vpc-6594f31c"
+ *       AllocatedStorage: 20,
+ *       AvailabilityZone: "us-east-1f",
+ *       DBInstanceIdentifier: "mysqldb",
+ *       DBSnapshotArn: "arn:aws:rds:us-east-1:123456789012:snapshot:mydbsnapshot",
+ *       DBSnapshotIdentifier: "mydbsnapshot",
+ *       DbiResourceId: "db-AKIAIOSFODNN7EXAMPLE",
+ *       Encrypted: false,
+ *       Engine: "mysql",
+ *       EngineVersion: "5.6.37",
+ *       IAMDatabaseAuthenticationEnabled: false,
+ *       InstanceCreateTime: "2018-02-08T22:24:55.973Z",
+ *       LicenseModel: "general-public-license",
+ *       MasterUsername: "mysqladmin",
+ *       OptionGroupName: "default:mysql-5-6",
+ *       PercentProgress: 100,
+ *       Port: 3306,
+ *       ProcessorFeatures:       [],
+ *       SnapshotCreateTime: "2018-02-08T22:28:08.598Z",
+ *       SnapshotType: "manual",
+ *       Status: "available",
+ *       StorageType: "gp2",
+ *       VpcId: "vpc-6594f31c"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-a-db-snapshot-for-a-db-instance-1680280423239
  * ```
  *
+ * @public
  */
 export class DescribeDBSnapshotsCommand extends $Command
   .classBuilder<

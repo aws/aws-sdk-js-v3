@@ -90,6 +90,7 @@ export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __M
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class ListPredictorsCommand extends $Command

@@ -74,6 +74,7 @@ export interface DeleteAccessLogSubscriptionCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class DeleteAccessLogSubscriptionCommand extends $Command

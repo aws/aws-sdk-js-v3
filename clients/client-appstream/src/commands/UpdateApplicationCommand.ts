@@ -102,6 +102,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationResult,
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class UpdateApplicationCommand extends $Command

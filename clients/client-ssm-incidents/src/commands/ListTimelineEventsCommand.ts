@@ -105,6 +105,7 @@ export interface ListTimelineEventsCommandOutput extends ListTimelineEventsOutpu
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ *
  * @public
  */
 export class ListTimelineEventsCommand extends $Command

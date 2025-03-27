@@ -67,6 +67,7 @@ export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensio
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class CancelSchemaExtensionCommand extends $Command

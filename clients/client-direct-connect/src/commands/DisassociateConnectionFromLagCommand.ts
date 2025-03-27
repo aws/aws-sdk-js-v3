@@ -107,6 +107,7 @@ export interface DisassociateConnectionFromLagCommandOutput extends Connection, 
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DisassociateConnectionFromLagCommand extends $Command

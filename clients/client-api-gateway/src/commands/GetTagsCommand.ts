@@ -71,6 +71,7 @@ export interface GetTagsCommandOutput extends Tags, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetTagsCommand extends $Command

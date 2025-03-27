@@ -91,6 +91,7 @@ export interface CreateRunGroupCommandOutput extends CreateRunGroupResponse, __M
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class CreateRunGroupCommand extends $Command

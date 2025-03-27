@@ -63,19 +63,22 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To delete a configuration template
  * ```javascript
  * // The following operation deletes a configuration template named my-template for an application named my-app:
  * const input = {
- *   "ApplicationName": "my-app",
- *   "TemplateName": "my-template"
+ *   ApplicationName: "my-app",
+ *   TemplateName: "my-template"
  * };
  * const command = new DeleteConfigurationTemplateCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-configuration-template-1456269836701
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteConfigurationTemplateCommand extends $Command
   .classBuilder<

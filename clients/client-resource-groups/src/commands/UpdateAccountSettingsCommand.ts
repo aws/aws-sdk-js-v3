@@ -79,6 +79,7 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class UpdateAccountSettingsCommand extends $Command

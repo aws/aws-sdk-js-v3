@@ -97,6 +97,7 @@ export interface DeleteConnectionCommandOutput extends Connection, __MetadataBea
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DeleteConnectionCommand extends $Command

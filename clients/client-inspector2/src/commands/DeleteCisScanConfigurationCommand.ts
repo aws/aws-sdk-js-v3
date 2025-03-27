@@ -71,6 +71,22 @@ export interface DeleteCisScanConfigurationCommandOutput extends DeleteCisScanCo
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
+ * @example Sample DeleteCisScanConfiguration Call
+ * ```javascript
+ * //
+ * const input = {
+ *   scanConfigurationArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-configuration/624b746d-e080-44ae-8c1d-48e653365a38"
+ * };
+ * const command = new DeleteCisScanConfigurationCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   scanConfigurationArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-configuration/624b746d-e080-44ae-8c1d-48e653365a38"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteCisScanConfigurationCommand extends $Command

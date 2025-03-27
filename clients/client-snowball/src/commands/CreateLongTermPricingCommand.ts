@@ -63,6 +63,7 @@ export interface CreateLongTermPricingCommandOutput extends CreateLongTermPricin
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ *
  * @public
  */
 export class CreateLongTermPricingCommand extends $Command

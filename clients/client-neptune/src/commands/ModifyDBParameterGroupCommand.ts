@@ -97,6 +97,7 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class ModifyDBParameterGroupCommand extends $Command

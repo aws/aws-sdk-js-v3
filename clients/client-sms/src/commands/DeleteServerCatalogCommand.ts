@@ -64,6 +64,7 @@ export interface DeleteServerCatalogCommandOutput extends DeleteServerCatalogRes
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ *
  * @public
  */
 export class DeleteServerCatalogCommand extends $Command

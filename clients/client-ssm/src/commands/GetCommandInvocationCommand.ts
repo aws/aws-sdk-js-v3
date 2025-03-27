@@ -118,6 +118,7 @@ export interface GetCommandInvocationCommandOutput extends GetCommandInvocationR
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class GetCommandInvocationCommand extends $Command

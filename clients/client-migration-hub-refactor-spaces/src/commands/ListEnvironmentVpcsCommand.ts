@@ -91,6 +91,7 @@ export interface ListEnvironmentVpcsCommandOutput extends ListEnvironmentVpcsRes
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ *
  * @public
  */
 export class ListEnvironmentVpcsCommand extends $Command

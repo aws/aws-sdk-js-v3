@@ -83,6 +83,7 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ *
  * @public
  */
 export class ListOrganizationAdminAccountsCommand extends $Command

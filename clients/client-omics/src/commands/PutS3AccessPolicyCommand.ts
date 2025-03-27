@@ -81,6 +81,7 @@ export interface PutS3AccessPolicyCommandOutput extends PutS3AccessPolicyRespons
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class PutS3AccessPolicyCommand extends $Command

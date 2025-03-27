@@ -101,37 +101,37 @@ export interface GetSlotTypeCommandOutput extends GetSlotTypeResponse, __Metadat
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
- * @public
+ *
  * @example To get information about a slot type
  * ```javascript
  * // This example shows how to get information about a slot type.
  * const input = {
- *   "version": "$LATEST",
- *   "name": "DocPizzaCrustType"
+ *   name: "DocPizzaCrustType",
+ *   version: "$LATEST"
  * };
  * const command = new GetSlotTypeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "version": "$LATEST",
- *   "name": "DocPizzaCrustType",
- *   "checksum": "210b3d5a-90a3-4b22-ac7e-f50c2c71095f",
- *   "createdDate": 1494359274.403,
- *   "description": "Available crust types",
- *   "enumerationValues": [
+ *   checksum: "210b3d5a-90a3-4b22-ac7e-f50c2c71095f",
+ *   createdDate: 1.494359274403E9,
+ *   description: "Available crust types",
+ *   enumerationValues: [
  *     {
- *       "value": "thick"
+ *       value: "thick"
  *     },
  *     {
- *       "value": "thin"
+ *       value: "thin"
  *     }
  *   ],
- *   "lastUpdatedDate": 1494359274.403
+ *   lastUpdatedDate: 1.494359274403E9,
+ *   name: "DocPizzaCrustType",
+ *   version: "$LATEST"
  * }
  * *\/
- * // example id: to-get-information-about-a-slot-type-1494432961004
  * ```
  *
+ * @public
  */
 export class GetSlotTypeCommand extends $Command
   .classBuilder<

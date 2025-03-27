@@ -75,6 +75,7 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteTokenCommand extends $Command

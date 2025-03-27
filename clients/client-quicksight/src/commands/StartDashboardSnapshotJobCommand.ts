@@ -241,6 +241,7 @@ export interface StartDashboardSnapshotJobCommandOutput extends StartDashboardSn
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class StartDashboardSnapshotJobCommand extends $Command

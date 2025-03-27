@@ -78,6 +78,7 @@ export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryC
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DescribeDeliveryChannelsCommand extends $Command

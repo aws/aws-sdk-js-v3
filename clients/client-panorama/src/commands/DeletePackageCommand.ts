@@ -73,6 +73,7 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class DeletePackageCommand extends $Command

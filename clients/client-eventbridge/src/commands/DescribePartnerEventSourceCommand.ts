@@ -67,6 +67,7 @@ export interface DescribePartnerEventSourceCommandOutput extends DescribePartner
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class DescribePartnerEventSourceCommand extends $Command

@@ -361,77 +361,8 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
- * @public
- * @example To create a table
- * ```javascript
- * // This example creates a table named Music.
- * const input = {
- *   "AttributeDefinitions": [
- *     {
- *       "AttributeName": "Artist",
- *       "AttributeType": "S"
- *     },
- *     {
- *       "AttributeName": "SongTitle",
- *       "AttributeType": "S"
- *     }
- *   ],
- *   "KeySchema": [
- *     {
- *       "AttributeName": "Artist",
- *       "KeyType": "HASH"
- *     },
- *     {
- *       "AttributeName": "SongTitle",
- *       "KeyType": "RANGE"
- *     }
- *   ],
- *   "ProvisionedThroughput": {
- *     "ReadCapacityUnits": 5,
- *     "WriteCapacityUnits": 5
- *   },
- *   "TableName": "Music"
- * };
- * const command = new CreateTableCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TableDescription": {
- *     "AttributeDefinitions": [
- *       {
- *         "AttributeName": "Artist",
- *         "AttributeType": "S"
- *       },
- *       {
- *         "AttributeName": "SongTitle",
- *         "AttributeType": "S"
- *       }
- *     ],
- *     "CreationDateTime": "1421866952.062",
- *     "ItemCount": 0,
- *     "KeySchema": [
- *       {
- *         "AttributeName": "Artist",
- *         "KeyType": "HASH"
- *       },
- *       {
- *         "AttributeName": "SongTitle",
- *         "KeyType": "RANGE"
- *       }
- *     ],
- *     "ProvisionedThroughput": {
- *       "ReadCapacityUnits": 5,
- *       "WriteCapacityUnits": 5
- *     },
- *     "TableName": "Music",
- *     "TableSizeBytes": 0,
- *     "TableStatus": "CREATING"
- *   }
- * }
- * *\/
- * // example id: to-create-a-table-1476116291743
- * ```
  *
+ * @public
  */
 export class CreateTableCommand extends $Command
   .classBuilder<

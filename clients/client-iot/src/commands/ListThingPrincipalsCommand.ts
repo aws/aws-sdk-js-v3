@@ -81,6 +81,7 @@ export interface ListThingPrincipalsCommandOutput extends ListThingPrincipalsRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListThingPrincipalsCommand extends $Command

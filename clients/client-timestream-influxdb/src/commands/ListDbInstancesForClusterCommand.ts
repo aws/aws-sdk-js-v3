@@ -92,6 +92,7 @@ export interface ListDbInstancesForClusterCommandOutput extends ListDbInstancesF
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ *
  * @public
  */
 export class ListDbInstancesForClusterCommand extends $Command

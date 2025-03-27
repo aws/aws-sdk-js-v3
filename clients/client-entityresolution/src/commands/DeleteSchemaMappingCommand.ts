@@ -76,6 +76,7 @@ export interface DeleteSchemaMappingCommandOutput extends DeleteSchemaMappingOut
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ *
  * @public
  */
 export class DeleteSchemaMappingCommand extends $Command

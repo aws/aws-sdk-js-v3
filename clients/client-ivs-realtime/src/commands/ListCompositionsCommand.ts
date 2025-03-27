@@ -94,6 +94,7 @@ export interface ListCompositionsCommandOutput extends ListCompositionsResponse,
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class ListCompositionsCommand extends $Command

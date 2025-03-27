@@ -165,6 +165,7 @@ export interface CreateImageBuilderCommandOutput extends CreateImageBuilderResul
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class CreateImageBuilderCommand extends $Command

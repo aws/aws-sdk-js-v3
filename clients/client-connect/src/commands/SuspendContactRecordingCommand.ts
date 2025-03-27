@@ -72,6 +72,7 @@ export interface SuspendContactRecordingCommandOutput extends SuspendContactReco
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class SuspendContactRecordingCommand extends $Command

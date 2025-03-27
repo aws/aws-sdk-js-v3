@@ -78,6 +78,7 @@ export interface DeleteAppInstanceBotCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ *
  * @public
  */
 export class DeleteAppInstanceBotCommand extends $Command

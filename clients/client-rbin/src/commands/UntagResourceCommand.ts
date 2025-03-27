@@ -65,6 +65,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link RbinServiceException}
  * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

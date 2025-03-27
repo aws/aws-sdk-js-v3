@@ -76,6 +76,7 @@ export interface DeleteStorageLensConfigurationTaggingCommandOutput
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class DeleteStorageLensConfigurationTaggingCommand extends $Command

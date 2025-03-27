@@ -106,6 +106,7 @@ export interface GetIdentityResolutionJobCommandOutput extends GetIdentityResolu
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class GetIdentityResolutionJobCommand extends $Command

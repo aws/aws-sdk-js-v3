@@ -77,6 +77,7 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class DeleteEventSubscriptionCommand extends $Command

@@ -247,33 +247,33 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
- * @public
+ *
  * @example To update an IP set
  * ```javascript
  * // The following example deletes an IPSetDescriptor object in an IP match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "IPSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
- *   "Updates": [
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   IPSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *   Updates: [
  *     {
- *       "Action": "DELETE",
- *       "IPSetDescriptor": {
- *         "Type": "IPV4",
- *         "Value": "192.0.2.44/32"
+ *       Action: "DELETE",
+ *       IPSetDescriptor: {
+ *         Type: "IPV4",
+ *         Value: "192.0.2.44/32"
  *       }
  *     }
  *   ]
  * };
  * const command = new UpdateIPSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: updateipset-1475259733625
  * ```
  *
+ * @public
  */
 export class UpdateIPSetCommand extends $Command
   .classBuilder<

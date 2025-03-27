@@ -166,6 +166,7 @@ export interface DescribeAppAssessmentCommandOutput extends DescribeAppAssessmen
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class DescribeAppAssessmentCommand extends $Command

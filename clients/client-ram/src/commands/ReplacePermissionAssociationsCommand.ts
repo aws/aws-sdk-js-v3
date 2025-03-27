@@ -116,6 +116,7 @@ export interface ReplacePermissionAssociationsCommandOutput
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ *
  * @public
  */
 export class ReplacePermissionAssociationsCommand extends $Command

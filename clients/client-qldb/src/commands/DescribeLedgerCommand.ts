@@ -72,6 +72,7 @@ export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __M
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeLedgerCommand extends $Command

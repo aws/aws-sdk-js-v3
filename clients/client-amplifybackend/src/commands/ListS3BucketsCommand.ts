@@ -73,6 +73,7 @@ export interface ListS3BucketsCommandOutput extends ListS3BucketsResponse, __Met
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ *
  * @public
  */
 export class ListS3BucketsCommand extends $Command

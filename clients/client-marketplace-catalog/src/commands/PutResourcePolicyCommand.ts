@@ -79,6 +79,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ *
  * @public
  */
 export class PutResourcePolicyCommand extends $Command

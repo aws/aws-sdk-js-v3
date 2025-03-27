@@ -224,60 +224,60 @@ export interface DescribeHandshakeCommandOutput extends DescribeHandshakeRespons
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To get information about a handshake
  * ```javascript
  * // The following example shows you how to request details about a handshake. The handshake ID comes either from the original call to "InviteAccountToOrganization", or from a call to "ListHandshakesForAccount" or "ListHandshakesForOrganization":
  * const input = {
- *   "HandshakeId": "h-examplehandshakeid111"
+ *   HandshakeId: "h-examplehandshakeid111"
  * };
  * const command = new DescribeHandshakeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Handshake": {
- *     "Action": "INVITE",
- *     "Arn": "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
- *     "ExpirationTimestamp": "2016-11-30T17:24:58.046Z",
- *     "Id": "h-examplehandshakeid111",
- *     "Parties": [
+ *   Handshake: {
+ *     Action: "INVITE",
+ *     Arn: "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
+ *     ExpirationTimestamp: "2016-11-30T17:24:58.046Z",
+ *     Id: "h-examplehandshakeid111",
+ *     Parties: [
  *       {
- *         "Id": "o-exampleorgid",
- *         "Type": "ORGANIZATION"
+ *         Id: "o-exampleorgid",
+ *         Type: "ORGANIZATION"
  *       },
  *       {
- *         "Id": "333333333333",
- *         "Type": "ACCOUNT"
+ *         Id: "333333333333",
+ *         Type: "ACCOUNT"
  *       }
  *     ],
- *     "RequestedTimestamp": "2016-11-30T17:24:58.046Z",
- *     "Resources": [
+ *     RequestedTimestamp: "2016-11-30T17:24:58.046Z",
+ *     Resources: [
  *       {
- *         "Resources": [
+ *         Resources: [
  *           {
- *             "Type": "MASTER_EMAIL",
- *             "Value": "bill@example.com"
+ *             Type: "MASTER_EMAIL",
+ *             Value: "bill@example.com"
  *           },
  *           {
- *             "Type": "MASTER_NAME",
- *             "Value": "Master Account"
+ *             Type: "MASTER_NAME",
+ *             Value: "Master Account"
  *           }
  *         ],
- *         "Type": "ORGANIZATION",
- *         "Value": "o-exampleorgid"
+ *         Type: "ORGANIZATION",
+ *         Value: "o-exampleorgid"
  *       },
  *       {
- *         "Type": "ACCOUNT",
- *         "Value": "333333333333"
+ *         Type: "ACCOUNT",
+ *         Value: "333333333333"
  *       }
  *     ],
- *     "State": "OPEN"
+ *     State: "OPEN"
  *   }
  * }
  * *\/
- * // example id: to-get-information-about-a-handshake-1472503400505
  * ```
  *
+ * @public
  */
 export class DescribeHandshakeCommand extends $Command
   .classBuilder<

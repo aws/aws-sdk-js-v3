@@ -95,25 +95,25 @@ export interface EnableOrganizationsRootSessionsCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To enable the RootSessions feature in your organization
  * ```javascript
  * // The following command allows the management account or delegated administrator to perform privileged tasks on member accounts in your organization.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new EnableOrganizationsRootSessionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EnabledFeatures": [
+ *   EnabledFeatures: [
  *     "RootCredentialsManagement",
  *     "RootSessions"
  *   ],
- *   "OrganizationId": "o-aa111bb222"
+ *   OrganizationId: "o-aa111bb222"
  * }
  * *\/
- * // example id: to-enable-the-rootsessions-feature-in-your-organization-1730908736611
  * ```
  *
+ * @public
  */
 export class EnableOrganizationsRootSessionsCommand extends $Command
   .classBuilder<

@@ -85,6 +85,7 @@ export interface GetQualificationScoreCommandOutput extends GetQualificationScor
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class GetQualificationScoreCommand extends $Command

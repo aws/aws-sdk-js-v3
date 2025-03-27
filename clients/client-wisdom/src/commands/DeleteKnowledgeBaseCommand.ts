@@ -76,6 +76,7 @@ export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseRes
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class DeleteKnowledgeBaseCommand extends $Command

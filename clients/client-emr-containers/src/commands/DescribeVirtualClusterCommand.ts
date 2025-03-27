@@ -88,6 +88,7 @@ export interface DescribeVirtualClusterCommandOutput extends DescribeVirtualClus
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ *
  * @public
  */
 export class DescribeVirtualClusterCommand extends $Command

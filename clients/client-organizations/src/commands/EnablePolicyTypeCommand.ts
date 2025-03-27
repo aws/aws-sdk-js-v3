@@ -430,34 +430,34 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To enable a policy type in a root
  * ```javascript
  * // The following example shows how to enable the service control policy (SCP) policy type in a root. The output shows a root object with a PolicyTypes response element showing that SCPs are now enabled:/n/n
  * const input = {
- *   "PolicyType": "SERVICE_CONTROL_POLICY",
- *   "RootId": "r-examplerootid111"
+ *   PolicyType: "SERVICE_CONTROL_POLICY",
+ *   RootId: "r-examplerootid111"
  * };
  * const command = new EnablePolicyTypeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Root": {
- *     "Arn": "arn:aws:organizations::111111111111:root/o-exampleorgid/r-examplerootid111",
- *     "Id": "r-examplerootid111",
- *     "Name": "Root",
- *     "PolicyTypes": [
+ *   Root: {
+ *     Arn: "arn:aws:organizations::111111111111:root/o-exampleorgid/r-examplerootid111",
+ *     Id: "r-examplerootid111",
+ *     Name: "Root",
+ *     PolicyTypes: [
  *       {
- *         "Status": "ENABLED",
- *         "Type": "SERVICE_CONTROL_POLICY"
+ *         Status: "ENABLED",
+ *         Type: "SERVICE_CONTROL_POLICY"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: to-enable-a-policy-type-in-a-root
  * ```
  *
+ * @public
  */
 export class EnablePolicyTypeCommand extends $Command
   .classBuilder<

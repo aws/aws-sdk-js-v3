@@ -90,6 +90,7 @@ export interface DescribeExclusionsCommandOutput extends DescribeExclusionsRespo
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ *
  * @public
  */
 export class DescribeExclusionsCommand extends $Command

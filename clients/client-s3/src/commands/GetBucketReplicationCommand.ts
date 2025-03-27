@@ -152,35 +152,35 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To get replication configuration set on a bucket
  * ```javascript
  * // The following example returns replication configuration set on a bucket.
  * const input = {
- *   "Bucket": "examplebucket"
+ *   Bucket: "examplebucket"
  * };
  * const command = new GetBucketReplicationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReplicationConfiguration": {
- *     "Role": "arn:aws:iam::acct-id:role/example-role",
- *     "Rules": [
+ *   ReplicationConfiguration: {
+ *     Role: "arn:aws:iam::acct-id:role/example-role",
+ *     Rules: [
  *       {
- *         "Destination": {
- *           "Bucket": "arn:aws:s3:::destination-bucket"
+ *         Destination: {
+ *           Bucket: "arn:aws:s3:::destination-bucket"
  *         },
- *         "ID": "MWIwNTkwZmItMTE3MS00ZTc3LWJkZDEtNzRmODQwYzc1OTQy",
- *         "Prefix": "Tax",
- *         "Status": "Enabled"
+ *         ID: "MWIwNTkwZmItMTE3MS00ZTc3LWJkZDEtNzRmODQwYzc1OTQy",
+ *         Prefix: "Tax",
+ *         Status: "Enabled"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: to-get-replication-configuration-set-on-a-bucket-1481593597175
  * ```
  *
+ * @public
  */
 export class GetBucketReplicationCommand extends $Command
   .classBuilder<

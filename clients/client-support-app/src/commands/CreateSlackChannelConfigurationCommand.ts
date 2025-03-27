@@ -128,6 +128,7 @@ export interface CreateSlackChannelConfigurationCommandOutput
  * @throws {@link SupportAppServiceException}
  * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
+ *
  * @public
  */
 export class CreateSlackChannelConfigurationCommand extends $Command

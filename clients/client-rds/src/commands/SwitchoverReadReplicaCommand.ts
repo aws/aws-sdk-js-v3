@@ -287,6 +287,7 @@ export interface SwitchoverReadReplicaCommandOutput extends SwitchoverReadReplic
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class SwitchoverReadReplicaCommand extends $Command

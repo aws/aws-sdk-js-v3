@@ -92,6 +92,7 @@ export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareO
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class UpdatePortfolioShareCommand extends $Command

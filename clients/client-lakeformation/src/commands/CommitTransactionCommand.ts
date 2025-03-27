@@ -73,6 +73,7 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class CommitTransactionCommand extends $Command

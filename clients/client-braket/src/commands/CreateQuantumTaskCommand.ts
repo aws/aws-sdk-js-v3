@@ -93,6 +93,7 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ *
  * @public
  */
 export class CreateQuantumTaskCommand extends $Command

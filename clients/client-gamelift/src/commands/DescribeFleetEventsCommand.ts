@@ -101,6 +101,7 @@ export interface DescribeFleetEventsCommandOutput extends DescribeFleetEventsOut
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class DescribeFleetEventsCommand extends $Command

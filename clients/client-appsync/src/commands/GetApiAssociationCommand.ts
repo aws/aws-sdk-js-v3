@@ -74,6 +74,7 @@ export interface GetApiAssociationCommandOutput extends GetApiAssociationRespons
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class GetApiAssociationCommand extends $Command

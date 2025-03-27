@@ -106,6 +106,7 @@ export interface UpdateBridgeOutputCommandOutput extends UpdateBridgeOutputRespo
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ *
  * @public
  */
 export class UpdateBridgeOutputCommand extends $Command

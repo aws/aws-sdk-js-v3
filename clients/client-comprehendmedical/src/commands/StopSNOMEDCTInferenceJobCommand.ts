@@ -77,6 +77,7 @@ export interface StopSNOMEDCTInferenceJobCommandOutput extends StopSNOMEDCTInfer
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ *
  * @public
  */
 export class StopSNOMEDCTInferenceJobCommand extends $Command

@@ -93,44 +93,44 @@ export interface DescribeConfigurationOptionsCommandOutput extends Configuration
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To view configuration options for an environment
  * ```javascript
  * // The following operation retrieves descriptions of all available configuration options for an environment named my-env:
  * const input = {
- *   "ApplicationName": "my-app",
- *   "EnvironmentName": "my-env"
+ *   ApplicationName: "my-app",
+ *   EnvironmentName: "my-env"
  * };
  * const command = new DescribeConfigurationOptionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Options": [
+ *   Options: [
  *     {
- *       "ChangeSeverity": "NoInterruption",
- *       "DefaultValue": "30",
- *       "MaxValue": 300,
- *       "MinValue": 5,
- *       "Name": "Interval",
- *       "Namespace": "aws:elb:healthcheck",
- *       "UserDefined": false,
- *       "ValueType": "Scalar"
+ *       ChangeSeverity: "NoInterruption",
+ *       DefaultValue: "30",
+ *       MaxValue: 300,
+ *       MinValue: 5,
+ *       Name: "Interval",
+ *       Namespace: "aws:elb:healthcheck",
+ *       UserDefined: false,
+ *       ValueType: "Scalar"
  *     },
  *     {
- *       "ChangeSeverity": "NoInterruption",
- *       "DefaultValue": "2000000",
- *       "MinValue": 0,
- *       "Name": "LowerThreshold",
- *       "Namespace": "aws:autoscaling:trigger",
- *       "UserDefined": false,
- *       "ValueType": "Scalar"
+ *       ChangeSeverity: "NoInterruption",
+ *       DefaultValue: "2000000",
+ *       MinValue: 0,
+ *       Name: "LowerThreshold",
+ *       Namespace: "aws:autoscaling:trigger",
+ *       UserDefined: false,
+ *       ValueType: "Scalar"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-view-configuration-options-for-an-environment-1456276763917
  * ```
  *
+ * @public
  */
 export class DescribeConfigurationOptionsCommand extends $Command
   .classBuilder<

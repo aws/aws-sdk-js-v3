@@ -85,28 +85,31 @@ export interface BatchCreateCategoryCommandOutput extends __MetadataBearer {}
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example Creates the categories for the library
  * ```javascript
  * //
  * const input = {
- *   "categories": [
+ *   categories: [
  *     {
- *       "id": "549abfe0-f5c4-45a2-bb9b-c05987a49c6d",
- *       "title": "HR"
+ *       id: "549abfe0-f5c4-45a2-bb9b-c05987a49c6d",
+ *       title: "HR"
  *     },
  *     {
- *       "id": "18cbebaa-196a-4aa5-a840-88d548e07f8f",
- *       "title": "Marketing"
+ *       id: "18cbebaa-196a-4aa5-a840-88d548e07f8f",
+ *       title: "Marketing"
  *     }
  *   ],
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
  * };
  * const command = new BatchCreateCategoryCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class BatchCreateCategoryCommand extends $Command
   .classBuilder<

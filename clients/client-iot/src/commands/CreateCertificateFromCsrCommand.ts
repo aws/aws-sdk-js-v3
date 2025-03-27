@@ -120,6 +120,7 @@ export interface CreateCertificateFromCsrCommandOutput extends CreateCertificate
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class CreateCertificateFromCsrCommand extends $Command

@@ -73,6 +73,7 @@ export interface StartConfigurationSessionCommandOutput extends StartConfigurati
  * @throws {@link AppConfigDataServiceException}
  * <p>Base exception class for all service exceptions from AppConfigData service.</p>
  *
+ *
  * @public
  */
 export class StartConfigurationSessionCommand extends $Command

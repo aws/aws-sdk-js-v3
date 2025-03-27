@@ -79,6 +79,7 @@ export interface ListPluginTypeMetadataCommandOutput extends ListPluginTypeMetad
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class ListPluginTypeMetadataCommand extends $Command

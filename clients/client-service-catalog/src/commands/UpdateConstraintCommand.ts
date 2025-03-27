@@ -73,6 +73,7 @@ export interface UpdateConstraintCommandOutput extends UpdateConstraintOutput, _
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class UpdateConstraintCommand extends $Command

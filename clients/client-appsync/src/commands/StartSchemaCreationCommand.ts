@@ -76,6 +76,7 @@ export interface StartSchemaCreationCommandOutput extends StartSchemaCreationRes
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class StartSchemaCreationCommand extends $Command

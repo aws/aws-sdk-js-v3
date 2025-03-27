@@ -81,6 +81,7 @@ export interface ListSignalCatalogsCommandOutput extends ListSignalCatalogsRespo
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class ListSignalCatalogsCommand extends $Command

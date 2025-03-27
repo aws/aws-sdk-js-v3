@@ -68,6 +68,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

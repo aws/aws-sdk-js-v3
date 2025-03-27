@@ -82,6 +82,7 @@ export interface GetDataAccessCommandOutput extends GetDataAccessResult, __Metad
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class GetDataAccessCommand extends $Command

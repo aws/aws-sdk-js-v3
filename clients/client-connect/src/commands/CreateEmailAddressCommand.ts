@@ -99,6 +99,7 @@ export interface CreateEmailAddressCommandOutput extends CreateEmailAddressRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateEmailAddressCommand extends $Command

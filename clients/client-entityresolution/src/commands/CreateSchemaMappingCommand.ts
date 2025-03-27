@@ -106,6 +106,7 @@ export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOut
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ *
  * @public
  */
 export class CreateSchemaMappingCommand extends $Command

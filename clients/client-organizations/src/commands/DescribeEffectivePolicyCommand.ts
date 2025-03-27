@@ -413,6 +413,7 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ *
  * @public
  */
 export class DescribeEffectivePolicyCommand extends $Command

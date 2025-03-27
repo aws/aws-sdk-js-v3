@@ -110,6 +110,7 @@ export interface CreateIdMappingTableCommandOutput extends CreateIdMappingTableO
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class CreateIdMappingTableCommand extends $Command

@@ -129,6 +129,7 @@ export interface ListOpenCypherQueriesCommandOutput extends ListOpenCypherQuerie
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class ListOpenCypherQueriesCommand extends $Command

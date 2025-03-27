@@ -67,18 +67,21 @@ export interface DescribeListenerAttributesCommandOutput extends DescribeListene
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example Describe listener attributes
  * ```javascript
  * // This example describes the attributes of the specified listener.
  * const input = {
- *   "ListenerArn": "aws:elasticloadbalancing:us-east-1:123456789012:listener/net/my-listener/73e2d6bc24d8a067/d5dc06411fa5bcea"
+ *   ListenerArn: "aws:elasticloadbalancing:us-east-1:123456789012:listener/net/my-listener/73e2d6bc24d8a067/d5dc06411fa5bcea"
  * };
  * const command = new DescribeListenerAttributesCommand(input);
- * await client.send(command);
- * // example id: describe-listener-attributes-1724874395194
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DescribeListenerAttributesCommand extends $Command
   .classBuilder<

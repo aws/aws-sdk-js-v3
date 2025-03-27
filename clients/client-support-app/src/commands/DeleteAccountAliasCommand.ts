@@ -62,6 +62,7 @@ export interface DeleteAccountAliasCommandOutput extends DeleteAccountAliasResul
  * @throws {@link SupportAppServiceException}
  * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
+ *
  * @public
  */
 export class DeleteAccountAliasCommand extends $Command

@@ -87,6 +87,7 @@ export interface JsonUnionsCommandOutput extends JsonUnionsOutput, __MetadataBea
  * @throws {@link JSONRPC10ServiceException}
  * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>
  *
+ *
  * @public
  */
 export class JsonUnionsCommand extends $Command

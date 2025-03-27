@@ -87,6 +87,7 @@ export interface GetParameterCommandOutput extends GetParameterResult, __Metadat
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class GetParameterCommand extends $Command

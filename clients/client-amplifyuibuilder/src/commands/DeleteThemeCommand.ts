@@ -64,6 +64,7 @@ export interface DeleteThemeCommandOutput extends __MetadataBearer {}
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class DeleteThemeCommand extends $Command

@@ -98,6 +98,7 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class GetUserCommand extends $Command

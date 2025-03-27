@@ -230,56 +230,56 @@ export interface CreateQAppCommandOutput extends CreateQAppOutput, __MetadataBea
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example A basic application with 1 text input card and 1 output card
  * ```javascript
  * //
  * const input = {
- *   "appDefinition": {
- *     "cards": [
+ *   appDefinition: {
+ *     cards: [
  *       {
- *         "textInput": {
- *           "type": "text-input",
- *           "id": "4cf94d96-8819-45c2-98cc-58c56b35c72f",
- *           "title": "Color Base"
+ *         textInput: {
+ *           id: "4cf94d96-8819-45c2-98cc-58c56b35c72f",
+ *           title: "Color Base",
+ *           type: "text-input"
  *         }
  *       },
  *       {
- *         "qQuery": {
- *           "type": "q-query",
- *           "id": "18870b94-1e63-40e0-8c12-669c90ac5acc",
- *           "prompt": "Recommend me a list of colors that go well with @4cf94d96-8819-45c2-98cc-58c56b35c72f",
- *           "title": "Recommended Palette"
+ *         qQuery: {
+ *           id: "18870b94-1e63-40e0-8c12-669c90ac5acc",
+ *           prompt: "Recommend me a list of colors that go well with @4cf94d96-8819-45c2-98cc-58c56b35c72f",
+ *           title: "Recommended Palette",
+ *           type: "q-query"
  *         }
  *       }
  *     ],
- *     "initialPrompt": "Create an app that recommend a list of colors based on input."
+ *     initialPrompt: "Create an app that recommend a list of colors based on input."
  *   },
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
- *   "title": "Color Palette Generator"
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   title: "Color Palette Generator"
  * };
  * const command = new CreateQAppCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "appArn": "arn:aws:qapps:us-west-2:123456789012:app/7212ff04-de7b-4831-bd80-45d6975ba1b0",
- *   "appId": "7212ff04-de7b-4831-bd80-45d6975ba1b0",
- *   "appVersion": 1,
- *   "createdAt": "2024-05-14T00:11:54.232Z",
- *   "createdBy": "a841e300-40c1-7062-fa34-5b46dadbbaac",
- *   "initialPrompt": "Create an app that recommend a list of colors based on input.",
- *   "requiredCapabilities": [
+ *   appArn: "arn:aws:qapps:us-west-2:123456789012:app/7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   appId: "7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   appVersion: 1,
+ *   createdAt: "2024-05-14T00:11:54.232Z",
+ *   createdBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *   initialPrompt: "Create an app that recommend a list of colors based on input.",
+ *   requiredCapabilities: [
  *     "CreatorMode"
  *   ],
- *   "status": "DRAFT",
- *   "title": "Color Palette Generator",
- *   "updatedAt": "2024-05-14T00:13:26.168Z",
- *   "updatedBy": "a841e300-40c1-7062-fa34-5b46dadbbaac"
+ *   status: "DRAFT",
+ *   title: "Color Palette Generator",
+ *   updatedAt: "2024-05-14T00:13:26.168Z",
+ *   updatedBy: "a841e300-40c1-7062-fa34-5b46dadbbaac"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class CreateQAppCommand extends $Command
   .classBuilder<

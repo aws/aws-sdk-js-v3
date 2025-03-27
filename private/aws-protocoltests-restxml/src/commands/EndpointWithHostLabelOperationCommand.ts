@@ -55,6 +55,7 @@ export interface EndpointWithHostLabelOperationCommandOutput extends __MetadataB
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class EndpointWithHostLabelOperationCommand extends $Command
   .classBuilder<

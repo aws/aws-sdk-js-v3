@@ -88,6 +88,7 @@ export interface ListApplicationDependenciesCommandOutput
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationDependenciesCommand extends $Command

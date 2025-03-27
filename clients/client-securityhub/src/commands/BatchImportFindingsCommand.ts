@@ -4414,54 +4414,54 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To import security findings from a third party provider to Security Hub
  * ```javascript
  * // The following example imports findings from a third party provider to Security Hub.
  * const input = {
- *   "Findings": [
+ *   Findings: [
  *     {
- *       "AwsAccountId": "123456789012",
- *       "CreatedAt": "2020-05-27T17:05:54.832Z",
- *       "Description": "Vulnerability in a CloudTrail trail",
- *       "FindingProviderFields": {
- *         "Severity": {
- *           "Label": "LOW",
- *           "Original": "10"
+ *       AwsAccountId: "123456789012",
+ *       CreatedAt: "2020-05-27T17:05:54.832Z",
+ *       Description: "Vulnerability in a CloudTrail trail",
+ *       FindingProviderFields: {
+ *         Severity: {
+ *           Label: "LOW",
+ *           Original: "10"
  *         },
- *         "Types": [
+ *         Types: [
  *           "Software and Configuration Checks/Vulnerabilities/CVE"
  *         ]
  *       },
- *       "GeneratorId": "TestGeneratorId",
- *       "Id": "Id1",
- *       "ProductArn": "arn:aws:securityhub:us-west-1:123456789012:product/123456789012/default",
- *       "Resources": [
+ *       GeneratorId: "TestGeneratorId",
+ *       Id: "Id1",
+ *       ProductArn: "arn:aws:securityhub:us-west-1:123456789012:product/123456789012/default",
+ *       Resources: [
  *         {
- *           "Id": "arn:aws:cloudtrail:us-west-1:123456789012:trail/TrailName",
- *           "Partition": "aws",
- *           "Region": "us-west-1",
- *           "Type": "AwsCloudTrailTrail"
+ *           Id: "arn:aws:cloudtrail:us-west-1:123456789012:trail/TrailName",
+ *           Partition: "aws",
+ *           Region: "us-west-1",
+ *           Type: "AwsCloudTrailTrail"
  *         }
  *       ],
- *       "SchemaVersion": "2018-10-08",
- *       "Title": "CloudTrail trail vulnerability",
- *       "UpdatedAt": "2020-06-02T16:05:54.832Z"
+ *       SchemaVersion: "2018-10-08",
+ *       Title: "CloudTrail trail vulnerability",
+ *       UpdatedAt: "2020-06-02T16:05:54.832Z"
  *     }
  *   ]
  * };
  * const command = new BatchImportFindingsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "FailedCount": 123,
- *   "FailedFindings": [],
- *   "SuccessCount": 123
+ *   FailedCount: 123,
+ *   FailedFindings:   [],
+ *   SuccessCount: 123
  * }
  * *\/
- * // example id: to-import-security-findings-from-a-third-party-provider-to-security-hub-1675090935260
  * ```
  *
+ * @public
  */
 export class BatchImportFindingsCommand extends $Command
   .classBuilder<

@@ -89,6 +89,7 @@ export interface ListGuardrailsCommandOutput extends ListGuardrailsResponse, __M
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class ListGuardrailsCommand extends $Command

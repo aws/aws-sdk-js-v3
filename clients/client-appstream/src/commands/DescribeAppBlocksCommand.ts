@@ -104,6 +104,7 @@ export interface DescribeAppBlocksCommandOutput extends DescribeAppBlocksResult,
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DescribeAppBlocksCommand extends $Command

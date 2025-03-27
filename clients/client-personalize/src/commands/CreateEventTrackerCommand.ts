@@ -126,6 +126,7 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class CreateEventTrackerCommand extends $Command

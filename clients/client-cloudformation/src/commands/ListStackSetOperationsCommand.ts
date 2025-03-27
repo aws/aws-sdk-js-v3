@@ -85,6 +85,7 @@ export interface ListStackSetOperationsCommandOutput extends ListStackSetOperati
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ListStackSetOperationsCommand extends $Command

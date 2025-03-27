@@ -79,34 +79,8 @@ export interface DescribeAssessmentTargetsCommandOutput extends DescribeAssessme
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
- * @example Describte assessment targets
- * ```javascript
- * // Describes the assessment targets that are specified by the ARNs of the assessment targets.
- * const input = {
- *   "assessmentTargetArns": [
- *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
- *   ]
- * };
- * const command = new DescribeAssessmentTargetsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "assessmentTargets": [
- *     {
- *       "name": "ExampleAssessmentTarget",
- *       "arn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq",
- *       "createdAt": "1458074191.459",
- *       "resourceGroupArn": "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-PyGXopAI",
- *       "updatedAt": "1458074191.459"
- *     }
- *   ],
- *   "failedItems": {}
- * }
- * *\/
- * // example id: describte-assessment-targets-1481064527735
- * ```
  *
+ * @public
  */
 export class DescribeAssessmentTargetsCommand extends $Command
   .classBuilder<

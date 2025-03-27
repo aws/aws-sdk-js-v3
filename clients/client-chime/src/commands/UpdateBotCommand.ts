@@ -88,6 +88,7 @@ export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBea
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class UpdateBotCommand extends $Command

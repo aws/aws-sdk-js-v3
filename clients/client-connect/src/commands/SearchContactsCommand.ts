@@ -179,6 +179,7 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class SearchContactsCommand extends $Command

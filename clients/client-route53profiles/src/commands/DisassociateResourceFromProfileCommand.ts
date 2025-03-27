@@ -115,6 +115,7 @@ export interface DisassociateResourceFromProfileCommandOutput
  * @throws {@link Route53ProfilesServiceException}
  * <p>Base exception class for all service exceptions from Route53Profiles service.</p>
  *
+ *
  * @public
  */
 export class DisassociateResourceFromProfileCommand extends $Command

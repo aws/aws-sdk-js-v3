@@ -106,6 +106,7 @@ export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __M
  * @throws {@link PricingServiceException}
  * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
+ *
  * @public
  */
 export class ListPriceListsCommand extends $Command

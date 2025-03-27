@@ -125,6 +125,7 @@ export interface CreateUsagePlanCommandOutput extends UsagePlan, __MetadataBeare
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class CreateUsagePlanCommand extends $Command

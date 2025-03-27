@@ -79,28 +79,28 @@ export interface GetDirectoryCommandOutput extends GetDirectoryResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To get information about a directory
  * ```javascript
  * //
  * const input = {
- *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY"
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY"
  * };
  * const command = new GetDirectoryCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Directory": {
- *     "CreationDateTime": 1506115781.186,
- *     "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
- *     "Name": "ExampleCD",
- *     "State": "ENABLED"
+ *   Directory: {
+ *     CreationDateTime: 1.506115781186E9,
+ *     DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *     Name: "ExampleCD",
+ *     State: "ENABLED"
  *   }
  * }
  * *\/
- * // example id: to-get-information-about-a-directory-1507235667410
  * ```
  *
+ * @public
  */
 export class GetDirectoryCommand extends $Command
   .classBuilder<

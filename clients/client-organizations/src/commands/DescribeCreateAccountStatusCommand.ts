@@ -209,27 +209,27 @@ export interface DescribeCreateAccountStatusCommandOutput
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To get information about a request to create an account
  * ```javascript
  * // The following example shows how to request the status about a previous request to create an account in an organization. This operation can be called only by a principal from the organization's master account. In the example, the specified "createAccountRequestId" comes from the response of the original call to "CreateAccount":
  * const input = {
- *   "CreateAccountRequestId": "car-exampleaccountcreationrequestid"
+ *   CreateAccountRequestId: "car-exampleaccountcreationrequestid"
  * };
  * const command = new DescribeCreateAccountStatusCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CreateAccountStatus": {
- *     "AccountId": "333333333333",
- *     "Id": "car-exampleaccountcreationrequestid",
- *     "State": "SUCCEEDED"
+ *   CreateAccountStatus: {
+ *     AccountId: "333333333333",
+ *     Id: "car-exampleaccountcreationrequestid",
+ *     State: "SUCCEEDED"
  *   }
  * }
  * *\/
- * // example id: to-get-information-about-a-request-to-create-an-account-1472503727223
  * ```
  *
+ * @public
  */
 export class DescribeCreateAccountStatusCommand extends $Command
   .classBuilder<

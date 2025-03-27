@@ -104,6 +104,7 @@ export interface CreatePermissionSetCommandOutput extends CreatePermissionSetRes
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class CreatePermissionSetCommand extends $Command

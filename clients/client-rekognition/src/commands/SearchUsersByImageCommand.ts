@@ -276,79 +276,79 @@ export interface SearchUsersByImageCommandOutput extends SearchUsersByImageRespo
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example SearchUsersByImage
  * ```javascript
  * // Searches for UserIDs using a supplied image.
  * const input = {
- *   "CollectionId": "MyCollection",
- *   "Image": {
- *     "S3Object": {
- *       "Bucket": "bucket",
- *       "Name": "input.jpg"
+ *   CollectionId: "MyCollection",
+ *   Image: {
+ *     S3Object: {
+ *       Bucket: "bucket",
+ *       Name: "input.jpg"
  *     }
  *   },
- *   "MaxUsers": 2,
- *   "QualityFilter": "MEDIUM",
- *   "UserMatchThreshold": 70
+ *   MaxUsers: 2,
+ *   QualityFilter: "MEDIUM",
+ *   UserMatchThreshold: 70
  * };
  * const command = new SearchUsersByImageCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "FaceModelVersion": "6",
- *   "SearchedFace": {
- *     "FaceDetail": {
- *       "BoundingBox": {
- *         "Height": 0.07510016113519669,
- *         "Left": 0.3598678708076477,
- *         "Top": 0.5391526818275452,
- *         "Width": 0.03692837432026863
+ *   FaceModelVersion: "6",
+ *   SearchedFace: {
+ *     FaceDetail: {
+ *       BoundingBox: {
+ *         Height: 0.07510016113519669,
+ *         Left: 0.3598678708076477,
+ *         Top: 0.5391526818275452,
+ *         Width: 0.03692837432026863
  *       }
  *     }
  *   },
- *   "UnsearchedFaces": [
+ *   UnsearchedFaces: [
  *     {
- *       "FaceDetails": {
- *         "BoundingBox": {
- *           "Height": 0.0682177022099495,
- *           "Left": 0.6102562546730042,
- *           "Top": 0.5593535900115967,
- *           "Width": 0.031677018851041794
+ *       FaceDetails: {
+ *         BoundingBox: {
+ *           Height: 0.0682177022099495,
+ *           Left: 0.6102562546730042,
+ *           Top: 0.5593535900115967,
+ *           Width: 0.031677018851041794
  *         }
  *       },
- *       "Reasons": [
+ *       Reasons: [
  *         "FACE_NOT_LARGEST"
  *       ]
  *     },
  *     {
- *       "FaceDetails": {
- *         "BoundingBox": {
- *           "Height": 0.06347997486591339,
- *           "Left": 0.516062319278717,
- *           "Top": 0.6080358028411865,
- *           "Width": 0.03254449740052223
+ *       FaceDetails: {
+ *         BoundingBox: {
+ *           Height: 0.06347997486591339,
+ *           Left: 0.516062319278717,
+ *           Top: 0.6080358028411865,
+ *           Width: 0.03254449740052223
  *         }
  *       },
- *       "Reasons": [
+ *       Reasons: [
  *         "FACE_NOT_LARGEST"
  *       ]
  *     }
  *   ],
- *   "UserMatches": [
+ *   UserMatches: [
  *     {
- *       "Similarity": 99.88186645507812,
- *       "User": {
- *         "UserId": "demoUser1",
- *         "UserStatus": "ACTIVE"
+ *       Similarity: 99.88186645507812,
+ *       User: {
+ *         UserId: "demoUser1",
+ *         UserStatus: "ACTIVE"
  *       }
  *     }
  *   ]
  * }
  * *\/
- * // example id: searchusersbyimage-1686183178610
  * ```
  *
+ * @public
  */
 export class SearchUsersByImageCommand extends $Command
   .classBuilder<

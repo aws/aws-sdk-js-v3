@@ -59,6 +59,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

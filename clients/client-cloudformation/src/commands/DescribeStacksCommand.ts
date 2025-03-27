@@ -125,6 +125,7 @@ export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __Met
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeStacksCommand extends $Command

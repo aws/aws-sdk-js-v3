@@ -65,6 +65,7 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class GreetingWithErrorsCommand extends $Command

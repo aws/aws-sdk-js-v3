@@ -131,6 +131,7 @@ export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __Metad
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class CreateDeviceCommand extends $Command

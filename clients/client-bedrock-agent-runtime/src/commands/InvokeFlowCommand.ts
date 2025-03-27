@@ -198,6 +198,7 @@ export interface InvokeFlowCommandOutput extends InvokeFlowResponse, __MetadataB
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ *
  * @public
  */
 export class InvokeFlowCommand extends $Command

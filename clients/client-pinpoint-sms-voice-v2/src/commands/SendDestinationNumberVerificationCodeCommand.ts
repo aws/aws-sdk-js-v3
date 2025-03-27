@@ -107,6 +107,7 @@ export interface SendDestinationNumberVerificationCodeCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class SendDestinationNumberVerificationCodeCommand extends $Command

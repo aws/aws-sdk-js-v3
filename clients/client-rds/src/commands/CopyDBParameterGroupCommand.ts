@@ -84,30 +84,30 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To copy a DB parameter group
  * ```javascript
  * // The following example makes a copy of a DB parameter group.
  * const input = {
- *   "SourceDBParameterGroupIdentifier": "mydbpg",
- *   "TargetDBParameterGroupDescription": "Copy of mydbpg parameter group",
- *   "TargetDBParameterGroupIdentifier": "mydbpgcopy"
+ *   SourceDBParameterGroupIdentifier: "mydbpg",
+ *   TargetDBParameterGroupDescription: "Copy of mydbpg parameter group",
+ *   TargetDBParameterGroupIdentifier: "mydbpgcopy"
  * };
  * const command = new CopyDBParameterGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBParameterGroup": {
- *     "DBParameterGroupArn": "arn:aws:rds:us-east-1:814387698303:pg:mydbpgcopy",
- *     "DBParameterGroupFamily": "mysql5.7",
- *     "DBParameterGroupName": "mydbpgcopy",
- *     "Description": "Copy of mydbpg parameter group"
+ *   DBParameterGroup: {
+ *     DBParameterGroupArn: "arn:aws:rds:us-east-1:814387698303:pg:mydbpgcopy",
+ *     DBParameterGroupFamily: "mysql5.7",
+ *     DBParameterGroupName: "mydbpgcopy",
+ *     Description: "Copy of mydbpg parameter group"
  *   }
  * }
  * *\/
- * // example id: to-copy-a-db-parameter-group-1679695426993
  * ```
  *
+ * @public
  */
 export class CopyDBParameterGroupCommand extends $Command
   .classBuilder<

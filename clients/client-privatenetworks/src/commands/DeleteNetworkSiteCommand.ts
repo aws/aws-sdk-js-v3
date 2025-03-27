@@ -121,6 +121,7 @@ export interface DeleteNetworkSiteCommandOutput extends DeleteNetworkSiteRespons
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ *
  * @public
  */
 export class DeleteNetworkSiteCommand extends $Command

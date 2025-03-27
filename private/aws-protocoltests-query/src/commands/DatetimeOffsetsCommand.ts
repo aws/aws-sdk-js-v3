@@ -52,6 +52,7 @@ export interface DatetimeOffsetsCommandOutput extends DatetimeOffsetsOutput, __M
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  */
 export class DatetimeOffsetsCommand extends $Command
   .classBuilder<

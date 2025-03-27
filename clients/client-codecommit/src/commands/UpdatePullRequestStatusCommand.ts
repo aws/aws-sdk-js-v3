@@ -130,6 +130,7 @@ export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestS
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class UpdatePullRequestStatusCommand extends $Command

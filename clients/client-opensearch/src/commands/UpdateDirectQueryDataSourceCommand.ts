@@ -90,6 +90,7 @@ export interface UpdateDirectQueryDataSourceCommandOutput
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class UpdateDirectQueryDataSourceCommand extends $Command

@@ -91,6 +91,7 @@ export interface ListRetainedMessagesCommandOutput extends ListRetainedMessagesR
  * @throws {@link IoTDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
+ *
  * @public
  */
 export class ListRetainedMessagesCommand extends $Command

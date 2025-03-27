@@ -155,6 +155,42 @@ export interface ListCisScansCommandOutput extends ListCisScansResponse, __Metad
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
+ * @example Sample ListCisScans Call
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new ListCisScansCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   scans: [
+ *     {
+ *       failedChecks: 2,
+ *       scanArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-scan/624b746d-e080-44ae-8c1d-48e653365a38",
+ *       scanConfigurationArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-configuration/624b746d-e080-44ae-8c1d-48e653365a38",
+ *       scanDate: "2023-04-12T23:20:50.52Z",
+ *       scanName: "sample",
+ *       scheduledBy: "Delegated Admin",
+ *       securityLevel: "LEVEL_1",
+ *       status: "COMPLETED",
+ *       targets: {
+ *         accountIds: [
+ *           "123412341234"
+ *         ],
+ *         targetResourceTags: {
+ *           key: [
+ *             "value"
+ *           ]
+ *         }
+ *       },
+ *       totalChecks: 150
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListCisScansCommand extends $Command

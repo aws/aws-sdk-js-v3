@@ -77,6 +77,7 @@ export interface ListVirtualMachinesCommandOutput extends ListVirtualMachinesOut
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ *
  * @public
  */
 export class ListVirtualMachinesCommand extends $Command

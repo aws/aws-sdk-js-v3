@@ -82,6 +82,7 @@ export interface GetDataSetCommandOutput extends GetDataSetResponse, __MetadataB
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class GetDataSetCommand extends $Command

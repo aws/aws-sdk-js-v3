@@ -99,6 +99,7 @@ export interface BatchDeleteTopicReviewedAnswerCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class BatchDeleteTopicReviewedAnswerCommand extends $Command

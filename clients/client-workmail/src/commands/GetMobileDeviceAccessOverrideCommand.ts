@@ -85,6 +85,7 @@ export interface GetMobileDeviceAccessOverrideCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class GetMobileDeviceAccessOverrideCommand extends $Command

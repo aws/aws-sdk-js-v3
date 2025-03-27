@@ -75,6 +75,7 @@ export interface StartPipeCommandOutput extends StartPipeResponse, __MetadataBea
  * @throws {@link PipesServiceException}
  * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ *
  * @public
  */
 export class StartPipeCommand extends $Command

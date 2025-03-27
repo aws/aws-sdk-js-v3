@@ -116,6 +116,7 @@ export interface StartArchiveSearchCommandOutput extends StartArchiveSearchRespo
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class StartArchiveSearchCommand extends $Command

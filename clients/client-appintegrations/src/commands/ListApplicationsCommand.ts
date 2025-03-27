@@ -78,31 +78,31 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
- * @public
+ *
  * @example To list applications in the account
  * ```javascript
  * // The following lists application summary in the account.
  * const input = {
- *   "MaxResults": 1
+ *   MaxResults: 1
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Applications": [
+ *   Applications: [
  *     {
- *       "Arn": "arn:aws:app-integrations:us-west-2:0123456789012:application/98542c53-e8ac-4570-9c85-c6552c8d9c5e",
- *       "Id": "98542c53-e8ac-4570-9c85-c6552c8d9c5e",
- *       "Name": "My Application",
- *       "Namespace": "myapplication"
+ *       Arn: "arn:aws:app-integrations:us-west-2:0123456789012:application/98542c53-e8ac-4570-9c85-c6552c8d9c5e",
+ *       Id: "98542c53-e8ac-4570-9c85-c6552c8d9c5e",
+ *       Name: "My Application",
+ *       Namespace: "myapplication"
  *     }
  *   ],
- *   "NextToken": "abc"
+ *   NextToken: "abc"
  * }
  * *\/
- * // example id: list-applications
  * ```
  *
+ * @public
  */
 export class ListApplicationsCommand extends $Command
   .classBuilder<

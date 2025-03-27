@@ -90,29 +90,29 @@ export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, _
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To create an access key for an IAM user
  * ```javascript
  * // The following command creates an access key (access key ID and secret access key) for the IAM user named Bob.
  * const input = {
- *   "UserName": "Bob"
+ *   UserName: "Bob"
  * };
  * const command = new CreateAccessKeyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AccessKey": {
- *     "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
- *     "CreateDate": "2015-03-09T18:39:23.411Z",
- *     "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY",
- *     "Status": "Active",
- *     "UserName": "Bob"
+ *   AccessKey: {
+ *     AccessKeyId: "AKIAIOSFODNN7EXAMPLE",
+ *     CreateDate: "2015-03-09T18:39:23.411Z",
+ *     SecretAccessKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY",
+ *     Status: "Active",
+ *     UserName: "Bob"
  *   }
  * }
  * *\/
- * // example id: 1fbb3211-4cf2-41db-8c20-ba58d9f5802d
  * ```
  *
+ * @public
  */
 export class CreateAccessKeyCommand extends $Command
   .classBuilder<

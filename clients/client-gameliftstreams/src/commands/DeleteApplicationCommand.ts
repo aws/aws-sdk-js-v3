@@ -94,6 +94,7 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>
  *
+ *
  * @public
  */
 export class DeleteApplicationCommand extends $Command

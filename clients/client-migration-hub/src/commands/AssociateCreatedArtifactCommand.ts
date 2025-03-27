@@ -110,6 +110,7 @@ export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedA
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ *
  * @public
  */
 export class AssociateCreatedArtifactCommand extends $Command

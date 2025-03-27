@@ -96,6 +96,7 @@ export interface DisassociateFraudsterCommandOutput extends DisassociateFraudste
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ *
  * @public
  */
 export class DisassociateFraudsterCommand extends $Command

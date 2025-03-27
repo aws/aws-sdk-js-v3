@@ -73,6 +73,7 @@ export interface GetPolicyCommandOutput extends GetPolicyOutput, __MetadataBeare
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ *
  * @public
  */
 export class GetPolicyCommand extends $Command

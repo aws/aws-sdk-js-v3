@@ -112,6 +112,7 @@ export interface StartVoiceToneAnalysisTaskCommandOutput extends StartVoiceToneA
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class StartVoiceToneAnalysisTaskCommand extends $Command

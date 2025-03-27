@@ -67,6 +67,7 @@ export interface JsonTimestampsCommandOutput extends JsonTimestampsInputOutput, 
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class JsonTimestampsCommand extends $Command

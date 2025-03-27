@@ -110,6 +110,7 @@ export interface GetAppReplicationConfigurationCommandOutput
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ *
  * @public
  */
 export class GetAppReplicationConfigurationCommand extends $Command

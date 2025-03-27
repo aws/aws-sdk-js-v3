@@ -88,6 +88,7 @@ export interface DescribeRoleCustomPermissionCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeRoleCustomPermissionCommand extends $Command

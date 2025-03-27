@@ -89,6 +89,7 @@ export interface CreateEdgeDeploymentPlanCommandOutput extends CreateEdgeDeploym
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateEdgeDeploymentPlanCommand extends $Command

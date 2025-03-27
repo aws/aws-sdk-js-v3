@@ -114,6 +114,7 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ *
  * @public
  */
 export class UpdateConfigurationSetEventDestinationCommand extends $Command

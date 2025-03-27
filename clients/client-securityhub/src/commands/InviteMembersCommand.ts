@@ -90,26 +90,26 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To invite accounts to become members
  * ```javascript
  * // The following example invites the specified AWS accounts to become member accounts associated with the calling Security Hub administrator account. You only use this operation to invite accounts that don't belong to an AWS Organizations organization.
  * const input = {
- *   "AccountIds": [
+ *   AccountIds: [
  *     "111122223333",
  *     "444455556666"
  *   ]
  * };
  * const command = new InviteMembersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "UnprocessedAccounts": []
+ *   UnprocessedAccounts:   []
  * }
  * *\/
- * // example id: to-invite-accounts-to-become-members-1677775500860
  * ```
  *
+ * @public
  */
 export class InviteMembersCommand extends $Command
   .classBuilder<

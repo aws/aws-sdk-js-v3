@@ -82,6 +82,7 @@ export interface GetSystemTemplateCommandOutput extends GetSystemTemplateRespons
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class GetSystemTemplateCommand extends $Command

@@ -85,6 +85,7 @@ export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfil
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListRoutingProfileQueuesCommand extends $Command

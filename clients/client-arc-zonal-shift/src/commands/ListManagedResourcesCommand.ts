@@ -105,6 +105,7 @@ export interface ListManagedResourcesCommandOutput extends ListManagedResourcesR
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ *
  * @public
  */
 export class ListManagedResourcesCommand extends $Command

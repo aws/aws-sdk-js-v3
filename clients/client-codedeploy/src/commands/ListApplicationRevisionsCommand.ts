@@ -116,6 +116,7 @@ export interface ListApplicationRevisionsCommandOutput extends ListApplicationRe
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationRevisionsCommand extends $Command

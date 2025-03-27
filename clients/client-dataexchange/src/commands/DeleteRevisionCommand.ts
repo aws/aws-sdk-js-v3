@@ -73,6 +73,7 @@ export interface DeleteRevisionCommandOutput extends __MetadataBearer {}
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class DeleteRevisionCommand extends $Command

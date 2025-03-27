@@ -82,6 +82,7 @@ export interface GetPriceListFileUrlCommandOutput extends GetPriceListFileUrlRes
  * @throws {@link PricingServiceException}
  * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
+ *
  * @public
  */
 export class GetPriceListFileUrlCommand extends $Command

@@ -72,6 +72,7 @@ export interface DeleteRouteCalculatorCommandOutput extends DeleteRouteCalculato
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class DeleteRouteCalculatorCommand extends $Command

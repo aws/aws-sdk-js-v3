@@ -72,6 +72,7 @@ export interface UpdateDatasetGroupCommandOutput extends UpdateDatasetGroupRespo
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class UpdateDatasetGroupCommand extends $Command

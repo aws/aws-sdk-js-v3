@@ -71,6 +71,7 @@ export interface GetJobQueueSnapshotCommandOutput extends GetJobQueueSnapshotRes
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ *
  * @public
  */
 export class GetJobQueueSnapshotCommand extends $Command

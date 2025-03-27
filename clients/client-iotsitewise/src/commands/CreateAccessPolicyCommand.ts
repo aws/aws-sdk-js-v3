@@ -105,6 +105,7 @@ export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyRespo
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class CreateAccessPolicyCommand extends $Command

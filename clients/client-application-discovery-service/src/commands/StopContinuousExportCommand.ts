@@ -91,6 +91,7 @@ export interface StopContinuousExportCommandOutput extends StopContinuousExportR
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class StopContinuousExportCommand extends $Command

@@ -73,6 +73,7 @@ export interface GetRouteResponseCommandOutput extends GetRouteResponseResponse,
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class GetRouteResponseCommand extends $Command

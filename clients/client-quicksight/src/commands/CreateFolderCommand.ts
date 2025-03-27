@@ -110,6 +110,7 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateFolderCommand extends $Command

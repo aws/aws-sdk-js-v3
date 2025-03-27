@@ -96,6 +96,7 @@ export interface GetCollaborationTrainedModelCommandOutput
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ *
  * @public
  */
 export class GetCollaborationTrainedModelCommand extends $Command

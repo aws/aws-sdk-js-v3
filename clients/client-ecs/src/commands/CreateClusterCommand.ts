@@ -203,31 +203,31 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To create a new cluster
  * ```javascript
  * // This example creates a cluster in your default region.
  * const input = {
- *   "clusterName": "my_cluster"
+ *   clusterName: "my_cluster"
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "cluster": {
- *     "activeServicesCount": 0,
- *     "clusterArn": "arn:aws:ecs:us-east-1:012345678910:cluster/my_cluster",
- *     "clusterName": "my_cluster",
- *     "pendingTasksCount": 0,
- *     "registeredContainerInstancesCount": 0,
- *     "runningTasksCount": 0,
- *     "status": "ACTIVE"
+ *   cluster: {
+ *     activeServicesCount: 0,
+ *     clusterArn: "arn:aws:ecs:us-east-1:012345678910:cluster/my_cluster",
+ *     clusterName: "my_cluster",
+ *     pendingTasksCount: 0,
+ *     registeredContainerInstancesCount: 0,
+ *     runningTasksCount: 0,
+ *     status: "ACTIVE"
  *   }
  * }
  * *\/
- * // example id: to-create-a-new-cluster-1472514079365
  * ```
  *
+ * @public
  */
 export class CreateClusterCommand extends $Command
   .classBuilder<

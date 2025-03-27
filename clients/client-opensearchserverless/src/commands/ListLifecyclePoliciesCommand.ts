@@ -81,6 +81,7 @@ export interface ListLifecyclePoliciesCommandOutput extends ListLifecyclePolicie
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ *
  * @public
  */
 export class ListLifecyclePoliciesCommand extends $Command

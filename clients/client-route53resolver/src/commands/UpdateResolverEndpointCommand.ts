@@ -108,6 +108,7 @@ export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpo
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class UpdateResolverEndpointCommand extends $Command

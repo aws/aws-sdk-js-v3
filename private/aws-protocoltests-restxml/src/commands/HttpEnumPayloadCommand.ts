@@ -54,6 +54,7 @@ export interface HttpEnumPayloadCommandOutput extends EnumPayloadInput, __Metada
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class HttpEnumPayloadCommand extends $Command
   .classBuilder<

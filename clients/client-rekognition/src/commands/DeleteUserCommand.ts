@@ -87,20 +87,23 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example DeleteUser
  * ```javascript
  * // Deletes the specified UserID within the collection.
  * const input = {
- *   "ClientRequestToken": "550e8400-e29b-41d4-a716-446655440001",
- *   "CollectionId": "MyCollection",
- *   "UserId": "DemoUser"
+ *   ClientRequestToken: "550e8400-e29b-41d4-a716-446655440001",
+ *   CollectionId: "MyCollection",
+ *   UserId: "DemoUser"
  * };
  * const command = new DeleteUserCommand(input);
- * await client.send(command);
- * // example id: deleteuser-1686181913475
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteUserCommand extends $Command
   .classBuilder<

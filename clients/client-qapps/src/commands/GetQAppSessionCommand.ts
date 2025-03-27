@@ -98,46 +98,46 @@ export interface GetQAppSessionCommandOutput extends GetQAppSessionOutput, __Met
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example Retrieves an existing session for an Amazon Q App
  * ```javascript
  * //
  * const input = {
- *   "instanceId": "288ae830-1df2-4871-b6c0-4314d74dadef",
- *   "sessionId": "1fca878e-64c5-4dc4-b1d9-c93effed4e82"
+ *   instanceId: "288ae830-1df2-4871-b6c0-4314d74dadef",
+ *   sessionId: "1fca878e-64c5-4dc4-b1d9-c93effed4e82"
  * };
  * const command = new GetQAppSessionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "cardStatus": {
- *     "1e6caeac-b481-45ff-a082-8b9a4a0b72e8": {
- *       "currentState": "COMPLETED",
- *       "currentValue": "Based on the responses, the most popular color is red, with 1 vote from the user \"user1\"."
+ *   cardStatus: {
+ *     1e6caeac-b481-45ff-a082-8b9a4a0b72e8: {
+ *       currentState: "COMPLETED",
+ *       currentValue: `Based on the responses, the most popular color is red, with 1 vote from the user "user1".`
  *     },
- *     "6fb5b404-3b7b-48a4-8a8b-56406922a606": {
- *       "currentState": "COMPLETED",
- *       "currentValue": "",
- *       "submissions": [
+ *     6fb5b404-3b7b-48a4-8a8b-56406922a606: {
+ *       currentState: "COMPLETED",
+ *       currentValue: "",
+ *       submissions: [
  *         {
- *           "value": {
- *             "18cee4cb-253e-4f87-9154-849fbb98e482": "user1",
- *             "d52030f9-6c4b-47a9-a946-377f632c77cc": "red"
- *           },
- *           "submissionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
- *           "timestamp": "2023-06-15T14:30:45Z"
+ *           submissionId: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+ *           timestamp: "2023-06-15T14:30:45Z",
+ *           value: {
+ *             18cee4cb-253e-4f87-9154-849fbb98e482: "user1",
+ *             d52030f9-6c4b-47a9-a946-377f632c77cc: "red"
+ *           }
  *         }
  *       ]
  *     }
  *   },
- *   "sessionArn": "arn:aws:qapps:us-west-2:0123456789012:application/a929ecd6-5765-4ec7-bd3e-2ca90098b18e/qapp/65e7dce7-226a-47f9-b689-22850becef89/session/1fca878e-64c5-4dc4-b1d9-c93effed4e82",
- *   "sessionId": "1fca878e-64c5-4dc4-b1d9-c93effed4e82",
- *   "status": "COMPLETED"
+ *   sessionArn: "arn:aws:qapps:us-west-2:0123456789012:application/a929ecd6-5765-4ec7-bd3e-2ca90098b18e/qapp/65e7dce7-226a-47f9-b689-22850becef89/session/1fca878e-64c5-4dc4-b1d9-c93effed4e82",
+ *   sessionId: "1fca878e-64c5-4dc4-b1d9-c93effed4e82",
+ *   status: "COMPLETED"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetQAppSessionCommand extends $Command
   .classBuilder<

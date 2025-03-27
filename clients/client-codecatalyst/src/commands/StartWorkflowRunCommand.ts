@@ -81,6 +81,7 @@ export interface StartWorkflowRunCommandOutput extends StartWorkflowRunResponse,
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class StartWorkflowRunCommand extends $Command

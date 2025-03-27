@@ -77,6 +77,7 @@ export interface DeleteReplicationConfigurationCommandOutput extends __MetadataB
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ *
  * @public
  */
 export class DeleteReplicationConfigurationCommand extends $Command

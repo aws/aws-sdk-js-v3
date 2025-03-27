@@ -88,6 +88,7 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class CreateHITTypeCommand extends $Command

@@ -63,6 +63,7 @@ export interface DescribeMyUserProfileCommandOutput extends DescribeMyUserProfil
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class DescribeMyUserProfileCommand extends $Command

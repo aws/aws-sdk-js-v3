@@ -281,20 +281,23 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example Put bucket acl
  * ```javascript
  * // The following example replaces existing ACL on a bucket. The ACL grants the bucket owner (specified using the owner ID) and write permission to the LogDelivery group. Because this is a replace operation, you must specify all the grants in your request. To incrementally add or remove ACL grants, you might use the console.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "GrantFullControl": "id=examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484",
- *   "GrantWrite": "uri=http://acs.amazonaws.com/groups/s3/LogDelivery"
+ *   Bucket: "examplebucket",
+ *   GrantFullControl: "id=examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484",
+ *   GrantWrite: "uri=http://acs.amazonaws.com/groups/s3/LogDelivery"
  * };
  * const command = new PutBucketAclCommand(input);
- * await client.send(command);
- * // example id: put-bucket-acl-1482260397033
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutBucketAclCommand extends $Command
   .classBuilder<

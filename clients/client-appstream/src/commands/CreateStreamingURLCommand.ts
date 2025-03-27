@@ -73,6 +73,7 @@ export interface CreateStreamingURLCommandOutput extends CreateStreamingURLResul
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class CreateStreamingURLCommand extends $Command

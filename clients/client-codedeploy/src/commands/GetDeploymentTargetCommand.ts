@@ -189,6 +189,7 @@ export interface GetDeploymentTargetCommandOutput extends GetDeploymentTargetOut
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class GetDeploymentTargetCommand extends $Command

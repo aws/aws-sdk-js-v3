@@ -121,6 +121,7 @@ export interface StartImportJobCommandOutput extends StartImportJobResponse, __M
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class StartImportJobCommand extends $Command

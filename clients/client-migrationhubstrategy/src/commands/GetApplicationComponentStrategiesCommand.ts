@@ -91,6 +91,7 @@ export interface GetApplicationComponentStrategiesCommandOutput
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ *
  * @public
  */
 export class GetApplicationComponentStrategiesCommand extends $Command

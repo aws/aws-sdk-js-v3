@@ -85,25 +85,25 @@ export interface DescribeOrderableReplicationInstancesCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe orderable replication instances
  * ```javascript
  * // Returns information about the replication instance types that can be created in the specified region.
  * const input = {
- *   "Marker": "",
- *   "MaxRecords": 123
+ *   Marker: "",
+ *   MaxRecords: 123
  * };
  * const command = new DescribeOrderableReplicationInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "",
- *   "OrderableReplicationInstances": []
+ *   Marker: "",
+ *   OrderableReplicationInstances:   []
  * }
  * *\/
- * // example id: describe-orderable-replication-instances-1481755123669
  * ```
  *
+ * @public
  */
 export class DescribeOrderableReplicationInstancesCommand extends $Command
   .classBuilder<

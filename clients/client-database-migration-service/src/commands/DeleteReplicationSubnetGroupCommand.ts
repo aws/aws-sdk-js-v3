@@ -72,18 +72,21 @@ export interface DeleteReplicationSubnetGroupCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Delete Replication Subnet Group
  * ```javascript
  * // Deletes a replication subnet group.
  * const input = {
- *   "ReplicationSubnetGroupIdentifier": "us-west-2ab-vpc-215ds366"
+ *   ReplicationSubnetGroupIdentifier: "us-west-2ab-vpc-215ds366"
  * };
  * const command = new DeleteReplicationSubnetGroupCommand(input);
- * await client.send(command);
- * // example id: delete-replication-subnet-group-1481752728597
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteReplicationSubnetGroupCommand extends $Command
   .classBuilder<

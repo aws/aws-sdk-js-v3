@@ -81,6 +81,7 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * @throws {@link CloudSearchDomainServiceException}
  * <p>Base exception class for all service exceptions from CloudSearchDomain service.</p>
  *
+ *
  * @public
  */
 export class SuggestCommand extends $Command

@@ -107,6 +107,7 @@ export interface GetLoaderJobStatusCommandOutput extends GetLoaderJobStatusOutpu
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class GetLoaderJobStatusCommand extends $Command

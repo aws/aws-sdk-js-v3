@@ -708,6 +708,7 @@ export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __Metad
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ *
  * @public
  */
 export class UpdateVolumeCommand extends $Command

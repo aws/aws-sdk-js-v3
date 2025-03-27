@@ -97,6 +97,7 @@ export interface CreateSubscriberNotificationCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class CreateSubscriberNotificationCommand extends $Command

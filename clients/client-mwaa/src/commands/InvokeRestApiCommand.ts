@@ -87,35 +87,35 @@ export interface InvokeRestApiCommandOutput extends InvokeRestApiResponse, __Met
  * @throws {@link MWAAServiceException}
  * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
- * @public
+ *
  * @example Listing Airflow variables.
  * ```javascript
  * //
  * const input = {
- *   "Method": "GET",
- *   "Name": "MyEnvironment",
- *   "Path": "/variables"
+ *   Method: "GET",
+ *   Name: "MyEnvironment",
+ *   Path: "/variables"
  * };
  * const command = new InvokeRestApiCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "RestApiResponse": {
- *     "total_entries": 1,
- *     "variables": [
+ *   RestApiResponse: {
+ *     total_entries: 1,
+ *     variables: [
  *       {
- *         "key": "test-variable",
- *         "value": "123",
- *         "description": "Example variable"
+ *         description: "Example variable",
+ *         key: "test-variable",
+ *         value: "123"
  *       }
  *     ]
  *   },
- *   "RestApiStatusCode": 200
+ *   RestApiStatusCode: 200
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class InvokeRestApiCommand extends $Command
   .classBuilder<

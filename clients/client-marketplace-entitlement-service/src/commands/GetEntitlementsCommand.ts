@@ -98,6 +98,7 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
  * @throws {@link MarketplaceEntitlementServiceServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceEntitlementService service.</p>
  *
+ *
  * @public
  */
 export class GetEntitlementsCommand extends $Command

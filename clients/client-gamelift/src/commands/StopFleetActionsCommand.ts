@@ -104,6 +104,7 @@ export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, _
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class StopFleetActionsCommand extends $Command

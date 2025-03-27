@@ -88,6 +88,7 @@ export interface DeleteLicenseManagerReportGeneratorCommandOutput
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteLicenseManagerReportGeneratorCommand extends $Command

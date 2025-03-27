@@ -66,6 +66,7 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class DisassociateResourceCommand extends $Command

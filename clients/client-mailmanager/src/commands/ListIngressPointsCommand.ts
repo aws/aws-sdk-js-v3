@@ -68,6 +68,74 @@ export interface ListIngressPointsCommandOutput extends ListIngressPointsRespons
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
+ * @example List IngressPoints
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new ListIngressPointsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   IngressPoints: [
+ *     {
+ *       ARecord: "abcde123.prod.us-east-1.email-border.ses.aws.a2z.com",
+ *       IngressPointId: "inp-12345",
+ *       IngressPointName: "ingressPointName",
+ *       Status: "ACTIVE",
+ *       Type: "OPEN"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example List IngressPoints with PageSize
+ * ```javascript
+ * //
+ * const input = {
+ *   PageSize: 10
+ * };
+ * const command = new ListIngressPointsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   IngressPoints: [
+ *     {
+ *       ARecord: "abcde123.prod.us-east-1.email-border.ses.aws.a2z.com",
+ *       IngressPointId: "inp-12345",
+ *       IngressPointName: "ingressPointName",
+ *       Status: "ACTIVE",
+ *       Type: "OPEN"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example List IngressPoints with NextToken
+ * ```javascript
+ * //
+ * const input = {
+ *   NextToken: "nextToken"
+ * };
+ * const command = new ListIngressPointsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   IngressPoints: [
+ *     {
+ *       ARecord: "abcde123.prod.us-east-1.email-border.ses.aws.a2z.com",
+ *       IngressPointId: "inp-12345",
+ *       IngressPointName: "ingressPointName",
+ *       Status: "ACTIVE",
+ *       Type: "OPEN"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListIngressPointsCommand extends $Command

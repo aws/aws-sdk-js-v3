@@ -84,6 +84,7 @@ export interface AddDataSourceCommandOutput extends AddDataSourceResponse, __Met
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class AddDataSourceCommand extends $Command

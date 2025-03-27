@@ -84,6 +84,7 @@ export interface RemovePermissionCommandOutput extends RemovePermissionResponse,
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ *
  * @public
  */
 export class RemovePermissionCommand extends $Command

@@ -93,6 +93,7 @@ export interface StartContinuousExportCommandOutput extends StartContinuousExpor
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class StartContinuousExportCommand extends $Command

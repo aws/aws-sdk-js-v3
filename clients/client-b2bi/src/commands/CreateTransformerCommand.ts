@@ -199,76 +199,76 @@ export interface CreateTransformerCommandOutput extends CreateTransformerRespons
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample CreateTransformer call
  * ```javascript
  * //
  * const input = {
- *   "name": "transformX12",
- *   "clientToken": "foo",
- *   "inputConversion": {
- *     "formatOptions": {
- *       "x12": {
- *         "version": "VERSION_4010",
- *         "transactionSet": "X12_110"
+ *   clientToken: "foo",
+ *   inputConversion: {
+ *     formatOptions: {
+ *       x12: {
+ *         transactionSet: "X12_110",
+ *         version: "VERSION_4010"
  *       }
  *     },
- *     "fromFormat": "X12"
+ *     fromFormat: "X12"
  *   },
- *   "mapping": {
- *     "template": "{}",
- *     "templateLanguage": "JSONATA"
+ *   mapping: {
+ *     template: "{}",
+ *     templateLanguage: "JSONATA"
  *   },
- *   "sampleDocuments": {
- *     "bucketName": "test-bucket",
- *     "keys": [
+ *   name: "transformX12",
+ *   sampleDocuments: {
+ *     bucketName: "test-bucket",
+ *     keys: [
  *       {
- *         "input": "sampleDoc.txt"
+ *         input: "sampleDoc.txt"
  *       }
  *     ]
  *   },
- *   "tags": [
+ *   tags: [
  *     {
- *       "Key": "sampleKey",
- *       "Value": "sampleValue"
+ *       Key: "sampleKey",
+ *       Value: "sampleValue"
  *     }
  *   ]
  * };
  * const command = new CreateTransformerCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "name": "transformX12",
- *   "createdAt": "2023-11-01T21:51:05.504Z",
- *   "inputConversion": {
- *     "formatOptions": {
- *       "x12": {
- *         "version": "VERSION_4010",
- *         "transactionSet": "X12_110"
+ *   createdAt: "2023-11-01T21:51:05.504Z",
+ *   inputConversion: {
+ *     formatOptions: {
+ *       x12: {
+ *         transactionSet: "X12_110",
+ *         version: "VERSION_4010"
  *       }
  *     },
- *     "fromFormat": "X12"
+ *     fromFormat: "X12"
  *   },
- *   "mapping": {
- *     "template": "{}",
- *     "templateLanguage": "JSONATA"
+ *   mapping: {
+ *     template: "{}",
+ *     templateLanguage: "JSONATA"
  *   },
- *   "sampleDocuments": {
- *     "bucketName": "test-bucket",
- *     "keys": [
+ *   name: "transformX12",
+ *   sampleDocuments: {
+ *     bucketName: "test-bucket",
+ *     keys: [
  *       {
- *         "input": "sampleDoc.txt"
+ *         input: "sampleDoc.txt"
  *       }
  *     ]
  *   },
- *   "status": "inactive",
- *   "transformerArn": "arn:aws:b2bi:us-west-2:123456789012:transformer/tr-974c129999f84d8c9",
- *   "transformerId": "tr-974c129999f84d8c9"
+ *   status: "inactive",
+ *   transformerArn: "arn:aws:b2bi:us-west-2:123456789012:transformer/tr-974c129999f84d8c9",
+ *   transformerId: "tr-974c129999f84d8c9"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class CreateTransformerCommand extends $Command
   .classBuilder<

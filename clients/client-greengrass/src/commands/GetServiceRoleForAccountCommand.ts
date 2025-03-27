@@ -57,6 +57,7 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ *
  * @public
  */
 export class GetServiceRoleForAccountCommand extends $Command

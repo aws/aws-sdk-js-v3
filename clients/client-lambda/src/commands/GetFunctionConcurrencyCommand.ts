@@ -68,23 +68,23 @@ export interface GetFunctionConcurrencyCommandOutput extends GetFunctionConcurre
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To get the reserved concurrency setting for a function
  * ```javascript
  * // The following example returns the reserved concurrency setting for a function named my-function.
  * const input = {
- *   "FunctionName": "my-function"
+ *   FunctionName: "my-function"
  * };
  * const command = new GetFunctionConcurrencyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReservedConcurrentExecutions": 250
+ *   ReservedConcurrentExecutions: 250
  * }
  * *\/
- * // example id: to-get-the-reserved-concurrency-setting-for-a-function-1586481279992
  * ```
  *
+ * @public
  */
 export class GetFunctionConcurrencyCommand extends $Command
   .classBuilder<

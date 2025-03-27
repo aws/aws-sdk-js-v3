@@ -81,6 +81,7 @@ export interface GetKxDatabaseCommandOutput extends GetKxDatabaseResponse, __Met
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class GetKxDatabaseCommand extends $Command

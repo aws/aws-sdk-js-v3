@@ -114,38 +114,38 @@ export interface ListPartnershipsCommandOutput extends ListPartnershipsResponse,
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample ListPartnerships call
  * ```javascript
  * //
  * const input = {
- *   "maxResults": 50,
- *   "nextToken": "foo",
- *   "profileId": "p-60fbc37c87f04fce9"
+ *   maxResults: 50,
+ *   nextToken: "foo",
+ *   profileId: "p-60fbc37c87f04fce9"
  * };
  * const command = new ListPartnershipsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "nextToken": "string",
- *   "partnerships": [
+ *   nextToken: "string",
+ *   partnerships: [
  *     {
- *       "name": "b2bipartner",
- *       "capabilities": [
+ *       capabilities: [
  *         "ca-963a8121e4fc4e348"
  *       ],
- *       "createdAt": "2023-11-01T21:51:05.504Z",
- *       "modifiedAt": "2023-11-01T21:51:05.504Z",
- *       "partnershipId": "ps-219fa02f5b4242af8",
- *       "profileId": "p-60fbc37c87f04fce9",
- *       "tradingPartnerId": "tp-2a17ca447f6f4a8a8"
+ *       createdAt: "2023-11-01T21:51:05.504Z",
+ *       modifiedAt: "2023-11-01T21:51:05.504Z",
+ *       name: "b2bipartner",
+ *       partnershipId: "ps-219fa02f5b4242af8",
+ *       profileId: "p-60fbc37c87f04fce9",
+ *       tradingPartnerId: "tp-2a17ca447f6f4a8a8"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListPartnershipsCommand extends $Command
   .classBuilder<

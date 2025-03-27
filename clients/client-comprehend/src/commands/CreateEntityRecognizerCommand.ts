@@ -141,6 +141,7 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class CreateEntityRecognizerCommand extends $Command

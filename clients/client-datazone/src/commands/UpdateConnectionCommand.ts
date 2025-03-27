@@ -306,6 +306,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionOutput, _
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class UpdateConnectionCommand extends $Command

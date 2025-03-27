@@ -75,6 +75,7 @@ export interface GetKxUserCommandOutput extends GetKxUserResponse, __MetadataBea
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class GetKxUserCommand extends $Command

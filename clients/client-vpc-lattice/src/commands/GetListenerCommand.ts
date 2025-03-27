@@ -93,6 +93,7 @@ export interface GetListenerCommandOutput extends GetListenerResponse, __Metadat
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class GetListenerCommand extends $Command

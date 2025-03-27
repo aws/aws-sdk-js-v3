@@ -119,6 +119,7 @@ export interface ExportEC2InstanceRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class ExportEC2InstanceRecommendationsCommand extends $Command

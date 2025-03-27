@@ -82,6 +82,7 @@ export interface ActivateDeviceIdentifierCommandOutput extends ActivateDeviceIde
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ *
  * @public
  */
 export class ActivateDeviceIdentifierCommand extends $Command

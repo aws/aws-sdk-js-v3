@@ -75,6 +75,7 @@ export interface ListModelCardExportJobsCommandOutput extends ListModelCardExpor
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListModelCardExportJobsCommand extends $Command

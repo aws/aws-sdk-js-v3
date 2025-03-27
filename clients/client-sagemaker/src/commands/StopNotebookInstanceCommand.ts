@@ -60,6 +60,7 @@ export interface StopNotebookInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class StopNotebookInstanceCommand extends $Command

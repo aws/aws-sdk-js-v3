@@ -161,6 +161,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ *
  * @public
  */
 export class DescribeDatasetCommand extends $Command

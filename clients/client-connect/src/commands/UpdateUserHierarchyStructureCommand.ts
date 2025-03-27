@@ -91,6 +91,7 @@ export interface UpdateUserHierarchyStructureCommandOutput extends __MetadataBea
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateUserHierarchyStructureCommand extends $Command

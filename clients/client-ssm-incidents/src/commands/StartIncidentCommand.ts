@@ -104,6 +104,7 @@ export interface StartIncidentCommandOutput extends StartIncidentOutput, __Metad
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ *
  * @public
  */
 export class StartIncidentCommand extends $Command

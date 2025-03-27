@@ -83,6 +83,7 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
  *
+ *
  * @public
  */
 export class ListTablesCommand extends $Command

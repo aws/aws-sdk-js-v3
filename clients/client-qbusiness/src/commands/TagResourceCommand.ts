@@ -85,6 +85,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

@@ -101,6 +101,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ *
  * @public
  */
 export class GetEnvironmentCommand extends $Command

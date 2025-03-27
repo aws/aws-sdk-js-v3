@@ -128,6 +128,7 @@ export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class ModifyInstanceFleetCommand extends $Command

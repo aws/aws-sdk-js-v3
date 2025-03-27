@@ -70,6 +70,7 @@ export interface ListStageSessionsCommandOutput extends ListStageSessionsRespons
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class ListStageSessionsCommand extends $Command

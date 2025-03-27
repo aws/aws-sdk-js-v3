@@ -128,6 +128,7 @@ export interface GetLoadBalancerCommandOutput extends GetLoadBalancerResult, __M
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetLoadBalancerCommand extends $Command

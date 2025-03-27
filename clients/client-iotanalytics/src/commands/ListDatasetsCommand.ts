@@ -92,6 +92,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ *
  * @public
  */
 export class ListDatasetsCommand extends $Command

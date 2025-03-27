@@ -94,6 +94,7 @@ export interface GetStatementResultV2CommandOutput extends GetStatementResultV2R
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ *
  * @public
  */
 export class GetStatementResultV2Command extends $Command

@@ -76,6 +76,7 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class UpdateProfileCommand extends $Command

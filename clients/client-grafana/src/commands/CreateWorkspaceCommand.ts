@@ -175,6 +175,7 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ *
  * @public
  */
 export class CreateWorkspaceCommand extends $Command

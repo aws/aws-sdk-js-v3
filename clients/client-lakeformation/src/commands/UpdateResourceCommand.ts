@@ -68,6 +68,7 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class UpdateResourceCommand extends $Command

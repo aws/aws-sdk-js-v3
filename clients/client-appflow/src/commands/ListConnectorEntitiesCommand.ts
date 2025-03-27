@@ -89,6 +89,7 @@ export interface ListConnectorEntitiesCommandOutput extends ListConnectorEntitie
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ *
  * @public
  */
 export class ListConnectorEntitiesCommand extends $Command

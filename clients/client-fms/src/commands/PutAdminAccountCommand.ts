@@ -102,6 +102,7 @@ export interface PutAdminAccountCommandOutput extends __MetadataBearer {}
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class PutAdminAccountCommand extends $Command

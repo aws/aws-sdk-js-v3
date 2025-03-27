@@ -84,6 +84,7 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserCommand extends $Command

@@ -75,6 +75,7 @@ export interface GetLFTagCommandOutput extends GetLFTagResponse, __MetadataBeare
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class GetLFTagCommand extends $Command

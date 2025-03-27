@@ -97,6 +97,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class PutResourcePolicyCommand extends $Command

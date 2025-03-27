@@ -118,33 +118,33 @@ export interface CopyOptionGroupCommandOutput extends CopyOptionGroupResult, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To copy an option group
  * ```javascript
  * // The following example makes a copy of an option group.
  * const input = {
- *   "SourceOptionGroupIdentifier": "myoptiongroup",
- *   "TargetOptionGroupDescription": "My option group copy",
- *   "TargetOptionGroupIdentifier": "new-option-group"
+ *   SourceOptionGroupIdentifier: "myoptiongroup",
+ *   TargetOptionGroupDescription: "My option group copy",
+ *   TargetOptionGroupIdentifier: "new-option-group"
  * };
  * const command = new CopyOptionGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OptionGroup": {
- *     "AllowsVpcAndNonVpcInstanceMemberships": true,
- *     "EngineName": "oracle-ee",
- *     "MajorEngineVersion": "11.2",
- *     "OptionGroupArn": "arn:aws:rds:us-east-1:123456789012:og:new-option-group",
- *     "OptionGroupDescription": "My option group copy",
- *     "OptionGroupName": "new-option-group",
- *     "Options": []
+ *   OptionGroup: {
+ *     AllowsVpcAndNonVpcInstanceMemberships: true,
+ *     EngineName: "oracle-ee",
+ *     MajorEngineVersion: "11.2",
+ *     OptionGroupArn: "arn:aws:rds:us-east-1:123456789012:og:new-option-group",
+ *     OptionGroupDescription: "My option group copy",
+ *     OptionGroupName: "new-option-group",
+ *     Options:     []
  *   }
  * }
  * *\/
- * // example id: to-copy-an-option-group-1679695800102
  * ```
  *
+ * @public
  */
 export class CopyOptionGroupCommand extends $Command
   .classBuilder<

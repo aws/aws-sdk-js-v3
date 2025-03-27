@@ -111,6 +111,7 @@ export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberRespo
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class RestorePhoneNumberCommand extends $Command

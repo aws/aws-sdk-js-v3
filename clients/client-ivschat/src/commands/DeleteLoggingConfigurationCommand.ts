@@ -68,6 +68,7 @@ export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBeare
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ *
  * @public
  */
 export class DeleteLoggingConfigurationCommand extends $Command

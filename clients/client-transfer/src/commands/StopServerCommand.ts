@@ -80,6 +80,7 @@ export interface StopServerCommandOutput extends __MetadataBearer {}
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class StopServerCommand extends $Command

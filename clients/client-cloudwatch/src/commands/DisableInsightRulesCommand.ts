@@ -71,6 +71,7 @@ export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOut
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class DisableInsightRulesCommand extends $Command

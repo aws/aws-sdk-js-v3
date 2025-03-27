@@ -105,6 +105,7 @@ export interface GetDataIntegrationCommandOutput extends GetDataIntegrationRespo
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ *
  * @public
  */
 export class GetDataIntegrationCommand extends $Command

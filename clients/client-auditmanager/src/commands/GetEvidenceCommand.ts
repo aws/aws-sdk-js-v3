@@ -96,6 +96,7 @@ export interface GetEvidenceCommandOutput extends GetEvidenceResponse, __Metadat
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class GetEvidenceCommand extends $Command

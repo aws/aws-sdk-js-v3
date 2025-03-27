@@ -81,6 +81,7 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class DisableControlCommand extends $Command

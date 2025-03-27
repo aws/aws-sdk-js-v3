@@ -135,6 +135,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DescribeImagesCommand extends $Command

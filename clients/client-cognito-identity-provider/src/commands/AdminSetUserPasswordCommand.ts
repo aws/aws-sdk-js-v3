@@ -137,6 +137,7 @@ export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminSetUserPasswordCommand extends $Command

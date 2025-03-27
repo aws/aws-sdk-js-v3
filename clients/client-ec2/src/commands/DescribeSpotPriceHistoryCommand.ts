@@ -87,45 +87,45 @@ export interface DescribeSpotPriceHistoryCommandOutput extends DescribeSpotPrice
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe Spot price history for Linux/UNIX (Amazon VPC)
  * ```javascript
  * // This example returns the Spot Price history for m1.xlarge, Linux/UNIX (Amazon VPC) instances for a particular day in January.
  * const input = {
- *   "EndTime": "2014-01-06T08:09:10.05Z",
- *   "InstanceTypes": [
+ *   EndTime: "2014-01-06T08:09:10.05Z",
+ *   InstanceTypes: [
  *     "m1.xlarge"
  *   ],
- *   "ProductDescriptions": [
+ *   ProductDescriptions: [
  *     "Linux/UNIX (Amazon VPC)"
  *   ],
- *   "StartTime": "2014-01-06T07:08:09.05Z"
+ *   StartTime: "2014-01-06T07:08:09.05Z"
  * };
  * const command = new DescribeSpotPriceHistoryCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SpotPriceHistory": [
+ *   SpotPriceHistory: [
  *     {
- *       "AvailabilityZone": "us-west-1a",
- *       "InstanceType": "m1.xlarge",
- *       "ProductDescription": "Linux/UNIX (Amazon VPC)",
- *       "SpotPrice": "0.080000",
- *       "Timestamp": "2014-01-06T04:32:53.000Z"
+ *       AvailabilityZone: "us-west-1a",
+ *       InstanceType: "m1.xlarge",
+ *       ProductDescription: "Linux/UNIX (Amazon VPC)",
+ *       SpotPrice: "0.080000",
+ *       Timestamp: "2014-01-06T04:32:53.000Z"
  *     },
  *     {
- *       "AvailabilityZone": "us-west-1c",
- *       "InstanceType": "m1.xlarge",
- *       "ProductDescription": "Linux/UNIX (Amazon VPC)",
- *       "SpotPrice": "0.080000",
- *       "Timestamp": "2014-01-05T11:28:26.000Z"
+ *       AvailabilityZone: "us-west-1c",
+ *       InstanceType: "m1.xlarge",
+ *       ProductDescription: "Linux/UNIX (Amazon VPC)",
+ *       SpotPrice: "0.080000",
+ *       Timestamp: "2014-01-05T11:28:26.000Z"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-spot-price-history-1
  * ```
  *
+ * @public
  */
 export class DescribeSpotPriceHistoryCommand extends $Command
   .classBuilder<

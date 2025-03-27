@@ -74,6 +74,7 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class NotifyWhenUploadedCommand extends $Command

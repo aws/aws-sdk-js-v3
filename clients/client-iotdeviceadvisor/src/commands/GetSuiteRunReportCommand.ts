@@ -66,6 +66,7 @@ export interface GetSuiteRunReportCommandOutput extends GetSuiteRunReportRespons
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ *
  * @public
  */
 export class GetSuiteRunReportCommand extends $Command

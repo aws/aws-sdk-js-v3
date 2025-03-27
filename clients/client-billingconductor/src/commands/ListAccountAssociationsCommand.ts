@@ -97,6 +97,7 @@ export interface ListAccountAssociationsCommandOutput extends ListAccountAssocia
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ *
  * @public
  */
 export class ListAccountAssociationsCommand extends $Command

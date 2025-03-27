@@ -149,6 +149,7 @@ export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryO
  * @throws {@link ResourceGroupsTaggingAPIServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
+ *
  * @public
  */
 export class GetComplianceSummaryCommand extends $Command

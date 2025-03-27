@@ -72,6 +72,7 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __Metad
  * @throws {@link NetworkFlowMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkFlowMonitor service.</p>
  *
+ *
  * @public
  */
 export class DeleteMonitorCommand extends $Command

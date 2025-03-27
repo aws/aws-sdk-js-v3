@@ -71,25 +71,25 @@ export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshot
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe snapshot attributes
  * ```javascript
  * // This example describes the ``createVolumePermission`` attribute on a snapshot with the snapshot ID of ``snap-066877671789bd71b``.
  * const input = {
- *   "Attribute": "createVolumePermission",
- *   "SnapshotId": "snap-066877671789bd71b"
+ *   Attribute: "createVolumePermission",
+ *   SnapshotId: "snap-066877671789bd71b"
  * };
  * const command = new DescribeSnapshotAttributeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CreateVolumePermissions": [],
- *   "SnapshotId": "snap-066877671789bd71b"
+ *   CreateVolumePermissions:   [],
+ *   SnapshotId: "snap-066877671789bd71b"
  * }
  * *\/
- * // example id: to-describe-snapshot-attributes-1472503199736
  * ```
  *
+ * @public
  */
 export class DescribeSnapshotAttributeCommand extends $Command
   .classBuilder<

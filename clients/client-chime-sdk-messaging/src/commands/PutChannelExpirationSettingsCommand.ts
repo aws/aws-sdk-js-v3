@@ -112,6 +112,7 @@ export interface PutChannelExpirationSettingsCommandOutput
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class PutChannelExpirationSettingsCommand extends $Command

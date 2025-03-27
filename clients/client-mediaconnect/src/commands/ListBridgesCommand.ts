@@ -87,6 +87,7 @@ export interface ListBridgesCommandOutput extends ListBridgesResponse, __Metadat
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ *
  * @public
  */
 export class ListBridgesCommand extends $Command

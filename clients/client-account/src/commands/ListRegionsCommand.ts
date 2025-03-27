@@ -83,6 +83,7 @@ export interface ListRegionsCommandOutput extends ListRegionsResponse, __Metadat
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ *
  * @public
  */
 export class ListRegionsCommand extends $Command

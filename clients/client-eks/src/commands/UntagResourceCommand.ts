@@ -64,6 +64,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

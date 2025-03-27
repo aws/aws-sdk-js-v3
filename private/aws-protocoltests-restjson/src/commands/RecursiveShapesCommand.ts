@@ -77,6 +77,7 @@ export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class RecursiveShapesCommand extends $Command

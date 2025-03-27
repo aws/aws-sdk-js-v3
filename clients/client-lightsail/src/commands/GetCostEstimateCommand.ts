@@ -105,6 +105,7 @@ export interface GetCostEstimateCommandOutput extends GetCostEstimateResult, __M
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetCostEstimateCommand extends $Command

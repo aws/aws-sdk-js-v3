@@ -83,6 +83,7 @@ export interface DescribeBundleAssociationsCommandOutput extends DescribeBundleA
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DescribeBundleAssociationsCommand extends $Command

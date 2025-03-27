@@ -105,6 +105,7 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class GetAuthorizationTokenCommand extends $Command

@@ -88,6 +88,7 @@ export interface DescribeRecoverySnapshotsCommandOutput extends DescribeRecovery
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class DescribeRecoverySnapshotsCommand extends $Command

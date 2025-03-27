@@ -84,6 +84,7 @@ export interface ListFileTransferResultsCommandOutput extends ListFileTransferRe
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class ListFileTransferResultsCommand extends $Command

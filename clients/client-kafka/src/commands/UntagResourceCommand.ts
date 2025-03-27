@@ -65,6 +65,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

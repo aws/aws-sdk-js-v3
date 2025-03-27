@@ -167,6 +167,7 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class PutPlaybackConfigurationCommand extends $Command

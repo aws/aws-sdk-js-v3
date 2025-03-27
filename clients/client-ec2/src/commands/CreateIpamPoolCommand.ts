@@ -133,6 +133,7 @@ export interface CreateIpamPoolCommandOutput extends CreateIpamPoolResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class CreateIpamPoolCommand extends $Command

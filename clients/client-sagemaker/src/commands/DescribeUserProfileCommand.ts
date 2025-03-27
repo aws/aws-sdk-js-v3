@@ -289,6 +289,7 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeUserProfileCommand extends $Command

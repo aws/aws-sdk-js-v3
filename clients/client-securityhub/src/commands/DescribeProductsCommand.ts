@@ -92,46 +92,46 @@ export interface DescribeProductsCommandOutput extends DescribeProductsResponse,
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To get information about Security Hub integrations
  * ```javascript
  * // The following example returns details about AWS services and third-party products that Security Hub integrates with.
  * const input = {
- *   "MaxResults": 1,
- *   "NextToken": "NULL",
- *   "ProductArn": "arn:aws:securityhub:us-east-1:517716713836:product/crowdstrike/crowdstrike-falcon"
+ *   MaxResults: 1,
+ *   NextToken: "NULL",
+ *   ProductArn: "arn:aws:securityhub:us-east-1:517716713836:product/crowdstrike/crowdstrike-falcon"
  * };
  * const command = new DescribeProductsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NextToken": "U2FsdGVkX18vvPlOqb7RDrWRWVFBJI46MOIAb+nZmRJmR15NoRi2gm13sdQEn3O/pq/78dGs+bKpgA+7HMPHO0qX33/zoRI+uIG/F9yLNhcOrOWzFUdy36JcXLQji3Rpnn/cD1SVkGA98qI3zPOSDg==",
- *   "Products": [
+ *   NextToken: "U2FsdGVkX18vvPlOqb7RDrWRWVFBJI46MOIAb+nZmRJmR15NoRi2gm13sdQEn3O/pq/78dGs+bKpgA+7HMPHO0qX33/zoRI+uIG/F9yLNhcOrOWzFUdy36JcXLQji3Rpnn/cD1SVkGA98qI3zPOSDg==",
+ *   Products: [
  *     {
- *       "ActivationUrl": "https://falcon.crowdstrike.com/support/documentation",
- *       "Categories": [
+ *       ActivationUrl: "https://falcon.crowdstrike.com/support/documentation",
+ *       Categories: [
  *         "Endpoint Detection and Response (EDR)",
  *         "AV Scanning and Sandboxing",
  *         "Threat Intelligence Feeds and Reports",
  *         "Endpoint Forensics",
  *         "Network Forensics"
  *       ],
- *       "CompanyName": "CrowdStrike",
- *       "Description": "CrowdStrike Falcon's single lightweight sensor unifies next-gen antivirus, endpoint detection and response, and 24/7 managed hunting, via the cloud.",
- *       "IntegrationTypes": [
+ *       CompanyName: "CrowdStrike",
+ *       Description: "CrowdStrike Falcon's single lightweight sensor unifies next-gen antivirus, endpoint detection and response, and 24/7 managed hunting, via the cloud.",
+ *       IntegrationTypes: [
  *         "SEND_FINDINGS_TO_SECURITY_HUB"
  *       ],
- *       "MarketplaceUrl": "https://aws.amazon.com/marketplace/seller-profile?id=a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "ProductArn": "arn:aws:securityhub:us-east-1:517716713836:product/crowdstrike/crowdstrike-falcon",
- *       "ProductName": "CrowdStrike Falcon",
- *       "ProductSubscriptionResourcePolicy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"123456789333\"},\"Action\":[\"securityhub:BatchImportFindings\"],\"Resource\":\"arn:aws:securityhub:us-west-1:123456789012:product-subscription/crowdstrike/crowdstrike-falcon\",\"Condition\":{\"StringEquals\":{\"securityhub:TargetAccount\":\"123456789012\"}}},{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"123456789012\"},\"Action\":[\"securityhub:BatchImportFindings\"],\"Resource\":\"arn:aws:securityhub:us-west-1:123456789333:product/crowdstrike/crowdstrike-falcon\",\"Condition\":{\"StringEquals\":{\"securityhub:TargetAccount\":\"123456789012\"}}}]}"
+ *       MarketplaceUrl: "https://aws.amazon.com/marketplace/seller-profile?id=a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       ProductArn: "arn:aws:securityhub:us-east-1:517716713836:product/crowdstrike/crowdstrike-falcon",
+ *       ProductName: "CrowdStrike Falcon",
+ *       ProductSubscriptionResourcePolicy: `{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"123456789333"},"Action":["securityhub:BatchImportFindings"],"Resource":"arn:aws:securityhub:us-west-1:123456789012:product-subscription/crowdstrike/crowdstrike-falcon","Condition":{"StringEquals":{"securityhub:TargetAccount":"123456789012"}}},{"Effect":"Allow","Principal":{"AWS":"123456789012"},"Action":["securityhub:BatchImportFindings"],"Resource":"arn:aws:securityhub:us-west-1:123456789333:product/crowdstrike/crowdstrike-falcon","Condition":{"StringEquals":{"securityhub:TargetAccount":"123456789012"}}}]}`
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-information-about-security-hub-integrations-1676061228533
  * ```
  *
+ * @public
  */
 export class DescribeProductsCommand extends $Command
   .classBuilder<

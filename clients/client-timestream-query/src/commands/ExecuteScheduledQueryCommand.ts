@@ -78,6 +78,7 @@ export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ *
  * @public
  */
 export class ExecuteScheduledQueryCommand extends $Command

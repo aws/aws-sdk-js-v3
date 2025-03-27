@@ -105,6 +105,7 @@ export interface PutDeliveryDestinationPolicyCommandOutput
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class PutDeliveryDestinationPolicyCommand extends $Command

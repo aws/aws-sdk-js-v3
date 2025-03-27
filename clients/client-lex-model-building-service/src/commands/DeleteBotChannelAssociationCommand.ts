@@ -84,6 +84,7 @@ export interface DeleteBotChannelAssociationCommandOutput extends __MetadataBear
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ *
  * @public
  */
 export class DeleteBotChannelAssociationCommand extends $Command

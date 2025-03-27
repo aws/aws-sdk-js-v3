@@ -107,6 +107,7 @@ export interface GetAliasCommandOutput extends GetAliasOutput, __MetadataBearer 
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ *
  * @public
  */
 export class GetAliasCommand extends $Command

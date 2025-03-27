@@ -126,6 +126,7 @@ export interface ListRulesCommandOutput extends ListRulesOutput, __MetadataBeare
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class ListRulesCommand extends $Command

@@ -96,6 +96,7 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DescribeSecurityProfileCommand extends $Command

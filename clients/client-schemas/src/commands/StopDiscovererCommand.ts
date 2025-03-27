@@ -68,6 +68,7 @@ export interface StopDiscovererCommandOutput extends StopDiscovererResponse, __M
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ *
  * @public
  */
 export class StopDiscovererCommand extends $Command

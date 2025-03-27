@@ -96,6 +96,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link PartnerCentralSellingServiceException}
  * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

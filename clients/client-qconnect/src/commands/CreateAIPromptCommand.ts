@@ -121,6 +121,7 @@ export interface CreateAIPromptCommandOutput extends CreateAIPromptResponse, __M
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class CreateAIPromptCommand extends $Command

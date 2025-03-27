@@ -102,6 +102,7 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ *
  * @public
  */
 export class SendBounceCommand extends $Command

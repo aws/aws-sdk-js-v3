@@ -110,6 +110,7 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ *
  * @public
  */
 export class GetParametersForImportCommand extends $Command

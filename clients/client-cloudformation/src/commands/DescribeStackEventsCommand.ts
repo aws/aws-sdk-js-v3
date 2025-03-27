@@ -83,6 +83,7 @@ export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOut
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeStackEventsCommand extends $Command

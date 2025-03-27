@@ -119,6 +119,7 @@ export interface DescribeDeviceEc2InstancesCommandOutput extends DescribeDeviceE
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ *
  * @public
  */
 export class DescribeDeviceEc2InstancesCommand extends $Command

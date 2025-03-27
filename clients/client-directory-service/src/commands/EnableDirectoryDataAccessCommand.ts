@@ -76,6 +76,7 @@ export interface EnableDirectoryDataAccessCommandOutput extends EnableDirectoryD
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class EnableDirectoryDataAccessCommand extends $Command

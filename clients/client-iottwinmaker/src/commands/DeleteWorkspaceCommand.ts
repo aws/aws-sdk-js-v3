@@ -70,6 +70,7 @@ export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, _
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteWorkspaceCommand extends $Command

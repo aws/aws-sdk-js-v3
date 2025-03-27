@@ -148,30 +148,30 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To create a configuration profile
  * ```javascript
  * // The following create-configuration-profile example creates a configuration profile using a configuration stored in Parameter Store, a capability of Systems Manager.
  * const input = {
- *   "ApplicationId": "339ohji",
- *   "LocationUri": "ssm-parameter://Example-Parameter",
- *   "Name": "Example-Configuration-Profile",
- *   "RetrievalRoleArn": "arn:aws:iam::111122223333:role/Example-App-Config-Role"
+ *   ApplicationId: "339ohji",
+ *   LocationUri: "ssm-parameter://Example-Parameter",
+ *   Name: "Example-Configuration-Profile",
+ *   RetrievalRoleArn: "arn:aws:iam::111122223333:role/Example-App-Config-Role"
  * };
  * const command = new CreateConfigurationProfileCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplicationId": "339ohji",
- *   "Id": "ur8hx2f",
- *   "LocationUri": "ssm-parameter://Example-Parameter",
- *   "Name": "Example-Configuration-Profile",
- *   "RetrievalRoleArn": "arn:aws:iam::111122223333:role/Example-App-Config-Role"
+ *   ApplicationId: "339ohji",
+ *   Id: "ur8hx2f",
+ *   LocationUri: "ssm-parameter://Example-Parameter",
+ *   Name: "Example-Configuration-Profile",
+ *   RetrievalRoleArn: "arn:aws:iam::111122223333:role/Example-App-Config-Role"
  * }
  * *\/
- * // example id: to-create-a-configuration-profile-1632264580336
  * ```
  *
+ * @public
  */
 export class CreateConfigurationProfileCommand extends $Command
   .classBuilder<

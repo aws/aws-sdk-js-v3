@@ -581,6 +581,7 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ *
  * @public
  */
 export class CreateVirtualNodeCommand extends $Command

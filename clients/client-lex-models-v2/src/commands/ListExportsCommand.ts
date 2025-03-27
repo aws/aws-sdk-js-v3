@@ -116,6 +116,7 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class ListExportsCommand extends $Command

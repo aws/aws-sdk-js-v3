@@ -69,6 +69,7 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class DescribeSchemaCommand extends $Command

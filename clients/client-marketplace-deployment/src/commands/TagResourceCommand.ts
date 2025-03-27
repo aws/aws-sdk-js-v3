@@ -78,6 +78,24 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link MarketplaceDeploymentServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceDeployment service.</p>
  *
+ *
+ * @example Adding tags to a deployment parameter
+ * ```javascript
+ * // The following example demonstrates adding two tags to a deployment parameter. There is no output from this API.
+ * const input = {
+ *   resourceArn: "arn:aws:aws-marketplace:us-east-1:123456789012:DeploymentParameter:catalogs/AWSMarketplace/products/product-1234/dp-uniqueidentifier",
+ *   tags: {
+ *     FooKey: "BarValue",
+ *     HelloKey: "WorldValue"
+ *   }
+ * };
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

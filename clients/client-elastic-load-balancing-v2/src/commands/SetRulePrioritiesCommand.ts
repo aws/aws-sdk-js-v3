@@ -181,48 +181,48 @@ export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput,
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To set the rule priority
  * ```javascript
  * // This example sets the priority of the specified rule.
  * const input = {
- *   "RulePriorities": [
+ *   RulePriorities: [
  *     {
- *       "Priority": 5,
- *       "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/1291d13826f405c3"
+ *       Priority: 5,
+ *       RuleArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/1291d13826f405c3"
  *     }
  *   ]
  * };
  * const command = new SetRulePrioritiesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Rules": [
+ *   Rules: [
  *     {
- *       "Actions": [
+ *       Actions: [
  *         {
- *           "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
- *           "Type": "forward"
+ *           TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *           Type: "forward"
  *         }
  *       ],
- *       "Conditions": [
+ *       Conditions: [
  *         {
- *           "Field": "path-pattern",
- *           "Values": [
+ *           Field: "path-pattern",
+ *           Values: [
  *             "/img/*"
  *           ]
  *         }
  *       ],
- *       "IsDefault": false,
- *       "Priority": "5",
- *       "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/1291d13826f405c3"
+ *       IsDefault: false,
+ *       Priority: "5",
+ *       RuleArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/1291d13826f405c3"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-set-rule-priorities-1
  * ```
  *
+ * @public
  */
 export class SetRulePrioritiesCommand extends $Command
   .classBuilder<

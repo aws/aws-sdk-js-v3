@@ -145,42 +145,42 @@ export interface GetSecurityControlDefinitionCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To get the definition of a security control.
  * ```javascript
  * // The following example retrieves definition details for the specified security control.
  * const input = {
- *   "SecurityControlId": "EC2.4"
+ *   SecurityControlId: "EC2.4"
  * };
  * const command = new GetSecurityControlDefinitionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SecurityControlDefinition": {
- *     "CurrentRegionAvailability": "AVAILABLE",
- *     "Description": "This control checks whether an Amazon EC2 instance has been stopped for longer than the allowed number of days. The control fails if an EC2 instance is stopped for longer than the maximum allowed time period. Unless you provide a custom parameter value for the maximum allowed time period, Security Hub uses a default value of 30 days.",
- *     "ParameterDefinitions": {
- *       "AllowedDays": {
- *         "ConfigurationOptions": {
- *           "Integer": {
- *             "DefaultValue": 30,
- *             "Max": 365,
- *             "Min": 1
+ *   SecurityControlDefinition: {
+ *     CurrentRegionAvailability: "AVAILABLE",
+ *     Description: "This control checks whether an Amazon EC2 instance has been stopped for longer than the allowed number of days. The control fails if an EC2 instance is stopped for longer than the maximum allowed time period. Unless you provide a custom parameter value for the maximum allowed time period, Security Hub uses a default value of 30 days.",
+ *     ParameterDefinitions: {
+ *       AllowedDays: {
+ *         ConfigurationOptions: {
+ *           Integer: {
+ *             DefaultValue: 30,
+ *             Max: 365,
+ *             Min: 1
  *           }
  *         },
- *         "Description": "Number of days the EC2 instance is allowed to be in a stopped state before generating a failed finding"
+ *         Description: "Number of days the EC2 instance is allowed to be in a stopped state before generating a failed finding"
  *       }
  *     },
- *     "RemediationUrl": "https://docs.aws.amazon.com/console/securityhub/EC2.4/remediation",
- *     "SecurityControlId": "EC2.4",
- *     "SeverityRating": "MEDIUM",
- *     "Title": "Stopped Amazon EC2 instances should be removed after a specified time period"
+ *     RemediationUrl: "https://docs.aws.amazon.com/console/securityhub/EC2.4/remediation",
+ *     SecurityControlId: "EC2.4",
+ *     SeverityRating: "MEDIUM",
+ *     Title: "Stopped Amazon EC2 instances should be removed after a specified time period"
  *   }
  * }
  * *\/
- * // example id: to-get-the-definition-of-a-security-control-1699283789356
  * ```
  *
+ * @public
  */
 export class GetSecurityControlDefinitionCommand extends $Command
   .classBuilder<

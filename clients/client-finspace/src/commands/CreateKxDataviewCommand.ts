@@ -122,6 +122,7 @@ export interface CreateKxDataviewCommandOutput extends CreateKxDataviewResponse,
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class CreateKxDataviewCommand extends $Command

@@ -126,6 +126,7 @@ export interface DescribeDataIngestionJobCommandOutput extends DescribeDataInges
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class DescribeDataIngestionJobCommand extends $Command

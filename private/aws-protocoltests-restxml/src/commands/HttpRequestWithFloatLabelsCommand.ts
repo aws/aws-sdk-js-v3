@@ -53,6 +53,7 @@ export interface HttpRequestWithFloatLabelsCommandOutput extends __MetadataBeare
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class HttpRequestWithFloatLabelsCommand extends $Command
   .classBuilder<

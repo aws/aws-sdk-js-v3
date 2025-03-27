@@ -144,6 +144,7 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeClustersCommand extends $Command

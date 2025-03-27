@@ -130,6 +130,7 @@ export interface TerminateRecoveryInstancesCommandOutput extends TerminateRecove
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class TerminateRecoveryInstancesCommand extends $Command

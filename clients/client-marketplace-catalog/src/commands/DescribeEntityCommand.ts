@@ -88,6 +88,7 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ *
  * @public
  */
 export class DescribeEntityCommand extends $Command

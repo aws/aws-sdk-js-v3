@@ -59,22 +59,25 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
- * @public
+ *
  * @example Remove tags from a resource
  * ```javascript
  * //
  * const input = {
- *   "ResourceArn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel",
- *   "TagKeys": [
+ *   ResourceArn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel",
+ *   TagKeys: [
  *     "key3",
  *     "key4"
  *   ]
  * };
  * const command = new UntagResourceCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

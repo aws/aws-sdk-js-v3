@@ -78,6 +78,7 @@ export interface DeleteMediaCapturePipelineCommandOutput extends __MetadataBeare
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class DeleteMediaCapturePipelineCommand extends $Command

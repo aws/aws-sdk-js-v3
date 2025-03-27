@@ -77,6 +77,7 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
  * @public
  */
 export class UpdateLoggingConfigurationCommand extends $Command

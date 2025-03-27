@@ -96,6 +96,7 @@ export interface UpdateAssessmentControlCommandOutput extends UpdateAssessmentCo
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class UpdateAssessmentControlCommand extends $Command

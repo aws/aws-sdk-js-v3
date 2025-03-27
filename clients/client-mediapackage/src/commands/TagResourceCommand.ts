@@ -57,6 +57,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ *
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

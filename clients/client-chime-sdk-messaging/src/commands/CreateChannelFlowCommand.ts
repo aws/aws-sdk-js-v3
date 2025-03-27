@@ -128,6 +128,7 @@ export interface CreateChannelFlowCommandOutput extends CreateChannelFlowRespons
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class CreateChannelFlowCommand extends $Command

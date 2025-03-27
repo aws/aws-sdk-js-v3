@@ -126,6 +126,7 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * @throws {@link PersonalizeRuntimeServiceException}
  * <p>Base exception class for all service exceptions from PersonalizeRuntime service.</p>
  *
+ *
  * @public
  */
 export class GetRecommendationsCommand extends $Command

@@ -114,6 +114,7 @@ export interface ValidateE911AddressCommandOutput extends ValidateE911AddressRes
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class ValidateE911AddressCommand extends $Command

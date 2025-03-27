@@ -91,6 +91,7 @@ export interface DescribeAuditTaskCommandOutput extends DescribeAuditTaskRespons
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeAuditTaskCommand extends $Command

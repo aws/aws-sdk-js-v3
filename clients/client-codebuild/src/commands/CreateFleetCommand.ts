@@ -175,6 +175,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class CreateFleetCommand extends $Command

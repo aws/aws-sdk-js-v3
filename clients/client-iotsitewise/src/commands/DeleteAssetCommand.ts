@@ -93,6 +93,7 @@ export interface DeleteAssetCommandOutput extends DeleteAssetResponse, __Metadat
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DeleteAssetCommand extends $Command

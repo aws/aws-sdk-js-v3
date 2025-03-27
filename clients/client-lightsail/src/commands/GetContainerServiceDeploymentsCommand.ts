@@ -125,6 +125,7 @@ export interface GetContainerServiceDeploymentsCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetContainerServiceDeploymentsCommand extends $Command

@@ -68,6 +68,7 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ *
  * @public
  */
 export class GetAccountCommand extends $Command

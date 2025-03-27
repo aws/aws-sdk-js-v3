@@ -656,6 +656,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ *
  * @public
  */
 export class DescribeVolumesCommand extends $Command

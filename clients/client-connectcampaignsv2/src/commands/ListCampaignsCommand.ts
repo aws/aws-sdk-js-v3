@@ -92,6 +92,7 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * @throws {@link ConnectCampaignsV2ServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaignsV2 service.</p>
  *
+ *
  * @public
  */
 export class ListCampaignsCommand extends $Command

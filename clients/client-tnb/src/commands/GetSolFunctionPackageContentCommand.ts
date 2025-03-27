@@ -90,6 +90,24 @@ export interface GetSolFunctionPackageContentCommandOutput
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example Get the content of a function package
+ * ```javascript
+ * //
+ * const input = {
+ *   accept: "application/zip",
+ *   vnfPkgId: "fp-07aa863e53460a2a6"
+ * };
+ * const command = new GetSolFunctionPackageContentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   contentType: "application/zip",
+ *   packageContent: "dGVzdCBjb250ZW50IGhlcmU="
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetSolFunctionPackageContentCommand extends $Command

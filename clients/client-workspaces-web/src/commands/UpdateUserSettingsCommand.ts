@@ -149,6 +149,7 @@ export interface UpdateUserSettingsCommandOutput extends UpdateUserSettingsRespo
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class UpdateUserSettingsCommand extends $Command

@@ -70,6 +70,7 @@ export interface GetLatestAssessmentIdCommandOutput extends GetLatestAssessmentI
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ *
  * @public
  */
 export class GetLatestAssessmentIdCommand extends $Command

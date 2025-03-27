@@ -144,6 +144,7 @@ export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __Met
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class UpdateTriggerCommand extends $Command

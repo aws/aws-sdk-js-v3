@@ -289,6 +289,7 @@ export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintena
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class UpdateMaintenanceWindowTaskCommand extends $Command

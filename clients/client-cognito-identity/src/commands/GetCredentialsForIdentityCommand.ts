@@ -106,6 +106,7 @@ export interface GetCredentialsForIdentityCommandOutput extends GetCredentialsFo
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ *
  * @public
  */
 export class GetCredentialsForIdentityCommand extends $Command

@@ -82,6 +82,7 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ *
  * @public
  */
 export class GetApplicationCommand extends $Command

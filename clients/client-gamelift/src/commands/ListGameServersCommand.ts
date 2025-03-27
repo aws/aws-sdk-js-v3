@@ -97,6 +97,7 @@ export interface ListGameServersCommandOutput extends ListGameServersOutput, __M
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class ListGameServersCommand extends $Command

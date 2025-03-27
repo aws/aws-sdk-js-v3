@@ -420,19 +420,22 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To detach a policy from a root, OU, or account
  * ```javascript
  * // The following example shows how to detach a policy from an OU:/n/n
  * const input = {
- *   "PolicyId": "p-examplepolicyid111",
- *   "TargetId": "ou-examplerootid111-exampleouid111"
+ *   PolicyId: "p-examplepolicyid111",
+ *   TargetId: "ou-examplerootid111-exampleouid111"
  * };
  * const command = new DetachPolicyCommand(input);
- * await client.send(command);
- * // example id: to-detach-a-policy-from-a-root-ou-or-account
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DetachPolicyCommand extends $Command
   .classBuilder<

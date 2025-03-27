@@ -99,6 +99,7 @@ export interface CreateUsageProfileCommandOutput extends CreateUsageProfileRespo
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class CreateUsageProfileCommand extends $Command

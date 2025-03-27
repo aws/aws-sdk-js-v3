@@ -68,6 +68,7 @@ export interface TestWirelessDeviceCommandOutput extends TestWirelessDeviceRespo
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class TestWirelessDeviceCommand extends $Command

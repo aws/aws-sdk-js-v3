@@ -67,26 +67,26 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To get a list of tags for a resource
  * ```javascript
  * // The following example returns a list of tags associated with the specified resource.
  * const input = {
- *   "ResourceArn": "arn:aws:securityhub:us-west-1:123456789012:hub/default"
+ *   ResourceArn: "arn:aws:securityhub:us-west-1:123456789012:hub/default"
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Tags": {
- *     "Area": "USMidwest",
- *     "Department": "Operations"
+ *   Tags: {
+ *     Area: "USMidwest",
+ *     Department: "Operations"
  *   }
  * }
  * *\/
- * // example id: to-get-a-list-of-tags-for-a-resource-1678477883796
  * ```
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

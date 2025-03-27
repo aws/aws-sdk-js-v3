@@ -91,6 +91,7 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeNamespaceCommand extends $Command

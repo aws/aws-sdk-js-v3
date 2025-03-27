@@ -75,6 +75,7 @@ export interface StartTriggerCommandOutput extends StartTriggerResponse, __Metad
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class StartTriggerCommand extends $Command

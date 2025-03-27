@@ -70,23 +70,23 @@ export interface PurchaseProvisionedCapacityCommandOutput extends PurchaseProvis
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To purchases a provisioned capacity unit for an AWS account
  * ```javascript
  * // The example purchases provisioned capacity unit for an AWS account.
  * const input = {
- *   "accountId": "-"
+ *   accountId: "-"
  * };
  * const command = new PurchaseProvisionedCapacityCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "capacityId": "zSaq7NzHFQDANTfQkDen4V7z"
+ *   capacityId: "zSaq7NzHFQDANTfQkDen4V7z"
  * }
  * *\/
- * // example id: to-purchases-a-provisioned-capacity-unit-for-an-aws-account-1481927446662
  * ```
  *
+ * @public
  */
 export class PurchaseProvisionedCapacityCommand extends $Command
   .classBuilder<

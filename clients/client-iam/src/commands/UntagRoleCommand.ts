@@ -69,21 +69,24 @@ export interface UntagRoleCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To remove a tag from an IAM role
  * ```javascript
  * // The following example shows how to remove a tag with the key 'Dept' from a role named 'taggedrole'.
  * const input = {
- *   "RoleName": "taggedrole",
- *   "TagKeys": [
+ *   RoleName: "taggedrole",
+ *   TagKeys: [
  *     "Dept"
  *   ]
  * };
  * const command = new UntagRoleCommand(input);
- * await client.send(command);
- * // example id: to-remove-a-tag-from-an-iam-role-1506719589943
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UntagRoleCommand extends $Command
   .classBuilder<

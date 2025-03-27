@@ -76,6 +76,7 @@ export interface GetDeploymentsCommandOutput extends GetDeploymentsResponse, __M
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class GetDeploymentsCommand extends $Command

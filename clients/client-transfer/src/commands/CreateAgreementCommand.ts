@@ -104,6 +104,7 @@ export interface CreateAgreementCommandOutput extends CreateAgreementResponse, _
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class CreateAgreementCommand extends $Command

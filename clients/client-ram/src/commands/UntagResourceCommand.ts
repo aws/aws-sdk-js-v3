@@ -74,6 +74,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

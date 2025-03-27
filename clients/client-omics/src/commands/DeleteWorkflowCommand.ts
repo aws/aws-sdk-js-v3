@@ -77,6 +77,7 @@ export interface DeleteWorkflowCommandOutput extends __MetadataBearer {}
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class DeleteWorkflowCommand extends $Command

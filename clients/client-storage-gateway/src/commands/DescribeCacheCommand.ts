@@ -74,32 +74,32 @@ export interface DescribeCacheCommandOutput extends DescribeCacheOutput, __Metad
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To describe cache information
  * ```javascript
  * // Returns information about the cache of a gateway.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * };
  * const command = new DescribeCacheCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CacheAllocatedInBytes": 2199023255552,
- *   "CacheDirtyPercentage": 0.07,
- *   "CacheHitPercentage": 99.68,
- *   "CacheMissPercentage": 0.32,
- *   "CacheUsedPercentage": 0.07,
- *   "DiskIds": [
+ *   CacheAllocatedInBytes: 2199023255552,
+ *   CacheDirtyPercentage: 0.07,
+ *   CacheHitPercentage: 99.68,
+ *   CacheMissPercentage: 0.32,
+ *   CacheUsedPercentage: 0.07,
+ *   DiskIds: [
  *     "pci-0000:03:00.0-scsi-0:0:0:0",
  *     "pci-0000:04:00.0-scsi-0:1:0:0"
  *   ],
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * }
  * *\/
- * // example id: to-describe-cache-information-1471385756036
  * ```
  *
+ * @public
  */
 export class DescribeCacheCommand extends $Command
   .classBuilder<

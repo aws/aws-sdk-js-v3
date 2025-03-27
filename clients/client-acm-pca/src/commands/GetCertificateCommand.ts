@@ -81,6 +81,7 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ *
  * @public
  */
 export class GetCertificateCommand extends $Command

@@ -130,6 +130,7 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class GetCurrentMetricDataCommand extends $Command

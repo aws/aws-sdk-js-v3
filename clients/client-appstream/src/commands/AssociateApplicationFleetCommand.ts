@@ -74,6 +74,7 @@ export interface AssociateApplicationFleetCommandOutput extends AssociateApplica
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class AssociateApplicationFleetCommand extends $Command

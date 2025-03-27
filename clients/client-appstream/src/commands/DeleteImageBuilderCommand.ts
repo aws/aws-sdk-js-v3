@@ -111,6 +111,7 @@ export interface DeleteImageBuilderCommandOutput extends DeleteImageBuilderResul
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DeleteImageBuilderCommand extends $Command

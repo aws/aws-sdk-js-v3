@@ -99,6 +99,7 @@ export interface ListTrainingPlansCommandOutput extends ListTrainingPlansRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListTrainingPlansCommand extends $Command

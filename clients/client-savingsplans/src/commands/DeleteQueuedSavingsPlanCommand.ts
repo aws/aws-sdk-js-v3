@@ -65,6 +65,7 @@ export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSaving
  * @throws {@link SavingsplansServiceException}
  * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
+ *
  * @public
  */
 export class DeleteQueuedSavingsPlanCommand extends $Command

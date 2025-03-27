@@ -225,63 +225,63 @@ export interface DescribeSpotInstanceRequestsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a Spot Instance request
  * ```javascript
  * // This example describes the specified Spot Instance request.
  * const input = {
- *   "SpotInstanceRequestIds": [
+ *   SpotInstanceRequestIds: [
  *     "sir-08b93456"
  *   ]
  * };
  * const command = new DescribeSpotInstanceRequestsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SpotInstanceRequests": [
+ *   SpotInstanceRequests: [
  *     {
- *       "CreateTime": "2014-04-30T18:14:55.000Z",
- *       "InstanceId": "i-1234567890abcdef0",
- *       "LaunchSpecification": {
- *         "BlockDeviceMappings": [
+ *       CreateTime: "2014-04-30T18:14:55.000Z",
+ *       InstanceId: "i-1234567890abcdef0",
+ *       LaunchSpecification: {
+ *         BlockDeviceMappings: [
  *           {
- *             "DeviceName": "/dev/sda1",
- *             "Ebs": {
- *               "DeleteOnTermination": true,
- *               "VolumeSize": 8,
- *               "VolumeType": "standard"
+ *             DeviceName: "/dev/sda1",
+ *             Ebs: {
+ *               DeleteOnTermination: true,
+ *               VolumeSize: 8,
+ *               VolumeType: "standard"
  *             }
  *           }
  *         ],
- *         "EbsOptimized": false,
- *         "ImageId": "ami-7aba833f",
- *         "InstanceType": "m1.small",
- *         "KeyName": "my-key-pair",
- *         "SecurityGroups": [
+ *         EbsOptimized: false,
+ *         ImageId: "ami-7aba833f",
+ *         InstanceType: "m1.small",
+ *         KeyName: "my-key-pair",
+ *         SecurityGroups: [
  *           {
- *             "GroupId": "sg-e38f24a7",
- *             "GroupName": "my-security-group"
+ *             GroupId: "sg-e38f24a7",
+ *             GroupName: "my-security-group"
  *           }
  *         ]
  *       },
- *       "LaunchedAvailabilityZone": "us-west-1b",
- *       "ProductDescription": "Linux/UNIX",
- *       "SpotInstanceRequestId": "sir-08b93456",
- *       "SpotPrice": "0.010000",
- *       "State": "active",
- *       "Status": {
- *         "Code": "fulfilled",
- *         "Message": "Your Spot request is fulfilled.",
- *         "UpdateTime": "2014-04-30T18:16:21.000Z"
+ *       LaunchedAvailabilityZone: "us-west-1b",
+ *       ProductDescription: "Linux/UNIX",
+ *       SpotInstanceRequestId: "sir-08b93456",
+ *       SpotPrice: "0.010000",
+ *       State: "active",
+ *       Status: {
+ *         Code: "fulfilled",
+ *         Message: "Your Spot request is fulfilled.",
+ *         UpdateTime: "2014-04-30T18:16:21.000Z"
  *       },
- *       "Type": "one-time"
+ *       Type: "one-time"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-spot-instance-requests-1
  * ```
  *
+ * @public
  */
 export class DescribeSpotInstanceRequestsCommand extends $Command
   .classBuilder<

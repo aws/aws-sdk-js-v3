@@ -108,6 +108,7 @@ export interface GetTokenBalanceCommandOutput extends GetTokenBalanceOutput, __M
  * @throws {@link ManagedBlockchainQueryServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
+ *
  * @public
  */
 export class GetTokenBalanceCommand extends $Command

@@ -133,6 +133,7 @@ export interface UpdateLensReviewCommandOutput extends UpdateLensReviewOutput, _
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class UpdateLensReviewCommand extends $Command

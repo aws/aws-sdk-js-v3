@@ -95,6 +95,7 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class BatchGetChannelCommand extends $Command

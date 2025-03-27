@@ -91,6 +91,7 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class DescribeKeyCommand extends $Command

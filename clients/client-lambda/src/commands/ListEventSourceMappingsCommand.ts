@@ -157,33 +157,33 @@ export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMap
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To list the event source mappings for a function
  * ```javascript
  * // The following example returns a list of the event source mappings for a function named my-function.
  * const input = {
- *   "FunctionName": "my-function"
+ *   FunctionName: "my-function"
  * };
  * const command = new ListEventSourceMappingsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EventSourceMappings": [
+ *   EventSourceMappings: [
  *     {
- *       "BatchSize": 5,
- *       "EventSourceArn": "arn:aws:sqs:us-west-2:123456789012:mySQSqueue",
- *       "FunctionArn": "arn:aws:lambda:us-west-2:123456789012:function:my-function",
- *       "LastModified": 1569284520.333,
- *       "State": "Enabled",
- *       "StateTransitionReason": "USER_INITIATED",
- *       "UUID": "a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"
+ *       BatchSize: 5,
+ *       EventSourceArn: "arn:aws:sqs:us-west-2:123456789012:mySQSqueue",
+ *       FunctionArn: "arn:aws:lambda:us-west-2:123456789012:function:my-function",
+ *       LastModified: 1.569284520333E9,
+ *       State: "Enabled",
+ *       StateTransitionReason: "USER_INITIATED",
+ *       UUID: "a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-the-event-source-mappings-for-a-function-1586490285906
  * ```
  *
+ * @public
  */
 export class ListEventSourceMappingsCommand extends $Command
   .classBuilder<

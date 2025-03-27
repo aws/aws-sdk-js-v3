@@ -137,6 +137,7 @@ export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class CreateConfigCommand extends $Command

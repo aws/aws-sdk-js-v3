@@ -81,6 +81,7 @@ export interface DeleteWhatsAppMessageMediaCommandOutput extends DeleteWhatsAppM
  * @throws {@link SocialMessagingServiceException}
  * <p>Base exception class for all service exceptions from SocialMessaging service.</p>
  *
+ *
  * @public
  */
 export class DeleteWhatsAppMessageMediaCommand extends $Command

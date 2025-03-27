@@ -88,6 +88,7 @@ export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBea
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ *
  * @public
  */
 export class ListRoomsCommand extends $Command

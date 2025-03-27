@@ -80,6 +80,7 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ *
  * @public
  */
 export class DeleteGroupCommand extends $Command

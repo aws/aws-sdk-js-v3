@@ -91,6 +91,7 @@ export interface ListSupportedPhoneNumberCountriesCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class ListSupportedPhoneNumberCountriesCommand extends $Command

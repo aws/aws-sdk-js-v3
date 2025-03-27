@@ -78,6 +78,7 @@ export interface ConfirmTopicRuleDestinationCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ConfirmTopicRuleDestinationCommand extends $Command

@@ -98,6 +98,7 @@ export interface GetBotAliasesCommandOutput extends GetBotAliasesResponse, __Met
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ *
  * @public
  */
 export class GetBotAliasesCommand extends $Command

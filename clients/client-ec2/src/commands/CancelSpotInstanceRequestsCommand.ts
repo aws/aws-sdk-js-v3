@@ -67,30 +67,30 @@ export interface CancelSpotInstanceRequestsCommandOutput extends CancelSpotInsta
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To cancel Spot Instance requests
  * ```javascript
  * // This example cancels a Spot Instance request.
  * const input = {
- *   "SpotInstanceRequestIds": [
+ *   SpotInstanceRequestIds: [
  *     "sir-08b93456"
  *   ]
  * };
  * const command = new CancelSpotInstanceRequestsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CancelledSpotInstanceRequests": [
+ *   CancelledSpotInstanceRequests: [
  *     {
- *       "SpotInstanceRequestId": "sir-08b93456",
- *       "State": "cancelled"
+ *       SpotInstanceRequestId: "sir-08b93456",
+ *       State: "cancelled"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-cancel-spot-instance-requests-1
  * ```
  *
+ * @public
  */
 export class CancelSpotInstanceRequestsCommand extends $Command
   .classBuilder<

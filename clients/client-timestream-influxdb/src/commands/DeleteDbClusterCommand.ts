@@ -77,6 +77,7 @@ export interface DeleteDbClusterCommandOutput extends DeleteDbClusterOutput, __M
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ *
  * @public
  */
 export class DeleteDbClusterCommand extends $Command

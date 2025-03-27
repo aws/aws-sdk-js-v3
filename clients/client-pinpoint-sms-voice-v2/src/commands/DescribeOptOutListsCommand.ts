@@ -94,6 +94,7 @@ export interface DescribeOptOutListsCommandOutput extends DescribeOptOutListsRes
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeOptOutListsCommand extends $Command

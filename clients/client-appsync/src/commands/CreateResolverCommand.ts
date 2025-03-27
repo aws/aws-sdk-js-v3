@@ -139,6 +139,7 @@ export interface CreateResolverCommandOutput extends CreateResolverResponse, __M
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class CreateResolverCommand extends $Command

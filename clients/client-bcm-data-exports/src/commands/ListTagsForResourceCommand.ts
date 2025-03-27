@@ -77,6 +77,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

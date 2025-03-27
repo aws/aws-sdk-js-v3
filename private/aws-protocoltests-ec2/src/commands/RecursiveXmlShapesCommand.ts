@@ -63,6 +63,7 @@ export interface RecursiveXmlShapesCommandOutput extends RecursiveXmlShapesOutpu
  * @throws {@link EC2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
+ *
  * @public
  */
 export class RecursiveXmlShapesCommand extends $Command

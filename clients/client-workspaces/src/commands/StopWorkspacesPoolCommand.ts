@@ -70,6 +70,7 @@ export interface StopWorkspacesPoolCommandOutput extends StopWorkspacesPoolResul
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class StopWorkspacesPoolCommand extends $Command

@@ -89,37 +89,37 @@ export interface StartInstancesCommandOutput extends StartInstancesResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To start a stopped EC2 instance
  * ```javascript
  * // This example starts the specified EC2 instance.
  * const input = {
- *   "InstanceIds": [
+ *   InstanceIds: [
  *     "i-1234567890abcdef0"
  *   ]
  * };
  * const command = new StartInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "StartingInstances": [
+ *   StartingInstances: [
  *     {
- *       "CurrentState": {
- *         "Code": 0,
- *         "Name": "pending"
+ *       CurrentState: {
+ *         Code: 0,
+ *         Name: "pending"
  *       },
- *       "InstanceId": "i-1234567890abcdef0",
- *       "PreviousState": {
- *         "Code": 80,
- *         "Name": "stopped"
+ *       InstanceId: "i-1234567890abcdef0",
+ *       PreviousState: {
+ *         Code: 80,
+ *         Name: "stopped"
  *       }
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-start-a-stopped-ec2-instance-1529358792730
  * ```
  *
+ * @public
  */
 export class StartInstancesCommand extends $Command
   .classBuilder<

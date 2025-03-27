@@ -74,19 +74,22 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To cancel a job
  * ```javascript
  * // This example cancels a job with the specified job ID.
  * const input = {
- *   "jobId": "1d828f65-7a4d-42e8-996d-3b900ed59dc4",
- *   "reason": "Cancelling job."
+ *   jobId: "1d828f65-7a4d-42e8-996d-3b900ed59dc4",
+ *   reason: "Cancelling job."
  * };
  * const command = new CancelJobCommand(input);
- * await client.send(command);
- * // example id: to-cancel-a-job-1481152314733
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CancelJobCommand extends $Command
   .classBuilder<

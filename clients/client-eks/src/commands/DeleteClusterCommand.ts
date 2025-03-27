@@ -203,18 +203,21 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
- * @public
+ *
  * @example To delete a cluster
  * ```javascript
  * // This example command deletes a cluster named `devel` in your default region.
  * const input = {
- *   "name": "devel"
+ *   name: "devel"
  * };
  * const command = new DeleteClusterCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-cluster-1527868641252
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteClusterCommand extends $Command
   .classBuilder<

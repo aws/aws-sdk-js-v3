@@ -62,6 +62,7 @@ export interface DeleteNamedQueryCommandOutput extends DeleteNamedQueryOutput, _
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class DeleteNamedQueryCommand extends $Command

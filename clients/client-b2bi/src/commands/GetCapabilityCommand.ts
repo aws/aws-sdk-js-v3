@@ -101,53 +101,53 @@ export interface GetCapabilityCommandOutput extends GetCapabilityResponse, __Met
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample GetCapabilty call
  * ```javascript
  * //
  * const input = {
- *   "capabilityId": "ca-963a8121e4fc4e348"
+ *   capabilityId: "ca-963a8121e4fc4e348"
  * };
  * const command = new GetCapabilityCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "name": "b2biexample",
- *   "type": "edi",
- *   "capabilityArn": "arn:aws:b2bi:us-west-2:123456789012:capability/ca-963a8121e4fc4e348",
- *   "capabilityId": "ca-963a8121e4fc4e348",
- *   "configuration": {
- *     "edi": {
- *       "type": {
- *         "x12Details": {
- *           "version": "VERSION_4010",
- *           "transactionSet": "X12_110"
+ *   capabilityArn: "arn:aws:b2bi:us-west-2:123456789012:capability/ca-963a8121e4fc4e348",
+ *   capabilityId: "ca-963a8121e4fc4e348",
+ *   configuration: {
+ *     edi: {
+ *       inputLocation: {
+ *         bucketName: "test-bucket",
+ *         key: "input/"
+ *       },
+ *       outputLocation: {
+ *         bucketName: "test-bucket",
+ *         key: "output/"
+ *       },
+ *       transformerId: "tr-9a893cf536df4658b",
+ *       type: {
+ *         x12Details: {
+ *           transactionSet: "X12_110",
+ *           version: "VERSION_4010"
  *         }
- *       },
- *       "inputLocation": {
- *         "key": "input/",
- *         "bucketName": "test-bucket"
- *       },
- *       "outputLocation": {
- *         "key": "output/",
- *         "bucketName": "test-bucket"
- *       },
- *       "transformerId": "tr-9a893cf536df4658b"
+ *       }
  *     }
  *   },
- *   "createdAt": "2023-11-01T21:51:05.504Z",
- *   "instructionsDocuments": [
+ *   createdAt: "2023-11-01T21:51:05.504Z",
+ *   instructionsDocuments: [
  *     {
- *       "key": "instructiondoc.txt",
- *       "bucketName": "test-bucket"
+ *       bucketName: "test-bucket",
+ *       key: "instructiondoc.txt"
  *     }
  *   ],
- *   "modifiedAt": "2023-11-02T21:51:05.504Z"
+ *   modifiedAt: "2023-11-02T21:51:05.504Z",
+ *   name: "b2biexample",
+ *   type: "edi"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetCapabilityCommand extends $Command
   .classBuilder<

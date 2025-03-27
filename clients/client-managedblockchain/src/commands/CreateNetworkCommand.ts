@@ -128,6 +128,7 @@ export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __Metad
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class CreateNetworkCommand extends $Command

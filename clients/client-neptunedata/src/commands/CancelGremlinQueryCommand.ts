@@ -103,6 +103,7 @@ export interface CancelGremlinQueryCommandOutput extends CancelGremlinQueryOutpu
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class CancelGremlinQueryCommand extends $Command

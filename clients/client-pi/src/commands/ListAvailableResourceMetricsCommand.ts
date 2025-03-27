@@ -83,6 +83,7 @@ export interface ListAvailableResourceMetricsCommandOutput
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ *
  * @public
  */
 export class ListAvailableResourceMetricsCommand extends $Command

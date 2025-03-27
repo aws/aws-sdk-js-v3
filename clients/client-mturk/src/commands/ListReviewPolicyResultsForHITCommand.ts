@@ -166,6 +166,7 @@ export interface ListReviewPolicyResultsForHITCommandOutput
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class ListReviewPolicyResultsForHITCommand extends $Command

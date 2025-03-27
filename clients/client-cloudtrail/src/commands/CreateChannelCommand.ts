@@ -128,6 +128,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class CreateChannelCommand extends $Command

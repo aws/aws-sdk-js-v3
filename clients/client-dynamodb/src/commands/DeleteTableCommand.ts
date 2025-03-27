@@ -286,33 +286,33 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
- * @public
+ *
  * @example To delete a table
  * ```javascript
  * // This example deletes the Music table.
  * const input = {
- *   "TableName": "Music"
+ *   TableName: "Music"
  * };
  * const command = new DeleteTableCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TableDescription": {
- *     "ItemCount": 0,
- *     "ProvisionedThroughput": {
- *       "NumberOfDecreasesToday": 1,
- *       "ReadCapacityUnits": 5,
- *       "WriteCapacityUnits": 5
+ *   TableDescription: {
+ *     ItemCount: 0,
+ *     ProvisionedThroughput: {
+ *       NumberOfDecreasesToday: 1,
+ *       ReadCapacityUnits: 5,
+ *       WriteCapacityUnits: 5
  *     },
- *     "TableName": "Music",
- *     "TableSizeBytes": 0,
- *     "TableStatus": "DELETING"
+ *     TableName: "Music",
+ *     TableSizeBytes: 0,
+ *     TableStatus: "DELETING"
  *   }
  * }
  * *\/
- * // example id: to-delete-a-table-1475884368755
  * ```
  *
+ * @public
  */
 export class DeleteTableCommand extends $Command
   .classBuilder<

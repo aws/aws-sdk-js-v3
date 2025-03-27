@@ -129,6 +129,7 @@ export interface DescribeImportCommandOutput extends DescribeImportResponse, __M
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeImportCommand extends $Command

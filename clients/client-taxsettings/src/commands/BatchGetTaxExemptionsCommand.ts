@@ -99,6 +99,7 @@ export interface BatchGetTaxExemptionsCommandOutput extends BatchGetTaxExemption
  * @throws {@link TaxSettingsServiceException}
  * <p>Base exception class for all service exceptions from TaxSettings service.</p>
  *
+ *
  * @public
  */
 export class BatchGetTaxExemptionsCommand extends $Command

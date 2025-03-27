@@ -123,6 +123,7 @@ export interface SendOutboundEmailCommandOutput extends SendOutboundEmailRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class SendOutboundEmailCommand extends $Command

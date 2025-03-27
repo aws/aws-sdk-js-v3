@@ -105,6 +105,7 @@ export interface DescribeConfigurationsCommandOutput extends DescribeConfigurati
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class DescribeConfigurationsCommand extends $Command

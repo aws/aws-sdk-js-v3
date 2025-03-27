@@ -100,6 +100,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class CreateApplicationCommand extends $Command

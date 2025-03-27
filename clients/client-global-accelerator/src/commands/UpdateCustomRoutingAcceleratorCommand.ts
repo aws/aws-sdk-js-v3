@@ -103,6 +103,7 @@ export interface UpdateCustomRoutingAcceleratorCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class UpdateCustomRoutingAcceleratorCommand extends $Command

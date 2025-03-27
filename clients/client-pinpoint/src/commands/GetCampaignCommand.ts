@@ -470,6 +470,7 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetCampaignCommand extends $Command

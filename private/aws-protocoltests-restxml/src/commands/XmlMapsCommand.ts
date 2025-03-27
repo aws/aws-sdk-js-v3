@@ -61,6 +61,7 @@ export interface XmlMapsCommandOutput extends XmlMapsResponse, __MetadataBearer 
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class XmlMapsCommand extends $Command

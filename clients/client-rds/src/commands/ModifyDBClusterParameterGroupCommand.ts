@@ -112,35 +112,35 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To modify parameters in a DB cluster parameter group
  * ```javascript
  * // The following example modifies the values of parameters in a DB cluster parameter group.
  * const input = {
- *   "DBClusterParameterGroupName": "mydbclusterpg",
- *   "Parameters": [
+ *   DBClusterParameterGroupName: "mydbclusterpg",
+ *   Parameters: [
  *     {
- *       "ApplyMethod": "immediate",
- *       "ParameterName": "server_audit_logging",
- *       "ParameterValue": "1"
+ *       ApplyMethod: "immediate",
+ *       ParameterName: "server_audit_logging",
+ *       ParameterValue: "1"
  *     },
  *     {
- *       "ApplyMethod": "immediate",
- *       "ParameterName": "server_audit_logs_upload",
- *       "ParameterValue": "1"
+ *       ApplyMethod: "immediate",
+ *       ParameterName: "server_audit_logs_upload",
+ *       ParameterValue: "1"
  *     }
  *   ]
  * };
  * const command = new ModifyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBClusterParameterGroupName": "mydbclusterpg"
+ *   DBClusterParameterGroupName: "mydbclusterpg"
  * }
  * *\/
- * // example id: to-modify-parameters-in-a-db-cluster-parameter-group-1680377584537
  * ```
  *
+ * @public
  */
 export class ModifyDBClusterParameterGroupCommand extends $Command
   .classBuilder<

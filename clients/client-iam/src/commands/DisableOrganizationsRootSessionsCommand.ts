@@ -80,24 +80,24 @@ export interface DisableOrganizationsRootSessionsCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To disable the RootSessions feature in your organization
  * ```javascript
  * // The following command disables root user sessions for privileged tasks across member accounts in your organization.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DisableOrganizationsRootSessionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EnabledFeatures": [
+ *   EnabledFeatures: [
  *     "RootCredentialsManagement"
  *   ],
- *   "OrganizationId": "o-aa111bb222"
+ *   OrganizationId: "o-aa111bb222"
  * }
  * *\/
- * // example id: to-disable-the-rootsessions-feature-in-your-organization-1730908495962
  * ```
  *
+ * @public
  */
 export class DisableOrganizationsRootSessionsCommand extends $Command
   .classBuilder<

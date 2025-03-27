@@ -274,6 +274,7 @@ export interface KitchenSinkOperationCommandOutput extends KitchenSink, __Metada
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  */
 export class KitchenSinkOperationCommand extends $Command
   .classBuilder<

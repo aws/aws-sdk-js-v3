@@ -180,42 +180,24 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To increase the target capacity of a Spot fleet request
  * ```javascript
  * // This example increases the target capacity of the specified Spot fleet request.
  * const input = {
- *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE",
- *   "TargetCapacity": 20
+ *   SpotFleetRequestId: "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE",
+ *   TargetCapacity: 20
  * };
  * const command = new ModifySpotFleetRequestCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Return": true
+ *   Return: true
  * }
  * *\/
- * // example id: ec2-modify-spot-fleet-request-1
  * ```
  *
- * @example To decrease the target capacity of a Spot fleet request
- * ```javascript
- * // This example decreases the target capacity of the specified Spot fleet request without terminating any Spot Instances as a result.
- * const input = {
- *   "ExcessCapacityTerminationPolicy": "NoTermination ",
- *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE",
- *   "TargetCapacity": 10
- * };
- * const command = new ModifySpotFleetRequestCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Return": true
- * }
- * *\/
- * // example id: ec2-modify-spot-fleet-request-2
- * ```
- *
+ * @public
  */
 export class ModifySpotFleetRequestCommand extends $Command
   .classBuilder<

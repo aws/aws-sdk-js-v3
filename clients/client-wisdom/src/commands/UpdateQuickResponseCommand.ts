@@ -136,6 +136,7 @@ export interface UpdateQuickResponseCommandOutput extends UpdateQuickResponseRes
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class UpdateQuickResponseCommand extends $Command

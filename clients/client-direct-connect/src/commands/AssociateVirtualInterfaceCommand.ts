@@ -118,6 +118,7 @@ export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class AssociateVirtualInterfaceCommand extends $Command

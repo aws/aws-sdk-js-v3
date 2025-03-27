@@ -69,6 +69,7 @@ export interface StopWorkflowRunCommandOutput extends StopWorkflowRunResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class StopWorkflowRunCommand extends $Command

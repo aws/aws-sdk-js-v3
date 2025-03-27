@@ -143,6 +143,7 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class StartImportCommand extends $Command

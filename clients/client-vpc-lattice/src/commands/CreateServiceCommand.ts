@@ -98,6 +98,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class CreateServiceCommand extends $Command

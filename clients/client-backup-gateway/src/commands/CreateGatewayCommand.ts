@@ -74,6 +74,7 @@ export interface CreateGatewayCommandOutput extends CreateGatewayOutput, __Metad
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ *
  * @public
  */
 export class CreateGatewayCommand extends $Command

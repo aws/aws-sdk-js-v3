@@ -103,6 +103,7 @@ export interface AllocateStaticIpCommandOutput extends AllocateStaticIpResult, _
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class AllocateStaticIpCommand extends $Command

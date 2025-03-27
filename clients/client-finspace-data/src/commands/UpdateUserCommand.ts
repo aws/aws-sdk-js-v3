@@ -82,6 +82,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ *
  * @public
  */
 export class UpdateUserCommand extends $Command

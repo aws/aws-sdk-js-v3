@@ -96,6 +96,7 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class TestInvokeAuthorizerCommand extends $Command

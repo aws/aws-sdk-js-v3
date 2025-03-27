@@ -160,6 +160,7 @@ export interface PutStorageLensConfigurationCommandOutput extends __MetadataBear
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class PutStorageLensConfigurationCommand extends $Command

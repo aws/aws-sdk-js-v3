@@ -296,34 +296,34 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To reboot a DB instance
  * ```javascript
  * // The following example starts a reboot of the specified DB instance.
  * const input = {
- *   "DBInstanceIdentifier": "test-mysql-instance"
+ *   DBInstanceIdentifier: "test-mysql-instance"
  * };
  * const command = new RebootDBInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstance": {
- *     "DBInstanceClass": "db.t3.micro",
- *     "DBInstanceIdentifier": "test-mysql-instance",
- *     "DBInstanceStatus": "rebooting",
- *     "Endpoint": {
- *       "Address": "test-mysql-instance.############.us-west-2.rds.amazonaws.com",
- *       "HostedZoneId": "Z1PVIF0EXAMPLE",
- *       "Port": 3306
+ *   DBInstance: {
+ *     DBInstanceClass: "db.t3.micro",
+ *     DBInstanceIdentifier: "test-mysql-instance",
+ *     DBInstanceStatus: "rebooting",
+ *     Endpoint: {
+ *       Address: "test-mysql-instance.############.us-west-2.rds.amazonaws.com",
+ *       HostedZoneId: "Z1PVIF0EXAMPLE",
+ *       Port: 3306
  *     },
- *     "Engine": "mysql",
- *     "MasterUsername": "admin"
+ *     Engine: "mysql",
+ *     MasterUsername: "admin"
  *   }
  * }
  * *\/
- * // example id: to-reboot-a-db-instance-1680072870190
  * ```
  *
+ * @public
  */
 export class RebootDBInstanceCommand extends $Command
   .classBuilder<

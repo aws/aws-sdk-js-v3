@@ -114,6 +114,7 @@ export interface RollbackTransactionCommandOutput extends RollbackTransactionRes
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ *
  * @public
  */
 export class RollbackTransactionCommand extends $Command

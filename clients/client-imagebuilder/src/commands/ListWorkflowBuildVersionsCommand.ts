@@ -100,6 +100,7 @@ export interface ListWorkflowBuildVersionsCommandOutput extends ListWorkflowBuil
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ListWorkflowBuildVersionsCommand extends $Command

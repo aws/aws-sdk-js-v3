@@ -78,6 +78,7 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ *
  * @public
  */
 export class CreateParameterGroupCommand extends $Command

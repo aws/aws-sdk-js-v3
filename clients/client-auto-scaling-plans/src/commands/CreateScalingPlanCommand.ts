@@ -136,6 +136,7 @@ export interface CreateScalingPlanCommandOutput extends CreateScalingPlanRespons
  * @throws {@link AutoScalingPlansServiceException}
  * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
+ *
  * @public
  */
 export class CreateScalingPlanCommand extends $Command

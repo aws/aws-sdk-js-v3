@@ -93,6 +93,7 @@ export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBea
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class GetPortalCommand extends $Command

@@ -81,6 +81,7 @@ export interface ListCasesForContactCommandOutput extends ListCasesForContactRes
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class ListCasesForContactCommand extends $Command

@@ -83,6 +83,7 @@ export interface CreateLocationEfsCommandOutput extends CreateLocationEfsRespons
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class CreateLocationEfsCommand extends $Command

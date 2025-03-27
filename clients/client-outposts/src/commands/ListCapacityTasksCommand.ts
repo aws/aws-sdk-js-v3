@@ -86,6 +86,7 @@ export interface ListCapacityTasksCommandOutput extends ListCapacityTasksOutput,
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class ListCapacityTasksCommand extends $Command

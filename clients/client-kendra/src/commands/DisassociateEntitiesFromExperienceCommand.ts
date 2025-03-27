@@ -99,6 +99,7 @@ export interface DisassociateEntitiesFromExperienceCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class DisassociateEntitiesFromExperienceCommand extends $Command

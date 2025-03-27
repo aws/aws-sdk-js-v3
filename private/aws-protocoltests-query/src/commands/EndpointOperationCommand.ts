@@ -49,6 +49,7 @@ export interface EndpointOperationCommandOutput extends __MetadataBearer {}
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  */
 export class EndpointOperationCommand extends $Command
   .classBuilder<

@@ -75,6 +75,7 @@ export interface UpdateLocationAzureBlobCommandOutput extends UpdateLocationAzur
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class UpdateLocationAzureBlobCommand extends $Command

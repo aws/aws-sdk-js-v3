@@ -85,6 +85,64 @@ export interface ListSolNetworkInstancesCommandOutput extends ListSolNetworkInst
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example List Sol Network Instantiate instances
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new ListSolNetworkInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   networkInstances: [
+ *     {
+ *       arn: "arn:aws:tnb:us-west-2:123456789000:network-instance/ni-07aa863e53460a2a6",
+ *       id: "ni-07aa863e53460a2a6",
+ *       metadata: {
+ *         createdAt: "2022-06-10T19:48:34Z",
+ *         lastModified: "2022-06-10T21:48:33Z"
+ *       },
+ *       nsInstanceDescription: "Network service for CITY",
+ *       nsInstanceName: "CITY Instance",
+ *       nsState: "INSTANTIATED",
+ *       nsdId: "e851fd14-abe3-4535-85e6-6060636fd519",
+ *       nsdInfoId: "np-0d5b823eb5c2a9241"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example List Sol Network Instances with nextToken and maxResults
+ * ```javascript
+ * //
+ * const input = {
+ *   maxResults: 25,
+ *   nextToken: ""
+ * };
+ * const command = new ListSolNetworkInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   networkInstances: [
+ *     {
+ *       arn: "arn:aws:tnb:us-west-2:123456789000:network-instance/ni-07aa863e53460a2a6",
+ *       id: "ni-07aa863e53460a2a6",
+ *       metadata: {
+ *         createdAt: "2022-06-10T19:48:34Z",
+ *         lastModified: "2022-06-10T21:48:33Z"
+ *       },
+ *       nsInstanceDescription: "Network service for CITY",
+ *       nsInstanceName: "CITY Instance",
+ *       nsState: "INSTANTIATED",
+ *       nsdId: "e851fd14-abe3-4535-85e6-6060636fd519",
+ *       nsdInfoId: "np-0d5b823eb5c2a9241"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListSolNetworkInstancesCommand extends $Command

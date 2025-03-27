@@ -102,6 +102,7 @@ export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaAp
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class UpdateSipMediaApplicationCommand extends $Command

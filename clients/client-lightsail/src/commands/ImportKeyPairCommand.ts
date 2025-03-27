@@ -102,6 +102,7 @@ export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __Metad
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class ImportKeyPairCommand extends $Command

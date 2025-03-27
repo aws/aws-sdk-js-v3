@@ -71,6 +71,7 @@ export interface TestRenderTemplateCommandOutput extends TestRenderTemplateRespo
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ *
  * @public
  */
 export class TestRenderTemplateCommand extends $Command

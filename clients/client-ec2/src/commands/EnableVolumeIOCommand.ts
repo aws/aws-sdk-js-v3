@@ -55,18 +55,21 @@ export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To enable I/O for a volume
  * ```javascript
  * // This example enables I/O on volume ``vol-1234567890abcdef0``.
  * const input = {
- *   "VolumeId": "vol-1234567890abcdef0"
+ *   VolumeId: "vol-1234567890abcdef0"
  * };
  * const command = new EnableVolumeIOCommand(input);
- * await client.send(command);
- * // example id: to-enable-io-for-a-volume-1472508114867
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class EnableVolumeIOCommand extends $Command
   .classBuilder<

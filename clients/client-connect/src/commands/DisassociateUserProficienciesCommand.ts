@@ -78,6 +78,7 @@ export interface DisassociateUserProficienciesCommandOutput extends __MetadataBe
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DisassociateUserProficienciesCommand extends $Command

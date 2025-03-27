@@ -96,6 +96,7 @@ export interface PutSigningProfileCommandOutput extends PutSigningProfileRespons
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ *
  * @public
  */
 export class PutSigningProfileCommand extends $Command

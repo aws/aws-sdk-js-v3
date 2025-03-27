@@ -64,6 +64,7 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ *
  * @public
  */
 export class DeleteApplicationCommand extends $Command

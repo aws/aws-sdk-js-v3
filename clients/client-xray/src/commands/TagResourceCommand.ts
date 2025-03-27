@@ -72,6 +72,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

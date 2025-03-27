@@ -80,6 +80,7 @@ export interface ListDataProtectionSettingsCommandOutput extends ListDataProtect
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class ListDataProtectionSettingsCommand extends $Command

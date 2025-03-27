@@ -95,6 +95,7 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ *
  * @public
  */
 export class SendEventCommand extends $Command

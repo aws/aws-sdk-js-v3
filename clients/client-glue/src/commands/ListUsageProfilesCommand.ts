@@ -76,6 +76,7 @@ export interface ListUsageProfilesCommandOutput extends ListUsageProfilesRespons
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class ListUsageProfilesCommand extends $Command

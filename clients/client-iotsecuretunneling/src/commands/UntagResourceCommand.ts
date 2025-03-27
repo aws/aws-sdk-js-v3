@@ -63,6 +63,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link IoTSecureTunnelingServiceException}
  * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

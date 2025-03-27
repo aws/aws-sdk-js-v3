@@ -83,6 +83,7 @@ export interface DeleteWirelessGatewayCommandOutput extends DeleteWirelessGatewa
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class DeleteWirelessGatewayCommand extends $Command

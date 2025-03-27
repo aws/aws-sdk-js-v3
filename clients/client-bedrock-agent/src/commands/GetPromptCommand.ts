@@ -168,6 +168,7 @@ export interface GetPromptCommandOutput extends GetPromptResponse, __MetadataBea
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class GetPromptCommand extends $Command

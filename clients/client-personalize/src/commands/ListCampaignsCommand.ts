@@ -76,6 +76,7 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class ListCampaignsCommand extends $Command

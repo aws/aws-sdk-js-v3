@@ -91,41 +91,41 @@ export interface DescribeStorediSCSIVolumesCommandOutput extends DescribeStoredi
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To describe the volumes of a gateway
  * ```javascript
  * // Returns the description of the gateway volumes specified in the request belonging to the same gateway.
  * const input = {
- *   "VolumeARNs": [
+ *   VolumeARNs: [
  *     "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
  *   ]
  * };
  * const command = new DescribeStorediSCSIVolumesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "StorediSCSIVolumes": [
+ *   StorediSCSIVolumes: [
  *     {
- *       "PreservedExistingData": false,
- *       "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
- *       "VolumeDiskId": "pci-0000:03:00.0-scsi-0:0:0:0",
- *       "VolumeId": "vol-1122AABB",
- *       "VolumeProgress": 23.7,
- *       "VolumeSizeInBytes": 1099511627776,
- *       "VolumeStatus": "BOOTSTRAPPING",
- *       "VolumeiSCSIAttributes": {
- *         "ChapEnabled": true,
- *         "NetworkInterfaceId": "10.243.43.207",
- *         "NetworkInterfacePort": 3260,
- *         "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+ *       PreservedExistingData: false,
+ *       VolumeARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
+ *       VolumeDiskId: "pci-0000:03:00.0-scsi-0:0:0:0",
+ *       VolumeId: "vol-1122AABB",
+ *       VolumeProgress: 23.7,
+ *       VolumeSizeInBytes: 1099511627776,
+ *       VolumeStatus: "BOOTSTRAPPING",
+ *       VolumeiSCSIAttributes: {
+ *         ChapEnabled: true,
+ *         NetworkInterfaceId: "10.243.43.207",
+ *         NetworkInterfacePort: 3260,
+ *         TargetARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
  *       }
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-the-volumes-of-a-gateway-1471472640660
  * ```
  *
+ * @public
  */
 export class DescribeStorediSCSIVolumesCommand extends $Command
   .classBuilder<

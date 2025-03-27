@@ -169,6 +169,7 @@ export interface TranslatePinDataCommandOutput extends TranslatePinDataOutput, _
  * @throws {@link PaymentCryptographyDataServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptographyData service.</p>
  *
+ *
  * @public
  */
 export class TranslatePinDataCommand extends $Command

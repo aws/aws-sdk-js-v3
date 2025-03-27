@@ -63,6 +63,7 @@ export interface GetAccountSettingsCommandOutput extends AccountSettings, __Meta
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ *
  * @public
  */
 export class GetAccountSettingsCommand extends $Command

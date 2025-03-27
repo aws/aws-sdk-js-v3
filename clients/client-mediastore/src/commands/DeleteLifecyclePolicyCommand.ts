@@ -66,6 +66,7 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ *
  * @public
  */
 export class DeleteLifecyclePolicyCommand extends $Command

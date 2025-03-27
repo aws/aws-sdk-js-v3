@@ -104,6 +104,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class GetDataSourceCommand extends $Command

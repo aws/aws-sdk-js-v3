@@ -212,6 +212,7 @@ export interface DescribePackagingConfigurationCommandOutput
  * @throws {@link MediaPackageVodServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ *
  * @public
  */
 export class DescribePackagingConfigurationCommand extends $Command

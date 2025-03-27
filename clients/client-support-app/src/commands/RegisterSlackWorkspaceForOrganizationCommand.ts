@@ -137,6 +137,7 @@ export interface RegisterSlackWorkspaceForOrganizationCommandOutput
  * @throws {@link SupportAppServiceException}
  * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
+ *
  * @public
  */
 export class RegisterSlackWorkspaceForOrganizationCommand extends $Command

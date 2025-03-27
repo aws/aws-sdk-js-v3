@@ -74,6 +74,7 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ *
  * @public
  */
 export class PutFeedbackCommand extends $Command

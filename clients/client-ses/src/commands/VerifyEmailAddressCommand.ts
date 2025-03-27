@@ -54,18 +54,21 @@ export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example VerifyEmailAddress
  * ```javascript
  * // The following example starts the email address verification process with Amazon SES:
  * const input = {
- *   "EmailAddress": "user@example.com"
+ *   EmailAddress: "user@example.com"
  * };
  * const command = new VerifyEmailAddressCommand(input);
- * await client.send(command);
- * // example id: verifyemailaddress-1469048849187
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class VerifyEmailAddressCommand extends $Command
   .classBuilder<

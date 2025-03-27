@@ -107,6 +107,7 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListPhoneNumbersCommand extends $Command

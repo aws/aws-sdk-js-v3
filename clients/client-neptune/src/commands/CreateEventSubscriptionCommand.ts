@@ -120,6 +120,7 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class CreateEventSubscriptionCommand extends $Command

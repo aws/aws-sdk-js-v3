@@ -55,18 +55,21 @@ export interface RestartAppServerCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To restart application servers
  * ```javascript
  * // The following operation restarts application servers on all instances in an environment named my-env:
  * const input = {
- *   "EnvironmentName": "my-env"
+ *   EnvironmentName: "my-env"
  * };
  * const command = new RestartAppServerCommand(input);
- * await client.send(command);
- * // example id: to-restart-application-servers-1456277739302
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RestartAppServerCommand extends $Command
   .classBuilder<

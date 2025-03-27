@@ -187,6 +187,7 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DescribeDirectoriesCommand extends $Command

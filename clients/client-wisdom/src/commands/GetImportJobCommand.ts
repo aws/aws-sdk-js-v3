@@ -88,6 +88,7 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class GetImportJobCommand extends $Command

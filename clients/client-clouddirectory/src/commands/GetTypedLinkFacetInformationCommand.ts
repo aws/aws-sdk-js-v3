@@ -91,26 +91,26 @@ export interface GetTypedLinkFacetInformationCommandOutput
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To get information about a typed link facet
  * ```javascript
  * //
  * const input = {
- *   "Name": "exampletypedlink8",
- *   "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
+ *   Name: "exampletypedlink8",
+ *   SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
  * };
  * const command = new GetTypedLinkFacetInformationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "IdentityAttributeOrder": [
+ *   IdentityAttributeOrder: [
  *     "22"
  *   ]
  * }
  * *\/
- * // example id: to-get-information-about-a-typed-link-facet-1507251423121
  * ```
  *
+ * @public
  */
 export class GetTypedLinkFacetInformationCommand extends $Command
   .classBuilder<

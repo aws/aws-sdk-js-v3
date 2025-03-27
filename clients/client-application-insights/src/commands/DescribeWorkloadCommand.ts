@@ -77,6 +77,7 @@ export interface DescribeWorkloadCommandOutput extends DescribeWorkloadResponse,
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class DescribeWorkloadCommand extends $Command

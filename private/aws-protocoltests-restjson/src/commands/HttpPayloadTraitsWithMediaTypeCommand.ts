@@ -79,6 +79,7 @@ export interface HttpPayloadTraitsWithMediaTypeCommandOutput
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class HttpPayloadTraitsWithMediaTypeCommand extends $Command

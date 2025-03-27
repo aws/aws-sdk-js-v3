@@ -106,18 +106,21 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To enable a KMS key
  * ```javascript
  * // The following example enables the specified KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new EnableKeyCommand(input);
- * await client.send(command);
- * // example id: to-enable-a-cmk-1478627501129
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class EnableKeyCommand extends $Command
   .classBuilder<

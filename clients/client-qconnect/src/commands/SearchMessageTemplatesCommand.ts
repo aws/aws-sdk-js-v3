@@ -126,6 +126,7 @@ export interface SearchMessageTemplatesCommandOutput extends SearchMessageTempla
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class SearchMessageTemplatesCommand extends $Command

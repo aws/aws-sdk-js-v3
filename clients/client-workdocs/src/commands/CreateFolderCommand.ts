@@ -108,6 +108,7 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class CreateFolderCommand extends $Command

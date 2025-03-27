@@ -82,6 +82,7 @@ export interface ListEnvironmentOutputsCommandOutput extends ListEnvironmentOutp
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class ListEnvironmentOutputsCommand extends $Command

@@ -68,6 +68,7 @@ export interface RemoveWorkloadCommandOutput extends RemoveWorkloadResponse, __M
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class RemoveWorkloadCommand extends $Command

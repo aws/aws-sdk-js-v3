@@ -112,6 +112,7 @@ export interface AddBridgeOutputsCommandOutput extends AddBridgeOutputsResponse,
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ *
  * @public
  */
 export class AddBridgeOutputsCommand extends $Command

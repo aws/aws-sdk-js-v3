@@ -81,6 +81,7 @@ export interface DeleteNodeCommandOutput extends DeleteNodeOutput, __MetadataBea
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class DeleteNodeCommand extends $Command

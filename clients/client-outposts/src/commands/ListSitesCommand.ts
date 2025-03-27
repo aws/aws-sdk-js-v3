@@ -105,6 +105,7 @@ export interface ListSitesCommandOutput extends ListSitesOutput, __MetadataBeare
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class ListSitesCommand extends $Command

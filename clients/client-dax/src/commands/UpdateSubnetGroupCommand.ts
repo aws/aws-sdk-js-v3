@@ -86,6 +86,7 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ *
  * @public
  */
 export class UpdateSubnetGroupCommand extends $Command

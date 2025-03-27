@@ -246,6 +246,7 @@ export interface BatchGetDeploymentGroupsCommandOutput extends BatchGetDeploymen
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class BatchGetDeploymentGroupsCommand extends $Command

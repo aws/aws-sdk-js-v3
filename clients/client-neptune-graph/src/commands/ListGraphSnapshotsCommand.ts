@@ -80,6 +80,7 @@ export interface ListGraphSnapshotsCommandOutput extends ListGraphSnapshotsOutpu
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class ListGraphSnapshotsCommand extends $Command

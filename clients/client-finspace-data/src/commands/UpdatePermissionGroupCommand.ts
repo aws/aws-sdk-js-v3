@@ -86,6 +86,7 @@ export interface UpdatePermissionGroupCommandOutput extends UpdatePermissionGrou
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ *
  * @public
  */
 export class UpdatePermissionGroupCommand extends $Command

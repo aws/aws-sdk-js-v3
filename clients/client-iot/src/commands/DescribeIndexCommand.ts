@@ -76,6 +76,7 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeIndexCommand extends $Command

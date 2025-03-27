@@ -217,135 +217,135 @@ export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
- * @public
+ *
  * @example Example user pool app client with email and username sign-in
  * ```javascript
  * // The following example creates an app client with all configurable properties set to an example value. The resulting user pool client connects to an analytics client, allows sign-in with username and password, and has two external identity providers associated with it.
  * const input = {
- *   "AccessTokenValidity": 6,
- *   "AllowedOAuthFlows": [
+ *   AccessTokenValidity: 6,
+ *   AllowedOAuthFlows: [
  *     "code"
  *   ],
- *   "AllowedOAuthFlowsUserPoolClient": true,
- *   "AllowedOAuthScopes": [
+ *   AllowedOAuthFlowsUserPoolClient: true,
+ *   AllowedOAuthScopes: [
  *     "aws.cognito.signin.user.admin",
  *     "openid"
  *   ],
- *   "AnalyticsConfiguration": {
- *     "ApplicationId": "d70b2ba36a8c4dc5a04a0451a31a1e12",
- *     "ExternalId": "my-external-id",
- *     "RoleArn": "arn:aws:iam::123456789012:role/test-cognitouserpool-role",
- *     "UserDataShared": true
+ *   AnalyticsConfiguration: {
+ *     ApplicationId: "d70b2ba36a8c4dc5a04a0451a31a1e12",
+ *     ExternalId: "my-external-id",
+ *     RoleArn: "arn:aws:iam::123456789012:role/test-cognitouserpool-role",
+ *     UserDataShared: true
  *   },
- *   "CallbackURLs": [
+ *   CallbackURLs: [
  *     "https://example.com",
  *     "http://localhost",
  *     "myapp://example"
  *   ],
- *   "ClientName": "my-test-app-client",
- *   "DefaultRedirectURI": "https://example.com",
- *   "ExplicitAuthFlows": [
+ *   ClientName: "my-test-app-client",
+ *   DefaultRedirectURI: "https://example.com",
+ *   ExplicitAuthFlows: [
  *     "ALLOW_ADMIN_USER_PASSWORD_AUTH",
  *     "ALLOW_USER_PASSWORD_AUTH",
  *     "ALLOW_REFRESH_TOKEN_AUTH"
  *   ],
- *   "GenerateSecret": true,
- *   "IdTokenValidity": 6,
- *   "LogoutURLs": [
+ *   GenerateSecret: true,
+ *   IdTokenValidity: 6,
+ *   LogoutURLs: [
  *     "https://example.com/logout"
  *   ],
- *   "PreventUserExistenceErrors": "ENABLED",
- *   "ReadAttributes": [
+ *   PreventUserExistenceErrors: "ENABLED",
+ *   ReadAttributes: [
  *     "email",
  *     "address",
  *     "preferred_username"
  *   ],
- *   "RefreshTokenValidity": 6,
- *   "SupportedIdentityProviders": [
+ *   RefreshTokenValidity: 6,
+ *   SupportedIdentityProviders: [
  *     "SignInWithApple",
  *     "MySSO"
  *   ],
- *   "TokenValidityUnits": {
- *     "AccessToken": "hours",
- *     "IdToken": "minutes",
- *     "RefreshToken": "days"
+ *   TokenValidityUnits: {
+ *     AccessToken: "hours",
+ *     IdToken: "minutes",
+ *     RefreshToken: "days"
  *   },
- *   "UserPoolId": "us-east-1_EXAMPLE",
- *   "WriteAttributes": [
+ *   UserPoolId: "us-east-1_EXAMPLE",
+ *   WriteAttributes: [
  *     "family_name",
  *     "email"
  *   ]
  * };
  * const command = new CreateUserPoolClientCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "UserPoolClient": {
- *     "AccessTokenValidity": 6,
- *     "AllowedOAuthFlows": [
+ *   UserPoolClient: {
+ *     AccessTokenValidity: 6,
+ *     AllowedOAuthFlows: [
  *       "code"
  *     ],
- *     "AllowedOAuthFlowsUserPoolClient": true,
- *     "AllowedOAuthScopes": [
+ *     AllowedOAuthFlowsUserPoolClient: true,
+ *     AllowedOAuthScopes: [
  *       "aws.cognito.signin.user.admin",
  *       "openid"
  *     ],
- *     "AnalyticsConfiguration": {
- *       "ApplicationId": "d70b2ba36a8c4dc5a04a0451a31a1e12",
- *       "ExternalId": "my-external-id",
- *       "RoleArn": "arn:aws:iam::123456789012:role/test-cognitouserpool-role",
- *       "UserDataShared": true
+ *     AnalyticsConfiguration: {
+ *       ApplicationId: "d70b2ba36a8c4dc5a04a0451a31a1e12",
+ *       ExternalId: "my-external-id",
+ *       RoleArn: "arn:aws:iam::123456789012:role/test-cognitouserpool-role",
+ *       UserDataShared: true
  *     },
- *     "AuthSessionValidity": 3,
- *     "CallbackURLs": [
+ *     AuthSessionValidity: 3,
+ *     CallbackURLs: [
  *       "https://example.com",
  *       "http://localhost",
  *       "myapp://example"
  *     ],
- *     "ClientId": "26cb2c60kq7nbmas7rbme9b6pp",
- *     "ClientName": "my-test-app-client",
- *     "ClientSecret": "13ka4h7u28d9oo44tqpq9djqsfvhvu8rk4d2ighvpu0k8fj1c2r9",
- *     "CreationDate": 1689885426.107,
- *     "DefaultRedirectURI": "https://example.com",
- *     "EnablePropagateAdditionalUserContextData": false,
- *     "EnableTokenRevocation": true,
- *     "ExplicitAuthFlows": [
+ *     ClientId: "26cb2c60kq7nbmas7rbme9b6pp",
+ *     ClientName: "my-test-app-client",
+ *     ClientSecret: "13ka4h7u28d9oo44tqpq9djqsfvhvu8rk4d2ighvpu0k8fj1c2r9",
+ *     CreationDate: 1.689885426107E9,
+ *     DefaultRedirectURI: "https://example.com",
+ *     EnablePropagateAdditionalUserContextData: false,
+ *     EnableTokenRevocation: true,
+ *     ExplicitAuthFlows: [
  *       "ALLOW_USER_PASSWORD_AUTH",
  *       "ALLOW_ADMIN_USER_PASSWORD_AUTH",
  *       "ALLOW_REFRESH_TOKEN_AUTH"
  *     ],
- *     "IdTokenValidity": 6,
- *     "LastModifiedDate": 1689885426.107,
- *     "LogoutURLs": [
+ *     IdTokenValidity: 6,
+ *     LastModifiedDate: 1.689885426107E9,
+ *     LogoutURLs: [
  *       "https://example.com/logout"
  *     ],
- *     "PreventUserExistenceErrors": "ENABLED",
- *     "ReadAttributes": [
+ *     PreventUserExistenceErrors: "ENABLED",
+ *     ReadAttributes: [
  *       "address",
  *       "preferred_username",
  *       "email"
  *     ],
- *     "RefreshTokenValidity": 6,
- *     "SupportedIdentityProviders": [
+ *     RefreshTokenValidity: 6,
+ *     SupportedIdentityProviders: [
  *       "SignInWithApple",
  *       "MySSO"
  *     ],
- *     "TokenValidityUnits": {
- *       "AccessToken": "hours",
- *       "IdToken": "minutes",
- *       "RefreshToken": "days"
+ *     TokenValidityUnits: {
+ *       AccessToken: "hours",
+ *       IdToken: "minutes",
+ *       RefreshToken: "days"
  *     },
- *     "UserPoolId": "us-east-1_EXAMPLE",
- *     "WriteAttributes": [
+ *     UserPoolId: "us-east-1_EXAMPLE",
+ *     WriteAttributes: [
  *       "family_name",
  *       "email"
  *     ]
  *   }
  * }
  * *\/
- * // example id: example-user-pool-app-client-with-email-and-username-sign-in-1689885750745
  * ```
  *
+ * @public
  */
 export class CreateUserPoolClientCommand extends $Command
   .classBuilder<

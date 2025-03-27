@@ -56,6 +56,7 @@ export interface EchoCommandOutput extends EchoOutput, __MetadataBearer {}
  * @throws {@link EchoServiceServiceException}
  * <p>Base exception class for all service exceptions from EchoService service.</p>
  *
+ *
  */
 export class EchoCommand extends $Command
   .classBuilder<

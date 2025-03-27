@@ -88,6 +88,7 @@ export interface DeleteServiceTemplateCommandOutput extends DeleteServiceTemplat
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class DeleteServiceTemplateCommand extends $Command

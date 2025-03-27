@@ -79,6 +79,7 @@ export interface UpdateContactFlowContentCommandOutput extends UpdateContactFlow
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateContactFlowContentCommand extends $Command

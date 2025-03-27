@@ -132,6 +132,7 @@ export interface GetFindingV2CommandOutput extends GetFindingV2Response, __Metad
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class GetFindingV2Command extends $Command

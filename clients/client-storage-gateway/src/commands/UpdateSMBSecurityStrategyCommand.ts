@@ -71,6 +71,7 @@ export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurit
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class UpdateSMBSecurityStrategyCommand extends $Command

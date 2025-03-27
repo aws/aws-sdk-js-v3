@@ -212,28 +212,28 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To retrieve a list of all of the parents of a child OU or account
  * ```javascript
  * // The following example shows how to list the root or OUs that contain account 444444444444:/n/n
  * const input = {
- *   "ChildId": "444444444444"
+ *   ChildId: "444444444444"
  * };
  * const command = new ListParentsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Parents": [
+ *   Parents: [
  *     {
- *       "Id": "ou-examplerootid111-exampleouid111",
- *       "Type": "ORGANIZATIONAL_UNIT"
+ *       Id: "ou-examplerootid111-exampleouid111",
+ *       Type: "ORGANIZATIONAL_UNIT"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-a-list-of-all-of-the-parents-of-a-child-ou-or-account
  * ```
  *
+ * @public
  */
 export class ListParentsCommand extends $Command
   .classBuilder<

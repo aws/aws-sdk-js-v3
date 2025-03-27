@@ -85,6 +85,7 @@ export interface GetDataLakeExceptionSubscriptionCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class GetDataLakeExceptionSubscriptionCommand extends $Command

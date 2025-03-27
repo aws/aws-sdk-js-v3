@@ -91,6 +91,7 @@ export interface GetSmsTemplateCommandOutput extends GetSmsTemplateResponse, __M
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetSmsTemplateCommand extends $Command

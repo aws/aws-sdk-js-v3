@@ -99,6 +99,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class ListJobsCommand extends $Command

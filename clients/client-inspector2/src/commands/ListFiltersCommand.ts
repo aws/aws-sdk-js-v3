@@ -217,6 +217,7 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class ListFiltersCommand extends $Command

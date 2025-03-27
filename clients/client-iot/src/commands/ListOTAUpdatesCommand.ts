@@ -80,6 +80,7 @@ export interface ListOTAUpdatesCommandOutput extends ListOTAUpdatesResponse, __M
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListOTAUpdatesCommand extends $Command

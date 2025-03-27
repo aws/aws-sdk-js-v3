@@ -71,6 +71,7 @@ export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsRes
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ *
  * @public
  */
 export class GetBackendAPIModelsCommand extends $Command

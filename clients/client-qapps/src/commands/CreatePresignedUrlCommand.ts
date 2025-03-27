@@ -85,66 +85,65 @@ export interface CreatePresignedUrlCommandOutput extends CreatePresignedUrlOutpu
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example Upload a file to a specific session
  * ```javascript
  * //
  * const input = {
- *   "appId": "4263767c-d889-4cb2-a8f6-8b649bc66af0",
- *   "cardId": "82f69028-22a9-4bea-8727-0eabf58e9fed",
- *   "fileContentsSha256": "wXY7GD8m4fmHhdtuQyBdXzNQpdCseVwBcOBIlzfm+kg=",
- *   "fileName": "myFile.txt",
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
- *   "scope": "SESSION",
- *   "sessionId": "4f0e5b87-9d38-41cd-9eb4-ebce2f2917cc"
+ *   appId: "4263767c-d889-4cb2-a8f6-8b649bc66af0",
+ *   cardId: "82f69028-22a9-4bea-8727-0eabf58e9fed",
+ *   fileContentsSha256: "wXY7GD8m4fmHhdtuQyBdXzNQpdCseVwBcOBIlzfm+kg=",
+ *   fileName: "myFile.txt",
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   scope: "SESSION",
+ *   sessionId: "4f0e5b87-9d38-41cd-9eb4-ebce2f2917cc"
  * };
  * const command = new CreatePresignedUrlCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "fileId": "412aa1b4-341c-45af-936d-da52f8a1a3b4",
- *   "presignedUrl": "https://qapps-uploaded-files-us-east-1-c819fab7cf78c9205158297913deb9e0.s3.us-east-1.amazonaws.com/",
- *   "presignedUrlExpiration": "2024-09-14T00:11:54.232Z",
- *   "presignedUrlFields": {
- *     "x-amz-checksum-sha256": "wXY7GD8m4fmHhdtuQyBdXzNQpdCseVwBcOBIlzfm+kg=",
- *     "x-amz-server-side-encryption": "aws:kms",
- *     "x-amz-server-side-encryption-aws-kms-key-id": "0a6a474b-f2ca-46ea-9e72-deea9077d92f",
- *     "x-amz-server-side-encryption-context": "eyJBUFBMSUNBVElPTl9JRCI6IjAxMjM0NTY3ODkwMSJ9"
+ *   fileId: "412aa1b4-341c-45af-936d-da52f8a1a3b4",
+ *   presignedUrl: "https://qapps-uploaded-files-us-east-1-c819fab7cf78c9205158297913deb9e0.s3.us-east-1.amazonaws.com/",
+ *   presignedUrlExpiration: "2024-09-14T00:11:54.232Z",
+ *   presignedUrlFields: {
+ *     x-amz-checksum-sha256: "wXY7GD8m4fmHhdtuQyBdXzNQpdCseVwBcOBIlzfm+kg=",
+ *     x-amz-server-side-encryption: "aws:kms",
+ *     x-amz-server-side-encryption-aws-kms-key-id: "0a6a474b-f2ca-46ea-9e72-deea9077d92f",
+ *     x-amz-server-side-encryption-context: "eyJBUFBMSUNBVElPTl9JRCI6IjAxMjM0NTY3ODkwMSJ9"
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
  * @example Upload a file into a application
  * ```javascript
  * //
  * const input = {
- *   "appId": "4263767c-d889-4cb2-a8f6-8b649bc66af0",
- *   "cardId": "7a11f34b-42d4-4bc8-b668-ae4a788dae1e",
- *   "fileContentsSha256": "wXY7GD8m4fmHhdtuQyBdXzNQpdCseVwBcOBIlzfm+kg=",
- *   "fileName": "anApplicationFile.txt",
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
- *   "scope": "APPLICATION"
+ *   appId: "4263767c-d889-4cb2-a8f6-8b649bc66af0",
+ *   cardId: "7a11f34b-42d4-4bc8-b668-ae4a788dae1e",
+ *   fileContentsSha256: "wXY7GD8m4fmHhdtuQyBdXzNQpdCseVwBcOBIlzfm+kg=",
+ *   fileName: "anApplicationFile.txt",
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   scope: "APPLICATION"
  * };
  * const command = new CreatePresignedUrlCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "fileId": "412aa1b4-341c-45af-936d-da52f8a1a3b4",
- *   "presignedUrl": "https://qapps-uploaded-files-us-east-1-c819fab7cf78c9205158297913deb9e0.s3.us-east-1.amazonaws.com/",
- *   "presignedUrlExpiration": "2024-09-14T00:11:54.232Z",
- *   "presignedUrlFields": {
- *     "x-amz-checksum-sha256": "wXY7GD8m4fmHhdtuQyBdXzNQpdCseVwBcOBIlzfm+kg=",
- *     "x-amz-server-side-encryption": "aws:kms",
- *     "x-amz-server-side-encryption-aws-kms-key-id": "0a6a474b-f2ca-46ea-9e72-deea9077d92f",
- *     "x-amz-server-side-encryption-context": "eyJBUFBMSUNBVElPTl9JRCI6IjAxMjM0NTY3ODkwMSJ9"
+ *   fileId: "412aa1b4-341c-45af-936d-da52f8a1a3b4",
+ *   presignedUrl: "https://qapps-uploaded-files-us-east-1-c819fab7cf78c9205158297913deb9e0.s3.us-east-1.amazonaws.com/",
+ *   presignedUrlExpiration: "2024-09-14T00:11:54.232Z",
+ *   presignedUrlFields: {
+ *     x-amz-checksum-sha256: "wXY7GD8m4fmHhdtuQyBdXzNQpdCseVwBcOBIlzfm+kg=",
+ *     x-amz-server-side-encryption: "aws:kms",
+ *     x-amz-server-side-encryption-aws-kms-key-id: "0a6a474b-f2ca-46ea-9e72-deea9077d92f",
+ *     x-amz-server-side-encryption-context: "eyJBUFBMSUNBVElPTl9JRCI6IjAxMjM0NTY3ODkwMSJ9"
  *   }
  * }
  * *\/
- * // example id: example-2
  * ```
  *
+ * @public
  */
 export class CreatePresignedUrlCommand extends $Command
   .classBuilder<

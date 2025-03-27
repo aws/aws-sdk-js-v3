@@ -105,46 +105,46 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
- * @public
+ *
  * @example Updating a Channel
  * ```javascript
  * //
  * const input = {
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannel",
- *   "Description": "Updated description for exampleChannel"
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   Description: "Updated description for exampleChannel"
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Arn": "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel",
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannel",
- *   "CreatedAt": "2022-10-18T09:36:00.00Z",
- *   "Description": "Updated description for exampleChannel",
- *   "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
- *   "IngestEndpoints": [
+ *   Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel",
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   CreatedAt: "2022-10-18T09:36:00.00Z",
+ *   Description: "Updated description for exampleChannel",
+ *   ETag: "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
+ *   IngestEndpoints: [
  *     {
- *       "Id": "1",
- *       "Url": "https://abcde-1.ingest.vwxyz.mediapackagev2.us-west-2.amazonaws.com/v1/exampleChannelGroup/exampleChannel/index"
+ *       Id: "1",
+ *       Url: "https://abcde-1.ingest.vwxyz.mediapackagev2.us-west-2.amazonaws.com/v1/exampleChannelGroup/exampleChannel/index"
  *     },
  *     {
- *       "Id": "2",
- *       "Url": "https://abcde-2.ingest.vwxyz.mediapackagev2.us-west-2.amazonaws.com/v1/exampleChannelGroup/exampleChannel/index"
+ *       Id: "2",
+ *       Url: "https://abcde-2.ingest.vwxyz.mediapackagev2.us-west-2.amazonaws.com/v1/exampleChannelGroup/exampleChannel/index"
  *     }
  *   ],
- *   "InputType": "HLS",
- *   "ModifiedAt": "2022-10-18T10:36:00.00Z",
- *   "Tags": {
- *     "key1": "value1",
- *     "key2": "value2"
+ *   InputType: "HLS",
+ *   ModifiedAt: "2022-10-18T10:36:00.00Z",
+ *   Tags: {
+ *     key1: "value1",
+ *     key2: "value2"
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class UpdateChannelCommand extends $Command
   .classBuilder<

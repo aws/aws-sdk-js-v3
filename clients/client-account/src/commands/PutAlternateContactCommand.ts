@@ -81,6 +81,7 @@ export interface PutAlternateContactCommandOutput extends __MetadataBearer {}
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ *
  * @public
  */
 export class PutAlternateContactCommand extends $Command

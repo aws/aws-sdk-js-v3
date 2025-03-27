@@ -86,6 +86,7 @@ export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyRespo
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class UploadSSHPublicKeyCommand extends $Command

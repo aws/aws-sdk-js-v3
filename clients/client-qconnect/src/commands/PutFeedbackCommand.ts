@@ -80,6 +80,7 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class PutFeedbackCommand extends $Command

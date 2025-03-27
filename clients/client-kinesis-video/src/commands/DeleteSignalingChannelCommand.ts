@@ -94,6 +94,7 @@ export interface DeleteSignalingChannelCommandOutput extends DeleteSignalingChan
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class DeleteSignalingChannelCommand extends $Command

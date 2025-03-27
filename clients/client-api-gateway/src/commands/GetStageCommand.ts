@@ -117,6 +117,7 @@ export interface GetStageCommandOutput extends Stage, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetStageCommand extends $Command

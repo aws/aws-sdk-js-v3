@@ -91,6 +91,7 @@ export interface AssociatePackageCommandOutput extends AssociatePackageResponse,
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ *
  * @public
  */
 export class AssociatePackageCommand extends $Command

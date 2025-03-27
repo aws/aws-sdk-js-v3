@@ -217,35 +217,35 @@ export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetRespons
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To update an XSS match set
  * ```javascript
  * // The following example deletes an XssMatchTuple object (filters) in an XssMatchSet with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "Updates": [
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   Updates: [
  *     {
- *       "Action": "DELETE",
- *       "XssMatchTuple": {
- *         "FieldToMatch": {
- *           "Type": "QUERY_STRING"
+ *       Action: "DELETE",
+ *       XssMatchTuple: {
+ *         FieldToMatch: {
+ *           Type: "QUERY_STRING"
  *         },
- *         "TextTransformation": "URL_DECODE"
+ *         TextTransformation: "URL_DECODE"
  *       }
  *     }
  *   ],
- *   "XssMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *   XssMatchSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
  * };
  * const command = new UpdateXssMatchSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: updatexssmatchset-1475534098881
  * ```
  *
+ * @public
  */
 export class UpdateXssMatchSetCommand extends $Command
   .classBuilder<

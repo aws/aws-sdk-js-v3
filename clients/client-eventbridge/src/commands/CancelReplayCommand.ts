@@ -70,6 +70,7 @@ export interface CancelReplayCommandOutput extends CancelReplayResponse, __Metad
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class CancelReplayCommand extends $Command

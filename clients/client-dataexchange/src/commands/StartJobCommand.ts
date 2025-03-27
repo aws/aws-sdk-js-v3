@@ -72,6 +72,7 @@ export interface StartJobCommandOutput extends StartJobResponse, __MetadataBeare
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class StartJobCommand extends $Command

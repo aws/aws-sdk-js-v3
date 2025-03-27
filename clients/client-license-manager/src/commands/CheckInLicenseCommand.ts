@@ -79,6 +79,7 @@ export interface CheckInLicenseCommandOutput extends CheckInLicenseResponse, __M
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class CheckInLicenseCommand extends $Command

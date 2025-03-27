@@ -140,6 +140,7 @@ export interface ListIdentityPoolUsageCommandOutput extends ListIdentityPoolUsag
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class ListIdentityPoolUsageCommand extends $Command

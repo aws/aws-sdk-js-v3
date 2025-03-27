@@ -81,6 +81,7 @@ export interface GetLensCommandOutput extends GetLensOutput, __MetadataBearer {}
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class GetLensCommand extends $Command

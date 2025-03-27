@@ -72,6 +72,7 @@ export interface UpdateResourceProfileCommandOutput extends UpdateResourceProfil
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class UpdateResourceProfileCommand extends $Command

@@ -99,6 +99,7 @@ export interface GetIngestionDestinationCommandOutput extends GetIngestionDestin
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ *
  * @public
  */
 export class GetIngestionDestinationCommand extends $Command

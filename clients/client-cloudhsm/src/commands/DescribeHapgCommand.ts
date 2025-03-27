@@ -92,6 +92,7 @@ export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __Metad
  * @throws {@link CloudHSMServiceException}
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ *
  * @public
  */
 export class DescribeHapgCommand extends $Command

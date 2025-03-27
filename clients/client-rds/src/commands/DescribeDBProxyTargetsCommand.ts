@@ -94,6 +94,7 @@ export interface DescribeDBProxyTargetsCommandOutput extends DescribeDBProxyTarg
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class DescribeDBProxyTargetsCommand extends $Command

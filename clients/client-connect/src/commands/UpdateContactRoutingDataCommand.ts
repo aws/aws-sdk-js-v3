@@ -179,6 +179,7 @@ export interface UpdateContactRoutingDataCommandOutput extends UpdateContactRout
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateContactRoutingDataCommand extends $Command

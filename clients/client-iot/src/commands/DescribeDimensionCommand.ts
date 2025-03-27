@@ -75,6 +75,7 @@ export interface DescribeDimensionCommandOutput extends DescribeDimensionRespons
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeDimensionCommand extends $Command

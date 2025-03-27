@@ -329,25 +329,25 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To start a DB instance
  * ```javascript
  * // The following example starts the specified DB instance.
  * const input = {
- *   "DBInstanceIdentifier": "test-instance"
+ *   DBInstanceIdentifier: "test-instance"
  * };
  * const command = new StartDBInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstance": {
- *     "DBInstanceStatus": "starting"
+ *   DBInstance: {
+ *     DBInstanceStatus: "starting"
  *   }
  * }
  * *\/
- * // example id: to-start-a-db-instance-1679951967681
  * ```
  *
+ * @public
  */
 export class StartDBInstanceCommand extends $Command
   .classBuilder<

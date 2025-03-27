@@ -94,6 +94,7 @@ export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleRespo
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class DeleteFirewallRuleCommand extends $Command

@@ -61,18 +61,21 @@ export interface DeleteGeneratedTemplateCommandOutput extends __MetadataBearer {
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
- * @public
+ *
  * @example To delete a generated template
  * ```javascript
  * // This example deletes a generated template
  * const input = {
- *   "GeneratedTemplateName": "JazzyTemplate"
+ *   GeneratedTemplateName: "JazzyTemplate"
  * };
  * const command = new DeleteGeneratedTemplateCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-generated-template
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteGeneratedTemplateCommand extends $Command
   .classBuilder<

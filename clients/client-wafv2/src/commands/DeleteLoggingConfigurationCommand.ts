@@ -94,6 +94,7 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteLoggingConfigurationCommand extends $Command

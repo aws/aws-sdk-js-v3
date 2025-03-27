@@ -133,6 +133,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ *
  * @public
  */
 export class ExecuteStatementCommand extends $Command

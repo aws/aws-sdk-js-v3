@@ -173,55 +173,55 @@ export interface UpdateServicePrimaryTaskSetCommandOutput
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To update the primary task set for a service
  * ```javascript
  * // This example updates the primary task set for a service MyService that uses the EXTERNAL deployment controller type.
  * const input = {
- *   "cluster": "MyCluster",
- *   "primaryTaskSet": "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789",
- *   "service": "MyService"
+ *   cluster: "MyCluster",
+ *   primaryTaskSet: "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789",
+ *   service: "MyService"
  * };
  * const command = new UpdateServicePrimaryTaskSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "taskSet": {
- *     "computedDesiredCount": 1,
- *     "createdAt": 1557128360.711,
- *     "id": "ecs-svc/1234567890123456789",
- *     "launchType": "EC2",
- *     "loadBalancers": [],
- *     "networkConfiguration": {
- *       "awsvpcConfiguration": {
- *         "assignPublicIp": "DISABLED",
- *         "securityGroups": [
+ *   taskSet: {
+ *     computedDesiredCount: 1,
+ *     createdAt: 1.557128360711E9,
+ *     id: "ecs-svc/1234567890123456789",
+ *     launchType: "EC2",
+ *     loadBalancers:     [],
+ *     networkConfiguration: {
+ *       awsvpcConfiguration: {
+ *         assignPublicIp: "DISABLED",
+ *         securityGroups: [
  *           "sg-12344312"
  *         ],
- *         "subnets": [
+ *         subnets: [
  *           "subnet-12344321"
  *         ]
  *       }
  *     },
- *     "pendingCount": 0,
- *     "runningCount": 0,
- *     "scale": {
- *       "value": 50,
- *       "unit": "PERCENT"
+ *     pendingCount: 0,
+ *     runningCount: 0,
+ *     scale: {
+ *       unit: "PERCENT",
+ *       value: 50
  *     },
- *     "serviceRegistries": [],
- *     "stabilityStatus": "STABILIZING",
- *     "stabilityStatusAt": 1557129279.914,
- *     "status": "PRIMARY",
- *     "taskDefinition": "arn:aws:ecs:us-west-2:123456789012:task-definition/sample-fargate:2",
- *     "taskSetArn": "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789",
- *     "updatedAt": 1557129412.653
+ *     serviceRegistries:     [],
+ *     stabilityStatus: "STABILIZING",
+ *     stabilityStatusAt: 1.557129279914E9,
+ *     status: "PRIMARY",
+ *     taskDefinition: "arn:aws:ecs:us-west-2:123456789012:task-definition/sample-fargate:2",
+ *     taskSetArn: "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789",
+ *     updatedAt: 1.557129412653E9
  *   }
  * }
  * *\/
- * // example id: to-update-the-primary-task-set-for-a-service-1734637150370
  * ```
  *
+ * @public
  */
 export class UpdateServicePrimaryTaskSetCommand extends $Command
   .classBuilder<

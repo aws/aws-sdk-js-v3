@@ -83,6 +83,7 @@ export interface StopSpeakerSearchTaskCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class StopSpeakerSearchTaskCommand extends $Command

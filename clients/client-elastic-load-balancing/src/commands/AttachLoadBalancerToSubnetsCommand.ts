@@ -79,29 +79,29 @@ export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBala
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To attach subnets to a load balancer
  * ```javascript
  * // This example adds the specified subnet to the set of configured subnets for the specified load balancer.
  * const input = {
- *   "LoadBalancerName": "my-load-balancer",
- *   "Subnets": [
+ *   LoadBalancerName: "my-load-balancer",
+ *   Subnets: [
  *     "subnet-0ecac448"
  *   ]
  * };
  * const command = new AttachLoadBalancerToSubnetsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Subnets": [
+ *   Subnets: [
  *     "subnet-15aaab61",
  *     "subnet-0ecac448"
  *   ]
  * }
  * *\/
- * // example id: elb-attach-load-balancer-to-subnets-1
  * ```
  *
+ * @public
  */
 export class AttachLoadBalancerToSubnetsCommand extends $Command
   .classBuilder<

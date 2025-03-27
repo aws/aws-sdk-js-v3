@@ -85,6 +85,7 @@ export interface DeleteManagedThingCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTManagedIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from IoTManagedIntegrations service.</p>
  *
+ *
  * @public
  */
 export class DeleteManagedThingCommand extends $Command

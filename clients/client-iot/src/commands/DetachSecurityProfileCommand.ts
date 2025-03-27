@@ -67,6 +67,7 @@ export interface DetachSecurityProfileCommandOutput extends DetachSecurityProfil
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DetachSecurityProfileCommand extends $Command

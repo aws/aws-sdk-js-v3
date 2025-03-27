@@ -443,6 +443,7 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ *
  * @public
  */
 export class UpdateFlowCommand extends $Command

@@ -69,6 +69,7 @@ export interface DeletePerformanceAnalysisReportCommandOutput
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ *
  * @public
  */
 export class DeletePerformanceAnalysisReportCommand extends $Command

@@ -86,6 +86,7 @@ export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBeare
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class TagStreamCommand extends $Command

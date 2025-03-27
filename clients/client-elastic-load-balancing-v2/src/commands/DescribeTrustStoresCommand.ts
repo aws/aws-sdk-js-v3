@@ -78,6 +78,7 @@ export interface DescribeTrustStoresCommandOutput extends DescribeTrustStoresOut
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeTrustStoresCommand extends $Command

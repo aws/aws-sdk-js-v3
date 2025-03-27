@@ -73,6 +73,7 @@ export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersio
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class DeleteDetectorVersionCommand extends $Command

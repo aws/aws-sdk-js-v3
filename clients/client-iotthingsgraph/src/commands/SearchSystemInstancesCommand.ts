@@ -88,6 +88,7 @@ export interface SearchSystemInstancesCommandOutput extends SearchSystemInstance
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class SearchSystemInstancesCommand extends $Command

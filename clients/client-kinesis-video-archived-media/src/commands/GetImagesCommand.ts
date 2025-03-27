@@ -108,6 +108,7 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  * @throws {@link KinesisVideoArchivedMediaServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
+ *
  * @public
  */
 export class GetImagesCommand extends $Command

@@ -84,24 +84,24 @@ export interface DisableOrganizationsRootCredentialsManagementCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To disable the RootCredentialsManagement feature in your organization
  * ```javascript
  * // The following command disables the management of privileged root user credentials across member accounts in your organization.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DisableOrganizationsRootCredentialsManagementCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EnabledFeatures": [
+ *   EnabledFeatures: [
  *     "RootSessions"
  *   ],
- *   "OrganizationId": "o-aa111bb222"
+ *   OrganizationId: "o-aa111bb222"
  * }
  * *\/
- * // example id: to-disable-the-rootcredentialsmanagement-feature-in-your-organization-1730908292211
  * ```
  *
+ * @public
  */
 export class DisableOrganizationsRootCredentialsManagementCommand extends $Command
   .classBuilder<

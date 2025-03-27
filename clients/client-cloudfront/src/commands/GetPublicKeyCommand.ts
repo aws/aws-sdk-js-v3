@@ -71,6 +71,7 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResult, __Metadat
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetPublicKeyCommand extends $Command

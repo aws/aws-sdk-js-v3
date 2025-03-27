@@ -131,6 +131,7 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class CreatePushTemplateCommand extends $Command

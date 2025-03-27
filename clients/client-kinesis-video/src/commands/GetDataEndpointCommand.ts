@@ -80,6 +80,7 @@ export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __M
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class GetDataEndpointCommand extends $Command

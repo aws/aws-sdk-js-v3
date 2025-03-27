@@ -82,6 +82,7 @@ export interface ResetClusterParameterGroupCommandOutput extends ClusterParamete
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class ResetClusterParameterGroupCommand extends $Command

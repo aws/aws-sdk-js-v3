@@ -102,6 +102,7 @@ export interface ListKxClustersCommandOutput extends ListKxClustersResponse, __M
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class ListKxClustersCommand extends $Command

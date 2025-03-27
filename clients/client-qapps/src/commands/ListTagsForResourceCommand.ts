@@ -73,25 +73,25 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example A call to list tags for a resource
  * ```javascript
  * //
  * const input = {
- *   "resourceARN": "arn:aws:qapps:us-west-2:123456789012:application/3642ba81-344c-42fd-a480-9119a5a5f26b/qapp/7212ff04-de7b-4831-bd80-45d6975ba1b0"
+ *   resourceARN: "arn:aws:qapps:us-west-2:123456789012:application/3642ba81-344c-42fd-a480-9119a5a5f26b/qapp/7212ff04-de7b-4831-bd80-45d6975ba1b0"
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "tags": {
- *     "department": "HR"
+ *   tags: {
+ *     department: "HR"
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

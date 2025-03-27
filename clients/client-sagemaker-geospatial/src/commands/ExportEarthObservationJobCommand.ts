@@ -99,6 +99,7 @@ export interface ExportEarthObservationJobCommandOutput extends ExportEarthObser
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ *
  * @public
  */
 export class ExportEarthObservationJobCommand extends $Command

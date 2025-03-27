@@ -84,34 +84,34 @@ export interface GetSqlInjectionMatchSetCommandOutput extends GetSqlInjectionMat
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
- * @public
+ *
  * @example To get a SQL injection match set
  * ```javascript
  * // The following example returns the details of a SQL injection match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "SqlInjectionMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *   SqlInjectionMatchSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
  * };
  * const command = new GetSqlInjectionMatchSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SqlInjectionMatchSet": {
- *     "Name": "MySQLInjectionMatchSet",
- *     "SqlInjectionMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
- *     "SqlInjectionMatchTuples": [
+ *   SqlInjectionMatchSet: {
+ *     Name: "MySQLInjectionMatchSet",
+ *     SqlInjectionMatchSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *     SqlInjectionMatchTuples: [
  *       {
- *         "FieldToMatch": {
- *           "Type": "QUERY_STRING"
+ *         FieldToMatch: {
+ *           Type: "QUERY_STRING"
  *         },
- *         "TextTransformation": "URL_DECODE"
+ *         TextTransformation: "URL_DECODE"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: getsqlinjectionmatchset-1475005940137
  * ```
  *
+ * @public
  */
 export class GetSqlInjectionMatchSetCommand extends $Command
   .classBuilder<

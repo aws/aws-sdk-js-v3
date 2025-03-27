@@ -94,6 +94,7 @@ export interface GetSigningPlatformCommandOutput extends GetSigningPlatformRespo
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ *
  * @public
  */
 export class GetSigningPlatformCommand extends $Command

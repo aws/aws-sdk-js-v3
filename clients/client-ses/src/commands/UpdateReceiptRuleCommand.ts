@@ -137,32 +137,35 @@ export interface UpdateReceiptRuleCommandOutput extends UpdateReceiptRuleRespons
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example UpdateReceiptRule
  * ```javascript
  * // The following example updates a receipt rule to use an Amazon S3 action:
  * const input = {
- *   "Rule": {
- *     "Actions": [
+ *   Rule: {
+ *     Actions: [
  *       {
- *         "S3Action": {
- *           "BucketName": "MyBucket",
- *           "ObjectKeyPrefix": "email"
+ *         S3Action: {
+ *           BucketName: "MyBucket",
+ *           ObjectKeyPrefix: "email"
  *         }
  *       }
  *     ],
- *     "Enabled": true,
- *     "Name": "MyRule",
- *     "ScanEnabled": true,
- *     "TlsPolicy": "Optional"
+ *     Enabled: true,
+ *     Name: "MyRule",
+ *     ScanEnabled: true,
+ *     TlsPolicy: "Optional"
  *   },
- *   "RuleSetName": "MyRuleSet"
+ *   RuleSetName: "MyRuleSet"
  * };
  * const command = new UpdateReceiptRuleCommand(input);
- * await client.send(command);
- * // example id: updatereceiptrule-1469051756940
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateReceiptRuleCommand extends $Command
   .classBuilder<

@@ -140,6 +140,7 @@ export interface CreateDbInstanceCommandOutput extends CreateDbInstanceOutput, _
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ *
  * @public
  */
 export class CreateDbInstanceCommand extends $Command

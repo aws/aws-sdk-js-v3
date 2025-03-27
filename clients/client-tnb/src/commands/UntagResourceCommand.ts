@@ -73,6 +73,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

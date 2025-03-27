@@ -70,6 +70,7 @@ export interface DeleteBudgetCommandOutput extends DeleteBudgetResponse, __Metad
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class DeleteBudgetCommand extends $Command

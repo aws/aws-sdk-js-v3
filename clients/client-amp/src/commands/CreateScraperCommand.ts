@@ -128,6 +128,52 @@ export interface CreateScraperCommandOutput extends CreateScraperResponse, __Met
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
+ * @example CreateScraper with optional alias input, optional clientToken input, and one set of tags
+ * ```javascript
+ * //
+ * const input = {
+ *   alias: "alias",
+ *   clientToken: "token",
+ *   destination: {
+ *     ampConfiguration: {
+ *       workspaceArn: "arn:aws:aps:us-west-2:123456789012:workspace/ws-ogh2u499-ce12-hg89-v6c7-123412341234"
+ *     }
+ *   },
+ *   scrapeConfiguration: {
+ *     configurationBlob: "blob"
+ *   },
+ *   source: {
+ *     eksConfiguration: {
+ *       clusterArn: "arn:aws:eks:us-west-2:123456789012:cluster/example",
+ *       securityGroupIds: [
+ *         "sg-abc123"
+ *       ],
+ *       subnetIds: [
+ *         "subnet-abc123"
+ *       ]
+ *     }
+ *   },
+ *   tags: {
+ *     exampleTag: "exampleValue"
+ *   }
+ * };
+ * const command = new CreateScraperCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   arn: "arn:aws:aps:us-west-2:123456789012:scraper/scraper-123",
+ *   scraperId: "scraper-123",
+ *   status: {
+ *     statusCode: "CREATING"
+ *   },
+ *   tags: {
+ *     exampleTag: "exampleValue"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateScraperCommand extends $Command

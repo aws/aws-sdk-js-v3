@@ -79,6 +79,7 @@ export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsR
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class ListSolutionVersionsCommand extends $Command

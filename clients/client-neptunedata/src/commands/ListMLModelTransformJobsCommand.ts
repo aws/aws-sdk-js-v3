@@ -96,6 +96,7 @@ export interface ListMLModelTransformJobsCommandOutput extends ListMLModelTransf
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class ListMLModelTransformJobsCommand extends $Command

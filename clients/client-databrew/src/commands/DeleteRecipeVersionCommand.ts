@@ -66,6 +66,7 @@ export interface DeleteRecipeVersionCommandOutput extends DeleteRecipeVersionRes
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class DeleteRecipeVersionCommand extends $Command

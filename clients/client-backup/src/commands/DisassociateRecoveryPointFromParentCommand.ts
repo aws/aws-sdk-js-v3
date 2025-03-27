@@ -75,6 +75,7 @@ export interface DisassociateRecoveryPointFromParentCommandOutput extends __Meta
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class DisassociateRecoveryPointFromParentCommand extends $Command

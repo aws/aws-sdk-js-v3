@@ -85,24 +85,24 @@ export interface UpdateCaseStatusCommandOutput extends UpdateCaseStatusResponse,
  * @throws {@link SecurityIRServiceException}
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
- * @public
+ *
  * @example Invoke UpdateCaseStatus
  * ```javascript
  * //
  * const input = {
- *   "caseId": "8403556009",
- *   "caseStatus": "Post-incident Activities"
+ *   caseId: "8403556009",
+ *   caseStatus: "Post-incident Activities"
  * };
  * const command = new UpdateCaseStatusCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "caseStatus": "Post-incident Activities"
+ *   caseStatus: "Post-incident Activities"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class UpdateCaseStatusCommand extends $Command
   .classBuilder<

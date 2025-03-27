@@ -70,18 +70,21 @@ export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer 
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example DeleteCacheSecurityGroup
  * ```javascript
  * // Deletes a cache security group.
  * const input = {
- *   "CacheSecurityGroupName": "my-sec-group"
+ *   CacheSecurityGroupName: "my-sec-group"
  * };
  * const command = new DeleteCacheSecurityGroupCommand(input);
- * await client.send(command);
- * // example id: deletecachesecuritygroup-1483046967507
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteCacheSecurityGroupCommand extends $Command
   .classBuilder<

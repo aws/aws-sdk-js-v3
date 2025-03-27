@@ -138,6 +138,7 @@ export interface PutParameterCommandOutput extends PutParameterResult, __Metadat
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class PutParameterCommand extends $Command

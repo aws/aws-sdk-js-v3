@@ -83,6 +83,7 @@ export interface GetPipelineBlueprintCommandOutput extends GetPipelineBlueprintR
  * @throws {@link OSISServiceException}
  * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ *
  * @public
  */
 export class GetPipelineBlueprintCommand extends $Command

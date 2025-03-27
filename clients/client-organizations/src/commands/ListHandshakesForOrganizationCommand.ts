@@ -249,106 +249,106 @@ export interface ListHandshakesForOrganizationCommandOutput
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To retrieve a list of the handshakes associated with an organization
  * ```javascript
  * // The following example shows you how to get a list of handshakes associated with the current organization:
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListHandshakesForOrganizationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Handshakes": [
+ *   Handshakes: [
  *     {
- *       "Action": "INVITE",
- *       "Arn": "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
- *       "ExpirationTimestamp": "2017-01-28T14:35:23.3Z",
- *       "Id": "h-examplehandshakeid111",
- *       "Parties": [
+ *       Action: "INVITE",
+ *       Arn: "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
+ *       ExpirationTimestamp: "2017-01-28T14:35:23.3Z",
+ *       Id: "h-examplehandshakeid111",
+ *       Parties: [
  *         {
- *           "Id": "o-exampleorgid",
- *           "Type": "ORGANIZATION"
+ *           Id: "o-exampleorgid",
+ *           Type: "ORGANIZATION"
  *         },
  *         {
- *           "Id": "juan@example.com",
- *           "Type": "EMAIL"
+ *           Id: "juan@example.com",
+ *           Type: "EMAIL"
  *         }
  *       ],
- *       "RequestedTimestamp": "2017-01-13T14:35:23.3Z",
- *       "Resources": [
+ *       RequestedTimestamp: "2017-01-13T14:35:23.3Z",
+ *       Resources: [
  *         {
- *           "Resources": [
+ *           Resources: [
  *             {
- *               "Type": "MASTER_EMAIL",
- *               "Value": "bill@amazon.com"
+ *               Type: "MASTER_EMAIL",
+ *               Value: "bill@amazon.com"
  *             },
  *             {
- *               "Type": "MASTER_NAME",
- *               "Value": "Org Master Account"
+ *               Type: "MASTER_NAME",
+ *               Value: "Org Master Account"
  *             },
  *             {
- *               "Type": "ORGANIZATION_FEATURE_SET",
- *               "Value": "FULL"
+ *               Type: "ORGANIZATION_FEATURE_SET",
+ *               Value: "FULL"
  *             }
  *           ],
- *           "Type": "ORGANIZATION",
- *           "Value": "o-exampleorgid"
+ *           Type: "ORGANIZATION",
+ *           Value: "o-exampleorgid"
  *         },
  *         {
- *           "Type": "EMAIL",
- *           "Value": "juan@example.com"
+ *           Type: "EMAIL",
+ *           Value: "juan@example.com"
  *         }
  *       ],
- *       "State": "OPEN"
+ *       State: "OPEN"
  *     },
  *     {
- *       "Action": "INVITE",
- *       "Arn": "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
- *       "ExpirationTimestamp": "2017-01-28T14:35:23.3Z",
- *       "Id": "h-examplehandshakeid222",
- *       "Parties": [
+ *       Action: "INVITE",
+ *       Arn: "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
+ *       ExpirationTimestamp: "2017-01-28T14:35:23.3Z",
+ *       Id: "h-examplehandshakeid222",
+ *       Parties: [
  *         {
- *           "Id": "o-exampleorgid",
- *           "Type": "ORGANIZATION"
+ *           Id: "o-exampleorgid",
+ *           Type: "ORGANIZATION"
  *         },
  *         {
- *           "Id": "anika@example.com",
- *           "Type": "EMAIL"
+ *           Id: "anika@example.com",
+ *           Type: "EMAIL"
  *         }
  *       ],
- *       "RequestedTimestamp": "2017-01-13T14:35:23.3Z",
- *       "Resources": [
+ *       RequestedTimestamp: "2017-01-13T14:35:23.3Z",
+ *       Resources: [
  *         {
- *           "Resources": [
+ *           Resources: [
  *             {
- *               "Type": "MASTER_EMAIL",
- *               "Value": "bill@example.com"
+ *               Type: "MASTER_EMAIL",
+ *               Value: "bill@example.com"
  *             },
  *             {
- *               "Type": "MASTER_NAME",
- *               "Value": "Master Account"
+ *               Type: "MASTER_NAME",
+ *               Value: "Master Account"
  *             }
  *           ],
- *           "Type": "ORGANIZATION",
- *           "Value": "o-exampleorgid"
+ *           Type: "ORGANIZATION",
+ *           Value: "o-exampleorgid"
  *         },
  *         {
- *           "Type": "EMAIL",
- *           "Value": "anika@example.com"
+ *           Type: "EMAIL",
+ *           Value: "anika@example.com"
  *         },
  *         {
- *           "Type": "NOTES",
- *           "Value": "This is an invitation to Anika's account to join Bill's organization."
+ *           Type: "NOTES",
+ *           Value: "This is an invitation to Anika's account to join Bill's organization."
  *         }
  *       ],
- *       "State": "ACCEPTED"
+ *       State: "ACCEPTED"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-a-list-of-the-handshakes-associated-with-an-organization-1472511206653
  * ```
  *
+ * @public
  */
 export class ListHandshakesForOrganizationCommand extends $Command
   .classBuilder<

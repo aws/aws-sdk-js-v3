@@ -113,6 +113,7 @@ export interface DescribeDocumentVersionsCommandOutput extends DescribeDocumentV
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class DescribeDocumentVersionsCommand extends $Command

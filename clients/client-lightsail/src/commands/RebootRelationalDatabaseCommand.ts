@@ -106,6 +106,7 @@ export interface RebootRelationalDatabaseCommandOutput extends RebootRelationalD
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class RebootRelationalDatabaseCommand extends $Command

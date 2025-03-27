@@ -133,6 +133,7 @@ export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboard
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateDashboardPermissionsCommand extends $Command

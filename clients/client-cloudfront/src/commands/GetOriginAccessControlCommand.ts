@@ -71,6 +71,7 @@ export interface GetOriginAccessControlCommandOutput extends GetOriginAccessCont
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetOriginAccessControlCommand extends $Command

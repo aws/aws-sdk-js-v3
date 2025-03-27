@@ -81,6 +81,7 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class GetPolicyCommand extends $Command

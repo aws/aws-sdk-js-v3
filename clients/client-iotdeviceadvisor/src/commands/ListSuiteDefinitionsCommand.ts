@@ -80,6 +80,7 @@ export interface ListSuiteDefinitionsCommandOutput extends ListSuiteDefinitionsR
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ *
  * @public
  */
 export class ListSuiteDefinitionsCommand extends $Command

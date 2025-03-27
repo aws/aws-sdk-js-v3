@@ -70,6 +70,7 @@ export interface DeleteGitHubAccountTokenCommandOutput extends DeleteGitHubAccou
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class DeleteGitHubAccountTokenCommand extends $Command

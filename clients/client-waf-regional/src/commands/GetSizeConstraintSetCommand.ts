@@ -86,36 +86,36 @@ export interface GetSizeConstraintSetCommandOutput extends GetSizeConstraintSetR
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To get a size constraint set
  * ```javascript
  * // The following example returns the details of a size constraint match set with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "SizeConstraintSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *   SizeConstraintSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
  * };
  * const command = new GetSizeConstraintSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SizeConstraintSet": {
- *     "Name": "MySampleSizeConstraintSet",
- *     "SizeConstraintSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
- *     "SizeConstraints": [
+ *   SizeConstraintSet: {
+ *     Name: "MySampleSizeConstraintSet",
+ *     SizeConstraintSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *     SizeConstraints: [
  *       {
- *         "ComparisonOperator": "GT",
- *         "FieldToMatch": {
- *           "Type": "QUERY_STRING"
+ *         ComparisonOperator: "GT",
+ *         FieldToMatch: {
+ *           Type: "QUERY_STRING"
  *         },
- *         "Size": 0,
- *         "TextTransformation": "NONE"
+ *         Size: 0,
+ *         TextTransformation: "NONE"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: getsizeconstraintset-1475005422493
  * ```
  *
+ * @public
  */
 export class GetSizeConstraintSetCommand extends $Command
   .classBuilder<

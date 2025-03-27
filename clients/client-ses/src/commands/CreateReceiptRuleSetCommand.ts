@@ -63,18 +63,21 @@ export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetR
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example CreateReceiptRuleSet
  * ```javascript
  * // The following example creates an empty receipt rule set:
  * const input = {
- *   "RuleSetName": "MyRuleSet"
+ *   RuleSetName: "MyRuleSet"
  * };
  * const command = new CreateReceiptRuleSetCommand(input);
- * await client.send(command);
- * // example id: createreceiptruleset-1469058761646
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateReceiptRuleSetCommand extends $Command
   .classBuilder<

@@ -75,6 +75,7 @@ export interface DeleteChannelNamespaceCommandOutput extends DeleteChannelNamesp
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class DeleteChannelNamespaceCommand extends $Command

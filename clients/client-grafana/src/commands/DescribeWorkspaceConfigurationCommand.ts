@@ -73,6 +73,7 @@ export interface DescribeWorkspaceConfigurationCommandOutput
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ *
  * @public
  */
 export class DescribeWorkspaceConfigurationCommand extends $Command

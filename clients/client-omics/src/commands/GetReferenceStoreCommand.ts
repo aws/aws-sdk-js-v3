@@ -81,6 +81,7 @@ export interface GetReferenceStoreCommandOutput extends GetReferenceStoreRespons
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class GetReferenceStoreCommand extends $Command

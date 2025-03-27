@@ -187,6 +187,7 @@ export interface DetectMetricSetConfigCommandOutput extends DetectMetricSetConfi
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ *
  * @public
  */
 export class DetectMetricSetConfigCommand extends $Command

@@ -79,6 +79,7 @@ export interface CreateContainerCommandOutput extends CreateContainerOutput, __M
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ *
  * @public
  */
 export class CreateContainerCommand extends $Command

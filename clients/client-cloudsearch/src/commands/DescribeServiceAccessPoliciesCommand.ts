@@ -81,6 +81,7 @@ export interface DescribeServiceAccessPoliciesCommandOutput
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class DescribeServiceAccessPoliciesCommand extends $Command

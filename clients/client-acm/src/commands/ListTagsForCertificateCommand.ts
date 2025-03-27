@@ -69,6 +69,7 @@ export interface ListTagsForCertificateCommandOutput extends ListTagsForCertific
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForCertificateCommand extends $Command

@@ -141,20 +141,23 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResult, __Metad
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
+ *
  * @example To update a cluster
  * ```javascript
  * // This action allows you to update certain parameters for a cluster. Once the cluster changes to a different state, usually within 60 minutes of it being created, this action is no longer available.
  * const input = {
- *   "AddressId": "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
- *   "ClusterId": "CID123e4567-e89b-12d3-a456-426655440000",
- *   "Description": "updated-cluster-name"
+ *   AddressId: "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
+ *   ClusterId: "CID123e4567-e89b-12d3-a456-426655440000",
+ *   Description: "updated-cluster-name"
  * };
  * const command = new UpdateClusterCommand(input);
- * await client.send(command);
- * // example id: to-update-a-cluster-1482863900595
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateClusterCommand extends $Command
   .classBuilder<

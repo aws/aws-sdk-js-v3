@@ -99,6 +99,7 @@ export interface DeleteDataLakeOrganizationConfigurationCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class DeleteDataLakeOrganizationConfigurationCommand extends $Command

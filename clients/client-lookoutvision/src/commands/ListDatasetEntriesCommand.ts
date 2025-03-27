@@ -88,6 +88,7 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ *
  * @public
  */
 export class ListDatasetEntriesCommand extends $Command

@@ -75,18 +75,21 @@ export interface DeleteAssessmentTargetCommandOutput extends __MetadataBearer {}
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example Delete assessment target
  * ```javascript
  * // Deletes the assessment target that is specified by the ARN of the assessment target.
  * const input = {
- *   "assessmentTargetArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
+ *   assessmentTargetArn: "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
  * };
  * const command = new DeleteAssessmentTargetCommand(input);
- * await client.send(command);
- * // example id: delete-assessment-target-1481064309029
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteAssessmentTargetCommand extends $Command
   .classBuilder<

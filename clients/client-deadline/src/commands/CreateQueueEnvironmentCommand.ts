@@ -84,6 +84,7 @@ export interface CreateQueueEnvironmentCommandOutput extends CreateQueueEnvironm
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class CreateQueueEnvironmentCommand extends $Command

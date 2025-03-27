@@ -88,6 +88,7 @@ export interface UpgradeAppliedSchemaCommandOutput extends UpgradeAppliedSchemaR
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
  * @public
  */
 export class UpgradeAppliedSchemaCommand extends $Command

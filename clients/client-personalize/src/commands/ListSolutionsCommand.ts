@@ -76,6 +76,7 @@ export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __Met
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class ListSolutionsCommand extends $Command

@@ -106,6 +106,7 @@ export interface UpdateSecurityCommandOutput extends UpdateSecurityResponse, __M
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class UpdateSecurityCommand extends $Command

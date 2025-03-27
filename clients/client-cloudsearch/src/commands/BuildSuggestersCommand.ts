@@ -70,6 +70,7 @@ export interface BuildSuggestersCommandOutput extends BuildSuggestersResponse, _
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class BuildSuggestersCommand extends $Command

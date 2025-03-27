@@ -101,6 +101,7 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class GetLaunchConfigurationCommand extends $Command

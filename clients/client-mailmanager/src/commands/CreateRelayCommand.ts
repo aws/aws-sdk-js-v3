@@ -78,6 +78,7 @@ export interface CreateRelayCommandOutput extends CreateRelayResponse, __Metadat
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class CreateRelayCommand extends $Command

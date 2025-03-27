@@ -95,6 +95,7 @@ export interface DescribePackageCommandOutput extends DescribePackageResult, __M
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class DescribePackageCommand extends $Command

@@ -126,6 +126,7 @@ export interface CreateDiskCommandOutput extends CreateDiskResult, __MetadataBea
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class CreateDiskCommand extends $Command

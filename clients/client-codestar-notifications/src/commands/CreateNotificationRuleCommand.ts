@@ -104,6 +104,7 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
  * @throws {@link CodestarNotificationsServiceException}
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ *
  * @public
  */
 export class CreateNotificationRuleCommand extends $Command

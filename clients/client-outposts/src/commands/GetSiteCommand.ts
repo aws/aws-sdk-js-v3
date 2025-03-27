@@ -91,6 +91,7 @@ export interface GetSiteCommandOutput extends GetSiteOutput, __MetadataBearer {}
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class GetSiteCommand extends $Command

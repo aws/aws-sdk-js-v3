@@ -83,29 +83,29 @@ export interface UpdateEnvironmentCommandOutput extends Environment, __MetadataB
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To update an environment
  * ```javascript
  * // The following update-environment example updates an environment's description.
  * const input = {
- *   "ApplicationId": "339ohji",
- *   "Description": "An environment for examples.",
- *   "EnvironmentId": "54j1r29"
+ *   ApplicationId: "339ohji",
+ *   Description: "An environment for examples.",
+ *   EnvironmentId: "54j1r29"
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplicationId": "339ohji",
- *   "Description": "An environment for examples.",
- *   "Id": "54j1r29",
- *   "Name": "Example-Environment",
- *   "State": "ROLLED_BACK"
+ *   ApplicationId: "339ohji",
+ *   Description: "An environment for examples.",
+ *   Id: "54j1r29",
+ *   Name: "Example-Environment",
+ *   State: "ROLLED_BACK"
  * }
  * *\/
- * // example id: to-update-an-environment-1632331382428
  * ```
  *
+ * @public
  */
 export class UpdateEnvironmentCommand extends $Command
   .classBuilder<

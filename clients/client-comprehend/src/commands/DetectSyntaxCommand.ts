@@ -89,6 +89,7 @@ export interface DetectSyntaxCommandOutput extends DetectSyntaxResponse, __Metad
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class DetectSyntaxCommand extends $Command

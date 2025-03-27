@@ -83,24 +83,24 @@ export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironm
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
- * @public
+ *
  * @example DescribeEnvironmentStatus
  * ```javascript
  * //
  * const input = {
- *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
+ *   environmentId: "8d9967e2f0624182b74e7690ad69ebEX"
  * };
  * const command = new DescribeEnvironmentStatusCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "message": "Environment is ready to use",
- *   "status": "ready"
+ *   message: "Environment is ready to use",
+ *   status: "ready"
  * }
  * *\/
- * // example id: describeenvironmentstatus-1516823462133
  * ```
  *
+ * @public
  */
 export class DescribeEnvironmentStatusCommand extends $Command
   .classBuilder<

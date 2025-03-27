@@ -101,6 +101,7 @@ export interface GetCampaignActivitiesCommandOutput extends GetCampaignActivitie
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetCampaignActivitiesCommand extends $Command

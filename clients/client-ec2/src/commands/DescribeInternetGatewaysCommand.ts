@@ -88,15 +88,15 @@ export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetG
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe the Internet gateway for a VPC
  * ```javascript
  * // This example describes the Internet gateway for the specified VPC.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "attachment.vpc-id",
- *       "Values": [
+ *       Name: "attachment.vpc-id",
+ *       Values: [
  *         "vpc-a01106c2"
  *       ]
  *     }
@@ -104,25 +104,25 @@ export interface DescribeInternetGatewaysCommandOutput extends DescribeInternetG
  * };
  * const command = new DescribeInternetGatewaysCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InternetGateways": [
+ *   InternetGateways: [
  *     {
- *       "Attachments": [
+ *       Attachments: [
  *         {
- *           "State": "attached",
- *           "VpcId": "vpc-a01106c2"
+ *           State: "attached",
+ *           VpcId: "vpc-a01106c2"
  *         }
  *       ],
- *       "InternetGatewayId": "igw-c0a643a9",
- *       "Tags": []
+ *       InternetGatewayId: "igw-c0a643a9",
+ *       Tags:       []
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-internet-gateways-1
  * ```
  *
+ * @public
  */
 export class DescribeInternetGatewaysCommand extends $Command
   .classBuilder<

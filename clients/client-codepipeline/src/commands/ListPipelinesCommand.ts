@@ -73,6 +73,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class ListPipelinesCommand extends $Command

@@ -65,6 +65,7 @@ export interface DeleteInterconnectCommandOutput extends DeleteInterconnectRespo
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DeleteInterconnectCommand extends $Command

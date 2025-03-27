@@ -123,6 +123,7 @@ export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferen
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class CreateBatchInferenceJobCommand extends $Command

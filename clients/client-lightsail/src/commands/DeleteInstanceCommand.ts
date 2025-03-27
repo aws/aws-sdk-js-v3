@@ -107,6 +107,7 @@ export interface DeleteInstanceCommandOutput extends DeleteInstanceResult, __Met
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class DeleteInstanceCommand extends $Command

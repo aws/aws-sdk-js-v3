@@ -73,25 +73,35 @@ export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyRes
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
- * @public
+ *
  * @example To get the current policy for a repository
  * ```javascript
  * // This example obtains the repository policy for the repository named ubuntu.
  * const input = {
- *   "repositoryName": "ubuntu"
+ *   repositoryName: "ubuntu"
  * };
  * const command = new GetRepositoryPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "policyText": "{\n  \"Version\" : \"2008-10-17\",\n  \"Statement\" : [ {\n    \"Sid\" : \"new statement\",\n    \"Effect\" : \"Allow\",\n    \"Principal\" : {\n     \"AWS\" : \"arn:aws:iam::012345678901:role/CodeDeployDemo\"\n    },\n\"Action\" : [ \"ecr:GetDownloadUrlForLayer\", \"ecr:BatchGetImage\", \"ecr:BatchCheckLayerAvailability\" ]\n } ]\n}",
- *   "registryId": "012345678901",
- *   "repositoryName": "ubuntu"
+ *   policyText: `{
+ *   "Version" : "2008-10-17",
+ *   "Statement" : [ {
+ *     "Sid" : "new statement",
+ *     "Effect" : "Allow",
+ *     "Principal" : {
+ *      "AWS" : "arn:aws:iam::012345678901:role/CodeDeployDemo"
+ *     },
+ * "Action" : [ "ecr:GetDownloadUrlForLayer", "ecr:BatchGetImage", "ecr:BatchCheckLayerAvailability" ]
+ *  } ]
+ * }`,
+ *   registryId: "012345678901",
+ *   repositoryName: "ubuntu"
  * }
  * *\/
- * // example id: getrepositorypolicy-example-1470867669211
  * ```
  *
+ * @public
  */
 export class GetRepositoryPolicyCommand extends $Command
   .classBuilder<

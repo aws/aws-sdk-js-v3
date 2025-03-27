@@ -86,6 +86,7 @@ export interface GetEventCommandOutput extends GetEventResult, __MetadataBearer 
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class GetEventCommand extends $Command

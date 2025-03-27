@@ -76,6 +76,7 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class UpdateFleetCommand extends $Command

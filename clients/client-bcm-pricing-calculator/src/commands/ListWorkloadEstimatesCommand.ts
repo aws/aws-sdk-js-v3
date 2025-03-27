@@ -118,6 +118,7 @@ export interface ListWorkloadEstimatesCommandOutput extends ListWorkloadEstimate
  * @throws {@link BCMPricingCalculatorServiceException}
  * <p>Base exception class for all service exceptions from BCMPricingCalculator service.</p>
  *
+ *
  * @public
  */
 export class ListWorkloadEstimatesCommand extends $Command

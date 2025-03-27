@@ -70,6 +70,7 @@ export interface StopEntitiesDetectionV2JobCommandOutput extends StopEntitiesDet
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ *
  * @public
  */
 export class StopEntitiesDetectionV2JobCommand extends $Command

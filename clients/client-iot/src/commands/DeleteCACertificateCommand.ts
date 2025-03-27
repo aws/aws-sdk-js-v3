@@ -75,6 +75,7 @@ export interface DeleteCACertificateCommandOutput extends DeleteCACertificateRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DeleteCACertificateCommand extends $Command

@@ -75,24 +75,27 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
- * @public
+ *
  * @example To tag a resource
  * ```javascript
  * // This operation tags an Amazon FSx resource.
  * const input = {
- *   "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:file-system/fs-0498eed5fe91001ec",
- *   "Tags": [
+ *   ResourceARN: "arn:aws:fsx:us-east-1:012345678912:file-system/fs-0498eed5fe91001ec",
+ *   Tags: [
  *     {
- *       "Key": "Name",
- *       "Value": "MyFileSystem"
+ *       Key: "Name",
+ *       Value: "MyFileSystem"
  *     }
  *   ]
  * };
  * const command = new TagResourceCommand(input);
- * await client.send(command);
- * // example id: to-tag-a-fsx-resource-1481847318371
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

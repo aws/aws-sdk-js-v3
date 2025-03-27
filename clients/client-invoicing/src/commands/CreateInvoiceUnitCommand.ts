@@ -84,37 +84,37 @@ export interface CreateInvoiceUnitCommandOutput extends CreateInvoiceUnitRespons
  * @throws {@link InvoicingServiceException}
  * <p>Base exception class for all service exceptions from Invoicing service.</p>
  *
- * @public
+ *
  * @example CreateInvoiceUnit
  * ```javascript
  * //
  * const input = {
- *   "Description": "Example Invoice Unit Description",
- *   "InvoiceReceiver": "111111111111",
- *   "Name": "Example Invoice Unit",
- *   "ResourceTags": [
+ *   Description: "Example Invoice Unit Description",
+ *   InvoiceReceiver: "111111111111",
+ *   Name: "Example Invoice Unit",
+ *   ResourceTags: [
  *     {
- *       "Key": "TagKey",
- *       "Value": "TagValue"
+ *       Key: "TagKey",
+ *       Value: "TagValue"
  *     }
  *   ],
- *   "Rule": {
- *     "LinkedAccounts": [
+ *   Rule: {
+ *     LinkedAccounts: [
  *       "222222222222"
  *     ]
  *   },
- *   "TaxInheritanceDisabled": false
+ *   TaxInheritanceDisabled: false
  * };
  * const command = new CreateInvoiceUnitCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InvoiceUnitArn": "arn:aws:invoicing::000000000000:invoice-unit/12345678"
+ *   InvoiceUnitArn: "arn:aws:invoicing::000000000000:invoice-unit/12345678"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class CreateInvoiceUnitCommand extends $Command
   .classBuilder<

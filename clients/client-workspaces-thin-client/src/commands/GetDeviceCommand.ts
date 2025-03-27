@@ -98,6 +98,7 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ *
  * @public
  */
 export class GetDeviceCommand extends $Command

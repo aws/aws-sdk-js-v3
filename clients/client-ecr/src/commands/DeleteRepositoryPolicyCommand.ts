@@ -73,25 +73,25 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
- * @public
+ *
  * @example To delete the policy associated with a repository
  * ```javascript
  * // This example deletes the policy associated with the repository named ubuntu in the current account.
  * const input = {
- *   "repositoryName": "ubuntu"
+ *   repositoryName: "ubuntu"
  * };
  * const command = new DeleteRepositoryPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "policyText": "{ ... }",
- *   "registryId": "012345678901",
- *   "repositoryName": "ubuntu"
+ *   policyText: "{ ... }",
+ *   registryId: "012345678901",
+ *   repositoryName: "ubuntu"
  * }
  * *\/
- * // example id: deleterepositorypolicy-example-1470866943748
  * ```
  *
+ * @public
  */
 export class DeleteRepositoryPolicyCommand extends $Command
   .classBuilder<

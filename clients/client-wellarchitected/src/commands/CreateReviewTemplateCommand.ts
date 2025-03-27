@@ -96,6 +96,7 @@ export interface CreateReviewTemplateCommandOutput extends CreateReviewTemplateO
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class CreateReviewTemplateCommand extends $Command

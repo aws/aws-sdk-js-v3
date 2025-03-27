@@ -52,6 +52,11 @@ export interface DescribeInputDeviceThumbnailCommandOutput
  * };
  * const command = new DescribeInputDeviceThumbnailCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.Body.transformToByteArray();
+ * // const str = await response.Body.transformToString();
+ * // response.Body.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // DescribeInputDeviceThumbnailResponse
  * //   Body: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   ContentType: "image/jpeg",
@@ -91,6 +96,7 @@ export interface DescribeInputDeviceThumbnailCommandOutput
  *
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
+ *
  *
  * @public
  */

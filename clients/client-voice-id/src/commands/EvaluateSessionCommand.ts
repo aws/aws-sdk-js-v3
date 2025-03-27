@@ -123,6 +123,7 @@ export interface EvaluateSessionCommandOutput extends EvaluateSessionResponse, _
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ *
  * @public
  */
 export class EvaluateSessionCommand extends $Command

@@ -76,6 +76,7 @@ export interface CreateConnectorDefinitionVersionCommandOutput
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectorDefinitionVersionCommand extends $Command

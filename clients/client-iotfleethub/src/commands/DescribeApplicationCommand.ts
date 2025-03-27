@@ -80,6 +80,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * @throws {@link IoTFleetHubServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetHub service.</p>
  *
+ *
  * @public
  */
 export class DescribeApplicationCommand extends $Command

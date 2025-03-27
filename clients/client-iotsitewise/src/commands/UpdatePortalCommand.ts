@@ -106,6 +106,7 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class UpdatePortalCommand extends $Command

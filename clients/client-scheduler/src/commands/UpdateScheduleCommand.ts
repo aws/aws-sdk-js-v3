@@ -168,6 +168,7 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleOutput, __Met
  * @throws {@link SchedulerServiceException}
  * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
+ *
  * @public
  */
 export class UpdateScheduleCommand extends $Command

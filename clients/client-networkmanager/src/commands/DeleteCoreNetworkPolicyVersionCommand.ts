@@ -95,6 +95,7 @@ export interface DeleteCoreNetworkPolicyVersionCommandOutput
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteCoreNetworkPolicyVersionCommand extends $Command

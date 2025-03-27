@@ -102,6 +102,7 @@ export interface ListInvitationsCommandOutput extends ListInvitationsOutput, __M
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class ListInvitationsCommand extends $Command

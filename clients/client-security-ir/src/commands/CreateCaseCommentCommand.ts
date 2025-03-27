@@ -88,24 +88,24 @@ export interface CreateCaseCommentCommandOutput extends CreateCaseCommentRespons
  * @throws {@link SecurityIRServiceException}
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
- * @public
+ *
  * @example Invoke CreateCaseComment
  * ```javascript
  * //
  * const input = {
- *   "body": "Case comment body.",
- *   "caseId": "8403556009"
+ *   body: "Case comment body.",
+ *   caseId: "8403556009"
  * };
  * const command = new CreateCaseCommentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "commentId": "000000"
+ *   commentId: "000000"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class CreateCaseCommentCommand extends $Command
   .classBuilder<

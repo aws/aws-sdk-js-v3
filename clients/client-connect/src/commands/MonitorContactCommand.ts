@@ -85,6 +85,7 @@ export interface MonitorContactCommandOutput extends MonitorContactResponse, __M
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class MonitorContactCommand extends $Command

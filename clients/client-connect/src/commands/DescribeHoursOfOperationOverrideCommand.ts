@@ -98,6 +98,7 @@ export interface DescribeHoursOfOperationOverrideCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DescribeHoursOfOperationOverrideCommand extends $Command

@@ -128,6 +128,7 @@ export interface CreateLayoutCommandOutput extends CreateLayoutResponse, __Metad
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class CreateLayoutCommand extends $Command

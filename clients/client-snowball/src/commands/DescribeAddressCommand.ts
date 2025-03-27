@@ -76,33 +76,33 @@ export interface DescribeAddressCommandOutput extends DescribeAddressResult, __M
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
+ *
  * @example To describe an address for a job
  * ```javascript
  * // This operation describes an address for a job.
  * const input = {
- *   "AddressId": "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b"
+ *   AddressId: "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b"
  * };
  * const command = new DescribeAddressCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Address": {
- *     "AddressId": "ADID5643ec50-3eec-4eb3-9be6-9374c10eb51b",
- *     "City": "Seattle",
- *     "Company": "My Company",
- *     "Country": "US",
- *     "Name": "My Name",
- *     "PhoneNumber": "425-555-5555",
- *     "PostalCode": "98101",
- *     "StateOrProvince": "WA",
- *     "Street1": "123 Main Street"
+ *   Address: {
+ *     AddressId: "ADID5643ec50-3eec-4eb3-9be6-9374c10eb51b",
+ *     City: "Seattle",
+ *     Company: "My Company",
+ *     Country: "US",
+ *     Name: "My Name",
+ *     PhoneNumber: "425-555-5555",
+ *     PostalCode: "98101",
+ *     StateOrProvince: "WA",
+ *     Street1: "123 Main Street"
  *   }
  * }
  * *\/
- * // example id: to-describe-an-address-for-a-job-1482538608745
  * ```
  *
+ * @public
  */
 export class DescribeAddressCommand extends $Command
   .classBuilder<

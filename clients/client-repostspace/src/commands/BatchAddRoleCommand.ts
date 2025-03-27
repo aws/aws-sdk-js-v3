@@ -83,6 +83,7 @@ export interface BatchAddRoleCommandOutput extends BatchAddRoleOutput, __Metadat
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ *
  * @public
  */
 export class BatchAddRoleCommand extends $Command

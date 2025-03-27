@@ -167,6 +167,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class UpdateEnvironmentCommand extends $Command

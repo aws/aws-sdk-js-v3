@@ -92,6 +92,7 @@ export interface ListInputSecurityGroupsCommandOutput extends ListInputSecurityG
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class ListInputSecurityGroupsCommand extends $Command

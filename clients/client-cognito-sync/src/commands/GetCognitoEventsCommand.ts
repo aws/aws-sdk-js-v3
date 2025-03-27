@@ -77,6 +77,7 @@ export interface GetCognitoEventsCommandOutput extends GetCognitoEventsResponse,
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class GetCognitoEventsCommand extends $Command

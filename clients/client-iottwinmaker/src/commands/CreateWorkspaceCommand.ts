@@ -80,6 +80,7 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateWorkspaceCommand extends $Command

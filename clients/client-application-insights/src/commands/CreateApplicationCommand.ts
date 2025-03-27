@@ -103,6 +103,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class CreateApplicationCommand extends $Command

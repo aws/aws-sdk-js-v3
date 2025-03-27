@@ -70,6 +70,7 @@ export interface CreateRealtimeEndpointCommandOutput extends CreateRealtimeEndpo
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class CreateRealtimeEndpointCommand extends $Command

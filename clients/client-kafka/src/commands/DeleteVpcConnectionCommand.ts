@@ -68,6 +68,7 @@ export interface DeleteVpcConnectionCommandOutput extends DeleteVpcConnectionRes
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class DeleteVpcConnectionCommand extends $Command

@@ -121,24 +121,27 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To create a launch configuration
  * ```javascript
  * // This example creates a launch configuration.
  * const input = {
- *   "IamInstanceProfile": "my-iam-role",
- *   "ImageId": "ami-12345678",
- *   "InstanceType": "m3.medium",
- *   "LaunchConfigurationName": "my-launch-config",
- *   "SecurityGroups": [
+ *   IamInstanceProfile: "my-iam-role",
+ *   ImageId: "ami-12345678",
+ *   InstanceType: "m3.medium",
+ *   LaunchConfigurationName: "my-launch-config",
+ *   SecurityGroups: [
  *     "sg-eb2af88e"
  *   ]
  * };
  * const command = new CreateLaunchConfigurationCommand(input);
- * await client.send(command);
- * // example id: autoscaling-create-launch-configuration-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateLaunchConfigurationCommand extends $Command
   .classBuilder<

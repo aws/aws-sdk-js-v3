@@ -72,6 +72,7 @@ export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBeare
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class EnableSsoCommand extends $Command

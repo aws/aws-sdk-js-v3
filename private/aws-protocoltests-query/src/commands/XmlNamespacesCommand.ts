@@ -57,6 +57,7 @@ export interface XmlNamespacesCommandOutput extends XmlNamespacesOutput, __Metad
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  */
 export class XmlNamespacesCommand extends $Command
   .classBuilder<

@@ -79,6 +79,7 @@ export interface ListObjectTypeAttributesCommandOutput extends ListObjectTypeAtt
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class ListObjectTypeAttributesCommand extends $Command

@@ -420,59 +420,8 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
- * @public
- * @example To modify a table's provisioned throughput
- * ```javascript
- * // This example increases the provisioned read and write capacity on the Music table.
- * const input = {
- *   "ProvisionedThroughput": {
- *     "ReadCapacityUnits": 10,
- *     "WriteCapacityUnits": 10
- *   },
- *   "TableName": "MusicCollection"
- * };
- * const command = new UpdateTableCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TableDescription": {
- *     "AttributeDefinitions": [
- *       {
- *         "AttributeName": "Artist",
- *         "AttributeType": "S"
- *       },
- *       {
- *         "AttributeName": "SongTitle",
- *         "AttributeType": "S"
- *       }
- *     ],
- *     "CreationDateTime": "1421866952.062",
- *     "ItemCount": 0,
- *     "KeySchema": [
- *       {
- *         "AttributeName": "Artist",
- *         "KeyType": "HASH"
- *       },
- *       {
- *         "AttributeName": "SongTitle",
- *         "KeyType": "RANGE"
- *       }
- *     ],
- *     "ProvisionedThroughput": {
- *       "LastIncreaseDateTime": "1421874759.194",
- *       "NumberOfDecreasesToday": 1,
- *       "ReadCapacityUnits": 1,
- *       "WriteCapacityUnits": 1
- *     },
- *     "TableName": "MusicCollection",
- *     "TableSizeBytes": 0,
- *     "TableStatus": "UPDATING"
- *   }
- * }
- * *\/
- * // example id: to-modify-a-tables-provisioned-throughput-1476118076147
- * ```
  *
+ * @public
  */
 export class UpdateTableCommand extends $Command
   .classBuilder<

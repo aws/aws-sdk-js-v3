@@ -96,6 +96,7 @@ export interface CreatePackagingGroupCommandOutput extends CreatePackagingGroupR
  * @throws {@link MediaPackageVodServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ *
  * @public
  */
 export class CreatePackagingGroupCommand extends $Command

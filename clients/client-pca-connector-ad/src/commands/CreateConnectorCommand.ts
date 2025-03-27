@@ -96,6 +96,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectorCommand extends $Command

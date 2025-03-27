@@ -95,6 +95,7 @@ export interface CreateBlueprintVersionCommandOutput extends CreateBlueprintVers
  * @throws {@link BedrockDataAutomationServiceException}
  * <p>Base exception class for all service exceptions from BedrockDataAutomation service.</p>
  *
+ *
  * @public
  */
 export class CreateBlueprintVersionCommand extends $Command

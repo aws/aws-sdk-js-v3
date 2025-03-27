@@ -146,6 +146,7 @@ export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleRespons
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeBotLocaleCommand extends $Command

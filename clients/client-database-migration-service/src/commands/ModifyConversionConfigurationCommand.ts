@@ -71,24 +71,24 @@ export interface ModifyConversionConfigurationCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Modify Conversion Configuration
  * ```javascript
  * // Modifies the specified schema conversion configuration using the provided parameters.
  * const input = {
- *   "ConversionConfiguration": "{\"Common project settings\":{\"ShowSeverityLevelInSql\":\"CRITICAL\"},\"ORACLE_TO_POSTGRESQL\" : {\"ToTimeZone\":false,\"LastDayBuiltinFunctionOracle\":false,   \"NextDayBuiltinFunctionOracle\":false,\"ConvertProceduresToFunction\":false,\"NvlBuiltinFunctionOracle\":false,\"DbmsAssertBuiltinFunctionOracle\":false}}",
- *   "MigrationProjectIdentifier": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
+ *   ConversionConfiguration: `{"Common project settings":{"ShowSeverityLevelInSql":"CRITICAL"},"ORACLE_TO_POSTGRESQL" : {"ToTimeZone":false,"LastDayBuiltinFunctionOracle":false,   "NextDayBuiltinFunctionOracle":false,"ConvertProceduresToFunction":false,"NvlBuiltinFunctionOracle":false,"DbmsAssertBuiltinFunctionOracle":false}}`,
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
  * };
  * const command = new ModifyConversionConfigurationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "MigrationProjectIdentifier": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
  * }
  * *\/
- * // example id: modify-conversion-configuration-1689720529855
  * ```
  *
+ * @public
  */
 export class ModifyConversionConfigurationCommand extends $Command
   .classBuilder<

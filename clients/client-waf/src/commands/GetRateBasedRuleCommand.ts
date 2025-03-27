@@ -87,6 +87,7 @@ export interface GetRateBasedRuleCommandOutput extends GetRateBasedRuleResponse,
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ *
  * @public
  */
 export class GetRateBasedRuleCommand extends $Command

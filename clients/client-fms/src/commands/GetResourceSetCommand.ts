@@ -83,6 +83,7 @@ export interface GetResourceSetCommandOutput extends GetResourceSetResponse, __M
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class GetResourceSetCommand extends $Command

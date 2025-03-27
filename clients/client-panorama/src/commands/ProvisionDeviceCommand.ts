@@ -110,6 +110,7 @@ export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, _
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class ProvisionDeviceCommand extends $Command

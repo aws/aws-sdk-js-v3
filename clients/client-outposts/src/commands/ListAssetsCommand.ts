@@ -102,6 +102,7 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class ListAssetsCommand extends $Command

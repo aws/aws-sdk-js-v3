@@ -103,6 +103,7 @@ export interface DescribeContinuousExportsCommandOutput extends DescribeContinuo
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class DescribeContinuousExportsCommand extends $Command

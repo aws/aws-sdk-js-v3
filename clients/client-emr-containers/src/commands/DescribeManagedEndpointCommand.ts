@@ -132,6 +132,7 @@ export interface DescribeManagedEndpointCommandOutput extends DescribeManagedEnd
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ *
  * @public
  */
 export class DescribeManagedEndpointCommand extends $Command

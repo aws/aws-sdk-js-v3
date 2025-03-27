@@ -83,6 +83,7 @@ export interface DescribeProductViewCommandOutput extends DescribeProductViewOut
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class DescribeProductViewCommand extends $Command

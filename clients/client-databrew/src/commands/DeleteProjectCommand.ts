@@ -64,6 +64,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class DeleteProjectCommand extends $Command

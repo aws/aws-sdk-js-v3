@@ -59,6 +59,7 @@ export interface ActivateOrganizationsAccessCommandOutput extends ActivateOrgani
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ActivateOrganizationsAccessCommand extends $Command

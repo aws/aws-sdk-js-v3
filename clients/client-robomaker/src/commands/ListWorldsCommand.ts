@@ -90,6 +90,7 @@ export interface ListWorldsCommandOutput extends ListWorldsResponse, __MetadataB
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class ListWorldsCommand extends $Command

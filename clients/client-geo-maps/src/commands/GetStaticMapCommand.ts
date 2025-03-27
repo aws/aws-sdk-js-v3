@@ -103,6 +103,7 @@ export interface GetStaticMapCommandOutput extends GetStaticMapCommandOutputType
  * @throws {@link GeoMapsServiceException}
  * <p>Base exception class for all service exceptions from GeoMaps service.</p>
  *
+ *
  * @public
  */
 export class GetStaticMapCommand extends $Command

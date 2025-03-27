@@ -72,6 +72,7 @@ export interface ListPlaybackKeyPairsCommandOutput extends ListPlaybackKeyPairsR
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class ListPlaybackKeyPairsCommand extends $Command

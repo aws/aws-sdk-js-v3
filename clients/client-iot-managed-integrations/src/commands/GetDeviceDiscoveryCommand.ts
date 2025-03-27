@@ -95,6 +95,7 @@ export interface GetDeviceDiscoveryCommandOutput extends GetDeviceDiscoveryRespo
  * @throws {@link IoTManagedIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from IoTManagedIntegrations service.</p>
  *
+ *
  * @public
  */
 export class GetDeviceDiscoveryCommand extends $Command

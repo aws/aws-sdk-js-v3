@@ -91,6 +91,7 @@ export interface DeleteVerifiedDestinationNumberCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteVerifiedDestinationNumberCommand extends $Command

@@ -86,6 +86,7 @@ export interface GetLabelsCommandOutput extends GetLabelsResult, __MetadataBeare
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class GetLabelsCommand extends $Command

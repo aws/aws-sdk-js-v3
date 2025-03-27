@@ -71,6 +71,7 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListProjectsCommand extends $Command

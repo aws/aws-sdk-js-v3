@@ -103,6 +103,7 @@ export interface GenerateQueryCommandOutput extends GenerateQueryResponse, __Met
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class GenerateQueryCommand extends $Command

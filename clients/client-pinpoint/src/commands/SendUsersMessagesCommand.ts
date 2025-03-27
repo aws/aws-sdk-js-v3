@@ -293,6 +293,7 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class SendUsersMessagesCommand extends $Command

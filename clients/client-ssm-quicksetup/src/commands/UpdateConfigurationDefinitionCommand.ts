@@ -82,6 +82,7 @@ export interface UpdateConfigurationDefinitionCommandOutput extends __MetadataBe
  * @throws {@link SSMQuickSetupServiceException}
  * <p>Base exception class for all service exceptions from SSMQuickSetup service.</p>
  *
+ *
  * @public
  */
 export class UpdateConfigurationDefinitionCommand extends $Command

@@ -142,6 +142,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class CreateReplicationConfigurationTemplateCommand extends $Command

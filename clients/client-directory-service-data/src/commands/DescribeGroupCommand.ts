@@ -105,6 +105,7 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResult, __Metad
  * @throws {@link DirectoryServiceDataServiceException}
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
+ *
  * @public
  */
 export class DescribeGroupCommand extends $Command

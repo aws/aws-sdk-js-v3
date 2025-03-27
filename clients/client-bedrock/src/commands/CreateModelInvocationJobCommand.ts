@@ -109,6 +109,7 @@ export interface CreateModelInvocationJobCommandOutput extends CreateModelInvoca
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class CreateModelInvocationJobCommand extends $Command

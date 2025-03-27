@@ -75,6 +75,7 @@ export interface StopEvaluationJobCommandOutput extends StopEvaluationJobRespons
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class StopEvaluationJobCommand extends $Command

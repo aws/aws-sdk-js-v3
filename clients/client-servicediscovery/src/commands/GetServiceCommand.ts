@@ -90,36 +90,8 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
- * @example GetService Example
- * ```javascript
- * // This example gets the settings for a specified service.
- * const input = {
- *   "Id": "srv-e4anhexample0004"
- * };
- * const command = new GetServiceCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Service": {
- *     "Arn": "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-e4anhexample0004",
- *     "CreateDate": "20181118T211707Z",
- *     "CreatorRequestId": "example-creator-request-id-0004",
- *     "Description": "Example.com AWS Cloud Map HTTP Service",
- *     "HealthCheckConfig": {
- *       "FailureThreshold": 3,
- *       "ResourcePath": "/",
- *       "Type": "HTTPS"
- *     },
- *     "Id": "srv-e4anhexample0004",
- *     "Name": "example-http-service",
- *     "NamespaceId": "ns-e4anhexample0004"
- *   }
- * }
- * *\/
- * // example id: getservice-example-1590117234294
- * ```
  *
+ * @public
  */
 export class GetServiceCommand extends $Command
   .classBuilder<

@@ -136,6 +136,7 @@ export interface BatchGetFindingsCommandOutput extends BatchGetFindingsResponse,
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ *
  * @public
  */
 export class BatchGetFindingsCommand extends $Command

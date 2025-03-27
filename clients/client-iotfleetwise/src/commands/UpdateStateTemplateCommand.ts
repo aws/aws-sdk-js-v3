@@ -95,6 +95,7 @@ export interface UpdateStateTemplateCommandOutput extends UpdateStateTemplateRes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class UpdateStateTemplateCommand extends $Command

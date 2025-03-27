@@ -65,6 +65,7 @@ export interface TimestampFormatHeadersCommandOutput extends TimestampFormatHead
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class TimestampFormatHeadersCommand extends $Command

@@ -64,6 +64,7 @@ export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResul
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ *
  * @public
  */
 export class GetSoftwareUpdatesCommand extends $Command

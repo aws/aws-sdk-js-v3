@@ -82,6 +82,7 @@ export interface UpdateLFTagExpressionCommandOutput extends UpdateLFTagExpressio
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class UpdateLFTagExpressionCommand extends $Command

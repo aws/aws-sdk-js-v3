@@ -67,6 +67,7 @@ export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __Metad
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class UpdateMLModelCommand extends $Command

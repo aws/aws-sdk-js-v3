@@ -90,20 +90,23 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To create a route
  * ```javascript
  * // This example creates a route for the specified route table. The route matches all traffic (0.0.0.0/0) and routes it to the specified Internet gateway.
  * const input = {
- *   "DestinationCidrBlock": "0.0.0.0/0",
- *   "GatewayId": "igw-c0a643a9",
- *   "RouteTableId": "rtb-22574640"
+ *   DestinationCidrBlock: "0.0.0.0/0",
+ *   GatewayId: "igw-c0a643a9",
+ *   RouteTableId: "rtb-22574640"
  * };
  * const command = new CreateRouteCommand(input);
- * await client.send(command);
- * // example id: ec2-create-route-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateRouteCommand extends $Command
   .classBuilder<

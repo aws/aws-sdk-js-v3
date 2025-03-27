@@ -96,34 +96,34 @@ export interface DescribeReplicationSubnetGroupsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe replication subnet groups
  * ```javascript
  * // Returns information about the replication subnet groups.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "string",
- *       "Values": [
+ *       Name: "string",
+ *       Values: [
  *         "string",
  *         "string"
  *       ]
  *     }
  *   ],
- *   "Marker": "",
- *   "MaxRecords": 123
+ *   Marker: "",
+ *   MaxRecords: 123
  * };
  * const command = new DescribeReplicationSubnetGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "",
- *   "ReplicationSubnetGroups": []
+ *   Marker: "",
+ *   ReplicationSubnetGroups:   []
  * }
  * *\/
- * // example id: describe-replication-subnet-groups-1481755621284
  * ```
  *
+ * @public
  */
 export class DescribeReplicationSubnetGroupsCommand extends $Command
   .classBuilder<

@@ -137,6 +137,7 @@ export interface GetRecommendationPreferencesCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetRecommendationPreferencesCommand extends $Command

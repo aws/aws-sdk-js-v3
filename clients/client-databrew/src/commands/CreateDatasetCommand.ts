@@ -150,6 +150,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class CreateDatasetCommand extends $Command

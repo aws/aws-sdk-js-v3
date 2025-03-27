@@ -75,6 +75,7 @@ export interface CreateStackRefactorCommandOutput extends CreateStackRefactorOut
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class CreateStackRefactorCommand extends $Command

@@ -113,6 +113,7 @@ export interface CreateDbClusterCommandOutput extends CreateDbClusterOutput, __M
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ *
  * @public
  */
 export class CreateDbClusterCommand extends $Command

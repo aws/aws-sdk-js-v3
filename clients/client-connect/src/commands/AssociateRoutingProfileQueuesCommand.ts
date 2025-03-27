@@ -82,6 +82,7 @@ export interface AssociateRoutingProfileQueuesCommandOutput extends __MetadataBe
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class AssociateRoutingProfileQueuesCommand extends $Command

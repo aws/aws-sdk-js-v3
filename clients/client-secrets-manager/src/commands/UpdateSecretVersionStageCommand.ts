@@ -110,65 +110,63 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
+ *
  * @example To add a staging label attached to a version of a secret
  * ```javascript
  * // The following example shows you how to add a staging label to a version of a secret. You can review the results by running the operation ListSecretVersionIds and viewing the VersionStages response field for the affected version.
  * const input = {
- *   "MoveToVersionId": "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
- *   "SecretId": "MyTestDatabaseSecret",
- *   "VersionStage": "STAGINGLABEL1"
+ *   MoveToVersionId: "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
+ *   SecretId: "MyTestDatabaseSecret",
+ *   VersionStage: "STAGINGLABEL1"
  * };
  * const command = new UpdateSecretVersionStageCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "Name": "MyTestDatabaseSecret"
+ *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   Name: "MyTestDatabaseSecret"
  * }
  * *\/
- * // example id: to-add-a-staging-label-attached-to-a-version-of-a-secret-1524004783841
  * ```
  *
  * @example To delete a staging label attached to a version of a secret
  * ```javascript
  * // The following example shows you how to delete a staging label that is attached to a version of a secret. You can review the results by running the operation ListSecretVersionIds and viewing the VersionStages response field for the affected version.
  * const input = {
- *   "RemoveFromVersionId": "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
- *   "SecretId": "MyTestDatabaseSecret",
- *   "VersionStage": "STAGINGLABEL1"
+ *   RemoveFromVersionId: "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
+ *   SecretId: "MyTestDatabaseSecret",
+ *   VersionStage: "STAGINGLABEL1"
  * };
  * const command = new UpdateSecretVersionStageCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "Name": "MyTestDatabaseSecret"
+ *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   Name: "MyTestDatabaseSecret"
  * }
  * *\/
- * // example id: to-delete-a-staging-label-attached-to-a-version-of-a-secret-1524004862181
  * ```
  *
  * @example To move a staging label from one version of a secret to another
  * ```javascript
  * // The following example shows you how to move a staging label that is attached to one version of a secret to a different version. You can review the results by running the operation ListSecretVersionIds and viewing the VersionStages response field for the affected version.
  * const input = {
- *   "MoveToVersionId": "EXAMPLE2-90ab-cdef-fedc-ba987SECRET2",
- *   "RemoveFromVersionId": "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
- *   "SecretId": "MyTestDatabaseSecret",
- *   "VersionStage": "AWSCURRENT"
+ *   MoveToVersionId: "EXAMPLE2-90ab-cdef-fedc-ba987SECRET2",
+ *   RemoveFromVersionId: "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
+ *   SecretId: "MyTestDatabaseSecret",
+ *   VersionStage: "AWSCURRENT"
  * };
  * const command = new UpdateSecretVersionStageCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "Name": "MyTestDatabaseSecret"
+ *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   Name: "MyTestDatabaseSecret"
  * }
  * *\/
- * // example id: to-move-a-staging-label-from-one-version-of-a-secret-to-another-1524004963841
  * ```
  *
+ * @public
  */
 export class UpdateSecretVersionStageCommand extends $Command
   .classBuilder<

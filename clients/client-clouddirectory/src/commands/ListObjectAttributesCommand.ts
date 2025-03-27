@@ -114,47 +114,47 @@ export interface ListObjectAttributesCommandOutput extends ListObjectAttributesR
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To list object attributes
  * ```javascript
  * //
  * const input = {
- *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
- *   "ObjectReference": {
- *     "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TW45F26R1HTY2z-stwKBte_Q"
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   ObjectReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TW45F26R1HTY2z-stwKBte_Q"
  *   }
  * };
  * const command = new ListObjectAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Attributes": [
+ *   Attributes: [
  *     {
- *       "Key": {
- *         "FacetName": "INDEX",
- *         "Name": "index_is_unique",
- *         "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/CloudDirectory/1.0"
+ *       Key: {
+ *         FacetName: "INDEX",
+ *         Name: "index_is_unique",
+ *         SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/CloudDirectory/1.0"
  *       },
- *       "Value": {
- *         "BooleanValue": true
+ *       Value: {
+ *         BooleanValue: true
  *       }
  *     },
  *     {
- *       "Key": {
- *         "FacetName": "INDEX",
- *         "Name": "ordered_indexed_attributes",
- *         "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/CloudDirectory/1.0"
+ *       Key: {
+ *         FacetName: "INDEX",
+ *         Name: "ordered_indexed_attributes",
+ *         SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/CloudDirectory/1.0"
  *       },
- *       "Value": {
- *         "StringValue": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1*Organization*description"
+ *       Value: {
+ *         StringValue: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1*Organization*description"
  *       }
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-object-attributes-1508281422770
  * ```
  *
+ * @public
  */
 export class ListObjectAttributesCommand extends $Command
   .classBuilder<

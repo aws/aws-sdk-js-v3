@@ -89,6 +89,7 @@ export interface BatchStartViewerSessionRevocationCommandOutput
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class BatchStartViewerSessionRevocationCommand extends $Command

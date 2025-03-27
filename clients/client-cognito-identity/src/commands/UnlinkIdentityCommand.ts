@@ -86,6 +86,7 @@ export interface UnlinkIdentityCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ *
  * @public
  */
 export class UnlinkIdentityCommand extends $Command

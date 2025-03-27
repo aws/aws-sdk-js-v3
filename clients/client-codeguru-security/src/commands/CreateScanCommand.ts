@@ -90,6 +90,7 @@ export interface CreateScanCommandOutput extends CreateScanResponse, __MetadataB
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ *
  * @public
  */
 export class CreateScanCommand extends $Command

@@ -118,6 +118,7 @@ export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEnd
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class CreateClientVpnEndpointCommand extends $Command

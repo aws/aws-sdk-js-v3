@@ -87,6 +87,7 @@ export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse,
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeOfferingCommand extends $Command

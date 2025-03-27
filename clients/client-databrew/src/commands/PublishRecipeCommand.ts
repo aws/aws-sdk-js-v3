@@ -65,6 +65,7 @@ export interface PublishRecipeCommandOutput extends PublishRecipeResponse, __Met
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class PublishRecipeCommand extends $Command

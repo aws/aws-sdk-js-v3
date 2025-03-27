@@ -77,6 +77,7 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class DescribeResourcePolicyCommand extends $Command

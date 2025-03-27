@@ -87,6 +87,7 @@ export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class GetBotCommand extends $Command

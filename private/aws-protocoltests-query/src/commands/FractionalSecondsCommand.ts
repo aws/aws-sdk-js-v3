@@ -52,6 +52,7 @@ export interface FractionalSecondsCommandOutput extends FractionalSecondsOutput,
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  */
 export class FractionalSecondsCommand extends $Command
   .classBuilder<

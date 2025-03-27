@@ -73,19 +73,22 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To delete a version of a Lambda function
  * ```javascript
  * // The following example deletes version 1 of a Lambda function named my-function.
  * const input = {
- *   "FunctionName": "my-function",
- *   "Qualifier": "1"
+ *   FunctionName: "my-function",
+ *   Qualifier: "1"
  * };
  * const command = new DeleteFunctionCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-lambda-function-1481648553696
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteFunctionCommand extends $Command
   .classBuilder<

@@ -77,6 +77,7 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ *
  * @public
  */
 export class CreateDedicatedIpPoolCommand extends $Command

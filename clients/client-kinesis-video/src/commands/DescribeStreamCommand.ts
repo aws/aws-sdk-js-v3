@@ -80,6 +80,7 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class DescribeStreamCommand extends $Command

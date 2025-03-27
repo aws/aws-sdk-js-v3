@@ -82,6 +82,7 @@ export interface DescribePackageVersionCommandOutput extends DescribePackageVers
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class DescribePackageVersionCommand extends $Command

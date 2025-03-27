@@ -89,6 +89,7 @@ export interface PutGatewayResponseCommandOutput extends GatewayResponse, __Meta
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class PutGatewayResponseCommand extends $Command

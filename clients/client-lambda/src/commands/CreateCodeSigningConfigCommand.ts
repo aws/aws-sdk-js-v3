@@ -87,6 +87,7 @@ export interface CreateCodeSigningConfigCommandOutput extends CreateCodeSigningC
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class CreateCodeSigningConfigCommand extends $Command

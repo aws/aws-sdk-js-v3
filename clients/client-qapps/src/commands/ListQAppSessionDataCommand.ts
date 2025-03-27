@@ -92,6 +92,7 @@ export interface ListQAppSessionDataCommandOutput extends ListQAppSessionDataOut
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
+ *
  * @public
  */
 export class ListQAppSessionDataCommand extends $Command

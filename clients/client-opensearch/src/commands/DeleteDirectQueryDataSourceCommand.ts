@@ -74,6 +74,7 @@ export interface DeleteDirectQueryDataSourceCommandOutput extends __MetadataBear
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class DeleteDirectQueryDataSourceCommand extends $Command

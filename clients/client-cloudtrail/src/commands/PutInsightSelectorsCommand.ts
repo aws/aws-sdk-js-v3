@@ -183,6 +183,7 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class PutInsightSelectorsCommand extends $Command

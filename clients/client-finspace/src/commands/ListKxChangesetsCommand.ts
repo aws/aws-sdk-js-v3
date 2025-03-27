@@ -83,6 +83,7 @@ export interface ListKxChangesetsCommandOutput extends ListKxChangesetsResponse,
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class ListKxChangesetsCommand extends $Command

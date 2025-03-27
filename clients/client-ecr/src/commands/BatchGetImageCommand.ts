@@ -110,39 +110,43 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
- * @public
+ *
  * @example To obtain multiple images in a single request
  * ```javascript
  * // This example obtains information for an image with a specified image digest ID from the repository named ubuntu in the current account.
  * const input = {
- *   "imageIds": [
+ *   imageIds: [
  *     {
- *       "imageTag": "precise"
+ *       imageTag: "precise"
  *     }
  *   ],
- *   "repositoryName": "ubuntu"
+ *   repositoryName: "ubuntu"
  * };
  * const command = new BatchGetImageCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "failures": [],
- *   "images": [
+ *   failures:   [],
+ *   images: [
  *     {
- *       "imageId": {
- *         "imageDigest": "sha256:example76bdff6d83a09ba2a818f0d00000063724a9ac3ba5019c56f74ebf42a",
- *         "imageTag": "precise"
+ *       imageId: {
+ *         imageDigest: "sha256:example76bdff6d83a09ba2a818f0d00000063724a9ac3ba5019c56f74ebf42a",
+ *         imageTag: "precise"
  *       },
- *       "imageManifest": "{\n \"schemaVersion\": 1,\n \"name\": \"ubuntu\",\n \"tag\": \"precise\",\n...",
- *       "registryId": "244698725403",
- *       "repositoryName": "ubuntu"
+ *       imageManifest: `{
+ *  "schemaVersion": 1,
+ *  "name": "ubuntu",
+ *  "tag": "precise",
+ * ...`,
+ *       registryId: "244698725403",
+ *       repositoryName: "ubuntu"
  *     }
  *   ]
  * }
  * *\/
- * // example id: batchgetimage-example-1470862771437
  * ```
  *
+ * @public
  */
 export class BatchGetImageCommand extends $Command
   .classBuilder<

@@ -98,6 +98,7 @@ export interface AttachManagedPolicyToPermissionSetCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class AttachManagedPolicyToPermissionSetCommand extends $Command

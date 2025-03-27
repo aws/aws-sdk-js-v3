@@ -624,6 +624,7 @@ export interface GetViolationDetailsCommandOutput extends GetViolationDetailsRes
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class GetViolationDetailsCommand extends $Command

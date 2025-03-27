@@ -67,6 +67,7 @@ export interface DeletePlaybackKeyPairCommandOutput extends DeletePlaybackKeyPai
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class DeletePlaybackKeyPairCommand extends $Command

@@ -68,6 +68,7 @@ export interface DescribeObjectCommandOutput extends DescribeObjectResponse, __M
  * @throws {@link MediaStoreDataServiceException}
  * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
+ *
  * @public
  */
 export class DescribeObjectCommand extends $Command

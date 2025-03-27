@@ -69,6 +69,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

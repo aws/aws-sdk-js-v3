@@ -148,6 +148,7 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class PutRecordCommand extends $Command

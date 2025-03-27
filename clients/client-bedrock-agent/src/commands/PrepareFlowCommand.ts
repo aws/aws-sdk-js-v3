@@ -77,6 +77,7 @@ export interface PrepareFlowCommandOutput extends PrepareFlowResponse, __Metadat
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class PrepareFlowCommand extends $Command

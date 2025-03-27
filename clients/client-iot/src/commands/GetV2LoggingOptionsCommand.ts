@@ -65,6 +65,7 @@ export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class GetV2LoggingOptionsCommand extends $Command

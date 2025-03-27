@@ -63,18 +63,21 @@ export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRu
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example SetActiveReceiptRuleSet
  * ```javascript
  * // The following example sets the active receipt rule set:
  * const input = {
- *   "RuleSetName": "RuleSetToActivate"
+ *   RuleSetName: "RuleSetToActivate"
  * };
  * const command = new SetActiveReceiptRuleSetCommand(input);
- * await client.send(command);
- * // example id: setactivereceiptruleset-1469058391329
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetActiveReceiptRuleSetCommand extends $Command
   .classBuilder<

@@ -82,6 +82,7 @@ export interface CreateMemberCommandOutput extends CreateMemberResponse, __Metad
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class CreateMemberCommand extends $Command

@@ -84,20 +84,23 @@ export interface CreateAppCookieStickinessPolicyCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To generate a stickiness policy for your load balancer
  * ```javascript
  * // This example generates a stickiness policy that follows the sticky session lifetimes of the application-generated cookie.
  * const input = {
- *   "CookieName": "my-app-cookie",
- *   "LoadBalancerName": "my-load-balancer",
- *   "PolicyName": "my-app-cookie-policy"
+ *   CookieName: "my-app-cookie",
+ *   LoadBalancerName: "my-load-balancer",
+ *   PolicyName: "my-app-cookie-policy"
  * };
  * const command = new CreateAppCookieStickinessPolicyCommand(input);
- * await client.send(command);
- * // example id: elb-create-app-cookie-stickiness-policy-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateAppCookieStickinessPolicyCommand extends $Command
   .classBuilder<

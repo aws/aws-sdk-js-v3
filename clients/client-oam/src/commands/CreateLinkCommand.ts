@@ -114,6 +114,7 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ *
  * @public
  */
 export class CreateLinkCommand extends $Command

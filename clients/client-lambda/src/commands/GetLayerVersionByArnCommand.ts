@@ -87,35 +87,35 @@ export interface GetLayerVersionByArnCommandOutput extends GetLayerVersionRespon
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To get information about a Lambda layer version
  * ```javascript
  * // The following example returns information about the layer version with the specified Amazon Resource Name (ARN).
  * const input = {
- *   "Arn": "arn:aws:lambda:ca-central-1:123456789012:layer:blank-python-lib:3"
+ *   Arn: "arn:aws:lambda:ca-central-1:123456789012:layer:blank-python-lib:3"
  * };
  * const command = new GetLayerVersionByArnCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CompatibleRuntimes": [
+ *   CompatibleRuntimes: [
  *     "python3.8"
  *   ],
- *   "Content": {
- *     "CodeSha256": "6x+xmpl/M3BnQUk7gS9sGmfeFsR/npojXoA3fZUv4eU=",
- *     "CodeSize": 9529009,
- *     "Location": "https://awslambda-us-east-2-layers.s3.us-east-2.amazonaws.com/snapshots/123456789012/blank-python-lib-e5212378-xmpl-44ee-8398-9d8ec5113949?versionId=WbZnvf..."
+ *   Content: {
+ *     CodeSha256: "6x+xmpl/M3BnQUk7gS9sGmfeFsR/npojXoA3fZUv4eU=",
+ *     CodeSize: 9529009,
+ *     Location: "https://awslambda-us-east-2-layers.s3.us-east-2.amazonaws.com/snapshots/123456789012/blank-python-lib-e5212378-xmpl-44ee-8398-9d8ec5113949?versionId=WbZnvf..."
  *   },
- *   "CreatedDate": "2020-03-31T00:35:18.949+0000",
- *   "Description": "Dependencies for the blank-python sample app.",
- *   "LayerArn": "arn:aws:lambda:us-east-2:123456789012:layer:blank-python-lib",
- *   "LayerVersionArn": "arn:aws:lambda:us-east-2:123456789012:layer:blank-python-lib:3",
- *   "Version": 3
+ *   CreatedDate: "2020-03-31T00:35:18.949+0000",
+ *   Description: "Dependencies for the blank-python sample app.",
+ *   LayerArn: "arn:aws:lambda:us-east-2:123456789012:layer:blank-python-lib",
+ *   LayerVersionArn: "arn:aws:lambda:us-east-2:123456789012:layer:blank-python-lib:3",
+ *   Version: 3
  * }
  * *\/
- * // example id: to-get-information-about-a-lambda-layer-version-1586481457839
  * ```
  *
+ * @public
  */
 export class GetLayerVersionByArnCommand extends $Command
   .classBuilder<

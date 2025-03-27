@@ -82,6 +82,7 @@ export interface DescribeRegistriesCommandOutput extends DescribeRegistriesRespo
  * @throws {@link ECRPUBLICServiceException}
  * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ *
  * @public
  */
 export class DescribeRegistriesCommand extends $Command

@@ -72,6 +72,7 @@ export interface GetRuntimeManagementConfigCommandOutput extends GetRuntimeManag
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class GetRuntimeManagementConfigCommand extends $Command

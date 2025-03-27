@@ -86,6 +86,7 @@ export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastRes
  * @throws {@link ForecastqueryServiceException}
  * <p>Base exception class for all service exceptions from Forecastquery service.</p>
  *
+ *
  * @public
  */
 export class QueryWhatIfForecastCommand extends $Command

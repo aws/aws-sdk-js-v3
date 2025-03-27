@@ -90,6 +90,7 @@ export interface PublishCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
+ *
  * @public
  */
 export class PublishCommand extends $Command

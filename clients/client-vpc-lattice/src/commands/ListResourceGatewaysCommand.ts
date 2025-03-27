@@ -87,6 +87,7 @@ export interface ListResourceGatewaysCommandOutput extends ListResourceGatewaysR
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class ListResourceGatewaysCommand extends $Command

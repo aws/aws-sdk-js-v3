@@ -85,6 +85,7 @@ export interface UpdateViewMetadataCommandOutput extends UpdateViewMetadataRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateViewMetadataCommand extends $Command

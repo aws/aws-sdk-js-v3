@@ -97,6 +97,7 @@ export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer 
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ *
  * @public
  */
 export class GetTypeCommand extends $Command

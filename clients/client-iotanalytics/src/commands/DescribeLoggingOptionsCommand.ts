@@ -72,6 +72,7 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ *
  * @public
  */
 export class DescribeLoggingOptionsCommand extends $Command

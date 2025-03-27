@@ -82,6 +82,7 @@ export interface ListKxUsersCommandOutput extends ListKxUsersResponse, __Metadat
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class ListKxUsersCommand extends $Command

@@ -149,6 +149,7 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class UpdateSubscriberCommand extends $Command

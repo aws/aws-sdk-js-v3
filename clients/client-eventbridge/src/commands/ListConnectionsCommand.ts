@@ -73,6 +73,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class ListConnectionsCommand extends $Command

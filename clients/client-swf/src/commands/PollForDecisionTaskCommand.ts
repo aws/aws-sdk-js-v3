@@ -510,6 +510,7 @@ export interface PollForDecisionTaskCommandOutput extends DecisionTask, __Metada
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class PollForDecisionTaskCommand extends $Command

@@ -80,28 +80,28 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link InvoicingServiceException}
  * <p>Base exception class for all service exceptions from Invoicing service.</p>
  *
- * @public
+ *
  * @example ListTagsForResource
  * ```javascript
  * //
  * const input = {
- *   "ResourceArn": "arn:aws:invoicing::000000000000:invoice-unit/12345678"
+ *   ResourceArn: "arn:aws:invoicing::000000000000:invoice-unit/12345678"
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ResourceTags": [
+ *   ResourceTags: [
  *     {
- *       "Key": "TagKey",
- *       "Value": "TagValue"
+ *       Key: "TagKey",
+ *       Value: "TagValue"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

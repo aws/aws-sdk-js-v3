@@ -75,6 +75,7 @@ export interface DeleteEarthObservationJobCommandOutput extends DeleteEarthObser
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ *
  * @public
  */
 export class DeleteEarthObservationJobCommand extends $Command

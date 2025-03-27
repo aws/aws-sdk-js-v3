@@ -62,18 +62,21 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyOutput,
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example Retrieve a resource policy
  * ```javascript
  * // This example retrieves the resource policy for the specified trust store.
  * const input = {
- *   "ResourceArn": "arn:aws:elasticloadbalancing:us-east-1:123456789012:truststore/my-trust-store/73e2d6bc24d8a067"
+ *   ResourceArn: "arn:aws:elasticloadbalancing:us-east-1:123456789012:truststore/my-trust-store/73e2d6bc24d8a067"
  * };
  * const command = new GetResourcePolicyCommand(input);
- * await client.send(command);
- * // example id: retrieve-a-resource-policy-1721684356628
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class GetResourcePolicyCommand extends $Command
   .classBuilder<

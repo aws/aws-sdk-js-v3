@@ -80,6 +80,7 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class DeleteMemberCommand extends $Command

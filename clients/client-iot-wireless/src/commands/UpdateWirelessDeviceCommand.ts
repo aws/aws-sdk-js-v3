@@ -96,6 +96,7 @@ export interface UpdateWirelessDeviceCommandOutput extends UpdateWirelessDeviceR
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class UpdateWirelessDeviceCommand extends $Command

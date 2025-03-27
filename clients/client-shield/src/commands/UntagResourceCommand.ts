@@ -68,6 +68,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

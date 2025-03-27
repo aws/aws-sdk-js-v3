@@ -201,6 +201,7 @@ export interface ListTaxRegistrationsCommandOutput extends ListTaxRegistrationsR
  * @throws {@link TaxSettingsServiceException}
  * <p>Base exception class for all service exceptions from TaxSettings service.</p>
  *
+ *
  * @public
  */
 export class ListTaxRegistrationsCommand extends $Command

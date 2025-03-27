@@ -92,6 +92,7 @@ export interface CountPendingActivityTasksCommandOutput extends PendingTaskCount
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class CountPendingActivityTasksCommand extends $Command

@@ -65,6 +65,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @throws {@link MWAAServiceException}
  * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

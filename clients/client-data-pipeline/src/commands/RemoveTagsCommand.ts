@@ -68,6 +68,7 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class RemoveTagsCommand extends $Command

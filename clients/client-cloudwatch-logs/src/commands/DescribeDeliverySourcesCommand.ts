@@ -82,6 +82,7 @@ export interface DescribeDeliverySourcesCommandOutput extends DescribeDeliverySo
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class DescribeDeliverySourcesCommand extends $Command

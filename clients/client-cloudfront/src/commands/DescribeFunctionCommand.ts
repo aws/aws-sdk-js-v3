@@ -88,6 +88,7 @@ export interface DescribeFunctionCommandOutput extends DescribeFunctionResult, _
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class DescribeFunctionCommand extends $Command

@@ -53,6 +53,7 @@ export interface XmlEmptyBlobsCommandOutput extends XmlEmptyBlobsResponse, __Met
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class XmlEmptyBlobsCommand extends $Command

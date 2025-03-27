@@ -92,6 +92,7 @@ export interface DescribeWebAppCommandOutput extends DescribeWebAppResponse, __M
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class DescribeWebAppCommand extends $Command

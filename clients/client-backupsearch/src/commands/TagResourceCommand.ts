@@ -73,6 +73,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link BackupSearchServiceException}
  * <p>Base exception class for all service exceptions from BackupSearch service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

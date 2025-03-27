@@ -79,6 +79,7 @@ export interface GetSubscriptionCommandOutput extends GetSubscriptionResponse, _
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class GetSubscriptionCommand extends $Command

@@ -94,6 +94,7 @@ export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataB
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class GetDocumentCommand extends $Command

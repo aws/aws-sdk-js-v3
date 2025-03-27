@@ -73,6 +73,7 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * @throws {@link ApiGatewayManagementApiServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayManagementApi service.</p>
  *
+ *
  * @public
  */
 export class GetConnectionCommand extends $Command

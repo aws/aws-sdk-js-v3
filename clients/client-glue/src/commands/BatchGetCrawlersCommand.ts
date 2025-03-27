@@ -191,6 +191,7 @@ export interface BatchGetCrawlersCommandOutput extends BatchGetCrawlersResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class BatchGetCrawlersCommand extends $Command

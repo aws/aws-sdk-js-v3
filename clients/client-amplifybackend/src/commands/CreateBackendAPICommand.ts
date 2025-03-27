@@ -110,6 +110,7 @@ export interface CreateBackendAPICommandOutput extends CreateBackendAPIResponse,
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ *
  * @public
  */
 export class CreateBackendAPICommand extends $Command

@@ -81,6 +81,7 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ *
  * @public
  */
 export class UpdateParameterGroupCommand extends $Command

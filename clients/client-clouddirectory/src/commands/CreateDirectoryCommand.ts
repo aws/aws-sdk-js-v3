@@ -88,27 +88,27 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResponse, _
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To create a new Cloud Directory
  * ```javascript
  * //
  * const input = {
- *   "Name": "ExampleCD",
- *   "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:schema/published/person/1"
+ *   Name: "ExampleCD",
+ *   SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:schema/published/person/1"
  * };
  * const command = new CreateDirectoryCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AppliedSchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AfMr4qym1kZTvwqOafAYfqI/schema/person/1",
- *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AfMr4qym1kZTvwqOafAYfqI",
- *   "Name": "ExampleCD",
- *   "ObjectIdentifier": "AQHzK-KsptZGU78KjmnwGH6i-4guCM3uQFOTA9_NjeHDrg"
+ *   AppliedSchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AfMr4qym1kZTvwqOafAYfqI/schema/person/1",
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AfMr4qym1kZTvwqOafAYfqI",
+ *   Name: "ExampleCD",
+ *   ObjectIdentifier: "AQHzK-KsptZGU78KjmnwGH6i-4guCM3uQFOTA9_NjeHDrg"
  * }
  * *\/
- * // example id: to-create-a-new-cloud-directory-1506119878996
  * ```
  *
+ * @public
  */
 export class CreateDirectoryCommand extends $Command
   .classBuilder<

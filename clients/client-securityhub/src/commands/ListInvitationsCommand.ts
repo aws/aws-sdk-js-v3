@@ -85,28 +85,8 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
- * @example To list membership invitations to calling account
- * ```javascript
- * // The following example returns a list of Security Hub member invitations sent to the calling AWS account. Only accounts that are invited manually use this operation. It's not for use by accounts that are managed through AWS Organizations.
- * const input = {};
- * const command = new ListInvitationsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Invitations": [
- *     {
- *       "AccountId": "123456789012",
- *       "InvitationId": "7ab938c5d52d7904ad09f9e7c20cc4eb",
- *       "InvitedAt": "2020-06-01T20:21:18.042000+00:00",
- *       "MemberStatus": "ASSOCIATED"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-list-membership-invitations-to-calling-account-1678295758285
- * ```
  *
+ * @public
  */
 export class ListInvitationsCommand extends $Command
   .classBuilder<

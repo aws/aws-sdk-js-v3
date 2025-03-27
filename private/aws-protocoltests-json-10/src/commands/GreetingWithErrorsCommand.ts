@@ -70,6 +70,7 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * @throws {@link JSONRPC10ServiceException}
  * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>
  *
+ *
  * @public
  */
 export class GreetingWithErrorsCommand extends $Command

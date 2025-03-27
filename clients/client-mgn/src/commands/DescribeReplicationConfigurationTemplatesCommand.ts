@@ -104,6 +104,7 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class DescribeReplicationConfigurationTemplatesCommand extends $Command

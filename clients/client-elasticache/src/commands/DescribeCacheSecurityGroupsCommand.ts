@@ -84,18 +84,21 @@ export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityG
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example DescribeCacheSecurityGroups
  * ```javascript
  * // Returns a list of cache security group descriptions. If a cache security group name is specified, the list contains only the description of that group.
  * const input = {
- *   "CacheSecurityGroupName": "my-sec-group"
+ *   CacheSecurityGroupName: "my-sec-group"
  * };
  * const command = new DescribeCacheSecurityGroupsCommand(input);
- * await client.send(command);
- * // example id: describecachesecuritygroups-1483047200801
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DescribeCacheSecurityGroupsCommand extends $Command
   .classBuilder<

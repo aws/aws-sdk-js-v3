@@ -88,6 +88,7 @@ export interface DescribeIdentityProviderConfigurationCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class DescribeIdentityProviderConfigurationCommand extends $Command

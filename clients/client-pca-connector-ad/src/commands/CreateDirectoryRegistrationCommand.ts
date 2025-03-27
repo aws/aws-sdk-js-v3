@@ -91,6 +91,7 @@ export interface CreateDirectoryRegistrationCommandOutput
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ *
  * @public
  */
 export class CreateDirectoryRegistrationCommand extends $Command

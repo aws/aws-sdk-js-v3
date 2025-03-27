@@ -112,6 +112,7 @@ export interface CreateViewVersionCommandOutput extends CreateViewVersionRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateViewVersionCommand extends $Command

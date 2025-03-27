@@ -82,6 +82,7 @@ export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ *
  * @public
  */
 export class CancelZonalShiftCommand extends $Command

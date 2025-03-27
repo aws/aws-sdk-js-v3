@@ -182,6 +182,7 @@ export interface CreateOriginRequestPolicyCommandOutput extends CreateOriginRequ
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class CreateOriginRequestPolicyCommand extends $Command

@@ -98,6 +98,7 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class CreateGlobalClusterCommand extends $Command

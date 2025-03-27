@@ -90,33 +90,33 @@ export interface GetObjectInformationCommandOutput extends GetObjectInformationR
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To get information about an object
  * ```javascript
  * //
  * const input = {
- *   "ConsistencyLevel": "SERIALIZABLE",
- *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
- *   "ObjectReference": {
- *     "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWmspn1fxfQmSQaaVKSbvEiQ"
+ *   ConsistencyLevel: "SERIALIZABLE",
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   ObjectReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWmspn1fxfQmSQaaVKSbvEiQ"
  *   }
  * };
  * const command = new GetObjectInformationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ObjectIdentifier": "AQGG_ADlfNZBzYHY_JgDt3TWmspn1fxfQmSQaaVKSbvEiQ",
- *   "SchemaFacets": [
+ *   ObjectIdentifier: "AQGG_ADlfNZBzYHY_JgDt3TWmspn1fxfQmSQaaVKSbvEiQ",
+ *   SchemaFacets: [
  *     {
- *       "FacetName": "node2",
- *       "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
+ *       FacetName: "node2",
+ *       SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-information-about-an-object-1507228370573
  * ```
  *
+ * @public
  */
 export class GetObjectInformationCommand extends $Command
   .classBuilder<

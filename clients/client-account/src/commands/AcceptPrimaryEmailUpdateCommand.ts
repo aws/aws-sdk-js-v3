@@ -85,6 +85,7 @@ export interface AcceptPrimaryEmailUpdateCommandOutput extends AcceptPrimaryEmai
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ *
  * @public
  */
 export class AcceptPrimaryEmailUpdateCommand extends $Command

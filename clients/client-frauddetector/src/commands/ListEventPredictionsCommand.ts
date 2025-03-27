@@ -105,6 +105,7 @@ export interface ListEventPredictionsCommandOutput extends ListEventPredictionsR
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class ListEventPredictionsCommand extends $Command

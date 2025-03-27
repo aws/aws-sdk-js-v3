@@ -181,45 +181,45 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To describe a rule
  * ```javascript
  * // This example describes the specified rule.
  * const input = {
- *   "RuleArns": [
+ *   RuleArns: [
  *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/9683b2d02a6cabee"
  *   ]
  * };
  * const command = new DescribeRulesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Rules": [
+ *   Rules: [
  *     {
- *       "Actions": [
+ *       Actions: [
  *         {
- *           "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
- *           "Type": "forward"
+ *           TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *           Type: "forward"
  *         }
  *       ],
- *       "Conditions": [
+ *       Conditions: [
  *         {
- *           "Field": "path-pattern",
- *           "Values": [
+ *           Field: "path-pattern",
+ *           Values: [
  *             "/img/*"
  *           ]
  *         }
  *       ],
- *       "IsDefault": false,
- *       "Priority": "10",
- *       "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/9683b2d02a6cabee"
+ *       IsDefault: false,
+ *       Priority: "10",
+ *       RuleArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/9683b2d02a6cabee"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-describe-rules-1
  * ```
  *
+ * @public
  */
 export class DescribeRulesCommand extends $Command
   .classBuilder<

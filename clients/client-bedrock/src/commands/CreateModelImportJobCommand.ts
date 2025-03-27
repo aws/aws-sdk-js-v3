@@ -111,6 +111,7 @@ export interface CreateModelImportJobCommandOutput extends CreateModelImportJobR
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class CreateModelImportJobCommand extends $Command

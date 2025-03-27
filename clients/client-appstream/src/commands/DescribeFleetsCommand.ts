@@ -119,6 +119,7 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DescribeFleetsCommand extends $Command

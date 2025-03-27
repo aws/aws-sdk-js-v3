@@ -187,6 +187,7 @@ export interface GetPredictiveScalingForecastCommandOutput
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ *
  * @public
  */
 export class GetPredictiveScalingForecastCommand extends $Command

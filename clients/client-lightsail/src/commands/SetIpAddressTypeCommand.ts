@@ -109,6 +109,7 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeResult, _
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class SetIpAddressTypeCommand extends $Command

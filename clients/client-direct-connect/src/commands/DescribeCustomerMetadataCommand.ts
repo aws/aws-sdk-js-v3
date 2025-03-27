@@ -65,6 +65,7 @@ export interface DescribeCustomerMetadataCommandOutput extends DescribeCustomerM
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeCustomerMetadataCommand extends $Command

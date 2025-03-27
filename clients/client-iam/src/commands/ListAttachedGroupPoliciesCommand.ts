@@ -86,6 +86,7 @@ export interface ListAttachedGroupPoliciesCommandOutput extends ListAttachedGrou
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class ListAttachedGroupPoliciesCommand extends $Command

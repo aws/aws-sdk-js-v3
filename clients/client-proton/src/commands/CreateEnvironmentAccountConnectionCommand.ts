@@ -106,6 +106,7 @@ export interface CreateEnvironmentAccountConnectionCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class CreateEnvironmentAccountConnectionCommand extends $Command

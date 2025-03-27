@@ -67,6 +67,7 @@ export interface ResumeResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class ResumeResourceCommand extends $Command

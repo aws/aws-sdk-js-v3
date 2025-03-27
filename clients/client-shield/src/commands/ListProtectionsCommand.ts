@@ -95,6 +95,7 @@ export interface ListProtectionsCommandOutput extends ListProtectionsResponse, _
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ *
  * @public
  */
 export class ListProtectionsCommand extends $Command

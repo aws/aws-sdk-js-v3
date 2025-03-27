@@ -76,26 +76,26 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To return details about Hub resource
  * ```javascript
  * // The following example returns details about the Hub resource in the calling account. The Hub resource represents the implementation of  the AWS Security Hub service in the calling account.
  * const input = {
- *   "HubArn": "arn:aws:securityhub:us-west-1:123456789012:hub/default"
+ *   HubArn: "arn:aws:securityhub:us-west-1:123456789012:hub/default"
  * };
  * const command = new DescribeHubCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AutoEnableControls": true,
- *   "ControlFindingGenerator": "SECURITY_CONTROL",
- *   "HubArn": "arn:aws:securityhub:us-west-1:123456789012:hub/default",
- *   "SubscribedAt": "2019-11-19T23:15:10.046Z"
+ *   AutoEnableControls: true,
+ *   ControlFindingGenerator: "SECURITY_CONTROL",
+ *   HubArn: "arn:aws:securityhub:us-west-1:123456789012:hub/default",
+ *   SubscribedAt: "2019-11-19T23:15:10.046Z"
  * }
  * *\/
- * // example id: to-return-details-about-hub-resource-1675884542597
  * ```
  *
+ * @public
  */
 export class DescribeHubCommand extends $Command
   .classBuilder<

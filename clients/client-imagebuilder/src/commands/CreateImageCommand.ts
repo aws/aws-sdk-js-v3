@@ -131,6 +131,7 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class CreateImageCommand extends $Command

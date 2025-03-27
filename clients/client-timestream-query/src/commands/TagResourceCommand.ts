@@ -77,6 +77,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

@@ -248,69 +248,45 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To decrypt data with a symmetric encryption KMS key
  * ```javascript
  * // The following example decrypts data that was encrypted with a symmetric encryption KMS key. The KeyId is not required when decrypting with a symmetric encryption key, but it is a best practice.
  * const input = {
- *   "CiphertextBlob": "<binary data>",
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   CiphertextBlob: "<binary data>",
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new DecryptCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EncryptionAlgorithm": "SYMMETRIC_DEFAULT",
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "Plaintext": "<binary data>"
+ *   EncryptionAlgorithm: "SYMMETRIC_DEFAULT",
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   Plaintext: "<binary data>"
  * }
  * *\/
- * // example id: to-decrypt-data-1
  * ```
  *
  * @example To decrypt data with an asymmetric encryption KMS key
  * ```javascript
  * // The following example decrypts data that was encrypted with an asymmetric encryption KMS key. When the KMS encryption key is asymmetric, you must specify the KMS key ID and the encryption algorithm that was used to encrypt the data.
  * const input = {
- *   "CiphertextBlob": "<binary data>",
- *   "EncryptionAlgorithm": "RSAES_OAEP_SHA_256",
- *   "KeyId": "0987dcba-09fe-87dc-65ba-ab0987654321"
+ *   CiphertextBlob: "<binary data>",
+ *   EncryptionAlgorithm: "RSAES_OAEP_SHA_256",
+ *   KeyId: "0987dcba-09fe-87dc-65ba-ab0987654321"
  * };
  * const command = new DecryptCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EncryptionAlgorithm": "RSAES_OAEP_SHA_256",
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
- *   "Plaintext": "<binary data>"
+ *   EncryptionAlgorithm: "RSAES_OAEP_SHA_256",
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+ *   Plaintext: "<binary data>"
  * }
  * *\/
- * // example id: to-decrypt-data-2
  * ```
  *
- * @example To decrypt data for a Nitro enclave
- * ```javascript
- * // The following Decrypt example includes the Recipient parameter with a signed attestation document from an AWS Nitro enclave. Instead of returning the decrypted data in plaintext (Plaintext), the operation returns the decrypted data encrypted by the public key from the attestation document (CiphertextForRecipient).
- * const input = {
- *   "CiphertextBlob": "<binary data>",
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "Recipient": {
- *     "AttestationDocument": "<attestation document>",
- *     "KeyEncryptionAlgorithm": "RSAES_OAEP_SHA_256"
- *   }
- * };
- * const command = new DecryptCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CiphertextForRecipient": "<binary data>",
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "Plaintext": ""
- * }
- * *\/
- * // example id: to-decrypt-data-for-a-nitro-enclave-2
- * ```
- *
+ * @public
  */
 export class DecryptCommand extends $Command
   .classBuilder<

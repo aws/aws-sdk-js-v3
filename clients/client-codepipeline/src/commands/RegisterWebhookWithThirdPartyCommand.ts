@@ -66,6 +66,7 @@ export interface RegisterWebhookWithThirdPartyCommandOutput
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class RegisterWebhookWithThirdPartyCommand extends $Command

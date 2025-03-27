@@ -253,27 +253,27 @@ export interface PutBucketLifecycleConfigurationCommandOutput
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example Put bucket lifecycle
  * ```javascript
  * // The following example replaces existing lifecycle configuration, if any, on the specified bucket.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "LifecycleConfiguration": {
- *     "Rules": [
+ *   Bucket: "examplebucket",
+ *   LifecycleConfiguration: {
+ *     Rules: [
  *       {
- *         "Expiration": {
- *           "Days": 3650
+ *         Expiration: {
+ *           Days: 3650
  *         },
- *         "Filter": {
- *           "Prefix": "documents/"
+ *         Filter: {
+ *           Prefix: "documents/"
  *         },
- *         "ID": "TestOnly",
- *         "Status": "Enabled",
- *         "Transitions": [
+ *         ID: "TestOnly",
+ *         Status: "Enabled",
+ *         Transitions: [
  *           {
- *             "Days": 365,
- *             "StorageClass": "GLACIER"
+ *             Days: 365,
+ *             StorageClass: "GLACIER"
  *           }
  *         ]
  *       }
@@ -281,10 +281,13 @@ export interface PutBucketLifecycleConfigurationCommandOutput
  *   }
  * };
  * const command = new PutBucketLifecycleConfigurationCommand(input);
- * await client.send(command);
- * // example id: put-bucket-lifecycle-1482264533092
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutBucketLifecycleConfigurationCommand extends $Command
   .classBuilder<

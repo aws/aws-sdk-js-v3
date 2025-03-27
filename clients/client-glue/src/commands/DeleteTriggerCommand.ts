@@ -68,6 +68,7 @@ export interface DeleteTriggerCommandOutput extends DeleteTriggerResponse, __Met
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class DeleteTriggerCommand extends $Command

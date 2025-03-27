@@ -92,53 +92,52 @@ export interface GetBuyerDashboardCommandOutput extends GetBuyerDashboardOutput,
  * @throws {@link MarketplaceReportingServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceReporting service.</p>
  *
- * @public
+ *
  * @example Getting an agreements dashboard
  * ```javascript
  * // The following example shows how to obtain a dashboard for active agreements
  * const input = {
- *   "dashboardIdentifier": "arn:aws:aws-marketplace::123456789012:AWSMarketplace/ReportingData/Agreement_V1/Dashboard/AgreementSummary_V1",
- *   "embeddingDomains": [
+ *   dashboardIdentifier: "arn:aws:aws-marketplace::123456789012:AWSMarketplace/ReportingData/Agreement_V1/Dashboard/AgreementSummary_V1",
+ *   embeddingDomains: [
  *     "https://*.amazon.com"
  *   ]
  * };
  * const command = new GetBuyerDashboardCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "dashboardIdentifier": "arn:aws:aws-marketplace::123456789012:AWSMarketplace/ReportingData/Agreement_V1/Dashboard/AgreementSummary_V1",
- *   "embedUrl": "https://us-east-1.quicksight.aws.amazon.com/embed/1235asdbffffbbasdf123/dashboards/8a66afa6-f316-4e71-a1ed-0a5bea07a314?code=abcdefghijklmn&identityprovider=quicksight&isauthcode=true",
- *   "embeddingDomains": [
+ *   dashboardIdentifier: "arn:aws:aws-marketplace::123456789012:AWSMarketplace/ReportingData/Agreement_V1/Dashboard/AgreementSummary_V1",
+ *   embedUrl: "https://us-east-1.quicksight.aws.amazon.com/embed/1235asdbffffbbasdf123/dashboards/8a66afa6-f316-4e71-a1ed-0a5bea07a314?code=abcdefghijklmn&identityprovider=quicksight&isauthcode=true",
+ *   embeddingDomains: [
  *     "https://*.amazon.com"
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
  * @example Getting a cost-analysis dashboard
  * ```javascript
  * // The following example shows how to obtain a dashboard for cost analysis
  * const input = {
- *   "dashboardIdentifier": "arn:aws:aws-marketplace::123456789012:AWSMarketplace/ReportingData/BillingEvent_V1/Dashboard/CostAnalysis_V1",
- *   "embeddingDomains": [
+ *   dashboardIdentifier: "arn:aws:aws-marketplace::123456789012:AWSMarketplace/ReportingData/BillingEvent_V1/Dashboard/CostAnalysis_V1",
+ *   embeddingDomains: [
  *     "https://*.amazon.com"
  *   ]
  * };
  * const command = new GetBuyerDashboardCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "dashboardIdentifier": "arn:aws:aws-marketplace::123456789012:AWSMarketplace/ReportingData/BillingEvent_V1/Dashboard/CostAnalysis_V1",
- *   "embedUrl": "https://us-east-1.quicksight.aws.amazon.com/embed/1235asdbffffbbasdf123/dashboards/8a66afa6-f316-4e71-a1ed-0a5bea07a314?code=abcdefghijklmn&identityprovider=quicksight&isauthcode=true",
- *   "embeddingDomains": [
+ *   dashboardIdentifier: "arn:aws:aws-marketplace::123456789012:AWSMarketplace/ReportingData/BillingEvent_V1/Dashboard/CostAnalysis_V1",
+ *   embedUrl: "https://us-east-1.quicksight.aws.amazon.com/embed/1235asdbffffbbasdf123/dashboards/8a66afa6-f316-4e71-a1ed-0a5bea07a314?code=abcdefghijklmn&identityprovider=quicksight&isauthcode=true",
+ *   embeddingDomains: [
  *     "https://*.amazon.com"
  *   ]
  * }
  * *\/
- * // example id: example-2
  * ```
  *
+ * @public
  */
 export class GetBuyerDashboardCommand extends $Command
   .classBuilder<

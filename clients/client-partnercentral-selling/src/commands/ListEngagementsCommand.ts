@@ -114,6 +114,7 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResponse, _
  * @throws {@link PartnerCentralSellingServiceException}
  * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>
  *
+ *
  * @public
  */
 export class ListEngagementsCommand extends $Command

@@ -100,6 +100,7 @@ export interface StartAudienceGenerationJobCommandOutput extends StartAudienceGe
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ *
  * @public
  */
 export class StartAudienceGenerationJobCommand extends $Command

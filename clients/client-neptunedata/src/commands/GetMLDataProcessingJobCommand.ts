@@ -103,6 +103,7 @@ export interface GetMLDataProcessingJobCommandOutput extends GetMLDataProcessing
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class GetMLDataProcessingJobCommand extends $Command

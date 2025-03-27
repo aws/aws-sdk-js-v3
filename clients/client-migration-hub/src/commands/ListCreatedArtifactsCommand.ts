@@ -104,6 +104,7 @@ export interface ListCreatedArtifactsCommandOutput extends ListCreatedArtifactsR
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ *
  * @public
  */
 export class ListCreatedArtifactsCommand extends $Command

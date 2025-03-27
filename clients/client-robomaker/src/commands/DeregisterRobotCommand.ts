@@ -83,6 +83,7 @@ export interface DeregisterRobotCommandOutput extends DeregisterRobotResponse, _
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class DeregisterRobotCommand extends $Command

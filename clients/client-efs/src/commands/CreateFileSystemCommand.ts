@@ -183,48 +183,8 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
- * @public
- * @example To create a new file system
- * ```javascript
- * // This operation creates a new, encrypted file system with automatic backups enabled, and the default generalpurpose performance mode.
- * const input = {
- *   "Backup": true,
- *   "CreationToken": "tokenstring",
- *   "Encrypted": true,
- *   "PerformanceMode": "generalPurpose",
- *   "Tags": [
- *     {
- *       "Key": "Name",
- *       "Value": "MyFileSystem"
- *     }
- *   ]
- * };
- * const command = new CreateFileSystemCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CreationTime": "1481841524.0",
- *   "CreationToken": "tokenstring",
- *   "Encrypted": true,
- *   "FileSystemId": "fs-01234567",
- *   "LifeCycleState": "creating",
- *   "NumberOfMountTargets": 0,
- *   "OwnerId": "012345678912",
- *   "PerformanceMode": "generalPurpose",
- *   "SizeInBytes": {
- *     "Value": 0
- *   },
- *   "Tags": [
- *     {
- *       "Key": "Name",
- *       "Value": "MyFileSystem"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-create-a-new-file-system-1481840798547
- * ```
  *
+ * @public
  */
 export class CreateFileSystemCommand extends $Command
   .classBuilder<

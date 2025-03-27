@@ -95,6 +95,7 @@ export interface UpdateAppVersionCommandOutput extends UpdateAppVersionResponse,
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class UpdateAppVersionCommand extends $Command

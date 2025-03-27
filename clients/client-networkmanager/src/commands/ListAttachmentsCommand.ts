@@ -126,6 +126,7 @@ export interface ListAttachmentsCommandOutput extends ListAttachmentsResponse, _
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class ListAttachmentsCommand extends $Command

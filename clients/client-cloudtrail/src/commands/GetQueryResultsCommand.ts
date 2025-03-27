@@ -115,6 +115,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class GetQueryResultsCommand extends $Command

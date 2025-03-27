@@ -131,6 +131,7 @@ export interface PutInventoryCommandOutput extends PutInventoryResult, __Metadat
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class PutInventoryCommand extends $Command

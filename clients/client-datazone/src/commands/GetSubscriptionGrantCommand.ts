@@ -109,6 +109,7 @@ export interface GetSubscriptionGrantCommandOutput extends GetSubscriptionGrantO
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetSubscriptionGrantCommand extends $Command

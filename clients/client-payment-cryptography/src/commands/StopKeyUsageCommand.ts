@@ -130,6 +130,7 @@ export interface StopKeyUsageCommandOutput extends StopKeyUsageOutput, __Metadat
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ *
  * @public
  */
 export class StopKeyUsageCommand extends $Command

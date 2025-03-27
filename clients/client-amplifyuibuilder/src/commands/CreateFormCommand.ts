@@ -380,6 +380,7 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class CreateFormCommand extends $Command

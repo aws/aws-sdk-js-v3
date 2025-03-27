@@ -84,6 +84,7 @@ export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobRespo
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ *
  * @public
  */
 export class StartFHIRImportJobCommand extends $Command

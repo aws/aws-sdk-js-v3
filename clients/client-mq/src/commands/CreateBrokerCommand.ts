@@ -132,6 +132,7 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ *
  * @public
  */
 export class CreateBrokerCommand extends $Command

@@ -75,6 +75,7 @@ export interface AttachThingPrincipalCommandOutput extends AttachThingPrincipalR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class AttachThingPrincipalCommand extends $Command

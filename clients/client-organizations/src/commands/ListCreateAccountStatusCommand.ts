@@ -219,59 +219,58 @@ export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountS
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
- * @example To get a list of completed account creation requests made in the organization
- * ```javascript
- * // The following example shows a user requesting a list of only the completed account creation requests made for the current organization:
- * const input = {
- *   "States": [
- *     "SUCCEEDED"
- *   ]
- * };
- * const command = new ListCreateAccountStatusCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CreateAccountStatuses": [
- *     {
- *       "AccountId": "444444444444",
- *       "AccountName": "Developer Test Account",
- *       "CompletedTimestamp": "2017-01-15T13:45:23.6Z",
- *       "Id": "car-exampleaccountcreationrequestid1",
- *       "RequestedTimestamp": "2017-01-15T13:45:23.01Z",
- *       "State": "SUCCEEDED"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-get-a-list-of-completed-account-creation-requests-made-in-the-organization
- * ```
  *
  * @example To get a list of all account creation requests made in the organization
  * ```javascript
  * // The following example shows a user requesting a list of only the in-progress account creation requests made for the current organization:
  * const input = {
- *   "States": [
+ *   States: [
  *     "IN_PROGRESS"
  *   ]
  * };
  * const command = new ListCreateAccountStatusCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CreateAccountStatuses": [
+ *   CreateAccountStatuses: [
  *     {
- *       "AccountName": "Production Account",
- *       "Id": "car-exampleaccountcreationrequestid2",
- *       "RequestedTimestamp": "2017-01-15T13:45:23.01Z",
- *       "State": "IN_PROGRESS"
+ *       AccountName: "Production Account",
+ *       Id: "car-exampleaccountcreationrequestid2",
+ *       RequestedTimestamp: "2017-01-15T13:45:23.01Z",
+ *       State: "IN_PROGRESS"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-a-list-of-all-account-creation-requests-made-in-the-organization-1472509174532
  * ```
  *
+ * @example To get a list of completed account creation requests made in the organization
+ * ```javascript
+ * // The following example shows a user requesting a list of only the completed account creation requests made for the current organization:
+ * const input = {
+ *   States: [
+ *     "SUCCEEDED"
+ *   ]
+ * };
+ * const command = new ListCreateAccountStatusCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   CreateAccountStatuses: [
+ *     {
+ *       AccountId: "444444444444",
+ *       AccountName: "Developer Test Account",
+ *       CompletedTimestamp: "2017-01-15T13:45:23.6Z",
+ *       Id: "car-exampleaccountcreationrequestid1",
+ *       RequestedTimestamp: "2017-01-15T13:45:23.01Z",
+ *       State: "SUCCEEDED"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class ListCreateAccountStatusCommand extends $Command
   .classBuilder<

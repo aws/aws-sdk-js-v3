@@ -163,6 +163,7 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ *
  * @public
  */
 export class ListConnectorsCommand extends $Command

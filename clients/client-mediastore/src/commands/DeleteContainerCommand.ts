@@ -65,6 +65,7 @@ export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __M
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ *
  * @public
  */
 export class DeleteContainerCommand extends $Command

@@ -112,6 +112,7 @@ export interface UpdateAddonCommandOutput extends UpdateAddonResponse, __Metadat
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class UpdateAddonCommand extends $Command

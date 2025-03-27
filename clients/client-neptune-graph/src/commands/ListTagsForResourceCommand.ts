@@ -69,6 +69,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

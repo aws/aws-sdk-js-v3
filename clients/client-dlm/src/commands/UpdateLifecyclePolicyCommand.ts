@@ -251,6 +251,7 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  * @throws {@link DLMServiceException}
  * <p>Base exception class for all service exceptions from DLM service.</p>
  *
+ *
  * @public
  */
 export class UpdateLifecyclePolicyCommand extends $Command

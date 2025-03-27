@@ -98,6 +98,7 @@ export interface DescribeConnectionsCommandOutput extends Connections, __Metadat
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeConnectionsCommand extends $Command

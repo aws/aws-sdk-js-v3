@@ -75,6 +75,7 @@ export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsRespons
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class PutLoggingOptionsCommand extends $Command

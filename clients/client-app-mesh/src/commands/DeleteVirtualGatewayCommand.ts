@@ -218,6 +218,7 @@ export interface DeleteVirtualGatewayCommandOutput extends DeleteVirtualGatewayO
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ *
  * @public
  */
 export class DeleteVirtualGatewayCommand extends $Command

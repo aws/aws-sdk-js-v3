@@ -96,6 +96,7 @@ export interface ListLifecycleExecutionsCommandOutput extends ListLifecycleExecu
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ListLifecycleExecutionsCommand extends $Command

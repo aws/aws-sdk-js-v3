@@ -118,6 +118,7 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ *
  * @public
  */
 export class TranslateTextCommand extends $Command

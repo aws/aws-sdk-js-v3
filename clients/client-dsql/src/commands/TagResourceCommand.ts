@@ -75,21 +75,24 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link DSQLServiceException}
  * <p>Base exception class for all service exceptions from DSQL service.</p>
  *
- * @public
+ *
  * @example Tag Resource
  * ```javascript
  * //
  * const input = {
- *   "resourceArn": "arn:aws:dsql:us-east-1:111111222222:cluster/kiqenqglxyl2snyvkvnj2c3s2e",
- *   "tags": {
- *     "MyKey": "MyValue"
+ *   resourceArn: "arn:aws:dsql:us-east-1:111111222222:cluster/kiqenqglxyl2snyvkvnj2c3s2e",
+ *   tags: {
+ *     MyKey: "MyValue"
  *   }
  * };
  * const command = new TagResourceCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

@@ -86,6 +86,7 @@ export interface GetRuntimeLogConfigurationCommandOutput extends GetRuntimeLogCo
  * @throws {@link IoTManagedIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from IoTManagedIntegrations service.</p>
  *
+ *
  * @public
  */
 export class GetRuntimeLogConfigurationCommand extends $Command

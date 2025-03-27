@@ -68,6 +68,7 @@ export interface GetFunctionRecursionConfigCommandOutput extends GetFunctionRecu
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class GetFunctionRecursionConfigCommand extends $Command

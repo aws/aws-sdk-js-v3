@@ -83,6 +83,7 @@ export interface GetSchemaCommandOutput extends GetSchemaResponse, __MetadataBea
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetSchemaCommand extends $Command

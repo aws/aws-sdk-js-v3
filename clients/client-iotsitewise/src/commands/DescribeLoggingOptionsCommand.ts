@@ -71,6 +71,7 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DescribeLoggingOptionsCommand extends $Command

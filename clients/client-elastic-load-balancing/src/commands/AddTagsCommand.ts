@@ -80,30 +80,33 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To add tags to a load balancer
  * ```javascript
  * // This example adds two tags to the specified load balancer.
  * const input = {
- *   "LoadBalancerNames": [
+ *   LoadBalancerNames: [
  *     "my-load-balancer"
  *   ],
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "Key": "project",
- *       "Value": "lima"
+ *       Key: "project",
+ *       Value: "lima"
  *     },
  *     {
- *       "Key": "department",
- *       "Value": "digital-media"
+ *       Key: "department",
+ *       Value: "digital-media"
  *     }
  *   ]
  * };
  * const command = new AddTagsCommand(input);
- * await client.send(command);
- * // example id: elb-add-tags-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AddTagsCommand extends $Command
   .classBuilder<

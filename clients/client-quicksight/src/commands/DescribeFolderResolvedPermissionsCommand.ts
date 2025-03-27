@@ -106,6 +106,7 @@ export interface DescribeFolderResolvedPermissionsCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeFolderResolvedPermissionsCommand extends $Command

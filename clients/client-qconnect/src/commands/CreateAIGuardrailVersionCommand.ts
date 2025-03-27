@@ -157,6 +157,7 @@ export interface CreateAIGuardrailVersionCommandOutput extends CreateAIGuardrail
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class CreateAIGuardrailVersionCommand extends $Command

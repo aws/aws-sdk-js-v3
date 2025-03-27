@@ -76,6 +76,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

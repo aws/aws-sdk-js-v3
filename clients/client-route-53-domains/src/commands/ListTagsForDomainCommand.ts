@@ -76,6 +76,7 @@ export interface ListTagsForDomainCommandOutput extends ListTagsForDomainRespons
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForDomainCommand extends $Command

@@ -102,6 +102,7 @@ export interface SearchGroupsCommandOutput extends SearchGroupsResponse, __Metad
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class SearchGroupsCommand extends $Command

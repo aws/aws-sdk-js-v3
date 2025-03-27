@@ -89,6 +89,7 @@ export interface DeleteBillScenarioCommandOutput extends DeleteBillScenarioRespo
  * @throws {@link BCMPricingCalculatorServiceException}
  * <p>Base exception class for all service exceptions from BCMPricingCalculator service.</p>
  *
+ *
  * @public
  */
 export class DeleteBillScenarioCommand extends $Command

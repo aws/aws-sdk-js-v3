@@ -108,6 +108,7 @@ export interface DescribeFlywheelCommandOutput extends DescribeFlywheelResponse,
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class DescribeFlywheelCommand extends $Command

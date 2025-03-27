@@ -66,6 +66,7 @@ export interface ProvisionPublicIpv4PoolCidrCommandOutput extends ProvisionPubli
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ProvisionPublicIpv4PoolCidrCommand extends $Command

@@ -112,36 +112,36 @@ export interface CreateBillingViewCommandOutput extends CreateBillingViewRespons
  * @throws {@link BillingServiceException}
  * <p>Base exception class for all service exceptions from Billing service.</p>
  *
- * @public
+ *
  * @example Invoke CreateBillingView
  * ```javascript
  * //
  * const input = {
- *   "name": "Example Custom Billing View",
- *   "dataFilterExpression": {
- *     "dimensions": {
- *       "key": "LINKED_ACCOUNT",
- *       "values": [
+ *   dataFilterExpression: {
+ *     dimensions: {
+ *       key: "LINKED_ACCOUNT",
+ *       values: [
  *         "000000000000"
  *       ]
  *     }
  *   },
- *   "description": "Custom Billing View Example",
- *   "sourceViews": [
+ *   description: "Custom Billing View Example",
+ *   name: "Example Custom Billing View",
+ *   sourceViews: [
  *     "arn:aws:billing::123456789101:billingview/primary"
  *   ]
  * };
  * const command = new CreateBillingViewCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "arn": "arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899",
- *   "createdAt": 1719792001
+ *   arn: "arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899",
+ *   createdAt: 1719792001
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class CreateBillingViewCommand extends $Command
   .classBuilder<

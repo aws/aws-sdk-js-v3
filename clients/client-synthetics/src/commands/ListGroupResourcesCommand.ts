@@ -72,6 +72,7 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesRespo
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class ListGroupResourcesCommand extends $Command

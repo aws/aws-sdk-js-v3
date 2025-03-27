@@ -92,6 +92,7 @@ export interface ListVoiceProfileDomainsCommandOutput extends ListVoiceProfileDo
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class ListVoiceProfileDomainsCommand extends $Command

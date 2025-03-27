@@ -90,6 +90,7 @@ export interface CreateApplicationCommandOutput extends Application, __MetadataB
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class CreateApplicationCommand extends $Command

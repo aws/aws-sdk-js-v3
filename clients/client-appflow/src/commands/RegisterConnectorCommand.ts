@@ -97,6 +97,7 @@ export interface RegisterConnectorCommandOutput extends RegisterConnectorRespons
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ *
  * @public
  */
 export class RegisterConnectorCommand extends $Command

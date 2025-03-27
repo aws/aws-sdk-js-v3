@@ -155,36 +155,36 @@ export interface CreateSqlInjectionMatchSetCommandOutput extends CreateSqlInject
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To create a SQL injection match set
  * ```javascript
  * // The following example creates a SQL injection match set named MySQLInjectionMatchSet.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "Name": "MySQLInjectionMatchSet"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   Name: "MySQLInjectionMatchSet"
  * };
  * const command = new CreateSqlInjectionMatchSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "SqlInjectionMatchSet": {
- *     "Name": "MySQLInjectionMatchSet",
- *     "SqlInjectionMatchSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
- *     "SqlInjectionMatchTuples": [
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   SqlInjectionMatchSet: {
+ *     Name: "MySQLInjectionMatchSet",
+ *     SqlInjectionMatchSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *     SqlInjectionMatchTuples: [
  *       {
- *         "FieldToMatch": {
- *           "Type": "QUERY_STRING"
+ *         FieldToMatch: {
+ *           Type: "QUERY_STRING"
  *         },
- *         "TextTransformation": "URL_DECODE"
+ *         TextTransformation: "URL_DECODE"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: createsqlinjectionmatchset-1474492796105
  * ```
  *
+ * @public
  */
 export class CreateSqlInjectionMatchSetCommand extends $Command
   .classBuilder<

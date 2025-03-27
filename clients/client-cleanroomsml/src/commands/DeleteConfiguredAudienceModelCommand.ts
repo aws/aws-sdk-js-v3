@@ -68,6 +68,7 @@ export interface DeleteConfiguredAudienceModelCommandOutput extends __MetadataBe
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ *
  * @public
  */
 export class DeleteConfiguredAudienceModelCommand extends $Command

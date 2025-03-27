@@ -177,6 +177,7 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class UpdateInputDeviceCommand extends $Command

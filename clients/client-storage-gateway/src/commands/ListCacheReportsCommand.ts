@@ -101,6 +101,7 @@ export interface ListCacheReportsCommandOutput extends ListCacheReportsOutput, _
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class ListCacheReportsCommand extends $Command

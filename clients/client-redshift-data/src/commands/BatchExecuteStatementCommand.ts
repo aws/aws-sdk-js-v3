@@ -129,6 +129,7 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ *
  * @public
  */
 export class BatchExecuteStatementCommand extends $Command

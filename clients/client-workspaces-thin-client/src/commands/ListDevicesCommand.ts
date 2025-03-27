@@ -91,6 +91,7 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ *
  * @public
  */
 export class ListDevicesCommand extends $Command

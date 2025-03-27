@@ -72,6 +72,7 @@ export interface StopApplicationCommandOutput extends StopApplicationOutput, __M
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ *
  * @public
  */
 export class StopApplicationCommand extends $Command

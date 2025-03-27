@@ -79,6 +79,26 @@ export interface DeleteScraperCommandOutput extends DeleteScraperResponse, __Met
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
+ * @example DeleteScraper with optional clientToken input
+ * ```javascript
+ * //
+ * const input = {
+ *   clientToken: "token",
+ *   scraperId: "scraper-123"
+ * };
+ * const command = new DeleteScraperCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   scraperId: "scraper-123",
+ *   status: {
+ *     statusCode: "DELETING"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteScraperCommand extends $Command

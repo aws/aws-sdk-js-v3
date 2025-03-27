@@ -120,6 +120,7 @@ export interface ListRotationsCommandOutput extends ListRotationsResult, __Metad
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class ListRotationsCommand extends $Command

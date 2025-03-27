@@ -73,6 +73,7 @@ export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBea
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class DeleteMapCommand extends $Command

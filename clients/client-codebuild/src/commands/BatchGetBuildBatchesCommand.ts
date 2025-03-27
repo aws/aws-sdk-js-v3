@@ -291,6 +291,7 @@ export interface BatchGetBuildBatchesCommandOutput extends BatchGetBuildBatchesO
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class BatchGetBuildBatchesCommand extends $Command

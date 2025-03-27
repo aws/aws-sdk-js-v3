@@ -78,6 +78,7 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class StartContentUploadCommand extends $Command

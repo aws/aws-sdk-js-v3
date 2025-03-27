@@ -99,6 +99,7 @@ export interface ListServiceDependenciesCommandOutput extends ListServiceDepende
  * @throws {@link ApplicationSignalsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationSignals service.</p>
  *
+ *
  * @public
  */
 export class ListServiceDependenciesCommand extends $Command

@@ -110,6 +110,7 @@ export interface UpdateExtensionCommandOutput extends Extension, __MetadataBeare
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ *
  * @public
  */
 export class UpdateExtensionCommand extends $Command

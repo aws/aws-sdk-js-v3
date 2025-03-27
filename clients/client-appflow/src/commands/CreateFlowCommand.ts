@@ -367,6 +367,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ *
  * @public
  */
 export class CreateFlowCommand extends $Command

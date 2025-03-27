@@ -87,6 +87,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class UpdateApplicationCommand extends $Command

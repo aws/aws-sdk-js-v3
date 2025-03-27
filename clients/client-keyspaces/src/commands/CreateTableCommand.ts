@@ -184,6 +184,7 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ *
  * @public
  */
 export class CreateTableCommand extends $Command

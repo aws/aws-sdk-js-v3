@@ -59,6 +59,7 @@ export interface DeleteFlowDefinitionCommandOutput extends DeleteFlowDefinitionR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteFlowDefinitionCommand extends $Command

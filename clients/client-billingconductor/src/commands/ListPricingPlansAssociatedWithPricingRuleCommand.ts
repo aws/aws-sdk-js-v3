@@ -93,6 +93,7 @@ export interface ListPricingPlansAssociatedWithPricingRuleCommandOutput
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ *
  * @public
  */
 export class ListPricingPlansAssociatedWithPricingRuleCommand extends $Command

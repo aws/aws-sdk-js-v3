@@ -245,6 +245,11 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  * };
  * const command = new GetObjectCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.Body.transformToByteArray();
+ * // const str = await response.Body.transformToString();
+ * // response.Body.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetObjectOutput
  * //   Body: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   DeleteMarker: true || false,
@@ -313,56 +318,65 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
- * @example To retrieve an object
- * ```javascript
- * // The following example retrieves an object for an S3 bucket.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new GetObjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "AcceptRanges": "bytes",
- *   "ContentLength": "3191",
- *   "ContentType": "image/jpeg",
- *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "LastModified": "2016-12-15T01:19:41.000Z",
- *   "Metadata": {},
- *   "TagCount": 2,
- *   "VersionId": "null"
- * }
- * *\/
- * // example id: to-retrieve-an-object-1481827837012
- * ```
  *
  * @example To retrieve a byte range of an object
  * ```javascript
  * // The following example retrieves an object for an S3 bucket. The request specifies the range header to retrieve a specific byte range.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "SampleFile.txt",
- *   "Range": "bytes=0-9"
+ *   Bucket: "examplebucket",
+ *   Key: "SampleFile.txt",
+ *   Range: "bytes=0-9"
  * };
  * const command = new GetObjectCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.Body.transformToByteArray();
+ * // const str = await response.Body.transformToString();
+ * // response.Body.destroy(); // only applicable to Node.js Readable streams.
+ *
+ * /* response is
  * {
- *   "AcceptRanges": "bytes",
- *   "ContentLength": "10",
- *   "ContentRange": "bytes 0-9/43",
- *   "ContentType": "text/plain",
- *   "ETag": "\"0d94420ffd0bc68cd3d152506b97a9cc\"",
- *   "LastModified": "2014-10-09T22:57:28.000Z",
- *   "Metadata": {},
- *   "VersionId": "null"
+ *   AcceptRanges: "bytes",
+ *   ContentLength: 10,
+ *   ContentRange: "bytes 0-9/43",
+ *   ContentType: "text/plain",
+ *   ETag: `"0d94420ffd0bc68cd3d152506b97a9cc"`,
+ *   LastModified: "2014-10-09T22:57:28.000Z",
+ *   Metadata:   { /* empty *\/ },
+ *   VersionId: "null"
  * }
  * *\/
- * // example id: to-retrieve-a-byte-range-of-an-object--1481832674603
  * ```
  *
+ * @example To retrieve an object
+ * ```javascript
+ * // The following example retrieves an object for an S3 bucket.
+ * const input = {
+ *   Bucket: "examplebucket",
+ *   Key: "HappyFace.jpg"
+ * };
+ * const command = new GetObjectCommand(input);
+ * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.Body.transformToByteArray();
+ * // const str = await response.Body.transformToString();
+ * // response.Body.destroy(); // only applicable to Node.js Readable streams.
+ *
+ * /* response is
+ * {
+ *   AcceptRanges: "bytes",
+ *   ContentLength: 3191,
+ *   ContentType: "image/jpeg",
+ *   ETag: `"6805f2cfc46c0f04559748bb039d69ae"`,
+ *   LastModified: "2016-12-15T01:19:41.000Z",
+ *   Metadata:   { /* empty *\/ },
+ *   TagCount: 2,
+ *   VersionId: "null"
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class GetObjectCommand extends $Command
   .classBuilder<

@@ -96,6 +96,7 @@ export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupR
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ *
  * @public
  */
 export class UpdateProfilingGroupCommand extends $Command

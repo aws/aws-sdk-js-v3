@@ -80,6 +80,7 @@ export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __Metadat
  * @throws {@link NetworkMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ *
  * @public
  */
 export class ListMonitorsCommand extends $Command

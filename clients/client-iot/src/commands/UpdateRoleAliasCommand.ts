@@ -85,6 +85,7 @@ export interface UpdateRoleAliasCommandOutput extends UpdateRoleAliasResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdateRoleAliasCommand extends $Command

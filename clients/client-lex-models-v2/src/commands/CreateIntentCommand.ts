@@ -1049,6 +1049,7 @@ export interface CreateIntentCommandOutput extends CreateIntentResponse, __Metad
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateIntentCommand extends $Command

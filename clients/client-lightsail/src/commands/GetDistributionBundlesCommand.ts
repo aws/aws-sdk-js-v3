@@ -90,6 +90,7 @@ export interface GetDistributionBundlesCommandOutput extends GetDistributionBund
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetDistributionBundlesCommand extends $Command

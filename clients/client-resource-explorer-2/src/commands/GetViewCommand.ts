@@ -99,6 +99,7 @@ export interface GetViewCommandOutput extends GetViewOutput, __MetadataBearer {}
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ *
  * @public
  */
 export class GetViewCommand extends $Command

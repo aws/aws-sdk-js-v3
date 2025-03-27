@@ -79,6 +79,7 @@ export interface ListProfileTimesCommandOutput extends ListProfileTimesResponse,
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ *
  * @public
  */
 export class ListProfileTimesCommand extends $Command

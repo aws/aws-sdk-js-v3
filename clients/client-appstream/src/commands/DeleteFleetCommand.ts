@@ -62,6 +62,7 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResult, __MetadataB
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DeleteFleetCommand extends $Command

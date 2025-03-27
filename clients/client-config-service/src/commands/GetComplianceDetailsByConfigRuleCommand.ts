@@ -99,6 +99,7 @@ export interface GetComplianceDetailsByConfigRuleCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class GetComplianceDetailsByConfigRuleCommand extends $Command

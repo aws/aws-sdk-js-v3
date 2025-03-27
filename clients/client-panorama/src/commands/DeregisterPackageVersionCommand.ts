@@ -72,6 +72,7 @@ export interface DeregisterPackageVersionCommandOutput extends DeregisterPackage
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class DeregisterPackageVersionCommand extends $Command

@@ -76,6 +76,7 @@ export interface ResetEnabledControlCommandOutput extends ResetEnabledControlOut
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class ResetEnabledControlCommand extends $Command

@@ -207,6 +207,7 @@ export interface CreateGraphqlApiCommandOutput extends CreateGraphqlApiResponse,
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class CreateGraphqlApiCommand extends $Command

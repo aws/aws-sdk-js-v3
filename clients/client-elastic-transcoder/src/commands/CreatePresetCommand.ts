@@ -207,6 +207,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ *
  * @public
  */
 export class CreatePresetCommand extends $Command

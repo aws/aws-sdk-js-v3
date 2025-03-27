@@ -125,6 +125,7 @@ export interface CreateWorkspacesPoolCommandOutput extends CreateWorkspacesPoolR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class CreateWorkspacesPoolCommand extends $Command

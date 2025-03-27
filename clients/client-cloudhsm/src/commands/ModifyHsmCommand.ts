@@ -87,6 +87,7 @@ export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBea
  * @throws {@link CloudHSMServiceException}
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ *
  * @public
  */
 export class ModifyHsmCommand extends $Command

@@ -66,6 +66,7 @@ export interface DeleteWhatIfAnalysisCommandOutput extends __MetadataBearer {}
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class DeleteWhatIfAnalysisCommand extends $Command

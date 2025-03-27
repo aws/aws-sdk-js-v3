@@ -61,6 +61,7 @@ export interface StartTransactionCommandOutput extends StartTransactionResponse,
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class StartTransactionCommand extends $Command

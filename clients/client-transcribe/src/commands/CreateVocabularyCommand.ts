@@ -99,6 +99,7 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class CreateVocabularyCommand extends $Command

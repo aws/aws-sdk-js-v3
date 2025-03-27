@@ -88,6 +88,7 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class ListConfigurationsCommand extends $Command

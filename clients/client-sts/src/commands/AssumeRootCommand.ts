@@ -87,33 +87,33 @@ export interface AssumeRootCommandOutput extends AssumeRootResponse, __MetadataB
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>
  *
- * @public
+ *
  * @example To launch a privileged session
  * ```javascript
  * // The following command retrieves a set of short-term credentials you can use to unlock an S3 bucket for a member account by removing the bucket policy.
  * const input = {
- *   "DurationSeconds": 900,
- *   "TargetPrincipal": "111122223333",
- *   "TaskPolicyArn": {
- *     "arn": "arn:aws:iam::aws:policy/root-task/S3UnlockBucketPolicy"
+ *   DurationSeconds: 900,
+ *   TargetPrincipal: "111122223333",
+ *   TaskPolicyArn: {
+ *     arn: "arn:aws:iam::aws:policy/root-task/S3UnlockBucketPolicy"
  *   }
  * };
  * const command = new AssumeRootCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Credentials": {
- *     "AccessKeyId": "ASIAJEXAMPLEXEG2JICEA",
- *     "Expiration": "2024-11-15T00:05:07Z",
- *     "SecretAccessKey": "9drTJvcXLB89EXAMPLELB8923FB892xMFI",
- *     "SessionToken": "AQoXdzELDDY//////////wEaoAK1wvxJY12r2IrDFT2IvAzTCn3zHoZ7YNtpiQLF0MqZye/qwjzP2iEXAMPLEbw/m3hsj8VBTkPORGvr9jM5sgP+w9IZWZnU+LWhmg+a5fDi2oTGUYcdg9uexQ4mtCHIHfi4citgqZTgco40Yqr4lIlo4V2b2Dyauk0eYFNebHtYlFVgAUj+7Indz3LU0aTWk1WKIjHmmMCIoTkyYp/k7kUG7moeEYKSitwQIi6Gjn+nyzM+PtoA3685ixzv0R7i5rjQi0YE0lf1oeie3bDiNHncmzosRM6SFiPzSvp6h/32xQuZsjcypmwsPSDtTPYcs0+YN/8BRi2/IcrxSpnWEXAMPLEXSDFTAQAM6Dl9zR0tXoybnlrZIwMLlMi1Kcgo5OytwU="
+ *   Credentials: {
+ *     AccessKeyId: "ASIAJEXAMPLEXEG2JICEA",
+ *     Expiration: "2024-11-15T00:05:07Z",
+ *     SecretAccessKey: "9drTJvcXLB89EXAMPLELB8923FB892xMFI",
+ *     SessionToken: "AQoXdzELDDY//////////wEaoAK1wvxJY12r2IrDFT2IvAzTCn3zHoZ7YNtpiQLF0MqZye/qwjzP2iEXAMPLEbw/m3hsj8VBTkPORGvr9jM5sgP+w9IZWZnU+LWhmg+a5fDi2oTGUYcdg9uexQ4mtCHIHfi4citgqZTgco40Yqr4lIlo4V2b2Dyauk0eYFNebHtYlFVgAUj+7Indz3LU0aTWk1WKIjHmmMCIoTkyYp/k7kUG7moeEYKSitwQIi6Gjn+nyzM+PtoA3685ixzv0R7i5rjQi0YE0lf1oeie3bDiNHncmzosRM6SFiPzSvp6h/32xQuZsjcypmwsPSDtTPYcs0+YN/8BRi2/IcrxSpnWEXAMPLEXSDFTAQAM6Dl9zR0tXoybnlrZIwMLlMi1Kcgo5OytwU="
  *   },
- *   "SourceIdentity": "Alice"
+ *   SourceIdentity: "Alice"
  * }
  * *\/
- * // example id: to-launch-a-privileged-session-1731335424565
  * ```
  *
+ * @public
  */
 export class AssumeRootCommand extends $Command
   .classBuilder<

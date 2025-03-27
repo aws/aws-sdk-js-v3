@@ -116,37 +116,37 @@ export interface DescribeReceiptRuleCommandOutput extends DescribeReceiptRuleRes
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example DescribeReceiptRule
  * ```javascript
  * // The following example returns the details of a receipt rule:
  * const input = {
- *   "RuleName": "MyRule",
- *   "RuleSetName": "MyRuleSet"
+ *   RuleName: "MyRule",
+ *   RuleSetName: "MyRuleSet"
  * };
  * const command = new DescribeReceiptRuleCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Rule": {
- *     "Actions": [
+ *   Rule: {
+ *     Actions: [
  *       {
- *         "S3Action": {
- *           "BucketName": "MyBucket",
- *           "ObjectKeyPrefix": "email"
+ *         S3Action: {
+ *           BucketName: "MyBucket",
+ *           ObjectKeyPrefix: "email"
  *         }
  *       }
  *     ],
- *     "Enabled": true,
- *     "Name": "MyRule",
- *     "ScanEnabled": true,
- *     "TlsPolicy": "Optional"
+ *     Enabled: true,
+ *     Name: "MyRule",
+ *     ScanEnabled: true,
+ *     TlsPolicy: "Optional"
  *   }
  * }
  * *\/
- * // example id: describereceiptrule-1469055813118
  * ```
  *
+ * @public
  */
 export class DescribeReceiptRuleCommand extends $Command
   .classBuilder<

@@ -73,6 +73,7 @@ export interface PutUsersCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeEventsServiceException}
  * <p>Base exception class for all service exceptions from PersonalizeEvents service.</p>
  *
+ *
  * @public
  */
 export class PutUsersCommand extends $Command

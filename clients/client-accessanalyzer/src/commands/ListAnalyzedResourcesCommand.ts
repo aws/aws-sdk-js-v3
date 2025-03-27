@@ -81,6 +81,7 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class ListAnalyzedResourcesCommand extends $Command

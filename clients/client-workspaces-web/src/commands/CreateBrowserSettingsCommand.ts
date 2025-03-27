@@ -93,6 +93,7 @@ export interface CreateBrowserSettingsCommandOutput extends CreateBrowserSetting
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class CreateBrowserSettingsCommand extends $Command

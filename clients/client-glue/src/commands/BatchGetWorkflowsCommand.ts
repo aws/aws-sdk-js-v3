@@ -331,6 +331,7 @@ export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsRespons
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class BatchGetWorkflowsCommand extends $Command

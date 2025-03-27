@@ -104,6 +104,7 @@ export interface GetTargetGroupCommandOutput extends GetTargetGroupResponse, __M
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class GetTargetGroupCommand extends $Command

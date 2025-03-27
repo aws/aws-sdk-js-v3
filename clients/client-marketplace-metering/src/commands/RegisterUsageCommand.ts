@@ -136,6 +136,7 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  * @throws {@link MarketplaceMeteringServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
+ *
  * @public
  */
 export class RegisterUsageCommand extends $Command

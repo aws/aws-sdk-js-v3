@@ -74,6 +74,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link SchedulerServiceException}
  * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

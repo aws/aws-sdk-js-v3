@@ -88,6 +88,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeDatasetCommand extends $Command

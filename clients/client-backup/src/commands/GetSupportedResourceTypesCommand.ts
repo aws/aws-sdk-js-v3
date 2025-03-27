@@ -58,6 +58,7 @@ export interface GetSupportedResourceTypesCommandOutput extends GetSupportedReso
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class GetSupportedResourceTypesCommand extends $Command

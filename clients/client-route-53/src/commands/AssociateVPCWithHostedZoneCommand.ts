@@ -156,33 +156,33 @@ export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWit
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
- * @public
+ *
  * @example To associate a VPC with a hosted zone
  * ```javascript
  * // The following example associates the VPC with ID vpc-1a2b3c4d with the hosted zone with ID Z3M3LMPEXAMPLE.
  * const input = {
- *   "Comment": "",
- *   "HostedZoneId": "Z3M3LMPEXAMPLE",
- *   "VPC": {
- *     "VPCId": "vpc-1a2b3c4d",
- *     "VPCRegion": "us-east-2"
+ *   Comment: "",
+ *   HostedZoneId: "Z3M3LMPEXAMPLE",
+ *   VPC: {
+ *     VPCId: "vpc-1a2b3c4d",
+ *     VPCRegion: "us-east-2"
  *   }
  * };
  * const command = new AssociateVPCWithHostedZoneCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeInfo": {
- *     "Comment": "",
- *     "Id": "/change/C3HC6WDB2UANE2",
- *     "Status": "INSYNC",
- *     "SubmittedAt": "2017-01-31T01:36:41.958Z"
+ *   ChangeInfo: {
+ *     Comment: "",
+ *     Id: "/change/C3HC6WDB2UANE2",
+ *     Status: "INSYNC",
+ *     SubmittedAt: "2017-01-31T01:36:41.958Z"
  *   }
  * }
  * *\/
- * // example id: to-associate-a-vpc-with-a-hosted-zone-1484069228699
  * ```
  *
+ * @public
  */
 export class AssociateVPCWithHostedZoneCommand extends $Command
   .classBuilder<

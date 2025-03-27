@@ -91,6 +91,7 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class CreateGrantVersionCommand extends $Command

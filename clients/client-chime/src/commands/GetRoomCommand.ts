@@ -84,6 +84,7 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class GetRoomCommand extends $Command

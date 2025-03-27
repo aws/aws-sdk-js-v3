@@ -129,34 +129,34 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To create a global DB cluster
  * ```javascript
  * // The following example creates a new Aurora MySQL-compatible global DB cluster.
  * const input = {
- *   "Engine": "aurora-mysql",
- *   "GlobalClusterIdentifier": "myglobalcluster"
+ *   Engine: "aurora-mysql",
+ *   GlobalClusterIdentifier: "myglobalcluster"
  * };
  * const command = new CreateGlobalClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GlobalCluster": {
- *     "DeletionProtection": false,
- *     "Engine": "aurora-mysql",
- *     "EngineVersion": "5.7.mysql_aurora.2.07.2",
- *     "GlobalClusterArn": "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
- *     "GlobalClusterIdentifier": "myglobalcluster",
- *     "GlobalClusterMembers": [],
- *     "GlobalClusterResourceId": "cluster-f0e523bfe07aabb",
- *     "Status": "available",
- *     "StorageEncrypted": false
+ *   GlobalCluster: {
+ *     DeletionProtection: false,
+ *     Engine: "aurora-mysql",
+ *     EngineVersion: "5.7.mysql_aurora.2.07.2",
+ *     GlobalClusterArn: "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
+ *     GlobalClusterIdentifier: "myglobalcluster",
+ *     GlobalClusterMembers:     [],
+ *     GlobalClusterResourceId: "cluster-f0e523bfe07aabb",
+ *     Status: "available",
+ *     StorageEncrypted: false
  *   }
  * }
  * *\/
- * // example id: to-create-a-global-db-cluster-1679957040413
  * ```
  *
+ * @public
  */
 export class CreateGlobalClusterCommand extends $Command
   .classBuilder<

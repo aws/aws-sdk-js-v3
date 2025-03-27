@@ -121,6 +121,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * @throws {@link MWAAServiceException}
  * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ *
  * @public
  */
 export class CreateEnvironmentCommand extends $Command

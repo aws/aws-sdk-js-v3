@@ -78,6 +78,7 @@ export interface GetPartnerAccountCommandOutput extends GetPartnerAccountRespons
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class GetPartnerAccountCommand extends $Command

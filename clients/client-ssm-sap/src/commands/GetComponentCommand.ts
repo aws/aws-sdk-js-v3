@@ -124,6 +124,7 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ *
  * @public
  */
 export class GetComponentCommand extends $Command

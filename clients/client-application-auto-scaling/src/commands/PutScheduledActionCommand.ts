@@ -103,25 +103,28 @@ export interface PutScheduledActionCommandOutput extends PutScheduledActionRespo
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
- * @public
+ *
  * @example To create a recurring scheduled action
  * ```javascript
  * // This example adds a scheduled action to a DynamoDB table called TestTable to scale out on a recurring schedule. On the specified schedule (every day at 12:15pm UTC), if the current capacity is below the value specified for MinCapacity, Application Auto Scaling scales out to the value specified by MinCapacity.
  * const input = {
- *   "ResourceId": "table/TestTable",
- *   "ScalableDimension": "dynamodb:table:WriteCapacityUnits",
- *   "ScalableTargetAction": {
- *     "MinCapacity": 6
+ *   ResourceId: "table/TestTable",
+ *   ScalableDimension: "dynamodb:table:WriteCapacityUnits",
+ *   ScalableTargetAction: {
+ *     MinCapacity: 6
  *   },
- *   "Schedule": "cron(15 12 * * ? *)",
- *   "ScheduledActionName": "my-recurring-action",
- *   "ServiceNamespace": "dynamodb"
+ *   Schedule: "cron(15 12 * * ? *)",
+ *   ScheduledActionName: "my-recurring-action",
+ *   ServiceNamespace: "dynamodb"
  * };
  * const command = new PutScheduledActionCommand(input);
- * await client.send(command);
- * // example id: to-create-a-recurring-scheduled-action-1677970068621
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutScheduledActionCommand extends $Command
   .classBuilder<

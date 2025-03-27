@@ -97,6 +97,7 @@ export interface GetPullRequestApprovalStatesCommandOutput
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class GetPullRequestApprovalStatesCommand extends $Command

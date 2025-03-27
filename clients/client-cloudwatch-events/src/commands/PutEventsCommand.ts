@@ -77,6 +77,7 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class PutEventsCommand extends $Command

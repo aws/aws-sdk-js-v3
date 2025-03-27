@@ -186,6 +186,7 @@ export interface ResumeReplicationCommandOutput extends SourceServer, __Metadata
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class ResumeReplicationCommand extends $Command

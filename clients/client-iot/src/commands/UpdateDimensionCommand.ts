@@ -83,6 +83,7 @@ export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdateDimensionCommand extends $Command

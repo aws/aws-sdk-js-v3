@@ -81,6 +81,7 @@ export interface InitializeClusterCommandOutput extends InitializeClusterRespons
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ *
  * @public
  */
 export class InitializeClusterCommand extends $Command

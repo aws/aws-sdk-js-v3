@@ -85,33 +85,33 @@ export interface DescribeCustomerGatewaysCommandOutput extends DescribeCustomerG
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a customer gateway
  * ```javascript
  * // This example describes the specified customer gateway.
  * const input = {
- *   "CustomerGatewayIds": [
+ *   CustomerGatewayIds: [
  *     "cgw-0e11f167"
  *   ]
  * };
  * const command = new DescribeCustomerGatewaysCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CustomerGateways": [
+ *   CustomerGateways: [
  *     {
- *       "BgpAsn": "65534",
- *       "CustomerGatewayId": "cgw-0e11f167",
- *       "IpAddress": "12.1.2.3",
- *       "State": "available",
- *       "Type": "ipsec.1"
+ *       BgpAsn: "65534",
+ *       CustomerGatewayId: "cgw-0e11f167",
+ *       IpAddress: "12.1.2.3",
+ *       State: "available",
+ *       Type: "ipsec.1"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-customer-gateways-1
  * ```
  *
+ * @public
  */
 export class DescribeCustomerGatewaysCommand extends $Command
   .classBuilder<

@@ -71,6 +71,7 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeEventCategoriesCommand extends $Command

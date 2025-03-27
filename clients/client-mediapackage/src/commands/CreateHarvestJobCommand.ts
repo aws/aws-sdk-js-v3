@@ -93,6 +93,7 @@ export interface CreateHarvestJobCommandOutput extends CreateHarvestJobResponse,
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ *
  * @public
  */
 export class CreateHarvestJobCommand extends $Command

@@ -62,46 +62,46 @@ export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType,
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe the Auto Scaling process types
  * ```javascript
  * // This example describes the Auto Scaling process types.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeScalingProcessTypesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Processes": [
+ *   Processes: [
  *     {
- *       "ProcessName": "AZRebalance"
+ *       ProcessName: "AZRebalance"
  *     },
  *     {
- *       "ProcessName": "AddToLoadBalancer"
+ *       ProcessName: "AddToLoadBalancer"
  *     },
  *     {
- *       "ProcessName": "AlarmNotification"
+ *       ProcessName: "AlarmNotification"
  *     },
  *     {
- *       "ProcessName": "HealthCheck"
+ *       ProcessName: "HealthCheck"
  *     },
  *     {
- *       "ProcessName": "Launch"
+ *       ProcessName: "Launch"
  *     },
  *     {
- *       "ProcessName": "ReplaceUnhealthy"
+ *       ProcessName: "ReplaceUnhealthy"
  *     },
  *     {
- *       "ProcessName": "ScheduledActions"
+ *       ProcessName: "ScheduledActions"
  *     },
  *     {
- *       "ProcessName": "Terminate"
+ *       ProcessName: "Terminate"
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-scaling-process-types-1
  * ```
  *
+ * @public
  */
 export class DescribeScalingProcessTypesCommand extends $Command
   .classBuilder<

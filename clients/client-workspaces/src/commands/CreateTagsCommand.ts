@@ -68,6 +68,7 @@ export interface CreateTagsCommandOutput extends CreateTagsResult, __MetadataBea
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class CreateTagsCommand extends $Command

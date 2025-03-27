@@ -81,6 +81,7 @@ export interface GetDeviceIdentifierCommandOutput extends GetDeviceIdentifierRes
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ *
  * @public
  */
 export class GetDeviceIdentifierCommand extends $Command

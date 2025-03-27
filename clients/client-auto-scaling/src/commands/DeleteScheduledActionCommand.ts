@@ -58,19 +58,22 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To delete a scheduled action from an Auto Scaling group
  * ```javascript
  * // This example deletes the specified scheduled action from the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "ScheduledActionName": "my-scheduled-action"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   ScheduledActionName: "my-scheduled-action"
  * };
  * const command = new DeleteScheduledActionCommand(input);
- * await client.send(command);
- * // example id: autoscaling-delete-scheduled-action-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteScheduledActionCommand extends $Command
   .classBuilder<

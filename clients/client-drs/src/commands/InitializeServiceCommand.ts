@@ -63,6 +63,7 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class InitializeServiceCommand extends $Command

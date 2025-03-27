@@ -118,36 +118,36 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To enable Availability Zones for a load balancer
  * ```javascript
  * // This example enables the Availability Zones for the specified subnets for the specified load balancer.
  * const input = {
- *   "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
- *   "Subnets": [
+ *   LoadBalancerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+ *   Subnets: [
  *     "subnet-8360a9e7",
  *     "subnet-b7d581c0"
  *   ]
  * };
  * const command = new SetSubnetsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AvailabilityZones": [
+ *   AvailabilityZones: [
  *     {
- *       "SubnetId": "subnet-8360a9e7",
- *       "ZoneName": "us-west-2a"
+ *       SubnetId: "subnet-8360a9e7",
+ *       ZoneName: "us-west-2a"
  *     },
  *     {
- *       "SubnetId": "subnet-b7d581c0",
- *       "ZoneName": "us-west-2b"
+ *       SubnetId: "subnet-b7d581c0",
+ *       ZoneName: "us-west-2b"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-set-subnets-1
  * ```
  *
+ * @public
  */
 export class SetSubnetsCommand extends $Command
   .classBuilder<

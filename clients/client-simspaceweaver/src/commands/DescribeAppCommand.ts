@@ -88,6 +88,7 @@ export interface DescribeAppCommandOutput extends DescribeAppOutput, __MetadataB
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ *
  * @public
  */
 export class DescribeAppCommand extends $Command

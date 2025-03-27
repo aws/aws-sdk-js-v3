@@ -88,6 +88,7 @@ export interface StartCommandExecutionCommandOutput extends StartCommandExecutio
  * @throws {@link IoTJobsDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
+ *
  * @public
  */
 export class StartCommandExecutionCommand extends $Command

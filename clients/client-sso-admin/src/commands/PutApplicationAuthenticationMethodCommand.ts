@@ -85,6 +85,7 @@ export interface PutApplicationAuthenticationMethodCommandOutput extends __Metad
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class PutApplicationAuthenticationMethodCommand extends $Command

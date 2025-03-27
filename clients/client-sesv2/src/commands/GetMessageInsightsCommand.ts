@@ -101,67 +101,8 @@ export interface GetMessageInsightsCommandOutput extends GetMessageInsightsRespo
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
- * @public
- * @example Get Message Insights
- * ```javascript
- * // Provides information about a specific message.
- * const input = {
- *   "MessageId": "000000000000ab00-0a000aa0-1234-0a0a-1234-0a0aaa0aa00a-000000"
- * };
- * const command = new GetMessageInsightsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "EmailTags": [
- *     {
- *       "Name": "ses:operation",
- *       "Value": "SendEmail"
- *     },
- *     {
- *       "Name": "ses:recipient-isp",
- *       "Value": "UNKNOWN_ISP"
- *     },
- *     {
- *       "Name": "ses:source-ip",
- *       "Value": "0.0.0.0"
- *     },
- *     {
- *       "Name": "ses:from-domain",
- *       "Value": "example.com"
- *     },
- *     {
- *       "Name": "ses:sender-identity",
- *       "Value": "hello@example.com"
- *     },
- *     {
- *       "Name": "ses:caller-identity",
- *       "Value": "Identity"
- *     }
- *   ],
- *   "FromEmailAddress": "hello@example.com",
- *   "Insights": [
- *     {
- *       "Destination": "recipient@example.com",
- *       "Events": [
- *         {
- *           "Timestamp": "2023-01-01T00:00:00.000000+01:00",
- *           "Type": "SEND"
- *         },
- *         {
- *           "Timestamp": "2023-01-01T00:00:01.000000+01:00",
- *           "Type": "DELIVERY"
- *         }
- *       ],
- *       "Isp": "UNKNOWN_ISP"
- *     }
- *   ],
- *   "MessageId": "000000000000ab00-0a000aa0-1234-0a0a-1234-0a0aaa0aa00a-000000",
- *   "Subject": "hello"
- * }
- * *\/
- * // example id: get-message-insights-1689955713493
- * ```
  *
+ * @public
  */
 export class GetMessageInsightsCommand extends $Command
   .classBuilder<

@@ -77,6 +77,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

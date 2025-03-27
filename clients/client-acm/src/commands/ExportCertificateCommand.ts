@@ -80,6 +80,7 @@ export interface ExportCertificateCommandOutput extends ExportCertificateRespons
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ *
  * @public
  */
 export class ExportCertificateCommand extends $Command

@@ -94,6 +94,7 @@ export interface ListStreamingDistributionsCommandOutput extends ListStreamingDi
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListStreamingDistributionsCommand extends $Command

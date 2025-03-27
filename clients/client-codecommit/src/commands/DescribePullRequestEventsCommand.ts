@@ -145,6 +145,7 @@ export interface DescribePullRequestEventsCommandOutput extends DescribePullRequ
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class DescribePullRequestEventsCommand extends $Command

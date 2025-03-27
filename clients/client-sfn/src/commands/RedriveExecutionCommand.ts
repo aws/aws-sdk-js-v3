@@ -93,6 +93,7 @@ export interface RedriveExecutionCommandOutput extends RedriveExecutionOutput, _
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class RedriveExecutionCommand extends $Command

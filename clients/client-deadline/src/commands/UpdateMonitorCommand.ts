@@ -73,6 +73,7 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorResponse, __Met
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class UpdateMonitorCommand extends $Command

@@ -59,6 +59,7 @@ export interface OperationWithOptionalInputOutputCommandOutput
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  */
 export class OperationWithOptionalInputOutputCommand extends $Command
   .classBuilder<

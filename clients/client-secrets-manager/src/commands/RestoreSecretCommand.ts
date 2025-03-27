@@ -91,24 +91,24 @@ export interface RestoreSecretCommandOutput extends RestoreSecretResponse, __Met
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
+ *
  * @example To restore a previously deleted secret
  * ```javascript
  * // The following example shows how to restore a secret that you previously scheduled for deletion.
  * const input = {
- *   "SecretId": "MyTestDatabaseSecret"
+ *   SecretId: "MyTestDatabaseSecret"
  * };
  * const command = new RestoreSecretCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "Name": "MyTestDatabaseSecret"
+ *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   Name: "MyTestDatabaseSecret"
  * }
  * *\/
- * // example id: to-restore-a-previously-deleted-secret-1524001513930
  * ```
  *
+ * @public
  */
 export class RestoreSecretCommand extends $Command
   .classBuilder<

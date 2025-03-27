@@ -131,6 +131,7 @@ export interface DescribeIdentityUsageCommandOutput extends DescribeIdentityUsag
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeIdentityUsageCommand extends $Command

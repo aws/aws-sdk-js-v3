@@ -72,19 +72,22 @@ export interface SetIdentityFeedbackForwardingEnabledCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example SetIdentityFeedbackForwardingEnabled
  * ```javascript
  * // The following example configures Amazon SES to forward an identity's bounces and complaints via email:
  * const input = {
- *   "ForwardingEnabled": true,
- *   "Identity": "user@example.com"
+ *   ForwardingEnabled: true,
+ *   Identity: "user@example.com"
  * };
  * const command = new SetIdentityFeedbackForwardingEnabledCommand(input);
- * await client.send(command);
- * // example id: setidentityfeedbackforwardingenabled-1469056811329
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetIdentityFeedbackForwardingEnabledCommand extends $Command
   .classBuilder<

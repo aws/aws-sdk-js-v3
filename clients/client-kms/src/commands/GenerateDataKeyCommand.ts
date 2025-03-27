@@ -247,50 +247,26 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To generate a data key
  * ```javascript
  * // The following example generates a 256-bit symmetric data encryption key (data key) in two formats. One is the unencrypted (plainext) data key, and the other is the data key encrypted with the specified KMS key.
  * const input = {
- *   "KeyId": "alias/ExampleAlias",
- *   "KeySpec": "AES_256"
+ *   KeyId: "alias/ExampleAlias",
+ *   KeySpec: "AES_256"
  * };
  * const command = new GenerateDataKeyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CiphertextBlob": "<binary data>",
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "Plaintext": "<binary data>"
+ *   CiphertextBlob: "<binary data>",
+ *   KeyId: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   Plaintext: "<binary data>"
  * }
  * *\/
- * // example id: to-generate-a-data-key-1
  * ```
  *
- * @example To generate a data key pair for a Nitro enclave
- * ```javascript
- * // The following example includes the Recipient parameter with a signed attestation document from an AWS Nitro enclave. Instead of returning a copy of the data key encrypted by the KMS key and a plaintext copy of the data key, GenerateDataKey returns one copy of the data key encrypted by the KMS key (CiphertextBlob) and one copy of the data key encrypted by the public key from the attestation document (CiphertextForRecipient). The operation doesn't return a plaintext data key.
- * const input = {
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "KeySpec": "AES_256",
- *   "Recipient": {
- *     "AttestationDocument": "<attestation document>",
- *     "KeyEncryptionAlgorithm": "RSAES_OAEP_SHA_256"
- *   }
- * };
- * const command = new GenerateDataKeyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CiphertextBlob": "<binary data>",
- *   "CiphertextForRecipient": "<binary data>",
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "Plaintext": ""
- * }
- * *\/
- * // example id: to-generate-a-data-key-for-a-nitro-enclave-2
- * ```
- *
+ * @public
  */
 export class GenerateDataKeyCommand extends $Command
   .classBuilder<

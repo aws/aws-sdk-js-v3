@@ -98,6 +98,7 @@ export interface GetSpaceCommandOutput extends GetSpaceOutput, __MetadataBearer 
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ *
  * @public
  */
 export class GetSpaceCommand extends $Command

@@ -81,6 +81,7 @@ export interface ListSbomValidationResultsCommandOutput extends ListSbomValidati
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListSbomValidationResultsCommand extends $Command

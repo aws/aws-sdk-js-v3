@@ -87,6 +87,7 @@ export interface AddStorageSystemCommandOutput extends AddStorageSystemResponse,
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class AddStorageSystemCommand extends $Command

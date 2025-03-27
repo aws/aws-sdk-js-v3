@@ -157,6 +157,7 @@ export interface CreateIntegrationWorkflowCommandOutput extends CreateIntegratio
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class CreateIntegrationWorkflowCommand extends $Command

@@ -79,6 +79,7 @@ export interface DisableDelegatedAdminAccountCommandOutput
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class DisableDelegatedAdminAccountCommand extends $Command

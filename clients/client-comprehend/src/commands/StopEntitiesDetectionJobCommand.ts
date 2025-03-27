@@ -74,6 +74,7 @@ export interface StopEntitiesDetectionJobCommandOutput extends StopEntitiesDetec
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class StopEntitiesDetectionJobCommand extends $Command

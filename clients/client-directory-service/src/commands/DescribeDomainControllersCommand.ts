@@ -92,6 +92,7 @@ export interface DescribeDomainControllersCommandOutput extends DescribeDomainCo
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DescribeDomainControllersCommand extends $Command

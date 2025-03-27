@@ -112,6 +112,7 @@ export interface UpdateRetrieverCommandOutput extends UpdateRetrieverResponse, _
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class UpdateRetrieverCommand extends $Command

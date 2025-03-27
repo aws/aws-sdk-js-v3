@@ -130,6 +130,7 @@ export interface DescribeProductAsAdminCommandOutput extends DescribeProductAsAd
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class DescribeProductAsAdminCommand extends $Command

@@ -119,6 +119,7 @@ export interface BatchUpdateAttendeeCapabilitiesExceptCommandOutput extends __Me
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ *
  * @public
  */
 export class BatchUpdateAttendeeCapabilitiesExceptCommand extends $Command

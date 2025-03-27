@@ -159,38 +159,43 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a security group
  * ```javascript
  * // This example describes the specified security group.
  * const input = {
- *   "GroupIds": [
+ *   GroupIds: [
  *     "sg-903004f8"
  *   ]
  * };
  * const command = new DescribeSecurityGroupsCommand(input);
- * await client.send(command);
- * // example id: to-describe-a-security-group-1529354426314
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
  * @example To describe a tagged security group
  * ```javascript
  * // This example describes the security groups that include the specified tag (Purpose=test).
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "tag:Purpose",
- *       "Values": [
+ *       Name: "tag:Purpose",
+ *       Values: [
  *         "test"
  *       ]
  *     }
  *   ]
  * };
  * const command = new DescribeSecurityGroupsCommand(input);
- * await client.send(command);
- * // example id: to-describe-a-tagged-security-group-1529354553880
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DescribeSecurityGroupsCommand extends $Command
   .classBuilder<

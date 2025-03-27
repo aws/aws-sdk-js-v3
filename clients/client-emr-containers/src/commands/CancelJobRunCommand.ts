@@ -64,6 +64,7 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ *
  * @public
  */
 export class CancelJobRunCommand extends $Command

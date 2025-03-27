@@ -73,6 +73,7 @@ export interface UpdateMetricConfigurationCommandOutput extends UpdateMetricConf
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class UpdateMetricConfigurationCommand extends $Command

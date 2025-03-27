@@ -77,6 +77,7 @@ export interface CreateSchedulingPolicyCommandOutput extends CreateSchedulingPol
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ *
  * @public
  */
 export class CreateSchedulingPolicyCommand extends $Command

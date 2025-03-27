@@ -87,6 +87,7 @@ export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMainten
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DescribeMaintenanceWindowsCommand extends $Command

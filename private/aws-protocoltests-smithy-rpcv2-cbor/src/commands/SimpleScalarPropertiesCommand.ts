@@ -72,6 +72,7 @@ export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarStructu
  * @throws {@link RpcV2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from RpcV2Protocol service.</p>
  *
+ *
  */
 export class SimpleScalarPropertiesCommand extends $Command
   .classBuilder<

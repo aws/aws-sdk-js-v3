@@ -89,6 +89,7 @@ export interface GetMapSpritesCommandOutput extends GetMapSpritesCommandOutputTy
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class GetMapSpritesCommand extends $Command

@@ -108,6 +108,7 @@ export interface GetCostEstimationCommandOutput extends GetCostEstimationRespons
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class GetCostEstimationCommand extends $Command

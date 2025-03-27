@@ -88,6 +88,7 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeGroupCommand extends $Command

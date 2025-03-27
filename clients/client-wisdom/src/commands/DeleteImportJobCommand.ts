@@ -69,6 +69,7 @@ export interface DeleteImportJobCommandOutput extends DeleteImportJobResponse, _
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class DeleteImportJobCommand extends $Command

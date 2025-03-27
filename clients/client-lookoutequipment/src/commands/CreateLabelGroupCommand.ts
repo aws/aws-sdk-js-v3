@@ -88,6 +88,7 @@ export interface CreateLabelGroupCommandOutput extends CreateLabelGroupResponse,
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class CreateLabelGroupCommand extends $Command

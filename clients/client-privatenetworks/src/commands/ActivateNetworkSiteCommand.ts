@@ -136,6 +136,7 @@ export interface ActivateNetworkSiteCommandOutput extends ActivateNetworkSiteRes
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ *
  * @public
  */
 export class ActivateNetworkSiteCommand extends $Command

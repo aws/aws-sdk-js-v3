@@ -93,32 +93,32 @@ export interface ModifyIntegrationCommandOutput extends Integration, __MetadataB
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To modify a zero-ETL integration
  * ```javascript
  * // The following example modifies the name of an existing zero-ETL integration.
  * const input = {
- *   "IntegrationIdentifier": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "IntegrationName": "my-renamed-integration"
+ *   IntegrationIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   IntegrationName: "my-renamed-integration"
  * };
  * const command = new ModifyIntegrationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CreateTime": "2023-12-28T17:20:20.629Z",
- *   "DataFilter": "include: *.*",
- *   "IntegrationArn": "arn:aws:rds:us-east-1:123456789012:integration:5b9f3d79-7392-4a3e-896c-58eaa1b53231",
- *   "IntegrationName": "my-renamed-integration",
- *   "KMSKeyId": "arn:aws:kms:us-east-1:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
- *   "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster",
- *   "Status": "active",
- *   "Tags": [],
- *   "TargetArn": "arn:aws:redshift-serverless:us-east-1:123456789012:namespace/62c70612-0302-4db7-8414-b5e3e049f0d8"
+ *   CreateTime: "2023-12-28T17:20:20.629Z",
+ *   DataFilter: "include: *.*",
+ *   IntegrationArn: "arn:aws:rds:us-east-1:123456789012:integration:5b9f3d79-7392-4a3e-896c-58eaa1b53231",
+ *   IntegrationName: "my-renamed-integration",
+ *   KMSKeyId: "arn:aws:kms:us-east-1:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
+ *   SourceArn: "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster",
+ *   Status: "active",
+ *   Tags:   [],
+ *   TargetArn: "arn:aws:redshift-serverless:us-east-1:123456789012:namespace/62c70612-0302-4db7-8414-b5e3e049f0d8"
  * }
  * *\/
- * // example id: to-modify-a-zero-etl-integration-1680407173998
  * ```
  *
+ * @public
  */
 export class ModifyIntegrationCommand extends $Command
   .classBuilder<

@@ -85,6 +85,7 @@ export interface ExportQAppSessionDataCommandOutput extends ExportQAppSessionDat
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
+ *
  * @public
  */
 export class ExportQAppSessionDataCommand extends $Command

@@ -124,6 +124,7 @@ export interface DescribeClientBrandingCommandOutput extends DescribeClientBrand
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DescribeClientBrandingCommand extends $Command

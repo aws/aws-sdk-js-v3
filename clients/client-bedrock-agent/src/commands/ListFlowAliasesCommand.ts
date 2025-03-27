@@ -88,6 +88,7 @@ export interface ListFlowAliasesCommandOutput extends ListFlowAliasesResponse, _
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class ListFlowAliasesCommand extends $Command

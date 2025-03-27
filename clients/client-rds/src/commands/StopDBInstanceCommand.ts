@@ -310,25 +310,25 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To stop a DB instance
  * ```javascript
  * // The following example stops the specified DB instance.
  * const input = {
- *   "DBInstanceIdentifier": "test-instance"
+ *   DBInstanceIdentifier: "test-instance"
  * };
  * const command = new StopDBInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstance": {
- *     "DBInstanceStatus": "stopping"
+ *   DBInstance: {
+ *     DBInstanceStatus: "stopping"
  *   }
  * }
  * *\/
- * // example id: to-stop-a-db-instance-1679701630959
  * ```
  *
+ * @public
  */
 export class StopDBInstanceCommand extends $Command
   .classBuilder<

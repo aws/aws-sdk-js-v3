@@ -70,6 +70,7 @@ export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKe
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DisassociateMacSecKeyCommand extends $Command

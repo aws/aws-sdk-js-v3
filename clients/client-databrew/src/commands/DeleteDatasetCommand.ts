@@ -64,6 +64,7 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class DeleteDatasetCommand extends $Command

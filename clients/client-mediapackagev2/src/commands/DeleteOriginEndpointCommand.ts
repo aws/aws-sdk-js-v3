@@ -67,20 +67,23 @@ export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointR
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
- * @public
+ *
  * @example Deleting an OriginEndpoint
  * ```javascript
  * //
  * const input = {
- *   "ChannelGroupName": "exampleChannelGroup",
- *   "ChannelName": "exampleChannel",
- *   "OriginEndpointName": "exampleOriginEndpointTS"
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   OriginEndpointName: "exampleOriginEndpointTS"
  * };
  * const command = new DeleteOriginEndpointCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteOriginEndpointCommand extends $Command
   .classBuilder<

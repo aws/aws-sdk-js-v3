@@ -88,6 +88,7 @@ export interface GetMigrationsCommandOutput extends GetMigrationsResponse, __Met
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ *
  * @public
  */
 export class GetMigrationsCommand extends $Command

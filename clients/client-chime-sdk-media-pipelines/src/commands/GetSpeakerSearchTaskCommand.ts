@@ -86,6 +86,7 @@ export interface GetSpeakerSearchTaskCommandOutput extends GetSpeakerSearchTaskR
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class GetSpeakerSearchTaskCommand extends $Command

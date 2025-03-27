@@ -71,6 +71,7 @@ export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class ModifyWorkspaceStateCommand extends $Command

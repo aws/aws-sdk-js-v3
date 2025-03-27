@@ -256,6 +256,7 @@ export interface DefineIndexFieldCommandOutput extends DefineIndexFieldResponse,
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class DefineIndexFieldCommand extends $Command

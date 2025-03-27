@@ -76,6 +76,7 @@ export interface DeleteFlywheelCommandOutput extends DeleteFlywheelResponse, __M
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class DeleteFlywheelCommand extends $Command

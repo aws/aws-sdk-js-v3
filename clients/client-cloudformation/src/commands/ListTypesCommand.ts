@@ -86,6 +86,7 @@ export interface ListTypesCommandOutput extends ListTypesOutput, __MetadataBeare
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ListTypesCommand extends $Command

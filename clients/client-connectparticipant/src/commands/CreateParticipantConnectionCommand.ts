@@ -122,6 +122,7 @@ export interface CreateParticipantConnectionCommandOutput
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ *
  * @public
  */
 export class CreateParticipantConnectionCommand extends $Command

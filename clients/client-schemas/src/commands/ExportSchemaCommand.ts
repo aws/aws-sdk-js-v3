@@ -77,6 +77,7 @@ export interface ExportSchemaCommandOutput extends ExportSchemaResponse, __Metad
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ *
  */
 export class ExportSchemaCommand extends $Command
   .classBuilder<

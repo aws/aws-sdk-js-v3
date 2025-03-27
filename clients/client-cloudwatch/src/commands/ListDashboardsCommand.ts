@@ -78,6 +78,7 @@ export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __Met
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class ListDashboardsCommand extends $Command

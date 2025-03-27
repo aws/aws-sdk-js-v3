@@ -105,6 +105,7 @@ export interface UpdateScopeCommandOutput extends UpdateScopeOutput, __MetadataB
  * @throws {@link NetworkFlowMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkFlowMonitor service.</p>
  *
+ *
  * @public
  */
 export class UpdateScopeCommand extends $Command

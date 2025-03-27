@@ -111,6 +111,7 @@ export interface AssociatePackagesCommandOutput extends AssociatePackagesRespons
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class AssociatePackagesCommand extends $Command

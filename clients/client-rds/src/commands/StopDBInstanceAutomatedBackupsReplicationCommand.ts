@@ -114,46 +114,46 @@ export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To stop replicating automated backups
  * ```javascript
  * // The following example ends replication of automated backups. Replicated backups are retained according to the set backup retention period.
  * const input = {
- *   "SourceDBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db"
+ *   SourceDBInstanceArn: "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db"
  * };
  * const command = new StopDBInstanceAutomatedBackupsReplicationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstanceAutomatedBackup": {
- *     "AllocatedStorage": 20,
- *     "BackupRetentionPeriod": 7,
- *     "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db",
- *     "DBInstanceAutomatedBackupsArn": "arn:aws:rds:us-west-2:123456789012:auto-backup:ab-jkib2gfq5rv7replzadausbrktni2bn4example",
- *     "DBInstanceIdentifier": "new-orcl-db",
- *     "DbiResourceId": "db-JKIB2GFQ5RV7REPLZA4EXAMPLE",
- *     "Encrypted": false,
- *     "Engine": "oracle-se2",
- *     "EngineVersion": "12.1.0.2.v21",
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "InstanceCreateTime": "2020-12-04T15:28:31Z",
- *     "LicenseModel": "bring-your-own-license",
- *     "MasterUsername": "admin",
- *     "OptionGroupName": "default:oracle-se2-12-1",
- *     "Port": 1521,
- *     "Region": "us-east-1",
- *     "RestoreWindow": {
- *       "EarliestTime": "2020-12-04T23:13:21.030Z",
- *       "LatestTime": "2020-12-07T19:59:57Z"
+ *   DBInstanceAutomatedBackup: {
+ *     AllocatedStorage: 20,
+ *     BackupRetentionPeriod: 7,
+ *     DBInstanceArn: "arn:aws:rds:us-east-1:123456789012:db:new-orcl-db",
+ *     DBInstanceAutomatedBackupsArn: "arn:aws:rds:us-west-2:123456789012:auto-backup:ab-jkib2gfq5rv7replzadausbrktni2bn4example",
+ *     DBInstanceIdentifier: "new-orcl-db",
+ *     DbiResourceId: "db-JKIB2GFQ5RV7REPLZA4EXAMPLE",
+ *     Encrypted: false,
+ *     Engine: "oracle-se2",
+ *     EngineVersion: "12.1.0.2.v21",
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     InstanceCreateTime: "2020-12-04T15:28:31Z",
+ *     LicenseModel: "bring-your-own-license",
+ *     MasterUsername: "admin",
+ *     OptionGroupName: "default:oracle-se2-12-1",
+ *     Port: 1521,
+ *     Region: "us-east-1",
+ *     RestoreWindow: {
+ *       EarliestTime: "2020-12-04T23:13:21.030Z",
+ *       LatestTime: "2020-12-07T19:59:57Z"
  *     },
- *     "Status": "replicating",
- *     "StorageType": "gp2"
+ *     Status: "replicating",
+ *     StorageType: "gp2"
  *   }
  * }
  * *\/
- * // example id: to-stop-replicating-automated-backups-1679701787115
  * ```
  *
+ * @public
  */
 export class StopDBInstanceAutomatedBackupsReplicationCommand extends $Command
   .classBuilder<

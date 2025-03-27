@@ -107,6 +107,7 @@ export interface GetRegionsCommandOutput extends GetRegionsResult, __MetadataBea
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetRegionsCommand extends $Command

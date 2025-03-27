@@ -84,6 +84,7 @@ export interface GetCampaignStateBatchCommandOutput extends GetCampaignStateBatc
  * @throws {@link ConnectCampaignsV2ServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaignsV2 service.</p>
  *
+ *
  * @public
  */
 export class GetCampaignStateBatchCommand extends $Command

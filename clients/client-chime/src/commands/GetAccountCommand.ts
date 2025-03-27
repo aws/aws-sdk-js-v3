@@ -93,6 +93,7 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class GetAccountCommand extends $Command

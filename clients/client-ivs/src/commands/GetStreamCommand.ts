@@ -75,6 +75,7 @@ export interface GetStreamCommandOutput extends GetStreamResponse, __MetadataBea
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class GetStreamCommand extends $Command

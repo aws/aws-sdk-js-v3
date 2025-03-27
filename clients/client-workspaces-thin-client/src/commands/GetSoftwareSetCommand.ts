@@ -94,6 +94,7 @@ export interface GetSoftwareSetCommandOutput extends GetSoftwareSetResponse, __M
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ *
  * @public
  */
 export class GetSoftwareSetCommand extends $Command

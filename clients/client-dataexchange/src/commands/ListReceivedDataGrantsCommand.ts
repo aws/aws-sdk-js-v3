@@ -89,6 +89,7 @@ export interface ListReceivedDataGrantsCommandOutput extends ListReceivedDataGra
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class ListReceivedDataGrantsCommand extends $Command

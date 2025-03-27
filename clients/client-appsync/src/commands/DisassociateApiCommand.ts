@@ -71,6 +71,7 @@ export interface DisassociateApiCommandOutput extends DisassociateApiResponse, _
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class DisassociateApiCommand extends $Command

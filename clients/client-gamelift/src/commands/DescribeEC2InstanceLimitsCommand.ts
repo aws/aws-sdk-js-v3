@@ -131,6 +131,7 @@ export interface DescribeEC2InstanceLimitsCommandOutput extends DescribeEC2Insta
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class DescribeEC2InstanceLimitsCommand extends $Command

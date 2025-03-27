@@ -78,23 +78,26 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To create a warm pool for an Auto Scaling group
  * ```javascript
  * // This example creates a warm pool for the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "InstanceReusePolicy": {
- *     "ReuseOnScaleIn": true
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   InstanceReusePolicy: {
+ *     ReuseOnScaleIn: true
  *   },
- *   "MinSize": 30,
- *   "PoolState": "Hibernated"
+ *   MinSize: 30,
+ *   PoolState: "Hibernated"
  * };
  * const command = new PutWarmPoolCommand(input);
- * await client.send(command);
- * // example id: to-add-a-warm-pool-to-an-auto-scaling-group-1617818810383
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutWarmPoolCommand extends $Command
   .classBuilder<

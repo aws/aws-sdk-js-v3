@@ -83,28 +83,28 @@ export interface GetConfigurationProfileCommandOutput extends ConfigurationProfi
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To retrieve configuration profile details
  * ```javascript
  * // The following get-configuration-profile example returns the details of the specified configuration profile.
  * const input = {
- *   "ApplicationId": "339ohji",
- *   "ConfigurationProfileId": "ur8hx2f"
+ *   ApplicationId: "339ohji",
+ *   ConfigurationProfileId: "ur8hx2f"
  * };
  * const command = new GetConfigurationProfileCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplicationId": "339ohji",
- *   "Id": "ur8hx2f",
- *   "LocationUri": "ssm-parameter://Example-Parameter",
- *   "Name": "Example-Configuration-Profile",
- *   "RetrievalRoleArn": "arn:aws:iam::111122223333:role/Example-App-Config-Role"
+ *   ApplicationId: "339ohji",
+ *   Id: "ur8hx2f",
+ *   LocationUri: "ssm-parameter://Example-Parameter",
+ *   Name: "Example-Configuration-Profile",
+ *   RetrievalRoleArn: "arn:aws:iam::111122223333:role/Example-App-Config-Role"
  * }
  * *\/
- * // example id: to-retrieve-configuration-profile-details-1632266081013
  * ```
  *
+ * @public
  */
 export class GetConfigurationProfileCommand extends $Command
   .classBuilder<

@@ -89,6 +89,7 @@ export interface ListResolverConfigsCommandOutput extends ListResolverConfigsRes
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class ListResolverConfigsCommand extends $Command

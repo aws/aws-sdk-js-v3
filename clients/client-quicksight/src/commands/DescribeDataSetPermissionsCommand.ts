@@ -86,6 +86,7 @@ export interface DescribeDataSetPermissionsCommandOutput extends DescribeDataSet
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeDataSetPermissionsCommand extends $Command

@@ -78,6 +78,7 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class AddTagsCommand extends $Command

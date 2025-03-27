@@ -75,18 +75,21 @@ export interface DeleteAssessmentRunCommandOutput extends __MetadataBearer {}
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example Delete assessment run
  * ```javascript
  * // Deletes the assessment run that is specified by the ARN of the assessment run.
  * const input = {
- *   "assessmentRunArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T/run/0-11LMTAVe"
+ *   assessmentRunArn: "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T/run/0-11LMTAVe"
  * };
  * const command = new DeleteAssessmentRunCommand(input);
- * await client.send(command);
- * // example id: delete-assessment-run-1481064251629
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteAssessmentRunCommand extends $Command
   .classBuilder<

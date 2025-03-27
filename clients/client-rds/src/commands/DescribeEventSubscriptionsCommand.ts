@@ -88,36 +88,36 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe event subscriptions
  * ```javascript
  * // This example describes all of the Amazon RDS event subscriptions for the current AWS account.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeEventSubscriptionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EventSubscriptionsList": [
+ *   EventSubscriptionsList: [
  *     {
- *       "CustSubscriptionId": "my-instance-events",
- *       "CustomerAwsId": "123456789012",
- *       "Enabled": true,
- *       "EventCategoriesList": [
+ *       CustSubscriptionId: "my-instance-events",
+ *       CustomerAwsId: "123456789012",
+ *       Enabled: true,
+ *       EventCategoriesList: [
  *         "backup",
  *         "recovery"
  *       ],
- *       "EventSubscriptionArn": "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
- *       "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
- *       "SourceType": "db-instance",
- *       "Status": "creating",
- *       "SubscriptionCreationTime": "2018-07-31 23:22:01.893"
+ *       EventSubscriptionArn: "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
+ *       SnsTopicArn: "arn:aws:sns:us-east-1:123456789012:interesting-events",
+ *       SourceType: "db-instance",
+ *       Status: "creating",
+ *       SubscriptionCreationTime: "2018-07-31 23:22:01.893"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-event-subscriptions-1680281683538
  * ```
  *
+ * @public
  */
 export class DescribeEventSubscriptionsCommand extends $Command
   .classBuilder<

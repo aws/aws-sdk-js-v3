@@ -151,6 +151,7 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class ListJobRunsCommand extends $Command

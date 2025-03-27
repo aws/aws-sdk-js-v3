@@ -128,51 +128,8 @@ export interface StartDeploymentCommandOutput extends Deployment, __MetadataBear
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
- * @example To start a configuration deployment
- * ```javascript
- * // The following start-deployment example starts a deployment to the application using the specified environment, deployment strategy, and configuration profile.
- * const input = {
- *   "ApplicationId": "339ohji",
- *   "ConfigurationProfileId": "ur8hx2f",
- *   "ConfigurationVersion": "1",
- *   "DeploymentStrategyId": "1225qzk",
- *   "Description": "",
- *   "EnvironmentId": "54j1r29",
- *   "Tags": {}
- * };
- * const command = new StartDeploymentCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ApplicationId": "339ohji",
- *   "ConfigurationLocationUri": "ssm-parameter://Example-Parameter",
- *   "ConfigurationName": "Example-Configuration-Profile",
- *   "ConfigurationProfileId": "ur8hx2f",
- *   "ConfigurationVersion": "1",
- *   "DeploymentDurationInMinutes": 15,
- *   "DeploymentNumber": 1,
- *   "DeploymentStrategyId": "1225qzk",
- *   "EnvironmentId": "54j1r29",
- *   "EventLog": [
- *     {
- *       "Description": "Deployment started",
- *       "EventType": "DEPLOYMENT_STARTED",
- *       "OccurredAt": "2021-09-17T21:43:54.205000+00:00",
- *       "TriggeredBy": "USER"
- *     }
- *   ],
- *   "FinalBakeTimeInMinutes": 0,
- *   "GrowthFactor": 25,
- *   "GrowthType": "LINEAR",
- *   "PercentageComplete": 1,
- *   "StartedAt": "2021-09-17T21:43:54.205000+00:00",
- *   "State": "DEPLOYING"
- * }
- * *\/
- * // example id: to-start-a-configuration-deployment-1632328956790
- * ```
  *
+ * @public
  */
 export class StartDeploymentCommand extends $Command
   .classBuilder<

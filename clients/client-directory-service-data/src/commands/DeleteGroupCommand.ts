@@ -93,6 +93,7 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResult, __MetadataB
  * @throws {@link DirectoryServiceDataServiceException}
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
+ *
  * @public
  */
 export class DeleteGroupCommand extends $Command

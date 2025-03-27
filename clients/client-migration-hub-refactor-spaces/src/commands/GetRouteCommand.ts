@@ -109,6 +109,7 @@ export interface GetRouteCommandOutput extends GetRouteResponse, __MetadataBeare
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ *
  * @public
  */
 export class GetRouteCommand extends $Command

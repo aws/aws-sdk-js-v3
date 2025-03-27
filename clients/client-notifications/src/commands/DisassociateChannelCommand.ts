@@ -69,6 +69,7 @@ export interface DisassociateChannelCommandOutput extends DisassociateChannelRes
  * @throws {@link NotificationsServiceException}
  * <p>Base exception class for all service exceptions from Notifications service.</p>
  *
+ *
  * @public
  */
 export class DisassociateChannelCommand extends $Command

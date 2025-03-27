@@ -4609,118 +4609,118 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To get a list of findings
  * ```javascript
  * // The following example returns a filtered and sorted list of Security Hub findings.
  * const input = {
- *   "Filters": {
- *     "AwsAccountId": [
+ *   Filters: {
+ *     AwsAccountId: [
  *       {
- *         "Comparison": "PREFIX",
- *         "Value": "123456789012"
+ *         Comparison: "PREFIX",
+ *         Value: "123456789012"
  *       }
  *     ]
  *   },
- *   "MaxResults": 1
+ *   MaxResults: 1
  * };
  * const command = new GetFindingsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Findings": [
+ *   Findings: [
  *     {
- *       "AwsAccountId": "123456789012",
- *       "CompanyName": "AWS",
- *       "Compliance": {
- *         "AssociatedStandards": [
+ *       AwsAccountId: "123456789012",
+ *       CompanyName: "AWS",
+ *       Compliance: {
+ *         AssociatedStandards: [
  *           {
- *             "StandardsId": "standards/aws-foundational-security-best-practices/v/1.0.0"
+ *             StandardsId: "standards/aws-foundational-security-best-practices/v/1.0.0"
  *           },
  *           {
- *             "StandardsId": "standards/pci-dss/v/3.2.1"
+ *             StandardsId: "standards/pci-dss/v/3.2.1"
  *           },
  *           {
- *             "StandardsId": "ruleset/cis-aws-foundations-benchmark/v/1.2.0"
+ *             StandardsId: "ruleset/cis-aws-foundations-benchmark/v/1.2.0"
  *           },
  *           {
- *             "StandardsId": "standards/cis-aws-foundations-benchmark/v/1.4.0"
+ *             StandardsId: "standards/cis-aws-foundations-benchmark/v/1.4.0"
  *           },
  *           {
- *             "StandardsId": "standards/service-managed-aws-control-tower/v/1.0.0"
+ *             StandardsId: "standards/service-managed-aws-control-tower/v/1.0.0"
  *           }
  *         ],
- *         "RelatedRequirements": [
+ *         RelatedRequirements: [
  *           "PCI DSS v3.2.1/3.4",
  *           "CIS AWS Foundations Benchmark v1.2.0/2.7",
  *           "CIS AWS Foundations Benchmark v1.4.0/3.7"
  *         ],
- *         "SecurityControlId": "CloudTrail.2",
- *         "Status": "FAILED"
+ *         SecurityControlId: "CloudTrail.2",
+ *         Status: "FAILED"
  *       },
- *       "CreatedAt": "2022-10-06T02:18:23.076Z",
- *       "Description": "This AWS control checks whether AWS CloudTrail is configured to use the server side encryption (SSE) AWS Key Management Service (AWS KMS) customer master key (CMK) encryption. The check will pass if the KmsKeyId is defined.",
- *       "FindingProviderFields": {
- *         "Severity": {
- *           "Label": "MEDIUM",
- *           "Original": "MEDIUM"
+ *       CreatedAt: "2022-10-06T02:18:23.076Z",
+ *       Description: "This AWS control checks whether AWS CloudTrail is configured to use the server side encryption (SSE) AWS Key Management Service (AWS KMS) customer master key (CMK) encryption. The check will pass if the KmsKeyId is defined.",
+ *       FindingProviderFields: {
+ *         Severity: {
+ *           Label: "MEDIUM",
+ *           Original: "MEDIUM"
  *         },
- *         "Types": [
+ *         Types: [
  *           "Software and Configuration Checks/Industry and Regulatory Standards"
  *         ]
  *       },
- *       "FirstObservedAt": "2022-10-06T02:18:23.076Z",
- *       "GeneratorId": "security-control/CloudTrail.2",
- *       "Id": "arn:aws:securityhub:us-east-2:123456789012:security-control/CloudTrail.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "LastObservedAt": "2022-10-28T16:10:06.956Z",
- *       "ProductArn": "arn:aws:securityhub:us-east-2::product/aws/securityhub",
- *       "ProductFields": {
- *         "RelatedAWSResources:0/name": "securityhub-cloud-trail-encryption-enabled-fe95bf3f",
- *         "RelatedAWSResources:0/type": "AWS::Config::ConfigRule",
- *         "Resources:0/Id": "arn:aws:cloudtrail:us-east-2:123456789012:trail/AWSMacieTrail-DO-NOT-EDIT",
- *         "aws/securityhub/CompanyName": "AWS",
- *         "aws/securityhub/FindingId": "arn:aws:securityhub:us-east-2::product/aws/securityhub/arn:aws:securityhub:us-east-2:123456789012:security-control/CloudTrail.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *         "aws/securityhub/ProductName": "Security Hub"
+ *       FirstObservedAt: "2022-10-06T02:18:23.076Z",
+ *       GeneratorId: "security-control/CloudTrail.2",
+ *       Id: "arn:aws:securityhub:us-east-2:123456789012:security-control/CloudTrail.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       LastObservedAt: "2022-10-28T16:10:06.956Z",
+ *       ProductArn: "arn:aws:securityhub:us-east-2::product/aws/securityhub",
+ *       ProductFields: {
+ *         RelatedAWSResources:0/name: "securityhub-cloud-trail-encryption-enabled-fe95bf3f",
+ *         RelatedAWSResources:0/type: "AWS::Config::ConfigRule",
+ *         Resources:0/Id: "arn:aws:cloudtrail:us-east-2:123456789012:trail/AWSMacieTrail-DO-NOT-EDIT",
+ *         aws/securityhub/CompanyName: "AWS",
+ *         aws/securityhub/FindingId: "arn:aws:securityhub:us-east-2::product/aws/securityhub/arn:aws:securityhub:us-east-2:123456789012:security-control/CloudTrail.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *         aws/securityhub/ProductName: "Security Hub"
  *       },
- *       "ProductName": "Security Hub",
- *       "RecordState": "ACTIVE",
- *       "Region": "us-east-2",
- *       "Remediation": {
- *         "Recommendation": {
- *           "Text": "For directions on how to correct this issue, consult the AWS Security Hub controls documentation.",
- *           "Url": "https://docs.aws.amazon.com/console/securityhub/CloudTrail.2/remediation"
+ *       ProductName: "Security Hub",
+ *       RecordState: "ACTIVE",
+ *       Region: "us-east-2",
+ *       Remediation: {
+ *         Recommendation: {
+ *           Text: "For directions on how to correct this issue, consult the AWS Security Hub controls documentation.",
+ *           Url: "https://docs.aws.amazon.com/console/securityhub/CloudTrail.2/remediation"
  *         }
  *       },
- *       "Resources": [
+ *       Resources: [
  *         {
- *           "Id": "arn:aws:cloudtrail:us-east-2:123456789012:trail/AWSMacieTrail-DO-NOT-EDIT",
- *           "Partition": "aws",
- *           "Region": "us-east-2",
- *           "Type": "AwsCloudTrailTrail"
+ *           Id: "arn:aws:cloudtrail:us-east-2:123456789012:trail/AWSMacieTrail-DO-NOT-EDIT",
+ *           Partition: "aws",
+ *           Region: "us-east-2",
+ *           Type: "AwsCloudTrailTrail"
  *         }
  *       ],
- *       "SchemaVersion": "2018-10-08",
- *       "Severity": {
- *         "Label": "MEDIUM",
- *         "Normalized": 40,
- *         "Original": "MEDIUM"
+ *       SchemaVersion: "2018-10-08",
+ *       Severity: {
+ *         Label: "MEDIUM",
+ *         Normalized: 40,
+ *         Original: "MEDIUM"
  *       },
- *       "Title": "CloudTrail should have encryption at-rest enabled",
- *       "Types": [
+ *       Title: "CloudTrail should have encryption at-rest enabled",
+ *       Types: [
  *         "Software and Configuration Checks/Industry and Regulatory Standards"
  *       ],
- *       "UpdatedAt": "2022-10-28T16:10:00.093Z",
- *       "Workflow": {
- *         "Status": "NEW"
+ *       UpdatedAt: "2022-10-28T16:10:00.093Z",
+ *       Workflow: {
+ *         Status: "NEW"
  *       },
- *       "WorkflowState": "NEW"
+ *       WorkflowState: "NEW"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-a-list-of-findings-1677181069931
  * ```
  *
+ * @public
  */
 export class GetFindingsCommand extends $Command
   .classBuilder<

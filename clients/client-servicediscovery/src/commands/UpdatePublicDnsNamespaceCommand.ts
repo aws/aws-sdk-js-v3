@@ -81,6 +81,7 @@ export interface UpdatePublicDnsNamespaceCommandOutput extends UpdatePublicDnsNa
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ *
  * @public
  */
 export class UpdatePublicDnsNamespaceCommand extends $Command

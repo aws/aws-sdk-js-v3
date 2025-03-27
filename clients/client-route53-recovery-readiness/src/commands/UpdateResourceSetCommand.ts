@@ -128,6 +128,7 @@ export interface UpdateResourceSetCommandOutput extends UpdateResourceSetRespons
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ *
  * @public
  */
 export class UpdateResourceSetCommand extends $Command

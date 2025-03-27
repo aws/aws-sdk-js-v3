@@ -105,6 +105,7 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class UpdateSiteCommand extends $Command

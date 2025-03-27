@@ -90,6 +90,7 @@ export interface GetSettingsCommandOutput extends GetSettingsResponse, __Metadat
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class GetSettingsCommand extends $Command

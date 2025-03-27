@@ -77,6 +77,7 @@ export interface TestHypervisorConfigurationCommandOutput extends TestHypervisor
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ *
  * @public
  */
 export class TestHypervisorConfigurationCommand extends $Command

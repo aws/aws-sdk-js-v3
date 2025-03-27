@@ -62,6 +62,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

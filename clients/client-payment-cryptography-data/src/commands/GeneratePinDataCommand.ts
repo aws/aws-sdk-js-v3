@@ -161,6 +161,7 @@ export interface GeneratePinDataCommandOutput extends GeneratePinDataOutput, __M
  * @throws {@link PaymentCryptographyDataServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptographyData service.</p>
  *
+ *
  * @public
  */
 export class GeneratePinDataCommand extends $Command

@@ -83,6 +83,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link SSMQuickSetupServiceException}
  * <p>Base exception class for all service exceptions from SSMQuickSetup service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

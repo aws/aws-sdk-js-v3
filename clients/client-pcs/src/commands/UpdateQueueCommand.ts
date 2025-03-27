@@ -182,6 +182,7 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * @throws {@link PCSServiceException}
  * <p>Base exception class for all service exceptions from PCS service.</p>
  *
+ *
  * @public
  */
 export class UpdateQueueCommand extends $Command

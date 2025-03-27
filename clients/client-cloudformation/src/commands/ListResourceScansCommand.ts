@@ -67,35 +67,8 @@ export interface ListResourceScansCommandOutput extends ListResourceScansOutput,
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
- * @public
- * @example Listing Resource Scans
- * ```javascript
- * // This example shows how to list resource scans
- * const input = {};
- * const command = new ListResourceScansCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ResourceScanSummaries": [
- *     {
- *       "PercentageCompleted": 37.4,
- *       "ResourceScanId": "arn:aws:cloudformation:us-east-1:123456789012:resourceScan/51448627-817f-40f0-b37c-f6e0f974340c",
- *       "StartTime": "2024-01-24T00:33:29.673000+00:00",
- *       "Status": "IN_PROGRESS"
- *     },
- *     {
- *       "EndTime": "2024-01-02T23:25:48.075000+00:00",
- *       "PercentageCompleted": 100,
- *       "ResourceScanId": "arn:aws:cloudformation:us-east-1:123456789012:resourceScan/c19304f6-c4f1-4ff8-8e1f-35162e41d7e1",
- *       "StartTime": "2024-01-02T22:15:18.382000+00:00",
- *       "Status": "COMPLETE"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-list-resource-scans
- * ```
  *
+ * @public
  */
 export class ListResourceScansCommand extends $Command
   .classBuilder<

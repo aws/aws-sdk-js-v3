@@ -52,6 +52,7 @@ export interface DatetimeOffsetsCommandOutput extends DatetimeOffsetsOutput, __M
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class DatetimeOffsetsCommand extends $Command
   .classBuilder<

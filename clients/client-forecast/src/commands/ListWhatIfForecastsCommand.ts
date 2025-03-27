@@ -81,6 +81,7 @@ export interface ListWhatIfForecastsCommandOutput extends ListWhatIfForecastsRes
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class ListWhatIfForecastsCommand extends $Command

@@ -96,19 +96,22 @@ export interface AddRoleToInstanceProfileCommandOutput extends __MetadataBearer 
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To add a role to an instance profile
  * ```javascript
  * // The following command adds the role named S3Access to the instance profile named Webserver:
  * const input = {
- *   "InstanceProfileName": "Webserver",
- *   "RoleName": "S3Access"
+ *   InstanceProfileName: "Webserver",
+ *   RoleName: "S3Access"
  * };
  * const command = new AddRoleToInstanceProfileCommand(input);
- * await client.send(command);
- * // example id: c107fac3-edb6-4827-8a71-8863ec91c81f
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AddRoleToInstanceProfileCommand extends $Command
   .classBuilder<

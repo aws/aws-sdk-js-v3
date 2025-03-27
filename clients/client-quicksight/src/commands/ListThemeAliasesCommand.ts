@@ -91,6 +91,7 @@ export interface ListThemeAliasesCommandOutput extends ListThemeAliasesResponse,
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class ListThemeAliasesCommand extends $Command

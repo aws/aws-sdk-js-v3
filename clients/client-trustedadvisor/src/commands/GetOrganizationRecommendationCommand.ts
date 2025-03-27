@@ -116,6 +116,43 @@ export interface GetOrganizationRecommendationCommandOutput
  * @throws {@link TrustedAdvisorServiceException}
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ *
+ * @example Get an AWS Organization's Recommendation by ARN
+ * ```javascript
+ * //
+ * const input = {
+ *   organizationRecommendationIdentifier: "arn:aws:trustedadvisor:::organization-recommendation/9534ec9b-bf3a-44e8-8213-2ed68b39d9d5"
+ * };
+ * const command = new GetOrganizationRecommendationCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   organizationRecommendation: {
+ *     arn: "arn:aws:trustedadvisor:::organization-recommendation/9534ec9b-bf3a-44e8-8213-2ed68b39d9d5",
+ *     awsServices: [
+ *       "lambda"
+ *     ],
+ *     checkArn: "arn:aws:trustedadvisor:::check/L4dfs2Q4C5",
+ *     description: "One or more lambdas are using a deprecated runtime",
+ *     id: "9534ec9b-bf3a-44e8-8213-2ed68b39d9d5",
+ *     lifecycleStage: "resolved",
+ *     name: "Lambda Runtime Deprecation Warning",
+ *     pillars: [
+ *       "security"
+ *     ],
+ *     resourcesAggregates: {
+ *       errorCount: 0,
+ *       okCount: 0,
+ *       warningCount: 0
+ *     },
+ *     source: "ta_check",
+ *     status: "warning",
+ *     type: "priority"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetOrganizationRecommendationCommand extends $Command

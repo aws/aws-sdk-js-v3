@@ -75,6 +75,7 @@ export interface ListMapRunsCommandOutput extends ListMapRunsOutput, __MetadataB
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class ListMapRunsCommand extends $Command

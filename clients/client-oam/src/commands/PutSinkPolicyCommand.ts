@@ -98,6 +98,7 @@ export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __Metad
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ *
  * @public
  */
 export class PutSinkPolicyCommand extends $Command

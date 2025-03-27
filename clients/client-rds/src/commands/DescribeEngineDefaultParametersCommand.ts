@@ -90,35 +90,35 @@ export interface DescribeEngineDefaultParametersCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe the default engine and system parameter information for the database engine
  * ```javascript
  * // The following example retrieves details for the default engine and system parameter information for MySQL 5.7 DB instances.
  * const input = {
- *   "DBParameterGroupFamily": "mysql5.7"
+ *   DBParameterGroupFamily: "mysql5.7"
  * };
  * const command = new DescribeEngineDefaultParametersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EngineDefaults": {
- *     "Parameters": [
+ *   EngineDefaults: {
+ *     Parameters: [
  *       {
- *         "AllowedValues": "0,1",
- *         "ApplyType": "static",
- *         "DataType": "boolean",
- *         "Description": "Controls whether user-defined functions that have only an xxx symbol for the main function can be loaded",
- *         "IsModifiable": false,
- *         "ParameterName": "allow-suspicious-udfs",
- *         "Source": "engine-default"
+ *         AllowedValues: "0,1",
+ *         ApplyType: "static",
+ *         DataType: "boolean",
+ *         Description: "Controls whether user-defined functions that have only an xxx symbol for the main function can be loaded",
+ *         IsModifiable: false,
+ *         ParameterName: "allow-suspicious-udfs",
+ *         Source: "engine-default"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: to-describe-the-default-engine-and-system-parameter-information-for-the-database-engine-1680281248217
  * ```
  *
+ * @public
  */
 export class DescribeEngineDefaultParametersCommand extends $Command
   .classBuilder<

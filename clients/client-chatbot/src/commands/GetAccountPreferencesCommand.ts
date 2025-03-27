@@ -62,6 +62,7 @@ export interface GetAccountPreferencesCommandOutput extends GetAccountPreference
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ *
  * @public
  */
 export class GetAccountPreferencesCommand extends $Command

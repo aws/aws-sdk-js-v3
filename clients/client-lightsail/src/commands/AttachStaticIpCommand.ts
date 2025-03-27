@@ -104,6 +104,7 @@ export interface AttachStaticIpCommandOutput extends AttachStaticIpResult, __Met
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class AttachStaticIpCommand extends $Command

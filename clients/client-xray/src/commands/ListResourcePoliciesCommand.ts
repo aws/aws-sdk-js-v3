@@ -69,6 +69,7 @@ export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesR
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ *
  * @public
  */
 export class ListResourcePoliciesCommand extends $Command

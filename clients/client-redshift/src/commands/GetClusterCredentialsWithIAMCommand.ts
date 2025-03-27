@@ -78,6 +78,7 @@ export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtend
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class GetClusterCredentialsWithIAMCommand extends $Command

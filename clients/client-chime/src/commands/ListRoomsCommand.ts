@@ -89,6 +89,7 @@ export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBea
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class ListRoomsCommand extends $Command

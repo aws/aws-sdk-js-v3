@@ -74,6 +74,7 @@ export interface ListAppBundlesCommandOutput extends ListAppBundlesResponse, __M
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ *
  * @public
  */
 export class ListAppBundlesCommand extends $Command

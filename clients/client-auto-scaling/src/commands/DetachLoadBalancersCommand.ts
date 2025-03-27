@@ -74,21 +74,24 @@ export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersRes
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To detach a load balancer from an Auto Scaling group
  * ```javascript
  * // This example detaches the specified load balancer from the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "LoadBalancerNames": [
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   LoadBalancerNames: [
  *     "my-load-balancer"
  *   ]
  * };
  * const command = new DetachLoadBalancersCommand(input);
- * await client.send(command);
- * // example id: autoscaling-detach-load-balancers-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DetachLoadBalancersCommand extends $Command
   .classBuilder<

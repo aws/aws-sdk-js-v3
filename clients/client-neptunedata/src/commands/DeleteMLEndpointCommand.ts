@@ -96,6 +96,7 @@ export interface DeleteMLEndpointCommandOutput extends DeleteMLEndpointOutput, _
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class DeleteMLEndpointCommand extends $Command

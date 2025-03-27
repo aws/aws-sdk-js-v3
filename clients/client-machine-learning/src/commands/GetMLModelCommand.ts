@@ -94,6 +94,7 @@ export interface GetMLModelCommandOutput extends GetMLModelOutput, __MetadataBea
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class GetMLModelCommand extends $Command

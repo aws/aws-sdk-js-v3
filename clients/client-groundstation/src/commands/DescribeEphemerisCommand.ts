@@ -92,6 +92,7 @@ export interface DescribeEphemerisCommandOutput extends DescribeEphemerisRespons
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class DescribeEphemerisCommand extends $Command

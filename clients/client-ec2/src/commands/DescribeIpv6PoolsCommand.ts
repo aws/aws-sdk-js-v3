@@ -85,6 +85,7 @@ export interface DescribeIpv6PoolsCommandOutput extends DescribeIpv6PoolsResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeIpv6PoolsCommand extends $Command

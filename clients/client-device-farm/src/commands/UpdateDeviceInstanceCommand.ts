@@ -89,6 +89,7 @@ export interface UpdateDeviceInstanceCommandOutput extends UpdateDeviceInstanceR
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class UpdateDeviceInstanceCommand extends $Command

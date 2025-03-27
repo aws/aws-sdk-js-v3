@@ -62,6 +62,7 @@ export interface XmlMapsXmlNameCommandOutput extends XmlMapsXmlNameResponse, __M
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class XmlMapsXmlNameCommand extends $Command
   .classBuilder<

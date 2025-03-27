@@ -70,6 +70,7 @@ export interface DeleteListenerCommandOutput extends __MetadataBearer {}
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class DeleteListenerCommand extends $Command

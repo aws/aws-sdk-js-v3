@@ -92,6 +92,7 @@ export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __Me
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeResizeCommand extends $Command

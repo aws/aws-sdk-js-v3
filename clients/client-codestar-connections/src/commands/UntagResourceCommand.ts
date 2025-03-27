@@ -63,6 +63,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

@@ -124,6 +124,7 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class GetRecommendationsCommand extends $Command

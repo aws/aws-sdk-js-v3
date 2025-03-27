@@ -86,6 +86,7 @@ export interface BatchDeleteClusterNodesCommandOutput extends BatchDeleteCluster
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class BatchDeleteClusterNodesCommand extends $Command

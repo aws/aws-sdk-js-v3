@@ -72,6 +72,7 @@ export interface CreateUserCommandOutput extends CreateUserResult, __MetadataBea
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class CreateUserCommand extends $Command

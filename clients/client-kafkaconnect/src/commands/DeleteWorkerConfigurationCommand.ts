@@ -83,6 +83,7 @@ export interface DeleteWorkerConfigurationCommandOutput extends DeleteWorkerConf
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ *
  * @public
  */
 export class DeleteWorkerConfigurationCommand extends $Command

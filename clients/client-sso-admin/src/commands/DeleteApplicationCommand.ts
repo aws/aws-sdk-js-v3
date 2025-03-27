@@ -77,6 +77,7 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class DeleteApplicationCommand extends $Command

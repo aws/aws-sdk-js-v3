@@ -95,6 +95,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class ListGroupsCommand extends $Command

@@ -68,27 +68,27 @@ export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttr
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a volume attribute
  * ```javascript
  * // This example describes the ``autoEnableIo`` attribute of the volume with the ID ``vol-049df61146c4d7901``.
  * const input = {
- *   "Attribute": "autoEnableIO",
- *   "VolumeId": "vol-049df61146c4d7901"
+ *   Attribute: "autoEnableIO",
+ *   VolumeId: "vol-049df61146c4d7901"
  * };
  * const command = new DescribeVolumeAttributeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AutoEnableIO": {
- *     "Value": false
+ *   AutoEnableIO: {
+ *     Value: false
  *   },
- *   "VolumeId": "vol-049df61146c4d7901"
+ *   VolumeId: "vol-049df61146c4d7901"
  * }
  * *\/
- * // example id: to-describe-a-volume-attribute-1472505773492
  * ```
  *
+ * @public
  */
 export class DescribeVolumeAttributeCommand extends $Command
   .classBuilder<

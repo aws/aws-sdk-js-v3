@@ -80,6 +80,7 @@ export interface ListResourceSetResourcesCommandOutput extends ListResourceSetRe
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class ListResourceSetResourcesCommand extends $Command

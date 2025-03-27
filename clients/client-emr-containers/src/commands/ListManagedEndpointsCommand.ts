@@ -141,6 +141,7 @@ export interface ListManagedEndpointsCommandOutput extends ListManagedEndpointsR
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ *
  * @public
  */
 export class ListManagedEndpointsCommand extends $Command

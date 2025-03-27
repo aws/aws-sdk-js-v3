@@ -67,6 +67,7 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccountAttributesCommand extends $Command

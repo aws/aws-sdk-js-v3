@@ -91,6 +91,7 @@ export interface ListProfileObjectsCommandOutput extends ListProfileObjectsRespo
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class ListProfileObjectsCommand extends $Command

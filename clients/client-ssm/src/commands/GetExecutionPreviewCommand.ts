@@ -82,36 +82,8 @@ export interface GetExecutionPreviewCommandOutput extends GetExecutionPreviewRes
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
- * @public
- * @example GetExecutionPreview
- * ```javascript
- * // This example illustrates one usage of GetExecutionPreview
- * const input = {
- *   "ExecutionPreviewId": "2f27d6e5-9676-4708-b8bd-aef0ab47bb26"
- * };
- * const command = new GetExecutionPreviewCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "EndedAt": "2024-11-13T01:50:39.424000+00:00",
- *   "ExecutionPreview": {
- *     "Automation": {
- *       "Regions": [
- *         "us-east-2"
- *       ],
- *       "StepPreviews": {
- *         "Undetermined": 1
- *       },
- *       "TotalAccounts": 1
- *     }
- *   },
- *   "ExecutionPreviewId": "2f27d6e5-9676-4708-b8bd-aef0ab47bb26",
- *   "Status": "Success"
- * }
- * *\/
- * // example id: getexecutionpreview-f6ae6a7e734e
- * ```
  *
+ * @public
  */
 export class GetExecutionPreviewCommand extends $Command
   .classBuilder<

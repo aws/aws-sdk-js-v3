@@ -114,53 +114,56 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * @throws {@link SecurityIRServiceException}
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
- * @public
+ *
  * @example Invoke CreateCase
  * ```javascript
  * //
  * const input = {
- *   "description": "Case description",
- *   "engagementType": "Investigation",
- *   "impactedAccounts": [
+ *   description: "Case description",
+ *   engagementType: "Investigation",
+ *   impactedAccounts: [
  *     "000000000000",
  *     "111111111111"
  *   ],
- *   "impactedAwsRegions": [
+ *   impactedAwsRegions: [
  *     {
- *       "region": "ap-southeast-1"
+ *       region: "ap-southeast-1"
  *     }
  *   ],
- *   "impactedServices": [
+ *   impactedServices: [
  *     "Amazon EC2",
  *     "Amazon EKS"
  *   ],
- *   "reportedIncidentStartDate": "2023-03-27T15:32:01.789Z",
- *   "resolverType": "Self",
- *   "threatActorIpAddresses": [
+ *   reportedIncidentStartDate: "2023-03-27T15:32:01.789Z",
+ *   resolverType: "Self",
+ *   threatActorIpAddresses: [
  *     {
- *       "ipAddress": "192.168.192.168",
- *       "userAgent": "Browser"
+ *       ipAddress: "192.168.192.168",
+ *       userAgent: "Browser"
  *     }
  *   ],
- *   "title": "My sample case",
- *   "watchers": [
+ *   title: "My sample case",
+ *   watchers: [
  *     {
- *       "name": "Alice",
- *       "email": "alice@example.com",
- *       "jobTitle": "CEO"
+ *       email: "alice@example.com",
+ *       jobTitle: "CEO",
+ *       name: "Alice"
  *     },
  *     {
- *       "name": "Bob",
- *       "email": "bob@example.com",
- *       "jobTitle": "CFO"
+ *       email: "bob@example.com",
+ *       jobTitle: "CFO",
+ *       name: "Bob"
  *     }
  *   ]
  * };
  * const command = new CreateCaseCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateCaseCommand extends $Command
   .classBuilder<

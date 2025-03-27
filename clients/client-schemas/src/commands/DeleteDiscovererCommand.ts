@@ -65,6 +65,7 @@ export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ *
  * @public
  */
 export class DeleteDiscovererCommand extends $Command

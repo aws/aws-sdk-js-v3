@@ -79,6 +79,7 @@ export interface DeleteSpaceCommandOutput extends DeleteSpaceResponse, __Metadat
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class DeleteSpaceCommand extends $Command

@@ -62,6 +62,7 @@ export interface DeleteAccessGrantsLocationCommandOutput extends __MetadataBeare
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class DeleteAccessGrantsLocationCommand extends $Command

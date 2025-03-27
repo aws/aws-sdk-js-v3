@@ -70,6 +70,7 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class GetTemplateCommand extends $Command

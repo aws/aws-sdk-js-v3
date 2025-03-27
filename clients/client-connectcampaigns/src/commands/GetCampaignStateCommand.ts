@@ -70,6 +70,7 @@ export interface GetCampaignStateCommandOutput extends GetCampaignStateResponse,
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ *
  * @public
  */
 export class GetCampaignStateCommand extends $Command

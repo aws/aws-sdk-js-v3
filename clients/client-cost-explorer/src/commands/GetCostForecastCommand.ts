@@ -153,6 +153,7 @@ export interface GetCostForecastCommandOutput extends GetCostForecastResponse, _
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class GetCostForecastCommand extends $Command

@@ -113,6 +113,7 @@ export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataB
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetJobRunsCommand extends $Command

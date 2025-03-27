@@ -113,6 +113,7 @@ export interface CreateEnvironmentTemplateCommandOutput extends CreateEnvironmen
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class CreateEnvironmentTemplateCommand extends $Command

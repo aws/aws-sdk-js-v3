@@ -75,6 +75,7 @@ export interface GetDestinationCommandOutput extends GetDestinationResponse, __M
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class GetDestinationCommand extends $Command

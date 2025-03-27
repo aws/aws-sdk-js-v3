@@ -438,56 +438,56 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To modify a DB instance
  * ```javascript
  * // The following example associates an option group and a parameter group with a compatible Microsoft SQL Server DB instance. The ApplyImmediately parameter causes the option and parameter groups to be associated immediately, instead of waiting until the next maintenance window.
  * const input = {
- *   "ApplyImmediately": true,
- *   "DBInstanceIdentifier": "database-2",
- *   "DBParameterGroupName": "test-sqlserver-se-2017",
- *   "OptionGroupName": "test-se-2017"
+ *   ApplyImmediately: true,
+ *   DBInstanceIdentifier: "database-2",
+ *   DBParameterGroupName: "test-sqlserver-se-2017",
+ *   OptionGroupName: "test-se-2017"
  * };
  * const command = new ModifyDBInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstance": {
- *     "AssociatedRoles": [],
- *     "AutoMinorVersionUpgrade": false,
- *     "AvailabilityZone": "us-west-2d",
- *     "CharacterSetName": "SQL_Latin1_General_CP1_CI_AS",
- *     "DBInstanceClass": "db.r4.large",
- *     "DBInstanceIdentifier": "database-2",
- *     "DBInstanceStatus": "available",
- *     "DBParameterGroups": [
+ *   DBInstance: {
+ *     AssociatedRoles:     [],
+ *     AutoMinorVersionUpgrade: false,
+ *     AvailabilityZone: "us-west-2d",
+ *     CharacterSetName: "SQL_Latin1_General_CP1_CI_AS",
+ *     DBInstanceClass: "db.r4.large",
+ *     DBInstanceIdentifier: "database-2",
+ *     DBInstanceStatus: "available",
+ *     DBParameterGroups: [
  *       {
- *         "DBParameterGroupName": "test-sqlserver-se-2017",
- *         "ParameterApplyStatus": "applying"
+ *         DBParameterGroupName: "test-sqlserver-se-2017",
+ *         ParameterApplyStatus: "applying"
  *       }
  *     ],
- *     "DeletionProtection": false,
- *     "Engine": "sqlserver-se",
- *     "EngineVersion": "14.00.3281.6.v1",
- *     "LicenseModel": "license-included",
- *     "MaxAllocatedStorage": 1000,
- *     "MultiAZ": true,
- *     "OptionGroupMemberships": [
+ *     DeletionProtection: false,
+ *     Engine: "sqlserver-se",
+ *     EngineVersion: "14.00.3281.6.v1",
+ *     LicenseModel: "license-included",
+ *     MaxAllocatedStorage: 1000,
+ *     MultiAZ: true,
+ *     OptionGroupMemberships: [
  *       {
- *         "OptionGroupName": "test-se-2017",
- *         "Status": "pending-apply"
+ *         OptionGroupName: "test-se-2017",
+ *         Status: "pending-apply"
  *       }
  *     ],
- *     "PubliclyAccessible": true,
- *     "ReadReplicaDBInstanceIdentifiers": [],
- *     "SecondaryAvailabilityZone": "us-west-2c",
- *     "StorageType": "gp2"
+ *     PubliclyAccessible: true,
+ *     ReadReplicaDBInstanceIdentifiers:     [],
+ *     SecondaryAvailabilityZone: "us-west-2c",
+ *     StorageType: "gp2"
  *   }
  * }
  * *\/
- * // example id: to-modify-a-db-instance-1680377584537
  * ```
  *
+ * @public
  */
 export class ModifyDBInstanceCommand extends $Command
   .classBuilder<

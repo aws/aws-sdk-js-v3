@@ -62,6 +62,7 @@ export interface XmlEnumsCommandOutput extends XmlEnumsOutput, __MetadataBearer 
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  * @public
  */
 export class XmlEnumsCommand extends $Command

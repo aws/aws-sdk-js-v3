@@ -87,6 +87,7 @@ export interface DeleteOpsItemCommandOutput extends DeleteOpsItemResponse, __Met
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DeleteOpsItemCommand extends $Command

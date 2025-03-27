@@ -121,6 +121,7 @@ export interface StartReportCreationCommandOutput extends StartReportCreationOut
  * @throws {@link ResourceGroupsTaggingAPIServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
+ *
  * @public
  */
 export class StartReportCreationCommand extends $Command

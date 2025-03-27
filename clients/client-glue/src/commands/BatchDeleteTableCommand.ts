@@ -96,6 +96,7 @@ export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class BatchDeleteTableCommand extends $Command

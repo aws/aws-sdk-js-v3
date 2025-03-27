@@ -117,6 +117,7 @@ export interface GetInstanceAccessDetailsCommandOutput extends GetInstanceAccess
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetInstanceAccessDetailsCommand extends $Command

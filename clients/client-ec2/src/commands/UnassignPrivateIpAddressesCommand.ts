@@ -60,21 +60,24 @@ export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBeare
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To unassign a secondary private IP address from a network interface
  * ```javascript
  * // This example unassigns the specified private IP address from the specified network interface.
  * const input = {
- *   "NetworkInterfaceId": "eni-e5aa89a3",
- *   "PrivateIpAddresses": [
+ *   NetworkInterfaceId: "eni-e5aa89a3",
+ *   PrivateIpAddresses: [
  *     "10.0.0.82"
  *   ]
  * };
  * const command = new UnassignPrivateIpAddressesCommand(input);
- * await client.send(command);
- * // example id: ec2-unassign-private-ip-addresses-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UnassignPrivateIpAddressesCommand extends $Command
   .classBuilder<

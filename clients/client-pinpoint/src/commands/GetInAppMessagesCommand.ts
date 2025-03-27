@@ -183,6 +183,7 @@ export interface GetInAppMessagesCommandOutput extends GetInAppMessagesResponse,
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetInAppMessagesCommand extends $Command

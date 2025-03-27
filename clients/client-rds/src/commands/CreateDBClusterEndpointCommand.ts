@@ -105,41 +105,41 @@ export interface CreateDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To create a custom DB cluster endpoint
  * ```javascript
  * // The following example creates a custom DB cluster endpoint and associate it with the specified Aurora DB cluster.
  * const input = {
- *   "DBClusterEndpointIdentifier": "mycustomendpoint",
- *   "DBClusterIdentifier": "mydbcluster",
- *   "EndpointType": "reader",
- *   "StaticMembers": [
+ *   DBClusterEndpointIdentifier: "mycustomendpoint",
+ *   DBClusterIdentifier: "mydbcluster",
+ *   EndpointType: "reader",
+ *   StaticMembers: [
  *     "dbinstance1",
  *     "dbinstance2"
  *   ]
  * };
  * const command = new CreateDBClusterEndpointCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CustomEndpointType": "READER",
- *   "DBClusterEndpointArn": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:mycustomendpoint",
- *   "DBClusterEndpointIdentifier": "mycustomendpoint",
- *   "DBClusterEndpointResourceIdentifier": "cluster-endpoint-ANPAJ4AE5446DAEXAMPLE",
- *   "DBClusterIdentifier": "mydbcluster",
- *   "Endpoint": "mycustomendpoint.cluster-custom-cnpexample.us-east-1.rds.amazonaws.com",
- *   "EndpointType": "CUSTOM",
- *   "ExcludedMembers": [],
- *   "StaticMembers": [
+ *   CustomEndpointType: "READER",
+ *   DBClusterEndpointArn: "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:mycustomendpoint",
+ *   DBClusterEndpointIdentifier: "mycustomendpoint",
+ *   DBClusterEndpointResourceIdentifier: "cluster-endpoint-ANPAJ4AE5446DAEXAMPLE",
+ *   DBClusterIdentifier: "mydbcluster",
+ *   Endpoint: "mycustomendpoint.cluster-custom-cnpexample.us-east-1.rds.amazonaws.com",
+ *   EndpointType: "CUSTOM",
+ *   ExcludedMembers:   [],
+ *   StaticMembers: [
  *     "dbinstance1",
  *     "dbinstance2"
  *   ],
- *   "Status": "creating"
+ *   Status: "creating"
  * }
  * *\/
- * // example id: to-create-a-custom-db-cluster-endpoint-1679701608522
  * ```
  *
+ * @public
  */
 export class CreateDBClusterEndpointCommand extends $Command
   .classBuilder<

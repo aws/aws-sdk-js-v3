@@ -77,6 +77,7 @@ export interface DeleteBackupPlanCommandOutput extends DeleteBackupPlanOutput, _
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class DeleteBackupPlanCommand extends $Command

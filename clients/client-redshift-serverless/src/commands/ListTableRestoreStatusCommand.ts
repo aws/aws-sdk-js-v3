@@ -91,6 +91,7 @@ export interface ListTableRestoreStatusCommandOutput extends ListTableRestoreSta
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class ListTableRestoreStatusCommand extends $Command

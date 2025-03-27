@@ -63,20 +63,23 @@ export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailF
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example SetIdentityMailFromDomain
  * ```javascript
  * // The following example configures Amazon SES to use a custom MAIL FROM domain for an identity:
  * const input = {
- *   "BehaviorOnMXFailure": "UseDefaultValue",
- *   "Identity": "user@example.com",
- *   "MailFromDomain": "bounces.example.com"
+ *   BehaviorOnMXFailure: "UseDefaultValue",
+ *   Identity: "user@example.com",
+ *   MailFromDomain: "bounces.example.com"
  * };
  * const command = new SetIdentityMailFromDomainCommand(input);
- * await client.send(command);
- * // example id: setidentitymailfromdomain-1469057693908
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetIdentityMailFromDomainCommand extends $Command
   .classBuilder<

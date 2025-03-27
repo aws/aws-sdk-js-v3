@@ -135,6 +135,7 @@ export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacit
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class DescribeFleetCapacityCommand extends $Command

@@ -134,6 +134,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class CreateSessionCommand extends $Command

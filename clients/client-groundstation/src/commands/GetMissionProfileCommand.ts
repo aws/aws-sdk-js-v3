@@ -85,6 +85,7 @@ export interface GetMissionProfileCommandOutput extends GetMissionProfileRespons
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class GetMissionProfileCommand extends $Command

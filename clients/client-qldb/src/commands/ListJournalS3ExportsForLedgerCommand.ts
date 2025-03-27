@@ -87,6 +87,7 @@ export interface ListJournalS3ExportsForLedgerCommandOutput
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ *
  * @public
  */
 export class ListJournalS3ExportsForLedgerCommand extends $Command

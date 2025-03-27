@@ -63,6 +63,7 @@ export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __M
  * @throws {@link MWAAServiceException}
  * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ *
  * @public
  */
 export class CreateCliTokenCommand extends $Command

@@ -119,6 +119,7 @@ export interface GetCoreNetworkCommandOutput extends GetCoreNetworkResponse, __M
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetCoreNetworkCommand extends $Command

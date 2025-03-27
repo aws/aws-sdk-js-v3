@@ -96,6 +96,7 @@ export interface UpdateAccountCustomizationCommandOutput extends UpdateAccountCu
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateAccountCustomizationCommand extends $Command

@@ -102,6 +102,7 @@ export interface UpdateTableObjectsCommandOutput extends UpdateTableObjectsRespo
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class UpdateTableObjectsCommand extends $Command

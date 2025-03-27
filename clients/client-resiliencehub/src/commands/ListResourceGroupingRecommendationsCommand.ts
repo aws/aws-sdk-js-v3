@@ -123,6 +123,7 @@ export interface ListResourceGroupingRecommendationsCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListResourceGroupingRecommendationsCommand extends $Command

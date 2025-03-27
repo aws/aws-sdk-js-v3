@@ -84,6 +84,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectionCommand extends $Command

@@ -68,6 +68,7 @@ export interface GetClusterPolicyCommandOutput extends GetClusterPolicyResponse,
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class GetClusterPolicyCommand extends $Command

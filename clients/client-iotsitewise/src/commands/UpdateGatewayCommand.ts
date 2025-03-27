@@ -74,6 +74,7 @@ export interface UpdateGatewayCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class UpdateGatewayCommand extends $Command

@@ -66,6 +66,7 @@ export interface RemoveRoleFromDBInstanceCommandOutput extends __MetadataBearer 
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class RemoveRoleFromDBInstanceCommand extends $Command

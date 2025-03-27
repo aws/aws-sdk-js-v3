@@ -76,6 +76,7 @@ export interface PutFirewallRuleGroupPolicyCommandOutput extends PutFirewallRule
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class PutFirewallRuleGroupPolicyCommand extends $Command

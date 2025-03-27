@@ -108,32 +108,8 @@ export interface PutFunctionEventInvokeConfigCommandOutput extends FunctionEvent
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
- * @example To configure error handling for asynchronous invocation
- * ```javascript
- * // The following example sets a maximum event age of one hour and disables retries for the specified function.
- * const input = {
- *   "FunctionName": "my-function",
- *   "MaximumEventAgeInSeconds": 3600,
- *   "MaximumRetryAttempts": 0
- * };
- * const command = new PutFunctionEventInvokeConfigCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DestinationConfig": {
- *     "OnFailure": {},
- *     "OnSuccess": {}
- *   },
- *   "FunctionArn": "arn:aws:lambda:us-east-2:123456789012:function:my-function:$LATEST",
- *   "LastModified": "${timestamp}",
- *   "MaximumEventAgeInSeconds": 3600,
- *   "MaximumRetryAttempts": 0
- * }
- * *\/
- * // example id: to-configure-error-handling-for-asynchronous-invocation-1586491524021
- * ```
  *
+ * @public
  */
 export class PutFunctionEventInvokeConfigCommand extends $Command
   .classBuilder<

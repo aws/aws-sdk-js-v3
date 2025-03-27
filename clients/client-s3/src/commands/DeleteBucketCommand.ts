@@ -111,18 +111,21 @@ export interface DeleteBucketCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To delete a bucket
  * ```javascript
  * // The following example deletes the specified bucket.
  * const input = {
- *   "Bucket": "forrandall2"
+ *   Bucket: "forrandall2"
  * };
  * const command = new DeleteBucketCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-bucket-1473108514262
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteBucketCommand extends $Command
   .classBuilder<

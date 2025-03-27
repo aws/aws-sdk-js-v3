@@ -84,6 +84,7 @@ export interface ListOperationEventsCommandOutput extends ListOperationEventsOut
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ *
  * @public
  */
 export class ListOperationEventsCommand extends $Command

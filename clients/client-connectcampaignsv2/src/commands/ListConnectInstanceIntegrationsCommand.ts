@@ -94,6 +94,7 @@ export interface ListConnectInstanceIntegrationsCommandOutput
  * @throws {@link ConnectCampaignsV2ServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaignsV2 service.</p>
  *
+ *
  * @public
  */
 export class ListConnectInstanceIntegrationsCommand extends $Command

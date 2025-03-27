@@ -84,6 +84,7 @@ export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerD
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
  * @public
  */
 export class PutAlertManagerDefinitionCommand extends $Command

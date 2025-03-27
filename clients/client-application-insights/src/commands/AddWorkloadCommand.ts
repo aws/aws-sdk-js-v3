@@ -82,6 +82,7 @@ export interface AddWorkloadCommandOutput extends AddWorkloadResponse, __Metadat
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class AddWorkloadCommand extends $Command

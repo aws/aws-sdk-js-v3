@@ -184,6 +184,7 @@ export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBea
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class RespondDecisionTaskCompletedCommand extends $Command

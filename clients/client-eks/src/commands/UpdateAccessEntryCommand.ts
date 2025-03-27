@@ -92,6 +92,7 @@ export interface UpdateAccessEntryCommandOutput extends UpdateAccessEntryRespons
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class UpdateAccessEntryCommand extends $Command

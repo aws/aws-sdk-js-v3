@@ -79,6 +79,7 @@ export interface ListPluginsCommandOutput extends ListPluginsResponse, __Metadat
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ *
  * @public
  */
 export class ListPluginsCommand extends $Command

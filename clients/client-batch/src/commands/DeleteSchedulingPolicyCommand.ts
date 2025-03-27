@@ -62,6 +62,7 @@ export interface DeleteSchedulingPolicyCommandOutput extends DeleteSchedulingPol
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ *
  * @public
  */
 export class DeleteSchedulingPolicyCommand extends $Command

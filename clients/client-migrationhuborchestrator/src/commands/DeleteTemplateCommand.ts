@@ -72,6 +72,7 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
+ *
  * @public
  */
 export class DeleteTemplateCommand extends $Command

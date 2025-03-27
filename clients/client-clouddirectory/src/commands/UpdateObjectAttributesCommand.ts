@@ -110,6 +110,7 @@ export interface UpdateObjectAttributesCommandOutput extends UpdateObjectAttribu
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
  * @public
  */
 export class UpdateObjectAttributesCommand extends $Command

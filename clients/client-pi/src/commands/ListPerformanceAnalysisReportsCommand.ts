@@ -88,6 +88,7 @@ export interface ListPerformanceAnalysisReportsCommandOutput
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ *
  * @public
  */
 export class ListPerformanceAnalysisReportsCommand extends $Command

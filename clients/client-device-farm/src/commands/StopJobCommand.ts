@@ -147,6 +147,7 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class StopJobCommand extends $Command

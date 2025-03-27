@@ -159,6 +159,7 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class UpdateGlobalTableCommand extends $Command

@@ -73,6 +73,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

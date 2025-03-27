@@ -102,6 +102,7 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class DescribeDBClusterSnapshotsCommand extends $Command

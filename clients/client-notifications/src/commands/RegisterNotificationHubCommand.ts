@@ -81,6 +81,7 @@ export interface RegisterNotificationHubCommandOutput extends RegisterNotificati
  * @throws {@link NotificationsServiceException}
  * <p>Base exception class for all service exceptions from Notifications service.</p>
  *
+ *
  * @public
  */
 export class RegisterNotificationHubCommand extends $Command

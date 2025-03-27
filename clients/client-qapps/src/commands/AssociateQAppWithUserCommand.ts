@@ -80,19 +80,22 @@ export interface AssociateQAppWithUserCommandOutput extends __MetadataBearer {}
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example Links an Amazon Q App to the invoker's list of apps
  * ```javascript
  * //
  * const input = {
- *   "appId": "393e77fb-0a30-4f47-ad30-75d71aeaed8a",
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
+ *   appId: "393e77fb-0a30-4f47-ad30-75d71aeaed8a",
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
  * };
  * const command = new AssociateQAppWithUserCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AssociateQAppWithUserCommand extends $Command
   .classBuilder<

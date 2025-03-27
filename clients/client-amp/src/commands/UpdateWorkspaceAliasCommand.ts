@@ -77,6 +77,7 @@ export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
  * @public
  */
 export class UpdateWorkspaceAliasCommand extends $Command

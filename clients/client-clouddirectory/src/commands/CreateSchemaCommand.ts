@@ -98,23 +98,23 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To create a schema
  * ```javascript
  * //
  * const input = {
- *   "Name": "Customers"
+ *   Name: "Customers"
  * };
  * const command = new CreateSchemaCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:schema/development/Customers"
+ *   SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:schema/development/Customers"
  * }
  * *\/
- * // example id: to-create-a-schema-1506530911949
  * ```
  *
+ * @public
  */
 export class CreateSchemaCommand extends $Command
   .classBuilder<

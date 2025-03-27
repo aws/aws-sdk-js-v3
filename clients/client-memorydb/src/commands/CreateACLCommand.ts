@@ -104,6 +104,7 @@ export interface CreateACLCommandOutput extends CreateACLResponse, __MetadataBea
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class CreateACLCommand extends $Command

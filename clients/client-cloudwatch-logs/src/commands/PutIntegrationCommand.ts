@@ -85,6 +85,7 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class PutIntegrationCommand extends $Command

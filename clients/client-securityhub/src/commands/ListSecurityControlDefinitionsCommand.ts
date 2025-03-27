@@ -147,57 +147,57 @@ export interface ListSecurityControlDefinitionsCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To list security controls that apply to a standard
  * ```javascript
  * // The following example lists security controls that apply to a specified Security Hub standard.
  * const input = {
- *   "MaxResults": 3,
- *   "NextToken": "NULL",
- *   "StandardsArn": "arn:aws:securityhub:::standards/aws-foundational-security-best-practices/v/1.0.0"
+ *   MaxResults: 3,
+ *   NextToken: "NULL",
+ *   StandardsArn: "arn:aws:securityhub:::standards/aws-foundational-security-best-practices/v/1.0.0"
  * };
  * const command = new ListSecurityControlDefinitionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NextToken": "U2FsdGVkX1...",
- *   "SecurityControlDefinitions": [
+ *   NextToken: "U2FsdGVkX1...",
+ *   SecurityControlDefinitions: [
  *     {
- *       "CurrentRegionAvailability": "AVAILABLE",
- *       "CustomizableProperties": [
+ *       CurrentRegionAvailability: "AVAILABLE",
+ *       CustomizableProperties: [
  *         "Parameters"
  *       ],
- *       "Description": "This AWS control checks whether ACM Certificates in your account are marked for expiration within a specified time period. Certificates provided by ACM are automatically renewed. ACM does not automatically renew certificates that you import.",
- *       "RemediationUrl": "https://docs.aws.amazon.com/console/securityhub/ACM.1/remediation",
- *       "SecurityControlId": "ACM.1",
- *       "SeverityRating": "MEDIUM",
- *       "Title": "Imported and ACM-issued certificates should be renewed after a specified time period"
+ *       Description: "This AWS control checks whether ACM Certificates in your account are marked for expiration within a specified time period. Certificates provided by ACM are automatically renewed. ACM does not automatically renew certificates that you import.",
+ *       RemediationUrl: "https://docs.aws.amazon.com/console/securityhub/ACM.1/remediation",
+ *       SecurityControlId: "ACM.1",
+ *       SeverityRating: "MEDIUM",
+ *       Title: "Imported and ACM-issued certificates should be renewed after a specified time period"
  *     },
  *     {
- *       "CurrentRegionAvailability": "AVAILABLE",
- *       "CustomizableProperties": [
+ *       CurrentRegionAvailability: "AVAILABLE",
+ *       CustomizableProperties: [
  *         "Parameters"
  *       ],
- *       "Description": "This control checks whether all stages of Amazon API Gateway REST and WebSocket APIs have logging enabled. The control fails if logging is not enabled for all methods of a stage or if loggingLevel is neither ERROR nor INFO.",
- *       "RemediationUrl": "https://docs.aws.amazon.com/console/securityhub/APIGateway.1/remediation",
- *       "SecurityControlId": "APIGateway.1",
- *       "SeverityRating": "MEDIUM",
- *       "Title": "API Gateway REST and WebSocket API execution logging should be enabled"
+ *       Description: "This control checks whether all stages of Amazon API Gateway REST and WebSocket APIs have logging enabled. The control fails if logging is not enabled for all methods of a stage or if loggingLevel is neither ERROR nor INFO.",
+ *       RemediationUrl: "https://docs.aws.amazon.com/console/securityhub/APIGateway.1/remediation",
+ *       SecurityControlId: "APIGateway.1",
+ *       SeverityRating: "MEDIUM",
+ *       Title: "API Gateway REST and WebSocket API execution logging should be enabled"
  *     },
  *     {
- *       "CurrentRegionAvailability": "AVAILABLE",
- *       "Description": "This control checks whether Amazon API Gateway REST API stages have SSL certificates configured that backend systems can use to authenticate that incoming requests are from the API Gateway.",
- *       "RemediationUrl": "https://docs.aws.amazon.com/console/securityhub/APIGateway.2/remediation",
- *       "SecurityControlId": "APIGateway.2",
- *       "SeverityRating": "MEDIUM",
- *       "Title": "API Gateway REST API stages should be configured to use SSL certificates for backend authentication"
+ *       CurrentRegionAvailability: "AVAILABLE",
+ *       Description: "This control checks whether Amazon API Gateway REST API stages have SSL certificates configured that backend systems can use to authenticate that incoming requests are from the API Gateway.",
+ *       RemediationUrl: "https://docs.aws.amazon.com/console/securityhub/APIGateway.2/remediation",
+ *       SecurityControlId: "APIGateway.2",
+ *       SeverityRating: "MEDIUM",
+ *       Title: "API Gateway REST API stages should be configured to use SSL certificates for backend authentication"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-security-controls-that-apply-to-a-standard-1678386912894
  * ```
  *
+ * @public
  */
 export class ListSecurityControlDefinitionsCommand extends $Command
   .classBuilder<

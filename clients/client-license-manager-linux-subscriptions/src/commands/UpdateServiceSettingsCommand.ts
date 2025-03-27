@@ -88,6 +88,7 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
+ *
  * @public
  */
 export class UpdateServiceSettingsCommand extends $Command

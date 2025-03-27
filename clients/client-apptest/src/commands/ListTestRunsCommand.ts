@@ -89,6 +89,7 @@ export interface ListTestRunsCommandOutput extends ListTestRunsResponse, __Metad
  * @throws {@link AppTestServiceException}
  * <p>Base exception class for all service exceptions from AppTest service.</p>
  *
+ *
  * @public
  */
 export class ListTestRunsCommand extends $Command

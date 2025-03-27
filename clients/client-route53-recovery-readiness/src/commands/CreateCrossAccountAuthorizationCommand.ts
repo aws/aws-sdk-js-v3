@@ -79,6 +79,7 @@ export interface CreateCrossAccountAuthorizationCommandOutput
  * @throws {@link Route53RecoveryReadinessServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ *
  * @public
  */
 export class CreateCrossAccountAuthorizationCommand extends $Command

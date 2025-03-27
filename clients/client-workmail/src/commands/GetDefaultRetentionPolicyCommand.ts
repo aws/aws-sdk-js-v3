@@ -79,6 +79,7 @@ export interface GetDefaultRetentionPolicyCommandOutput extends GetDefaultRetent
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class GetDefaultRetentionPolicyCommand extends $Command

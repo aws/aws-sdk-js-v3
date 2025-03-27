@@ -110,6 +110,7 @@ export interface UpdateProjectDataDeliveryCommandOutput extends UpdateProjectDat
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ *
  * @public
  */
 export class UpdateProjectDataDeliveryCommand extends $Command

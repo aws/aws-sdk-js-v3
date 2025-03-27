@@ -66,6 +66,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class DeleteEndpointCommand extends $Command

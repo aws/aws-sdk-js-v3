@@ -117,6 +117,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ *
  * @public
  */
 export class UpdateClusterCommand extends $Command

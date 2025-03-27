@@ -166,31 +166,36 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
- * @example To delete an object
- * ```javascript
- * // The following example deletes an object from an S3 bucket.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "objectkey.jpg"
- * };
- * const command = new DeleteObjectCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-object-1472850136595
- * ```
  *
  * @example To delete an object (from a non-versioned bucket)
  * ```javascript
  * // The following example deletes an object from a non-versioned bucket.
  * const input = {
- *   "Bucket": "ExampleBucket",
- *   "Key": "HappyFace.jpg"
+ *   Bucket: "ExampleBucket",
+ *   Key: "HappyFace.jpg"
  * };
  * const command = new DeleteObjectCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-object-from-a-non-versioned-bucket-1481588533089
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @example To delete an object
+ * ```javascript
+ * // The following example deletes an object from an S3 bucket.
+ * const input = {
+ *   Bucket: "examplebucket",
+ *   Key: "objectkey.jpg"
+ * };
+ * const command = new DeleteObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class DeleteObjectCommand extends $Command
   .classBuilder<

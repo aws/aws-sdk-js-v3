@@ -177,20 +177,23 @@ export interface DeregisterContainerInstanceCommandOutput
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To deregister a container instance from a cluster
  * ```javascript
  * // This example deregisters a container instance from the specified cluster in your default region. If there are still tasks running on the container instance, you must either stop those tasks before deregistering, or use the force option.
  * const input = {
- *   "cluster": "default",
- *   "containerInstance": "container_instance_UUID",
- *   "force": true
+ *   cluster: "default",
+ *   containerInstance: "container_instance_UUID",
+ *   force: true
  * };
  * const command = new DeregisterContainerInstanceCommand(input);
- * await client.send(command);
- * // example id: bf624927-cf64-4f4b-8b7e-c024a4e682f6
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeregisterContainerInstanceCommand extends $Command
   .classBuilder<

@@ -66,18 +66,21 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * @throws {@link CostAndUsageReportServiceServiceException}
  * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
- * @public
+ *
  * @example To delete the AWS Cost and Usage report named ExampleReport.
  * ```javascript
  * // The following example deletes the AWS Cost and Usage report named ExampleReport.
  * const input = {
- *   "ReportName": "ExampleReport"
+ *   ReportName: "ExampleReport"
  * };
  * const command = new DeleteReportDefinitionCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-report
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteReportDefinitionCommand extends $Command
   .classBuilder<

@@ -146,6 +146,7 @@ export interface DescribeDashboardSnapshotJobResultCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeDashboardSnapshotJobResultCommand extends $Command

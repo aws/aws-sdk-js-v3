@@ -137,32 +137,32 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To modify an option group
  * ```javascript
  * // The following example adds an option to an option group.
  * const input = {
- *   "ApplyImmediately": true,
- *   "OptionGroupName": "myawsuser-og02",
- *   "OptionsToInclude": [
+ *   ApplyImmediately: true,
+ *   OptionGroupName: "myawsuser-og02",
+ *   OptionsToInclude: [
  *     {
- *       "DBSecurityGroupMemberships": [
+ *       DBSecurityGroupMemberships: [
  *         "default"
  *       ],
- *       "OptionName": "MEMCACHED"
+ *       OptionName: "MEMCACHED"
  *     }
  *   ]
  * };
  * const command = new ModifyOptionGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OptionGroup": {}
+ *   OptionGroup:   { /* empty *\/ }
  * }
  * *\/
- * // example id: to-modify-an-option-group-1473890247875
  * ```
  *
+ * @public
  */
 export class ModifyOptionGroupCommand extends $Command
   .classBuilder<

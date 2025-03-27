@@ -88,40 +88,40 @@ export interface ListProvisionedConcurrencyConfigsCommandOutput
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To get a list of provisioned concurrency configurations
  * ```javascript
  * // The following example returns a list of provisioned concurrency configurations for a function named my-function.
  * const input = {
- *   "FunctionName": "my-function"
+ *   FunctionName: "my-function"
  * };
  * const command = new ListProvisionedConcurrencyConfigsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ProvisionedConcurrencyConfigs": [
+ *   ProvisionedConcurrencyConfigs: [
  *     {
- *       "AllocatedProvisionedConcurrentExecutions": 100,
- *       "AvailableProvisionedConcurrentExecutions": 100,
- *       "FunctionArn": "arn:aws:lambda:us-east-2:123456789012:function:my-function:GREEN",
- *       "LastModified": "2019-12-31T20:29:00+0000",
- *       "RequestedProvisionedConcurrentExecutions": 100,
- *       "Status": "READY"
+ *       AllocatedProvisionedConcurrentExecutions: 100,
+ *       AvailableProvisionedConcurrentExecutions: 100,
+ *       FunctionArn: "arn:aws:lambda:us-east-2:123456789012:function:my-function:GREEN",
+ *       LastModified: "2019-12-31T20:29:00+0000",
+ *       RequestedProvisionedConcurrentExecutions: 100,
+ *       Status: "READY"
  *     },
  *     {
- *       "AllocatedProvisionedConcurrentExecutions": 100,
- *       "AvailableProvisionedConcurrentExecutions": 100,
- *       "FunctionArn": "arn:aws:lambda:us-east-2:123456789012:function:my-function:BLUE",
- *       "LastModified": "2019-12-31T20:28:49+0000",
- *       "RequestedProvisionedConcurrentExecutions": 100,
- *       "Status": "READY"
+ *       AllocatedProvisionedConcurrentExecutions: 100,
+ *       AvailableProvisionedConcurrentExecutions: 100,
+ *       FunctionArn: "arn:aws:lambda:us-east-2:123456789012:function:my-function:BLUE",
+ *       LastModified: "2019-12-31T20:28:49+0000",
+ *       RequestedProvisionedConcurrentExecutions: 100,
+ *       Status: "READY"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-a-list-of-provisioned-concurrency-configurations-1586491032592
  * ```
  *
+ * @public
  */
 export class ListProvisionedConcurrencyConfigsCommand extends $Command
   .classBuilder<

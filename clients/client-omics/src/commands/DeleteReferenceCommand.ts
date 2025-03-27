@@ -75,6 +75,7 @@ export interface DeleteReferenceCommandOutput extends DeleteReferenceResponse, _
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class DeleteReferenceCommand extends $Command

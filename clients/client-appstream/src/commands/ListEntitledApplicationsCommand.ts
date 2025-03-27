@@ -72,6 +72,7 @@ export interface ListEntitledApplicationsCommandOutput extends ListEntitledAppli
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class ListEntitledApplicationsCommand extends $Command

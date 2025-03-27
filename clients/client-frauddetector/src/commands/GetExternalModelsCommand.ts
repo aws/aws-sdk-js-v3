@@ -104,6 +104,7 @@ export interface GetExternalModelsCommandOutput extends GetExternalModelsResult,
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class GetExternalModelsCommand extends $Command

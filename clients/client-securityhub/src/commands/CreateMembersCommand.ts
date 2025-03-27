@@ -119,30 +119,30 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To add a member account
  * ```javascript
  * // The following example creates a member association between the specified accounts and the administrator account (the account that makes the request). This operation is used to add accounts that aren't part of an organization.
  * const input = {
- *   "AccountDetails": [
+ *   AccountDetails: [
  *     {
- *       "AccountId": "123456789012"
+ *       AccountId: "123456789012"
  *     },
  *     {
- *       "AccountId": "111122223333"
+ *       AccountId: "111122223333"
  *     }
  *   ]
  * };
  * const command = new CreateMembersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "UnprocessedAccounts": []
+ *   UnprocessedAccounts:   []
  * }
  * *\/
- * // example id: to-add-a-member-account-1675354709996
  * ```
  *
+ * @public
  */
 export class CreateMembersCommand extends $Command
   .classBuilder<

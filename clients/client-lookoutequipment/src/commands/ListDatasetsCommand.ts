@@ -81,6 +81,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class ListDatasetsCommand extends $Command

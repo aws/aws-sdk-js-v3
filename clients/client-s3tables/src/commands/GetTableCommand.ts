@@ -100,6 +100,7 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * @throws {@link S3TablesServiceException}
  * <p>Base exception class for all service exceptions from S3Tables service.</p>
  *
+ *
  * @public
  */
 export class GetTableCommand extends $Command

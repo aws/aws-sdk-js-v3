@@ -72,6 +72,7 @@ export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __Met
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DeregisterTypeCommand extends $Command

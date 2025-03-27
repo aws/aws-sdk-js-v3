@@ -78,6 +78,7 @@ export interface DescribeScalingParametersCommandOutput extends DescribeScalingP
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class DescribeScalingParametersCommand extends $Command

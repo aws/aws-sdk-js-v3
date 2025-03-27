@@ -83,6 +83,7 @@ export interface ListBackendEnvironmentsCommandOutput extends ListBackendEnviron
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class ListBackendEnvironmentsCommand extends $Command

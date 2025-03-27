@@ -101,6 +101,7 @@ export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput,
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ *
  * @public
  */
 export class CreatePricingRuleCommand extends $Command

@@ -64,6 +64,7 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ *
  * @public
  */
 export class ListTemplatesCommand extends $Command

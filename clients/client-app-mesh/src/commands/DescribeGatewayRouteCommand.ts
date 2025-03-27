@@ -255,6 +255,7 @@ export interface DescribeGatewayRouteCommandOutput extends DescribeGatewayRouteO
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ *
  * @public
  */
 export class DescribeGatewayRouteCommand extends $Command

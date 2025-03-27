@@ -97,6 +97,7 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ *
  * @public
  */
 export class PurgeQueueCommand extends $Command

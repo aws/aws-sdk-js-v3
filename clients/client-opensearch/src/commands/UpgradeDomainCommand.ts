@@ -93,6 +93,7 @@ export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __Met
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class UpgradeDomainCommand extends $Command

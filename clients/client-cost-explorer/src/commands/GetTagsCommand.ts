@@ -161,6 +161,7 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class GetTagsCommand extends $Command

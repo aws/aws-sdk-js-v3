@@ -59,6 +59,11 @@ export interface GetTileCommandOutput extends Omit<GetTileOutput, "BinaryFile">,
  * };
  * const command = new GetTileCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.BinaryFile.transformToByteArray();
+ * // const str = await response.BinaryFile.transformToString();
+ * // response.BinaryFile.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetTileOutput
  * //   BinaryFile: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * // };
@@ -88,6 +93,7 @@ export interface GetTileCommandOutput extends Omit<GetTileOutput, "BinaryFile">,
  *
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
+ *
  *
  * @public
  */

@@ -73,37 +73,42 @@ export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectio
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To enable instance protection for an instance
  * ```javascript
  * // This example enables instance protection for the specified instance.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "InstanceIds": [
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   InstanceIds: [
  *     "i-93633f9b"
  *   ],
- *   "ProtectedFromScaleIn": true
+ *   ProtectedFromScaleIn: true
  * };
  * const command = new SetInstanceProtectionCommand(input);
- * await client.send(command);
- * // example id: autoscaling-set-instance-protection-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To disable instance protection for an instance
  * ```javascript
  * // This example disables instance protection for the specified instance.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "InstanceIds": [
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   InstanceIds: [
  *     "i-93633f9b"
  *   ],
- *   "ProtectedFromScaleIn": false
+ *   ProtectedFromScaleIn: false
  * };
  * const command = new SetInstanceProtectionCommand(input);
- * await client.send(command);
- * // example id: autoscaling-set-instance-protection-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetInstanceProtectionCommand extends $Command
   .classBuilder<

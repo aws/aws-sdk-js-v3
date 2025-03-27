@@ -102,6 +102,7 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class CompleteLayerUploadCommand extends $Command

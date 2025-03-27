@@ -82,6 +82,7 @@ export interface DescribeProfileCommandOutput extends DescribeProfileResponse, _
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class DescribeProfileCommand extends $Command

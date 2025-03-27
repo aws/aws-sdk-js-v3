@@ -104,6 +104,7 @@ export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __Metad
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class GetLogEventsCommand extends $Command

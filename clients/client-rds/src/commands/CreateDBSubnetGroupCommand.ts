@@ -104,14 +104,14 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To create a DB subnet group
  * ```javascript
  * // The following example creates a DB subnet group called mysubnetgroup using existing subnets.
  * const input = {
- *   "DBSubnetGroupDescription": "test DB subnet group",
- *   "DBSubnetGroupName": "mysubnetgroup",
- *   "SubnetIds": [
+ *   DBSubnetGroupDescription: "test DB subnet group",
+ *   DBSubnetGroupName: "mysubnetgroup",
+ *   SubnetIds: [
  *     "subnet-0a1dc4e1a6f123456",
  *     "subnet-070dd7ecb3aaaaaaa",
  *     "subnet-00f5b198bc0abcdef"
@@ -119,43 +119,43 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * };
  * const command = new CreateDBSubnetGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBSubnetGroup": {
- *     "DBSubnetGroupArn": "arn:aws:rds:us-west-2:0123456789012:subgrp:mysubnetgroup",
- *     "DBSubnetGroupDescription": "test DB subnet group",
- *     "DBSubnetGroupName": "mysubnetgroup",
- *     "SubnetGroupStatus": "Complete",
- *     "Subnets": [
+ *   DBSubnetGroup: {
+ *     DBSubnetGroupArn: "arn:aws:rds:us-west-2:0123456789012:subgrp:mysubnetgroup",
+ *     DBSubnetGroupDescription: "test DB subnet group",
+ *     DBSubnetGroupName: "mysubnetgroup",
+ *     SubnetGroupStatus: "Complete",
+ *     Subnets: [
  *       {
- *         "SubnetAvailabilityZone": {
- *           "Name": "us-west-2b"
+ *         SubnetAvailabilityZone: {
+ *           Name: "us-west-2b"
  *         },
- *         "SubnetIdentifier": "subnet-070dd7ecb3aaaaaaa",
- *         "SubnetStatus": "Active"
+ *         SubnetIdentifier: "subnet-070dd7ecb3aaaaaaa",
+ *         SubnetStatus: "Active"
  *       },
  *       {
- *         "SubnetAvailabilityZone": {
- *           "Name": "us-west-2d"
+ *         SubnetAvailabilityZone: {
+ *           Name: "us-west-2d"
  *         },
- *         "SubnetIdentifier": "subnet-00f5b198bc0abcdef",
- *         "SubnetStatus": "Active"
+ *         SubnetIdentifier: "subnet-00f5b198bc0abcdef",
+ *         SubnetStatus: "Active"
  *       },
  *       {
- *         "SubnetAvailabilityZone": {
- *           "Name": "us-west-2b"
+ *         SubnetAvailabilityZone: {
+ *           Name: "us-west-2b"
  *         },
- *         "SubnetIdentifier": "subnet-0a1dc4e1a6f123456",
- *         "SubnetStatus": "Active"
+ *         SubnetIdentifier: "subnet-0a1dc4e1a6f123456",
+ *         SubnetStatus: "Active"
  *       }
  *     ],
- *     "VpcId": "vpc-0f08e7610a1b2c3d4"
+ *     VpcId: "vpc-0f08e7610a1b2c3d4"
  *   }
  * }
  * *\/
- * // example id: to-create-a-db-subnet-group-1679942682822
  * ```
  *
+ * @public
  */
 export class CreateDBSubnetGroupCommand extends $Command
   .classBuilder<

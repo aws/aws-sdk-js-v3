@@ -91,6 +91,7 @@ export interface ListTrafficPolicyInstancesCommandOutput extends ListTrafficPoli
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class ListTrafficPolicyInstancesCommand extends $Command

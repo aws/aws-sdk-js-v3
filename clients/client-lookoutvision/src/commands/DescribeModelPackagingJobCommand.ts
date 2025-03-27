@@ -118,6 +118,7 @@ export interface DescribeModelPackagingJobCommandOutput extends DescribeModelPac
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ *
  * @public
  */
 export class DescribeModelPackagingJobCommand extends $Command

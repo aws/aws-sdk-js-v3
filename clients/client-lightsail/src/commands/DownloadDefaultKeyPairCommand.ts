@@ -87,6 +87,7 @@ export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyP
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class DownloadDefaultKeyPairCommand extends $Command

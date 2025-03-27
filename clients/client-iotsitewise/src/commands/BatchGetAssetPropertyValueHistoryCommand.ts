@@ -135,6 +135,7 @@ export interface BatchGetAssetPropertyValueHistoryCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class BatchGetAssetPropertyValueHistoryCommand extends $Command

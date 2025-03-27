@@ -71,6 +71,7 @@ export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DisassociateIpGroupsCommand extends $Command

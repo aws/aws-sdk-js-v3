@@ -102,6 +102,7 @@ export interface SendHeartbeatCommandOutput extends __MetadataBearer {}
  * @throws {@link SagemakerEdgeServiceException}
  * <p>Base exception class for all service exceptions from SagemakerEdge service.</p>
  *
+ *
  * @public
  */
 export class SendHeartbeatCommand extends $Command

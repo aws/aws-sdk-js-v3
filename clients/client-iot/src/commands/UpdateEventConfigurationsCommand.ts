@@ -67,6 +67,7 @@ export interface UpdateEventConfigurationsCommandOutput extends UpdateEventConfi
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdateEventConfigurationsCommand extends $Command

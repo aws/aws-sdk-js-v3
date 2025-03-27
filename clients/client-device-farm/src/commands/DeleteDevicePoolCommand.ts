@@ -66,18 +66,21 @@ export interface DeleteDevicePoolCommandOutput extends DeleteDevicePoolResult, _
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To delete a device pool
  * ```javascript
  * // The following example deletes a specific device pool.
  * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2::devicepool:123-456-EXAMPLE-GUID"
+ *   arn: "arn:aws:devicefarm:us-west-2::devicepool:123-456-EXAMPLE-GUID"
  * };
  * const command = new DeleteDevicePoolCommand(input);
- * await client.send(command);
- * // example id: deletedevicepool-example-1470866975494
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteDevicePoolCommand extends $Command
   .classBuilder<

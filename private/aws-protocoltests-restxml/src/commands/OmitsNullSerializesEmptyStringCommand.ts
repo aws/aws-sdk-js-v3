@@ -55,6 +55,7 @@ export interface OmitsNullSerializesEmptyStringCommandOutput extends __MetadataB
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class OmitsNullSerializesEmptyStringCommand extends $Command

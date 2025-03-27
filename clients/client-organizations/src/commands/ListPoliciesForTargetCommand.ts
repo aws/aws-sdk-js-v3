@@ -217,33 +217,33 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To retrieve a list policies attached to a root, OU, or account
  * ```javascript
  * // The following example shows how to get a list of all service control policies (SCPs) of the type specified by the Filter parameter, that are directly attached to an account. The returned list does not include policies that apply to the account because of inheritance from its location in an OU hierarchy:/n/n
  * const input = {
- *   "Filter": "SERVICE_CONTROL_POLICY",
- *   "TargetId": "444444444444"
+ *   Filter: "SERVICE_CONTROL_POLICY",
+ *   TargetId: "444444444444"
  * };
  * const command = new ListPoliciesForTargetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Policies": [
+ *   Policies: [
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid222",
- *       "AwsManaged": false,
- *       "Description": "Enables account admins to delegate permissions for any EC2 actions to users and roles in their accounts.",
- *       "Id": "p-examplepolicyid222",
- *       "Name": "AllowAllEC2Actions",
- *       "Type": "SERVICE_CONTROL_POLICY"
+ *       Arn: "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid222",
+ *       AwsManaged: false,
+ *       Description: "Enables account admins to delegate permissions for any EC2 actions to users and roles in their accounts.",
+ *       Id: "p-examplepolicyid222",
+ *       Name: "AllowAllEC2Actions",
+ *       Type: "SERVICE_CONTROL_POLICY"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-a-list-of-policies-attached-to-a-root-ou-or-account
  * ```
  *
+ * @public
  */
 export class ListPoliciesForTargetCommand extends $Command
   .classBuilder<

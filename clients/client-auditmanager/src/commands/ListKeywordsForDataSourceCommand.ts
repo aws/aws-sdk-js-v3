@@ -72,6 +72,7 @@ export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForD
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class ListKeywordsForDataSourceCommand extends $Command

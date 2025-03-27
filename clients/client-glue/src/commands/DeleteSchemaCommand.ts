@@ -73,6 +73,7 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class DeleteSchemaCommand extends $Command

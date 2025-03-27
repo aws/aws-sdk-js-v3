@@ -556,45 +556,48 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To launch an instance
  * ```javascript
  * // This example launches an instance using the specified AMI, instance type, security group, subnet, block device mapping, and tags.
  * const input = {
- *   "BlockDeviceMappings": [
+ *   BlockDeviceMappings: [
  *     {
- *       "DeviceName": "/dev/sdh",
- *       "Ebs": {
- *         "VolumeSize": 100
+ *       DeviceName: "/dev/sdh",
+ *       Ebs: {
+ *         VolumeSize: 100
  *       }
  *     }
  *   ],
- *   "ImageId": "ami-abc12345",
- *   "InstanceType": "t2.micro",
- *   "KeyName": "my-key-pair",
- *   "MaxCount": 1,
- *   "MinCount": 1,
- *   "SecurityGroupIds": [
+ *   ImageId: "ami-abc12345",
+ *   InstanceType: "t2.micro",
+ *   KeyName: "my-key-pair",
+ *   MaxCount: 1,
+ *   MinCount: 1,
+ *   SecurityGroupIds: [
  *     "sg-1a2b3c4d"
  *   ],
- *   "SubnetId": "subnet-6e7f829e",
- *   "TagSpecifications": [
+ *   SubnetId: "subnet-6e7f829e",
+ *   TagSpecifications: [
  *     {
- *       "ResourceType": "instance",
- *       "Tags": [
+ *       ResourceType: "instance",
+ *       Tags: [
  *         {
- *           "Key": "Purpose",
- *           "Value": "test"
+ *           Key: "Purpose",
+ *           Value: "test"
  *         }
  *       ]
  *     }
  *   ]
  * };
  * const command = new RunInstancesCommand(input);
- * await client.send(command);
- * // example id: to-launch-an-instance-1529360150806
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RunInstancesCommand extends $Command
   .classBuilder<

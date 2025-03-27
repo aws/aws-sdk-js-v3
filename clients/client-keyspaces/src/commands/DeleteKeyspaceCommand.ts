@@ -75,6 +75,7 @@ export interface DeleteKeyspaceCommandOutput extends DeleteKeyspaceResponse, __M
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ *
  * @public
  */
 export class DeleteKeyspaceCommand extends $Command

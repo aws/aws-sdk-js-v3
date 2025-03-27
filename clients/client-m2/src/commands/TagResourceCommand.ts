@@ -74,6 +74,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

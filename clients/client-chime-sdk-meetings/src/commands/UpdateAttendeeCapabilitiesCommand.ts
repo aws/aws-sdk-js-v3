@@ -126,6 +126,7 @@ export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeC
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ *
  * @public
  */
 export class UpdateAttendeeCapabilitiesCommand extends $Command

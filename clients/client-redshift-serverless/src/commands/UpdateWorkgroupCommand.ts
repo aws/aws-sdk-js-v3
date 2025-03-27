@@ -177,6 +177,7 @@ export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, _
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class UpdateWorkgroupCommand extends $Command

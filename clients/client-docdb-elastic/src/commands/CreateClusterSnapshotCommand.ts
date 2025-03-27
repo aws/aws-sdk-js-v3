@@ -96,6 +96,7 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ *
  * @public
  */
 export class CreateClusterSnapshotCommand extends $Command

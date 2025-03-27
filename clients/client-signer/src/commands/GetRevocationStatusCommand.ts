@@ -77,6 +77,7 @@ export interface GetRevocationStatusCommandOutput extends GetRevocationStatusRes
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ *
  * @public
  */
 export class GetRevocationStatusCommand extends $Command

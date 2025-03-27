@@ -74,6 +74,7 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class ImportSourceCredentialsCommand extends $Command

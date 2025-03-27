@@ -75,6 +75,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccountAttributesCommand extends $Command

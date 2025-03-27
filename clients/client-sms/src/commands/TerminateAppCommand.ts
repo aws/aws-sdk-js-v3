@@ -69,6 +69,7 @@ export interface TerminateAppCommandOutput extends TerminateAppResponse, __Metad
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ *
  * @public
  */
 export class TerminateAppCommand extends $Command

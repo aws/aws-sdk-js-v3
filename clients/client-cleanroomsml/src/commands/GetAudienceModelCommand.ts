@@ -80,6 +80,7 @@ export interface GetAudienceModelCommandOutput extends GetAudienceModelResponse,
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ *
  * @public
  */
 export class GetAudienceModelCommand extends $Command

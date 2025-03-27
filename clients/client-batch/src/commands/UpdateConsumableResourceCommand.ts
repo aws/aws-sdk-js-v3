@@ -68,27 +68,27 @@ export interface UpdateConsumableResourceCommandOutput extends UpdateConsumableR
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To update a consumable resource
  * ```javascript
  * // Updates a consumable resource.
  * const input = {
- *   "consumableResource": "myConsumableResource",
- *   "operation": "ADD",
- *   "quantity": 12
+ *   consumableResource: "myConsumableResource",
+ *   operation: "ADD",
+ *   quantity: 12
  * };
  * const command = new UpdateConsumableResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "consumableResourceArn": "arn:aws:batch:us-east-1:012345678910:consumable-resource/myConsumableResource",
- *   "consumableResourceName": "myConsumableResource",
- *   "totalQuantity": 135
+ *   consumableResourceArn: "arn:aws:batch:us-east-1:012345678910:consumable-resource/myConsumableResource",
+ *   consumableResourceName: "myConsumableResource",
+ *   totalQuantity: 135
  * }
  * *\/
- * // example id: to-update-a-consumable-resource-1739497761692
  * ```
  *
+ * @public
  */
 export class UpdateConsumableResourceCommand extends $Command
   .classBuilder<

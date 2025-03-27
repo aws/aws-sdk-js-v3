@@ -89,6 +89,7 @@ export interface GetCoreNetworkChangeEventsCommandOutput extends GetCoreNetworkC
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetCoreNetworkChangeEventsCommand extends $Command

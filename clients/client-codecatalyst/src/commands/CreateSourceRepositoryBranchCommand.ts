@@ -90,6 +90,7 @@ export interface CreateSourceRepositoryBranchCommandOutput
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class CreateSourceRepositoryBranchCommand extends $Command

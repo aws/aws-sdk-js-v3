@@ -101,31 +101,31 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To create a customer gateway
  * ```javascript
  * // This example creates a customer gateway with the specified IP address for its outside interface.
  * const input = {
- *   "BgpAsn": 65534,
- *   "PublicIp": "12.1.2.3",
- *   "Type": "ipsec.1"
+ *   BgpAsn: 65534,
+ *   PublicIp: "12.1.2.3",
+ *   Type: "ipsec.1"
  * };
  * const command = new CreateCustomerGatewayCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CustomerGateway": {
- *     "BgpAsn": "65534",
- *     "CustomerGatewayId": "cgw-0e11f167",
- *     "IpAddress": "12.1.2.3",
- *     "State": "available",
- *     "Type": "ipsec.1"
+ *   CustomerGateway: {
+ *     BgpAsn: "65534",
+ *     CustomerGatewayId: "cgw-0e11f167",
+ *     IpAddress: "12.1.2.3",
+ *     State: "available",
+ *     Type: "ipsec.1"
  *   }
  * }
  * *\/
- * // example id: ec2-create-customer-gateway-1
  * ```
  *
+ * @public
  */
 export class CreateCustomerGatewayCommand extends $Command
   .classBuilder<

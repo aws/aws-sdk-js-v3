@@ -88,6 +88,7 @@ export interface StopDeliveryStreamEncryptionCommandOutput
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ *
  * @public
  */
 export class StopDeliveryStreamEncryptionCommand extends $Command

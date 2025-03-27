@@ -137,6 +137,7 @@ export interface GrantPermissionsCommandOutput extends GrantPermissionsResponse,
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class GrantPermissionsCommand extends $Command

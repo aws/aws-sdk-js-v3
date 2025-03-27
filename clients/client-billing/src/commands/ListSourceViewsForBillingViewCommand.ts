@@ -86,25 +86,25 @@ export interface ListSourceViewsForBillingViewCommandOutput
  * @throws {@link BillingServiceException}
  * <p>Base exception class for all service exceptions from Billing service.</p>
  *
- * @public
+ *
  * @example Invoke ListSourceViewsForBillingView
  * ```javascript
  * //
  * const input = {
- *   "arn": "arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899"
+ *   arn: "arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899"
  * };
  * const command = new ListSourceViewsForBillingViewCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "sourceViews": [
+ *   sourceViews: [
  *     "arn:aws:billing::123456789101:billingview/primary"
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListSourceViewsForBillingViewCommand extends $Command
   .classBuilder<

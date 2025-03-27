@@ -74,6 +74,7 @@ export interface GetDataCatalogCommandOutput extends GetDataCatalogOutput, __Met
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class GetDataCatalogCommand extends $Command

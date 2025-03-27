@@ -114,6 +114,7 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class GetReplicationConfigurationCommand extends $Command

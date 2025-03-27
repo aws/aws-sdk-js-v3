@@ -86,18 +86,21 @@ export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
- * @public
+ *
  * @example To delete a file system
  * ```javascript
  * // This operation deletes an EFS file system.
  * const input = {
- *   "FileSystemId": "fs-01234567"
+ *   FileSystemId: "fs-01234567"
  * };
  * const command = new DeleteFileSystemCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-file-system-1481847318348
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteFileSystemCommand extends $Command
   .classBuilder<

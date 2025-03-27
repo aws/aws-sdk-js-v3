@@ -79,6 +79,7 @@ export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __M
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class ListDashboardsCommand extends $Command

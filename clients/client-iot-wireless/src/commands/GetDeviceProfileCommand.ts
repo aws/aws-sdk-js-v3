@@ -112,6 +112,7 @@ export interface GetDeviceProfileCommandOutput extends GetDeviceProfileResponse,
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class GetDeviceProfileCommand extends $Command

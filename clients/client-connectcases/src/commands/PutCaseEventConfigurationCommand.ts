@@ -88,6 +88,7 @@ export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConf
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class PutCaseEventConfigurationCommand extends $Command

@@ -109,6 +109,49 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * @throws {@link TrustedAdvisorServiceException}
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ *
+ * @example Get a Recommendation by ARN
+ * ```javascript
+ * //
+ * const input = {
+ *   recommendationIdentifier: "arn:aws:trustedadvisor::000000000000:recommendation/55fa4d2e-bbb7-491a-833b-5773e9589578"
+ * };
+ * const command = new GetRecommendationCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   recommendation: {
+ *     arn: "arn:aws:trustedadvisor::000000000000:recommendation/55fa4d2e-bbb7-491a-833b-5773e9589578",
+ *     awsServices: [
+ *       "iam"
+ *     ],
+ *     checkArn: "arn:aws:trustedadvisor:::check/7DAFEmoDos",
+ *     description: "Enable multi-factor authentication",
+ *     id: "55fa4d2e-bbb7-491a-833b-5773e9589578",
+ *     lastUpdatedAt: "2023-11-01T15:57:58.673Z",
+ *     name: "MFA Recommendation",
+ *     pillarSpecificAggregates: {
+ *       costOptimizing: {
+ *         estimatedMonthlySavings: 0.0,
+ *         estimatedPercentMonthlySavings: 0.0
+ *       }
+ *     },
+ *     pillars: [
+ *       "security"
+ *     ],
+ *     resourcesAggregates: {
+ *       errorCount: 1,
+ *       okCount: 0,
+ *       warningCount: 0
+ *     },
+ *     source: "ta_check",
+ *     status: "error",
+ *     type: "standard"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetRecommendationCommand extends $Command

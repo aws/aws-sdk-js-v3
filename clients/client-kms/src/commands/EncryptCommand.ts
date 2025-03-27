@@ -244,46 +244,45 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To encrypt data with a symmetric encryption KMS key
  * ```javascript
  * // The following example encrypts data with the specified symmetric encryption KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "Plaintext": "<binary data>"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   Plaintext: "<binary data>"
  * };
  * const command = new EncryptCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CiphertextBlob": "<binary data>",
- *   "EncryptionAlgorithm": "SYMMETRIC_DEFAULT",
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   CiphertextBlob: "<binary data>",
+ *   EncryptionAlgorithm: "SYMMETRIC_DEFAULT",
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
  * }
  * *\/
- * // example id: to-encrypt-data-1
  * ```
  *
  * @example To encrypt data with an asymmetric encryption KMS key
  * ```javascript
  * // The following example encrypts data with the specified RSA asymmetric KMS key. When you encrypt with an asymmetric key, you must specify the encryption algorithm.
  * const input = {
- *   "EncryptionAlgorithm": "RSAES_OAEP_SHA_256",
- *   "KeyId": "0987dcba-09fe-87dc-65ba-ab0987654321",
- *   "Plaintext": "<binary data>"
+ *   EncryptionAlgorithm: "RSAES_OAEP_SHA_256",
+ *   KeyId: "0987dcba-09fe-87dc-65ba-ab0987654321",
+ *   Plaintext: "<binary data>"
  * };
  * const command = new EncryptCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CiphertextBlob": "<binary data>",
- *   "EncryptionAlgorithm": "RSAES_OAEP_SHA_256",
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321"
+ *   CiphertextBlob: "<binary data>",
+ *   EncryptionAlgorithm: "RSAES_OAEP_SHA_256",
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321"
  * }
  * *\/
- * // example id: to-encrypt-data-2
  * ```
  *
+ * @public
  */
 export class EncryptCommand extends $Command
   .classBuilder<

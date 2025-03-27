@@ -272,6 +272,7 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class PutPipelineDefinitionCommand extends $Command

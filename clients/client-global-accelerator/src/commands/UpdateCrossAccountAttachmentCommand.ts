@@ -123,6 +123,7 @@ export interface UpdateCrossAccountAttachmentCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class UpdateCrossAccountAttachmentCommand extends $Command

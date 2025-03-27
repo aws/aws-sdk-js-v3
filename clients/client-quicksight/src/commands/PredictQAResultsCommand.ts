@@ -128,6 +128,7 @@ export interface PredictQAResultsCommandOutput extends PredictQAResultsResponse,
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class PredictQAResultsCommand extends $Command

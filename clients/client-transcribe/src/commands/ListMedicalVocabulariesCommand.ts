@@ -83,6 +83,7 @@ export interface ListMedicalVocabulariesCommandOutput extends ListMedicalVocabul
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class ListMedicalVocabulariesCommand extends $Command

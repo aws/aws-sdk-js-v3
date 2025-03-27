@@ -105,6 +105,7 @@ export interface ListMonitorEvaluationsCommandOutput extends ListMonitorEvaluati
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class ListMonitorEvaluationsCommand extends $Command

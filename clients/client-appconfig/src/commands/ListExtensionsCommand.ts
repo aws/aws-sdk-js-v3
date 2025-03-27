@@ -74,6 +74,7 @@ export interface ListExtensionsCommandOutput extends Extensions, __MetadataBeare
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ *
  * @public
  */
 export class ListExtensionsCommand extends $Command

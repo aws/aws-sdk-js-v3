@@ -84,6 +84,7 @@ export interface DescribeWorldTemplateCommandOutput extends DescribeWorldTemplat
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeWorldTemplateCommand extends $Command

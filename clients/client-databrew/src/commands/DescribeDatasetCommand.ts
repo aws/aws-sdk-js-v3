@@ -150,6 +150,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class DescribeDatasetCommand extends $Command

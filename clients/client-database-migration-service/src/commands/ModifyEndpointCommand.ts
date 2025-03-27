@@ -794,34 +794,34 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Modify endpoint
  * ```javascript
  * // Modifies the specified endpoint.
  * const input = {
- *   "CertificateArn": "",
- *   "DatabaseName": "",
- *   "EndpointArn": "",
- *   "EndpointIdentifier": "",
- *   "EndpointType": "source",
- *   "EngineName": "",
- *   "ExtraConnectionAttributes": "",
- *   "Password": "",
- *   "Port": 123,
- *   "ServerName": "",
- *   "SslMode": "require",
- *   "Username": ""
+ *   CertificateArn: "",
+ *   DatabaseName: "",
+ *   EndpointArn: "",
+ *   EndpointIdentifier: "",
+ *   EndpointType: "source",
+ *   EngineName: "",
+ *   ExtraConnectionAttributes: "",
+ *   Password: "",
+ *   Port: 123,
+ *   ServerName: "",
+ *   SslMode: "require",
+ *   Username: ""
  * };
  * const command = new ModifyEndpointCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Endpoint": {}
+ *   Endpoint:   { /* empty *\/ }
  * }
  * *\/
- * // example id: modify-endpoint-1481761649937
  * ```
  *
+ * @public
  */
 export class ModifyEndpointCommand extends $Command
   .classBuilder<

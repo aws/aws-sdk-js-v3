@@ -97,47 +97,49 @@ export interface ListBillingViewsCommandOutput extends ListBillingViewsResponse,
  * @throws {@link BillingServiceException}
  * <p>Base exception class for all service exceptions from Billing service.</p>
  *
- * @public
+ *
  * @example Invoke ListBillingViews
  * ```javascript
  * //
  * const input = {
- *   "activeTimeRange": {
- *     "activeAfterInclusive": 1719792000,
- *     "activeBeforeInclusive": 1722470399.999
+ *   activeTimeRange: {
+ *     activeAfterInclusive: 1719792000,
+ *     activeBeforeInclusive: 1.722470399999E9
  *   }
  * };
  * const command = new ListBillingViewsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "billingViews": [
+ *   billingViews: [
  *     {
- *       "name": "Primary Billing View Account 123456789101",
- *       "arn": "arn:aws:billing::123456789101:billingview/primary",
- *       "billingViewType": "PRIMARY",
- *       "ownerAccountId": "123456789101"
+ *       arn: "arn:aws:billing::123456789101:billingview/primary",
+ *       billingViewType: "PRIMARY",
+ *       name: "Primary Billing View Account 123456789101",
+ *       ownerAccountId: "123456789101"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
  * @example Error example for ListBillingViews
  * ```javascript
  * //
  * const input = {
- *   "activeTimeRange": {
- *     "activeAfterInclusive": 1719792001,
- *     "activeBeforeInclusive": 1719792000
+ *   activeTimeRange: {
+ *     activeAfterInclusive: 1719792001,
+ *     activeBeforeInclusive: 1719792000
  *   }
  * };
  * const command = new ListBillingViewsCommand(input);
- * await client.send(command);
- * // example id: example-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ListBillingViewsCommand extends $Command
   .classBuilder<

@@ -63,20 +63,23 @@ export interface RebootInstancesCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To reboot an EC2 instance
  * ```javascript
  * // This example reboots the specified EC2 instance.
  * const input = {
- *   "InstanceIds": [
+ *   InstanceIds: [
  *     "i-1234567890abcdef5"
  *   ]
  * };
  * const command = new RebootInstancesCommand(input);
- * await client.send(command);
- * // example id: to-reboot-an-ec2-instance-1529358566382
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RebootInstancesCommand extends $Command
   .classBuilder<

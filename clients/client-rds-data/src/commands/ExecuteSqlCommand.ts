@@ -146,6 +146,7 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ *
  * @public
  */
 export class ExecuteSqlCommand extends $Command

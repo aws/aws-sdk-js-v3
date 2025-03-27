@@ -116,34 +116,34 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To modify a global database cluster
  * ```javascript
  * // The following example enables deletion protection for an Aurora MySQL-based global database cluster.
  * const input = {
- *   "DeletionProtection": true,
- *   "GlobalClusterIdentifier": "myglobalcluster"
+ *   DeletionProtection: true,
+ *   GlobalClusterIdentifier: "myglobalcluster"
  * };
  * const command = new ModifyGlobalClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GlobalCluster": {
- *     "DeletionProtection": true,
- *     "Engine": "aurora-mysql",
- *     "EngineVersion": "5.7.mysql_aurora.2.07.2",
- *     "GlobalClusterArn": "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
- *     "GlobalClusterIdentifier": "myglobalcluster",
- *     "GlobalClusterMembers": [],
- *     "GlobalClusterResourceId": "cluster-f0e523bfe07aabb",
- *     "Status": "available",
- *     "StorageEncrypted": false
+ *   GlobalCluster: {
+ *     DeletionProtection: true,
+ *     Engine: "aurora-mysql",
+ *     EngineVersion: "5.7.mysql_aurora.2.07.2",
+ *     GlobalClusterArn: "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
+ *     GlobalClusterIdentifier: "myglobalcluster",
+ *     GlobalClusterMembers:     [],
+ *     GlobalClusterResourceId: "cluster-f0e523bfe07aabb",
+ *     Status: "available",
+ *     StorageEncrypted: false
  *   }
  * }
  * *\/
- * // example id: to-modify-a-global-database-cluster-1680385137511
  * ```
  *
+ * @public
  */
 export class ModifyGlobalClusterCommand extends $Command
   .classBuilder<

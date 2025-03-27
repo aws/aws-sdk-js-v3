@@ -84,48 +84,48 @@ export interface ListRetrainingSchedulersCommandOutput extends ListRetrainingSch
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
- * @public
+ *
  * @example Listing retraining schedulers
  * ```javascript
  * //
  * const input = {
- *   "MaxResults": 50
+ *   MaxResults: 50
  * };
  * const command = new ListRetrainingSchedulersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "RetrainingSchedulerSummaries": [
+ *   RetrainingSchedulerSummaries: [
  *     {
- *       "LookbackWindow": "P180D",
- *       "ModelArn": "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model-1/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "ModelName": "sample-model-1",
- *       "RetrainingFrequency": "P1M",
- *       "RetrainingStartDate": "2023-06-01T00:00:00Z",
- *       "Status": "RUNNING"
+ *       LookbackWindow: "P180D",
+ *       ModelArn: "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model-1/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       ModelName: "sample-model-1",
+ *       RetrainingFrequency: "P1M",
+ *       RetrainingStartDate: "2023-06-01T00:00:00Z",
+ *       Status: "RUNNING"
  *     },
  *     {
- *       "LookbackWindow": "P180D",
- *       "ModelArn": "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model-2/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
- *       "ModelName": "sample-model-2",
- *       "RetrainingFrequency": "P30D",
- *       "RetrainingStartDate": "2023-08-15T00:00:00Z",
- *       "Status": "RUNNING"
+ *       LookbackWindow: "P180D",
+ *       ModelArn: "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model-2/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+ *       ModelName: "sample-model-2",
+ *       RetrainingFrequency: "P30D",
+ *       RetrainingStartDate: "2023-08-15T00:00:00Z",
+ *       Status: "RUNNING"
  *     },
  *     {
- *       "LookbackWindow": "P360D",
- *       "ModelArn": "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model-3/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
- *       "ModelName": "sample-model-3",
- *       "RetrainingFrequency": "P1M",
- *       "RetrainingStartDate": "2023-09-01T00:00:00Z",
- *       "Status": "STOPPED"
+ *       LookbackWindow: "P360D",
+ *       ModelArn: "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model-3/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+ *       ModelName: "sample-model-3",
+ *       RetrainingFrequency: "P1M",
+ *       RetrainingStartDate: "2023-09-01T00:00:00Z",
+ *       Status: "STOPPED"
  *     }
  *   ]
  * }
  * *\/
- * // example id: listing-retraining-schedulers-1694016740503
  * ```
  *
+ * @public
  */
 export class ListRetrainingSchedulersCommand extends $Command
   .classBuilder<

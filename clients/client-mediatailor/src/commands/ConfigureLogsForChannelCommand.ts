@@ -61,6 +61,7 @@ export interface ConfigureLogsForChannelCommandOutput extends ConfigureLogsForCh
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class ConfigureLogsForChannelCommand extends $Command

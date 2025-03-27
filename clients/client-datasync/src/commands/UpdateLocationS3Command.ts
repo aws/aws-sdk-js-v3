@@ -81,6 +81,7 @@ export interface UpdateLocationS3CommandOutput extends UpdateLocationS3Response,
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class UpdateLocationS3Command extends $Command

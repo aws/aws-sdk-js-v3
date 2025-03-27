@@ -86,6 +86,7 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ *
  * @public
  */
 export class SearchDevicesCommand extends $Command

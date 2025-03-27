@@ -135,6 +135,7 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetNetworkRoutesCommand extends $Command

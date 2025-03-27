@@ -92,6 +92,7 @@ export interface DescribeRulesetCommandOutput extends DescribeRulesetResponse, _
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class DescribeRulesetCommand extends $Command

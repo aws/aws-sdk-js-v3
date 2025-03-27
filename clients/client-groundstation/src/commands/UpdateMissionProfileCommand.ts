@@ -82,6 +82,7 @@ export interface UpdateMissionProfileCommandOutput extends MissionProfileIdRespo
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class UpdateMissionProfileCommand extends $Command

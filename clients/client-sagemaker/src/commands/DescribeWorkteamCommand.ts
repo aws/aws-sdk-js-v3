@@ -93,6 +93,7 @@ export interface DescribeWorkteamCommandOutput extends DescribeWorkteamResponse,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeWorkteamCommand extends $Command

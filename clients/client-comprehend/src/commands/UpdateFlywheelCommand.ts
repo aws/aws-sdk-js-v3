@@ -125,6 +125,7 @@ export interface UpdateFlywheelCommandOutput extends UpdateFlywheelResponse, __M
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class UpdateFlywheelCommand extends $Command

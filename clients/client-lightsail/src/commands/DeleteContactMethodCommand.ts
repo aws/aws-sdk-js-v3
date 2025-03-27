@@ -103,6 +103,7 @@ export interface DeleteContactMethodCommandOutput extends DeleteContactMethodRes
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class DeleteContactMethodCommand extends $Command

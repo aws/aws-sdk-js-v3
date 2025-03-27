@@ -81,6 +81,7 @@ export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __M
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ *
  * @public
  */
 export class ListIngestionsCommand extends $Command

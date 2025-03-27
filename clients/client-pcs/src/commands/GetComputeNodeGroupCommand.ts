@@ -179,6 +179,7 @@ export interface GetComputeNodeGroupCommandOutput extends GetComputeNodeGroupRes
  * @throws {@link PCSServiceException}
  * <p>Base exception class for all service exceptions from PCS service.</p>
  *
+ *
  * @public
  */
 export class GetComputeNodeGroupCommand extends $Command

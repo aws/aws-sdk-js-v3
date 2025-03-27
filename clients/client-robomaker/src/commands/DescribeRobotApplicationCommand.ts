@@ -100,6 +100,7 @@ export interface DescribeRobotApplicationCommandOutput extends DescribeRobotAppl
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeRobotApplicationCommand extends $Command

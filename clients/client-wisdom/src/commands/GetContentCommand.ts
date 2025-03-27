@@ -84,6 +84,7 @@ export interface GetContentCommandOutput extends GetContentResponse, __MetadataB
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class GetContentCommand extends $Command

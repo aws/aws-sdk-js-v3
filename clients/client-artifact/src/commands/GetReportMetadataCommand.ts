@@ -95,39 +95,39 @@ export interface GetReportMetadataCommandOutput extends GetReportMetadataRespons
  * @throws {@link ArtifactServiceException}
  * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
- * @public
+ *
  * @example Invoke GetReportMetadata operation on the latest version of a specific report
  * ```javascript
  * // The GetReportMetadata operation is invoked on a reportId and on a optional version.
- * //                         If callers do not provide a version, it will default to the report's latest version.
+ *                         If callers do not provide a version, it will default to the report's latest version.
  * const input = {
- *   "reportId": "report-bqhUJF3FrQZsMJpb"
+ *   reportId: "report-bqhUJF3FrQZsMJpb"
  * };
  * const command = new GetReportMetadataCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "reportDetails": {
- *     "version": 1,
- *     "name": "Name of report",
- *     "arn": "arn:aws:artifact:us-east-1::report/report-abcdef0123456789:1",
- *     "category": "Artifact Category",
- *     "companyName": "AWS",
- *     "createdAt": "2022-05-27T23:17:00.343940Z",
- *     "description": "Description of report",
- *     "id": "report-abcdef0123456789",
- *     "periodEnd": "2022-04-01T20:32:04Z",
- *     "periodStart": "2022-04-01T20:32:04Z",
- *     "productName": "Product of report",
- *     "series": "Artifact Series",
- *     "state": "PUBLISHED",
- *     "termArn": "arn:aws:artifact:us-east-1::term/term-abcdef0123456789:1"
+ *   reportDetails: {
+ *     arn: "arn:aws:artifact:us-east-1::report/report-abcdef0123456789:1",
+ *     category: "Artifact Category",
+ *     companyName: "AWS",
+ *     createdAt: "2022-05-27T23:17:00.343940Z",
+ *     description: "Description of report",
+ *     id: "report-abcdef0123456789",
+ *     name: "Name of report",
+ *     periodEnd: "2022-04-01T20:32:04Z",
+ *     periodStart: "2022-04-01T20:32:04Z",
+ *     productName: "Product of report",
+ *     series: "Artifact Series",
+ *     state: "PUBLISHED",
+ *     termArn: "arn:aws:artifact:us-east-1::term/term-abcdef0123456789:1",
+ *     version: 1
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetReportMetadataCommand extends $Command
   .classBuilder<

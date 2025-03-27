@@ -73,23 +73,23 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To get a count of membership invitations
  * ```javascript
  * // The following example returns a count of invitations that the Security Hub administrator sent to the current member account, not including the currently accepted invitation.
- * //
- * //
- * const input = {};
+ *
+ *
+ * const input = { /* empty *\/ };
  * const command = new GetInvitationsCountCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InvitationsCount": 3
+ *   InvitationsCount: 3
  * }
  * *\/
- * // example id: to-get-a-count-of-membership-invitations-1677774568793
  * ```
  *
+ * @public
  */
 export class GetInvitationsCountCommand extends $Command
   .classBuilder<

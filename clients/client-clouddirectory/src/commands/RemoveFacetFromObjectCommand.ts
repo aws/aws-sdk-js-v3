@@ -89,6 +89,7 @@ export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjec
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
  * @public
  */
 export class RemoveFacetFromObjectCommand extends $Command

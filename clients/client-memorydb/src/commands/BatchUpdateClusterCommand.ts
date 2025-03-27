@@ -146,6 +146,7 @@ export interface BatchUpdateClusterCommandOutput extends BatchUpdateClusterRespo
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class BatchUpdateClusterCommand extends $Command

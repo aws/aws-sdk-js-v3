@@ -98,6 +98,7 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsResponse, _
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class RegisterTargetsCommand extends $Command

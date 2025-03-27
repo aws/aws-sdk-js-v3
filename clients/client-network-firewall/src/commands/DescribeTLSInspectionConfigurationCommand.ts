@@ -168,6 +168,7 @@ export interface DescribeTLSInspectionConfigurationCommandOutput
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class DescribeTLSInspectionConfigurationCommand extends $Command

@@ -57,6 +57,7 @@ export interface PostPlayerActionCommandOutput extends PostPlayerActionOutput, _
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class PostPlayerActionCommand extends $Command

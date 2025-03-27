@@ -94,6 +94,7 @@ export interface AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutpu
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class AttachCustomerManagedPolicyReferenceToPermissionSetCommand extends $Command

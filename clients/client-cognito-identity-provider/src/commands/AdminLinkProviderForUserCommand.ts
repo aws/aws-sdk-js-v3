@@ -134,6 +134,7 @@ export interface AdminLinkProviderForUserCommandOutput extends AdminLinkProvider
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminLinkProviderForUserCommand extends $Command

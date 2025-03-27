@@ -69,6 +69,7 @@ export interface ListPortfolioAccessCommandOutput extends ListPortfolioAccessOut
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListPortfolioAccessCommand extends $Command

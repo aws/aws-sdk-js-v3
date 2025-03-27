@@ -86,6 +86,7 @@ export interface AssumeDecoratedRoleWithSAMLCommandOutput
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class AssumeDecoratedRoleWithSAMLCommand extends $Command

@@ -76,6 +76,7 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ *
  */
 export class UploadMultipartPartCommand extends $Command
   .classBuilder<

@@ -117,6 +117,7 @@ export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersion
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class DescribeAddonVersionsCommand extends $Command

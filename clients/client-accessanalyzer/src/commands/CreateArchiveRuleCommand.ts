@@ -92,6 +92,7 @@ export interface CreateArchiveRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class CreateArchiveRuleCommand extends $Command

@@ -76,28 +76,28 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
- * @public
+ *
  * @example To list rules
  * ```javascript
  * // The following example returns an array of up to 100 rules.
  * const input = {
- *   "Limit": 100
+ *   Limit: 100
  * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Rules": [
+ *   Rules: [
  *     {
- *       "Name": "WAFByteHeaderRule",
- *       "RuleId": "WAFRule-1-Example"
+ *       Name: "WAFByteHeaderRule",
+ *       RuleId: "WAFRule-1-Example"
  *     }
  *   ]
  * }
  * *\/
- * // example id: listrules-1475258406433
  * ```
  *
+ * @public
  */
 export class ListRulesCommand extends $Command
   .classBuilder<

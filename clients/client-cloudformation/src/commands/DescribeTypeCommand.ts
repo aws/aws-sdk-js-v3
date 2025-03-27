@@ -107,6 +107,7 @@ export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __Metadat
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeTypeCommand extends $Command

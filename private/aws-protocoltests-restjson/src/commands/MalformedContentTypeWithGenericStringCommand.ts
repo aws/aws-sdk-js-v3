@@ -55,6 +55,7 @@ export interface MalformedContentTypeWithGenericStringCommandOutput extends __Me
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedContentTypeWithGenericStringCommand extends $Command
   .classBuilder<

@@ -119,6 +119,7 @@ export interface BatchCreateChannelMembershipCommandOutput
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class BatchCreateChannelMembershipCommand extends $Command

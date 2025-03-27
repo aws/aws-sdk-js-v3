@@ -64,6 +64,7 @@ export interface StopSuiteRunCommandOutput extends StopSuiteRunResponse, __Metad
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ *
  * @public
  */
 export class StopSuiteRunCommand extends $Command

@@ -82,6 +82,7 @@ export interface GetComponentVersionArtifactCommandOutput
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ *
  * @public
  */
 export class GetComponentVersionArtifactCommand extends $Command

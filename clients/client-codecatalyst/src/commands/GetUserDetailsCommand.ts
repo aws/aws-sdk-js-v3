@@ -83,6 +83,7 @@ export interface GetUserDetailsCommandOutput extends GetUserDetailsResponse, __M
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class GetUserDetailsCommand extends $Command

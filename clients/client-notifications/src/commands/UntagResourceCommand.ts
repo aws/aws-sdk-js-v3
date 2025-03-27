@@ -72,6 +72,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link NotificationsServiceException}
  * <p>Base exception class for all service exceptions from Notifications service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

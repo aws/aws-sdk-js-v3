@@ -63,6 +63,7 @@ export interface ConfirmConnectionCommandOutput extends ConfirmConnectionRespons
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class ConfirmConnectionCommand extends $Command

@@ -106,6 +106,7 @@ export interface UpdateSipRuleCommandOutput extends UpdateSipRuleResponse, __Met
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class UpdateSipRuleCommand extends $Command

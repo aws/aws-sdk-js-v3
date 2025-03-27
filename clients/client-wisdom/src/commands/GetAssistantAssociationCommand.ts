@@ -80,6 +80,7 @@ export interface GetAssistantAssociationCommandOutput extends GetAssistantAssoci
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class GetAssistantAssociationCommand extends $Command

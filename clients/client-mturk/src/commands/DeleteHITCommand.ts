@@ -94,6 +94,7 @@ export interface DeleteHITCommandOutput extends DeleteHITResponse, __MetadataBea
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class DeleteHITCommand extends $Command

@@ -283,27 +283,27 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To upload a part
  * ```javascript
  * // The following example uploads part 1 of a multipart upload. The example specifies a file name for the part data. The Upload ID is same that is returned by the initiate multipart upload.
  * const input = {
- *   "Body": "fileToUpload",
- *   "Bucket": "examplebucket",
- *   "Key": "examplelargeobject",
- *   "PartNumber": "1",
- *   "UploadId": "xadcOB_7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
+ *   Body: "fileToUpload",
+ *   Bucket: "examplebucket",
+ *   Key: "examplelargeobject",
+ *   PartNumber: 1,
+ *   UploadId: "xadcOB_7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
  * };
  * const command = new UploadPartCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\""
+ *   ETag: `"d8c2eafd90c266e19ab9dcacc479f8af"`
  * }
  * *\/
- * // example id: to-upload-a-part-1481847914943
  * ```
  *
+ * @public
  */
 export class UploadPartCommand extends $Command
   .classBuilder<

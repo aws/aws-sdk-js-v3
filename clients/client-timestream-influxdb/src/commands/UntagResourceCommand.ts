@@ -63,6 +63,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

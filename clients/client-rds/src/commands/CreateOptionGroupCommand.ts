@@ -117,34 +117,34 @@ export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult,
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To Create an Amazon RDS option group
  * ```javascript
  * // The following example creates a new Amazon RDS option group for Oracle MySQL version 8,0 named MyOptionGroup.
  * const input = {
- *   "EngineName": "mysql",
- *   "MajorEngineVersion": "8.0",
- *   "OptionGroupDescription": "MySQL 8.0 option group",
- *   "OptionGroupName": "MyOptionGroup"
+ *   EngineName: "mysql",
+ *   MajorEngineVersion: "8.0",
+ *   OptionGroupDescription: "MySQL 8.0 option group",
+ *   OptionGroupName: "MyOptionGroup"
  * };
  * const command = new CreateOptionGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OptionGroup": {
- *     "AllowsVpcAndNonVpcInstanceMemberships": true,
- *     "EngineName": "mysql",
- *     "MajorEngineVersion": "8.0",
- *     "OptionGroupArn": "arn:aws:rds:us-east-1:123456789012:og:myoptiongroup",
- *     "OptionGroupDescription": "MySQL 8.0 option group",
- *     "OptionGroupName": "myoptiongroup",
- *     "Options": []
+ *   OptionGroup: {
+ *     AllowsVpcAndNonVpcInstanceMemberships: true,
+ *     EngineName: "mysql",
+ *     MajorEngineVersion: "8.0",
+ *     OptionGroupArn: "arn:aws:rds:us-east-1:123456789012:og:myoptiongroup",
+ *     OptionGroupDescription: "MySQL 8.0 option group",
+ *     OptionGroupName: "myoptiongroup",
+ *     Options:     []
  *   }
  * }
  * *\/
- * // example id: to-create-an-amazon-rds-option-group-1679958217590
  * ```
  *
+ * @public
  */
 export class CreateOptionGroupCommand extends $Command
   .classBuilder<

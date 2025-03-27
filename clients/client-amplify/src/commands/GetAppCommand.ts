@@ -133,6 +133,7 @@ export interface GetAppCommandOutput extends GetAppResult, __MetadataBearer {}
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class GetAppCommand extends $Command

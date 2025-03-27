@@ -101,6 +101,7 @@ export interface RegisterComputeNodeGroupInstanceCommandOutput
  * @throws {@link PCSServiceException}
  * <p>Base exception class for all service exceptions from PCS service.</p>
  *
+ *
  * @public
  */
 export class RegisterComputeNodeGroupInstanceCommand extends $Command

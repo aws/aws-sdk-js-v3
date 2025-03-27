@@ -85,6 +85,7 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ *
  * @public
  */
 export class GetUserCommand extends $Command

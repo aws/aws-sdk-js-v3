@@ -92,6 +92,7 @@ export interface UpdateConfiguredAudienceModelCommandOutput
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ *
  * @public
  */
 export class UpdateConfiguredAudienceModelCommand extends $Command

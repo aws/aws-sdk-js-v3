@@ -143,41 +143,41 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To create a new application
  * ```javascript
  * // The following operation creates a new version (v1) of an application named my-app:
  * const input = {
- *   "ApplicationName": "my-app",
- *   "AutoCreateApplication": true,
- *   "Description": "my-app-v1",
- *   "Process": true,
- *   "SourceBundle": {
- *     "S3Bucket": "my-bucket",
- *     "S3Key": "sample.war"
+ *   ApplicationName: "my-app",
+ *   AutoCreateApplication: true,
+ *   Description: "my-app-v1",
+ *   Process: true,
+ *   SourceBundle: {
+ *     S3Bucket: "my-bucket",
+ *     S3Key: "sample.war"
  *   },
- *   "VersionLabel": "v1"
+ *   VersionLabel: "v1"
  * };
  * const command = new CreateApplicationVersionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplicationVersion": {
- *     "ApplicationName": "my-app",
- *     "DateCreated": "2015-02-03T23:01:25.412Z",
- *     "DateUpdated": "2015-02-03T23:01:25.412Z",
- *     "Description": "my-app-v1",
- *     "SourceBundle": {
- *       "S3Bucket": "my-bucket",
- *       "S3Key": "sample.war"
+ *   ApplicationVersion: {
+ *     ApplicationName: "my-app",
+ *     DateCreated: "2015-02-03T23:01:25.412Z",
+ *     DateUpdated: "2015-02-03T23:01:25.412Z",
+ *     Description: "my-app-v1",
+ *     SourceBundle: {
+ *       S3Bucket: "my-bucket",
+ *       S3Key: "sample.war"
  *     },
- *     "VersionLabel": "v1"
+ *     VersionLabel: "v1"
  *   }
  * }
  * *\/
- * // example id: to-create-a-new-application-1456268895683
  * ```
  *
+ * @public
  */
 export class CreateApplicationVersionCommand extends $Command
   .classBuilder<

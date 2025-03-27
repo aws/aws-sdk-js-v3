@@ -81,6 +81,7 @@ export interface GetDatasetContentCommandOutput extends GetDatasetContentRespons
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ *
  * @public
  */
 export class GetDatasetContentCommand extends $Command

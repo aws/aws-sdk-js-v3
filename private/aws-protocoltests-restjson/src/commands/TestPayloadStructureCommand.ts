@@ -63,6 +63,7 @@ export interface TestPayloadStructureCommandOutput extends TestPayloadStructureI
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class TestPayloadStructureCommand extends $Command

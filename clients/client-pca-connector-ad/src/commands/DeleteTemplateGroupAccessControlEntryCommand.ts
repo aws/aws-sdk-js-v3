@@ -84,6 +84,7 @@ export interface DeleteTemplateGroupAccessControlEntryCommandOutput extends __Me
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ *
  * @public
  */
 export class DeleteTemplateGroupAccessControlEntryCommand extends $Command

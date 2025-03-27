@@ -134,6 +134,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ *
  * @public
  */
 export class CreateJobCommand extends $Command

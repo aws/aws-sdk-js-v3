@@ -98,6 +98,7 @@ export interface RemovePolicyGrantCommandOutput extends RemovePolicyGrantOutput,
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class RemovePolicyGrantCommand extends $Command

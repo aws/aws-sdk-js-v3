@@ -119,6 +119,7 @@ export interface AdminGetDeviceCommandOutput extends AdminGetDeviceResponse, __M
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminGetDeviceCommand extends $Command

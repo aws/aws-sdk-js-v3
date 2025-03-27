@@ -78,6 +78,7 @@ export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationO
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class SetTypeConfigurationCommand extends $Command

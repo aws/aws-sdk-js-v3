@@ -131,6 +131,7 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ *
  * @public
  */
 export class DiscoverInputSchemaCommand extends $Command

@@ -123,6 +123,7 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class UpdateCanaryCommand extends $Command

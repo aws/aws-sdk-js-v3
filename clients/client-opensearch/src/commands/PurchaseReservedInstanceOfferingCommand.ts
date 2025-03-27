@@ -81,6 +81,7 @@ export interface PurchaseReservedInstanceOfferingCommandOutput
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class PurchaseReservedInstanceOfferingCommand extends $Command

@@ -99,6 +99,7 @@ export interface ListThingTypesCommandOutput extends ListThingTypesResponse, __M
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListThingTypesCommand extends $Command

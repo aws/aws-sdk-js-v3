@@ -175,28 +175,28 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To create a remote access session
  * ```javascript
  * // The following example creates a remote access session named MySession.
  * const input = {
- *   "name": "MySession",
- *   "configuration": {
- *     "billingMethod": "METERED"
+ *   configuration: {
+ *     billingMethod: "METERED"
  *   },
- *   "deviceArn": "arn:aws:devicefarm:us-west-2::device:123EXAMPLE",
- *   "projectArn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456"
+ *   deviceArn: "arn:aws:devicefarm:us-west-2::device:123EXAMPLE",
+ *   name: "MySession",
+ *   projectArn: "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456"
  * };
  * const command = new CreateRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "remoteAccessSession": {}
+ *   remoteAccessSession:   { /* empty *\/ }
  * }
  * *\/
- * // example id: to-create-a-remote-access-session-1470970668274
  * ```
  *
+ * @public
  */
 export class CreateRemoteAccessSessionCommand extends $Command
   .classBuilder<

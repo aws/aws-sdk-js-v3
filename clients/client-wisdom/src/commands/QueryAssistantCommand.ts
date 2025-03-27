@@ -113,6 +113,7 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class QueryAssistantCommand extends $Command

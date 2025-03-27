@@ -108,6 +108,7 @@ export interface DescribeSimulationCommandOutput extends DescribeSimulationOutpu
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ *
  * @public
  */
 export class DescribeSimulationCommand extends $Command

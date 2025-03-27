@@ -85,6 +85,7 @@ export interface ListChallengeMetadataCommandOutput extends ListChallengeMetadat
  * @throws {@link PcaConnectorScepServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorScep service.</p>
  *
+ *
  * @public
  */
 export class ListChallengeMetadataCommand extends $Command

@@ -54,6 +54,7 @@ export interface DeleteLiveSourceCommandOutput extends DeleteLiveSourceResponse,
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class DeleteLiveSourceCommand extends $Command

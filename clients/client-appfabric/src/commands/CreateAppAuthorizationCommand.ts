@@ -118,6 +118,7 @@ export interface CreateAppAuthorizationCommandOutput extends CreateAppAuthorizat
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ *
  * @public
  */
 export class CreateAppAuthorizationCommand extends $Command

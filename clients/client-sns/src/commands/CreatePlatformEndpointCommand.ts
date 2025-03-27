@@ -86,6 +86,7 @@ export interface CreatePlatformEndpointCommandOutput extends CreateEndpointRespo
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ *
  * @public
  */
 export class CreatePlatformEndpointCommand extends $Command

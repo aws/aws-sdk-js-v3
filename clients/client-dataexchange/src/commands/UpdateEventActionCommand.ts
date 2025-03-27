@@ -102,6 +102,7 @@ export interface UpdateEventActionCommandOutput extends UpdateEventActionRespons
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class UpdateEventActionCommand extends $Command

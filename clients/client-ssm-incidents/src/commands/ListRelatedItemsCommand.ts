@@ -90,6 +90,7 @@ export interface ListRelatedItemsCommandOutput extends ListRelatedItemsOutput, _
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ *
  * @public
  */
 export class ListRelatedItemsCommand extends $Command

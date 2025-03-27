@@ -110,6 +110,7 @@ export interface DescribeDataSourcesCommandOutput extends DescribeDataSourcesOut
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class DescribeDataSourcesCommand extends $Command

@@ -99,46 +99,46 @@ export interface GetSlotTypesCommandOutput extends GetSlotTypesResponse, __Metad
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
- * @public
+ *
  * @example To get a list of slot types
  * ```javascript
  * // This example shows how to get a list of all of the slot types in your account.
  * const input = {
- *   "maxResults": 10,
- *   "nextToken": ""
+ *   maxResults: 10,
+ *   nextToken: ""
  * };
  * const command = new GetSlotTypesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "slotTypes": [
+ *   slotTypes: [
  *     {
- *       "version": "$LATEST",
- *       "name": "DocPizzaCrustType",
- *       "createdDate": 1494359274.403,
- *       "description": "Available crust types",
- *       "lastUpdatedDate": 1494359274.403
+ *       createdDate: 1.494359274403E9,
+ *       description: "Available crust types",
+ *       lastUpdatedDate: 1.494359274403E9,
+ *       name: "DocPizzaCrustType",
+ *       version: "$LATEST"
  *     },
  *     {
- *       "version": "$LATEST",
- *       "name": "DocPizzaSauceType",
- *       "createdDate": 1494356442.23,
- *       "description": "Available pizza sauces",
- *       "lastUpdatedDate": 1494356442.23
+ *       createdDate: 1.49435644223E9,
+ *       description: "Available pizza sauces",
+ *       lastUpdatedDate: 1.49435644223E9,
+ *       name: "DocPizzaSauceType",
+ *       version: "$LATEST"
  *     },
  *     {
- *       "version": "$LATEST",
- *       "name": "DocPizzaType",
- *       "createdDate": 1494359198.656,
- *       "description": "Available pizzas",
- *       "lastUpdatedDate": 1494359198.656
+ *       createdDate: 1.494359198656E9,
+ *       description: "Available pizzas",
+ *       lastUpdatedDate: 1.494359198656E9,
+ *       name: "DocPizzaType",
+ *       version: "$LATEST"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-a-list-of-slot-types-1494432757458
  * ```
  *
+ * @public
  */
 export class GetSlotTypesCommand extends $Command
   .classBuilder<

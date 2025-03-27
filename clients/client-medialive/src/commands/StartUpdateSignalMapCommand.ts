@@ -145,6 +145,7 @@ export interface StartUpdateSignalMapCommandOutput extends StartUpdateSignalMapR
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class StartUpdateSignalMapCommand extends $Command

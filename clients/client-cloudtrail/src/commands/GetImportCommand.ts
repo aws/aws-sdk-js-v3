@@ -89,6 +89,7 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class GetImportCommand extends $Command

@@ -101,6 +101,39 @@ export interface UpdateScraperCommandOutput extends UpdateScraperResponse, __Met
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
+ * @example UpdateScraper with all optional parameters
+ * ```javascript
+ * //
+ * const input = {
+ *   alias: "alias-update",
+ *   clientToken: "token",
+ *   destination: {
+ *     ampConfiguration: {
+ *       workspaceArn: "arn:aws:aps:us-west-2:123456789012:workspace/ws-ogh2u499-ce12-hg89-v6c7-123412341234-update"
+ *     }
+ *   },
+ *   scrapeConfiguration: {
+ *     configurationBlob: "blob-update"
+ *   },
+ *   scraperId: "scraper-123"
+ * };
+ * const command = new UpdateScraperCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   arn: "arn:aws:aps:us-west-2:123456789012:scraper/scraper-123",
+ *   scraperId: "scraper-123",
+ *   status: {
+ *     statusCode: "UPDATING"
+ *   },
+ *   tags: {
+ *     exampleTag: "exampleValue"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateScraperCommand extends $Command

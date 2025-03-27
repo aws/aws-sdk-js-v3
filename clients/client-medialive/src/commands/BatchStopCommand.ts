@@ -98,6 +98,7 @@ export interface BatchStopCommandOutput extends BatchStopResponse, __MetadataBea
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class BatchStopCommand extends $Command

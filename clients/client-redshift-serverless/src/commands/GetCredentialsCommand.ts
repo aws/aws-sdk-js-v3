@@ -86,6 +86,7 @@ export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __M
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class GetCredentialsCommand extends $Command

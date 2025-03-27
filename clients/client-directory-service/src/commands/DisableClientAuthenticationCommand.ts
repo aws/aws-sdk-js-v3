@@ -72,6 +72,7 @@ export interface DisableClientAuthenticationCommandOutput extends DisableClientA
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DisableClientAuthenticationCommand extends $Command

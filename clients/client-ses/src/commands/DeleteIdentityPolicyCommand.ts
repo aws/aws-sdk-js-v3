@@ -65,19 +65,22 @@ export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyR
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example DeleteIdentityPolicy
  * ```javascript
  * // The following example deletes a sending authorization policy for an identity:
  * const input = {
- *   "Identity": "user@example.com",
- *   "PolicyName": "MyPolicy"
+ *   Identity: "user@example.com",
+ *   PolicyName: "MyPolicy"
  * };
  * const command = new DeleteIdentityPolicyCommand(input);
- * await client.send(command);
- * // example id: deleteidentitypolicy-1469055282499
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteIdentityPolicyCommand extends $Command
   .classBuilder<

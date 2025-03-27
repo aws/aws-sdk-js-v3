@@ -1386,6 +1386,7 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ *
  * @public
  */
 export class InvokeInlineAgentCommand extends $Command

@@ -74,6 +74,7 @@ export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExport
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class CancelMailboxExportJobCommand extends $Command

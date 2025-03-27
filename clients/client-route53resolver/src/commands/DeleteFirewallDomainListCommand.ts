@@ -85,6 +85,7 @@ export interface DeleteFirewallDomainListCommandOutput extends DeleteFirewallDom
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class DeleteFirewallDomainListCommand extends $Command

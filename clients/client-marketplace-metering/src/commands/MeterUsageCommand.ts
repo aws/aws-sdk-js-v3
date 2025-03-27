@@ -129,6 +129,7 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  * @throws {@link MarketplaceMeteringServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
+ *
  * @public
  */
 export class MeterUsageCommand extends $Command

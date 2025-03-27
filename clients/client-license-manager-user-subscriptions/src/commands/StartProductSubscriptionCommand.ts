@@ -148,6 +148,7 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ *
  * @public
  */
 export class StartProductSubscriptionCommand extends $Command

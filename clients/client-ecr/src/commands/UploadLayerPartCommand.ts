@@ -97,6 +97,7 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class UploadLayerPartCommand extends $Command

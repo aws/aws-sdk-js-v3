@@ -139,29 +139,29 @@ export interface CreateOpenIDConnectProviderCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To create an instance profile
  * ```javascript
  * // The following example defines a new OIDC provider in IAM with a client ID of my-application-id and pointing at the server with a URL of https://server.example.com.
  * const input = {
- *   "ClientIDList": [
+ *   ClientIDList: [
  *     "my-application-id"
  *   ],
- *   "ThumbprintList": [
+ *   ThumbprintList: [
  *     "3768084dfb3d2b68b7897bf5f565da8efEXAMPLE"
  *   ],
- *   "Url": "https://server.example.com"
+ *   Url: "https://server.example.com"
  * };
  * const command = new CreateOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OpenIDConnectProviderArn": "arn:aws:iam::123456789012:oidc-provider/server.example.com"
+ *   OpenIDConnectProviderArn: "arn:aws:iam::123456789012:oidc-provider/server.example.com"
  * }
  * *\/
- * // example id: 4e4a6bff-cc97-4406-922e-0ab4a82cdb63
  * ```
  *
+ * @public
  */
 export class CreateOpenIDConnectProviderCommand extends $Command
   .classBuilder<

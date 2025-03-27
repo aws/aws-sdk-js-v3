@@ -70,6 +70,7 @@ export interface DeleteAppCommandOutput extends DeleteAppOutput, __MetadataBeare
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ *
  * @public
  */
 export class DeleteAppCommand extends $Command

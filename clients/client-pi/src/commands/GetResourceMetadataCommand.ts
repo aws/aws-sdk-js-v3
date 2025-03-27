@@ -72,6 +72,7 @@ export interface GetResourceMetadataCommandOutput extends GetResourceMetadataRes
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ *
  * @public
  */
 export class GetResourceMetadataCommand extends $Command

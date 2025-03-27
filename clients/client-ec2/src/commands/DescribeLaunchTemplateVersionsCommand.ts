@@ -367,71 +367,71 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe the versions for a launch template
  * ```javascript
  * // This example describes the versions for the specified launch template.
  * const input = {
- *   "LaunchTemplateId": "068f72b72934aff71"
+ *   LaunchTemplateId: "068f72b72934aff71"
  * };
  * const command = new DescribeLaunchTemplateVersionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LaunchTemplateVersions": [
+ *   LaunchTemplateVersions: [
  *     {
- *       "CreateTime": "2017-11-20T13:12:32.000Z",
- *       "CreatedBy": "arn:aws:iam::123456789102:root",
- *       "DefaultVersion": false,
- *       "LaunchTemplateData": {
- *         "ImageId": "ami-6057e21a",
- *         "InstanceType": "t2.medium",
- *         "KeyName": "kp-us-east",
- *         "NetworkInterfaces": [
+ *       CreateTime: "2017-11-20T13:12:32.000Z",
+ *       CreatedBy: "arn:aws:iam::123456789102:root",
+ *       DefaultVersion: false,
+ *       LaunchTemplateData: {
+ *         ImageId: "ami-6057e21a",
+ *         InstanceType: "t2.medium",
+ *         KeyName: "kp-us-east",
+ *         NetworkInterfaces: [
  *           {
- *             "DeviceIndex": 0,
- *             "Groups": [
+ *             DeviceIndex: 0,
+ *             Groups: [
  *               "sg-7c227019"
  *             ],
- *             "SubnetId": "subnet-1a2b3c4d"
+ *             SubnetId: "subnet-1a2b3c4d"
  *           }
  *         ]
  *       },
- *       "LaunchTemplateId": "lt-068f72b72934aff71",
- *       "LaunchTemplateName": "Webservers",
- *       "VersionNumber": 2
+ *       LaunchTemplateId: "lt-068f72b72934aff71",
+ *       LaunchTemplateName: "Webservers",
+ *       VersionNumber: 2
  *     },
  *     {
- *       "CreateTime": "2017-11-20T12:52:33.000Z",
- *       "CreatedBy": "arn:aws:iam::123456789102:root",
- *       "DefaultVersion": true,
- *       "LaunchTemplateData": {
- *         "ImageId": "ami-aabbcc11",
- *         "InstanceType": "t2.medium",
- *         "KeyName": "kp-us-east",
- *         "NetworkInterfaces": [
+ *       CreateTime: "2017-11-20T12:52:33.000Z",
+ *       CreatedBy: "arn:aws:iam::123456789102:root",
+ *       DefaultVersion: true,
+ *       LaunchTemplateData: {
+ *         ImageId: "ami-aabbcc11",
+ *         InstanceType: "t2.medium",
+ *         KeyName: "kp-us-east",
+ *         NetworkInterfaces: [
  *           {
- *             "AssociatePublicIpAddress": true,
- *             "DeleteOnTermination": false,
- *             "DeviceIndex": 0,
- *             "Groups": [
+ *             AssociatePublicIpAddress: true,
+ *             DeleteOnTermination: false,
+ *             DeviceIndex: 0,
+ *             Groups: [
  *               "sg-7c227019"
  *             ],
- *             "SubnetId": "subnet-7b16de0c"
+ *             SubnetId: "subnet-7b16de0c"
  *           }
  *         ],
- *         "UserData": ""
+ *         UserData: ""
  *       },
- *       "LaunchTemplateId": "lt-068f72b72934aff71",
- *       "LaunchTemplateName": "Webservers",
- *       "VersionNumber": 1
+ *       LaunchTemplateId: "lt-068f72b72934aff71",
+ *       LaunchTemplateName: "Webservers",
+ *       VersionNumber: 1
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-the-versions-for-a-launch-template-1529344425048
  * ```
  *
+ * @public
  */
 export class DescribeLaunchTemplateVersionsCommand extends $Command
   .classBuilder<

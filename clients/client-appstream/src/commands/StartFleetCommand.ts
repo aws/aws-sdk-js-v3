@@ -77,6 +77,7 @@ export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBea
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class StartFleetCommand extends $Command

@@ -325,6 +325,7 @@ export interface ImportKeyCommandOutput extends ImportKeyOutput, __MetadataBeare
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ *
  * @public
  */
 export class ImportKeyCommand extends $Command

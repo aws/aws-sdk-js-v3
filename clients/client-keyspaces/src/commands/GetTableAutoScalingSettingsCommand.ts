@@ -160,6 +160,7 @@ export interface GetTableAutoScalingSettingsCommandOutput
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ *
  * @public
  */
 export class GetTableAutoScalingSettingsCommand extends $Command

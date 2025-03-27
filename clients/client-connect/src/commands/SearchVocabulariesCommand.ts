@@ -84,6 +84,7 @@ export interface SearchVocabulariesCommandOutput extends SearchVocabulariesRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class SearchVocabulariesCommand extends $Command

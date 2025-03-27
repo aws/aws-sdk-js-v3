@@ -471,6 +471,7 @@ export interface GetCampaignVersionCommandOutput extends GetCampaignVersionRespo
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetCampaignVersionCommand extends $Command

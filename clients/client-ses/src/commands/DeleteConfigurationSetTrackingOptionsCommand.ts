@@ -77,6 +77,7 @@ export interface DeleteConfigurationSetTrackingOptionsCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ *
  * @public
  */
 export class DeleteConfigurationSetTrackingOptionsCommand extends $Command

@@ -115,6 +115,7 @@ export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, _
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class CheckoutLicenseCommand extends $Command

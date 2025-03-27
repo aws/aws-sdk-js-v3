@@ -429,6 +429,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateDataSourceCommand extends $Command

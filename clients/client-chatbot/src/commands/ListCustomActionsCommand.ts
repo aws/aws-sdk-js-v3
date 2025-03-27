@@ -68,23 +68,23 @@ export interface ListCustomActionsCommandOutput extends ListCustomActionsResult,
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
- * @public
+ *
  * @example List custom actions
  * ```javascript
  * //
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListCustomActionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CustomActions": [
+ *   CustomActions: [
  *     "arn:aws:chatbot::1234567890:custom-action/my-custom-action"
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListCustomActionsCommand extends $Command
   .classBuilder<

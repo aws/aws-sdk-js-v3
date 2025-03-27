@@ -93,6 +93,7 @@ export interface CreateNotificationCommandOutput extends CreateNotificationRespo
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ *
  * @public
  */
 export class CreateNotificationCommand extends $Command

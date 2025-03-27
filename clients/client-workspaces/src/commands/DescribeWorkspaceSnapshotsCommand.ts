@@ -73,6 +73,7 @@ export interface DescribeWorkspaceSnapshotsCommandOutput extends DescribeWorkspa
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DescribeWorkspaceSnapshotsCommand extends $Command

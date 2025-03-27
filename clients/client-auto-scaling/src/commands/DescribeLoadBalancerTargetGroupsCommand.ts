@@ -107,28 +107,28 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe the target groups for an Auto Scaling group
  * ```javascript
  * // This example describes the target groups attached to the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group"
+ *   AutoScalingGroupName: "my-auto-scaling-group"
  * };
  * const command = new DescribeLoadBalancerTargetGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LoadBalancerTargetGroups": [
+ *   LoadBalancerTargetGroups: [
  *     {
- *       "LoadBalancerTargetGroupARN": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
- *       "State": "Added"
+ *       LoadBalancerTargetGroupARN: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *       State: "Added"
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-load-balancer-target-groups-1
  * ```
  *
+ * @public
  */
 export class DescribeLoadBalancerTargetGroupsCommand extends $Command
   .classBuilder<

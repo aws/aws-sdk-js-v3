@@ -77,6 +77,7 @@ export interface DeleteScheduleGroupCommandOutput extends DeleteScheduleGroupOut
  * @throws {@link SchedulerServiceException}
  * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
+ *
  * @public
  */
 export class DeleteScheduleGroupCommand extends $Command

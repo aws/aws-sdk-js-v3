@@ -79,25 +79,25 @@ export interface ListFindingAggregatorsCommandOutput extends ListFindingAggregat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To update the enablement status of a standard control
  * ```javascript
  * // The following example disables the specified control in the specified security standard.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListFindingAggregatorsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "FindingAggregators": [
+ *   FindingAggregators: [
  *     {
- *       "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:222222222222:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ *       FindingAggregatorArn: "arn:aws:securityhub:us-east-1:222222222222:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-update-the-enablement-status-of-a-standard-control-1678912506444
  * ```
  *
+ * @public
  */
 export class ListFindingAggregatorsCommand extends $Command
   .classBuilder<

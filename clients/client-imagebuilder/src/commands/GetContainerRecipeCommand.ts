@@ -131,6 +131,7 @@ export interface GetContainerRecipeCommandOutput extends GetContainerRecipeRespo
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class GetContainerRecipeCommand extends $Command

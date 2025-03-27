@@ -88,6 +88,7 @@ export interface CreateTrackerCommandOutput extends CreateTrackerResponse, __Met
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class CreateTrackerCommand extends $Command

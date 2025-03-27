@@ -139,6 +139,7 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class StartExecutionCommand extends $Command

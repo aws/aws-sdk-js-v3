@@ -92,6 +92,7 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class DescribeCertificateCommand extends $Command

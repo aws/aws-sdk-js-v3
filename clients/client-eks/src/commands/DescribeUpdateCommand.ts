@@ -99,6 +99,7 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class DescribeUpdateCommand extends $Command

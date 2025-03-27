@@ -152,6 +152,7 @@ export interface StartModelPackagingJobCommandOutput extends StartModelPackaging
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ *
  * @public
  */
 export class StartModelPackagingJobCommand extends $Command

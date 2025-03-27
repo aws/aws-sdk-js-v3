@@ -78,26 +78,26 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe your moving addresses
  * ```javascript
  * // This example describes all of your moving Elastic IP addresses.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeMovingAddressesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "MovingAddressStatuses": [
+ *   MovingAddressStatuses: [
  *     {
- *       "MoveStatus": "movingToVpc",
- *       "PublicIp": "198.51.100.0"
+ *       MoveStatus: "movingToVpc",
+ *       PublicIp: "198.51.100.0"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-moving-addresses-1
  * ```
  *
+ * @public
  */
 export class DescribeMovingAddressesCommand extends $Command
   .classBuilder<

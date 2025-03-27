@@ -161,6 +161,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ *
  * @public
  */
 export class CreatePipelineCommand extends $Command

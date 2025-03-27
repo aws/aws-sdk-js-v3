@@ -122,6 +122,7 @@ export interface RestoreServerCommandOutput extends RestoreServerResponse, __Met
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ *
  * @public
  */
 export class RestoreServerCommand extends $Command

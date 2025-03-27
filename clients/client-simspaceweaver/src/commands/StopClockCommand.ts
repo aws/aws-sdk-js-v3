@@ -68,6 +68,7 @@ export interface StopClockCommandOutput extends StopClockOutput, __MetadataBeare
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ *
  * @public
  */
 export class StopClockCommand extends $Command

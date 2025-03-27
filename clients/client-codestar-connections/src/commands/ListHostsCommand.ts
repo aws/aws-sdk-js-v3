@@ -80,6 +80,7 @@ export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBeare
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ *
  * @public
  */
 export class ListHostsCommand extends $Command

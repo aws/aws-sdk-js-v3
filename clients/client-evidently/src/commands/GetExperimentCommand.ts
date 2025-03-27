@@ -119,6 +119,7 @@ export interface GetExperimentCommandOutput extends GetExperimentResponse, __Met
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ *
  * @public
  */
 export class GetExperimentCommand extends $Command

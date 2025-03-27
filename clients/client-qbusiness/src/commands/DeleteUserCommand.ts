@@ -78,6 +78,7 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserCommand extends $Command

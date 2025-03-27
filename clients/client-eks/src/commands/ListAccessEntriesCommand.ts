@@ -78,6 +78,7 @@ export interface ListAccessEntriesCommandOutput extends ListAccessEntriesRespons
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class ListAccessEntriesCommand extends $Command

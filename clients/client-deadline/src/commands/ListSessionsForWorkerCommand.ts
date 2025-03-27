@@ -86,6 +86,7 @@ export interface ListSessionsForWorkerCommandOutput extends ListSessionsForWorke
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class ListSessionsForWorkerCommand extends $Command

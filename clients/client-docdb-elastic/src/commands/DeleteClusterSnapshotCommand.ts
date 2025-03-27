@@ -89,6 +89,7 @@ export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapsho
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ *
  * @public
  */
 export class DeleteClusterSnapshotCommand extends $Command

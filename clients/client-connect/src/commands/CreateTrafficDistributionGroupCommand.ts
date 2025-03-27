@@ -101,6 +101,7 @@ export interface CreateTrafficDistributionGroupCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateTrafficDistributionGroupCommand extends $Command

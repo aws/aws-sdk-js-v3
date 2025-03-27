@@ -82,6 +82,7 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
  * @throws {@link MWAAServiceException}
  * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ *
  * @public
  */
 export class PublishMetricsCommand extends $Command

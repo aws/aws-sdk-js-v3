@@ -73,6 +73,7 @@ export interface RejectDomainNameAccessAssociationCommandOutput extends __Metada
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class RejectDomainNameAccessAssociationCommand extends $Command

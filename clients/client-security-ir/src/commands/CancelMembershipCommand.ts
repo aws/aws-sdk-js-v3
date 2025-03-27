@@ -82,23 +82,23 @@ export interface CancelMembershipCommandOutput extends CancelMembershipResponse,
  * @throws {@link SecurityIRServiceException}
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
- * @public
+ *
  * @example Invoke CancelMembership
  * ```javascript
  * //
  * const input = {
- *   "membershipId": "m-abcd1234efgh"
+ *   membershipId: "m-abcd1234efgh"
  * };
  * const command = new CancelMembershipCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "membershipId": "m-abcd1234efgh"
+ *   membershipId: "m-abcd1234efgh"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class CancelMembershipCommand extends $Command
   .classBuilder<

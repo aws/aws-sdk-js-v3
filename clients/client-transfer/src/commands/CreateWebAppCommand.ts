@@ -86,6 +86,7 @@ export interface CreateWebAppCommandOutput extends CreateWebAppResponse, __Metad
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class CreateWebAppCommand extends $Command

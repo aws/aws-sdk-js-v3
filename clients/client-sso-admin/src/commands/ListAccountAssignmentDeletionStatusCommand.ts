@@ -93,6 +93,7 @@ export interface ListAccountAssignmentDeletionStatusCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class ListAccountAssignmentDeletionStatusCommand extends $Command

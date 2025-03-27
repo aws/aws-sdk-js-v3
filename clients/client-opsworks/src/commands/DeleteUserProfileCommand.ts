@@ -64,6 +64,7 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserProfileCommand extends $Command

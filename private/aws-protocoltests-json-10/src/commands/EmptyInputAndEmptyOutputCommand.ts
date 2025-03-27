@@ -52,6 +52,7 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  * @throws {@link JSONRPC10ServiceException}
  * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>
  *
+ *
  * @public
  */
 export class EmptyInputAndEmptyOutputCommand extends $Command

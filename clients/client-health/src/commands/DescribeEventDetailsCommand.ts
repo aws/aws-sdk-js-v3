@@ -99,6 +99,7 @@ export interface DescribeEventDetailsCommandOutput extends DescribeEventDetailsR
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ *
  * @public
  */
 export class DescribeEventDetailsCommand extends $Command

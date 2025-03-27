@@ -81,6 +81,7 @@ export interface GetGroupProfileCommandOutput extends GetGroupProfileOutput, __M
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetGroupProfileCommand extends $Command

@@ -62,6 +62,7 @@ export interface DeleteImageVersionCommandOutput extends DeleteImageVersionRespo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteImageVersionCommand extends $Command

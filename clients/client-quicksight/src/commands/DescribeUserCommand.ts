@@ -95,6 +95,7 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeUserCommand extends $Command

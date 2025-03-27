@@ -97,6 +97,7 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class DescribeLogGroupsCommand extends $Command

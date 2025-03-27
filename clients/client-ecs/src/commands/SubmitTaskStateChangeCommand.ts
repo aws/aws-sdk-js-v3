@@ -124,6 +124,7 @@ export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChang
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ *
  * @public
  */
 export class SubmitTaskStateChangeCommand extends $Command

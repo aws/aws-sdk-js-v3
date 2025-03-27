@@ -91,6 +91,7 @@ export interface CreateTypeCommandOutput extends CreateTypeResponse, __MetadataB
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ *
  * @public
  */
 export class CreateTypeCommand extends $Command

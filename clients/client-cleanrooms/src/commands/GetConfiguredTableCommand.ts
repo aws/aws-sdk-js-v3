@@ -114,6 +114,7 @@ export interface GetConfiguredTableCommandOutput extends GetConfiguredTableOutpu
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class GetConfiguredTableCommand extends $Command

@@ -77,6 +77,7 @@ export interface ListHubsCommandOutput extends ListHubsResponse, __MetadataBeare
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListHubsCommand extends $Command

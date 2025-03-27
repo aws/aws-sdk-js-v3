@@ -133,6 +133,7 @@ export interface StartAssessmentFrameworkShareCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class StartAssessmentFrameworkShareCommand extends $Command

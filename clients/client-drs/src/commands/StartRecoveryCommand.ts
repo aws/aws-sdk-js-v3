@@ -138,6 +138,7 @@ export interface StartRecoveryCommandOutput extends StartRecoveryResponse, __Met
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class StartRecoveryCommand extends $Command

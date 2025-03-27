@@ -86,6 +86,7 @@ export interface CreateNodeFromTemplateJobCommandOutput extends CreateNodeFromTe
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class CreateNodeFromTemplateJobCommand extends $Command

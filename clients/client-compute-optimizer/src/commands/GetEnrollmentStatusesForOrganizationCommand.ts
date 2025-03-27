@@ -101,6 +101,7 @@ export interface GetEnrollmentStatusesForOrganizationCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetEnrollmentStatusesForOrganizationCommand extends $Command

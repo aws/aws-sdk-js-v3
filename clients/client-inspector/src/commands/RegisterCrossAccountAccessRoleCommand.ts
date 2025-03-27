@@ -74,18 +74,21 @@ export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataB
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example Register cross account access role
  * ```javascript
  * // Registers the IAM role that Amazon Inspector uses to list your EC2 instances at the start of the assessment run or when you call the PreviewAgents action.
  * const input = {
- *   "roleArn": "arn:aws:iam::123456789012:role/inspector"
+ *   roleArn: "arn:aws:iam::123456789012:role/inspector"
  * };
  * const command = new RegisterCrossAccountAccessRoleCommand(input);
- * await client.send(command);
- * // example id: register-cross-account-access-role-1481067178301
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RegisterCrossAccountAccessRoleCommand extends $Command
   .classBuilder<

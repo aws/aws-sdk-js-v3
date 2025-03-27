@@ -93,6 +93,7 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class CreateTokenCommand extends $Command

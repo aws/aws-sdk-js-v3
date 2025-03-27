@@ -132,6 +132,7 @@ export interface StartImportTaskCommandOutput extends StartImportTaskResponse, _
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class StartImportTaskCommand extends $Command

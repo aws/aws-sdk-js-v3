@@ -167,6 +167,7 @@ export interface DeleteIndexFieldCommandOutput extends DeleteIndexFieldResponse,
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class DeleteIndexFieldCommand extends $Command

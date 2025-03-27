@@ -69,6 +69,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

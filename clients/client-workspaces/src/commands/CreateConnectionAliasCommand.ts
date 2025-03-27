@@ -81,6 +81,7 @@ export interface CreateConnectionAliasCommandOutput extends CreateConnectionAlia
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectionAliasCommand extends $Command

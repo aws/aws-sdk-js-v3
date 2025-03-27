@@ -108,6 +108,7 @@ export interface ListSharedEndpointsCommandOutput extends ListSharedEndpointsRes
  * @throws {@link S3OutpostsServiceException}
  * <p>Base exception class for all service exceptions from S3Outposts service.</p>
  *
+ *
  * @public
  */
 export class ListSharedEndpointsCommand extends $Command

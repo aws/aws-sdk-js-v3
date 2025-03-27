@@ -75,6 +75,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ *
  * @public
  */
 export class GetResourcePolicyCommand extends $Command

@@ -87,6 +87,7 @@ export interface DeleteInventoryCommandOutput extends DeleteInventoryResult, __M
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DeleteInventoryCommand extends $Command

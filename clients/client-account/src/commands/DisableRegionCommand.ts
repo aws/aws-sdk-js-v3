@@ -78,6 +78,7 @@ export interface DisableRegionCommandOutput extends __MetadataBearer {}
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ *
  * @public
  */
 export class DisableRegionCommand extends $Command

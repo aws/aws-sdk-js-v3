@@ -197,6 +197,7 @@ export interface SearchRelevantContentCommandOutput extends SearchRelevantConten
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class SearchRelevantContentCommand extends $Command

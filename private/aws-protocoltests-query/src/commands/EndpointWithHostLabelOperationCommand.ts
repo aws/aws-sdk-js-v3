@@ -55,6 +55,7 @@ export interface EndpointWithHostLabelOperationCommandOutput extends __MetadataB
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  */
 export class EndpointWithHostLabelOperationCommand extends $Command
   .classBuilder<

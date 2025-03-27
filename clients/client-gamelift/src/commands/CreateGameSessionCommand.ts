@@ -188,6 +188,7 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class CreateGameSessionCommand extends $Command

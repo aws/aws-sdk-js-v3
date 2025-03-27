@@ -105,6 +105,7 @@ export interface ListAttachmentsCommandOutput extends ListAttachmentsResponse, _
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class ListAttachmentsCommand extends $Command

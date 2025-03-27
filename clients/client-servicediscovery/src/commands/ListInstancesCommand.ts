@@ -72,31 +72,31 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example Example: List service instances
  * ```javascript
  * // Example: List service instances
  * const input = {
- *   "ServiceId": "srv-qzpwvt2tfqcegapy"
+ *   ServiceId: "srv-qzpwvt2tfqcegapy"
  * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Instances": [
+ *   Instances: [
  *     {
- *       "Attributes": {
- *         "AWS_INSTANCE_IPV4": "172.2.1.3",
- *         "AWS_INSTANCE_PORT": "808"
+ *       Attributes: {
+ *         AWS_INSTANCE_IPV4: "172.2.1.3",
+ *         AWS_INSTANCE_PORT: "808"
  *       },
- *       "Id": "i-06bdabbae60f65a4e"
+ *       Id: "i-06bdabbae60f65a4e"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-list-service-instances-1587236237008
  * ```
  *
+ * @public
  */
 export class ListInstancesCommand extends $Command
   .classBuilder<

@@ -75,26 +75,29 @@ export interface SetDataRetrievalPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To set and then enact a data retrieval policy
  * ```javascript
  * // The example sets and then enacts a data retrieval policy.
  * const input = {
- *   "Policy": {
- *     "Rules": [
+ *   Policy: {
+ *     Rules: [
  *       {
- *         "BytesPerHour": 10737418240,
- *         "Strategy": "BytesPerHour"
+ *         BytesPerHour: 10737418240,
+ *         Strategy: "BytesPerHour"
  *       }
  *     ]
  *   },
- *   "accountId": "-"
+ *   accountId: "-"
  * };
  * const command = new SetDataRetrievalPolicyCommand(input);
- * await client.send(command);
- * // example id: to-set-and-then-enact-a-data-retrieval-policy--1481928352408
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetDataRetrievalPolicyCommand extends $Command
   .classBuilder<

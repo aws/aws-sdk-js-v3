@@ -57,6 +57,7 @@ export interface UpdateCoreDefinitionCommandOutput extends UpdateCoreDefinitionR
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ *
  * @public
  */
 export class UpdateCoreDefinitionCommand extends $Command

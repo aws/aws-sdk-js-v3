@@ -109,6 +109,7 @@ export interface GetRoutingControlStateCommandOutput extends GetRoutingControlSt
  * @throws {@link Route53RecoveryClusterServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryCluster service.</p>
  *
+ *
  * @public
  */
 export class GetRoutingControlStateCommand extends $Command

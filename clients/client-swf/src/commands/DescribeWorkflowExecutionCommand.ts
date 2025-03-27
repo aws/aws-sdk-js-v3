@@ -133,6 +133,7 @@ export interface DescribeWorkflowExecutionCommandOutput extends WorkflowExecutio
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class DescribeWorkflowExecutionCommand extends $Command

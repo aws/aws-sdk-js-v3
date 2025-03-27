@@ -65,6 +65,7 @@ export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __Metad
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ *
  * @public
  */
 export class RebootBrokerCommand extends $Command

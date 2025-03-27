@@ -92,6 +92,7 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class ListEntitiesCommand extends $Command

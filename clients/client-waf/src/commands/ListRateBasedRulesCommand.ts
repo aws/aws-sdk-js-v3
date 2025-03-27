@@ -76,6 +76,7 @@ export interface ListRateBasedRulesCommandOutput extends ListRateBasedRulesRespo
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ *
  * @public
  */
 export class ListRateBasedRulesCommand extends $Command

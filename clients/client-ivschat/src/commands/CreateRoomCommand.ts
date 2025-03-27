@@ -101,6 +101,7 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ *
  * @public
  */
 export class CreateRoomCommand extends $Command

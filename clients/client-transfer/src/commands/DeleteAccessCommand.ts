@@ -68,6 +68,7 @@ export interface DeleteAccessCommandOutput extends __MetadataBearer {}
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class DeleteAccessCommand extends $Command

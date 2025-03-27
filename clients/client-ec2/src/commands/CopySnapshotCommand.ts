@@ -100,26 +100,26 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To copy a snapshot
  * ```javascript
  * // This example copies a snapshot with the snapshot ID of ``snap-066877671789bd71b`` from the ``us-west-2`` region to the ``us-east-1`` region and adds a short description to identify the snapshot.
  * const input = {
- *   "Description": "This is my copied snapshot.",
- *   "DestinationRegion": "us-east-1",
- *   "SourceRegion": "us-west-2",
- *   "SourceSnapshotId": "snap-066877671789bd71b"
+ *   Description: "This is my copied snapshot.",
+ *   DestinationRegion: "us-east-1",
+ *   SourceRegion: "us-west-2",
+ *   SourceSnapshotId: "snap-066877671789bd71b"
  * };
  * const command = new CopySnapshotCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SnapshotId": "snap-066877671789bd71b"
+ *   SnapshotId: "snap-066877671789bd71b"
  * }
  * *\/
- * // example id: to-copy-a-snapshot-1472502259774
  * ```
  *
+ * @public
  */
 export class CopySnapshotCommand extends $Command
   .classBuilder<

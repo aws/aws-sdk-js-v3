@@ -103,6 +103,7 @@ export interface CreateWorkerConfigurationCommandOutput extends CreateWorkerConf
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ *
  * @public
  */
 export class CreateWorkerConfigurationCommand extends $Command

@@ -102,6 +102,7 @@ export interface GetKeyPairCommandOutput extends GetKeyPairResult, __MetadataBea
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetKeyPairCommand extends $Command

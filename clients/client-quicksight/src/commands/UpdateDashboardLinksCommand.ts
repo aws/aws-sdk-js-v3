@@ -91,6 +91,7 @@ export interface UpdateDashboardLinksCommandOutput extends UpdateDashboardLinksR
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateDashboardLinksCommand extends $Command

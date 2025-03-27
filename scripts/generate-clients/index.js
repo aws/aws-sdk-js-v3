@@ -127,8 +127,6 @@ const {
       await copyServerTests(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
     }
 
-    require("../api-examples/get-examples");
-    await require("../api-examples/merge-examples").merge();
     const compress = require("../endpoints-ruleset/compress");
     compress();
 

@@ -102,6 +102,7 @@ export interface BatchGetViewCommandOutput extends BatchGetViewOutput, __Metadat
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ *
  * @public
  */
 export class BatchGetViewCommand extends $Command

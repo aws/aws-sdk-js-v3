@@ -77,6 +77,7 @@ export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVe
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
  * @public
  */
 export class GetAppliedSchemaVersionCommand extends $Command

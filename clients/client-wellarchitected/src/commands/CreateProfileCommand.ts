@@ -87,6 +87,7 @@ export interface CreateProfileCommandOutput extends CreateProfileOutput, __Metad
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class CreateProfileCommand extends $Command

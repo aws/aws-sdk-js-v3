@@ -83,6 +83,7 @@ export interface DescribeAccessEntryCommandOutput extends DescribeAccessEntryRes
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccessEntryCommand extends $Command

@@ -150,6 +150,7 @@ export interface GetIdleRecommendationsCommandOutput extends GetIdleRecommendati
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetIdleRecommendationsCommand extends $Command

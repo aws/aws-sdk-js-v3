@@ -78,6 +78,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @throws {@link NetworkFlowMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkFlowMonitor service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

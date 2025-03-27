@@ -98,6 +98,7 @@ export interface ListAttendeesCommandOutput extends ListAttendeesResponse, __Met
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ *
  * @public
  */
 export class ListAttendeesCommand extends $Command

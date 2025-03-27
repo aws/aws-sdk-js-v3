@@ -77,38 +77,38 @@ export interface ListGroupsForUserCommandOutput extends ListGroupsForUserRespons
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To list the groups that an IAM user belongs to
  * ```javascript
  * // The following command displays the groups that the IAM user named Bob belongs to.
  * const input = {
- *   "UserName": "Bob"
+ *   UserName: "Bob"
  * };
  * const command = new ListGroupsForUserCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Groups": [
+ *   Groups: [
  *     {
- *       "Arn": "arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/product_1234/engineering/Test",
- *       "CreateDate": "2016-11-30T14:10:01.156Z",
- *       "GroupId": "AGP2111111111EXAMPLE",
- *       "GroupName": "Test",
- *       "Path": "/division_abc/subdivision_xyz/product_1234/engineering/"
+ *       Arn: "arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/product_1234/engineering/Test",
+ *       CreateDate: "2016-11-30T14:10:01.156Z",
+ *       GroupId: "AGP2111111111EXAMPLE",
+ *       GroupName: "Test",
+ *       Path: "/division_abc/subdivision_xyz/product_1234/engineering/"
  *     },
  *     {
- *       "Arn": "arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/product_1234/Managers",
- *       "CreateDate": "2016-06-12T20:14:52.032Z",
- *       "GroupId": "AGPI222222222SEXAMPLE",
- *       "GroupName": "Managers",
- *       "Path": "/division_abc/subdivision_xyz/product_1234/"
+ *       Arn: "arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/product_1234/Managers",
+ *       CreateDate: "2016-06-12T20:14:52.032Z",
+ *       GroupId: "AGPI222222222SEXAMPLE",
+ *       GroupName: "Managers",
+ *       Path: "/division_abc/subdivision_xyz/product_1234/"
  *     }
  *   ]
  * }
  * *\/
- * // example id: 278ec2ee-fc28-4136-83fb-433af0ae46a2
  * ```
  *
+ * @public
  */
 export class ListGroupsForUserCommand extends $Command
   .classBuilder<

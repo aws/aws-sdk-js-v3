@@ -87,6 +87,7 @@ export interface GetWorkflowRunCommandOutput extends GetWorkflowRunResponse, __M
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class GetWorkflowRunCommand extends $Command

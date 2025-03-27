@@ -125,6 +125,7 @@ export interface SearchUsersCommandOutput extends SearchUsersResult, __MetadataB
  * @throws {@link DirectoryServiceDataServiceException}
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
+ *
  * @public
  */
 export class SearchUsersCommand extends $Command

@@ -194,30 +194,30 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To download the public key of an asymmetric KMS key
  * ```javascript
  * // This example gets the public key of an asymmetric RSA KMS key used for encryption and decryption. The operation returns the key spec, key usage, and encryption or signing algorithms to help you use the public key correctly outside of AWS KMS.
  * const input = {
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321"
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321"
  * };
  * const command = new GetPublicKeyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CustomerMasterKeySpec": "RSA_4096",
- *   "EncryptionAlgorithms": [
+ *   CustomerMasterKeySpec: "RSA_4096",
+ *   EncryptionAlgorithms: [
  *     "RSAES_OAEP_SHA_1",
  *     "RSAES_OAEP_SHA_256"
  *   ],
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
- *   "KeyUsage": "ENCRYPT_DECRYPT",
- *   "PublicKey": "<binary data>"
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+ *   KeyUsage: "ENCRYPT_DECRYPT",
+ *   PublicKey: "<binary data>"
  * }
  * *\/
- * // example id: to-download-the-public-key-of-an-asymmetric-kms-key-1628621691873
  * ```
  *
+ * @public
  */
 export class GetPublicKeyCommand extends $Command
   .classBuilder<

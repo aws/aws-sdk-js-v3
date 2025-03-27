@@ -205,6 +205,7 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResult, __MetadataB
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class UpdateFleetCommand extends $Command

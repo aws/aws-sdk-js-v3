@@ -64,6 +64,7 @@ export interface ListSharedProjectsCommandOutput extends ListSharedProjectsOutpu
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class ListSharedProjectsCommand extends $Command

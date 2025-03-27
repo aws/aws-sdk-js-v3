@@ -115,6 +115,7 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ *
  * @public
  */
 export class CommitTransactionCommand extends $Command

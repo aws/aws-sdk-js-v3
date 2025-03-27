@@ -204,28 +204,28 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To get the details about an account
  * ```javascript
  * // The following example shows a user in the master account (111111111111) asking for details about account 555555555555:
  * const input = {
- *   "AccountId": "555555555555"
+ *   AccountId: "555555555555"
  * };
  * const command = new DescribeAccountCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Account": {
- *     "Arn": "arn:aws:organizations::111111111111:account/o-exampleorgid/555555555555",
- *     "Email": "anika@example.com",
- *     "Id": "555555555555",
- *     "Name": "Beta Account"
+ *   Account: {
+ *     Arn: "arn:aws:organizations::111111111111:account/o-exampleorgid/555555555555",
+ *     Email: "anika@example.com",
+ *     Id: "555555555555",
+ *     Name: "Beta Account"
  *   }
  * }
  * *\/
- * // example id: to-get-the-details-about-an-account-1472503166868
  * ```
  *
+ * @public
  */
 export class DescribeAccountCommand extends $Command
   .classBuilder<

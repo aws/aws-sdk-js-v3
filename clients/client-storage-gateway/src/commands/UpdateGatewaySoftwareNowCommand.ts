@@ -76,23 +76,23 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To update a gateway's VM software
  * ```javascript
  * // Updates the gateway virtual machine (VM) software. The request immediately triggers the software update.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * };
  * const command = new UpdateGatewaySoftwareNowCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * }
  * *\/
- * // example id: to-update-a-gateways-vm-software-1472152020929
  * ```
  *
+ * @public
  */
 export class UpdateGatewaySoftwareNowCommand extends $Command
   .classBuilder<

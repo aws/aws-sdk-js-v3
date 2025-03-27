@@ -220,6 +220,7 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class CreateDistributionCommand extends $Command

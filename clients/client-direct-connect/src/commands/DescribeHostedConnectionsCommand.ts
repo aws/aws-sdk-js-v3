@@ -102,6 +102,7 @@ export interface DescribeHostedConnectionsCommandOutput extends Connections, __M
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeHostedConnectionsCommand extends $Command

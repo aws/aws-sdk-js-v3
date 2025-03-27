@@ -98,6 +98,7 @@ export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataB
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ *
  * @public
  */
 export class GetDatasetCommand extends $Command

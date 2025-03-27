@@ -85,6 +85,7 @@ export interface CreateRecipeCommandOutput extends CreateRecipeResponse, __Metad
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class CreateRecipeCommand extends $Command

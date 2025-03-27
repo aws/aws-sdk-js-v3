@@ -117,6 +117,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ *
  * @public
  */
 export class GetEnvironmentCommand extends $Command

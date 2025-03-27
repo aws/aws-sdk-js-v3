@@ -99,6 +99,7 @@ export interface CreateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class CreateEphemerisCommand extends $Command

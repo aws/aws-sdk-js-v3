@@ -69,6 +69,7 @@ export interface BackTestAnomalyDetectorCommandOutput extends BackTestAnomalyDet
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ *
  * @public
  */
 export class BackTestAnomalyDetectorCommand extends $Command

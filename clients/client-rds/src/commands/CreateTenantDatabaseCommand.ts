@@ -109,6 +109,7 @@ export interface CreateTenantDatabaseCommandOutput extends CreateTenantDatabaseR
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class CreateTenantDatabaseCommand extends $Command

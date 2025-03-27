@@ -108,6 +108,7 @@ export interface GetCaseAuditEventsCommandOutput extends GetCaseAuditEventsRespo
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class GetCaseAuditEventsCommand extends $Command

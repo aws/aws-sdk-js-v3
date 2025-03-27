@@ -118,6 +118,7 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * @throws {@link NetworkFlowMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkFlowMonitor service.</p>
  *
+ *
  * @public
  */
 export class UpdateMonitorCommand extends $Command

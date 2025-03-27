@@ -98,21 +98,24 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To attach a target group to an Auto Scaling group
  * ```javascript
  * // This example attaches the specified target group to the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "TargetGroupARNs": [
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   TargetGroupARNs: [
  *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
  *   ]
  * };
  * const command = new AttachLoadBalancerTargetGroupsCommand(input);
- * await client.send(command);
- * // example id: autoscaling-attach-load-balancer-target-groups-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AttachLoadBalancerTargetGroupsCommand extends $Command
   .classBuilder<

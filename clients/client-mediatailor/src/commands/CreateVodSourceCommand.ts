@@ -80,6 +80,7 @@ export interface CreateVodSourceCommandOutput extends CreateVodSourceResponse, _
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class CreateVodSourceCommand extends $Command

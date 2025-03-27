@@ -74,6 +74,7 @@ export interface DeleteFunctionCodeSigningConfigCommandOutput extends __Metadata
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class DeleteFunctionCodeSigningConfigCommand extends $Command

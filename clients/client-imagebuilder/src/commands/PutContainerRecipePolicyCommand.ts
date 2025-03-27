@@ -91,6 +91,7 @@ export interface PutContainerRecipePolicyCommandOutput extends PutContainerRecip
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class PutContainerRecipePolicyCommand extends $Command

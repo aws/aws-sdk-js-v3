@@ -197,32 +197,32 @@ export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentR
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To update the container agent version on a container instance
  * ```javascript
  * // This example updates the container agent version on the specified container instance in cluster MyCluster.
  * const input = {
- *   "cluster": "MyCluster",
- *   "containerInstance": "53ac7152-dcd1-4102-81f5-208962864132"
+ *   cluster: "MyCluster",
+ *   containerInstance: "53ac7152-dcd1-4102-81f5-208962864132"
  * };
  * const command = new UpdateContainerAgentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "containerInstance": {
- *     "agentConnected": true,
- *     "agentUpdateStatus": "PENDING",
- *     "versionInfo": {
- *       "agentHash": "4023248",
- *       "agentVersion": "1.0.0",
- *       "dockerVersion": "DockerVersion: 1.5.0"
+ *   containerInstance: {
+ *     agentConnected: true,
+ *     agentUpdateStatus: "PENDING",
+ *     versionInfo: {
+ *       agentHash: "4023248",
+ *       agentVersion: "1.0.0",
+ *       dockerVersion: "DockerVersion: 1.5.0"
  *     }
  *   }
  * }
  * *\/
- * // example id: to-update-the-container-agent-version-on-a-container-instance-1734628653210
  * ```
  *
+ * @public
  */
 export class UpdateContainerAgentCommand extends $Command
   .classBuilder<

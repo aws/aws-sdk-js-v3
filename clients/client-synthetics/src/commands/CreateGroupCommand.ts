@@ -91,6 +91,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class CreateGroupCommand extends $Command

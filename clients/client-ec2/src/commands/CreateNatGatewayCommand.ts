@@ -133,35 +133,35 @@ export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To create a NAT gateway
  * ```javascript
  * // This example creates a NAT gateway in subnet subnet-1a2b3c4d and associates an Elastic IP address with the allocation ID eipalloc-37fc1a52 with the NAT gateway.
  * const input = {
- *   "AllocationId": "eipalloc-37fc1a52",
- *   "SubnetId": "subnet-1a2b3c4d"
+ *   AllocationId: "eipalloc-37fc1a52",
+ *   SubnetId: "subnet-1a2b3c4d"
  * };
  * const command = new CreateNatGatewayCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NatGateway": {
- *     "CreateTime": "2015-12-17T12:45:26.732Z",
- *     "NatGatewayAddresses": [
+ *   NatGateway: {
+ *     CreateTime: "2015-12-17T12:45:26.732Z",
+ *     NatGatewayAddresses: [
  *       {
- *         "AllocationId": "eipalloc-37fc1a52"
+ *         AllocationId: "eipalloc-37fc1a52"
  *       }
  *     ],
- *     "NatGatewayId": "nat-08d48af2a8e83edfd",
- *     "State": "pending",
- *     "SubnetId": "subnet-1a2b3c4d",
- *     "VpcId": "vpc-1122aabb"
+ *     NatGatewayId: "nat-08d48af2a8e83edfd",
+ *     State: "pending",
+ *     SubnetId: "subnet-1a2b3c4d",
+ *     VpcId: "vpc-1122aabb"
  *   }
  * }
  * *\/
- * // example id: ec2-create-nat-gateway-1
  * ```
  *
+ * @public
  */
 export class CreateNatGatewayCommand extends $Command
   .classBuilder<

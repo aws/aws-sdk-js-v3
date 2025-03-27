@@ -81,6 +81,7 @@ export interface UpdateLogPatternCommandOutput extends UpdateLogPatternResponse,
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class UpdateLogPatternCommand extends $Command

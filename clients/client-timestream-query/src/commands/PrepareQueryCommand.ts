@@ -117,6 +117,7 @@ export interface PrepareQueryCommandOutput extends PrepareQueryResponse, __Metad
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ *
  * @public
  */
 export class PrepareQueryCommand extends $Command

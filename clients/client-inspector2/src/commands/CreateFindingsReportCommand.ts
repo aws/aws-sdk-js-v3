@@ -205,6 +205,7 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class CreateFindingsReportCommand extends $Command

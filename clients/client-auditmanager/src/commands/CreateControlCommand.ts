@@ -134,6 +134,7 @@ export interface CreateControlCommandOutput extends CreateControlResponse, __Met
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class CreateControlCommand extends $Command

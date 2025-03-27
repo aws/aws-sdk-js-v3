@@ -144,6 +144,7 @@ export interface DescribeObjectsCommandOutput extends DescribeObjectsOutput, __M
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class DescribeObjectsCommand extends $Command

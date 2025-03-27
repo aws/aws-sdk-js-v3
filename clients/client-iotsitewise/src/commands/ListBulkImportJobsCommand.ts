@@ -81,6 +81,7 @@ export interface ListBulkImportJobsCommandOutput extends ListBulkImportJobsRespo
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class ListBulkImportJobsCommand extends $Command

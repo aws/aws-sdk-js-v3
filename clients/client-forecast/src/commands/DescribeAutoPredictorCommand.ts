@@ -124,6 +124,7 @@ export interface DescribeAutoPredictorCommandOutput extends DescribeAutoPredicto
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class DescribeAutoPredictorCommand extends $Command

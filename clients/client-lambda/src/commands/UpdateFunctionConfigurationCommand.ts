@@ -271,39 +271,39 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To update a Lambda function's configuration
  * ```javascript
  * // The following example modifies the memory size to be 256 MB for the unpublished ($LATEST) version of a function named my-function.
  * const input = {
- *   "FunctionName": "my-function",
- *   "MemorySize": 256
+ *   FunctionName: "my-function",
+ *   MemorySize: 256
  * };
  * const command = new UpdateFunctionConfigurationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CodeSha256": "PFn4S+er27qk+UuZSTKEQfNKG/XNn7QJs90mJgq6oH8=",
- *   "CodeSize": 308,
- *   "Description": "",
- *   "FunctionArn": "arn:aws:lambda:us-east-2:123456789012:function:my-function",
- *   "FunctionName": "my-function",
- *   "Handler": "index.handler",
- *   "LastModified": "2019-08-14T22:26:11.234+0000",
- *   "MemorySize": 256,
- *   "RevisionId": "873282ed-xmpl-4dc8-a069-d0c647e470c6",
- *   "Role": "arn:aws:iam::123456789012:role/lambda-role",
- *   "Runtime": "nodejs12.x",
- *   "Timeout": 3,
- *   "TracingConfig": {
- *     "Mode": "PassThrough"
+ *   CodeSha256: "PFn4S+er27qk+UuZSTKEQfNKG/XNn7QJs90mJgq6oH8=",
+ *   CodeSize: 308,
+ *   Description: "",
+ *   FunctionArn: "arn:aws:lambda:us-east-2:123456789012:function:my-function",
+ *   FunctionName: "my-function",
+ *   Handler: "index.handler",
+ *   LastModified: "2019-08-14T22:26:11.234+0000",
+ *   MemorySize: 256,
+ *   RevisionId: "873282ed-xmpl-4dc8-a069-d0c647e470c6",
+ *   Role: "arn:aws:iam::123456789012:role/lambda-role",
+ *   Runtime: "nodejs12.x",
+ *   Timeout: 3,
+ *   TracingConfig: {
+ *     Mode: "PassThrough"
  *   },
- *   "Version": "$LATEST"
+ *   Version: "$LATEST"
  * }
  * *\/
- * // example id: to-update-a-lambda-functions-configuration-1481651096447
  * ```
  *
+ * @public
  */
 export class UpdateFunctionConfigurationCommand extends $Command
   .classBuilder<

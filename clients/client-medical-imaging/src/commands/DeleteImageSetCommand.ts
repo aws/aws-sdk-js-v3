@@ -77,6 +77,7 @@ export interface DeleteImageSetCommandOutput extends DeleteImageSetResponse, __M
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ *
  * @public
  */
 export class DeleteImageSetCommand extends $Command

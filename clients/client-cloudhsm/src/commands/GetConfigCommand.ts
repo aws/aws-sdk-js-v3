@@ -83,6 +83,7 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * @throws {@link CloudHSMServiceException}
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ *
  * @public
  */
 export class GetConfigCommand extends $Command

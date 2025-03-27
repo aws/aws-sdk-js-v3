@@ -89,6 +89,7 @@ export interface ListNodesCommandOutput extends ListNodesOutput, __MetadataBeare
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class ListNodesCommand extends $Command

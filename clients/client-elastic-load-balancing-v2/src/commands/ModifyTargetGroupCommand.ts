@@ -104,45 +104,45 @@ export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput,
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To modify the health check configuration for a target group
  * ```javascript
  * // This example changes the configuration of the health checks used to evaluate the health of the targets for the specified target group.
  * const input = {
- *   "HealthCheckPort": "443",
- *   "HealthCheckProtocol": "HTTPS",
- *   "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-https-targets/2453ed029918f21f"
+ *   HealthCheckPort: "443",
+ *   HealthCheckProtocol: "HTTPS",
+ *   TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-https-targets/2453ed029918f21f"
  * };
  * const command = new ModifyTargetGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TargetGroups": [
+ *   TargetGroups: [
  *     {
- *       "HealthCheckIntervalSeconds": 30,
- *       "HealthCheckPort": "443",
- *       "HealthCheckProtocol": "HTTPS",
- *       "HealthCheckTimeoutSeconds": 5,
- *       "HealthyThresholdCount": 5,
- *       "LoadBalancerArns": [
+ *       HealthCheckIntervalSeconds: 30,
+ *       HealthCheckPort: "443",
+ *       HealthCheckProtocol: "HTTPS",
+ *       HealthCheckTimeoutSeconds: 5,
+ *       HealthyThresholdCount: 5,
+ *       LoadBalancerArns: [
  *         "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
  *       ],
- *       "Matcher": {
- *         "HttpCode": "200"
+ *       Matcher: {
+ *         HttpCode: "200"
  *       },
- *       "Port": 443,
- *       "Protocol": "HTTPS",
- *       "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-https-targets/2453ed029918f21f",
- *       "TargetGroupName": "my-https-targets",
- *       "UnhealthyThresholdCount": 2,
- *       "VpcId": "vpc-3ac0fb5f"
+ *       Port: 443,
+ *       Protocol: "HTTPS",
+ *       TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-https-targets/2453ed029918f21f",
+ *       TargetGroupName: "my-https-targets",
+ *       UnhealthyThresholdCount: 2,
+ *       VpcId: "vpc-3ac0fb5f"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-modify-target-group-1
  * ```
  *
+ * @public
  */
 export class ModifyTargetGroupCommand extends $Command
   .classBuilder<

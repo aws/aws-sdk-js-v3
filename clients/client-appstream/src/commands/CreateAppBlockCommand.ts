@@ -137,6 +137,7 @@ export interface CreateAppBlockCommandOutput extends CreateAppBlockResult, __Met
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class CreateAppBlockCommand extends $Command

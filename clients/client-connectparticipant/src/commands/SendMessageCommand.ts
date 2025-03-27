@@ -83,6 +83,7 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ *
  * @public
  */
 export class SendMessageCommand extends $Command

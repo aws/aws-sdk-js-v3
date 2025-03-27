@@ -88,6 +88,7 @@ export interface CreateActivationCommandOutput extends CreateActivationResult, _
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class CreateActivationCommand extends $Command

@@ -66,6 +66,7 @@ export interface TestSegmentPatternCommandOutput extends TestSegmentPatternRespo
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ *
  * @public
  */
 export class TestSegmentPatternCommand extends $Command

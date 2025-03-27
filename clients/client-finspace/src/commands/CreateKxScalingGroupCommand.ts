@@ -90,6 +90,7 @@ export interface CreateKxScalingGroupCommandOutput extends CreateKxScalingGroupR
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class CreateKxScalingGroupCommand extends $Command

@@ -95,6 +95,7 @@ export interface ReportTaskRunnerHeartbeatCommandOutput extends ReportTaskRunner
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class ReportTaskRunnerHeartbeatCommand extends $Command

@@ -74,39 +74,39 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To describe the tags for a load balancer
  * ```javascript
  * // This example describes the tags for the specified load balancer.
  * const input = {
- *   "LoadBalancerNames": [
+ *   LoadBalancerNames: [
  *     "my-load-balancer"
  *   ]
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TagDescriptions": [
+ *   TagDescriptions: [
  *     {
- *       "LoadBalancerName": "my-load-balancer",
- *       "Tags": [
+ *       LoadBalancerName: "my-load-balancer",
+ *       Tags: [
  *         {
- *           "Key": "project",
- *           "Value": "lima"
+ *           Key: "project",
+ *           Value: "lima"
  *         },
  *         {
- *           "Key": "department",
- *           "Value": "digital-media"
+ *           Key: "department",
+ *           Value: "digital-media"
  *         }
  *       ]
  *     }
  *   ]
  * }
  * *\/
- * // example id: elb-describe-tags-1
  * ```
  *
+ * @public
  */
 export class DescribeTagsCommand extends $Command
   .classBuilder<

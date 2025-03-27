@@ -93,6 +93,7 @@ export interface DescribeEvaluationsCommandOutput extends DescribeEvaluationsOut
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class DescribeEvaluationsCommand extends $Command

@@ -109,6 +109,7 @@ export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class ListIngestionsCommand extends $Command

@@ -123,6 +123,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class CreateSnapshotCommand extends $Command

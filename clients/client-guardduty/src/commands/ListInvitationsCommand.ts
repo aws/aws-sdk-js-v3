@@ -71,6 +71,7 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class ListInvitationsCommand extends $Command

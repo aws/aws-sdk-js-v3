@@ -79,6 +79,7 @@ export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse,
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class GetFileUploadURLCommand extends $Command

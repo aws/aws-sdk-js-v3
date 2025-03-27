@@ -147,6 +147,7 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class CreateLifecyclePolicyCommand extends $Command

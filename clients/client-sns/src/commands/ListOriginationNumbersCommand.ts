@@ -90,6 +90,7 @@ export interface ListOriginationNumbersCommandOutput extends ListOriginationNumb
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ *
  * @public
  */
 export class ListOriginationNumbersCommand extends $Command

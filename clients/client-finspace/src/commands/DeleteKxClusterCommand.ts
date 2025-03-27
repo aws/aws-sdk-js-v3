@@ -77,6 +77,7 @@ export interface DeleteKxClusterCommandOutput extends DeleteKxClusterResponse, _
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class DeleteKxClusterCommand extends $Command

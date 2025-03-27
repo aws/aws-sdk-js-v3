@@ -134,6 +134,7 @@ export interface ListChannelMessagesCommandOutput extends ListChannelMessagesRes
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class ListChannelMessagesCommand extends $Command

@@ -87,6 +87,80 @@ export interface ListSolFunctionInstancesCommandOutput extends ListSolFunctionIn
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example List Sol Function instances
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new ListSolFunctionInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   functionInstances: [
+ *     {
+ *       arn: "arn:aws:tnb:us-west-2:123456789000:function-instance/fi-b9439c34c1ef86c54",
+ *       id: "fi-b9439c34c1ef86c54",
+ *       instantiatedVnfInfo: {
+ *         vnfState: "STARTED"
+ *       },
+ *       instantiationState: "INSTANTIATED",
+ *       metadata: {
+ *         createdAt: "2022-06-10T19:48:34Z",
+ *         lastModified: "2022-06-10T21:48:33Z"
+ *       },
+ *       nsInstanceId: "ni-07aa863e53460a2a6",
+ *       vnfPkgId: "fp-07aa863e53460a2a6"
+ *     },
+ *     {
+ *       arn: "arn:aws:tnb:us-west-2:123456789000:function-instance/fi-b9439c34c1efabcd1",
+ *       id: "fi-b9439c34c1efabcd1",
+ *       instantiatedVnfInfo: {
+ *         vnfState: "STOPPED"
+ *       },
+ *       instantiationState: "INSTANTIATED",
+ *       metadata: {
+ *         createdAt: "2022-06-10T11:48:34Z",
+ *         lastModified: "2023-06-28T21:48:33Z"
+ *       },
+ *       nsInstanceId: "ni-07aa863e53460a123",
+ *       vnfPkgId: "fp-146a863e53460a2a6"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example List Sol Function Instances with nextToken and maxResults
+ * ```javascript
+ * //
+ * const input = {
+ *   maxResults: 25,
+ *   nextToken: ""
+ * };
+ * const command = new ListSolFunctionInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   functionInstances: [
+ *     {
+ *       arn: "arn:aws:tnb:us-west-2:123456789000:function-instance/fi-b9439c34c1ef86c54",
+ *       id: "fi-b9439c34c1ef86c54",
+ *       instantiatedVnfInfo: {
+ *         vnfState: "STARTED"
+ *       },
+ *       instantiationState: "INSTANTIATED",
+ *       metadata: {
+ *         createdAt: "2022-06-10T19:48:34Z",
+ *         lastModified: "2022-06-10T21:48:33Z"
+ *       },
+ *       nsInstanceId: "ni-07aa863e53460a2a6",
+ *       vnfPkgId: "fp-07aa863e53460a2a6"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListSolFunctionInstancesCommand extends $Command

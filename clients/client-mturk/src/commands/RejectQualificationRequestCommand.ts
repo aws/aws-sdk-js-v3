@@ -66,6 +66,7 @@ export interface RejectQualificationRequestCommandOutput extends RejectQualifica
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class RejectQualificationRequestCommand extends $Command

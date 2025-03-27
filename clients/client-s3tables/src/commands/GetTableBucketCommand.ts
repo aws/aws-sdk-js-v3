@@ -86,6 +86,7 @@ export interface GetTableBucketCommandOutput extends GetTableBucketResponse, __M
  * @throws {@link S3TablesServiceException}
  * <p>Base exception class for all service exceptions from S3Tables service.</p>
  *
+ *
  * @public
  */
 export class GetTableBucketCommand extends $Command

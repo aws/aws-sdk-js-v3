@@ -103,6 +103,7 @@ export interface ListFindingsMetricsCommandOutput extends ListFindingsMetricsRes
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ *
  * @public
  */
 export class ListFindingsMetricsCommand extends $Command

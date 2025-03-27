@@ -71,6 +71,7 @@ export interface ListDiscoveryJobsCommandOutput extends ListDiscoveryJobsRespons
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class ListDiscoveryJobsCommand extends $Command

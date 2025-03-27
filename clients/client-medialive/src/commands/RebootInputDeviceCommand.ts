@@ -78,6 +78,7 @@ export interface RebootInputDeviceCommandOutput extends RebootInputDeviceRespons
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class RebootInputDeviceCommand extends $Command

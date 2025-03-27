@@ -91,6 +91,7 @@ export interface DescribeTestExecutionCommandOutput extends DescribeTestExecutio
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeTestExecutionCommand extends $Command

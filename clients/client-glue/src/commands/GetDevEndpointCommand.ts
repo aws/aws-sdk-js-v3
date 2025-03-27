@@ -104,6 +104,7 @@ export interface GetDevEndpointCommandOutput extends GetDevEndpointResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetDevEndpointCommand extends $Command

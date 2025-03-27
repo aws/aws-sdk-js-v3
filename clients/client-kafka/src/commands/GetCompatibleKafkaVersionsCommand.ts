@@ -83,6 +83,7 @@ export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKa
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class GetCompatibleKafkaVersionsCommand extends $Command

@@ -119,6 +119,7 @@ export interface GetGremlinQueryStatusCommandOutput extends GetGremlinQueryStatu
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class GetGremlinQueryStatusCommand extends $Command

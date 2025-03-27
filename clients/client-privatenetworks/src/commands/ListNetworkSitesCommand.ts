@@ -125,6 +125,7 @@ export interface ListNetworkSitesCommandOutput extends ListNetworkSitesResponse,
  * @throws {@link PrivateNetworksServiceException}
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
+ *
  * @public
  */
 export class ListNetworkSitesCommand extends $Command

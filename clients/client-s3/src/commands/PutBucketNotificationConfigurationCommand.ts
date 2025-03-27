@@ -172,28 +172,31 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example Set notification configuration for a bucket
  * ```javascript
  * // The following example sets notification configuration on a bucket to publish the object created events to an SNS topic.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "NotificationConfiguration": {
- *     "TopicConfigurations": [
+ *   Bucket: "examplebucket",
+ *   NotificationConfiguration: {
+ *     TopicConfigurations: [
  *       {
- *         "Events": [
+ *         Events: [
  *           "s3:ObjectCreated:*"
  *         ],
- *         "TopicArn": "arn:aws:sns:us-west-2:123456789012:s3-notification-topic"
+ *         TopicArn: "arn:aws:sns:us-west-2:123456789012:s3-notification-topic"
  *       }
  *     ]
  *   }
  * };
  * const command = new PutBucketNotificationConfigurationCommand(input);
- * await client.send(command);
- * // example id: set-notification-configuration-for-a-bucket-1482270296426
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutBucketNotificationConfigurationCommand extends $Command
   .classBuilder<

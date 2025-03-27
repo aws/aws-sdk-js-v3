@@ -490,6 +490,7 @@ export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __Metad
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class GetTopicRuleCommand extends $Command

@@ -87,6 +87,7 @@ export interface ListStackRefactorActionsCommandOutput extends ListStackRefactor
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ListStackRefactorActionsCommand extends $Command

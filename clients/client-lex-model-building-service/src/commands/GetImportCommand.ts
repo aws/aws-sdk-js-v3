@@ -83,6 +83,7 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ *
  * @public
  */
 export class GetImportCommand extends $Command

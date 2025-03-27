@@ -192,6 +192,7 @@ export interface CreateGuardrailCommandOutput extends CreateGuardrailResponse, _
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class CreateGuardrailCommand extends $Command

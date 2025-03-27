@@ -90,29 +90,29 @@ export interface CreateLoginProfileCommandOutput extends CreateLoginProfileRespo
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To create an instance profile
  * ```javascript
  * // The following command changes IAM user Bob's password and sets the flag that required Bob to change the password the next time he signs in.
  * const input = {
- *   "Password": "h]6EszR}vJ*m",
- *   "PasswordResetRequired": true,
- *   "UserName": "Bob"
+ *   Password: "h]6EszR}vJ*m",
+ *   PasswordResetRequired: true,
+ *   UserName: "Bob"
  * };
  * const command = new CreateLoginProfileCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LoginProfile": {
- *     "CreateDate": "2015-03-10T20:55:40.274Z",
- *     "PasswordResetRequired": true,
- *     "UserName": "Bob"
+ *   LoginProfile: {
+ *     CreateDate: "2015-03-10T20:55:40.274Z",
+ *     PasswordResetRequired: true,
+ *     UserName: "Bob"
  *   }
  * }
  * *\/
- * // example id: c63795bc-3444-40b3-89df-83c474ef88be
  * ```
  *
+ * @public
  */
 export class CreateLoginProfileCommand extends $Command
   .classBuilder<

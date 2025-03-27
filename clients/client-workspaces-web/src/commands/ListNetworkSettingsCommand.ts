@@ -74,6 +74,7 @@ export interface ListNetworkSettingsCommandOutput extends ListNetworkSettingsRes
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class ListNetworkSettingsCommand extends $Command

@@ -70,6 +70,7 @@ export interface DescribeLocationAzureBlobCommandOutput extends DescribeLocation
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeLocationAzureBlobCommand extends $Command

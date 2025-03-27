@@ -338,133 +338,133 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
- * @public
+ *
  * @example To create an intent
  * ```javascript
  * // This example shows how to create an intent for ordering pizzas.
  * const input = {
- *   "name": "DocOrderPizza",
- *   "conclusionStatement": {
- *     "messages": [
+ *   conclusionStatement: {
+ *     messages: [
  *       {
- *         "content": "All right, I ordered  you a {Crust} crust {Type} pizza with {Sauce} sauce.",
- *         "contentType": "PlainText"
+ *         content: "All right, I ordered  you a {Crust} crust {Type} pizza with {Sauce} sauce.",
+ *         contentType: "PlainText"
  *       },
  *       {
- *         "content": "OK, your {Crust} crust {Type} pizza with {Sauce} sauce is on the way.",
- *         "contentType": "PlainText"
+ *         content: "OK, your {Crust} crust {Type} pizza with {Sauce} sauce is on the way.",
+ *         contentType: "PlainText"
  *       }
  *     ],
- *     "responseCard": "foo"
+ *     responseCard: "foo"
  *   },
- *   "confirmationPrompt": {
- *     "maxAttempts": 1,
- *     "messages": [
+ *   confirmationPrompt: {
+ *     maxAttempts: 1,
+ *     messages: [
  *       {
- *         "content": "Should I order  your {Crust} crust {Type} pizza with {Sauce} sauce?",
- *         "contentType": "PlainText"
+ *         content: "Should I order  your {Crust} crust {Type} pizza with {Sauce} sauce?",
+ *         contentType: "PlainText"
  *       }
  *     ]
  *   },
- *   "description": "Order a pizza from a local pizzeria.",
- *   "fulfillmentActivity": {
- *     "type": "ReturnIntent"
+ *   description: "Order a pizza from a local pizzeria.",
+ *   fulfillmentActivity: {
+ *     type: "ReturnIntent"
  *   },
- *   "rejectionStatement": {
- *     "messages": [
+ *   name: "DocOrderPizza",
+ *   rejectionStatement: {
+ *     messages: [
  *       {
- *         "content": "Ok, I'll cancel your order.",
- *         "contentType": "PlainText"
+ *         content: "Ok, I'll cancel your order.",
+ *         contentType: "PlainText"
  *       },
  *       {
- *         "content": "I cancelled your order.",
- *         "contentType": "PlainText"
+ *         content: "I cancelled your order.",
+ *         contentType: "PlainText"
  *       }
  *     ]
  *   },
- *   "sampleUtterances": [
+ *   sampleUtterances: [
  *     "Order me a pizza.",
  *     "Order me a {Type} pizza.",
  *     "I want a {Crust} crust {Type} pizza",
  *     "I want a {Crust} crust {Type} pizza with {Sauce} sauce."
  *   ],
- *   "slots": [
+ *   slots: [
  *     {
- *       "name": "Type",
- *       "description": "The type of pizza to order.",
- *       "priority": 1,
- *       "sampleUtterances": [
+ *       description: "The type of pizza to order.",
+ *       name: "Type",
+ *       priority: 1,
+ *       sampleUtterances: [
  *         "Get me a {Type} pizza.",
  *         "A {Type} pizza please.",
  *         "I'd like a {Type} pizza."
  *       ],
- *       "slotConstraint": "Required",
- *       "slotType": "DocPizzaType",
- *       "slotTypeVersion": "$LATEST",
- *       "valueElicitationPrompt": {
- *         "maxAttempts": 1,
- *         "messages": [
+ *       slotConstraint: "Required",
+ *       slotType: "DocPizzaType",
+ *       slotTypeVersion: "$LATEST",
+ *       valueElicitationPrompt: {
+ *         maxAttempts: 1,
+ *         messages: [
  *           {
- *             "content": "What type of pizza would you like?",
- *             "contentType": "PlainText"
+ *             content: "What type of pizza would you like?",
+ *             contentType: "PlainText"
  *           },
  *           {
- *             "content": "Vegie or cheese pizza?",
- *             "contentType": "PlainText"
+ *             content: "Vegie or cheese pizza?",
+ *             contentType: "PlainText"
  *           },
  *           {
- *             "content": "I can get you a vegie or a cheese pizza.",
- *             "contentType": "PlainText"
+ *             content: "I can get you a vegie or a cheese pizza.",
+ *             contentType: "PlainText"
  *           }
  *         ]
  *       }
  *     },
  *     {
- *       "name": "Crust",
- *       "description": "The type of pizza crust to order.",
- *       "priority": 2,
- *       "sampleUtterances": [
+ *       description: "The type of pizza crust to order.",
+ *       name: "Crust",
+ *       priority: 2,
+ *       sampleUtterances: [
  *         "Make it a {Crust} crust.",
  *         "I'd like a {Crust} crust."
  *       ],
- *       "slotConstraint": "Required",
- *       "slotType": "DocPizzaCrustType",
- *       "slotTypeVersion": "$LATEST",
- *       "valueElicitationPrompt": {
- *         "maxAttempts": 1,
- *         "messages": [
+ *       slotConstraint: "Required",
+ *       slotType: "DocPizzaCrustType",
+ *       slotTypeVersion: "$LATEST",
+ *       valueElicitationPrompt: {
+ *         maxAttempts: 1,
+ *         messages: [
  *           {
- *             "content": "What type of crust would you like?",
- *             "contentType": "PlainText"
+ *             content: "What type of crust would you like?",
+ *             contentType: "PlainText"
  *           },
  *           {
- *             "content": "Thick or thin crust?",
- *             "contentType": "PlainText"
+ *             content: "Thick or thin crust?",
+ *             contentType: "PlainText"
  *           }
  *         ]
  *       }
  *     },
  *     {
- *       "name": "Sauce",
- *       "description": "The type of sauce to use on the pizza.",
- *       "priority": 3,
- *       "sampleUtterances": [
+ *       description: "The type of sauce to use on the pizza.",
+ *       name: "Sauce",
+ *       priority: 3,
+ *       sampleUtterances: [
  *         "Make it {Sauce} sauce.",
  *         "I'd like {Sauce} sauce."
  *       ],
- *       "slotConstraint": "Required",
- *       "slotType": "DocPizzaSauceType",
- *       "slotTypeVersion": "$LATEST",
- *       "valueElicitationPrompt": {
- *         "maxAttempts": 1,
- *         "messages": [
+ *       slotConstraint: "Required",
+ *       slotType: "DocPizzaSauceType",
+ *       slotTypeVersion: "$LATEST",
+ *       valueElicitationPrompt: {
+ *         maxAttempts: 1,
+ *         messages: [
  *           {
- *             "content": "White or red sauce?",
- *             "contentType": "PlainText"
+ *             content: "White or red sauce?",
+ *             contentType: "PlainText"
  *           },
  *           {
- *             "content": "Garlic or tomato sauce?",
- *             "contentType": "PlainText"
+ *             content: "Garlic or tomato sauce?",
+ *             contentType: "PlainText"
  *           }
  *         ]
  *       }
@@ -473,144 +473,144 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  * };
  * const command = new PutIntentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "version": "$LATEST",
- *   "name": "DocOrderPizza",
- *   "checksum": "ca9bc13d-afc8-4706-bbaf-091f7a5935d6",
- *   "conclusionStatement": {
- *     "messages": [
+ *   checksum: "ca9bc13d-afc8-4706-bbaf-091f7a5935d6",
+ *   conclusionStatement: {
+ *     messages: [
  *       {
- *         "content": "All right, I ordered  you a {Crust} crust {Type} pizza with {Sauce} sauce.",
- *         "contentType": "PlainText"
+ *         content: "All right, I ordered  you a {Crust} crust {Type} pizza with {Sauce} sauce.",
+ *         contentType: "PlainText"
  *       },
  *       {
- *         "content": "OK, your {Crust} crust {Type} pizza with {Sauce} sauce is on the way.",
- *         "contentType": "PlainText"
+ *         content: "OK, your {Crust} crust {Type} pizza with {Sauce} sauce is on the way.",
+ *         contentType: "PlainText"
  *       }
  *     ],
- *     "responseCard": "foo"
+ *     responseCard: "foo"
  *   },
- *   "confirmationPrompt": {
- *     "maxAttempts": 1,
- *     "messages": [
+ *   confirmationPrompt: {
+ *     maxAttempts: 1,
+ *     messages: [
  *       {
- *         "content": "Should I order  your {Crust} crust {Type} pizza with {Sauce} sauce?",
- *         "contentType": "PlainText"
+ *         content: "Should I order  your {Crust} crust {Type} pizza with {Sauce} sauce?",
+ *         contentType: "PlainText"
  *       }
  *     ]
  *   },
- *   "createdDate": 1494359783.453,
- *   "description": "Order a pizza from a local pizzeria.",
- *   "fulfillmentActivity": {
- *     "type": "ReturnIntent"
+ *   createdDate: 1.494359783453E9,
+ *   description: "Order a pizza from a local pizzeria.",
+ *   fulfillmentActivity: {
+ *     type: "ReturnIntent"
  *   },
- *   "lastUpdatedDate": 1494359783.453,
- *   "rejectionStatement": {
- *     "messages": [
+ *   lastUpdatedDate: 1.494359783453E9,
+ *   name: "DocOrderPizza",
+ *   rejectionStatement: {
+ *     messages: [
  *       {
- *         "content": "Ok, I'll cancel your order.",
- *         "contentType": "PlainText"
+ *         content: "Ok, I'll cancel your order.",
+ *         contentType: "PlainText"
  *       },
  *       {
- *         "content": "I cancelled your order.",
- *         "contentType": "PlainText"
+ *         content: "I cancelled your order.",
+ *         contentType: "PlainText"
  *       }
  *     ]
  *   },
- *   "sampleUtterances": [
+ *   sampleUtterances: [
  *     "Order me a pizza.",
  *     "Order me a {Type} pizza.",
  *     "I want a {Crust} crust {Type} pizza",
  *     "I want a {Crust} crust {Type} pizza with {Sauce} sauce."
  *   ],
- *   "slots": [
+ *   slots: [
  *     {
- *       "name": "Sauce",
- *       "description": "The type of sauce to use on the pizza.",
- *       "priority": 3,
- *       "sampleUtterances": [
+ *       description: "The type of sauce to use on the pizza.",
+ *       name: "Sauce",
+ *       priority: 3,
+ *       sampleUtterances: [
  *         "Make it {Sauce} sauce.",
  *         "I'd like {Sauce} sauce."
  *       ],
- *       "slotConstraint": "Required",
- *       "slotType": "DocPizzaSauceType",
- *       "slotTypeVersion": "$LATEST",
- *       "valueElicitationPrompt": {
- *         "maxAttempts": 1,
- *         "messages": [
+ *       slotConstraint: "Required",
+ *       slotType: "DocPizzaSauceType",
+ *       slotTypeVersion: "$LATEST",
+ *       valueElicitationPrompt: {
+ *         maxAttempts: 1,
+ *         messages: [
  *           {
- *             "content": "White or red sauce?",
- *             "contentType": "PlainText"
+ *             content: "White or red sauce?",
+ *             contentType: "PlainText"
  *           },
  *           {
- *             "content": "Garlic or tomato sauce?",
- *             "contentType": "PlainText"
+ *             content: "Garlic or tomato sauce?",
+ *             contentType: "PlainText"
  *           }
  *         ]
  *       }
  *     },
  *     {
- *       "name": "Type",
- *       "description": "The type of pizza to order.",
- *       "priority": 1,
- *       "sampleUtterances": [
+ *       description: "The type of pizza to order.",
+ *       name: "Type",
+ *       priority: 1,
+ *       sampleUtterances: [
  *         "Get me a {Type} pizza.",
  *         "A {Type} pizza please.",
  *         "I'd like a {Type} pizza."
  *       ],
- *       "slotConstraint": "Required",
- *       "slotType": "DocPizzaType",
- *       "slotTypeVersion": "$LATEST",
- *       "valueElicitationPrompt": {
- *         "maxAttempts": 1,
- *         "messages": [
+ *       slotConstraint: "Required",
+ *       slotType: "DocPizzaType",
+ *       slotTypeVersion: "$LATEST",
+ *       valueElicitationPrompt: {
+ *         maxAttempts: 1,
+ *         messages: [
  *           {
- *             "content": "What type of pizza would you like?",
- *             "contentType": "PlainText"
+ *             content: "What type of pizza would you like?",
+ *             contentType: "PlainText"
  *           },
  *           {
- *             "content": "Vegie or cheese pizza?",
- *             "contentType": "PlainText"
+ *             content: "Vegie or cheese pizza?",
+ *             contentType: "PlainText"
  *           },
  *           {
- *             "content": "I can get you a vegie or a cheese pizza.",
- *             "contentType": "PlainText"
+ *             content: "I can get you a vegie or a cheese pizza.",
+ *             contentType: "PlainText"
  *           }
  *         ]
  *       }
  *     },
  *     {
- *       "name": "Crust",
- *       "description": "The type of pizza crust to order.",
- *       "priority": 2,
- *       "sampleUtterances": [
+ *       description: "The type of pizza crust to order.",
+ *       name: "Crust",
+ *       priority: 2,
+ *       sampleUtterances: [
  *         "Make it a {Crust} crust.",
  *         "I'd like a {Crust} crust."
  *       ],
- *       "slotConstraint": "Required",
- *       "slotType": "DocPizzaCrustType",
- *       "slotTypeVersion": "$LATEST",
- *       "valueElicitationPrompt": {
- *         "maxAttempts": 1,
- *         "messages": [
+ *       slotConstraint: "Required",
+ *       slotType: "DocPizzaCrustType",
+ *       slotTypeVersion: "$LATEST",
+ *       valueElicitationPrompt: {
+ *         maxAttempts: 1,
+ *         messages: [
  *           {
- *             "content": "What type of crust would you like?",
- *             "contentType": "PlainText"
+ *             content: "What type of crust would you like?",
+ *             contentType: "PlainText"
  *           },
  *           {
- *             "content": "Thick or thin crust?",
- *             "contentType": "PlainText"
+ *             content: "Thick or thin crust?",
+ *             contentType: "PlainText"
  *           }
  *         ]
  *       }
  *     }
- *   ]
+ *   ],
+ *   version: "$LATEST"
  * }
  * *\/
- * // example id: to-create-an-intent-1494358144659
  * ```
  *
+ * @public
  */
 export class PutIntentCommand extends $Command
   .classBuilder<

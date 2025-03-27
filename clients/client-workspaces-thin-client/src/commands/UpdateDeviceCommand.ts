@@ -98,6 +98,7 @@ export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __Metad
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ *
  * @public
  */
 export class UpdateDeviceCommand extends $Command

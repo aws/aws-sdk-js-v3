@@ -81,6 +81,7 @@ export interface AssociateConnectionAliasCommandOutput extends AssociateConnecti
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class AssociateConnectionAliasCommand extends $Command

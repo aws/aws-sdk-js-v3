@@ -87,6 +87,7 @@ export interface DeleteAgentMemoryCommandOutput extends DeleteAgentMemoryRespons
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ *
  * @public
  */
 export class DeleteAgentMemoryCommand extends $Command

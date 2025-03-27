@@ -140,44 +140,23 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To generate random data
  * ```javascript
  * // The following example generates 32 bytes of random data.
  * const input = {
- *   "NumberOfBytes": 32
+ *   NumberOfBytes: 32
  * };
  * const command = new GenerateRandomCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Plaintext": "<binary data>"
+ *   Plaintext: "<binary data>"
  * }
  * *\/
- * // example id: to-generate-random-data-1
  * ```
  *
- * @example To generate random data
- * ```javascript
- * // The following example includes the Recipient parameter with a signed attestation document from an AWS Nitro enclave. Instead of returning a plaintext (unencrypted) byte string, GenerateRandom returns the byte string encrypted by the public key from the enclave's attestation document.
- * const input = {
- *   "NumberOfBytes": 1024,
- *   "Recipient": {
- *     "AttestationDocument": "<attestation document>",
- *     "KeyEncryptionAlgorithm": "RSAES_OAEP_SHA_256"
- *   }
- * };
- * const command = new GenerateRandomCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CiphertextForRecipient": "<binary data>",
- *   "Plaintext": ""
- * }
- * *\/
- * // example id: to-generate-random-data-2
- * ```
- *
+ * @public
  */
 export class GenerateRandomCommand extends $Command
   .classBuilder<

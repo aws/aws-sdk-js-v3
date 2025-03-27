@@ -88,20 +88,23 @@ export interface SetLoadBalancerListenerSSLCertificateCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To update the SSL certificate for an HTTPS listener
  * ```javascript
  * // This example replaces the existing SSL certificate for the specified HTTPS listener.
  * const input = {
- *   "LoadBalancerName": "my-load-balancer",
- *   "LoadBalancerPort": 443,
- *   "SSLCertificateId": "arn:aws:iam::123456789012:server-certificate/new-server-cert"
+ *   LoadBalancerName: "my-load-balancer",
+ *   LoadBalancerPort: 443,
+ *   SSLCertificateId: "arn:aws:iam::123456789012:server-certificate/new-server-cert"
  * };
  * const command = new SetLoadBalancerListenerSSLCertificateCommand(input);
- * await client.send(command);
- * // example id: elb-set-load-balancer-listener-ssl-certificate-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetLoadBalancerListenerSSLCertificateCommand extends $Command
   .classBuilder<

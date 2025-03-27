@@ -83,6 +83,7 @@ export interface ListProfileObjectTypeTemplatesCommandOutput
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class ListProfileObjectTypeTemplatesCommand extends $Command

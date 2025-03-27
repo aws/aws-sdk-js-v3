@@ -83,6 +83,7 @@ export interface IsVpcPeeredCommandOutput extends IsVpcPeeredResult, __MetadataB
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class IsVpcPeeredCommand extends $Command

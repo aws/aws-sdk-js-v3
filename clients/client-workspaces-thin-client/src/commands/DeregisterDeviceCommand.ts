@@ -79,6 +79,7 @@ export interface DeregisterDeviceCommandOutput extends DeregisterDeviceResponse,
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ *
  * @public
  */
 export class DeregisterDeviceCommand extends $Command

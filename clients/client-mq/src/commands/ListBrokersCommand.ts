@@ -77,6 +77,7 @@ export interface ListBrokersCommandOutput extends ListBrokersResponse, __Metadat
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ *
  * @public
  */
 export class ListBrokersCommand extends $Command

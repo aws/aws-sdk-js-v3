@@ -89,6 +89,7 @@ export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBe
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class JsonMapsCommand extends $Command

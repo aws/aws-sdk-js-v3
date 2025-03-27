@@ -91,6 +91,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class DescribeVolumesCommand extends $Command

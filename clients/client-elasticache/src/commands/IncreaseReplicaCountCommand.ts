@@ -232,6 +232,7 @@ export interface IncreaseReplicaCountCommandOutput extends IncreaseReplicaCountR
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class IncreaseReplicaCountCommand extends $Command

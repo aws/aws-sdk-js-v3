@@ -70,6 +70,7 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ *
  * @public
  */
 export class PutConfigurationSetDeliveryOptionsCommand extends $Command

@@ -79,6 +79,7 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookResult, __Metad
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class DeleteWebhookCommand extends $Command

@@ -136,6 +136,7 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class UpdateLoggingConfigurationCommand extends $Command

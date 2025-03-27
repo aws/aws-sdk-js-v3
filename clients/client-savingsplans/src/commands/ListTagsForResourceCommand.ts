@@ -66,6 +66,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link SavingsplansServiceException}
  * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

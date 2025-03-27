@@ -115,42 +115,42 @@ export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigu
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe Auto Scaling launch configurations
  * ```javascript
  * // This example describes the specified launch configuration.
  * const input = {
- *   "LaunchConfigurationNames": [
+ *   LaunchConfigurationNames: [
  *     "my-launch-config"
  *   ]
  * };
  * const command = new DescribeLaunchConfigurationsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LaunchConfigurations": [
+ *   LaunchConfigurations: [
  *     {
- *       "AssociatePublicIpAddress": true,
- *       "BlockDeviceMappings": [],
- *       "CreatedTime": "2014-05-07T17:39:28.599Z",
- *       "EbsOptimized": false,
- *       "ImageId": "ami-043a5034",
- *       "InstanceMonitoring": {
- *         "Enabled": true
+ *       AssociatePublicIpAddress: true,
+ *       BlockDeviceMappings:       [],
+ *       CreatedTime: "2014-05-07T17:39:28.599Z",
+ *       EbsOptimized: false,
+ *       ImageId: "ami-043a5034",
+ *       InstanceMonitoring: {
+ *         Enabled: true
  *       },
- *       "InstanceType": "t1.micro",
- *       "LaunchConfigurationARN": "arn:aws:autoscaling:us-west-2:123456789012:launchConfiguration:98d3b196-4cf9-4e88-8ca1-8547c24ced8b:launchConfigurationName/my-launch-config",
- *       "LaunchConfigurationName": "my-launch-config",
- *       "SecurityGroups": [
+ *       InstanceType: "t1.micro",
+ *       LaunchConfigurationARN: "arn:aws:autoscaling:us-west-2:123456789012:launchConfiguration:98d3b196-4cf9-4e88-8ca1-8547c24ced8b:launchConfigurationName/my-launch-config",
+ *       LaunchConfigurationName: "my-launch-config",
+ *       SecurityGroups: [
  *         "sg-67ef0308"
  *       ]
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-launch-configurations-1
  * ```
  *
+ * @public
  */
 export class DescribeLaunchConfigurationsCommand extends $Command
   .classBuilder<

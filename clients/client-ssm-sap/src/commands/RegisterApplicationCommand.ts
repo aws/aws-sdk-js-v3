@@ -118,6 +118,7 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ *
  * @public
  */
 export class RegisterApplicationCommand extends $Command

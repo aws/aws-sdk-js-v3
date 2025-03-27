@@ -90,6 +90,7 @@ export interface ListCustomVocabularyItemsCommandOutput extends ListCustomVocabu
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class ListCustomVocabularyItemsCommand extends $Command

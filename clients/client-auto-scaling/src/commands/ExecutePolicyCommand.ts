@@ -66,21 +66,24 @@ export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To execute a scaling policy
  * ```javascript
  * // This example executes the specified policy.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "BreachThreshold": 50,
- *   "MetricValue": 59,
- *   "PolicyName": "my-step-scale-out-policy"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   BreachThreshold: 50.0,
+ *   MetricValue: 59.0,
+ *   PolicyName: "my-step-scale-out-policy"
  * };
  * const command = new ExecutePolicyCommand(input);
- * await client.send(command);
- * // example id: autoscaling-execute-policy-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ExecutePolicyCommand extends $Command
   .classBuilder<

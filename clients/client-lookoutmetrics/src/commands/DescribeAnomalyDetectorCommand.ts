@@ -84,6 +84,7 @@ export interface DescribeAnomalyDetectorCommandOutput extends DescribeAnomalyDet
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ *
  * @public
  */
 export class DescribeAnomalyDetectorCommand extends $Command

@@ -65,6 +65,11 @@ export interface ExecuteQueryCommandOutput extends Omit<ExecuteQueryOutput, "pay
  * };
  * const command = new ExecuteQueryCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.payload.transformToByteArray();
+ * // const str = await response.payload.transformToString();
+ * // response.payload.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // ExecuteQueryOutput
  * //   payload: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes // required
  * // };
@@ -97,6 +102,7 @@ export interface ExecuteQueryCommandOutput extends Omit<ExecuteQueryOutput, "pay
  *
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
+ *
  *
  * @public
  */

@@ -147,53 +147,8 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
- * @example Describe findings
- * ```javascript
- * // Describes the findings that are specified by the ARNs of the findings.
- * const input = {
- *   "findingArns": [
- *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE/finding/0-HwPnsDm4"
- *   ]
- * };
- * const command = new DescribeFindingsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "failedItems": {},
- *   "findings": [
- *     {
- *       "arn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE/finding/0-HwPnsDm4",
- *       "assetAttributes": {
- *         "ipv4Addresses": [],
- *         "schemaVersion": 1
- *       },
- *       "assetType": "ec2-instance",
- *       "attributes": [],
- *       "confidence": 10,
- *       "createdAt": "1458680301.37",
- *       "description": "Amazon Inspector did not find any potential security issues during this assessment.",
- *       "indicatorOfCompromise": false,
- *       "numericSeverity": 0,
- *       "recommendation": "No remediation needed.",
- *       "schemaVersion": 1,
- *       "service": "Inspector",
- *       "serviceAttributes": {
- *         "assessmentRunArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE",
- *         "rulesPackageArn": "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-X1KXtawP",
- *         "schemaVersion": 1
- *       },
- *       "severity": "Informational",
- *       "title": "No potential security issues found",
- *       "updatedAt": "1458680301.37",
- *       "userAttributes": []
- *     }
- *   ]
- * }
- * *\/
- * // example id: describte-findings-1481064771803
- * ```
  *
+ * @public
  */
 export class DescribeFindingsCommand extends $Command
   .classBuilder<

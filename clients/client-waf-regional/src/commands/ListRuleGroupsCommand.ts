@@ -73,6 +73,7 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ *
  * @public
  */
 export class ListRuleGroupsCommand extends $Command

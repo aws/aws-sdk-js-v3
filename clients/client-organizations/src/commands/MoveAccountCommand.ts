@@ -207,20 +207,23 @@ export interface MoveAccountCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To move an OU or account to another OU or the root
  * ```javascript
  * // The following example shows how to move a member account from the root to an OU:/n/n
  * const input = {
- *   "AccountId": "333333333333",
- *   "DestinationParentId": "ou-examplerootid111-exampleouid111",
- *   "SourceParentId": "r-examplerootid111"
+ *   AccountId: "333333333333",
+ *   DestinationParentId: "ou-examplerootid111-exampleouid111",
+ *   SourceParentId: "r-examplerootid111"
  * };
  * const command = new MoveAccountCommand(input);
- * await client.send(command);
- * // example id: to-move-an-ou-or-account-to-another-ou-or-the-root
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class MoveAccountCommand extends $Command
   .classBuilder<

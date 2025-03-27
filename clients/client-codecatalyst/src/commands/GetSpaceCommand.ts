@@ -78,6 +78,7 @@ export interface GetSpaceCommandOutput extends GetSpaceResponse, __MetadataBeare
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class GetSpaceCommand extends $Command

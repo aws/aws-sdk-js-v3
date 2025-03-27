@@ -77,34 +77,34 @@ export interface DescribeEndpointTypesCommandOutput extends DescribeEndpointType
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe endpoint types
  * ```javascript
  * // Returns information about the type of endpoints available.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "string",
- *       "Values": [
+ *       Name: "string",
+ *       Values: [
  *         "string",
  *         "string"
  *       ]
  *     }
  *   ],
- *   "Marker": "",
- *   "MaxRecords": 123
+ *   Marker: "",
+ *   MaxRecords: 123
  * };
  * const command = new DescribeEndpointTypesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "",
- *   "SupportedEndpointTypes": []
+ *   Marker: "",
+ *   SupportedEndpointTypes:   []
  * }
  * *\/
- * // example id: describe-endpoint-types-1481754742591
  * ```
  *
+ * @public
  */
 export class DescribeEndpointTypesCommand extends $Command
   .classBuilder<

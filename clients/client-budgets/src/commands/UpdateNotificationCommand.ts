@@ -87,6 +87,7 @@ export interface UpdateNotificationCommandOutput extends UpdateNotificationRespo
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ *
  * @public
  */
 export class UpdateNotificationCommand extends $Command

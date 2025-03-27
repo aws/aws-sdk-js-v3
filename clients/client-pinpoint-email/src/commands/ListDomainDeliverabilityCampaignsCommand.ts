@@ -101,6 +101,7 @@ export interface ListDomainDeliverabilityCampaignsCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ *
  * @public
  */
 export class ListDomainDeliverabilityCampaignsCommand extends $Command

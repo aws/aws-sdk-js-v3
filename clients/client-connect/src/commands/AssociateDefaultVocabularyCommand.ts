@@ -71,6 +71,7 @@ export interface AssociateDefaultVocabularyCommandOutput extends AssociateDefaul
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class AssociateDefaultVocabularyCommand extends $Command

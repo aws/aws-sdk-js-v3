@@ -65,6 +65,7 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyOutpu
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ *
  * @public
  */
 export class PutLifecyclePolicyCommand extends $Command

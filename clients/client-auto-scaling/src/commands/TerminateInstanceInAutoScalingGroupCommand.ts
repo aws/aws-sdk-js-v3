@@ -92,19 +92,22 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To terminate an instance in an Auto Scaling group
  * ```javascript
  * // This example terminates the specified instance from the specified Auto Scaling group without updating the size of the group. Auto Scaling launches a replacement instance after the specified instance terminates.
  * const input = {
- *   "InstanceId": "i-93633f9b",
- *   "ShouldDecrementDesiredCapacity": false
+ *   InstanceId: "i-93633f9b",
+ *   ShouldDecrementDesiredCapacity: false
  * };
  * const command = new TerminateInstanceInAutoScalingGroupCommand(input);
- * await client.send(command);
- * // example id: autoscaling-terminate-instance-in-auto-scaling-group-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class TerminateInstanceInAutoScalingGroupCommand extends $Command
   .classBuilder<

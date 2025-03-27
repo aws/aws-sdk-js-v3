@@ -92,6 +92,7 @@ export interface CreateConfigurationManagerCommandOutput extends CreateConfigura
  * @throws {@link SSMQuickSetupServiceException}
  * <p>Base exception class for all service exceptions from SSMQuickSetup service.</p>
  *
+ *
  * @public
  */
 export class CreateConfigurationManagerCommand extends $Command

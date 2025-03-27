@@ -70,6 +70,7 @@ export interface GetDashboardCommandOutput extends GetDashboardOutput, __Metadat
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class GetDashboardCommand extends $Command

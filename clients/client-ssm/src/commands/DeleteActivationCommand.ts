@@ -69,6 +69,7 @@ export interface DeleteActivationCommandOutput extends DeleteActivationResult, _
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DeleteActivationCommand extends $Command

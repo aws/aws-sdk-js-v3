@@ -68,6 +68,7 @@ export interface BatchDeleteScheduledActionCommandOutput extends BatchDeleteSche
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ *
  * @public
  */
 export class BatchDeleteScheduledActionCommand extends $Command

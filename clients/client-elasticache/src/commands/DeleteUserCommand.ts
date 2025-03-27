@@ -85,6 +85,7 @@ export interface DeleteUserCommandOutput extends User, __MetadataBearer {}
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserCommand extends $Command

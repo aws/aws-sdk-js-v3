@@ -168,6 +168,7 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class SearchResourcesCommand extends $Command

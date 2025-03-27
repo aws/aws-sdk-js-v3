@@ -61,6 +61,7 @@ export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistratio
  * @throws {@link SagemakerEdgeServiceException}
  * <p>Base exception class for all service exceptions from SagemakerEdge service.</p>
  *
+ *
  * @public
  */
 export class GetDeviceRegistrationCommand extends $Command

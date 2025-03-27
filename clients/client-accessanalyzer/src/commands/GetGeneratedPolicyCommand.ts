@@ -103,6 +103,7 @@ export interface GetGeneratedPolicyCommandOutput extends GetGeneratedPolicyRespo
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class GetGeneratedPolicyCommand extends $Command

@@ -93,6 +93,7 @@ export interface DescribeApplicationsCommandOutput extends DescribeApplicationsR
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DescribeApplicationsCommand extends $Command

@@ -67,32 +67,32 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example ListTagsForResource example
  * ```javascript
  * // This example lists the tags of a resource.
  * const input = {
- *   "ResourceARN": "arn:aws:servicediscovery:us-east-1:123456789012:namespace/ns-ylexjili4cdxy3xm"
+ *   ResourceARN: "arn:aws:servicediscovery:us-east-1:123456789012:namespace/ns-ylexjili4cdxy3xm"
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "Key": "Project",
- *       "Value": "Zeta"
+ *       Key: "Project",
+ *       Value: "Zeta"
  *     },
  *     {
- *       "Key": "Department",
- *       "Value": "Engineering"
+ *       Key: "Department",
+ *       Value: "Engineering"
  *     }
  *   ]
  * }
  * *\/
- * // example id: listtagsforresource-example-1590093928416
  * ```
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

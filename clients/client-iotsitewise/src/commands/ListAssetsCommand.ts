@@ -119,6 +119,7 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class ListAssetsCommand extends $Command

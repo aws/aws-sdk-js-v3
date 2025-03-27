@@ -82,6 +82,7 @@ export interface PutDraftAppVersionTemplateCommandOutput extends PutDraftAppVers
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class PutDraftAppVersionTemplateCommand extends $Command

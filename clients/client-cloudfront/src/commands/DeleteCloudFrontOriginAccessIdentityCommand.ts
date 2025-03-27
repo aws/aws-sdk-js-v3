@@ -73,6 +73,7 @@ export interface DeleteCloudFrontOriginAccessIdentityCommandOutput extends __Met
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command

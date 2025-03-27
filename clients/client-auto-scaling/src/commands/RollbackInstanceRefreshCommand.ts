@@ -98,6 +98,7 @@ export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRe
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ *
  * @public
  */
 export class RollbackInstanceRefreshCommand extends $Command

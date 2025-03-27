@@ -215,46 +215,45 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To invoke a Lambda function
  * ```javascript
  * // The following example invokes version 1 of a function named my-function with an empty event payload.
  * const input = {
- *   "FunctionName": "my-function",
- *   "Payload": "{}",
- *   "Qualifier": "1"
+ *   FunctionName: "my-function",
+ *   Payload: "{}",
+ *   Qualifier: "1"
  * };
  * const command = new InvokeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Payload": "200 SUCCESS",
- *   "StatusCode": 200
+ *   Payload: "200 SUCCESS",
+ *   StatusCode: 200
  * }
  * *\/
- * // example id: to-invoke-a-lambda-function-1481659683915
  * ```
  *
  * @example To invoke a Lambda function asynchronously
  * ```javascript
  * // The following example invokes version 1 of a function named my-function asynchronously.
  * const input = {
- *   "FunctionName": "my-function",
- *   "InvocationType": "Event",
- *   "Payload": "{}",
- *   "Qualifier": "1"
+ *   FunctionName: "my-function",
+ *   InvocationType: "Event",
+ *   Payload: "{}",
+ *   Qualifier: "1"
  * };
  * const command = new InvokeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Payload": "",
- *   "StatusCode": 202
+ *   Payload: "",
+ *   StatusCode: 202
  * }
  * *\/
- * // example id: to-invoke-a-lambda-function-async-1481659683915
  * ```
  *
+ * @public
  */
 export class InvokeCommand extends $Command
   .classBuilder<

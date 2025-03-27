@@ -76,6 +76,7 @@ export interface ListWebAppsCommandOutput extends ListWebAppsResponse, __Metadat
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class ListWebAppsCommand extends $Command

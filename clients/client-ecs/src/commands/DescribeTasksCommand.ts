@@ -259,58 +259,58 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To describe a task
  * ```javascript
  * // This example provides a description of the specified task, using the task UUID as an identifier.
  * const input = {
- *   "tasks": [
+ *   tasks: [
  *     "c5cba4eb-5dad-405e-96db-71ef8eefe6a8"
  *   ]
  * };
  * const command = new DescribeTasksCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "failures": [],
- *   "tasks": [
+ *   failures:   [],
+ *   tasks: [
  *     {
- *       "clusterArn": "arn:aws:ecs:<region>:<aws_account_id>:cluster/default",
- *       "containerInstanceArn": "arn:aws:ecs:<region>:<aws_account_id>:container-instance/default/18f9eda5-27d7-4c19-b133-45adc516e8fb",
- *       "containers": [
+ *       clusterArn: "arn:aws:ecs:<region>:<aws_account_id>:cluster/default",
+ *       containerInstanceArn: "arn:aws:ecs:<region>:<aws_account_id>:container-instance/default/18f9eda5-27d7-4c19-b133-45adc516e8fb",
+ *       containers: [
  *         {
- *           "name": "ecs-demo",
- *           "containerArn": "arn:aws:ecs:<region>:<aws_account_id>:container/7c01765b-c588-45b3-8290-4ba38bd6c5a6",
- *           "lastStatus": "RUNNING",
- *           "networkBindings": [
+ *           containerArn: "arn:aws:ecs:<region>:<aws_account_id>:container/7c01765b-c588-45b3-8290-4ba38bd6c5a6",
+ *           lastStatus: "RUNNING",
+ *           name: "ecs-demo",
+ *           networkBindings: [
  *             {
- *               "bindIP": "0.0.0.0",
- *               "containerPort": 80,
- *               "hostPort": 80
+ *               bindIP: "0.0.0.0",
+ *               containerPort: 80,
+ *               hostPort: 80
  *             }
  *           ],
- *           "taskArn": "arn:aws:ecs:<region>:<aws_account_id>:task/default/c5cba4eb-5dad-405e-96db-71ef8eefe6a8"
+ *           taskArn: "arn:aws:ecs:<region>:<aws_account_id>:task/default/c5cba4eb-5dad-405e-96db-71ef8eefe6a8"
  *         }
  *       ],
- *       "desiredStatus": "RUNNING",
- *       "lastStatus": "RUNNING",
- *       "overrides": {
- *         "containerOverrides": [
+ *       desiredStatus: "RUNNING",
+ *       lastStatus: "RUNNING",
+ *       overrides: {
+ *         containerOverrides: [
  *           {
- *             "name": "ecs-demo"
+ *             name: "ecs-demo"
  *           }
  *         ]
  *       },
- *       "startedBy": "ecs-svc/9223370608528463088",
- *       "taskArn": "arn:aws:ecs:<region>:<aws_account_id>:task/default/c5cba4eb-5dad-405e-96db-71ef8eefe6a8",
- *       "taskDefinitionArn": "arn:aws:ecs:<region>:<aws_account_id>:task-definition/amazon-ecs-sample:1"
+ *       startedBy: "ecs-svc/9223370608528463088",
+ *       taskArn: "arn:aws:ecs:<region>:<aws_account_id>:task/default/c5cba4eb-5dad-405e-96db-71ef8eefe6a8",
+ *       taskDefinitionArn: "arn:aws:ecs:<region>:<aws_account_id>:task-definition/amazon-ecs-sample:1"
  *     }
  *   ]
  * }
  * *\/
- * // example id: a90b0cde-f965-4946-b55e-cfd8cc54e827
  * ```
  *
+ * @public
  */
 export class DescribeTasksCommand extends $Command
   .classBuilder<

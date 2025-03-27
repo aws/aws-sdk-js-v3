@@ -65,6 +65,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link CodeGuruReviewerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

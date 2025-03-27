@@ -141,6 +141,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ *
  * @public
  */
 export class UpdateClusterCommand extends $Command

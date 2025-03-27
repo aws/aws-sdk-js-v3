@@ -102,6 +102,7 @@ export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult,
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class UpdateJobPriorityCommand extends $Command

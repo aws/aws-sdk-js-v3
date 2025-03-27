@@ -82,6 +82,7 @@ export interface DeregisterManagedInstanceCommandOutput extends DeregisterManage
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DeregisterManagedInstanceCommand extends $Command

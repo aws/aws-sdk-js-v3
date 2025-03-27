@@ -77,6 +77,7 @@ export interface ListRolePoliciesCommandOutput extends ListRolePoliciesResponse,
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class ListRolePoliciesCommand extends $Command

@@ -113,6 +113,7 @@ export interface GetAssetPropertyAggregatesCommandOutput extends GetAssetPropert
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class GetAssetPropertyAggregatesCommand extends $Command

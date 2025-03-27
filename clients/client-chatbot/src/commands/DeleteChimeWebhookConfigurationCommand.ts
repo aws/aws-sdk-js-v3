@@ -70,6 +70,7 @@ export interface DeleteChimeWebhookConfigurationCommandOutput
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ *
  * @public
  */
 export class DeleteChimeWebhookConfigurationCommand extends $Command

@@ -80,6 +80,7 @@ export interface DeleteCustomLogSourceCommandOutput extends DeleteCustomLogSourc
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class DeleteCustomLogSourceCommand extends $Command

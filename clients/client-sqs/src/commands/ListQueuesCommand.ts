@@ -98,6 +98,7 @@ export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBea
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ *
  * @public
  */
 export class ListQueuesCommand extends $Command

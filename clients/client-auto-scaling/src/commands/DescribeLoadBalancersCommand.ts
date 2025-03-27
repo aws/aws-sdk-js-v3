@@ -100,28 +100,28 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe the load balancers for an Auto Scaling group
  * ```javascript
  * // This example describes the load balancers attached to the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group"
+ *   AutoScalingGroupName: "my-auto-scaling-group"
  * };
  * const command = new DescribeLoadBalancersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LoadBalancers": [
+ *   LoadBalancers: [
  *     {
- *       "LoadBalancerName": "my-load-balancer",
- *       "State": "Added"
+ *       LoadBalancerName: "my-load-balancer",
+ *       State: "Added"
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-load-balancers-1
  * ```
  *
+ * @public
  */
 export class DescribeLoadBalancersCommand extends $Command
   .classBuilder<

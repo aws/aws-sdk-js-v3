@@ -70,6 +70,7 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleOutput, __Met
  * @throws {@link SchedulerServiceException}
  * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
+ *
  * @public
  */
 export class DeleteScheduleCommand extends $Command

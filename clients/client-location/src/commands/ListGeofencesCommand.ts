@@ -104,6 +104,7 @@ export interface ListGeofencesCommandOutput extends ListGeofencesResponse, __Met
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class ListGeofencesCommand extends $Command

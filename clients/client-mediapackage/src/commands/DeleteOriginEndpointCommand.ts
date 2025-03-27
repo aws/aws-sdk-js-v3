@@ -71,6 +71,7 @@ export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointR
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ *
  * @public
  */
 export class DeleteOriginEndpointCommand extends $Command

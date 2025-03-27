@@ -105,6 +105,7 @@ export interface GetLatestConfigurationCommandOutput
  * @throws {@link AppConfigDataServiceException}
  * <p>Base exception class for all service exceptions from AppConfigData service.</p>
  *
+ *
  * @public
  */
 export class GetLatestConfigurationCommand extends $Command

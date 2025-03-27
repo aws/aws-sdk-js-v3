@@ -63,18 +63,21 @@ export interface DeleteSnapshotCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete a snapshot
  * ```javascript
  * // This example deletes a snapshot with the snapshot ID of ``snap-1234567890abcdef0``. If the command succeeds, no output is returned.
  * const input = {
- *   "SnapshotId": "snap-1234567890abcdef0"
+ *   SnapshotId: "snap-1234567890abcdef0"
  * };
  * const command = new DeleteSnapshotCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-snapshot-1472503042567
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteSnapshotCommand extends $Command
   .classBuilder<

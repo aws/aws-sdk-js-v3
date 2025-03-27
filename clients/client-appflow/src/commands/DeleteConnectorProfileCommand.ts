@@ -66,6 +66,7 @@ export interface DeleteConnectorProfileCommandOutput extends DeleteConnectorProf
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ *
  * @public
  */
 export class DeleteConnectorProfileCommand extends $Command

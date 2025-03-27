@@ -66,6 +66,7 @@ export interface DeleteScheduledAuditCommandOutput extends DeleteScheduledAuditR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DeleteScheduledAuditCommand extends $Command

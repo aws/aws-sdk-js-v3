@@ -114,6 +114,7 @@ export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutpu
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class ReportTaskProgressCommand extends $Command

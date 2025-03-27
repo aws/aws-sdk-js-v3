@@ -228,6 +228,7 @@ export interface DescribeTemplateCommandOutput extends DescribeTemplateResponse,
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeTemplateCommand extends $Command

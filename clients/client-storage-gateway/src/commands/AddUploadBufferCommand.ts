@@ -71,27 +71,27 @@ export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __M
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To add upload buffer on local disk
  * ```javascript
  * // Configures one or more gateway local disks as upload buffer for a specified gateway.
  * const input = {
- *   "DiskIds": [
+ *   DiskIds: [
  *     "pci-0000:03:00.0-scsi-0:0:0:0",
  *     "pci-0000:03:00.0-scsi-0:0:1:0"
  *   ],
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * };
  * const command = new AddUploadBufferCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * }
  * *\/
- * // example id: to-add-upload-buffer-on-local-disk-1471293902847
  * ```
  *
+ * @public
  */
 export class AddUploadBufferCommand extends $Command
   .classBuilder<

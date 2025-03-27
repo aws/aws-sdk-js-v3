@@ -84,6 +84,7 @@ export interface DeleteBackendEnvironmentCommandOutput extends DeleteBackendEnvi
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class DeleteBackendEnvironmentCommand extends $Command

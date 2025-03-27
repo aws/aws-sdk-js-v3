@@ -83,6 +83,7 @@ export interface RejectInboundConnectionCommandOutput extends RejectInboundConne
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class RejectInboundConnectionCommand extends $Command

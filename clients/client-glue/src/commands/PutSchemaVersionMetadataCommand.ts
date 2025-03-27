@@ -90,6 +90,7 @@ export interface PutSchemaVersionMetadataCommandOutput extends PutSchemaVersionM
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class PutSchemaVersionMetadataCommand extends $Command

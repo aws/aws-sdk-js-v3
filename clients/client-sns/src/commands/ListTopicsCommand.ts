@@ -74,6 +74,7 @@ export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataB
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ *
  * @public
  */
 export class ListTopicsCommand extends $Command

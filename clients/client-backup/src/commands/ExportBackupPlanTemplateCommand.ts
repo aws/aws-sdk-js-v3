@@ -68,6 +68,7 @@ export interface ExportBackupPlanTemplateCommandOutput extends ExportBackupPlanT
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class ExportBackupPlanTemplateCommand extends $Command

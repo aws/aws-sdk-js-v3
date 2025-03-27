@@ -120,6 +120,7 @@ export interface CreateAppMonitorCommandOutput extends CreateAppMonitorResponse,
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ *
  * @public
  */
 export class CreateAppMonitorCommand extends $Command

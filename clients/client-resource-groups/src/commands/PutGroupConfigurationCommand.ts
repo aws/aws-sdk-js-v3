@@ -98,6 +98,7 @@ export interface PutGroupConfigurationCommandOutput extends PutGroupConfiguratio
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class PutGroupConfigurationCommand extends $Command

@@ -122,6 +122,7 @@ export interface GetSubscriberCommandOutput extends GetSubscriberResponse, __Met
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class GetSubscriberCommand extends $Command

@@ -122,6 +122,7 @@ export interface CountOpenWorkflowExecutionsCommandOutput extends WorkflowExecut
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class CountOpenWorkflowExecutionsCommand extends $Command

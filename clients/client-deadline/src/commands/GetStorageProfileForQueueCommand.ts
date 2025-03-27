@@ -86,6 +86,7 @@ export interface GetStorageProfileForQueueCommandOutput extends GetStorageProfil
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class GetStorageProfileForQueueCommand extends $Command

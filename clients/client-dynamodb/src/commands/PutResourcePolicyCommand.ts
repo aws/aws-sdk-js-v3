@@ -123,6 +123,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class PutResourcePolicyCommand extends $Command

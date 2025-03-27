@@ -88,6 +88,7 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class ListCertificatesCommand extends $Command

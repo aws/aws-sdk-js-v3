@@ -77,6 +77,7 @@ export interface BatchDeleteWorldsCommandOutput extends BatchDeleteWorldsRespons
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class BatchDeleteWorldsCommand extends $Command

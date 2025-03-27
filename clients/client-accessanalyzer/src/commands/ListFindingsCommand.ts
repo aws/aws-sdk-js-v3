@@ -127,6 +127,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class ListFindingsCommand extends $Command

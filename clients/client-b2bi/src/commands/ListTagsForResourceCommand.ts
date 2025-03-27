@@ -69,28 +69,28 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample ListTagsForResources call
  * ```javascript
  * //
  * const input = {
- *   "ResourceARN": "arn:aws:b2bi:us-west-2:123456789012:profile/p-60fbc37c87f04fce9"
+ *   ResourceARN: "arn:aws:b2bi:us-west-2:123456789012:profile/p-60fbc37c87f04fce9"
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "Key": "sampleKey",
- *       "Value": "SampleValue"
+ *       Key: "sampleKey",
+ *       Value: "SampleValue"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

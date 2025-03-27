@@ -99,6 +99,7 @@ export interface ListRoomMembershipsCommandOutput extends ListRoomMembershipsRes
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class ListRoomMembershipsCommand extends $Command

@@ -55,6 +55,7 @@ export interface MalformedTimestampBodyHttpDateCommandOutput extends __MetadataB
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedTimestampBodyHttpDateCommand extends $Command
   .classBuilder<

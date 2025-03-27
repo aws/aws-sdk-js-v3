@@ -88,6 +88,7 @@ export interface GetControlCommandOutput extends GetControlResponse, __MetadataB
  * @throws {@link ControlCatalogServiceException}
  * <p>Base exception class for all service exceptions from ControlCatalog service.</p>
  *
+ *
  * @public
  */
 export class GetControlCommand extends $Command

@@ -99,6 +99,7 @@ export interface UnpeerVpcCommandOutput extends UnpeerVpcResult, __MetadataBeare
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class UnpeerVpcCommand extends $Command

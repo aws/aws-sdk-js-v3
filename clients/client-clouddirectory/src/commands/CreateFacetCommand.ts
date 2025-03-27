@@ -118,20 +118,23 @@ export interface CreateFacetCommandOutput extends CreateFacetResponse, __Metadat
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To create a facet
  * ```javascript
  * //
  * const input = {
- *   "Name": "node1",
- *   "ObjectType": "NODE",
- *   "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
+ *   Name: "node1",
+ *   ObjectType: "NODE",
+ *   SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
  * };
  * const command = new CreateFacetCommand(input);
- * await client.send(command);
- * // example id: to-create-a-facet-1506112442334
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateFacetCommand extends $Command
   .classBuilder<

@@ -84,6 +84,7 @@ export interface CreateFarmCommandOutput extends CreateFarmResponse, __MetadataB
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class CreateFarmCommand extends $Command

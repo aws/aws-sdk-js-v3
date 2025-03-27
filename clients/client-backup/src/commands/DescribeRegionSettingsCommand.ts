@@ -65,6 +65,7 @@ export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSetti
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class DescribeRegionSettingsCommand extends $Command

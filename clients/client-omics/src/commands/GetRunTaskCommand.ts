@@ -94,6 +94,7 @@ export interface GetRunTaskCommandOutput extends GetRunTaskResponse, __MetadataB
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class GetRunTaskCommand extends $Command

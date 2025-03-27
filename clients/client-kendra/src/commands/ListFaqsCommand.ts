@@ -88,6 +88,7 @@ export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBeare
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class ListFaqsCommand extends $Command

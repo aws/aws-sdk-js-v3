@@ -133,12 +133,12 @@ export interface BatchGetSecretValueCommandOutput extends BatchGetSecretValueRes
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
+ *
  * @example To retrieve the secret values for a group of secrets listed by name
  * ```javascript
  * // The following example gets the values for three secrets.
  * const input = {
- *   "SecretIdList": [
+ *   SecretIdList: [
  *     "MySecret1",
  *     "MySecret2",
  *     "MySecret3"
@@ -146,46 +146,46 @@ export interface BatchGetSecretValueCommandOutput extends BatchGetSecretValueRes
  * };
  * const command = new BatchGetSecretValueCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Errors": [],
- *   "SecretValues": [
+ *   Errors:   [],
+ *   SecretValues: [
  *     {
- *       "ARN": "&region-arn;&asm-service-name;:us-west-2:&ExampleAccountId;:secret:MySecret1-a1b2c3",
- *       "CreatedDate": 1700591229.801,
- *       "Name": "MySecret1",
- *       "SecretString": "{\"username\":\"diego_ramirez\",\"password\":\"EXAMPLE-PASSWORD\",\"engine\":\"mysql\",\"host\":\"secretsmanagertutorial.cluster.us-west-2.rds.amazonaws.com\",\"port\":3306,\"dbClusterIdentifier\":\"secretsmanagertutorial\"}",
- *       "VersionId": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
- *       "VersionStages": [
+ *       ARN: "&region-arn;&asm-service-name;:us-west-2:&ExampleAccountId;:secret:MySecret1-a1b2c3",
+ *       CreatedDate: 1.700591229801E9,
+ *       Name: "MySecret1",
+ *       SecretString: `{"username":"diego_ramirez","password":"EXAMPLE-PASSWORD","engine":"mysql","host":"secretsmanagertutorial.cluster.us-west-2.rds.amazonaws.com","port":3306,"dbClusterIdentifier":"secretsmanagertutorial"}`,
+ *       VersionId: "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
+ *       VersionStages: [
  *         "AWSCURRENT"
  *       ]
  *     },
  *     {
- *       "ARN": "&region-arn;&asm-service-name;:us-west-2:&ExampleAccountId;:secret:MySecret2-a1b2c3",
- *       "CreatedDate": 1699911394.105,
- *       "Name": "MySecret2",
- *       "SecretString": "{\"username\":\"akua_mansa\",\"password\":\"EXAMPLE-PASSWORD\"",
- *       "VersionId": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb",
- *       "VersionStages": [
+ *       ARN: "&region-arn;&asm-service-name;:us-west-2:&ExampleAccountId;:secret:MySecret2-a1b2c3",
+ *       CreatedDate: 1.699911394105E9,
+ *       Name: "MySecret2",
+ *       SecretString: `{"username":"akua_mansa","password":"EXAMPLE-PASSWORD"`,
+ *       VersionId: "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb",
+ *       VersionStages: [
  *         "AWSCURRENT"
  *       ]
  *     },
  *     {
- *       "ARN": "&region-arn;&asm-service-name;:us-west-2:&ExampleAccountId;:secret:MySecret3-a1b2c3",
- *       "CreatedDate": 1699911394.105,
- *       "Name": "MySecret3",
- *       "SecretString": "{\"username\":\"jie_liu\",\"password\":\"EXAMPLE-PASSWORD\"",
- *       "VersionId": "a1b2c3d4-5678-90ab-cdef-EXAMPLEccccc",
- *       "VersionStages": [
+ *       ARN: "&region-arn;&asm-service-name;:us-west-2:&ExampleAccountId;:secret:MySecret3-a1b2c3",
+ *       CreatedDate: 1.699911394105E9,
+ *       Name: "MySecret3",
+ *       SecretString: `{"username":"jie_liu","password":"EXAMPLE-PASSWORD"`,
+ *       VersionId: "a1b2c3d4-5678-90ab-cdef-EXAMPLEccccc",
+ *       VersionStages: [
  *         "AWSCURRENT"
  *       ]
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-the-secret-values-for-a-group-of-secrets-listed-by-name-1704846593341
  * ```
  *
+ * @public
  */
 export class BatchGetSecretValueCommand extends $Command
   .classBuilder<

@@ -106,63 +106,63 @@ export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBea
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To list the faces in a collection
  * ```javascript
  * // This operation lists the faces in a Rekognition collection.
  * const input = {
- *   "CollectionId": "myphotos",
- *   "MaxResults": 20
+ *   CollectionId: "myphotos",
+ *   MaxResults: 20
  * };
  * const command = new ListFacesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "FaceModelVersion": "6.0",
- *   "Faces": [
+ *   FaceModelVersion: "6.0",
+ *   Faces: [
  *     {
- *       "BoundingBox": {
- *         "Height": 0.056759100407361984,
- *         "Left": 0.3453829884529114,
- *         "Top": 0.36568498611450195,
- *         "Width": 0.03177810087800026
+ *       BoundingBox: {
+ *         Height: 0.056759100407361984,
+ *         Left: 0.3453829884529114,
+ *         Top: 0.36568498611450195,
+ *         Width: 0.03177810087800026
  *       },
- *       "Confidence": 99.76940155029297,
- *       "FaceId": "c92265d4-5f9c-43af-a58e-12be0ce02bc3",
- *       "ImageId": "56a0ca74-1c83-39dd-b363-051a64168a65",
- *       "IndexFacesModelVersion": "6.0",
- *       "UserId": "demoUser2"
+ *       Confidence: 99.76940155029297,
+ *       FaceId: "c92265d4-5f9c-43af-a58e-12be0ce02bc3",
+ *       ImageId: "56a0ca74-1c83-39dd-b363-051a64168a65",
+ *       IndexFacesModelVersion: "6.0",
+ *       UserId: "demoUser2"
  *     },
  *     {
- *       "BoundingBox": {
- *         "Height": 0.06347999721765518,
- *         "Left": 0.5160620212554932,
- *         "Top": 0.6080359816551208,
- *         "Width": 0.03254450112581253
+ *       BoundingBox: {
+ *         Height: 0.06347999721765518,
+ *         Left: 0.5160620212554932,
+ *         Top: 0.6080359816551208,
+ *         Width: 0.03254450112581253
  *       },
- *       "Confidence": 99.94369506835938,
- *       "FaceId": "851cb847-dccc-4fea-9309-9f4805967855",
- *       "ImageId": "a8aed589-ceec-35f7-9c04-82e0b546b024",
- *       "IndexFacesModelVersion": "6.0"
+ *       Confidence: 99.94369506835938,
+ *       FaceId: "851cb847-dccc-4fea-9309-9f4805967855",
+ *       ImageId: "a8aed589-ceec-35f7-9c04-82e0b546b024",
+ *       IndexFacesModelVersion: "6.0"
  *     },
  *     {
- *       "BoundingBox": {
- *         "Height": 0.05266290158033371,
- *         "Left": 0.6513839960098267,
- *         "Top": 0.4218429923057556,
- *         "Width": 0.03094629943370819
+ *       BoundingBox: {
+ *         Height: 0.05266290158033371,
+ *         Left: 0.6513839960098267,
+ *         Top: 0.4218429923057556,
+ *         Width: 0.03094629943370819
  *       },
- *       "Confidence": 99.82969665527344,
- *       "FaceId": "c0eb3b65-24a0-41e1-b23a-1908b1aaeac1",
- *       "ImageId": "56a0ca74-1c83-39dd-b363-051a64168a65",
- *       "IndexFacesModelVersion": "6.0"
+ *       Confidence: 99.82969665527344,
+ *       FaceId: "c0eb3b65-24a0-41e1-b23a-1908b1aaeac1",
+ *       ImageId: "56a0ca74-1c83-39dd-b363-051a64168a65",
+ *       IndexFacesModelVersion: "6.0"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-the-faces-in-a-collection-1482181416530
  * ```
  *
+ * @public
  */
 export class ListFacesCommand extends $Command
   .classBuilder<

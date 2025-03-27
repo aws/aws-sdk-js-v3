@@ -83,6 +83,7 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ *
  * @public
  */
 export class DeleteEnvironmentCommand extends $Command

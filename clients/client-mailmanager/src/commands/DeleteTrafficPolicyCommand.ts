@@ -62,6 +62,20 @@ export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyRes
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
+ * @example Delete TrafficPolicy
+ * ```javascript
+ * //
+ * const input = {
+ *   TrafficPolicyId: "tp-12345"
+ * };
+ * const command = new DeleteTrafficPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteTrafficPolicyCommand extends $Command

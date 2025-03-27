@@ -87,6 +87,7 @@ export interface BatchAssociateResourceCommandOutput extends BatchAssociateResou
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class BatchAssociateResourceCommand extends $Command

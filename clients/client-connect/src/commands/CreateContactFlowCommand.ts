@@ -91,6 +91,7 @@ export interface CreateContactFlowCommandOutput extends CreateContactFlowRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateContactFlowCommand extends $Command

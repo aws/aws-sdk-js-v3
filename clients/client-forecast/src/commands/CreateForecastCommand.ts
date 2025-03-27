@@ -126,6 +126,7 @@ export interface CreateForecastCommandOutput extends CreateForecastResponse, __M
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class CreateForecastCommand extends $Command

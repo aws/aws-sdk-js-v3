@@ -82,6 +82,7 @@ export interface AddProfilePermissionCommandOutput extends AddProfilePermissionR
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ *
  * @public
  */
 export class AddProfilePermissionCommand extends $Command

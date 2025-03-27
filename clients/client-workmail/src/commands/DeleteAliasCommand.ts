@@ -75,6 +75,7 @@ export interface DeleteAliasCommandOutput extends DeleteAliasResponse, __Metadat
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class DeleteAliasCommand extends $Command

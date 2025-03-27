@@ -76,6 +76,7 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateWorkspaceCommand extends $Command

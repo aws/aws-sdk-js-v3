@@ -76,6 +76,25 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link MarketplaceDeploymentServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceDeployment service.</p>
  *
+ *
+ * @example Listing tags for a deployment parameter
+ * ```javascript
+ * // The following example demonstrates listing the tags for a deployment parameter. If no tags are present, the API will return an empty map.
+ * const input = {
+ *   resourceArn: "arn:aws:aws-marketplace:us-east-1:123456789012:DeploymentParameter:catalogs/AWSMarketplace/products/product-1234/dp-uniqueidentifier"
+ * };
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   tags: {
+ *     FooKey: "BarValue",
+ *     HelloKey: "WorldValue"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

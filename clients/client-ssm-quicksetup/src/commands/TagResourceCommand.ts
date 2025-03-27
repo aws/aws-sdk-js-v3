@@ -75,6 +75,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link SSMQuickSetupServiceException}
  * <p>Base exception class for all service exceptions from SSMQuickSetup service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

@@ -93,6 +93,7 @@ export interface DeleteUserCommandOutput extends DeleteUserResult, __MetadataBea
  * @throws {@link DirectoryServiceDataServiceException}
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserCommand extends $Command

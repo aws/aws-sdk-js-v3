@@ -76,6 +76,7 @@ export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectCon
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DeleteDirectConnectGatewayCommand extends $Command

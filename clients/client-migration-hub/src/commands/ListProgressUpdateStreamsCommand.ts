@@ -82,6 +82,7 @@ export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpda
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ *
  * @public
  */
 export class ListProgressUpdateStreamsCommand extends $Command

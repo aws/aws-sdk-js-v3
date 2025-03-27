@@ -97,6 +97,7 @@ export interface PutGeofenceCommandOutput extends PutGeofenceResponse, __Metadat
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class PutGeofenceCommand extends $Command

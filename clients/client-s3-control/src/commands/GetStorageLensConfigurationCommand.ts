@@ -156,6 +156,7 @@ export interface GetStorageLensConfigurationCommandOutput extends GetStorageLens
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class GetStorageLensConfigurationCommand extends $Command

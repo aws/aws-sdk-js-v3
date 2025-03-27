@@ -82,6 +82,7 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ *
  * @public
  */
 export class BatchPutMessageCommand extends $Command

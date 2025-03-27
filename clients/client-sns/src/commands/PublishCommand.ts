@@ -142,6 +142,7 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ *
  * @public
  */
 export class PublishCommand extends $Command

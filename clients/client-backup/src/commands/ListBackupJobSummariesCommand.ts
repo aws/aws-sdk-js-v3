@@ -88,6 +88,7 @@ export interface ListBackupJobSummariesCommandOutput extends ListBackupJobSummar
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class ListBackupJobSummariesCommand extends $Command

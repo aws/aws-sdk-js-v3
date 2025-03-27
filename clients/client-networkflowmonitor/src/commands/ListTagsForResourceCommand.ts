@@ -79,6 +79,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link NetworkFlowMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkFlowMonitor service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

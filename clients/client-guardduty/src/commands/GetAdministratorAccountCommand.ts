@@ -71,6 +71,7 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class GetAdministratorAccountCommand extends $Command

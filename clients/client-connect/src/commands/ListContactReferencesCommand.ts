@@ -112,6 +112,7 @@ export interface ListContactReferencesCommandOutput extends ListContactReference
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListContactReferencesCommand extends $Command

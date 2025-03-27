@@ -105,6 +105,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ *
  * @public
  */
 export class ListDatasetsCommand extends $Command

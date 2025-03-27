@@ -132,6 +132,7 @@ export interface DeleteFieldCommandOutput extends DeleteFieldResponse, __Metadat
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class DeleteFieldCommand extends $Command

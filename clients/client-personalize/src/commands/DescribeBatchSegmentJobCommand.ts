@@ -86,6 +86,7 @@ export interface DescribeBatchSegmentJobCommandOutput extends DescribeBatchSegme
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class DescribeBatchSegmentJobCommand extends $Command

@@ -117,26 +117,26 @@ export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse,
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example PutProjectPolicy
  * ```javascript
  * // This operation attaches a project policy to a Amazon Rekognition Custom Labels project in a trusting AWS account.
  * const input = {
- *   "PolicyDocument": "'{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"ALLOW\",\"Principal\":{\"AWS\":\"principal\"},\"Action\":\"rekognition:CopyProjectVersion\",\"Resource\":\"arn:aws:rekognition:us-east-1:123456789012:project/my-sdk-project/version/DestinationVersionName/1627045542080\"}]}'",
- *   "PolicyName": "SamplePolicy",
- *   "PolicyRevisionId": "0123456789abcdef",
- *   "ProjectArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-sdk-project/1656557051929"
+ *   PolicyDocument: `'{"Version":"2012-10-17","Statement":[{"Effect":"ALLOW","Principal":{"AWS":"principal"},"Action":"rekognition:CopyProjectVersion","Resource":"arn:aws:rekognition:us-east-1:123456789012:project/my-sdk-project/version/DestinationVersionName/1627045542080"}]}'`,
+ *   PolicyName: "SamplePolicy",
+ *   PolicyRevisionId: "0123456789abcdef",
+ *   ProjectArn: "arn:aws:rekognition:us-east-1:111122223333:project/my-sdk-project/1656557051929"
  * };
  * const command = new PutProjectPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "PolicyRevisionId": "0123456789abcdef"
+ *   PolicyRevisionId: "0123456789abcdef"
  * }
  * *\/
- * // example id: putprojectpolicy-1658201727623
  * ```
  *
+ * @public
  */
 export class PutProjectPolicyCommand extends $Command
   .classBuilder<

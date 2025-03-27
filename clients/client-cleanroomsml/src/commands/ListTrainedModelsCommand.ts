@@ -76,6 +76,7 @@ export interface ListTrainedModelsCommandOutput extends ListTrainedModelsRespons
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ *
  * @public
  */
 export class ListTrainedModelsCommand extends $Command

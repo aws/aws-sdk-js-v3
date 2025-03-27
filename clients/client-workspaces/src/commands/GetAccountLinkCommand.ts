@@ -74,6 +74,7 @@ export interface GetAccountLinkCommandOutput extends GetAccountLinkResult, __Met
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class GetAccountLinkCommand extends $Command

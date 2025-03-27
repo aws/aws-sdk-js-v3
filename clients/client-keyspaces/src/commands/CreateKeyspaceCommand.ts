@@ -91,6 +91,7 @@ export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __M
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
+ *
  * @public
  */
 export class CreateKeyspaceCommand extends $Command

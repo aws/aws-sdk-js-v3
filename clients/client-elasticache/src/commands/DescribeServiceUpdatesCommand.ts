@@ -85,6 +85,7 @@ export interface DescribeServiceUpdatesCommandOutput extends ServiceUpdatesMessa
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class DescribeServiceUpdatesCommand extends $Command

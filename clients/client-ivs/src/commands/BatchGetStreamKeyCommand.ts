@@ -77,6 +77,7 @@ export interface BatchGetStreamKeyCommandOutput extends BatchGetStreamKeyRespons
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class BatchGetStreamKeyCommand extends $Command

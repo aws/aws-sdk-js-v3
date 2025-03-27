@@ -91,52 +91,52 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe DB cluster parameter groups
  * ```javascript
  * // The following example retrieves details for your DB cluster parameter groups.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeDBClusterParameterGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBClusterParameterGroups": [
+ *   DBClusterParameterGroups: [
  *     {
- *       "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:default.aurora-mysql5.7",
- *       "DBClusterParameterGroupName": "default.aurora-mysql5.7",
- *       "DBParameterGroupFamily": "aurora-mysql5.7",
- *       "Description": "Default cluster parameter group for aurora-mysql5.7"
+ *       DBClusterParameterGroupArn: "arn:aws:rds:us-east-1:123456789012:cluster-pg:default.aurora-mysql5.7",
+ *       DBClusterParameterGroupName: "default.aurora-mysql5.7",
+ *       DBParameterGroupFamily: "aurora-mysql5.7",
+ *       Description: "Default cluster parameter group for aurora-mysql5.7"
  *     },
  *     {
- *       "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:default.aurora-postgresql9.6",
- *       "DBClusterParameterGroupName": "default.aurora-postgresql9.6",
- *       "DBParameterGroupFamily": "aurora-postgresql9.6",
- *       "Description": "Default cluster parameter group for aurora-postgresql9.6"
+ *       DBClusterParameterGroupArn: "arn:aws:rds:us-east-1:123456789012:cluster-pg:default.aurora-postgresql9.6",
+ *       DBClusterParameterGroupName: "default.aurora-postgresql9.6",
+ *       DBParameterGroupFamily: "aurora-postgresql9.6",
+ *       Description: "Default cluster parameter group for aurora-postgresql9.6"
  *     },
  *     {
- *       "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:default.aurora5.6",
- *       "DBClusterParameterGroupName": "default.aurora5.6",
- *       "DBParameterGroupFamily": "aurora5.6",
- *       "Description": "Default cluster parameter group for aurora5.6"
+ *       DBClusterParameterGroupArn: "arn:aws:rds:us-east-1:123456789012:cluster-pg:default.aurora5.6",
+ *       DBClusterParameterGroupName: "default.aurora5.6",
+ *       DBParameterGroupFamily: "aurora5.6",
+ *       Description: "Default cluster parameter group for aurora5.6"
  *     },
  *     {
- *       "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:mydbclusterpg",
- *       "DBClusterParameterGroupName": "mydbclusterpg",
- *       "DBParameterGroupFamily": "aurora-mysql5.7",
- *       "Description": "My DB cluster parameter group"
+ *       DBClusterParameterGroupArn: "arn:aws:rds:us-east-1:123456789012:cluster-pg:mydbclusterpg",
+ *       DBClusterParameterGroupName: "mydbclusterpg",
+ *       DBParameterGroupFamily: "aurora-mysql5.7",
+ *       Description: "My DB cluster parameter group"
  *     },
  *     {
- *       "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:mydbclusterpgcopy",
- *       "DBClusterParameterGroupName": "mydbclusterpgcopy",
- *       "DBParameterGroupFamily": "aurora-mysql5.7",
- *       "Description": "Copy of mydbclusterpg parameter group"
+ *       DBClusterParameterGroupArn: "arn:aws:rds:us-east-1:123456789012:cluster-pg:mydbclusterpgcopy",
+ *       DBClusterParameterGroupName: "mydbclusterpgcopy",
+ *       DBParameterGroupFamily: "aurora-mysql5.7",
+ *       Description: "Copy of mydbclusterpg parameter group"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-db-cluster-parameter-groups-1680213090883
  * ```
  *
+ * @public
  */
 export class DescribeDBClusterParameterGroupsCommand extends $Command
   .classBuilder<

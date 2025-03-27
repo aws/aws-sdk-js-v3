@@ -93,37 +93,37 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To describe the attributes of a load balancer
  * ```javascript
  * // This example describes the attributes of the specified load balancer.
  * const input = {
- *   "LoadBalancerName": "my-load-balancer"
+ *   LoadBalancerName: "my-load-balancer"
  * };
  * const command = new DescribeLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LoadBalancerAttributes": {
- *     "AccessLog": {
- *       "Enabled": false
+ *   LoadBalancerAttributes: {
+ *     AccessLog: {
+ *       Enabled: false
  *     },
- *     "ConnectionDraining": {
- *       "Enabled": false,
- *       "Timeout": 300
+ *     ConnectionDraining: {
+ *       Enabled: false,
+ *       Timeout: 300
  *     },
- *     "ConnectionSettings": {
- *       "IdleTimeout": 60
+ *     ConnectionSettings: {
+ *       IdleTimeout: 60
  *     },
- *     "CrossZoneLoadBalancing": {
- *       "Enabled": false
+ *     CrossZoneLoadBalancing: {
+ *       Enabled: false
  *     }
  *   }
  * }
  * *\/
- * // example id: elb-describe-load-balancer-attributes-1
  * ```
  *
+ * @public
  */
 export class DescribeLoadBalancerAttributesCommand extends $Command
   .classBuilder<

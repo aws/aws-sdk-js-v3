@@ -73,6 +73,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

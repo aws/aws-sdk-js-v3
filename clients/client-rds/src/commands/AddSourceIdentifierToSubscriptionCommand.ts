@@ -82,41 +82,41 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To add a source identifier to a subscription
  * ```javascript
  * // The following example adds another source identifier to an existing subscription.
  * const input = {
- *   "SourceIdentifier": "test-instance-repl",
- *   "SubscriptionName": "my-instance-events"
+ *   SourceIdentifier: "test-instance-repl",
+ *   SubscriptionName: "my-instance-events"
  * };
  * const command = new AddSourceIdentifierToSubscriptionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EventSubscription": {
- *     "CustSubscriptionId": "my-instance-events",
- *     "CustomerAwsId": "123456789012",
- *     "Enabled": false,
- *     "EventCategoriesList": [
+ *   EventSubscription: {
+ *     CustSubscriptionId: "my-instance-events",
+ *     CustomerAwsId: "123456789012",
+ *     Enabled: false,
+ *     EventCategoriesList: [
  *       "backup",
  *       "recovery"
  *     ],
- *     "EventSubscriptionArn": "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
- *     "SnsTopicArn": "arn:aws:sns:us-east-1:123456789012:interesting-events",
- *     "SourceIdsList": [
+ *     EventSubscriptionArn: "arn:aws:rds:us-east-1:123456789012:es:my-instance-events",
+ *     SnsTopicArn: "arn:aws:sns:us-east-1:123456789012:interesting-events",
+ *     SourceIdsList: [
  *       "test-instance",
  *       "test-instance-repl"
  *     ],
- *     "SourceType": "db-instance",
- *     "Status": "modifying",
- *     "SubscriptionCreationTime": "Tue Jul 31 23:22:01 UTC 2018"
+ *     SourceType: "db-instance",
+ *     Status: "modifying",
+ *     SubscriptionCreationTime: "Tue Jul 31 23:22:01 UTC 2018"
  *   }
  * }
  * *\/
- * // example id: to-add-a-source-identifier-to-a-subscription-1679691771786
  * ```
  *
+ * @public
  */
 export class AddSourceIdentifierToSubscriptionCommand extends $Command
   .classBuilder<

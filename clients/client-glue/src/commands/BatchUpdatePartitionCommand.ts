@@ -155,6 +155,7 @@ export interface BatchUpdatePartitionCommandOutput extends BatchUpdatePartitionR
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class BatchUpdatePartitionCommand extends $Command

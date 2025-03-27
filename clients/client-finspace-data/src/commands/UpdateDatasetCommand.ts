@@ -95,6 +95,7 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ *
  * @public
  */
 export class UpdateDatasetCommand extends $Command

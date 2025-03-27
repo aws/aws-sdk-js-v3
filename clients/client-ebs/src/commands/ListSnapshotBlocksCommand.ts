@@ -96,6 +96,7 @@ export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksRespo
  * @throws {@link EBSServiceException}
  * <p>Base exception class for all service exceptions from EBS service.</p>
  *
+ *
  * @public
  */
 export class ListSnapshotBlocksCommand extends $Command

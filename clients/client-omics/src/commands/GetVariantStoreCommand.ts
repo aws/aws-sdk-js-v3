@@ -88,6 +88,7 @@ export interface GetVariantStoreCommandOutput extends GetVariantStoreResponse, _
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class GetVariantStoreCommand extends $Command

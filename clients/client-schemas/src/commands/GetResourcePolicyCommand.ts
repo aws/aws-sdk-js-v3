@@ -68,6 +68,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ *
  * @public
  */
 export class GetResourcePolicyCommand extends $Command

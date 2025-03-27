@@ -88,6 +88,7 @@ export interface UpdateRumMetricDefinitionCommandOutput extends UpdateRumMetricD
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ *
  * @public
  */
 export class UpdateRumMetricDefinitionCommand extends $Command

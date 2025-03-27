@@ -86,41 +86,41 @@ export interface DescribeQAppPermissionsCommandOutput extends DescribeQAppPermis
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example Describe permissions for the app
  * ```javascript
  * //
  * const input = {
- *   "appId": "fe0acf86-49e5-4def-a0c2-40ce0cafee14",
- *   "instanceId": "01793661-ad73-4c7d-8eaa-1c95a10151c2"
+ *   appId: "fe0acf86-49e5-4def-a0c2-40ce0cafee14",
+ *   instanceId: "01793661-ad73-4c7d-8eaa-1c95a10151c2"
  * };
  * const command = new DescribeQAppPermissionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "appId": "fe0acf86-49e5-4def-a0c2-40ce0cafee14",
- *   "permissions": [
+ *   appId: "fe0acf86-49e5-4def-a0c2-40ce0cafee14",
+ *   permissions: [
  *     {
- *       "action": "write",
- *       "principal": {
- *         "email": "user1@example.com",
- *         "userId": "f8f15330-b091-708b-d46e-adb0d914b699"
+ *       action: "write",
+ *       principal: {
+ *         email: "user1@example.com",
+ *         userId: "f8f15330-b091-708b-d46e-adb0d914b699"
  *       }
  *     },
  *     {
- *       "action": "read",
- *       "principal": {
- *         "email": "user2@example.com",
- *         "userId": "c81133d0-10d1-70eb-aaa3-d427ea6fc0f3"
+ *       action: "read",
+ *       principal: {
+ *         email: "user2@example.com",
+ *         userId: "c81133d0-10d1-70eb-aaa3-d427ea6fc0f3"
  *       }
  *     }
  *   ],
- *   "resourceArn": "arn:aws:qapps:us-west-2:111111111111:application/01793661-ad73-4c7d-8eaa-1c95a10151c2/qapp/fe0acf86-49e5-4def-a0c2-40ce0cafee14"
+ *   resourceArn: "arn:aws:qapps:us-west-2:111111111111:application/01793661-ad73-4c7d-8eaa-1c95a10151c2/qapp/fe0acf86-49e5-4def-a0c2-40ce0cafee14"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class DescribeQAppPermissionsCommand extends $Command
   .classBuilder<

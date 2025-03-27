@@ -111,6 +111,7 @@ export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __Met
  * @throws {@link PartnerCentralSellingServiceException}
  * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>
  *
+ *
  * @public
  */
 export class ListSolutionsCommand extends $Command

@@ -160,6 +160,7 @@ export interface DescribeBatchLoadTaskCommandOutput extends DescribeBatchLoadTas
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ *
  * @public
  */
 export class DescribeBatchLoadTaskCommand extends $Command

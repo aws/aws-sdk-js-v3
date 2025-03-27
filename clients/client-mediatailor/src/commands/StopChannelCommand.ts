@@ -53,6 +53,7 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class StopChannelCommand extends $Command

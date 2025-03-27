@@ -80,6 +80,7 @@ export interface UpdateCampaignOutboundCallConfigCommandOutput extends __Metadat
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ *
  * @public
  */
 export class UpdateCampaignOutboundCallConfigCommand extends $Command

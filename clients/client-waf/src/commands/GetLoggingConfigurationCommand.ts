@@ -80,6 +80,7 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ *
  * @public
  */
 export class GetLoggingConfigurationCommand extends $Command

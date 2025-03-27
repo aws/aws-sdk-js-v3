@@ -124,62 +124,8 @@ export interface CreateRepositoryCreationTemplateCommandOutput
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
- * @public
- * @example Create a new repository creation template
- * ```javascript
- * // This example creates a repository creation template.
- * const input = {
- *   "appliedFor": [
- *     "REPLICATION",
- *     "PULL_THROUGH_CACHE"
- *   ],
- *   "description": "Repos for testing images",
- *   "encryptionConfiguration": {
- *     "encryptionType": "AES256"
- *   },
- *   "imageTagMutability": "MUTABLE",
- *   "lifecyclePolicy": "{\r\n    \"rules\": [\r\n        {\r\n            \"rulePriority\": 1,\r\n            \"description\": \"Expire images older than 14 days\",\r\n            \"selection\": {\r\n                \"tagStatus\": \"untagged\",\r\n                \"countType\": \"sinceImagePushed\",\r\n                \"countUnit\": \"days\",\r\n                \"countNumber\": 14\r\n            },\r\n            \"action\": {\r\n                \"type\": \"expire\"\r\n            }\r\n        }\r\n    ]\r\n}",
- *   "prefix": "eng/test",
- *   "repositoryPolicy": "{\r\n  \"Version\": \"2012-10-17\",\r\n  \"Statement\": [\r\n    {\r\n      \"Sid\": \"LambdaECRPullPolicy\",\r\n      \"Effect\": \"Allow\",\r\n      \"Principal\": {\r\n        \"Service\": \"lambda.amazonaws.com\"\r\n      },\r\n      \"Action\": \"ecr:BatchGetImage\"\r\n    }\r\n  ]\r\n}",
- *   "resourceTags": [
- *     {
- *       "Key": "environment",
- *       "Value": "test"
- *     }
- *   ]
- * };
- * const command = new CreateRepositoryCreationTemplateCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "registryId": "012345678901",
- *   "repositoryCreationTemplate": {
- *     "appliedFor": [
- *       "REPLICATION",
- *       "PULL_THROUGH_CACHE"
- *     ],
- *     "createdAt": "2023-12-16T17:29:02-07:00",
- *     "description": "Repos for testing images",
- *     "encryptionConfiguration": {
- *       "encryptionType": "AES256"
- *     },
- *     "imageTagMutability": "MUTABLE",
- *     "lifecyclePolicy": "{\r\n    \"rules\": [\r\n        {\r\n            \"rulePriority\": 1,\r\n            \"description\": \"Expire images older than 14 days\",\r\n            \"selection\": {\r\n                \"tagStatus\": \"untagged\",\r\n                \"countType\": \"sinceImagePushed\",\r\n                \"countUnit\": \"days\",\r\n                \"countNumber\": 14\r\n            },\r\n            \"action\": {\r\n                \"type\": \"expire\"\r\n            }\r\n        }\r\n    ]\r\n}",
- *     "prefix": "eng/test",
- *     "repositoryPolicy": "{\n  \"Version\" : \"2012-10-17\",\n  \"Statement\" : [ {\n    \"Sid\" : \"LambdaECRPullPolicy\",\n    \"Effect\" : \"Allow\",\n    \"Principal\" : {\n      \"Service\" : \"lambda.amazonaws.com\"\n    },\n    \"Action\" : \"ecr:BatchGetImage\"\n  } ]\n}",
- *     "resourceTags": [
- *       {
- *         "Key": "environment",
- *         "Value": "test"
- *       }
- *     ],
- *     "updatedAt": "2023-12-16T17:29:02-07:00"
- *   }
- * }
- * *\/
- * // example id: create-a-new-repository-creation-template-1713296923053
- * ```
  *
+ * @public
  */
 export class CreateRepositoryCreationTemplateCommand extends $Command
   .classBuilder<

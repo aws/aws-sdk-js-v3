@@ -88,6 +88,7 @@ export interface ListScheduledActionsCommandOutput extends ListScheduledActionsR
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class ListScheduledActionsCommand extends $Command

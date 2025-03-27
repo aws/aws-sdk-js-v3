@@ -191,6 +191,7 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class InvokeWithResponseStreamCommand extends $Command

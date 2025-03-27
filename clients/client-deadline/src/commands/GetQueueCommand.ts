@@ -104,6 +104,7 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class GetQueueCommand extends $Command

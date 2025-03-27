@@ -164,6 +164,7 @@ export interface PollForTaskCommandOutput extends PollForTaskOutput, __MetadataB
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class PollForTaskCommand extends $Command

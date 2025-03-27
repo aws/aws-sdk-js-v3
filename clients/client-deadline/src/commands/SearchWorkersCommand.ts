@@ -167,6 +167,7 @@ export interface SearchWorkersCommandOutput extends SearchWorkersResponse, __Met
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class SearchWorkersCommand extends $Command

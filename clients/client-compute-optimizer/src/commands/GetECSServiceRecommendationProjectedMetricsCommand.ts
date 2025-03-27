@@ -114,6 +114,7 @@ export interface GetECSServiceRecommendationProjectedMetricsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetECSServiceRecommendationProjectedMetricsCommand extends $Command

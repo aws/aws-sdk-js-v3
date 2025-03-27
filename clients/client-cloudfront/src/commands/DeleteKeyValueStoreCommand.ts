@@ -73,19 +73,22 @@ export interface DeleteKeyValueStoreCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
- * @public
+ *
  * @example To delete a KeyValueStore
  * ```javascript
  * // Use the following command to delete a KeyValueStore.
  * const input = {
- *   "IfMatch": "ETVPDKIKX0DER",
- *   "Name": "my-keyvaluestore-name"
+ *   IfMatch: "ETVPDKIKX0DER",
+ *   Name: "my-keyvaluestore-name"
  * };
  * const command = new DeleteKeyValueStoreCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteKeyValueStoreCommand extends $Command
   .classBuilder<

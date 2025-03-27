@@ -79,6 +79,7 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ *
  * @public
  */
 export class DeletePipelineCommand extends $Command

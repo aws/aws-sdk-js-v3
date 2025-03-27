@@ -80,6 +80,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

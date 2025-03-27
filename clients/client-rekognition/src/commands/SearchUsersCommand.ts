@@ -99,38 +99,38 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example SearchUsers
  * ```javascript
  * // Searches for UserIDs within a collection based on a FaceId or UserId.
  * const input = {
- *   "CollectionId": "MyCollection",
- *   "MaxUsers": 2,
- *   "UserId": "DemoUser",
- *   "UserMatchThreshold": 70
+ *   CollectionId: "MyCollection",
+ *   MaxUsers: 2,
+ *   UserId: "DemoUser",
+ *   UserMatchThreshold: 70
  * };
  * const command = new SearchUsersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "FaceModelVersion": "6",
- *   "SearchedUser": {
- *     "UserId": "DemoUser"
+ *   FaceModelVersion: "6",
+ *   SearchedUser: {
+ *     UserId: "DemoUser"
  *   },
- *   "UserMatches": [
+ *   UserMatches: [
  *     {
- *       "Similarity": 99.88186645507812,
- *       "User": {
- *         "UserId": "demoUser1",
- *         "UserStatus": "ACTIVE"
+ *       Similarity: 99.88186645507812,
+ *       User: {
+ *         UserId: "demoUser1",
+ *         UserStatus: "ACTIVE"
  *       }
  *     }
  *   ]
  * }
  * *\/
- * // example id: searchusers-1686182912030
  * ```
  *
+ * @public
  */
 export class SearchUsersCommand extends $Command
   .classBuilder<

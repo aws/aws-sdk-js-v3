@@ -97,6 +97,7 @@ export interface ListSearchJobBackupsCommandOutput extends ListSearchJobBackupsO
  * @throws {@link BackupSearchServiceException}
  * <p>Base exception class for all service exceptions from BackupSearch service.</p>
  *
+ *
  * @public
  */
 export class ListSearchJobBackupsCommand extends $Command

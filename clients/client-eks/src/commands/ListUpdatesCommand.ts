@@ -81,6 +81,7 @@ export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __Metadat
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class ListUpdatesCommand extends $Command

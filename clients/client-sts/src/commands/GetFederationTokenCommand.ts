@@ -192,45 +192,45 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>
  *
- * @public
+ *
  * @example To get temporary credentials for a role by using GetFederationToken
  * ```javascript
  * //
  * const input = {
- *   "DurationSeconds": 3600,
- *   "Name": "testFedUserSession",
- *   "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Stmt1\",\"Effect\":\"Allow\",\"Action\":\"s3:ListAllMyBuckets\",\"Resource\":\"*\"}]}",
- *   "Tags": [
+ *   DurationSeconds: 3600,
+ *   Name: "testFedUserSession",
+ *   Policy: `{"Version":"2012-10-17","Statement":[{"Sid":"Stmt1","Effect":"Allow","Action":"s3:ListAllMyBuckets","Resource":"*"}]}`,
+ *   Tags: [
  *     {
- *       "Key": "Project",
- *       "Value": "Pegasus"
+ *       Key: "Project",
+ *       Value: "Pegasus"
  *     },
  *     {
- *       "Key": "Cost-Center",
- *       "Value": "98765"
+ *       Key: "Cost-Center",
+ *       Value: "98765"
  *     }
  *   ]
  * };
  * const command = new GetFederationTokenCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Credentials": {
- *     "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
- *     "Expiration": "2011-07-15T23:28:33.359Z",
- *     "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY",
- *     "SessionToken": "AQoDYXdzEPT//////////wEXAMPLEtc764bNrC9SAPBSM22wDOk4x4HIZ8j4FZTwdQWLWsKWHGBuFqwAeMicRXmxfpSPfIeoIYRqTflfKD8YUuwthAx7mSEI/qkPpKPi/kMcGdQrmGdeehM4IC1NtBmUpp2wUE8phUZampKsburEDy0KPkyQDYwT7WZ0wq5VSXDvp75YU9HFvlRd8Tx6q6fE8YQcHNVXAkiY9q6d+xo0rKwT38xVqr7ZD0u0iPPkUL64lIZbqBAz+scqKmlzm8FDrypNC9Yjc8fPOLn9FX9KSYvKTr4rvx3iSIlTJabIQwj2ICCR/oLxBA=="
+ *   Credentials: {
+ *     AccessKeyId: "AKIAIOSFODNN7EXAMPLE",
+ *     Expiration: "2011-07-15T23:28:33.359Z",
+ *     SecretAccessKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY",
+ *     SessionToken: "AQoDYXdzEPT//////////wEXAMPLEtc764bNrC9SAPBSM22wDOk4x4HIZ8j4FZTwdQWLWsKWHGBuFqwAeMicRXmxfpSPfIeoIYRqTflfKD8YUuwthAx7mSEI/qkPpKPi/kMcGdQrmGdeehM4IC1NtBmUpp2wUE8phUZampKsburEDy0KPkyQDYwT7WZ0wq5VSXDvp75YU9HFvlRd8Tx6q6fE8YQcHNVXAkiY9q6d+xo0rKwT38xVqr7ZD0u0iPPkUL64lIZbqBAz+scqKmlzm8FDrypNC9Yjc8fPOLn9FX9KSYvKTr4rvx3iSIlTJabIQwj2ICCR/oLxBA=="
  *   },
- *   "FederatedUser": {
- *     "Arn": "arn:aws:sts::123456789012:federated-user/Bob",
- *     "FederatedUserId": "123456789012:Bob"
+ *   FederatedUser: {
+ *     Arn: "arn:aws:sts::123456789012:federated-user/Bob",
+ *     FederatedUserId: "123456789012:Bob"
  *   },
- *   "PackedPolicySize": 8
+ *   PackedPolicySize: 8
  * }
  * *\/
- * // example id: to-get-temporary-credentials-for-a-role-by-using-getfederationtoken-1480540749900
  * ```
  *
+ * @public
  */
 export class GetFederationTokenCommand extends $Command
   .classBuilder<

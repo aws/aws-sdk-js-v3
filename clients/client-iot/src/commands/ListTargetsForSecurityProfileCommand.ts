@@ -80,6 +80,7 @@ export interface ListTargetsForSecurityProfileCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListTargetsForSecurityProfileCommand extends $Command

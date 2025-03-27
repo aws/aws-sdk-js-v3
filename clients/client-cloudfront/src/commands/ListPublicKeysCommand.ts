@@ -72,6 +72,7 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResult, __Met
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListPublicKeysCommand extends $Command

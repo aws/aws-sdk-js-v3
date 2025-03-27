@@ -170,6 +170,7 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class DescribeAlarmsCommand extends $Command

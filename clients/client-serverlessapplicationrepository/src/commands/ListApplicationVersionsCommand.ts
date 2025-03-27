@@ -84,6 +84,7 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationVersionsCommand extends $Command

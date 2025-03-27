@@ -102,6 +102,7 @@ export interface ListPeeringsCommandOutput extends ListPeeringsResponse, __Metad
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class ListPeeringsCommand extends $Command

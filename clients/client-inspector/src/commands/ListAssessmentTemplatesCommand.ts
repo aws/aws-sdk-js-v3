@@ -87,30 +87,30 @@ export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemp
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example List assessment templates
  * ```javascript
  * // Lists the assessment templates that correspond to the assessment targets that are specified by the ARNs of the assessment targets.
  * const input = {
- *   "assessmentTargetArns": [
+ *   assessmentTargetArns: [
  *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
  *   ],
- *   "maxResults": 123
+ *   maxResults: 123
  * };
  * const command = new ListAssessmentTemplatesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "assessmentTemplateArns": [
+ *   assessmentTemplateArns: [
  *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw",
  *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-Uza6ihLh"
  *   ],
- *   "nextToken": "1"
+ *   nextToken: "1"
  * }
  * *\/
- * // example id: list-assessment-templates-1481066623520
  * ```
  *
+ * @public
  */
 export class ListAssessmentTemplatesCommand extends $Command
   .classBuilder<

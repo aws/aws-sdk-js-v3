@@ -95,6 +95,7 @@ export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __M
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class GetActivityTaskCommand extends $Command

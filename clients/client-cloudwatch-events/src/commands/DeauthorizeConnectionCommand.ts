@@ -69,6 +69,7 @@ export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectio
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class DeauthorizeConnectionCommand extends $Command

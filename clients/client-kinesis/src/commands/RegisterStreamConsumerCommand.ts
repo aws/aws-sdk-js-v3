@@ -90,6 +90,7 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class RegisterStreamConsumerCommand extends $Command

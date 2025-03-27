@@ -81,24 +81,27 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link BillingServiceException}
  * <p>Base exception class for all service exceptions from Billing service.</p>
  *
- * @public
+ *
  * @example Invoke TagResource
  * ```javascript
  * //
  * const input = {
- *   "resourceArn": "arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899",
- *   "resourceTags": [
+ *   resourceArn: "arn:aws:billing::123456789101:billingview/custom-46f47cb2-a11d-43f3-983d-470b5708a899",
+ *   resourceTags: [
  *     {
- *       "key": "ExampleTagKey",
- *       "value": "ExampleTagValue"
+ *       key: "ExampleTagKey",
+ *       value: "ExampleTagValue"
  *     }
  *   ]
  * };
  * const command = new TagResourceCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

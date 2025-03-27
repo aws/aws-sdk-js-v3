@@ -84,6 +84,7 @@ export interface ListDevicesCommandOutput extends ListDevicesOutput, __MetadataB
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ *
  * @public
  */
 export class ListDevicesCommand extends $Command

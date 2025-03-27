@@ -126,6 +126,7 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class PublishPackageVersionCommand extends $Command

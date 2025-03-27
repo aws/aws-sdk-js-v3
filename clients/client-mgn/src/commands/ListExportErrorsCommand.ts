@@ -71,6 +71,7 @@ export interface ListExportErrorsCommandOutput extends ListExportErrorsResponse,
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class ListExportErrorsCommand extends $Command

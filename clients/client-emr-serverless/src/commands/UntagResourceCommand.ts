@@ -66,6 +66,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

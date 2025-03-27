@@ -100,6 +100,7 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class ListEnabledControlsCommand extends $Command

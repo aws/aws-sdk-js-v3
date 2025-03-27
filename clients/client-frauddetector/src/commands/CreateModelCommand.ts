@@ -74,6 +74,7 @@ export interface CreateModelCommandOutput extends CreateModelResult, __MetadataB
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class CreateModelCommand extends $Command

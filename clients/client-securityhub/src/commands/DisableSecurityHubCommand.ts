@@ -74,16 +74,19 @@ export interface DisableSecurityHubCommandOutput extends DisableSecurityHubRespo
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To deactivate Security Hub
  * ```javascript
  * // The following example deactivates Security Hub for the current account and Region.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DisableSecurityHubCommand(input);
- * await client.send(command);
- * // example id: to-deactivate-security-hub-1676583894245
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DisableSecurityHubCommand extends $Command
   .classBuilder<

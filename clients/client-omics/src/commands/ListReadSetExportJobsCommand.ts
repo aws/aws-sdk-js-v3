@@ -90,6 +90,7 @@ export interface ListReadSetExportJobsCommandOutput extends ListReadSetExportJob
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class ListReadSetExportJobsCommand extends $Command

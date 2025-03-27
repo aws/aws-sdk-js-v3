@@ -69,18 +69,21 @@ export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example DeleteCacheParameterGroup
  * ```javascript
  * // Deletes the Amazon ElastiCache parameter group custom-mem1-4.
  * const input = {
- *   "CacheParameterGroupName": "custom-mem1-4"
+ *   CacheParameterGroupName: "custom-mem1-4"
  * };
  * const command = new DeleteCacheParameterGroupCommand(input);
- * await client.send(command);
- * // example id: deletecacheparametergroup-1475010933957
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteCacheParameterGroupCommand extends $Command
   .classBuilder<

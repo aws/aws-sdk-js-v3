@@ -409,6 +409,7 @@ export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ *
  * @public
  */
 export class EnableAWSServiceAccessCommand extends $Command

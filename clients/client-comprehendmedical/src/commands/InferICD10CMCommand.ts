@@ -130,6 +130,7 @@ export interface InferICD10CMCommandOutput extends InferICD10CMResponse, __Metad
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ *
  * @public
  */
 export class InferICD10CMCommand extends $Command

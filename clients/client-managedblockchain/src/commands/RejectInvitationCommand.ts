@@ -79,6 +79,7 @@ export interface RejectInvitationCommandOutput extends RejectInvitationOutput, _
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class RejectInvitationCommand extends $Command

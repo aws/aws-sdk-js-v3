@@ -70,6 +70,20 @@ export interface CancelSolNetworkOperationCommandOutput extends __MetadataBearer
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example Cancel a in-progress Sol Network Operation.
+ * ```javascript
+ * //
+ * const input = {
+ *   nsLcmOpOccId: "no-0d5b823eb5c2a9241"
+ * };
+ * const command = new CancelSolNetworkOperationCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CancelSolNetworkOperationCommand extends $Command

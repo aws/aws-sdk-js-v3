@@ -81,6 +81,7 @@ export interface ListLexBotsCommandOutput extends ListLexBotsResponse, __Metadat
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListLexBotsCommand extends $Command

@@ -95,6 +95,7 @@ export interface GetTrainingDatasetCommandOutput extends GetTrainingDatasetRespo
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ *
  * @public
  */
 export class GetTrainingDatasetCommand extends $Command

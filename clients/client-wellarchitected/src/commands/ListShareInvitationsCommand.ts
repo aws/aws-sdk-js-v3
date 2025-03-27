@@ -94,6 +94,7 @@ export interface ListShareInvitationsCommandOutput extends ListShareInvitationsO
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class ListShareInvitationsCommand extends $Command

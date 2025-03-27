@@ -447,6 +447,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class UpdateDataSourceCommand extends $Command

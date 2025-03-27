@@ -102,32 +102,32 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To list tags on an Amazon RDS resource
  * ```javascript
  * // The following example lists all tags on a DB instance.
  * const input = {
- *   "ResourceName": "arn:aws:rds:us-east-1:123456789012:db:orcl1"
+ *   ResourceName: "arn:aws:rds:us-east-1:123456789012:db:orcl1"
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TagList": [
+ *   TagList: [
  *     {
- *       "Key": "Environment",
- *       "Value": "test"
+ *       Key: "Environment",
+ *       Value: "test"
  *     },
  *     {
- *       "Key": "Name",
- *       "Value": "MyDatabase"
+ *       Key: "Name",
+ *       Value: "MyDatabase"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-tags-on-an-amazon-rds-resource-1680285113240
  * ```
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

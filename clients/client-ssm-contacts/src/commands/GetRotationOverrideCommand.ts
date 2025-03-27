@@ -79,6 +79,7 @@ export interface GetRotationOverrideCommandOutput extends GetRotationOverrideRes
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class GetRotationOverrideCommand extends $Command

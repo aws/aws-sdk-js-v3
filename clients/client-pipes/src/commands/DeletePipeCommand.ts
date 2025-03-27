@@ -75,6 +75,7 @@ export interface DeletePipeCommandOutput extends DeletePipeResponse, __MetadataB
  * @throws {@link PipesServiceException}
  * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ *
  * @public
  */
 export class DeletePipeCommand extends $Command

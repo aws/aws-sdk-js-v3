@@ -67,6 +67,25 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ *
+ * @example Listing tags on a Launch Wizard deployment resource.
+ * ```javascript
+ * //
+ * const input = {
+ *   resourceArn: "arn:aws:launchwizard:us-east-1:123456789012:deployment/11111111-1111-1111-1111-111111111111"
+ * };
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   tags: {
+ *     key1: "value1",
+ *     key2: "value2"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

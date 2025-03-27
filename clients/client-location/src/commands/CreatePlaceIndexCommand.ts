@@ -96,6 +96,7 @@ export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse,
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class CreatePlaceIndexCommand extends $Command

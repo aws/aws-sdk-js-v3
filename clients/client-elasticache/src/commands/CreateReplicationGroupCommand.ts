@@ -353,100 +353,99 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example CreateCacheReplicationGroup
  * ```javascript
  * // Creates a Redis replication group with 3 nodes.
  * const input = {
- *   "AutomaticFailoverEnabled": true,
- *   "CacheNodeType": "cache.m3.medium",
- *   "Engine": "redis",
- *   "EngineVersion": "2.8.24",
- *   "NumCacheClusters": 3,
- *   "ReplicationGroupDescription": "A Redis replication group.",
- *   "ReplicationGroupId": "my-redis-rg",
- *   "SnapshotRetentionLimit": 30
+ *   AutomaticFailoverEnabled: true,
+ *   CacheNodeType: "cache.m3.medium",
+ *   Engine: "redis",
+ *   EngineVersion: "2.8.24",
+ *   NumCacheClusters: 3,
+ *   ReplicationGroupDescription: "A Redis replication group.",
+ *   ReplicationGroupId: "my-redis-rg",
+ *   SnapshotRetentionLimit: 30
  * };
  * const command = new CreateReplicationGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReplicationGroup": {
- *     "AutomaticFailover": "enabling",
- *     "Description": "A Redis replication group.",
- *     "MemberClusters": [
+ *   ReplicationGroup: {
+ *     AutomaticFailover: "enabling",
+ *     Description: "A Redis replication group.",
+ *     MemberClusters: [
  *       "my-redis-rg-001",
  *       "my-redis-rg-002",
  *       "my-redis-rg-003"
  *     ],
- *     "PendingModifiedValues": {},
- *     "ReplicationGroupId": "my-redis-rg",
- *     "SnapshottingClusterId": "my-redis-rg-002",
- *     "Status": "creating"
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     ReplicationGroupId: "my-redis-rg",
+ *     SnapshottingClusterId: "my-redis-rg-002",
+ *     Status: "creating"
  *   }
  * }
  * *\/
- * // example id: createcachereplicationgroup-1474998730655
  * ```
  *
  * @example CreateReplicationGroup
  * ```javascript
  * // Creates a Redis (cluster mode enabled) replication group with two shards. One shard has one read replica node and the other shard has two read replicas.
  * const input = {
- *   "AutoMinorVersionUpgrade": true,
- *   "CacheNodeType": "cache.m3.medium",
- *   "CacheParameterGroupName": "default.redis3.2.cluster.on",
- *   "Engine": "redis",
- *   "EngineVersion": "3.2.4",
- *   "NodeGroupConfiguration": [
+ *   AutoMinorVersionUpgrade: true,
+ *   CacheNodeType: "cache.m3.medium",
+ *   CacheParameterGroupName: "default.redis3.2.cluster.on",
+ *   Engine: "redis",
+ *   EngineVersion: "3.2.4",
+ *   NodeGroupConfiguration: [
  *     {
- *       "PrimaryAvailabilityZone": "us-east-1c",
- *       "ReplicaAvailabilityZones": [
+ *       PrimaryAvailabilityZone: "us-east-1c",
+ *       ReplicaAvailabilityZones: [
  *         "us-east-1b"
  *       ],
- *       "ReplicaCount": 1,
- *       "Slots": "0-8999"
+ *       ReplicaCount: 1,
+ *       Slots: "0-8999"
  *     },
  *     {
- *       "PrimaryAvailabilityZone": "us-east-1a",
- *       "ReplicaAvailabilityZones": [
+ *       PrimaryAvailabilityZone: "us-east-1a",
+ *       ReplicaAvailabilityZones: [
  *         "us-east-1a",
  *         "us-east-1c"
  *       ],
- *       "ReplicaCount": 2,
- *       "Slots": "9000-16383"
+ *       ReplicaCount: 2,
+ *       Slots: "9000-16383"
  *     }
  *   ],
- *   "NumNodeGroups": 2,
- *   "ReplicationGroupDescription": "A multi-sharded replication group",
- *   "ReplicationGroupId": "clustered-redis-rg",
- *   "SnapshotRetentionLimit": 8
+ *   NumNodeGroups: 2,
+ *   ReplicationGroupDescription: "A multi-sharded replication group",
+ *   ReplicationGroupId: "clustered-redis-rg",
+ *   SnapshotRetentionLimit: 8
  * };
  * const command = new CreateReplicationGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReplicationGroup": {
- *     "AutomaticFailover": "enabled",
- *     "Description": "Sharded replication group",
- *     "MemberClusters": [
+ *   ReplicationGroup: {
+ *     AutomaticFailover: "enabled",
+ *     Description: "Sharded replication group",
+ *     MemberClusters: [
  *       "rc-rg3-0001-001",
  *       "rc-rg3-0001-002",
  *       "rc-rg3-0002-001",
  *       "rc-rg3-0002-002",
  *       "rc-rg3-0002-003"
  *     ],
- *     "PendingModifiedValues": {},
- *     "ReplicationGroupId": "clustered-redis-rg",
- *     "SnapshotRetentionLimit": 8,
- *     "SnapshotWindow": "05:30-06:30",
- *     "Status": "creating"
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     ReplicationGroupId: "clustered-redis-rg",
+ *     SnapshotRetentionLimit: 8,
+ *     SnapshotWindow: "05:30-06:30",
+ *     Status: "creating"
  *   }
  * }
  * *\/
- * // example id: createreplicationgroup-1483657035585
  * ```
  *
+ * @public
  */
 export class CreateReplicationGroupCommand extends $Command
   .classBuilder<

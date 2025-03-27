@@ -74,6 +74,7 @@ export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNode
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class ListAllowedNodeTypeUpdatesCommand extends $Command

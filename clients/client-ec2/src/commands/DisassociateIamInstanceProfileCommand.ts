@@ -71,31 +71,31 @@ export interface DisassociateIamInstanceProfileCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To disassociate an IAM instance profile
  * ```javascript
  * // This example disassociates the specified IAM instance profile from an instance.
  * const input = {
- *   "AssociationId": "iip-assoc-05020b59952902f5f"
+ *   AssociationId: "iip-assoc-05020b59952902f5f"
  * };
  * const command = new DisassociateIamInstanceProfileCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "IamInstanceProfileAssociation": {
- *     "AssociationId": "iip-assoc-05020b59952902f5f",
- *     "IamInstanceProfile": {
- *       "Arn": "arn:aws:iam::123456789012:instance-profile/admin-role",
- *       "Id": "AIPAI5IVIHMFFYY2DKV5Y"
+ *   IamInstanceProfileAssociation: {
+ *     AssociationId: "iip-assoc-05020b59952902f5f",
+ *     IamInstanceProfile: {
+ *       Arn: "arn:aws:iam::123456789012:instance-profile/admin-role",
+ *       Id: "AIPAI5IVIHMFFYY2DKV5Y"
  *     },
- *     "InstanceId": "i-123456789abcde123",
- *     "State": "disassociating"
+ *     InstanceId: "i-123456789abcde123",
+ *     State: "disassociating"
  *   }
  * }
  * *\/
- * // example id: to-disassociate-an-iam-instance-profile-1529355364478
  * ```
  *
+ * @public
  */
 export class DisassociateIamInstanceProfileCommand extends $Command
   .classBuilder<

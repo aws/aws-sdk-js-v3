@@ -70,6 +70,7 @@ export interface DisassociateAttributeGroupCommandOutput extends DisassociateAtt
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ *
  * @public
  */
 export class DisassociateAttributeGroupCommand extends $Command

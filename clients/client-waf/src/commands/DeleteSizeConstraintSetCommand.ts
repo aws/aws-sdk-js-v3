@@ -120,24 +120,24 @@ export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstrai
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
- * @public
+ *
  * @example To delete a size constraint set
  * ```javascript
  * // The following example deletes a size constraint set  with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "SizeConstraintSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   SizeConstraintSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
  * };
  * const command = new DeleteSizeConstraintSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: deletesizeconstraintset-1474299857905
  * ```
  *
+ * @public
  */
 export class DeleteSizeConstraintSetCommand extends $Command
   .classBuilder<

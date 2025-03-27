@@ -178,6 +178,7 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class CreateCalculatedAttributeDefinitionCommand extends $Command

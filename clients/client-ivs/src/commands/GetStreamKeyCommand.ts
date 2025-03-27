@@ -71,6 +71,7 @@ export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __Metad
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class GetStreamKeyCommand extends $Command

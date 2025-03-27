@@ -82,6 +82,7 @@ export interface ListProfileSharesCommandOutput extends ListProfileSharesOutput,
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class ListProfileSharesCommand extends $Command

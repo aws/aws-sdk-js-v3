@@ -202,6 +202,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class RebootDBInstanceCommand extends $Command

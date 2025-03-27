@@ -75,6 +75,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link NotificationsServiceException}
  * <p>Base exception class for all service exceptions from Notifications service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

@@ -82,6 +82,7 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class ListStreamsCommand extends $Command

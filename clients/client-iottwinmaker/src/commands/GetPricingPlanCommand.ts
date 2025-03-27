@@ -90,6 +90,7 @@ export interface GetPricingPlanCommandOutput extends GetPricingPlanResponse, __M
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class GetPricingPlanCommand extends $Command

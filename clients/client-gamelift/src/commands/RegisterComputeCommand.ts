@@ -147,6 +147,7 @@ export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __M
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class RegisterComputeCommand extends $Command

@@ -186,256 +186,254 @@ export interface PutClusterCapacityProvidersCommandOutput
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To add an existing capacity provider to a cluuster
  * ```javascript
  * // This example adds an existing capacity provider "MyCapacityProvider2" to a cluster that already has the capacity provider "MyCapacityProvider1" associated with it. Both "MyCapacityProvider2" and "MyCapacityProvider1" need to be specified.
  * const input = {
- *   "capacityProviders": [
+ *   capacityProviders: [
  *     "MyCapacityProvider1",
  *     "MyCapacityProvider2"
  *   ],
- *   "cluster": "MyCluster",
- *   "defaultCapacityProviderStrategy": [
+ *   cluster: "MyCluster",
+ *   defaultCapacityProviderStrategy: [
  *     {
- *       "capacityProvider": "MyCapacityProvider1",
- *       "weight": 1
+ *       capacityProvider: "MyCapacityProvider1",
+ *       weight: 1
  *     },
  *     {
- *       "capacityProvider": "MyCapacityProvider2",
- *       "weight": 1
+ *       capacityProvider: "MyCapacityProvider2",
+ *       weight: 1
  *     }
  *   ]
  * };
  * const command = new PutClusterCapacityProvidersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "cluster": {
- *     "activeServicesCount": 0,
- *     "attachments": [
+ *   cluster: {
+ *     activeServicesCount: 0,
+ *     attachments: [
  *       {
- *         "type": "as_policy",
- *         "details": [
+ *         details: [
  *           {
- *             "name": "capacityProviderName",
- *             "value": "MyCapacityProvider1"
+ *             name: "capacityProviderName",
+ *             value: "MyCapacityProvider1"
  *           },
  *           {
- *             "name": "scalingPolicyName",
- *             "value": "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ *             name: "scalingPolicyName",
+ *             value: "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  *           }
  *         ],
- *         "id": "0fb0c8f4-6edd-4de1-9b09-17e470ee1918",
- *         "status": "ACTIVE"
+ *         id: "0fb0c8f4-6edd-4de1-9b09-17e470ee1918",
+ *         status: "ACTIVE",
+ *         type: "as_policy"
  *       },
  *       {
- *         "type": "as_policy",
- *         "details": [
+ *         details: [
  *           {
- *             "name": "capacityProviderName",
- *             "value": "MyCapacityProvider2"
+ *             name: "capacityProviderName",
+ *             value: "MyCapacityProvider2"
  *           },
  *           {
- *             "name": "scalingPolicyName",
- *             "value": "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+ *             name: "scalingPolicyName",
+ *             value: "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
  *           }
  *         ],
- *         "id": "ae592060-2382-4663-9476-b015c685593c",
- *         "status": "ACTIVE"
+ *         id: "ae592060-2382-4663-9476-b015c685593c",
+ *         status: "ACTIVE",
+ *         type: "as_policy"
  *       }
  *     ],
- *     "attachmentsStatus": "UPDATE_IN_PROGRESS",
- *     "capacityProviders": [
+ *     attachmentsStatus: "UPDATE_IN_PROGRESS",
+ *     capacityProviders: [
  *       "MyCapacityProvider1",
  *       "MyCapacityProvider2"
  *     ],
- *     "clusterArn": "arn:aws:ecs:us-west-2:123456789012:cluster/MyCluster",
- *     "clusterName": "MyCluster",
- *     "defaultCapacityProviderStrategy": [
+ *     clusterArn: "arn:aws:ecs:us-west-2:123456789012:cluster/MyCluster",
+ *     clusterName: "MyCluster",
+ *     defaultCapacityProviderStrategy: [
  *       {
- *         "base": 0,
- *         "capacityProvider": "MyCapacityProvider1",
- *         "weight": 1
+ *         base: 0,
+ *         capacityProvider: "MyCapacityProvider1",
+ *         weight: 1
  *       },
  *       {
- *         "base": 0,
- *         "capacityProvider": "MyCapacityProvider2",
- *         "weight": 1
+ *         base: 0,
+ *         capacityProvider: "MyCapacityProvider2",
+ *         weight: 1
  *       }
  *     ],
- *     "pendingTasksCount": 0,
- *     "registeredContainerInstancesCount": 0,
- *     "runningTasksCount": 0,
- *     "settings": [
+ *     pendingTasksCount: 0,
+ *     registeredContainerInstancesCount: 0,
+ *     runningTasksCount: 0,
+ *     settings: [
  *       {
- *         "name": "containerInsights",
- *         "value": "enabled"
+ *         name: "containerInsights",
+ *         value: "enabled"
  *       }
  *     ],
- *     "statistics": [],
- *     "status": "ACTIVE",
- *     "tags": []
+ *     statistics:     [],
+ *     status: "ACTIVE",
+ *     tags:     []
  *   }
  * }
  * *\/
- * // example id: to-add-an-existing-capacity-provider-to-a-cluster-1734385195698
  * ```
  *
  * @example To remove a capacity provider from a cluster
  * ```javascript
  * // This example removes a capacity provider "MyCapacityProvider2" from a cluster that has both "MyCapacityProvider2" and "MyCapacityProvider1" associated with it. Only "MyCapacityProvider1" needs to be specified in this scenario.
  * const input = {
- *   "capacityProviders": [
+ *   capacityProviders: [
  *     "MyCapacityProvider1"
  *   ],
- *   "cluster": "MyCluster",
- *   "defaultCapacityProviderStrategy": [
+ *   cluster: "MyCluster",
+ *   defaultCapacityProviderStrategy: [
  *     {
- *       "base": 0,
- *       "capacityProvider": "MyCapacityProvider1",
- *       "weight": 1
+ *       base: 0,
+ *       capacityProvider: "MyCapacityProvider1",
+ *       weight: 1
  *     }
  *   ]
  * };
  * const command = new PutClusterCapacityProvidersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "cluster": {
- *     "activeServicesCount": 0,
- *     "attachments": [
+ *   cluster: {
+ *     activeServicesCount: 0,
+ *     attachments: [
  *       {
- *         "type": "as_policy",
- *         "details": [
+ *         details: [
  *           {
- *             "name": "capacityProviderName",
- *             "value": "MyCapacityProvider1"
+ *             name: "capacityProviderName",
+ *             value: "MyCapacityProvider1"
  *           },
  *           {
- *             "name": "scalingPolicyName",
- *             "value": "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ *             name: "scalingPolicyName",
+ *             value: "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  *           }
  *         ],
- *         "id": "0fb0c8f4-6edd-4de1-9b09-17e470ee1918",
- *         "status": "ACTIVE"
+ *         id: "0fb0c8f4-6edd-4de1-9b09-17e470ee1918",
+ *         status: "ACTIVE",
+ *         type: "as_policy"
  *       },
  *       {
- *         "type": "as_policy",
- *         "details": [
+ *         details: [
  *           {
- *             "name": "capacityProviderName",
- *             "value": "MyCapacityProvider2"
+ *             name: "capacityProviderName",
+ *             value: "MyCapacityProvider2"
  *           },
  *           {
- *             "name": "scalingPolicyName",
- *             "value": "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+ *             name: "scalingPolicyName",
+ *             value: "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
  *           }
  *         ],
- *         "id": "ae592060-2382-4663-9476-b015c685593c",
- *         "status": "DELETING"
+ *         id: "ae592060-2382-4663-9476-b015c685593c",
+ *         status: "DELETING",
+ *         type: "as_policy"
  *       }
  *     ],
- *     "attachmentsStatus": "UPDATE_IN_PROGRESS",
- *     "capacityProviders": [
+ *     attachmentsStatus: "UPDATE_IN_PROGRESS",
+ *     capacityProviders: [
  *       "MyCapacityProvider1"
  *     ],
- *     "clusterArn": "arn:aws:ecs:us-west-2:123456789012:cluster/MyCluster",
- *     "clusterName": "MyCluster",
- *     "defaultCapacityProviderStrategy": [
+ *     clusterArn: "arn:aws:ecs:us-west-2:123456789012:cluster/MyCluster",
+ *     clusterName: "MyCluster",
+ *     defaultCapacityProviderStrategy: [
  *       {
- *         "base": 0,
- *         "capacityProvider": "MyCapacityProvider1",
- *         "weight": 1
+ *         base: 0,
+ *         capacityProvider: "MyCapacityProvider1",
+ *         weight: 1
  *       }
  *     ],
- *     "pendingTasksCount": 0,
- *     "registeredContainerInstancesCount": 0,
- *     "runningTasksCount": 0,
- *     "settings": [
+ *     pendingTasksCount: 0,
+ *     registeredContainerInstancesCount: 0,
+ *     runningTasksCount: 0,
+ *     settings: [
  *       {
- *         "name": "containerInsights",
- *         "value": "enabled"
+ *         name: "containerInsights",
+ *         value: "enabled"
  *       }
  *     ],
- *     "statistics": [],
- *     "status": "ACTIVE",
- *     "tags": []
+ *     statistics:     [],
+ *     status: "ACTIVE",
+ *     tags:     []
  *   }
  * }
  * *\/
- * // example id: to-remove-a-capacity-provider-from-a-cluster-1734386641517
  * ```
  *
  * @example To remove all capacity providers from a cluster
  * ```javascript
  * // This example removes all capacity providers associated with a cluster.
  * const input = {
- *   "capacityProviders": [],
- *   "cluster": "MyCluster",
- *   "defaultCapacityProviderStrategy": []
+ *   capacityProviders:   [],
+ *   cluster: "MyCluster",
+ *   defaultCapacityProviderStrategy:   []
  * };
  * const command = new PutClusterCapacityProvidersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "cluster": {
- *     "activeServicesCount": 0,
- *     "attachments": [
+ *   cluster: {
+ *     activeServicesCount: 0,
+ *     attachments: [
  *       {
- *         "type": "as_policy",
- *         "details": [
+ *         details: [
  *           {
- *             "name": "capacityProviderName",
- *             "value": "MyCapacityProvider1"
+ *             name: "capacityProviderName",
+ *             value: "MyCapacityProvider1"
  *           },
  *           {
- *             "name": "scalingPolicyName",
- *             "value": "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ *             name: "scalingPolicyName",
+ *             value: "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  *           }
  *         ],
- *         "id": "0fb0c8f4-6edd-4de1-9b09-17e470ee1918",
- *         "status": "DELETING"
+ *         id: "0fb0c8f4-6edd-4de1-9b09-17e470ee1918",
+ *         status: "DELETING",
+ *         type: "as_policy"
  *       },
  *       {
- *         "type": "as_policy",
- *         "details": [
+ *         details: [
  *           {
- *             "name": "capacityProviderName",
- *             "value": "MyCapacityProvider2"
+ *             name: "capacityProviderName",
+ *             value: "MyCapacityProvider2"
  *           },
  *           {
- *             "name": "scalingPolicyName",
- *             "value": "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+ *             name: "scalingPolicyName",
+ *             value: "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
  *           }
  *         ],
- *         "id": "ae592060-2382-4663-9476-b015c685593c",
- *         "status": "DELETING"
+ *         id: "ae592060-2382-4663-9476-b015c685593c",
+ *         status: "DELETING",
+ *         type: "as_policy"
  *       }
  *     ],
- *     "attachmentsStatus": "UPDATE_IN_PROGRESS",
- *     "capacityProviders": [],
- *     "clusterArn": "arn:aws:ecs:us-west-2:123456789012:cluster/MyCluster",
- *     "clusterName": "MyCluster",
- *     "defaultCapacityProviderStrategy": [],
- *     "pendingTasksCount": 0,
- *     "registeredContainerInstancesCount": 0,
- *     "runningTasksCount": 0,
- *     "settings": [
+ *     attachmentsStatus: "UPDATE_IN_PROGRESS",
+ *     capacityProviders:     [],
+ *     clusterArn: "arn:aws:ecs:us-west-2:123456789012:cluster/MyCluster",
+ *     clusterName: "MyCluster",
+ *     defaultCapacityProviderStrategy:     [],
+ *     pendingTasksCount: 0,
+ *     registeredContainerInstancesCount: 0,
+ *     runningTasksCount: 0,
+ *     settings: [
  *       {
- *         "name": "containerInsights",
- *         "value": "enabled"
+ *         name: "containerInsights",
+ *         value: "enabled"
  *       }
  *     ],
- *     "statistics": [],
- *     "status": "ACTIVE",
- *     "tags": []
+ *     statistics:     [],
+ *     status: "ACTIVE",
+ *     tags:     []
  *   }
  * }
  * *\/
- * // example id: to-remove-all-capacity-providers-from-a-cluster-1734387170874
  * ```
  *
+ * @public
  */
 export class PutClusterCapacityProvidersCommand extends $Command
   .classBuilder<

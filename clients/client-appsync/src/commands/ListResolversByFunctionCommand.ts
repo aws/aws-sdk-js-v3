@@ -108,6 +108,7 @@ export interface ListResolversByFunctionCommandOutput extends ListResolversByFun
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class ListResolversByFunctionCommand extends $Command

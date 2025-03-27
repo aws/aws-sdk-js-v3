@@ -76,6 +76,7 @@ export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreRes
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ *
  * @public
  */
 export class DeleteFHIRDatastoreCommand extends $Command

@@ -190,6 +190,7 @@ export interface DescribeWorkflowCommandOutput extends DescribeWorkflowResponse,
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class DescribeWorkflowCommand extends $Command

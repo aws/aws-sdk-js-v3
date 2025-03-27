@@ -102,6 +102,7 @@ export interface GetFolderCommandOutput extends GetFolderResponse, __MetadataBea
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class GetFolderCommand extends $Command

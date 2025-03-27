@@ -94,6 +94,7 @@ export interface InviteUsersCommandOutput extends InviteUsersResponse, __Metadat
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class InviteUsersCommand extends $Command

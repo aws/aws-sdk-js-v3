@@ -98,6 +98,7 @@ export interface CreateWorkspaceServiceAccountCommandOutput
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ *
  * @public
  */
 export class CreateWorkspaceServiceAccountCommand extends $Command

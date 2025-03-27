@@ -160,23 +160,26 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To update the primary Region of a multi-Region KMS key
  * ```javascript
  * // The following UpdatePrimaryRegion example changes the multi-Region replica key in the eu-central-1 Region to the primary key. The current primary key in the us-west-1 Region becomes a replica key.
- * //
- * // The KeyId parameter identifies the current primary key in the us-west-1 Region. The PrimaryRegion parameter indicates the Region of the replica key that will become the new primary key.
- * //
- * // This operation does not return any output. To verify that primary key is changed, use the DescribeKey operation.
+ *
+ * The KeyId parameter identifies the current primary key in the us-west-1 Region. The PrimaryRegion parameter indicates the Region of the replica key that will become the new primary key.
+ *
+ * This operation does not return any output. To verify that primary key is changed, use the DescribeKey operation.
  * const input = {
- *   "KeyId": "arn:aws:kms:us-west-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
- *   "PrimaryRegion": "eu-central-1"
+ *   KeyId: "arn:aws:kms:us-west-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *   PrimaryRegion: "eu-central-1"
  * };
  * const command = new UpdatePrimaryRegionCommand(input);
- * await client.send(command);
- * // example id: to-update-the-primary-region-of-a-multi-region-kms-key-1660249555577
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdatePrimaryRegionCommand extends $Command
   .classBuilder<

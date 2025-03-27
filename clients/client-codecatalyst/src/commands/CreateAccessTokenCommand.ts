@@ -87,6 +87,7 @@ export interface CreateAccessTokenCommandOutput extends CreateAccessTokenRespons
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class CreateAccessTokenCommand extends $Command

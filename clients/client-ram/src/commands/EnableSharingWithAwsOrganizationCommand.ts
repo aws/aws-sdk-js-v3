@@ -78,6 +78,7 @@ export interface EnableSharingWithAwsOrganizationCommandOutput
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ *
  * @public
  */
 export class EnableSharingWithAwsOrganizationCommand extends $Command

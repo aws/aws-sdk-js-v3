@@ -75,30 +75,30 @@ export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete a launch template
  * ```javascript
  * // This example deletes the specified launch template.
  * const input = {
- *   "LaunchTemplateId": "lt-0abcd290751193123"
+ *   LaunchTemplateId: "lt-0abcd290751193123"
  * };
  * const command = new DeleteLaunchTemplateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LaunchTemplate": {
- *     "CreateTime": "2017-11-23T16:46:25.000Z",
- *     "CreatedBy": "arn:aws:iam::123456789012:root",
- *     "DefaultVersionNumber": 2,
- *     "LatestVersionNumber": 2,
- *     "LaunchTemplateId": "lt-0abcd290751193123",
- *     "LaunchTemplateName": "my-template"
+ *   LaunchTemplate: {
+ *     CreateTime: "2017-11-23T16:46:25.000Z",
+ *     CreatedBy: "arn:aws:iam::123456789012:root",
+ *     DefaultVersionNumber: 2,
+ *     LatestVersionNumber: 2,
+ *     LaunchTemplateId: "lt-0abcd290751193123",
+ *     LaunchTemplateName: "my-template"
  *   }
  * }
  * *\/
- * // example id: to-delete-a-launch-template-1529024658216
  * ```
  *
+ * @public
  */
 export class DeleteLaunchTemplateCommand extends $Command
   .classBuilder<

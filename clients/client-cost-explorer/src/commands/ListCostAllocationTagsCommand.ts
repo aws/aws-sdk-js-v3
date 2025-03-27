@@ -77,6 +77,7 @@ export interface ListCostAllocationTagsCommandOutput extends ListCostAllocationT
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class ListCostAllocationTagsCommand extends $Command

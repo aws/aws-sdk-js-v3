@@ -80,6 +80,7 @@ export interface DeleteCertificateProviderCommandOutput extends DeleteCertificat
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DeleteCertificateProviderCommand extends $Command

@@ -179,6 +179,7 @@ export interface GetExperimentCommandOutput extends GetExperimentResponse, __Met
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ *
  * @public
  */
 export class GetExperimentCommand extends $Command

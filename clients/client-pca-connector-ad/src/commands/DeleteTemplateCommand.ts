@@ -80,6 +80,7 @@ export interface DeleteTemplateCommandOutput extends __MetadataBearer {}
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ *
  * @public
  */
 export class DeleteTemplateCommand extends $Command

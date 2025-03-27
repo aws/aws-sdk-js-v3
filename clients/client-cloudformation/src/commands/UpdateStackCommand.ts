@@ -110,6 +110,7 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class UpdateStackCommand extends $Command

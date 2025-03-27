@@ -173,59 +173,59 @@ export interface UpdateTaskSetCommandOutput extends UpdateTaskSetResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To update a task set
  * ```javascript
  * // This example updates the task set to adjust the scale.
  * const input = {
- *   "cluster": "MyCluster",
- *   "scale": {
- *     "value": 50,
- *     "unit": "PERCENT"
+ *   cluster: "MyCluster",
+ *   scale: {
+ *     unit: "PERCENT",
+ *     value: 50
  *   },
- *   "service": "MyService",
- *   "taskSet": "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789"
+ *   service: "MyService",
+ *   taskSet: "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789"
  * };
  * const command = new UpdateTaskSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "taskSet": {
- *     "computedDesiredCount": 0,
- *     "createdAt": 1557128360.711,
- *     "id": "ecs-svc/1234567890123456789",
- *     "launchType": "EC2",
- *     "loadBalancers": [],
- *     "networkConfiguration": {
- *       "awsvpcConfiguration": {
- *         "assignPublicIp": "DISABLED",
- *         "securityGroups": [
+ *   taskSet: {
+ *     computedDesiredCount: 0,
+ *     createdAt: 1.557128360711E9,
+ *     id: "ecs-svc/1234567890123456789",
+ *     launchType: "EC2",
+ *     loadBalancers:     [],
+ *     networkConfiguration: {
+ *       awsvpcConfiguration: {
+ *         assignPublicIp: "DISABLED",
+ *         securityGroups: [
  *           "sg-12344321"
  *         ],
- *         "subnets": [
+ *         subnets: [
  *           "subnet-12344321"
  *         ]
  *       }
  *     },
- *     "pendingCount": 0,
- *     "runningCount": 0,
- *     "scale": {
- *       "value": 50,
- *       "unit": "PERCENT"
+ *     pendingCount: 0,
+ *     runningCount: 0,
+ *     scale: {
+ *       unit: "PERCENT",
+ *       value: 50
  *     },
- *     "serviceRegistries": [],
- *     "stabilityStatus": "STABILIZING",
- *     "stabilityStatusAt": 1557129279.914,
- *     "status": "ACTIVE",
- *     "taskDefinition": "arn:aws:ecs:us-west-2:123456789012:task-definition/sample-fargate:2",
- *     "taskSetArn": "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789",
- *     "updatedAt": 1557129279.914
+ *     serviceRegistries:     [],
+ *     stabilityStatus: "STABILIZING",
+ *     stabilityStatusAt: 1.557129279914E9,
+ *     status: "ACTIVE",
+ *     taskDefinition: "arn:aws:ecs:us-west-2:123456789012:task-definition/sample-fargate:2",
+ *     taskSetArn: "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789",
+ *     updatedAt: 1.557129279914E9
  *   }
  * }
  * *\/
- * // example id: to-update-a-task-set-1734638754368
  * ```
  *
+ * @public
  */
 export class UpdateTaskSetCommand extends $Command
   .classBuilder<

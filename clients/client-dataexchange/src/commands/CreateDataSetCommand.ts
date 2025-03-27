@@ -90,6 +90,7 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class CreateDataSetCommand extends $Command

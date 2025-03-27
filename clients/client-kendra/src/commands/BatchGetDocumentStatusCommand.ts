@@ -120,6 +120,7 @@ export interface BatchGetDocumentStatusCommandOutput extends BatchGetDocumentSta
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class BatchGetDocumentStatusCommand extends $Command

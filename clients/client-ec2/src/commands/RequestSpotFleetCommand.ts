@@ -433,159 +433,156 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To request a Spot fleet in the subnet with the lowest price
  * ```javascript
  * // This example creates a Spot fleet request with two launch specifications that differ only by subnet. The Spot fleet launches the instances in the specified subnet with the lowest price. If the instances are launched in a default VPC, they receive a public IP address by default. If the instances are launched in a nondefault VPC, they do not receive a public IP address by default. Note that you can't specify different subnets from the same Availability Zone in a Spot fleet request.
  * const input = {
- *   "SpotFleetRequestConfig": {
- *     "IamFleetRole": "arn:aws:iam::123456789012:role/my-spot-fleet-role",
- *     "LaunchSpecifications": [
+ *   SpotFleetRequestConfig: {
+ *     IamFleetRole: "arn:aws:iam::123456789012:role/my-spot-fleet-role",
+ *     LaunchSpecifications: [
  *       {
- *         "IamInstanceProfile": {
- *           "Arn": "arn:aws:iam::123456789012:instance-profile/my-iam-role"
+ *         IamInstanceProfile: {
+ *           Arn: "arn:aws:iam::123456789012:instance-profile/my-iam-role"
  *         },
- *         "ImageId": "ami-1a2b3c4d",
- *         "InstanceType": "m3.medium",
- *         "KeyName": "my-key-pair",
- *         "SecurityGroups": [
+ *         ImageId: "ami-1a2b3c4d",
+ *         InstanceType: "m3.medium",
+ *         KeyName: "my-key-pair",
+ *         SecurityGroups: [
  *           {
- *             "GroupId": "sg-1a2b3c4d"
+ *             GroupId: "sg-1a2b3c4d"
  *           }
  *         ],
- *         "SubnetId": "subnet-1a2b3c4d, subnet-3c4d5e6f"
+ *         SubnetId: "subnet-1a2b3c4d, subnet-3c4d5e6f"
  *       }
  *     ],
- *     "SpotPrice": "0.04",
- *     "TargetCapacity": 2
+ *     SpotPrice: "0.04",
+ *     TargetCapacity: 2
  *   }
  * };
  * const command = new RequestSpotFleetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
+ *   SpotFleetRequestId: "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
  * }
  * *\/
- * // example id: ec2-request-spot-fleet-1
  * ```
  *
  * @example To request a Spot fleet in the Availability Zone with the lowest price
  * ```javascript
  * // This example creates a Spot fleet request with two launch specifications that differ only by Availability Zone. The Spot fleet launches the instances in the specified Availability Zone with the lowest price. If your account supports EC2-VPC only, Amazon EC2 launches the Spot instances in the default subnet of the Availability Zone.
  * const input = {
- *   "SpotFleetRequestConfig": {
- *     "IamFleetRole": "arn:aws:iam::123456789012:role/my-spot-fleet-role",
- *     "LaunchSpecifications": [
+ *   SpotFleetRequestConfig: {
+ *     IamFleetRole: "arn:aws:iam::123456789012:role/my-spot-fleet-role",
+ *     LaunchSpecifications: [
  *       {
- *         "IamInstanceProfile": {
- *           "Arn": "arn:aws:iam::123456789012:instance-profile/my-iam-role"
+ *         IamInstanceProfile: {
+ *           Arn: "arn:aws:iam::123456789012:instance-profile/my-iam-role"
  *         },
- *         "ImageId": "ami-1a2b3c4d",
- *         "InstanceType": "m3.medium",
- *         "KeyName": "my-key-pair",
- *         "Placement": {
- *           "AvailabilityZone": "us-west-2a, us-west-2b"
+ *         ImageId: "ami-1a2b3c4d",
+ *         InstanceType: "m3.medium",
+ *         KeyName: "my-key-pair",
+ *         Placement: {
+ *           AvailabilityZone: "us-west-2a, us-west-2b"
  *         },
- *         "SecurityGroups": [
+ *         SecurityGroups: [
  *           {
- *             "GroupId": "sg-1a2b3c4d"
+ *             GroupId: "sg-1a2b3c4d"
  *           }
  *         ]
  *       }
  *     ],
- *     "SpotPrice": "0.04",
- *     "TargetCapacity": 2
+ *     SpotPrice: "0.04",
+ *     TargetCapacity: 2
  *   }
  * };
  * const command = new RequestSpotFleetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
+ *   SpotFleetRequestId: "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
  * }
  * *\/
- * // example id: ec2-request-spot-fleet-2
  * ```
  *
  * @example To launch Spot instances in a subnet and assign them public IP addresses
  * ```javascript
  * // This example assigns public addresses to instances launched in a nondefault VPC. Note that when you specify a network interface, you must include the subnet ID and security group ID using the network interface.
  * const input = {
- *   "SpotFleetRequestConfig": {
- *     "IamFleetRole": "arn:aws:iam::123456789012:role/my-spot-fleet-role",
- *     "LaunchSpecifications": [
+ *   SpotFleetRequestConfig: {
+ *     IamFleetRole: "arn:aws:iam::123456789012:role/my-spot-fleet-role",
+ *     LaunchSpecifications: [
  *       {
- *         "IamInstanceProfile": {
- *           "Arn": "arn:aws:iam::880185128111:instance-profile/my-iam-role"
+ *         IamInstanceProfile: {
+ *           Arn: "arn:aws:iam::880185128111:instance-profile/my-iam-role"
  *         },
- *         "ImageId": "ami-1a2b3c4d",
- *         "InstanceType": "m3.medium",
- *         "KeyName": "my-key-pair",
- *         "NetworkInterfaces": [
+ *         ImageId: "ami-1a2b3c4d",
+ *         InstanceType: "m3.medium",
+ *         KeyName: "my-key-pair",
+ *         NetworkInterfaces: [
  *           {
- *             "AssociatePublicIpAddress": true,
- *             "DeviceIndex": 0,
- *             "Groups": [
+ *             AssociatePublicIpAddress: true,
+ *             DeviceIndex: 0,
+ *             Groups: [
  *               "sg-1a2b3c4d"
  *             ],
- *             "SubnetId": "subnet-1a2b3c4d"
+ *             SubnetId: "subnet-1a2b3c4d"
  *           }
  *         ]
  *       }
  *     ],
- *     "SpotPrice": "0.04",
- *     "TargetCapacity": 2
+ *     SpotPrice: "0.04",
+ *     TargetCapacity: 2
  *   }
  * };
  * const command = new RequestSpotFleetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
+ *   SpotFleetRequestId: "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
  * }
  * *\/
- * // example id: ec2-request-spot-fleet-3
  * ```
  *
  * @example To request a Spot fleet using the diversified allocation strategy
  * ```javascript
  * // This example creates a Spot fleet request that launches 30 instances using the diversified allocation strategy. The launch specifications differ by instance type. The Spot fleet distributes the instances across the launch specifications such that there are 10 instances of each type.
  * const input = {
- *   "SpotFleetRequestConfig": {
- *     "AllocationStrategy": "diversified",
- *     "IamFleetRole": "arn:aws:iam::123456789012:role/my-spot-fleet-role",
- *     "LaunchSpecifications": [
+ *   SpotFleetRequestConfig: {
+ *     AllocationStrategy: "diversified",
+ *     IamFleetRole: "arn:aws:iam::123456789012:role/my-spot-fleet-role",
+ *     LaunchSpecifications: [
  *       {
- *         "ImageId": "ami-1a2b3c4d",
- *         "InstanceType": "c4.2xlarge",
- *         "SubnetId": "subnet-1a2b3c4d"
+ *         ImageId: "ami-1a2b3c4d",
+ *         InstanceType: "c4.2xlarge",
+ *         SubnetId: "subnet-1a2b3c4d"
  *       },
  *       {
- *         "ImageId": "ami-1a2b3c4d",
- *         "InstanceType": "m3.2xlarge",
- *         "SubnetId": "subnet-1a2b3c4d"
+ *         ImageId: "ami-1a2b3c4d",
+ *         InstanceType: "m3.2xlarge",
+ *         SubnetId: "subnet-1a2b3c4d"
  *       },
  *       {
- *         "ImageId": "ami-1a2b3c4d",
- *         "InstanceType": "r3.2xlarge",
- *         "SubnetId": "subnet-1a2b3c4d"
+ *         ImageId: "ami-1a2b3c4d",
+ *         InstanceType: "r3.2xlarge",
+ *         SubnetId: "subnet-1a2b3c4d"
  *       }
  *     ],
- *     "SpotPrice": "0.70",
- *     "TargetCapacity": 30
+ *     SpotPrice: "0.70",
+ *     TargetCapacity: 30
  *   }
  * };
  * const command = new RequestSpotFleetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
+ *   SpotFleetRequestId: "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
  * }
  * *\/
- * // example id: ec2-request-spot-fleet-4
  * ```
  *
+ * @public
  */
 export class RequestSpotFleetCommand extends $Command
   .classBuilder<

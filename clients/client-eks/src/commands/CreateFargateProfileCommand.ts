@@ -152,6 +152,7 @@ export interface CreateFargateProfileCommandOutput extends CreateFargateProfileR
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class CreateFargateProfileCommand extends $Command

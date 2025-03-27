@@ -81,6 +81,7 @@ export interface UpdateSharedVpcConfigurationCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ *
  * @public
  */
 export class UpdateSharedVpcConfigurationCommand extends $Command

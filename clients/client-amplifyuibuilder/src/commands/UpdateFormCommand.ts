@@ -374,6 +374,7 @@ export interface UpdateFormCommandOutput extends UpdateFormResponse, __MetadataB
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class UpdateFormCommand extends $Command

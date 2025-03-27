@@ -235,6 +235,7 @@ export interface DescribeModelVersionsCommandOutput extends DescribeModelVersion
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class DescribeModelVersionsCommand extends $Command

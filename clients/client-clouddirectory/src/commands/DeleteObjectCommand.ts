@@ -86,21 +86,24 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To delete an object
  * ```javascript
  * //
  * const input = {
- *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AfMr4qym1kZTvwqOafAYfqI",
- *   "ObjectReference": {
- *     "Selector": "$AQHzK-KsptZGU78KjmnwGH6i8H-voMZDSNCqfx-fRUcBFg"
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AfMr4qym1kZTvwqOafAYfqI",
+ *   ObjectReference: {
+ *     Selector: "$AQHzK-KsptZGU78KjmnwGH6i8H-voMZDSNCqfx-fRUcBFg"
  *   }
  * };
  * const command = new DeleteObjectCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-object-1507574607158
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteObjectCommand extends $Command
   .classBuilder<

@@ -74,6 +74,39 @@ export interface UpdateSolNetworkPackageCommandOutput extends UpdateSolNetworkPa
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example Enable a network package's Operational State
+ * ```javascript
+ * //
+ * const input = {
+ *   nsdInfoId: "np-0d5b823eb5c2a9241",
+ *   nsdOperationalState: "ENABLED"
+ * };
+ * const command = new UpdateSolNetworkPackageCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   nsdOperationalState: "ENABLED"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Disable a network package's Operational State
+ * ```javascript
+ * //
+ * const input = {
+ *   nsdInfoId: "np-0d5b823eb5c2a9241",
+ *   nsdOperationalState: "DISABLED"
+ * };
+ * const command = new UpdateSolNetworkPackageCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   nsdOperationalState: "DISABLED"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateSolNetworkPackageCommand extends $Command

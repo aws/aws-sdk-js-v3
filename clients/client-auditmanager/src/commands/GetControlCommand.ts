@@ -102,6 +102,7 @@ export interface GetControlCommandOutput extends GetControlResponse, __MetadataB
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class GetControlCommand extends $Command

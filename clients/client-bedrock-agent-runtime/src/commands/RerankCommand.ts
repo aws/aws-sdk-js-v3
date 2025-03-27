@@ -136,6 +136,7 @@ export interface RerankCommandOutput extends RerankResponse, __MetadataBearer {}
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ *
  * @public
  */
 export class RerankCommand extends $Command

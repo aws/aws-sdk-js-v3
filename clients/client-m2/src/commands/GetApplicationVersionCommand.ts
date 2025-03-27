@@ -77,6 +77,7 @@ export interface GetApplicationVersionCommandOutput extends GetApplicationVersio
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ *
  * @public
  */
 export class GetApplicationVersionCommand extends $Command

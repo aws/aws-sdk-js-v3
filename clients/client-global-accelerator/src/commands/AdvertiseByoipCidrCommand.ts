@@ -90,6 +90,7 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrRespo
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class AdvertiseByoipCidrCommand extends $Command

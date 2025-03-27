@@ -86,6 +86,7 @@ export interface ListManagedViewsCommandOutput extends ListManagedViewsOutput, _
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ *
  * @public
  */
 export class ListManagedViewsCommand extends $Command

@@ -74,26 +74,26 @@ export interface UpdateHttpNamespaceCommandOutput extends UpdateHttpNamespaceRes
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example To update a HTTP namespace
  * ```javascript
  * // The following example updates the description of a HTTP namespace.
  * const input = {
- *   "Id": "ns-vh4nbmEXAMPLE",
- *   "Namespace": {
- *     "Description": "The updated namespace description."
+ *   Id: "ns-vh4nbmEXAMPLE",
+ *   Namespace: {
+ *     Description: "The updated namespace description."
  *   }
  * };
  * const command = new UpdateHttpNamespaceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OperationId": "ft52xe2koxhoeormaceymagglsdjyvEXAMPLE"
+ *   OperationId: "ft52xe2koxhoeormaceymagglsdjyvEXAMPLE"
  * }
  * *\/
- * // example id: to-update-a-http-namespace-17128EXAMPLE
  * ```
  *
+ * @public
  */
 export class UpdateHttpNamespaceCommand extends $Command
   .classBuilder<

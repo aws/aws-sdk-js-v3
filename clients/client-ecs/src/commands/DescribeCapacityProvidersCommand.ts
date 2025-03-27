@@ -119,93 +119,92 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
- * @example To describe all capacity providers
- * ```javascript
- * // This example retrieves details about all capacity providers.
- * const input = {};
- * const command = new DescribeCapacityProvidersCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "capacityProviders": [
- *     {
- *       "name": "MyCapacityProvider",
- *       "autoScalingGroupProvider": {
- *         "autoScalingGroupArn": "arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111:autoScalingGroupName/MyAutoScalingGroup",
- *         "managedScaling": {
- *           "maximumScalingStepSize": 1000,
- *           "minimumScalingStepSize": 1,
- *           "status": "ENABLED",
- *           "targetCapacity": 100
- *         },
- *         "managedTerminationProtection": "ENABLED"
- *       },
- *       "capacityProviderArn": "arn:aws:ecs:us-west-2:123456789012:capacity-provider/MyCapacityProvider",
- *       "status": "ACTIVE",
- *       "tags": []
- *     },
- *     {
- *       "name": "FARGATE",
- *       "capacityProviderArn": "arn:aws:ecs:us-west-2:123456789012:capacity-provider/FARGATE",
- *       "status": "ACTIVE",
- *       "tags": []
- *     },
- *     {
- *       "name": "FARGATE_SPOT",
- *       "capacityProviderArn": "arn:aws:ecs:us-west-2:123456789012:capacity-provider/FARGATE_SPOT",
- *       "status": "ACTIVE",
- *       "tags": []
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describe-all-capacity-providers-1733951199913
- * ```
  *
  * @example To describe a specific capacity provider
  * ```javascript
  * // This example retrieves details about the capacity provider MyCapacityProvider
  * const input = {
- *   "capacityProviders": [
+ *   capacityProviders: [
  *     "MyCapacityProvider"
  *   ],
- *   "include": [
+ *   include: [
  *     "TAGS"
  *   ]
  * };
  * const command = new DescribeCapacityProvidersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "capacityProviders": [
+ *   capacityProviders: [
  *     {
- *       "name": "MyCapacityProvider",
- *       "autoScalingGroupProvider": {
- *         "autoScalingGroupArn": "arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111:autoScalingGroupName/MyAutoScalingGroup",
- *         "managedScaling": {
- *           "maximumScalingStepSize": 1000,
- *           "minimumScalingStepSize": 1,
- *           "status": "ENABLED",
- *           "targetCapacity": 100
+ *       autoScalingGroupProvider: {
+ *         autoScalingGroupArn: "arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111:autoScalingGroupName/MyAutoScalingGroup",
+ *         managedScaling: {
+ *           maximumScalingStepSize: 1000,
+ *           minimumScalingStepSize: 1,
+ *           status: "ENABLED",
+ *           targetCapacity: 100
  *         },
- *         "managedTerminationProtection": "ENABLED"
+ *         managedTerminationProtection: "ENABLED"
  *       },
- *       "capacityProviderArn": "arn:aws:ecs:us-west-2:123456789012:capacity-provider/MyCapacityProvider",
- *       "status": "ACTIVE",
- *       "tags": [
+ *       capacityProviderArn: "arn:aws:ecs:us-west-2:123456789012:capacity-provider/MyCapacityProvider",
+ *       name: "MyCapacityProvider",
+ *       status: "ACTIVE",
+ *       tags: [
  *         {
- *           "key": "environment",
- *           "value": "production"
+ *           key: "environment",
+ *           value: "production"
  *         }
  *       ]
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-a-specific-capacity-provider-1733951378688
  * ```
  *
+ * @example To describe all capacity providers
+ * ```javascript
+ * // This example retrieves details about all capacity providers.
+ * const input = { /* empty *\/ };
+ * const command = new DescribeCapacityProvidersCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   capacityProviders: [
+ *     {
+ *       autoScalingGroupProvider: {
+ *         autoScalingGroupArn: "arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111:autoScalingGroupName/MyAutoScalingGroup",
+ *         managedScaling: {
+ *           maximumScalingStepSize: 1000,
+ *           minimumScalingStepSize: 1,
+ *           status: "ENABLED",
+ *           targetCapacity: 100
+ *         },
+ *         managedTerminationProtection: "ENABLED"
+ *       },
+ *       capacityProviderArn: "arn:aws:ecs:us-west-2:123456789012:capacity-provider/MyCapacityProvider",
+ *       name: "MyCapacityProvider",
+ *       status: "ACTIVE",
+ *       tags:       []
+ *     },
+ *     {
+ *       capacityProviderArn: "arn:aws:ecs:us-west-2:123456789012:capacity-provider/FARGATE",
+ *       name: "FARGATE",
+ *       status: "ACTIVE",
+ *       tags:       []
+ *     },
+ *     {
+ *       capacityProviderArn: "arn:aws:ecs:us-west-2:123456789012:capacity-provider/FARGATE_SPOT",
+ *       name: "FARGATE_SPOT",
+ *       status: "ACTIVE",
+ *       tags:       []
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class DescribeCapacityProvidersCommand extends $Command
   .classBuilder<

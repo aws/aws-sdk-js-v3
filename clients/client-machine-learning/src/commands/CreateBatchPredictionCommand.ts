@@ -79,6 +79,7 @@ export interface CreateBatchPredictionCommandOutput extends CreateBatchPredictio
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class CreateBatchPredictionCommand extends $Command

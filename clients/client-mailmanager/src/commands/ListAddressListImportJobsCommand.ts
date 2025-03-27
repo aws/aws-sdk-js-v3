@@ -91,6 +91,7 @@ export interface ListAddressListImportJobsCommandOutput extends ListAddressListI
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class ListAddressListImportJobsCommand extends $Command

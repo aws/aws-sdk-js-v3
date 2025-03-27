@@ -141,6 +141,7 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class DescribeStateMachineCommand extends $Command

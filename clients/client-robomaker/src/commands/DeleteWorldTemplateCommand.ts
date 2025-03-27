@@ -74,6 +74,7 @@ export interface DeleteWorldTemplateCommandOutput extends DeleteWorldTemplateRes
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteWorldTemplateCommand extends $Command

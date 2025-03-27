@@ -102,6 +102,7 @@ export interface DeleteSlackChannelConfigurationCommandOutput
  * @throws {@link SupportAppServiceException}
  * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
+ *
  * @public
  */
 export class DeleteSlackChannelConfigurationCommand extends $Command

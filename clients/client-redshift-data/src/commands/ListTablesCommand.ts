@@ -120,6 +120,7 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ *
  * @public
  */
 export class ListTablesCommand extends $Command

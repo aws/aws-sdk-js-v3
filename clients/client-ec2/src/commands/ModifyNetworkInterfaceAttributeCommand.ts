@@ -85,65 +85,74 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To modify the attachment attribute of a network interface
  * ```javascript
  * // This example modifies the attachment attribute of the specified network interface.
  * const input = {
- *   "Attachment": {
- *     "AttachmentId": "eni-attach-43348162",
- *     "DeleteOnTermination": false
+ *   Attachment: {
+ *     AttachmentId: "eni-attach-43348162",
+ *     DeleteOnTermination: false
  *   },
- *   "NetworkInterfaceId": "eni-686ea200"
+ *   NetworkInterfaceId: "eni-686ea200"
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
- * await client.send(command);
- * // example id: ec2-modify-network-interface-attribute-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To modify the description attribute of a network interface
  * ```javascript
  * // This example modifies the description attribute of the specified network interface.
  * const input = {
- *   "Description": {
- *     "Value": "My description"
+ *   Description: {
+ *     Value: "My description"
  *   },
- *   "NetworkInterfaceId": "eni-686ea200"
+ *   NetworkInterfaceId: "eni-686ea200"
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
- * await client.send(command);
- * // example id: ec2-modify-network-interface-attribute-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To modify the groupSet attribute of a network interface
  * ```javascript
  * // This example command modifies the groupSet attribute of the specified network interface.
  * const input = {
- *   "Groups": [
+ *   Groups: [
  *     "sg-903004f8",
  *     "sg-1a2b3c4d"
  *   ],
- *   "NetworkInterfaceId": "eni-686ea200"
+ *   NetworkInterfaceId: "eni-686ea200"
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
- * await client.send(command);
- * // example id: ec2-modify-network-interface-attribute-3
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To modify the sourceDestCheck attribute of a network interface
  * ```javascript
  * // This example command modifies the sourceDestCheck attribute of the specified network interface.
  * const input = {
- *   "NetworkInterfaceId": "eni-686ea200",
- *   "SourceDestCheck": {
- *     "Value": false
+ *   NetworkInterfaceId: "eni-686ea200",
+ *   SourceDestCheck: {
+ *     Value: false
  *   }
  * };
  * const command = new ModifyNetworkInterfaceAttributeCommand(input);
- * await client.send(command);
- * // example id: ec2-modify-network-interface-attribute-4
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ModifyNetworkInterfaceAttributeCommand extends $Command
   .classBuilder<

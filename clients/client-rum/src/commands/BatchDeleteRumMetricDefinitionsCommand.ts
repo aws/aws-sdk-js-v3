@@ -97,6 +97,7 @@ export interface BatchDeleteRumMetricDefinitionsCommandOutput
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ *
  * @public
  */
 export class BatchDeleteRumMetricDefinitionsCommand extends $Command

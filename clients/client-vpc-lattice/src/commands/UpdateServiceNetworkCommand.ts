@@ -79,6 +79,7 @@ export interface UpdateServiceNetworkCommandOutput extends UpdateServiceNetworkR
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class UpdateServiceNetworkCommand extends $Command

@@ -90,6 +90,7 @@ export interface GetKxChangesetCommandOutput extends GetKxChangesetResponse, __M
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class GetKxChangesetCommand extends $Command

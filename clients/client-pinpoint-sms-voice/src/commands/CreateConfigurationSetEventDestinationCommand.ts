@@ -98,6 +98,7 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * @throws {@link PinpointSMSVoiceServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoice service.</p>
  *
+ *
  * @public
  */
 export class CreateConfigurationSetEventDestinationCommand extends $Command

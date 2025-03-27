@@ -77,24 +77,24 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Delete Connection
  * ```javascript
  * // Deletes the connection between the replication instance and the endpoint.
  * const input = {
- *   "EndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM",
- *   "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ"
+ *   EndpointArn: "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM",
+ *   ReplicationInstanceArn: "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ"
  * };
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Connection": {}
+ *   Connection:   { /* empty *\/ }
  * }
  * *\/
- * // example id: delete-connection-1481751957981
  * ```
  *
+ * @public
  */
 export class DeleteConnectionCommand extends $Command
   .classBuilder<

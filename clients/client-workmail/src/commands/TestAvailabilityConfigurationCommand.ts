@@ -95,6 +95,7 @@ export interface TestAvailabilityConfigurationCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class TestAvailabilityConfigurationCommand extends $Command

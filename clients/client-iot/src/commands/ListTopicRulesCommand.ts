@@ -77,6 +77,7 @@ export interface ListTopicRulesCommandOutput extends ListTopicRulesResponse, __M
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListTopicRulesCommand extends $Command

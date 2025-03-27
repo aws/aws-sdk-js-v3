@@ -106,6 +106,7 @@ export interface RebootInstanceCommandOutput extends RebootInstanceResult, __Met
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class RebootInstanceCommand extends $Command

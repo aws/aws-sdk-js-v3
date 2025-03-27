@@ -87,6 +87,7 @@ export interface GetAssessmentReportCommandOutput extends GetAssessmentReportRes
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ *
  * @public
  */
 export class GetAssessmentReportCommand extends $Command

@@ -175,6 +175,7 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ *
  * @public
  */
 export class GetApplicationCommand extends $Command

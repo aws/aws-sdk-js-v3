@@ -65,6 +65,7 @@ export interface DeleteCollaborationCommandOutput extends DeleteCollaborationOut
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class DeleteCollaborationCommand extends $Command

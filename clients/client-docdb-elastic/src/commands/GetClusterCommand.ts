@@ -98,6 +98,7 @@ export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBea
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ *
  * @public
  */
 export class GetClusterCommand extends $Command

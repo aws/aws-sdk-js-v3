@@ -93,6 +93,7 @@ export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __Metad
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class ListSipRulesCommand extends $Command

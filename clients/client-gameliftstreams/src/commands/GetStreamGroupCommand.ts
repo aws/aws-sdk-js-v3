@@ -97,6 +97,7 @@ export interface GetStreamGroupCommandOutput extends GetStreamGroupOutput, __Met
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>
  *
+ *
  * @public
  */
 export class GetStreamGroupCommand extends $Command

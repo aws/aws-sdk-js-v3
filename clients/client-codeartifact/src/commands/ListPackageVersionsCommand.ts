@@ -110,6 +110,7 @@ export interface ListPackageVersionsCommandOutput extends ListPackageVersionsRes
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class ListPackageVersionsCommand extends $Command

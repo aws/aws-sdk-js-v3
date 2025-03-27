@@ -68,6 +68,7 @@ export interface DescribeInboundDmarcSettingsCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class DescribeInboundDmarcSettingsCommand extends $Command

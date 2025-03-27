@@ -67,6 +67,7 @@ export interface GetRegistryPolicyCommandOutput extends GetRegistryPolicyRespons
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class GetRegistryPolicyCommand extends $Command

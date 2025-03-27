@@ -71,6 +71,7 @@ export interface DeleteListCommandOutput extends DeleteListResult, __MetadataBea
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class DeleteListCommand extends $Command

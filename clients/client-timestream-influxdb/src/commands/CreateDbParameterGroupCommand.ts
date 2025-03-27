@@ -193,6 +193,7 @@ export interface CreateDbParameterGroupCommandOutput extends CreateDbParameterGr
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ *
  * @public
  */
 export class CreateDbParameterGroupCommand extends $Command

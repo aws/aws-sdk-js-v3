@@ -59,6 +59,7 @@ export interface DeleteAnomalyMonitorCommandOutput extends DeleteAnomalyMonitorR
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class DeleteAnomalyMonitorCommand extends $Command

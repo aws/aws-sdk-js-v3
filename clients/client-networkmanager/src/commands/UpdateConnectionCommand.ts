@@ -96,6 +96,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class UpdateConnectionCommand extends $Command

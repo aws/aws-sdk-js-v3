@@ -271,6 +271,7 @@ export interface UpdatePromptCommandOutput extends UpdatePromptResponse, __Metad
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class UpdatePromptCommand extends $Command

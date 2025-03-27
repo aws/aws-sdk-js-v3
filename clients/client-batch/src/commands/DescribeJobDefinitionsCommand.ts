@@ -671,52 +671,52 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To describe active job definitions
  * ```javascript
  * // This example describes all of your active job definitions.
  * const input = {
- *   "status": "ACTIVE"
+ *   status: "ACTIVE"
  * };
  * const command = new DescribeJobDefinitionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "jobDefinitions": [
+ *   jobDefinitions: [
  *     {
- *       "type": "container",
- *       "containerProperties": {
- *         "command": [
+ *       containerProperties: {
+ *         command: [
  *           "sleep",
  *           "60"
  *         ],
- *         "environment": [],
- *         "image": "busybox",
- *         "mountPoints": [],
- *         "resourceRequirements": [
+ *         environment:         [],
+ *         image: "busybox",
+ *         mountPoints:         [],
+ *         resourceRequirements: [
  *           {
- *             "type": "MEMORY",
- *             "value": "128"
+ *             type: "MEMORY",
+ *             value: "128"
  *           },
  *           {
- *             "type": "VCPU",
- *             "value": "1"
+ *             type: "VCPU",
+ *             value: "1"
  *           }
  *         ],
- *         "ulimits": [],
- *         "volumes": []
+ *         ulimits:         [],
+ *         volumes:         []
  *       },
- *       "jobDefinitionArn": "arn:aws:batch:us-east-1:012345678910:job-definition/sleep60:1",
- *       "jobDefinitionName": "sleep60",
- *       "revision": 1,
- *       "status": "ACTIVE"
+ *       jobDefinitionArn: "arn:aws:batch:us-east-1:012345678910:job-definition/sleep60:1",
+ *       jobDefinitionName: "sleep60",
+ *       revision: 1,
+ *       status: "ACTIVE",
+ *       type: "container"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-active-job-definitions-1481153895831
  * ```
  *
+ * @public
  */
 export class DescribeJobDefinitionsCommand extends $Command
   .classBuilder<

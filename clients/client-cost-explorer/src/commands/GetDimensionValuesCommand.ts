@@ -167,6 +167,7 @@ export interface GetDimensionValuesCommandOutput extends GetDimensionValuesRespo
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class GetDimensionValuesCommand extends $Command

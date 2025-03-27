@@ -86,6 +86,7 @@ export interface CompleteSnapshotCommandOutput extends CompleteSnapshotResponse,
  * @throws {@link EBSServiceException}
  * <p>Base exception class for all service exceptions from EBS service.</p>
  *
+ *
  * @public
  */
 export class CompleteSnapshotCommand extends $Command

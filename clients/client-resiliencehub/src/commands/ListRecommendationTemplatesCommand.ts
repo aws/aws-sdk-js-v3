@@ -114,6 +114,7 @@ export interface ListRecommendationTemplatesCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListRecommendationTemplatesCommand extends $Command

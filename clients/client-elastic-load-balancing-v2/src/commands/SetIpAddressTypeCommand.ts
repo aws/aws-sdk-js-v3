@@ -69,6 +69,7 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, _
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ *
  * @public
  */
 export class SetIpAddressTypeCommand extends $Command

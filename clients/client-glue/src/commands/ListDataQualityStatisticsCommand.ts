@@ -102,6 +102,7 @@ export interface ListDataQualityStatisticsCommandOutput extends ListDataQualityS
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class ListDataQualityStatisticsCommand extends $Command

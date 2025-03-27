@@ -71,6 +71,7 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ *
  * @public
  */
 export class DeleteConnectionCommand extends $Command

@@ -75,6 +75,7 @@ export interface DeletePresetCommandOutput extends DeletePresetResponse, __Metad
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ *
  * @public
  */
 export class DeletePresetCommand extends $Command

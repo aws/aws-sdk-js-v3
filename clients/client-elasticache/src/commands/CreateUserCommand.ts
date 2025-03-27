@@ -111,6 +111,7 @@ export interface CreateUserCommandOutput extends User, __MetadataBearer {}
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class CreateUserCommand extends $Command

@@ -106,18 +106,21 @@ export interface DisableKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To disable a KMS key
  * ```javascript
  * // The following example disables the specified KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new DisableKeyCommand(input);
- * await client.send(command);
- * // example id: to-disable-a-cmk-1478566583659
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DisableKeyCommand extends $Command
   .classBuilder<

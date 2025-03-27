@@ -73,6 +73,7 @@ export interface DeleteDecoderManifestCommandOutput extends DeleteDecoderManifes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class DeleteDecoderManifestCommand extends $Command

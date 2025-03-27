@@ -81,6 +81,7 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ *
  * @public
  */
 export class GetMasterAccountCommand extends $Command

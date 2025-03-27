@@ -77,6 +77,7 @@ export interface DeleteQualificationTypeCommandOutput extends DeleteQualificatio
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class DeleteQualificationTypeCommand extends $Command

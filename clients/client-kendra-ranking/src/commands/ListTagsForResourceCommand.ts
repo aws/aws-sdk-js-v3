@@ -88,6 +88,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link KendraRankingServiceException}
  * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

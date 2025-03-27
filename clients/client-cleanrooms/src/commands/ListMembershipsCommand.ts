@@ -107,6 +107,7 @@ export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __M
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class ListMembershipsCommand extends $Command

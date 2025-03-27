@@ -85,6 +85,7 @@ export interface ListDetectorModelVersionsCommandOutput extends ListDetectorMode
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ *
  * @public
  */
 export class ListDetectorModelVersionsCommand extends $Command

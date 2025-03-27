@@ -59,6 +59,7 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResult, __M
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccountCommand extends $Command

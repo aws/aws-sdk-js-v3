@@ -86,6 +86,7 @@ export interface GetEnabledBaselineCommandOutput extends GetEnabledBaselineOutpu
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class GetEnabledBaselineCommand extends $Command

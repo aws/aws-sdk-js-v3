@@ -110,6 +110,7 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class AllocateConnectionOnInterconnectCommand extends $Command

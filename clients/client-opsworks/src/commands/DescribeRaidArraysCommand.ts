@@ -89,6 +89,7 @@ export interface DescribeRaidArraysCommandOutput extends DescribeRaidArraysResul
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class DescribeRaidArraysCommand extends $Command

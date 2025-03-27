@@ -101,6 +101,7 @@ export interface UpdateReplicationInfoCommandOutput extends UpdateReplicationInf
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class UpdateReplicationInfoCommand extends $Command

@@ -133,60 +133,60 @@ export interface AttachTypedLinkCommandOutput extends AttachTypedLinkResponse, _
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To attach a typed link to an object
  * ```javascript
  * //
  * const input = {
- *   "Attributes": [
+ *   Attributes: [
  *     {
- *       "AttributeName": "22",
- *       "Value": {
- *         "BinaryValue": "c3Ry"
+ *       AttributeName: "22",
+ *       Value: {
+ *         BinaryValue: "c3Ry"
  *       }
  *     }
  *   ],
- *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
- *   "SourceObjectReference": {
- *     "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   SourceObjectReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
  *   },
- *   "TargetObjectReference": {
- *     "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *   TargetObjectReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
  *   },
- *   "TypedLinkFacet": {
- *     "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1",
- *     "TypedLinkName": "exampletypedlink8"
+ *   TypedLinkFacet: {
+ *     SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1",
+ *     TypedLinkName: "exampletypedlink8"
  *   }
  * };
  * const command = new AttachTypedLinkCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TypedLinkSpecifier": {
- *     "IdentityAttributeValues": [
+ *   TypedLinkSpecifier: {
+ *     IdentityAttributeValues: [
  *       {
- *         "AttributeName": "22",
- *         "Value": {
- *           "BinaryValue": "c3Ry"
+ *         AttributeName: "22",
+ *         Value: {
+ *           BinaryValue: "c3Ry"
  *         }
  *       }
  *     ],
- *     "SourceObjectReference": {
- *       "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
+ *     SourceObjectReference: {
+ *       Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
  *     },
- *     "TargetObjectReference": {
- *       "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *     TargetObjectReference: {
+ *       Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
  *     },
- *     "TypedLinkFacet": {
- *       "SchemaArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1",
- *       "TypedLinkName": "exampletypedlink8"
+ *     TypedLinkFacet: {
+ *       SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1",
+ *       TypedLinkName: "exampletypedlink8"
  *     }
  *   }
  * }
  * *\/
- * // example id: to-attach-a-typed-link-to-an-object-1506559900588
  * ```
  *
+ * @public
  */
 export class AttachTypedLinkCommand extends $Command
   .classBuilder<

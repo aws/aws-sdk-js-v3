@@ -56,6 +56,7 @@ export interface XmlEmptyMapsCommandOutput extends XmlMapsOutput, __MetadataBear
  * @throws {@link QueryProtocolServiceException}
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
+ *
  */
 export class XmlEmptyMapsCommand extends $Command
   .classBuilder<

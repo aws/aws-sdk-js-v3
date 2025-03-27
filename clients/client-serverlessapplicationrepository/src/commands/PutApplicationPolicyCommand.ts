@@ -104,6 +104,7 @@ export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyR
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ *
  * @public
  */
 export class PutApplicationPolicyCommand extends $Command

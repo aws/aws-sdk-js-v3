@@ -109,6 +109,7 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class ListTemplatesCommand extends $Command

@@ -148,6 +148,7 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ *
  * @public
  */
 export class PutRecordBatchCommand extends $Command

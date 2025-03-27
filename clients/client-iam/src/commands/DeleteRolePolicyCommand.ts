@@ -77,19 +77,22 @@ export interface DeleteRolePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To remove a policy from an IAM role
  * ```javascript
  * // The following command removes the policy named ExamplePolicy from the role named Test-Role.
  * const input = {
- *   "PolicyName": "ExamplePolicy",
- *   "RoleName": "Test-Role"
+ *   PolicyName: "ExamplePolicy",
+ *   RoleName: "Test-Role"
  * };
  * const command = new DeleteRolePolicyCommand(input);
- * await client.send(command);
- * // example id: 9c667336-fde3-462c-b8f3-950800821e27
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteRolePolicyCommand extends $Command
   .classBuilder<

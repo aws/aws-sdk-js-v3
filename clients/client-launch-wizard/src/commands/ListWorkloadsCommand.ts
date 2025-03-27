@@ -69,6 +69,29 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ *
+ * @example List all available workloads supported by AWS Launch Wizard.
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new ListWorkloadsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   workloads: [
+ *     {
+ *       displayName: "SAP",
+ *       workloadName: "SAP"
+ *     },
+ *     {
+ *       displayName: "MS SQL Server",
+ *       workloadName: "SQL"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListWorkloadsCommand extends $Command

@@ -69,6 +69,7 @@ export interface StopQueryCommandOutput extends StopQueryOutput, __MetadataBeare
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ *
  * @public
  */
 export class StopQueryCommand extends $Command

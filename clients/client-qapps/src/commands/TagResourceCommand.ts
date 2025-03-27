@@ -76,21 +76,24 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example A call to tag a resource
  * ```javascript
  * //
  * const input = {
- *   "resourceARN": "arn:aws:qapps:us-west-2:123456789012:application/3642ba81-344c-42fd-a480-9119a5a5f26b/qapp/7212ff04-de7b-4831-bd80-45d6975ba1b0",
- *   "tags": {
- *     "department": "HR"
+ *   resourceARN: "arn:aws:qapps:us-west-2:123456789012:application/3642ba81-344c-42fd-a480-9119a5a5f26b/qapp/7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   tags: {
+ *     department: "HR"
  *   }
  * };
  * const command = new TagResourceCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<

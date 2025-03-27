@@ -49,6 +49,7 @@ export interface EmptyOperationCommandOutput extends __MetadataBearer {}
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  */
 export class EmptyOperationCommand extends $Command
   .classBuilder<

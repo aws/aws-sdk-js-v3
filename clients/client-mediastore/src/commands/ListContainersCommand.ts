@@ -77,6 +77,7 @@ export interface ListContainersCommandOutput extends ListContainersOutput, __Met
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ *
  * @public
  */
 export class ListContainersCommand extends $Command

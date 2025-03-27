@@ -106,6 +106,7 @@ export interface ListStateMachineAliasesCommandOutput extends ListStateMachineAl
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class ListStateMachineAliasesCommand extends $Command

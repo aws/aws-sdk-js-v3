@@ -93,6 +93,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResult, __Met
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class DescribeDomainCommand extends $Command

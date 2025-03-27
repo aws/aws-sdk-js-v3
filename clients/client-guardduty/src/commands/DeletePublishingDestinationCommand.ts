@@ -65,6 +65,7 @@ export interface DeletePublishingDestinationCommandOutput
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class DeletePublishingDestinationCommand extends $Command

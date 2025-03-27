@@ -483,6 +483,7 @@ export interface GetWorkflowExecutionHistoryCommandOutput extends History, __Met
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class GetWorkflowExecutionHistoryCommand extends $Command

@@ -92,6 +92,7 @@ export interface CreateCredentialLockerCommandOutput extends CreateCredentialLoc
  * @throws {@link IoTManagedIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from IoTManagedIntegrations service.</p>
  *
+ *
  * @public
  */
 export class CreateCredentialLockerCommand extends $Command

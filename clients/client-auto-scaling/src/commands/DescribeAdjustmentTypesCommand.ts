@@ -80,31 +80,31 @@ export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustment
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe the Amazon EC2 Auto Scaling adjustment types
  * ```javascript
  * // This example describes the available adjustment types.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeAdjustmentTypesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AdjustmentTypes": [
+ *   AdjustmentTypes: [
  *     {
- *       "AdjustmentType": "ChangeInCapacity"
+ *       AdjustmentType: "ChangeInCapacity"
  *     },
  *     {
- *       "AdjustmentType": "ExactCapcity"
+ *       AdjustmentType: "ExactCapcity"
  *     },
  *     {
- *       "AdjustmentType": "PercentChangeInCapacity"
+ *       AdjustmentType: "PercentChangeInCapacity"
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-adjustment-types-1
  * ```
  *
+ * @public
  */
 export class DescribeAdjustmentTypesCommand extends $Command
   .classBuilder<

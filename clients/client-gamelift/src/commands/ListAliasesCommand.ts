@@ -95,6 +95,7 @@ export interface ListAliasesCommandOutput extends ListAliasesOutput, __MetadataB
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class ListAliasesCommand extends $Command

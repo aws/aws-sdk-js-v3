@@ -478,25 +478,25 @@ export interface BatchReadCommandOutput extends BatchReadResponse, __MetadataBea
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To run a batch read command
  * ```javascript
  * //
  * const input = {
- *   "ConsistencyLevel": "EVENTUAL",
- *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
- *   "Operations": []
+ *   ConsistencyLevel: "EVENTUAL",
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   Operations:   []
  * };
  * const command = new BatchReadCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Responses": []
+ *   Responses:   []
  * }
  * *\/
- * // example id: to-run-a-batch-read-command-1506123433380
  * ```
  *
+ * @public
  */
 export class BatchReadCommand extends $Command
   .classBuilder<

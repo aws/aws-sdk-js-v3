@@ -95,6 +95,7 @@ export interface GetNetworkTelemetryCommandOutput extends GetNetworkTelemetryRes
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetNetworkTelemetryCommand extends $Command

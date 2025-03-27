@@ -65,6 +65,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

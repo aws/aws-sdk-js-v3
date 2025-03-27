@@ -99,6 +99,7 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
  *
+ *
  * @public
  */
 export class UpdateExportCommand extends $Command

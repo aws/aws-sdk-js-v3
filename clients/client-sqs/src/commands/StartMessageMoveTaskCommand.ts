@@ -104,6 +104,7 @@ export interface StartMessageMoveTaskCommandOutput extends StartMessageMoveTaskR
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ *
  * @public
  */
 export class StartMessageMoveTaskCommand extends $Command

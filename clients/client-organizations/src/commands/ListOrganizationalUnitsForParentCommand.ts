@@ -212,34 +212,34 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To retrieve a list of all of the child OUs in a parent root or OU
  * ```javascript
  * // The following example shows how to get a list of OUs in a specified root:/n/n
  * const input = {
- *   "ParentId": "r-examplerootid111"
+ *   ParentId: "r-examplerootid111"
  * };
  * const command = new ListOrganizationalUnitsForParentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OrganizationalUnits": [
+ *   OrganizationalUnits: [
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examlerootid111-exampleouid111",
- *       "Id": "ou-examplerootid111-exampleouid111",
- *       "Name": "Development"
+ *       Arn: "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examlerootid111-exampleouid111",
+ *       Id: "ou-examplerootid111-exampleouid111",
+ *       Name: "Development"
  *     },
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examlerootid111-exampleouid222",
- *       "Id": "ou-examplerootid111-exampleouid222",
- *       "Name": "Production"
+ *       Arn: "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examlerootid111-exampleouid222",
+ *       Id: "ou-examplerootid111-exampleouid222",
+ *       Name: "Production"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-a-list-of-all-of-the-OUs-in-a-parent-container
  * ```
  *
+ * @public
  */
 export class ListOrganizationalUnitsForParentCommand extends $Command
   .classBuilder<

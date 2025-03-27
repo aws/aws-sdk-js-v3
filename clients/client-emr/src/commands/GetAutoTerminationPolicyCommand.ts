@@ -57,6 +57,7 @@ export interface GetAutoTerminationPolicyCommandOutput extends GetAutoTerminatio
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class GetAutoTerminationPolicyCommand extends $Command

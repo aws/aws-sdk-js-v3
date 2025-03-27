@@ -151,6 +151,7 @@ export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __Met
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class ConfirmSignUpCommand extends $Command

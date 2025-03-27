@@ -139,6 +139,7 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesOutpu
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class ListGroupResourcesCommand extends $Command

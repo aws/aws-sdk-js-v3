@@ -83,49 +83,49 @@ export interface DescribeApplicationVersionsCommandOutput
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To view information about an application version
  * ```javascript
  * // The following operation retrieves information about an application version labeled v2:
  * const input = {
- *   "ApplicationName": "my-app",
- *   "VersionLabels": [
+ *   ApplicationName: "my-app",
+ *   VersionLabels: [
  *     "v2"
  *   ]
  * };
  * const command = new DescribeApplicationVersionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplicationVersions": [
+ *   ApplicationVersions: [
  *     {
- *       "ApplicationName": "my-app",
- *       "DateCreated": "2015-07-23T01:32:26.079Z",
- *       "DateUpdated": "2015-07-23T01:32:26.079Z",
- *       "Description": "update cover page",
- *       "SourceBundle": {
- *         "S3Bucket": "elasticbeanstalk-us-west-2-015321684451",
- *         "S3Key": "my-app/5026-stage-150723_224258.war"
+ *       ApplicationName: "my-app",
+ *       DateCreated: "2015-07-23T01:32:26.079Z",
+ *       DateUpdated: "2015-07-23T01:32:26.079Z",
+ *       Description: "update cover page",
+ *       SourceBundle: {
+ *         S3Bucket: "elasticbeanstalk-us-west-2-015321684451",
+ *         S3Key: "my-app/5026-stage-150723_224258.war"
  *       },
- *       "VersionLabel": "v2"
+ *       VersionLabel: "v2"
  *     },
  *     {
- *       "ApplicationName": "my-app",
- *       "DateCreated": "2015-07-23T22:26:10.816Z",
- *       "DateUpdated": "2015-07-23T22:26:10.816Z",
- *       "Description": "initial version",
- *       "SourceBundle": {
- *         "S3Bucket": "elasticbeanstalk-us-west-2-015321684451",
- *         "S3Key": "my-app/5026-stage-150723_222618.war"
+ *       ApplicationName: "my-app",
+ *       DateCreated: "2015-07-23T22:26:10.816Z",
+ *       DateUpdated: "2015-07-23T22:26:10.816Z",
+ *       Description: "initial version",
+ *       SourceBundle: {
+ *         S3Bucket: "elasticbeanstalk-us-west-2-015321684451",
+ *         S3Key: "my-app/5026-stage-150723_222618.war"
  *       },
- *       "VersionLabel": "v1"
+ *       VersionLabel: "v1"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-view-information-about-an-application-version-1456269947428
  * ```
  *
+ * @public
  */
 export class DescribeApplicationVersionsCommand extends $Command
   .classBuilder<

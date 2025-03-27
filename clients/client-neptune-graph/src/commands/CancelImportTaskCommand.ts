@@ -76,6 +76,7 @@ export interface CancelImportTaskCommandOutput extends CancelImportTaskOutput, _
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class CancelImportTaskCommand extends $Command

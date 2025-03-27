@@ -96,6 +96,7 @@ export interface ListAssetContractsCommandOutput extends ListAssetContractsOutpu
  * @throws {@link ManagedBlockchainQueryServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
+ *
  * @public
  */
 export class ListAssetContractsCommand extends $Command

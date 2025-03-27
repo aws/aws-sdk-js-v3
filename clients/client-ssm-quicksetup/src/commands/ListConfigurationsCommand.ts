@@ -108,6 +108,7 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsOutpu
  * @throws {@link SSMQuickSetupServiceException}
  * <p>Base exception class for all service exceptions from SSMQuickSetup service.</p>
  *
+ *
  * @public
  */
 export class ListConfigurationsCommand extends $Command

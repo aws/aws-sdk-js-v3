@@ -79,6 +79,7 @@ export interface AssociateQueueQuickConnectsCommandOutput extends __MetadataBear
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class AssociateQueueQuickConnectsCommand extends $Command

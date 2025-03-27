@@ -140,6 +140,7 @@ export interface PutRepositoryTriggersCommandOutput extends PutRepositoryTrigger
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class PutRepositoryTriggersCommand extends $Command

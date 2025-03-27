@@ -87,6 +87,7 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class ListImportsCommand extends $Command

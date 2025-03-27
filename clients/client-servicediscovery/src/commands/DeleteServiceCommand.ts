@@ -65,18 +65,21 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example Example: Delete service
  * ```javascript
  * // Example: Delete service
  * const input = {
- *   "Id": "srv-p5zdwlg5uvvzjita"
+ *   Id: "srv-p5zdwlg5uvvzjita"
  * };
  * const command = new DeleteServiceCommand(input);
- * await client.send(command);
- * // example id: example-delete-service-1587416462902
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteServiceCommand extends $Command
   .classBuilder<

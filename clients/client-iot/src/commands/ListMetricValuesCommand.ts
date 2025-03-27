@@ -96,6 +96,7 @@ export interface ListMetricValuesCommandOutput extends ListMetricValuesResponse,
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListMetricValuesCommand extends $Command

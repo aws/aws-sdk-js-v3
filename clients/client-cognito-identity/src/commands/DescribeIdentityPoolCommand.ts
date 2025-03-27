@@ -97,6 +97,7 @@ export interface DescribeIdentityPoolCommandOutput extends IdentityPool, __Metad
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ *
  * @public
  */
 export class DescribeIdentityPoolCommand extends $Command

@@ -83,34 +83,34 @@ export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse,
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To delete a custom attribute from an Amazon ECS instance
  * ```javascript
  * // This example deletes an attribute named stack from a container instance.
  * const input = {
- *   "attributes": [
+ *   attributes: [
  *     {
- *       "name": "stack",
- *       "targetId": "aws:ecs:us-west-2:130757420319:container-instance/1c3be8ed-df30-47b4-8f1e-6e68ebd01f34"
+ *       name: "stack",
+ *       targetId: "aws:ecs:us-west-2:130757420319:container-instance/1c3be8ed-df30-47b4-8f1e-6e68ebd01f34"
  *     }
  *   ]
  * };
  * const command = new DeleteAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "attributes": [
+ *   attributes: [
  *     {
- *       "name": "stack",
- *       "value": "production",
- *       "targetId": "aws:ecs:us-west-2:130757420319:container-instance/1c3be8ed-df30-47b4-8f1e-6e68ebd01f34"
+ *       name: "stack",
+ *       targetId: "aws:ecs:us-west-2:130757420319:container-instance/1c3be8ed-df30-47b4-8f1e-6e68ebd01f34",
+ *       value: "production"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-delete-a-custom-attribute-from-an-amazon-ecs-instance-1733867267541
  * ```
  *
+ * @public
  */
 export class DeleteAttributesCommand extends $Command
   .classBuilder<

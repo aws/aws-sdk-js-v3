@@ -70,6 +70,7 @@ export interface StartApplicationRefreshCommandOutput extends StartApplicationRe
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ *
  * @public
  */
 export class StartApplicationRefreshCommand extends $Command

@@ -60,21 +60,24 @@ export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer 
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To disable metrics collection for an Auto Scaling group
  * ```javascript
  * // This example disables collecting data for the GroupDesiredCapacity metric for the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "Metrics": [
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   Metrics: [
  *     "GroupDesiredCapacity"
  *   ]
  * };
  * const command = new DisableMetricsCollectionCommand(input);
- * await client.send(command);
- * // example id: autoscaling-disable-metrics-collection-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DisableMetricsCollectionCommand extends $Command
   .classBuilder<

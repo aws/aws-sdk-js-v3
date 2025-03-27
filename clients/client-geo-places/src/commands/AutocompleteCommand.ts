@@ -188,6 +188,7 @@ export interface AutocompleteCommandOutput extends AutocompleteResponse, __Metad
  * @throws {@link GeoPlacesServiceException}
  * <p>Base exception class for all service exceptions from GeoPlaces service.</p>
  *
+ *
  * @public
  */
 export class AutocompleteCommand extends $Command

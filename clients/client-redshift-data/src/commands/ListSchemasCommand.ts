@@ -114,6 +114,7 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ *
  * @public
  */
 export class ListSchemasCommand extends $Command

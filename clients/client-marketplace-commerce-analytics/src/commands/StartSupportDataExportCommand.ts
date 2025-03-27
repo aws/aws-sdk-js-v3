@@ -79,6 +79,7 @@ export interface StartSupportDataExportCommandOutput extends StartSupportDataExp
  * @throws {@link MarketplaceCommerceAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCommerceAnalytics service.</p>
  *
+ *
  * @public
  */
 export class StartSupportDataExportCommand extends $Command

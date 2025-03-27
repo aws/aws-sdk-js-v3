@@ -160,38 +160,38 @@ export interface DescribeListenersCommandOutput extends DescribeListenersOutput,
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To describe a listener
  * ```javascript
  * // This example describes the specified listener.
  * const input = {
- *   "ListenerArns": [
+ *   ListenerArns: [
  *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2"
  *   ]
  * };
  * const command = new DescribeListenersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Listeners": [
+ *   Listeners: [
  *     {
- *       "DefaultActions": [
+ *       DefaultActions: [
  *         {
- *           "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
- *           "Type": "forward"
+ *           TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *           Type: "forward"
  *         }
  *       ],
- *       "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2",
- *       "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
- *       "Port": 80,
- *       "Protocol": "HTTP"
+ *       ListenerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2",
+ *       LoadBalancerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+ *       Port: 80,
+ *       Protocol: "HTTP"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-describe-listeners-1
  * ```
  *
+ * @public
  */
 export class DescribeListenersCommand extends $Command
   .classBuilder<

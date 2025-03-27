@@ -96,6 +96,7 @@ export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttribu
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyBackupAttributesCommand extends $Command

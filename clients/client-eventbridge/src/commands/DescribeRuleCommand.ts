@@ -73,6 +73,7 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class DescribeRuleCommand extends $Command

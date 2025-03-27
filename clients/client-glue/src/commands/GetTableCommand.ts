@@ -340,6 +340,7 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetTableCommand extends $Command

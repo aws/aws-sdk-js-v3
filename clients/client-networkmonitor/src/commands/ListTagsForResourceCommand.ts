@@ -75,6 +75,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link NetworkMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

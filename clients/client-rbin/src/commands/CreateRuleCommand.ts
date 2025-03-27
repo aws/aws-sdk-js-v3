@@ -146,6 +146,7 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * @throws {@link RbinServiceException}
  * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
+ *
  * @public
  */
 export class CreateRuleCommand extends $Command

@@ -195,77 +195,77 @@ export interface BatchGetPolicyCommandOutput extends BatchGetPolicyOutput, __Met
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
- * @public
+ *
  * @example To retrieve details about a policy
  * ```javascript
  * // The following example retrieves information about the specified policy contained in the specified policy store. In this example, the requested policy is a template-linked policy, so it returns the ID of the policy template, and the specific principal and resource used by this policy.
  * const input = {
- *   "requests": [
+ *   requests: [
  *     {
- *       "policyId": "PWv5M6d5HePx3gVVLKY1nK",
- *       "policyStoreId": "ERZeDpRc34dkYZeb6FZRVC"
+ *       policyId: "PWv5M6d5HePx3gVVLKY1nK",
+ *       policyStoreId: "ERZeDpRc34dkYZeb6FZRVC"
  *     },
  *     {
- *       "policyId": "LzFn6KgLWvv4Mbegus35jn",
- *       "policyStoreId": "ERZeDpRc34dkYZeb6FZRVC"
+ *       policyId: "LzFn6KgLWvv4Mbegus35jn",
+ *       policyStoreId: "ERZeDpRc34dkYZeb6FZRVC"
  *     },
  *     {
- *       "policyId": "77gLjer8H5o3mvrnMGrSL5",
- *       "policyStoreId": "ERZeDpRc34dkYZeb6FZRVC"
+ *       policyId: "77gLjer8H5o3mvrnMGrSL5",
+ *       policyStoreId: "ERZeDpRc34dkYZeb6FZRVC"
  *     }
  *   ]
  * };
  * const command = new BatchGetPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "errors": [],
- *   "results": [
+ *   errors:   [],
+ *   results: [
  *     {
- *       "createdDate": "2024-10-18T18:53:39.258153Z",
- *       "definition": {
- *         "static": {
- *           "description": "Users can manage account resources in any account they own",
- *           "statement": "permit (principal, action in PhotoFlash::Action::\"ManageAccount\",resource) when { resource in principal.Account };"
+ *       createdDate: "2024-10-18T18:53:39.258153Z",
+ *       definition: {
+ *         static: {
+ *           description: "Users can manage account resources in any account they own",
+ *           statement: `permit (principal, action in PhotoFlash::Action::"ManageAccount",resource) when { resource in principal.Account };`
  *         }
  *       },
- *       "lastUpdatedDate": "2024-10-18T18:53:39.258153Z",
- *       "policyId": "PWv5M6d5HePx3gVVLKY1nK",
- *       "policyStoreId": "ERZeDpRc34dkYZeb6FZRVC",
- *       "policyType": "STATIC"
+ *       lastUpdatedDate: "2024-10-18T18:53:39.258153Z",
+ *       policyId: "PWv5M6d5HePx3gVVLKY1nK",
+ *       policyStoreId: "ERZeDpRc34dkYZeb6FZRVC",
+ *       policyType: "STATIC"
  *     },
  *     {
- *       "createdDate": "2024-10-18T18:57:03.305027Z",
- *       "definition": {
- *         "static": {
- *           "description": "User alice can't delete any photos.",
- *           "statement": "forbid (principal == PhotoFlash::User::\"alice\", action in [PhotoFlash::Action::\"DeletePhoto\"], resource);"
+ *       createdDate: "2024-10-18T18:57:03.305027Z",
+ *       definition: {
+ *         static: {
+ *           description: "User alice can't delete any photos.",
+ *           statement: `forbid (principal == PhotoFlash::User::"alice", action in [PhotoFlash::Action::"DeletePhoto"], resource);`
  *         }
  *       },
- *       "lastUpdatedDate": "2024-10-18T18:57:03.305027Z",
- *       "policyId": "LzFn6KgLWvv4Mbegus35jn",
- *       "policyStoreId": "ERZeDpRc34dkYZeb6FZRVC",
- *       "policyType": "STATIC"
+ *       lastUpdatedDate: "2024-10-18T18:57:03.305027Z",
+ *       policyId: "LzFn6KgLWvv4Mbegus35jn",
+ *       policyStoreId: "ERZeDpRc34dkYZeb6FZRVC",
+ *       policyType: "STATIC"
  *     },
  *     {
- *       "createdDate": "2024-10-18T18:57:48.005343Z",
- *       "definition": {
- *         "static": {
- *           "description": "User alice can view and delete photos.",
- *           "statement": "permit (principal == PhotoFlash::User::\"alice\", action in [PhotoFlash::Action::\"DeletePhoto\", PhotoFlash::Action::\"ViewPhoto\"], resource);"
+ *       createdDate: "2024-10-18T18:57:48.005343Z",
+ *       definition: {
+ *         static: {
+ *           description: "User alice can view and delete photos.",
+ *           statement: `permit (principal == PhotoFlash::User::"alice", action in [PhotoFlash::Action::"DeletePhoto", PhotoFlash::Action::"ViewPhoto"], resource);`
  *         }
  *       },
- *       "lastUpdatedDate": "2024-10-18T18:57:48.005343Z",
- *       "policyId": "77gLjer8H5o3mvrnMGrSL5",
- *       "policyStoreId": "ERZeDpRc34dkYZeb6FZRVC",
- *       "policyType": "STATIC"
+ *       lastUpdatedDate: "2024-10-18T18:57:48.005343Z",
+ *       policyId: "77gLjer8H5o3mvrnMGrSL5",
+ *       policyStoreId: "ERZeDpRc34dkYZeb6FZRVC",
+ *       policyType: "STATIC"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class BatchGetPolicyCommand extends $Command
   .classBuilder<

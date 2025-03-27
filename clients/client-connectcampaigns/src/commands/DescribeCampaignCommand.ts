@@ -97,6 +97,7 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ *
  * @public
  */
 export class DescribeCampaignCommand extends $Command

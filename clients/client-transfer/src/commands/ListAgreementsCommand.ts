@@ -88,6 +88,7 @@ export interface ListAgreementsCommandOutput extends ListAgreementsResponse, __M
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class ListAgreementsCommand extends $Command

@@ -89,6 +89,7 @@ export interface ListApplicationProvidersCommandOutput extends ListApplicationPr
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationProvidersCommand extends $Command

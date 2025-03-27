@@ -153,6 +153,7 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * @throws {@link PCSServiceException}
  * <p>Base exception class for all service exceptions from PCS service.</p>
  *
+ *
  * @public
  */
 export class GetQueueCommand extends $Command

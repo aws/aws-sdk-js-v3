@@ -424,6 +424,7 @@ export interface DescribePipeCommandOutput extends DescribePipeResponse, __Metad
  * @throws {@link PipesServiceException}
  * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ *
  * @public
  */
 export class DescribePipeCommand extends $Command

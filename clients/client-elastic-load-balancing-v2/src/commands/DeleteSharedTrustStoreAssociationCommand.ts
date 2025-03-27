@@ -72,19 +72,22 @@ export interface DeleteSharedTrustStoreAssociationCommandOutput
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example Delete a shared trust store association
  * ```javascript
  * // This example deletes the association between the specified trust store and the specified load balancer.
  * const input = {
- *   "ResourceArn": "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-load-balancer/80233fa81d678c2c",
- *   "TrustStoreArn": "arn:aws:elasticloadbalancing:us-east-1:123456789012:truststore/my-trust-store/73e2d6bc24d8a063"
+ *   ResourceArn: "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-load-balancer/80233fa81d678c2c",
+ *   TrustStoreArn: "arn:aws:elasticloadbalancing:us-east-1:123456789012:truststore/my-trust-store/73e2d6bc24d8a063"
  * };
  * const command = new DeleteSharedTrustStoreAssociationCommand(input);
- * await client.send(command);
- * // example id: delete-a-shared-trust-store-association-1721684063527
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteSharedTrustStoreAssociationCommand extends $Command
   .classBuilder<

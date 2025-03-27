@@ -82,6 +82,7 @@ export interface ListMicrosoftTeamsUserIdentitiesCommandOutput
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ *
  * @public
  */
 export class ListMicrosoftTeamsUserIdentitiesCommand extends $Command

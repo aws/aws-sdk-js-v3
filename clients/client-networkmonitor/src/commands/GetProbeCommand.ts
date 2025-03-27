@@ -88,6 +88,7 @@ export interface GetProbeCommandOutput extends GetProbeOutput, __MetadataBearer 
  * @throws {@link NetworkMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ *
  * @public
  */
 export class GetProbeCommand extends $Command

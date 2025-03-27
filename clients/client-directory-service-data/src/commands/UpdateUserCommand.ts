@@ -107,6 +107,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResult, __MetadataBea
  * @throws {@link DirectoryServiceDataServiceException}
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
+ *
  * @public
  */
 export class UpdateUserCommand extends $Command

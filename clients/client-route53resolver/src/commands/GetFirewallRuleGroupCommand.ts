@@ -81,6 +81,7 @@ export interface GetFirewallRuleGroupCommandOutput extends GetFirewallRuleGroupR
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class GetFirewallRuleGroupCommand extends $Command

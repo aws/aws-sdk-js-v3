@@ -116,6 +116,7 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ *
  * @public
  */
 export class ListTablesCommand extends $Command

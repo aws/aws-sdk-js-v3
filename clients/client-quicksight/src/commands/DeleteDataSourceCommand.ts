@@ -78,6 +78,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DeleteDataSourceCommand extends $Command

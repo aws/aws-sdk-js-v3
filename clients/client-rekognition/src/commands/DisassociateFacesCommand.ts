@@ -109,43 +109,43 @@ export interface DisassociateFacesCommandOutput extends DisassociateFacesRespons
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example DisassociateFaces
  * ```javascript
  * // Removes the association between a Face supplied in an array of FaceIds and the User.
  * const input = {
- *   "ClientRequestToken": "550e8400-e29b-41d4-a716-446655440003",
- *   "CollectionId": "MyCollection",
- *   "FaceIds": [
+ *   ClientRequestToken: "550e8400-e29b-41d4-a716-446655440003",
+ *   CollectionId: "MyCollection",
+ *   FaceIds: [
  *     "f5817d37-94f6-4335-bfee-6cf79a3d806e",
  *     "c92265d4-5f9c-43af-a58e-12be0ce02bc3"
  *   ],
- *   "UserId": "DemoUser"
+ *   UserId: "DemoUser"
  * };
  * const command = new DisassociateFacesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DisassociatedFaces": [
+ *   DisassociatedFaces: [
  *     {
- *       "FaceId": "c92265d4-5f9c-43af-a58e-12be0ce02bc3"
+ *       FaceId: "c92265d4-5f9c-43af-a58e-12be0ce02bc3"
  *     }
  *   ],
- *   "UnsuccessfulFaceDisassociations": [
+ *   UnsuccessfulFaceDisassociations: [
  *     {
- *       "FaceId": "f5817d37-94f6-4335-bfee-6cf79a3d806e",
- *       "Reasons": [
+ *       FaceId: "f5817d37-94f6-4335-bfee-6cf79a3d806e",
+ *       Reasons: [
  *         "ASSOCIATED_TO_A_DIFFERENT_USER"
  *       ],
- *       "UserId": "demoUser1"
+ *       UserId: "demoUser1"
  *     }
  *   ],
- *   "UserStatus": "UPDATING"
+ *   UserStatus: "UPDATING"
  * }
  * *\/
- * // example id: disassociatefaces-1686182627295
  * ```
  *
+ * @public
  */
 export class DisassociateFacesCommand extends $Command
   .classBuilder<

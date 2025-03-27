@@ -87,6 +87,7 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class GetConnectionCommand extends $Command

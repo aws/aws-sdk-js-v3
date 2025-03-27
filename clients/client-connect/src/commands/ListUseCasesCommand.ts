@@ -77,6 +77,7 @@ export interface ListUseCasesCommandOutput extends ListUseCasesResponse, __Metad
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListUseCasesCommand extends $Command

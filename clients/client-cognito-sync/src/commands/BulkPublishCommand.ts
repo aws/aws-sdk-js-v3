@@ -77,6 +77,7 @@ export interface BulkPublishCommandOutput extends BulkPublishResponse, __Metadat
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class BulkPublishCommand extends $Command

@@ -121,6 +121,7 @@ export interface GetInfrastructureConfigurationCommandOutput
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class GetInfrastructureConfigurationCommand extends $Command

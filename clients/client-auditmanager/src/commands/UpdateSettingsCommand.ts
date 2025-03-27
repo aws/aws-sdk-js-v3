@@ -117,6 +117,7 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __M
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class UpdateSettingsCommand extends $Command

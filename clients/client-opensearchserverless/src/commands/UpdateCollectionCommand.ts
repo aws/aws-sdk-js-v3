@@ -82,6 +82,7 @@ export interface UpdateCollectionCommandOutput extends UpdateCollectionResponse,
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ *
  * @public
  */
 export class UpdateCollectionCommand extends $Command

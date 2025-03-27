@@ -56,6 +56,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

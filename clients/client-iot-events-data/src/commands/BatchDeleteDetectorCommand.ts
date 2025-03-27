@@ -79,6 +79,7 @@ export interface BatchDeleteDetectorCommandOutput extends BatchDeleteDetectorRes
  * @throws {@link IoTEventsDataServiceException}
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
+ *
  * @public
  */
 export class BatchDeleteDetectorCommand extends $Command

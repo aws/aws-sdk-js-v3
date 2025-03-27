@@ -203,6 +203,7 @@ export interface UpdateThemePermissionsCommandOutput extends UpdateThemePermissi
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateThemePermissionsCommand extends $Command

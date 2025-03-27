@@ -119,13 +119,13 @@ export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __M
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example RemoveTagsFromResource
  * ```javascript
  * // Removes tags identified by a list of tag keys from the list of tags on the specified resource.
  * const input = {
- *   "ResourceName": "arn:aws:elasticache:us-east-1:1234567890:cluster:my-mem-cluster",
- *   "TagKeys": [
+ *   ResourceName: "arn:aws:elasticache:us-east-1:1234567890:cluster:my-mem-cluster",
+ *   TagKeys: [
  *     "A",
  *     "C",
  *     "E"
@@ -133,35 +133,35 @@ export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __M
  * };
  * const command = new RemoveTagsFromResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TagList": [
+ *   TagList: [
  *     {
- *       "Key": "B",
- *       "Value": "Banana"
+ *       Key: "B",
+ *       Value: "Banana"
  *     },
  *     {
- *       "Key": "D",
- *       "Value": "Dog"
+ *       Key: "D",
+ *       Value: "Dog"
  *     },
  *     {
- *       "Key": "F",
- *       "Value": "Fox"
+ *       Key: "F",
+ *       Value: "Fox"
  *     },
  *     {
- *       "Key": "I",
- *       "Value": ""
+ *       Key: "I",
+ *       Value: ""
  *     },
  *     {
- *       "Key": "K",
- *       "Value": "Kite"
+ *       Key: "K",
+ *       Value: "Kite"
  *     }
  *   ]
  * }
  * *\/
- * // example id: removetagsfromresource-1483037920947
  * ```
  *
+ * @public
  */
 export class RemoveTagsFromResourceCommand extends $Command
   .classBuilder<

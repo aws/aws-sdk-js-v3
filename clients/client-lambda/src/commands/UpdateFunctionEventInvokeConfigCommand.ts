@@ -96,37 +96,37 @@ export interface UpdateFunctionEventInvokeConfigCommandOutput extends FunctionEv
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To update an asynchronous invocation configuration
  * ```javascript
  * // The following example adds an on-failure destination to the existing asynchronous invocation configuration for a function named my-function.
  * const input = {
- *   "DestinationConfig": {
- *     "OnFailure": {
- *       "Destination": "arn:aws:sqs:us-east-2:123456789012:destination"
+ *   DestinationConfig: {
+ *     OnFailure: {
+ *       Destination: "arn:aws:sqs:us-east-2:123456789012:destination"
  *     }
  *   },
- *   "FunctionName": "my-function"
+ *   FunctionName: "my-function"
  * };
  * const command = new UpdateFunctionEventInvokeConfigCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DestinationConfig": {
- *     "OnFailure": {
- *       "Destination": "arn:aws:sqs:us-east-2:123456789012:destination"
+ *   DestinationConfig: {
+ *     OnFailure: {
+ *       Destination: "arn:aws:sqs:us-east-2:123456789012:destination"
  *     },
- *     "OnSuccess": {}
+ *     OnSuccess:     { /* empty *\/ }
  *   },
- *   "FunctionArn": "arn:aws:lambda:us-east-2:123456789012:function:my-function:$LATEST",
- *   "LastModified": 1573687896.493,
- *   "MaximumEventAgeInSeconds": 3600,
- *   "MaximumRetryAttempts": 0
+ *   FunctionArn: "arn:aws:lambda:us-east-2:123456789012:function:my-function:$LATEST",
+ *   LastModified: 1.573687896493E9,
+ *   MaximumEventAgeInSeconds: 3600,
+ *   MaximumRetryAttempts: 0
  * }
  * *\/
- * // example id: to-update-an-asynchronous-invocation-configuration-1586492061186
  * ```
  *
+ * @public
  */
 export class UpdateFunctionEventInvokeConfigCommand extends $Command
   .classBuilder<

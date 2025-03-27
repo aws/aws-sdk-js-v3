@@ -78,6 +78,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

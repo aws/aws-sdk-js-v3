@@ -76,6 +76,7 @@ export interface DeleteTrafficDistributionGroupCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DeleteTrafficDistributionGroupCommand extends $Command

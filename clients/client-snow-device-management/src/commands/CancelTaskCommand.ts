@@ -79,6 +79,7 @@ export interface CancelTaskCommandOutput extends CancelTaskOutput, __MetadataBea
  * @throws {@link SnowDeviceManagementServiceException}
  * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ *
  * @public
  */
 export class CancelTaskCommand extends $Command

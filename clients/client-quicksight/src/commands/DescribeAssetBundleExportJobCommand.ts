@@ -180,6 +180,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeAssetBundleExportJobCommand extends $Command

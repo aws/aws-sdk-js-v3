@@ -283,6 +283,7 @@ export interface AnalyzeExpenseCommandOutput extends AnalyzeExpenseResponse, __M
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ *
  * @public
  */
 export class AnalyzeExpenseCommand extends $Command

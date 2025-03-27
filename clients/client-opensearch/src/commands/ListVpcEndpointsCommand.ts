@@ -72,6 +72,7 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class ListVpcEndpointsCommand extends $Command

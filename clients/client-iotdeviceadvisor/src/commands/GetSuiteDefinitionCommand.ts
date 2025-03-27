@@ -89,6 +89,7 @@ export interface GetSuiteDefinitionCommandOutput extends GetSuiteDefinitionRespo
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ *
  * @public
  */
 export class GetSuiteDefinitionCommand extends $Command

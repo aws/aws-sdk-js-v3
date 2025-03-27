@@ -144,6 +144,7 @@ export interface ListReceivedLicensesCommandOutput extends ListReceivedLicensesR
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class ListReceivedLicensesCommand extends $Command

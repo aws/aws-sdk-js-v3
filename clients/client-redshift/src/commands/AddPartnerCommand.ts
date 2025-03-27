@@ -74,6 +74,7 @@ export interface AddPartnerCommandOutput extends PartnerIntegrationOutputMessage
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class AddPartnerCommand extends $Command

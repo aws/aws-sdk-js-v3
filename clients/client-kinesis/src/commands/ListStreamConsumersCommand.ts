@@ -87,6 +87,7 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class ListStreamConsumersCommand extends $Command

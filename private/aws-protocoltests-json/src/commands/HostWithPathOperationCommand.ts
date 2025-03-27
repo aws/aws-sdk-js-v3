@@ -49,6 +49,7 @@ export interface HostWithPathOperationCommandOutput extends __MetadataBearer {}
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  */
 export class HostWithPathOperationCommand extends $Command
   .classBuilder<

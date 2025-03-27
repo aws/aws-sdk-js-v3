@@ -324,6 +324,7 @@ export interface SearchNearbyCommandOutput extends SearchNearbyResponse, __Metad
  * @throws {@link GeoPlacesServiceException}
  * <p>Base exception class for all service exceptions from GeoPlaces service.</p>
  *
+ *
  * @public
  */
 export class SearchNearbyCommand extends $Command

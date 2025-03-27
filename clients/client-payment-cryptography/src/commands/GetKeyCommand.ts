@@ -128,6 +128,7 @@ export interface GetKeyCommandOutput extends GetKeyOutput, __MetadataBearer {}
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ *
  * @public
  */
 export class GetKeyCommand extends $Command

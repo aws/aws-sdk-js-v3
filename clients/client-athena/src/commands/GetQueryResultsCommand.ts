@@ -111,6 +111,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __M
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class GetQueryResultsCommand extends $Command

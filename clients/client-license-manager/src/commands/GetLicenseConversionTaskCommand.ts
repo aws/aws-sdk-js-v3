@@ -83,6 +83,7 @@ export interface GetLicenseConversionTaskCommandOutput extends GetLicenseConvers
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class GetLicenseConversionTaskCommand extends $Command

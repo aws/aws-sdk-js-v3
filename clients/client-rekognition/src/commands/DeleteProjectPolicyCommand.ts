@@ -83,20 +83,23 @@ export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyRes
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example DeleteProjectPolicy
  * ```javascript
  * // This operation deletes a revision of an existing project policy from an Amazon Rekognition Custom Labels project.
  * const input = {
- *   "PolicyName": "testPolicy1",
- *   "PolicyRevisionId": "3b274c25e9203a56a99e00e3ff205fbc",
- *   "ProjectArn": "arn:aws:rekognition:us-east-1:111122223333:project/SourceProject/1656557123456"
+ *   PolicyName: "testPolicy1",
+ *   PolicyRevisionId: "3b274c25e9203a56a99e00e3ff205fbc",
+ *   ProjectArn: "arn:aws:rekognition:us-east-1:111122223333:project/SourceProject/1656557123456"
  * };
  * const command = new DeleteProjectPolicyCommand(input);
- * await client.send(command);
- * // example id: deleteprojectpolicy-1658204413810
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteProjectPolicyCommand extends $Command
   .classBuilder<

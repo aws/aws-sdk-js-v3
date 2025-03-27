@@ -87,6 +87,7 @@ export interface DeleteQuerySuggestionsBlockListCommandOutput extends __Metadata
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class DeleteQuerySuggestionsBlockListCommand extends $Command

@@ -69,6 +69,7 @@ export interface CancelCapacityTaskCommandOutput extends CancelCapacityTaskOutpu
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class CancelCapacityTaskCommand extends $Command

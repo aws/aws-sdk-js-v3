@@ -90,6 +90,7 @@ export interface DescribeLocationFsxOpenZfsCommandOutput extends DescribeLocatio
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeLocationFsxOpenZfsCommand extends $Command

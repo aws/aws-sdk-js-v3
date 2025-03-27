@@ -97,6 +97,7 @@ export interface AcceptEngagementInvitationCommandOutput extends __MetadataBeare
  * @throws {@link PartnerCentralSellingServiceException}
  * <p>Base exception class for all service exceptions from PartnerCentralSelling service.</p>
  *
+ *
  * @public
  */
 export class AcceptEngagementInvitationCommand extends $Command

@@ -123,6 +123,7 @@ export interface TerminateTargetInstancesCommandOutput extends TerminateTargetIn
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class TerminateTargetInstancesCommand extends $Command

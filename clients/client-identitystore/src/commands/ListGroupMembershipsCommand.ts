@@ -88,6 +88,7 @@ export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsR
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ *
  * @public
  */
 export class ListGroupMembershipsCommand extends $Command

@@ -82,6 +82,7 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class ListSchemaVersionsCommand extends $Command

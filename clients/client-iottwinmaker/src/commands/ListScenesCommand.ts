@@ -79,6 +79,7 @@ export interface ListScenesCommandOutput extends ListScenesResponse, __MetadataB
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class ListScenesCommand extends $Command

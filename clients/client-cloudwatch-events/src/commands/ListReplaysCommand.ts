@@ -76,6 +76,7 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class ListReplaysCommand extends $Command

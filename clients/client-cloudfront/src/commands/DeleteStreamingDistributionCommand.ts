@@ -119,6 +119,7 @@ export interface DeleteStreamingDistributionCommandOutput extends __MetadataBear
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class DeleteStreamingDistributionCommand extends $Command

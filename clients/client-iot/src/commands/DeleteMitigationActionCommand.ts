@@ -63,6 +63,7 @@ export interface DeleteMitigationActionCommandOutput extends DeleteMitigationAct
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DeleteMitigationActionCommand extends $Command

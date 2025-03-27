@@ -118,6 +118,7 @@ export interface ListDocumentClassificationJobsCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class ListDocumentClassificationJobsCommand extends $Command

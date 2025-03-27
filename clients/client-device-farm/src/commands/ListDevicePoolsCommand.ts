@@ -85,49 +85,49 @@ export interface ListDevicePoolsCommandOutput extends ListDevicePoolsResult, __M
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To get information about device pools
  * ```javascript
  * // The following example returns information about the private device pools in a specific project.
  * const input = {
- *   "type": "PRIVATE",
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456"
+ *   arn: "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456",
+ *   type: "PRIVATE"
  * };
  * const command = new ListDevicePoolsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "devicePools": [
+ *   devicePools: [
  *     {
- *       "name": "Top Devices",
- *       "arn": "arn:aws:devicefarm:us-west-2::devicepool:082d10e5-d7d7-48a5-ba5c-12345EXAMPLE",
- *       "description": "Top devices",
- *       "rules": [
+ *       arn: "arn:aws:devicefarm:us-west-2::devicepool:082d10e5-d7d7-48a5-ba5c-12345EXAMPLE",
+ *       description: "Top devices",
+ *       name: "Top Devices",
+ *       rules: [
  *         {
- *           "value": "[\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\"]",
- *           "attribute": "ARN",
- *           "operator": "IN"
+ *           attribute: "ARN",
+ *           operator: "IN",
+ *           value: `["arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE","arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE","arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE","arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE","arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE","arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE","arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE","arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE","arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE","arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE"]`
  *         }
  *       ]
  *     },
  *     {
- *       "name": "My Android Device Pool",
- *       "arn": "arn:aws:devicefarm:us-west-2:123456789101:devicepool:5e01a8c7-c861-4c0a-b1d5-5ec6e6c6dd23/bf96e75a-28f6-4e61-b6a7-12345EXAMPLE",
- *       "description": "Samsung Galaxy Android devices",
- *       "rules": [
+ *       arn: "arn:aws:devicefarm:us-west-2:123456789101:devicepool:5e01a8c7-c861-4c0a-b1d5-5ec6e6c6dd23/bf96e75a-28f6-4e61-b6a7-12345EXAMPLE",
+ *       description: "Samsung Galaxy Android devices",
+ *       name: "My Android Device Pool",
+ *       rules: [
  *         {
- *           "value": "[\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\",\"arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE\"]",
- *           "attribute": "ARN",
- *           "operator": "IN"
+ *           attribute: "ARN",
+ *           operator: "IN",
+ *           value: `["arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE","arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE","arn:aws:devicefarm:us-west-2::device:123456789EXAMPLE"]`
  *         }
  *       ]
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-information-about-device-pools-1471635745170
  * ```
  *
+ * @public
  */
 export class ListDevicePoolsCommand extends $Command
   .classBuilder<

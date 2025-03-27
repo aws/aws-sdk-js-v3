@@ -84,32 +84,35 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
- * @public
+ *
  * @example To add or remove tags from a hosted zone or health check
  * ```javascript
  * // The following example adds two tags and removes one tag from the hosted zone with ID Z3M3LMPEXAMPLE.
  * const input = {
- *   "AddTags": [
+ *   AddTags: [
  *     {
- *       "Key": "apex",
- *       "Value": "3874"
+ *       Key: "apex",
+ *       Value: "3874"
  *     },
  *     {
- *       "Key": "acme",
- *       "Value": "4938"
+ *       Key: "acme",
+ *       Value: "4938"
  *     }
  *   ],
- *   "RemoveTagKeys": [
+ *   RemoveTagKeys: [
  *     "Nadir"
  *   ],
- *   "ResourceId": "Z3M3LMPEXAMPLE",
- *   "ResourceType": "hostedzone"
+ *   ResourceId: "Z3M3LMPEXAMPLE",
+ *   ResourceType: "hostedzone"
  * };
  * const command = new ChangeTagsForResourceCommand(input);
- * await client.send(command);
- * // example id: to-add-or-remove-tags-from-a-hosted-zone-or-health-check-1484084752409
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ChangeTagsForResourceCommand extends $Command
   .classBuilder<

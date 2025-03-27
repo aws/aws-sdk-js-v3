@@ -110,6 +110,7 @@ export interface CreateDomainConfigurationCommandOutput extends CreateDomainConf
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class CreateDomainConfigurationCommand extends $Command

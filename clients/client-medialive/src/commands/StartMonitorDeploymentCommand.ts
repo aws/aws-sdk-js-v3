@@ -136,6 +136,7 @@ export interface StartMonitorDeploymentCommandOutput extends StartMonitorDeploym
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class StartMonitorDeploymentCommand extends $Command

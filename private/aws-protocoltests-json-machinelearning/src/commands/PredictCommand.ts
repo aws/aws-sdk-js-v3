@@ -78,6 +78,7 @@ export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  */
 export class PredictCommand extends $Command
   .classBuilder<

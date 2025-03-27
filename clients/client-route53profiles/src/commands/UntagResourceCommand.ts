@@ -83,6 +83,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link Route53ProfilesServiceException}
  * <p>Base exception class for all service exceptions from Route53Profiles service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

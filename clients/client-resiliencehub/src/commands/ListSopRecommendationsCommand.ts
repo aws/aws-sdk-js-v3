@@ -111,6 +111,7 @@ export interface ListSopRecommendationsCommandOutput extends ListSopRecommendati
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListSopRecommendationsCommand extends $Command

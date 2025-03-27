@@ -230,6 +230,7 @@ export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleRes
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ *
  * @public
  */
 export class UpdateRateBasedRuleCommand extends $Command

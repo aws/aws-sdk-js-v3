@@ -69,6 +69,7 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResponse,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListUserProfilesCommand extends $Command

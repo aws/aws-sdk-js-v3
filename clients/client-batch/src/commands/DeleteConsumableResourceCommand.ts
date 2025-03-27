@@ -61,18 +61,21 @@ export interface DeleteConsumableResourceCommandOutput extends DeleteConsumableR
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To delete a consumable resource
  * ```javascript
  * // Deletes the specified consumable resource.
  * const input = {
- *   "consumableResource": "myConsumableResource"
+ *   consumableResource: "myConsumableResource"
  * };
  * const command = new DeleteConsumableResourceCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-consumable-resource-1739495667751
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteConsumableResourceCommand extends $Command
   .classBuilder<

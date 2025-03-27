@@ -84,6 +84,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class DeleteAppCommand extends $Command

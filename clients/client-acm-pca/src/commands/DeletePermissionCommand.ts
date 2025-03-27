@@ -97,6 +97,7 @@ export interface DeletePermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ *
  * @public
  */
 export class DeletePermissionCommand extends $Command

@@ -83,6 +83,7 @@ export interface SearchSessionsCommandOutput extends SearchSessionsResponse, __M
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class SearchSessionsCommand extends $Command

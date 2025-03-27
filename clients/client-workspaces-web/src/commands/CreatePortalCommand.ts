@@ -91,6 +91,7 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class CreatePortalCommand extends $Command

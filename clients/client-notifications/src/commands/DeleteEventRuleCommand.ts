@@ -71,6 +71,7 @@ export interface DeleteEventRuleCommandOutput extends DeleteEventRuleResponse, _
  * @throws {@link NotificationsServiceException}
  * <p>Base exception class for all service exceptions from Notifications service.</p>
  *
+ *
  * @public
  */
 export class DeleteEventRuleCommand extends $Command

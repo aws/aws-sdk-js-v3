@@ -76,6 +76,7 @@ export interface DeletePackagingConfigurationCommandOutput
  * @throws {@link MediaPackageVodServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ *
  * @public
  */
 export class DeletePackagingConfigurationCommand extends $Command

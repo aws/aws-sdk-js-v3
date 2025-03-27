@@ -78,6 +78,7 @@ export interface DeleteEmailContactCommandOutput extends DeleteEmailContactRespo
  * @throws {@link NotificationsContactsServiceException}
  * <p>Base exception class for all service exceptions from NotificationsContacts service.</p>
  *
+ *
  * @public
  */
 export class DeleteEmailContactCommand extends $Command

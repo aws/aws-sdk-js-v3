@@ -93,6 +93,7 @@ export interface PutTableBucketMaintenanceConfigurationCommandOutput extends __M
  * @throws {@link S3TablesServiceException}
  * <p>Base exception class for all service exceptions from S3Tables service.</p>
  *
+ *
  * @public
  */
 export class PutTableBucketMaintenanceConfigurationCommand extends $Command

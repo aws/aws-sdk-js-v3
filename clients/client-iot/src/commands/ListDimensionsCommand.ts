@@ -69,6 +69,7 @@ export interface ListDimensionsCommandOutput extends ListDimensionsResponse, __M
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListDimensionsCommand extends $Command

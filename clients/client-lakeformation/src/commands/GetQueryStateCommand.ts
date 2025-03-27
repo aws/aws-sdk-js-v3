@@ -65,6 +65,7 @@ export interface GetQueryStateCommandOutput extends GetQueryStateResponse, __Met
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class GetQueryStateCommand extends $Command

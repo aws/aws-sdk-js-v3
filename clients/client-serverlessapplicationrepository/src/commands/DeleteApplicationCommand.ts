@@ -75,6 +75,7 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ *
  * @public
  */
 export class DeleteApplicationCommand extends $Command

@@ -130,6 +130,7 @@ export interface GetResourceCommandOutput extends Resource, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetResourceCommand extends $Command

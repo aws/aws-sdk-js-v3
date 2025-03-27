@@ -65,6 +65,7 @@ export interface ListSharedReportGroupsCommandOutput extends ListSharedReportGro
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class ListSharedReportGroupsCommand extends $Command

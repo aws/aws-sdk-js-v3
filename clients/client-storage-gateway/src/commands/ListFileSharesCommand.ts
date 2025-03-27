@@ -77,6 +77,7 @@ export interface ListFileSharesCommandOutput extends ListFileSharesOutput, __Met
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class ListFileSharesCommand extends $Command

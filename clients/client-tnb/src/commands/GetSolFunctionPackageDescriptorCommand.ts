@@ -88,6 +88,24 @@ export interface GetSolFunctionPackageDescriptorCommandOutput
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example Get the descriptor of a function package
+ * ```javascript
+ * //
+ * const input = {
+ *   accept: "text/plain",
+ *   vnfPkgId: "fp-07aa863e53460a2a6"
+ * };
+ * const command = new GetSolFunctionPackageDescriptorCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   contentType: "text/plain",
+ *   vnfd: "dGVzdCBjb250ZW50IGhlcmU="
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetSolFunctionPackageDescriptorCommand extends $Command

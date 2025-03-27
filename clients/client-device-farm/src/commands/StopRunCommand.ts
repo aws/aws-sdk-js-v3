@@ -170,23 +170,23 @@ export interface StopRunCommandOutput extends StopRunResult, __MetadataBearer {}
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To stop a test run
  * ```javascript
  * // The following example stops a specific test run.
  * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:run:EXAMPLE-GUID-123-456"
+ *   arn: "arn:aws:devicefarm:us-west-2:123456789101:run:EXAMPLE-GUID-123-456"
  * };
  * const command = new StopRunCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "run": {}
+ *   run:   { /* empty *\/ }
  * }
  * *\/
- * // example id: to-stop-a-test-run-1472653770340
  * ```
  *
+ * @public
  */
 export class StopRunCommand extends $Command
   .classBuilder<

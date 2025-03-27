@@ -79,6 +79,7 @@ export interface ListInvalidationsCommandOutput extends ListInvalidationsResult,
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListInvalidationsCommand extends $Command

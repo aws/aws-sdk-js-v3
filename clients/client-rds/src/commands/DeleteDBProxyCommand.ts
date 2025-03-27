@@ -90,6 +90,7 @@ export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __Met
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class DeleteDBProxyCommand extends $Command

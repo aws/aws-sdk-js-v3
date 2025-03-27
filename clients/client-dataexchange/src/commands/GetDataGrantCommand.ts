@@ -86,6 +86,7 @@ export interface GetDataGrantCommandOutput extends GetDataGrantResponse, __Metad
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class GetDataGrantCommand extends $Command

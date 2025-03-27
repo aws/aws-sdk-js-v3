@@ -132,6 +132,7 @@ export interface GetCatalogCommandOutput extends GetCatalogResponse, __MetadataB
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetCatalogCommand extends $Command

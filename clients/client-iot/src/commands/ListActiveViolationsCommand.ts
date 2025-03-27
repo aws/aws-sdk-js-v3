@@ -142,6 +142,7 @@ export interface ListActiveViolationsCommandOutput extends ListActiveViolationsR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListActiveViolationsCommand extends $Command

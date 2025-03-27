@@ -89,6 +89,7 @@ export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __Met
  * @throws {@link MediaPackageVodServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ *
  * @public
  */
 export class ConfigureLogsCommand extends $Command

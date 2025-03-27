@@ -64,6 +64,7 @@ export interface DisassociateEnvironmentOperationsRoleCommandOutput extends __Me
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ *
  * @public
  */
 export class DisassociateEnvironmentOperationsRoleCommand extends $Command

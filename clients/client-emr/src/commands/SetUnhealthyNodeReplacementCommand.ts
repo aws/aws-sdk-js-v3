@@ -71,6 +71,7 @@ export interface SetUnhealthyNodeReplacementCommandOutput extends __MetadataBear
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class SetUnhealthyNodeReplacementCommand extends $Command

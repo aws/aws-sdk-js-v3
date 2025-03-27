@@ -63,6 +63,7 @@ export interface UpdateThreatIntelSetCommandOutput extends UpdateThreatIntelSetR
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class UpdateThreatIntelSetCommand extends $Command

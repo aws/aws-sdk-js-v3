@@ -65,6 +65,7 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorOutput, __Metad
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ *
  * @public
  */
 export class DeleteMonitorCommand extends $Command

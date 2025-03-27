@@ -75,6 +75,7 @@ export interface DeleteMessageCommandOutput extends DeleteMessageResponse, __Met
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ *
  * @public
  */
 export class DeleteMessageCommand extends $Command

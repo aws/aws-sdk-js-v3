@@ -77,6 +77,7 @@ export interface AssociateWirelessDeviceWithThingCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class AssociateWirelessDeviceWithThingCommand extends $Command

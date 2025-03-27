@@ -111,6 +111,7 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class UpdateEndpointCommand extends $Command

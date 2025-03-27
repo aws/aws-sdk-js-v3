@@ -139,6 +139,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class CreateSessionCommand extends $Command

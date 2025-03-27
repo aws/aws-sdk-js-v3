@@ -80,6 +80,7 @@ export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBea
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ *
  * @public
  */
 export class UpdateHostCommand extends $Command

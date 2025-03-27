@@ -91,96 +91,93 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe the attachment attribute of a network interface
  * ```javascript
  * // This example describes the attachment attribute of the specified network interface.
  * const input = {
- *   "Attribute": "attachment",
- *   "NetworkInterfaceId": "eni-686ea200"
+ *   Attribute: "attachment",
+ *   NetworkInterfaceId: "eni-686ea200"
  * };
  * const command = new DescribeNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Attachment": {
- *     "AttachTime": "2015-05-21T20:02:20.000Z",
- *     "AttachmentId": "eni-attach-43348162",
- *     "DeleteOnTermination": true,
- *     "DeviceIndex": 0,
- *     "InstanceId": "i-1234567890abcdef0",
- *     "InstanceOwnerId": "123456789012",
- *     "Status": "attached"
+ *   Attachment: {
+ *     AttachTime: "2015-05-21T20:02:20.000Z",
+ *     AttachmentId: "eni-attach-43348162",
+ *     DeleteOnTermination: true,
+ *     DeviceIndex: 0,
+ *     InstanceId: "i-1234567890abcdef0",
+ *     InstanceOwnerId: "123456789012",
+ *     Status: "attached"
  *   },
- *   "NetworkInterfaceId": "eni-686ea200"
+ *   NetworkInterfaceId: "eni-686ea200"
  * }
  * *\/
- * // example id: ec2-describe-network-interface-attribute-1
  * ```
  *
  * @example To describe the description attribute of a network interface
  * ```javascript
  * // This example describes the description attribute of the specified network interface.
  * const input = {
- *   "Attribute": "description",
- *   "NetworkInterfaceId": "eni-686ea200"
+ *   Attribute: "description",
+ *   NetworkInterfaceId: "eni-686ea200"
  * };
  * const command = new DescribeNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Description": {
- *     "Value": "My description"
+ *   Description: {
+ *     Value: "My description"
  *   },
- *   "NetworkInterfaceId": "eni-686ea200"
+ *   NetworkInterfaceId: "eni-686ea200"
  * }
  * *\/
- * // example id: ec2-describe-network-interface-attribute-2
  * ```
  *
  * @example To describe the groupSet attribute of a network interface
  * ```javascript
  * // This example describes the groupSet attribute of the specified network interface.
  * const input = {
- *   "Attribute": "groupSet",
- *   "NetworkInterfaceId": "eni-686ea200"
+ *   Attribute: "groupSet",
+ *   NetworkInterfaceId: "eni-686ea200"
  * };
  * const command = new DescribeNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Groups": [
+ *   Groups: [
  *     {
- *       "GroupId": "sg-903004f8",
- *       "GroupName": "my-security-group"
+ *       GroupId: "sg-903004f8",
+ *       GroupName: "my-security-group"
  *     }
  *   ],
- *   "NetworkInterfaceId": "eni-686ea200"
+ *   NetworkInterfaceId: "eni-686ea200"
  * }
  * *\/
- * // example id: ec2-describe-network-interface-attribute-3
  * ```
  *
  * @example To describe the sourceDestCheck attribute of a network interface
  * ```javascript
  * // This example describes the sourceDestCheck attribute of the specified network interface.
  * const input = {
- *   "Attribute": "sourceDestCheck",
- *   "NetworkInterfaceId": "eni-686ea200"
+ *   Attribute: "sourceDestCheck",
+ *   NetworkInterfaceId: "eni-686ea200"
  * };
  * const command = new DescribeNetworkInterfaceAttributeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NetworkInterfaceId": "eni-686ea200",
- *   "SourceDestCheck": {
- *     "Value": true
+ *   NetworkInterfaceId: "eni-686ea200",
+ *   SourceDestCheck: {
+ *     Value: true
  *   }
  * }
  * *\/
- * // example id: ec2-describe-network-interface-attribute-4
  * ```
  *
+ * @public
  */
 export class DescribeNetworkInterfaceAttributeCommand extends $Command
   .classBuilder<

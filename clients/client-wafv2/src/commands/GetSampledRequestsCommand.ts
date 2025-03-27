@@ -150,6 +150,7 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ *
  * @public
  */
 export class GetSampledRequestsCommand extends $Command

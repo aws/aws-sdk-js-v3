@@ -124,6 +124,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class CreateApplicationCommand extends $Command

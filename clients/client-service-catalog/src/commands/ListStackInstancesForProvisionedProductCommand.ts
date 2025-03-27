@@ -80,6 +80,7 @@ export interface ListStackInstancesForProvisionedProductCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListStackInstancesForProvisionedProductCommand extends $Command

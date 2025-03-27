@@ -75,6 +75,7 @@ export interface GetConnectInstanceConfigCommandOutput extends GetConnectInstanc
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ *
  * @public
  */
 export class GetConnectInstanceConfigCommand extends $Command

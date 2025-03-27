@@ -116,6 +116,7 @@ export interface StartTextTranslationJobCommandOutput extends StartTextTranslati
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ *
  * @public
  */
 export class StartTextTranslationJobCommand extends $Command

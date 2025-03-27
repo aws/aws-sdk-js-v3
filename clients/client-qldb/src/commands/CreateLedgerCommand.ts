@@ -79,6 +79,7 @@ export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __Metad
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ *
  * @public
  */
 export class CreateLedgerCommand extends $Command

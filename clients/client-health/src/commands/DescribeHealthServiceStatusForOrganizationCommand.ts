@@ -60,6 +60,7 @@ export interface DescribeHealthServiceStatusForOrganizationCommandOutput
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ *
  * @public
  */
 export class DescribeHealthServiceStatusForOrganizationCommand extends $Command

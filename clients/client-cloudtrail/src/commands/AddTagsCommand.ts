@@ -153,6 +153,7 @@ export interface AddTagsCommandOutput extends AddTagsResponse, __MetadataBearer 
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class AddTagsCommand extends $Command

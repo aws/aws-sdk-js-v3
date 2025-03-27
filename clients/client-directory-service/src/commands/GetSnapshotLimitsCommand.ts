@@ -68,6 +68,7 @@ export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult,
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class GetSnapshotLimitsCommand extends $Command

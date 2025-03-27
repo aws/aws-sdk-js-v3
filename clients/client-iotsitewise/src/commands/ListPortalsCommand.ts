@@ -88,6 +88,7 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class ListPortalsCommand extends $Command

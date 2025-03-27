@@ -71,6 +71,7 @@ export interface DeleteDomainNameCommandOutput extends DeleteDomainNameResponse,
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class DeleteDomainNameCommand extends $Command

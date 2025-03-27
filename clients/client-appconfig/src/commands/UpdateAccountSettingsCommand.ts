@@ -67,6 +67,7 @@ export interface UpdateAccountSettingsCommandOutput extends AccountSettings, __M
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ *
  * @public
  */
 export class UpdateAccountSettingsCommand extends $Command

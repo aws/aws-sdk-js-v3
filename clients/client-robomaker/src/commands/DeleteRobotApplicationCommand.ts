@@ -72,6 +72,7 @@ export interface DeleteRobotApplicationCommandOutput extends DeleteRobotApplicat
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteRobotApplicationCommand extends $Command

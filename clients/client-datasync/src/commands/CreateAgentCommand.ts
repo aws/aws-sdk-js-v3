@@ -79,6 +79,7 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class CreateAgentCommand extends $Command

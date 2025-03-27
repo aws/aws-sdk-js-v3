@@ -60,6 +60,7 @@ export interface EnableUserCommandOutput extends EnableUserResult, __MetadataBea
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class EnableUserCommand extends $Command

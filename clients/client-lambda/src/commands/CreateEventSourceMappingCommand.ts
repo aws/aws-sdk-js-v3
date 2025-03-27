@@ -343,31 +343,31 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To create a mapping between an event source and an AWS Lambda function
  * ```javascript
  * // The following example creates a mapping between an SQS queue and the my-function Lambda function.
  * const input = {
- *   "BatchSize": 5,
- *   "EventSourceArn": "arn:aws:sqs:us-west-2:123456789012:my-queue",
- *   "FunctionName": "my-function"
+ *   BatchSize: 5,
+ *   EventSourceArn: "arn:aws:sqs:us-west-2:123456789012:my-queue",
+ *   FunctionName: "my-function"
  * };
  * const command = new CreateEventSourceMappingCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "BatchSize": 5,
- *   "EventSourceArn": "arn:aws:sqs:us-west-2:123456789012:my-queue",
- *   "FunctionArn": "arn:aws:lambda:us-west-2:123456789012:function:my-function",
- *   "LastModified": 1569284520.333,
- *   "State": "Creating",
- *   "StateTransitionReason": "USER_INITIATED",
- *   "UUID": "a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"
+ *   BatchSize: 5,
+ *   EventSourceArn: "arn:aws:sqs:us-west-2:123456789012:my-queue",
+ *   FunctionArn: "arn:aws:lambda:us-west-2:123456789012:function:my-function",
+ *   LastModified: 1.569284520333E9,
+ *   State: "Creating",
+ *   StateTransitionReason: "USER_INITIATED",
+ *   UUID: "a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"
  * }
  * *\/
- * // example id: to-create-a-mapping-between-an-event-source-and-an-aws-lambda-function-1586480555467
  * ```
  *
+ * @public
  */
 export class CreateEventSourceMappingCommand extends $Command
   .classBuilder<

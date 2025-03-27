@@ -64,6 +64,7 @@ export interface UpdateStudioSessionMappingCommandOutput extends __MetadataBeare
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class UpdateStudioSessionMappingCommand extends $Command

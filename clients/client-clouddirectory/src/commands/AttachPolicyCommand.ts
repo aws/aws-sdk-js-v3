@@ -88,24 +88,27 @@ export interface AttachPolicyCommandOutput extends AttachPolicyResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
- * @public
+ *
  * @example To attach a policy to an object
  * ```javascript
  * //
  * const input = {
- *   "DirectoryArn": "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
- *   "ObjectReference": {
- *     "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWQoovm1s3Ts2v0NKrzdVnPw"
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   ObjectReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWQoovm1s3Ts2v0NKrzdVnPw"
  *   },
- *   "PolicyReference": {
- *     "Selector": "$AQGG_ADlfNZBzYHY_JgDt3TWgcBsTVmcQEWs6jlygfhuew"
+ *   PolicyReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWgcBsTVmcQEWs6jlygfhuew"
  *   }
  * };
  * const command = new AttachPolicyCommand(input);
- * await client.send(command);
- * // example id: to-attach-a-policy-to-an-object-1508268194724
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AttachPolicyCommand extends $Command
   .classBuilder<

@@ -66,21 +66,24 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To remove tags from a resource
  * ```javascript
  * // The following example removes the 'Department' tag from the specified resource.
  * const input = {
- *   "ResourceArn": "arn:aws:securityhub:us-west-1:123456789012:hub/default",
- *   "TagKeys": [
+ *   ResourceArn: "arn:aws:securityhub:us-west-1:123456789012:hub/default",
+ *   TagKeys: [
  *     "Department"
  *   ]
  * };
  * const command = new UntagResourceCommand(input);
- * await client.send(command);
- * // example id: to-remove-tags-from-a-resource-1678478903748
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

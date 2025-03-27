@@ -77,6 +77,7 @@ export interface GetWirelessGatewayStatisticsCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class GetWirelessGatewayStatisticsCommand extends $Command

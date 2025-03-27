@@ -62,6 +62,7 @@ export interface GetModelTemplateCommandOutput extends GetModelTemplateResponse,
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class GetModelTemplateCommand extends $Command

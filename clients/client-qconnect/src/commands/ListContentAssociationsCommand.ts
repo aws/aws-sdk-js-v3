@@ -89,6 +89,7 @@ export interface ListContentAssociationsCommandOutput extends ListContentAssocia
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class ListContentAssociationsCommand extends $Command

@@ -268,137 +268,146 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
- * @example To create an Auto Scaling group
- * ```javascript
- * // This example creates an Auto Scaling group.
- * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "DefaultInstanceWarmup": 120,
- *   "LaunchTemplate": {
- *     "LaunchTemplateName": "my-template-for-auto-scaling",
- *     "Version": "$Default"
- *   },
- *   "MaxInstanceLifetime": 2592000,
- *   "MaxSize": 3,
- *   "MinSize": 1,
- *   "VPCZoneIdentifier": "subnet-057fa0918fEXAMPLE"
- * };
- * const command = new CreateAutoScalingGroupCommand(input);
- * await client.send(command);
- * // example id: autoscaling-create-auto-scaling-group-1
- * ```
  *
  * @example To create an Auto Scaling group with an attached target group
  * ```javascript
  * // This example creates an Auto Scaling group and attaches the specified target group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "HealthCheckGracePeriod": 300,
- *   "HealthCheckType": "ELB",
- *   "LaunchTemplate": {
- *     "LaunchTemplateName": "my-template-for-auto-scaling",
- *     "Version": "$Default"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   HealthCheckGracePeriod: 300,
+ *   HealthCheckType: "ELB",
+ *   LaunchTemplate: {
+ *     LaunchTemplateName: "my-template-for-auto-scaling",
+ *     Version: "$Default"
  *   },
- *   "MaxSize": 3,
- *   "MinSize": 1,
- *   "TargetGroupARNs": [
+ *   MaxSize: 3,
+ *   MinSize: 1,
+ *   TargetGroupARNs: [
  *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
  *   ],
- *   "VPCZoneIdentifier": "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
+ *   VPCZoneIdentifier: "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
- * await client.send(command);
- * // example id: autoscaling-create-auto-scaling-group-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To create an Auto Scaling group with a mixed instances policy
  * ```javascript
  * // This example creates an Auto Scaling group with a mixed instances policy. It specifies the c5.large, c5a.large, and c6g.large instance types and defines a different launch template for the c6g.large instance type.
  * const input = {
- *   "AutoScalingGroupName": "my-asg",
- *   "DesiredCapacity": 3,
- *   "MaxSize": 5,
- *   "MinSize": 1,
- *   "MixedInstancesPolicy": {
- *     "InstancesDistribution": {
- *       "OnDemandBaseCapacity": 1,
- *       "OnDemandPercentageAboveBaseCapacity": 50,
- *       "SpotAllocationStrategy": "price-capacity-optimized"
+ *   AutoScalingGroupName: "my-asg",
+ *   DesiredCapacity: 3,
+ *   MaxSize: 5,
+ *   MinSize: 1,
+ *   MixedInstancesPolicy: {
+ *     InstancesDistribution: {
+ *       OnDemandBaseCapacity: 1,
+ *       OnDemandPercentageAboveBaseCapacity: 50,
+ *       SpotAllocationStrategy: "price-capacity-optimized"
  *     },
- *     "LaunchTemplate": {
- *       "LaunchTemplateSpecification": {
- *         "LaunchTemplateName": "my-launch-template-for-x86",
- *         "Version": "$Default"
+ *     LaunchTemplate: {
+ *       LaunchTemplateSpecification: {
+ *         LaunchTemplateName: "my-launch-template-for-x86",
+ *         Version: "$Default"
  *       },
- *       "Overrides": [
+ *       Overrides: [
  *         {
- *           "InstanceType": "c6g.large",
- *           "LaunchTemplateSpecification": {
- *             "LaunchTemplateName": "my-launch-template-for-arm",
- *             "Version": "$Default"
+ *           InstanceType: "c6g.large",
+ *           LaunchTemplateSpecification: {
+ *             LaunchTemplateName: "my-launch-template-for-arm",
+ *             Version: "$Default"
  *           }
  *         },
  *         {
- *           "InstanceType": "c5.large"
+ *           InstanceType: "c5.large"
  *         },
  *         {
- *           "InstanceType": "c5a.large"
+ *           InstanceType: "c5a.large"
  *         }
  *       ]
  *     }
  *   },
- *   "VPCZoneIdentifier": "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
+ *   VPCZoneIdentifier: "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
- * await client.send(command);
- * // example id: autoscaling-create-auto-scaling-group-3
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To create an Auto Scaling group using attribute-based instance type selection
  * ```javascript
  * // This example creates an Auto Scaling group using attribute-based instance type selection. It requires the instance types to have a minimum of four vCPUs and a maximum of eight vCPUs, a minimum of 16,384 MiB of memory, and an Intel manufactured CPU.
  * const input = {
- *   "AutoScalingGroupName": "my-asg",
- *   "DesiredCapacity": 4,
- *   "DesiredCapacityType": "units",
- *   "MaxSize": 100,
- *   "MinSize": 0,
- *   "MixedInstancesPolicy": {
- *     "InstancesDistribution": {
- *       "OnDemandPercentageAboveBaseCapacity": 50,
- *       "SpotAllocationStrategy": "price-capacity-optimized"
+ *   AutoScalingGroupName: "my-asg",
+ *   DesiredCapacity: 4,
+ *   DesiredCapacityType: "units",
+ *   MaxSize: 100,
+ *   MinSize: 0,
+ *   MixedInstancesPolicy: {
+ *     InstancesDistribution: {
+ *       OnDemandPercentageAboveBaseCapacity: 50,
+ *       SpotAllocationStrategy: "price-capacity-optimized"
  *     },
- *     "LaunchTemplate": {
- *       "LaunchTemplateSpecification": {
- *         "LaunchTemplateName": "my-template-for-auto-scaling",
- *         "Version": "$Default"
+ *     LaunchTemplate: {
+ *       LaunchTemplateSpecification: {
+ *         LaunchTemplateName: "my-template-for-auto-scaling",
+ *         Version: "$Default"
  *       },
- *       "Overrides": [
+ *       Overrides: [
  *         {
- *           "InstanceRequirements": {
- *             "CpuManufacturers": [
+ *           InstanceRequirements: {
+ *             CpuManufacturers: [
  *               "intel"
  *             ],
- *             "MemoryMiB": {
- *               "Min": 16384
+ *             MemoryMiB: {
+ *               Min: 16384
  *             },
- *             "VCpuCount": {
- *               "Max": 8,
- *               "Min": 4
+ *             VCpuCount: {
+ *               Max: 8,
+ *               Min: 4
  *             }
  *           }
  *         }
  *       ]
  *     }
  *   },
- *   "VPCZoneIdentifier": "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
+ *   VPCZoneIdentifier: "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
- * await client.send(command);
- * // example id: autoscaling-create-auto-scaling-group-4
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @example To create an Auto Scaling group
+ * ```javascript
+ * // This example creates an Auto Scaling group.
+ * const input = {
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   DefaultInstanceWarmup: 120,
+ *   LaunchTemplate: {
+ *     LaunchTemplateName: "my-template-for-auto-scaling",
+ *     Version: "$Default"
+ *   },
+ *   MaxInstanceLifetime: 2592000,
+ *   MaxSize: 3,
+ *   MinSize: 1,
+ *   VPCZoneIdentifier: "subnet-057fa0918fEXAMPLE"
+ * };
+ * const command = new CreateAutoScalingGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class CreateAutoScalingGroupCommand extends $Command
   .classBuilder<

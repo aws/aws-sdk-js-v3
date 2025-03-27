@@ -160,19 +160,22 @@ export interface DeletePolicyCommandOutput extends DeletePolicyOutput, __Metadat
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
- * @public
+ *
  * @example To delete a policy
  * ```javascript
  * // The following example deletes the specified policy from its policy store.
  * const input = {
- *   "policyId": "9wYxMpljbbZQb5fcZHyJhY",
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a"
+ *   policyId: "9wYxMpljbbZQb5fcZHyJhY",
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
  * };
  * const command = new DeletePolicyCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeletePolicyCommand extends $Command
   .classBuilder<

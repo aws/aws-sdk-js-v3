@@ -123,6 +123,7 @@ export interface GetDomainCommandOutput extends GetDomainResult, __MetadataBeare
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetDomainCommand extends $Command

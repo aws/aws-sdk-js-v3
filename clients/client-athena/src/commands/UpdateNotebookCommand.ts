@@ -68,6 +68,7 @@ export interface UpdateNotebookCommandOutput extends UpdateNotebookOutput, __Met
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class UpdateNotebookCommand extends $Command

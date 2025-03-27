@@ -108,6 +108,7 @@ export interface ListComponentBuildVersionsCommandOutput extends ListComponentBu
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ListComponentBuildVersionsCommand extends $Command

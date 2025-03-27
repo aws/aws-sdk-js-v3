@@ -80,21 +80,24 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example Set request payment configuration on a bucket.
  * ```javascript
  * // The following example sets request payment configuration on a bucket so that person requesting the download is charged.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "RequestPaymentConfiguration": {
- *     "Payer": "Requester"
+ *   Bucket: "examplebucket",
+ *   RequestPaymentConfiguration: {
+ *     Payer: "Requester"
  *   }
  * };
  * const command = new PutBucketRequestPaymentCommand(input);
- * await client.send(command);
- * // example id: set-request-payment-configuration-on-a-bucket-1482343596680
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutBucketRequestPaymentCommand extends $Command
   .classBuilder<

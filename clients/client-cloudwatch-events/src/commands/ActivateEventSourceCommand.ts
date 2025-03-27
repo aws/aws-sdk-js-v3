@@ -69,6 +69,7 @@ export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class ActivateEventSourceCommand extends $Command

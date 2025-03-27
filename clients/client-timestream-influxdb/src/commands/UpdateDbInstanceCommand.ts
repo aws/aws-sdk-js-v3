@@ -118,6 +118,7 @@ export interface UpdateDbInstanceCommandOutput extends UpdateDbInstanceOutput, _
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ *
  * @public
  */
 export class UpdateDbInstanceCommand extends $Command

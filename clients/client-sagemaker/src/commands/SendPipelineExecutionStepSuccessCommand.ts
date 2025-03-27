@@ -80,6 +80,7 @@ export interface SendPipelineExecutionStepSuccessCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class SendPipelineExecutionStepSuccessCommand extends $Command

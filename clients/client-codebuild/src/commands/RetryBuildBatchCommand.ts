@@ -289,6 +289,7 @@ export interface RetryBuildBatchCommandOutput extends RetryBuildBatchOutput, __M
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class RetryBuildBatchCommand extends $Command

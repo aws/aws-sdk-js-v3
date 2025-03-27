@@ -156,6 +156,7 @@ export interface GetResponseHeadersPolicyCommandOutput extends GetResponseHeader
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetResponseHeadersPolicyCommand extends $Command

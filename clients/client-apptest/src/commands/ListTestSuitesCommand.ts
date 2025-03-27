@@ -86,6 +86,7 @@ export interface ListTestSuitesCommandOutput extends ListTestSuitesResponse, __M
  * @throws {@link AppTestServiceException}
  * <p>Base exception class for all service exceptions from AppTest service.</p>
  *
+ *
  * @public
  */
 export class ListTestSuitesCommand extends $Command

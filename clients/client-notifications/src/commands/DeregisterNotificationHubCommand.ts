@@ -83,6 +83,7 @@ export interface DeregisterNotificationHubCommandOutput extends DeregisterNotifi
  * @throws {@link NotificationsServiceException}
  * <p>Base exception class for all service exceptions from Notifications service.</p>
  *
+ *
  * @public
  */
 export class DeregisterNotificationHubCommand extends $Command

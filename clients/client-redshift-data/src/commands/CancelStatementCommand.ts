@@ -70,6 +70,7 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ *
  * @public
  */
 export class CancelStatementCommand extends $Command

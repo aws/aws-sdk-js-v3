@@ -106,6 +106,7 @@ export interface DescribePackageGroupCommandOutput extends DescribePackageGroupR
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class DescribePackageGroupCommand extends $Command

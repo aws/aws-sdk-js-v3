@@ -112,6 +112,7 @@ export interface GetIdNamespaceCommandOutput extends GetIdNamespaceOutput, __Met
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
  *
+ *
  * @public
  */
 export class GetIdNamespaceCommand extends $Command

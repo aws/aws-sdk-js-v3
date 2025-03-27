@@ -324,33 +324,8 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
- * @example To update a Lambda function event source mapping
- * ```javascript
- * // This operation updates a Lambda function event source mapping
- * const input = {
- *   "BatchSize": 123,
- *   "Enabled": true,
- *   "FunctionName": "myFunction",
- *   "UUID": "1234xCy789012"
- * };
- * const command = new UpdateEventSourceMappingCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "BatchSize": 123,
- *   "EventSourceArn": "arn:aws:s3:::examplebucket/*",
- *   "FunctionArn": "arn:aws:lambda:us-west-2:123456789012:function:myFunction",
- *   "LastModified": "2016-11-21T19:49:20.006+0000",
- *   "LastProcessingResult": "",
- *   "State": "",
- *   "StateTransitionReason": "",
- *   "UUID": "1234xCy789012"
- * }
- * *\/
- * // example id: to-update-a-lambda-function-event-source-mapping-1481650907413
- * ```
  *
+ * @public
  */
 export class UpdateEventSourceMappingCommand extends $Command
   .classBuilder<

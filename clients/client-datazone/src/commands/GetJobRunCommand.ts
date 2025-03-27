@@ -99,6 +99,7 @@ export interface GetJobRunCommandOutput extends GetJobRunOutput, __MetadataBeare
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetJobRunCommand extends $Command

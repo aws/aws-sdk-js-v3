@@ -101,6 +101,7 @@ export interface GetTransitGatewayPeeringCommandOutput extends GetTransitGateway
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetTransitGatewayPeeringCommand extends $Command

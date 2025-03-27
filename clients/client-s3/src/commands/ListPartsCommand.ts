@@ -186,47 +186,47 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To list parts of a multipart upload.
  * ```javascript
  * // The following example lists parts uploaded for a specific multipart upload.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "bigobject",
- *   "UploadId": "example7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
+ *   Bucket: "examplebucket",
+ *   Key: "bigobject",
+ *   UploadId: "example7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
  * };
  * const command = new ListPartsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Initiator": {
- *     "DisplayName": "owner-display-name",
- *     "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *   Initiator: {
+ *     DisplayName: "owner-display-name",
+ *     ID: "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
  *   },
- *   "Owner": {
- *     "DisplayName": "owner-display-name",
- *     "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *   Owner: {
+ *     DisplayName: "owner-display-name",
+ *     ID: "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
  *   },
- *   "Parts": [
+ *   Parts: [
  *     {
- *       "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\"",
- *       "LastModified": "2016-12-16T00:11:42.000Z",
- *       "PartNumber": "1",
- *       "Size": 26246026
+ *       ETag: `"d8c2eafd90c266e19ab9dcacc479f8af"`,
+ *       LastModified: "2016-12-16T00:11:42.000Z",
+ *       PartNumber: 1,
+ *       Size: 26246026
  *     },
  *     {
- *       "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\"",
- *       "LastModified": "2016-12-16T00:15:01.000Z",
- *       "PartNumber": "2",
- *       "Size": 26246026
+ *       ETag: `"d8c2eafd90c266e19ab9dcacc479f8af"`,
+ *       LastModified: "2016-12-16T00:15:01.000Z",
+ *       PartNumber: 2,
+ *       Size: 26246026
  *     }
  *   ],
- *   "StorageClass": "STANDARD"
+ *   StorageClass: "STANDARD"
  * }
  * *\/
- * // example id: to-list-parts-of-a-multipart-upload-1481852006923
  * ```
  *
+ * @public
  */
 export class ListPartsCommand extends $Command
   .classBuilder<

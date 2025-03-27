@@ -151,6 +151,7 @@ export interface ListSessionMetricsCommandOutput extends ListSessionMetricsRespo
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class ListSessionMetricsCommand extends $Command

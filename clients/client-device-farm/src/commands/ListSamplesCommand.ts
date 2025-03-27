@@ -75,24 +75,24 @@ export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataB
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To get information about samples
  * ```javascript
  * // The following example returns information about samples, given a specific Device Farm project.
  * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456",
- *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE"
+ *   arn: "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456",
+ *   nextToken: "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE"
  * };
  * const command = new ListSamplesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "samples": []
+ *   samples:   []
  * }
  * *\/
- * // example id: to-get-information-about-samples-1472582847534
  * ```
  *
+ * @public
  */
 export class ListSamplesCommand extends $Command
   .classBuilder<

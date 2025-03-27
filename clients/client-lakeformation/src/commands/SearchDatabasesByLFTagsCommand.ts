@@ -100,6 +100,7 @@ export interface SearchDatabasesByLFTagsCommandOutput extends SearchDatabasesByL
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class SearchDatabasesByLFTagsCommand extends $Command

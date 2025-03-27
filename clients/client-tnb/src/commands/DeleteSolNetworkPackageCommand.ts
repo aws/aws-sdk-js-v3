@@ -72,6 +72,20 @@ export interface DeleteSolNetworkPackageCommandOutput extends __MetadataBearer {
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example Delete a Sol network package
+ * ```javascript
+ * //
+ * const input = {
+ *   nsdInfoId: "np-0d5b823eb5c2a9241"
+ * };
+ * const command = new DeleteSolNetworkPackageCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteSolNetworkPackageCommand extends $Command

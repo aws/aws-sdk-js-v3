@@ -92,6 +92,7 @@ export interface ListProposalsCommandOutput extends ListProposalsOutput, __Metad
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class ListProposalsCommand extends $Command

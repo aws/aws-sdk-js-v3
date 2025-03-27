@@ -136,6 +136,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ *
  * @public
  */
 export class CreateEnvironmentCommand extends $Command

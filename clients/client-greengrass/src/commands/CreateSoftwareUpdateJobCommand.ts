@@ -71,6 +71,7 @@ export interface CreateSoftwareUpdateJobCommandOutput extends CreateSoftwareUpda
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ *
  * @public
  */
 export class CreateSoftwareUpdateJobCommand extends $Command

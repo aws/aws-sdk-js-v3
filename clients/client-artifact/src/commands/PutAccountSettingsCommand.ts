@@ -78,25 +78,25 @@ export interface PutAccountSettingsCommandOutput extends PutAccountSettingsRespo
  * @throws {@link ArtifactServiceException}
  * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
- * @public
+ *
  * @example Invoke PutAccountSettings operation
  * ```javascript
  * // Set the account settings.
  * const input = {
- *   "notificationSubscriptionStatus": "SUBSCRIBED"
+ *   notificationSubscriptionStatus: "SUBSCRIBED"
  * };
  * const command = new PutAccountSettingsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "accountSettings": {
- *     "notificationSubscriptionStatus": "SUBSCRIBED"
+ *   accountSettings: {
+ *     notificationSubscriptionStatus: "SUBSCRIBED"
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class PutAccountSettingsCommand extends $Command
   .classBuilder<

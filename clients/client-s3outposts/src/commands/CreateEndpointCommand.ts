@@ -97,6 +97,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResult, __Met
  * @throws {@link S3OutpostsServiceException}
  * <p>Base exception class for all service exceptions from S3Outposts service.</p>
  *
+ *
  * @public
  */
 export class CreateEndpointCommand extends $Command

@@ -89,6 +89,7 @@ export interface DescribeClusterVersionsCommandOutput extends DescribeClusterVer
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class DescribeClusterVersionsCommand extends $Command

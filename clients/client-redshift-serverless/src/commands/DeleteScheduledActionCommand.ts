@@ -97,6 +97,7 @@ export interface DeleteScheduledActionCommandOutput extends DeleteScheduledActio
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class DeleteScheduledActionCommand extends $Command

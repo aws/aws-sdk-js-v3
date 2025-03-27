@@ -61,6 +61,7 @@ export interface NullAndEmptyHeadersServerCommandOutput extends NullAndEmptyHead
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class NullAndEmptyHeadersServerCommand extends $Command

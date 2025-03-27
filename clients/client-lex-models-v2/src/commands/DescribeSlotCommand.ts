@@ -481,6 +481,7 @@ export interface DescribeSlotCommandOutput extends DescribeSlotResponse, __Metad
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeSlotCommand extends $Command

@@ -170,6 +170,7 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ *
  * @public
  */
 export class GetJobRunCommand extends $Command

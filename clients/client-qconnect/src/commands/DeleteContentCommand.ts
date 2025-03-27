@@ -63,6 +63,7 @@ export interface DeleteContentCommandOutput extends DeleteContentResponse, __Met
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class DeleteContentCommand extends $Command

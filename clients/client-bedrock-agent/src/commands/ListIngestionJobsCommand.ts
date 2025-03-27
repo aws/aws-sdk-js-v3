@@ -106,6 +106,7 @@ export interface ListIngestionJobsCommandOutput extends ListIngestionJobsRespons
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class ListIngestionJobsCommand extends $Command

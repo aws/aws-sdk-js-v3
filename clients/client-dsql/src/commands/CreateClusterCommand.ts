@@ -82,21 +82,24 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  * @throws {@link DSQLServiceException}
  * <p>Base exception class for all service exceptions from DSQL service.</p>
  *
- * @public
+ *
  * @example Create Cluster
  * ```javascript
  * //
  * const input = {
- *   "deletionProtectionEnabled": false,
- *   "tags": {
- *     "MyKey": "MyValue"
+ *   deletionProtectionEnabled: false,
+ *   tags: {
+ *     MyKey: "MyValue"
  *   }
  * };
  * const command = new CreateClusterCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateClusterCommand extends $Command
   .classBuilder<

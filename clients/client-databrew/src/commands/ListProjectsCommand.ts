@@ -82,6 +82,7 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class ListProjectsCommand extends $Command

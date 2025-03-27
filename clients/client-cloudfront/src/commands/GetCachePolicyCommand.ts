@@ -116,6 +116,7 @@ export interface GetCachePolicyCommandOutput extends GetCachePolicyResult, __Met
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetCachePolicyCommand extends $Command

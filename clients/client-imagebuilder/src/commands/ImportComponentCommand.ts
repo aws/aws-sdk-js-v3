@@ -106,6 +106,7 @@ export interface ImportComponentCommandOutput extends ImportComponentResponse, _
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ImportComponentCommand extends $Command

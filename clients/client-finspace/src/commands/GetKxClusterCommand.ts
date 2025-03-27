@@ -181,6 +181,7 @@ export interface GetKxClusterCommandOutput extends GetKxClusterResponse, __Metad
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class GetKxClusterCommand extends $Command

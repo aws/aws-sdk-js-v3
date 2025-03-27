@@ -78,6 +78,7 @@ export interface DescribeCodeCoveragesCommandOutput extends DescribeCodeCoverage
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class DescribeCodeCoveragesCommand extends $Command

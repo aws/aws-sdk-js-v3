@@ -104,6 +104,7 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionOutput, _
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>
  *
+ *
  * @public
  */
 export class GetStreamSessionCommand extends $Command

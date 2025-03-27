@@ -99,6 +99,7 @@ export interface ListChangedBlocksCommandOutput extends ListChangedBlocksRespons
  * @throws {@link EBSServiceException}
  * <p>Base exception class for all service exceptions from EBS service.</p>
  *
+ *
  * @public
  */
 export class ListChangedBlocksCommand extends $Command

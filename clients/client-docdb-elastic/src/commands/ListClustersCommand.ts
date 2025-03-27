@@ -75,6 +75,7 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ *
  * @public
  */
 export class ListClustersCommand extends $Command

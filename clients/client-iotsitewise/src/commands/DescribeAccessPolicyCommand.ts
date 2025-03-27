@@ -98,6 +98,7 @@ export interface DescribeAccessPolicyCommandOutput extends DescribeAccessPolicyR
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccessPolicyCommand extends $Command

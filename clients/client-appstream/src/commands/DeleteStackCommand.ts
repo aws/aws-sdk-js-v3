@@ -65,6 +65,7 @@ export interface DeleteStackCommandOutput extends DeleteStackResult, __MetadataB
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DeleteStackCommand extends $Command

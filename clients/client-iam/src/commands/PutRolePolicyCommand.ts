@@ -105,20 +105,23 @@ export interface PutRolePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To attach a permissions policy to an IAM role
  * ```javascript
  * // The following command adds a permissions policy to the role named Test-Role.
  * const input = {
- *   "PolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":{\"Effect\":\"Allow\",\"Action\":\"s3:*\",\"Resource\":\"*\"}}",
- *   "PolicyName": "S3AccessPolicy",
- *   "RoleName": "S3Access"
+ *   PolicyDocument: `{"Version":"2012-10-17","Statement":{"Effect":"Allow","Action":"s3:*","Resource":"*"}}`,
+ *   PolicyName: "S3AccessPolicy",
+ *   RoleName: "S3Access"
  * };
  * const command = new PutRolePolicyCommand(input);
- * await client.send(command);
- * // example id: de62fd00-46c7-4601-9e0d-71d5fbb11ecb
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutRolePolicyCommand extends $Command
   .classBuilder<

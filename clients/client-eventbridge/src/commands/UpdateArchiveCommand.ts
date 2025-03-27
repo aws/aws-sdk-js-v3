@@ -77,6 +77,7 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class UpdateArchiveCommand extends $Command

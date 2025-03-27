@@ -74,6 +74,7 @@ export interface ListExtensionAssociationsCommandOutput extends ExtensionAssocia
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ *
  * @public
  */
 export class ListExtensionAssociationsCommand extends $Command

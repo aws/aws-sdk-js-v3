@@ -85,6 +85,7 @@ export interface DescribeTopicPermissionsCommandOutput extends DescribeTopicPerm
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeTopicPermissionsCommand extends $Command

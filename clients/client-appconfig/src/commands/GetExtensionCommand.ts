@@ -86,6 +86,7 @@ export interface GetExtensionCommandOutput extends Extension, __MetadataBearer {
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ *
  * @public
  */
 export class GetExtensionCommand extends $Command

@@ -92,6 +92,7 @@ export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryRespons
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DeleteStoredQueryCommand extends $Command

@@ -85,6 +85,7 @@ export interface DeleteTableCommandOutput extends __MetadataBearer {}
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ *
  * @public
  */
 export class DeleteTableCommand extends $Command

@@ -67,6 +67,7 @@ export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class DeleteCampaignCommand extends $Command

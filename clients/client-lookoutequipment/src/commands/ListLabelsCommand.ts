@@ -89,6 +89,7 @@ export interface ListLabelsCommandOutput extends ListLabelsResponse, __MetadataB
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class ListLabelsCommand extends $Command

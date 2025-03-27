@@ -98,6 +98,7 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementOutput,
  * @throws {@link MarketplaceAgreementServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceAgreement service.</p>
  *
+ *
  * @public
  */
 export class DescribeAgreementCommand extends $Command

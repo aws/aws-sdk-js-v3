@@ -100,6 +100,37 @@ export interface GetSolFunctionPackageCommandOutput extends GetSolFunctionPackag
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example Describe a function package with correct vnfPkgId
+ * ```javascript
+ * //
+ * const input = {
+ *   vnfPkgId: "fp-07aa863e53460a2a6"
+ * };
+ * const command = new GetSolFunctionPackageCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   arn: "arn:aws:tnb:us-west-2:123456789000:function-package/fp-07aa863e53460a2a6",
+ *   id: "fp-07aa863e53460a2a6",
+ *   metadata: {
+ *     createdAt: "2022-06-10T19:48:34Z",
+ *     lastModified: "2022-06-10T21:48:33Z",
+ *     vnfd: {
+ *       overrides:       []
+ *     }
+ *   },
+ *   onboardingState: "ONBOARDED",
+ *   operationalState: "ENABLED",
+ *   usageState: "IN_USE",
+ *   vnfProductName: "NRF",
+ *   vnfProvider: "VNFBuilder",
+ *   vnfdId: "eefaac4a-cf5c-4b1f-869e-9d31a9fa6d71",
+ *   vnfdVersion: "1.0.0"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetSolFunctionPackageCommand extends $Command

@@ -87,30 +87,30 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To display a key pair
  * ```javascript
  * // This example displays the fingerprint for the specified key.
  * const input = {
- *   "KeyNames": [
+ *   KeyNames: [
  *     "my-key-pair"
  *   ]
  * };
  * const command = new DescribeKeyPairsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "KeyPairs": [
+ *   KeyPairs: [
  *     {
- *       "KeyFingerprint": "1f:51:ae:28:bf:89:e9:d8:1f:25:5d:37:2d:7d:b8:ca:9f:f5:f1:6f",
- *       "KeyName": "my-key-pair"
+ *       KeyFingerprint: "1f:51:ae:28:bf:89:e9:d8:1f:25:5d:37:2d:7d:b8:ca:9f:f5:f1:6f",
+ *       KeyName: "my-key-pair"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-key-pairs-1
  * ```
  *
+ * @public
  */
 export class DescribeKeyPairsCommand extends $Command
   .classBuilder<

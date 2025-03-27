@@ -413,6 +413,7 @@ export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __M
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class StartBuildBatchCommand extends $Command

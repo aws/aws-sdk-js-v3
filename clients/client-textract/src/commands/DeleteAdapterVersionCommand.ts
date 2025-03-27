@@ -85,6 +85,7 @@ export interface DeleteAdapterVersionCommandOutput extends DeleteAdapterVersionR
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ *
  * @public
  */
 export class DeleteAdapterVersionCommand extends $Command

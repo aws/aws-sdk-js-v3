@@ -94,6 +94,7 @@ export interface DescribeStackResourcesCommandOutput extends DescribeStackResour
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeStackResourcesCommand extends $Command

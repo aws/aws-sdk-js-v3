@@ -120,6 +120,7 @@ export interface StartMLModelTrainingJobCommandOutput extends StartMLModelTraini
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class StartMLModelTrainingJobCommand extends $Command

@@ -78,6 +78,7 @@ export interface DeleteVoiceConnectorStreamingConfigurationCommandOutput extends
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class DeleteVoiceConnectorStreamingConfigurationCommand extends $Command

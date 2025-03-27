@@ -113,6 +113,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

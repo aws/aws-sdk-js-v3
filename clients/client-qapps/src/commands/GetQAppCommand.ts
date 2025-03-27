@@ -237,57 +237,57 @@ export interface GetQAppCommandOutput extends GetQAppOutput, __MetadataBearer {}
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example A basic application with 1 text input card and 1 output card
  * ```javascript
  * //
  * const input = {
- *   "appId": "3d110749-efc3-427c-87e8-15e966e5c168",
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
+ *   appId: "3d110749-efc3-427c-87e8-15e966e5c168",
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
  * };
  * const command = new GetQAppCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "appArn": "arn:aws:qapps:us-west-2:123456789012:app/7212ff04-de7b-4831-bd80-45d6975ba1b0",
- *   "appDefinition": {
- *     "appDefinitionVersion": "1",
- *     "cards": [
+ *   appArn: "arn:aws:qapps:us-west-2:123456789012:app/7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   appDefinition: {
+ *     appDefinitionVersion: "1",
+ *     cards: [
  *       {
- *         "textInput": {
- *           "type": "text-input",
- *           "dependencies": [],
- *           "id": "4cf94d96-8819-45c2-98cc-58c56b35c72f",
- *           "title": "Color Base"
+ *         textInput: {
+ *           dependencies:           [],
+ *           id: "4cf94d96-8819-45c2-98cc-58c56b35c72f",
+ *           title: "Color Base",
+ *           type: "text-input"
  *         }
  *       },
  *       {
- *         "qQuery": {
- *           "type": "q-query",
- *           "dependencies": [
+ *         qQuery: {
+ *           dependencies: [
  *             "91e4513d-6981-454a-9329-329c9302eef4"
  *           ],
- *           "id": "18870b94-1e63-40e0-8c12-669c90ac5acc",
- *           "outputSource": "llm",
- *           "prompt": "Recommend me a list of colors that go well with @91e4513d-6981-454a-9329-329c9302eef4 ",
- *           "title": "Recommended Palette"
+ *           id: "18870b94-1e63-40e0-8c12-669c90ac5acc",
+ *           outputSource: "llm",
+ *           prompt: "Recommend me a list of colors that go well with @91e4513d-6981-454a-9329-329c9302eef4 ",
+ *           title: "Recommended Palette",
+ *           type: "q-query"
  *         }
  *       }
  *     ]
  *   },
- *   "appId": "7212ff04-de7b-4831-bd80-45d6975ba1b0",
- *   "appVersion": 1,
- *   "createdAt": "2024-05-14T00:11:54.232Z",
- *   "createdBy": "a841e300-40c1-7062-fa34-5b46dadbbaac",
- *   "status": "DRAFT",
- *   "title": "Color Palette Generator",
- *   "updatedAt": "2024-05-14T00:13:26.168Z",
- *   "updatedBy": "a841e300-40c1-7062-fa34-5b46dadbbaac"
+ *   appId: "7212ff04-de7b-4831-bd80-45d6975ba1b0",
+ *   appVersion: 1,
+ *   createdAt: "2024-05-14T00:11:54.232Z",
+ *   createdBy: "a841e300-40c1-7062-fa34-5b46dadbbaac",
+ *   status: "DRAFT",
+ *   title: "Color Palette Generator",
+ *   updatedAt: "2024-05-14T00:13:26.168Z",
+ *   updatedBy: "a841e300-40c1-7062-fa34-5b46dadbbaac"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetQAppCommand extends $Command
   .classBuilder<

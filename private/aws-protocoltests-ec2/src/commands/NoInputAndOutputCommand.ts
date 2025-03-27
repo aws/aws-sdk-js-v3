@@ -52,6 +52,7 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  * @throws {@link EC2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from EC2Protocol service.</p>
  *
+ *
  * @public
  */
 export class NoInputAndOutputCommand extends $Command

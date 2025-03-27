@@ -183,6 +183,7 @@ export interface StartAppAssessmentCommandOutput extends StartAppAssessmentRespo
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class StartAppAssessmentCommand extends $Command

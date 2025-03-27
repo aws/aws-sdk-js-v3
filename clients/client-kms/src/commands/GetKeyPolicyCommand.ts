@@ -103,24 +103,36 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To retrieve a key policy
  * ```javascript
  * // The following example retrieves the key policy for the specified KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "PolicyName": "default"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   PolicyName: "default"
  * };
  * const command = new GetKeyPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Policy": "{\n  \"Version\" : \"2012-10-17\",\n  \"Id\" : \"key-default-1\",\n  \"Statement\" : [ {\n    \"Sid\" : \"Enable IAM User Permissions\",\n    \"Effect\" : \"Allow\",\n    \"Principal\" : {\n      \"AWS\" : \"arn:aws:iam::111122223333:root\"\n    },\n    \"Action\" : \"kms:*\",\n    \"Resource\" : \"*\"\n  } ]\n}"
+ *   Policy: `{
+ *   "Version" : "2012-10-17",
+ *   "Id" : "key-default-1",
+ *   "Statement" : [ {
+ *     "Sid" : "Enable IAM User Permissions",
+ *     "Effect" : "Allow",
+ *     "Principal" : {
+ *       "AWS" : "arn:aws:iam::111122223333:root"
+ *     },
+ *     "Action" : "kms:*",
+ *     "Resource" : "*"
+ *   } ]
+ * }`
  * }
  * *\/
- * // example id: to-retrieve-a-key-policy-1479170128325
  * ```
  *
+ * @public
  */
 export class GetKeyPolicyCommand extends $Command
   .classBuilder<

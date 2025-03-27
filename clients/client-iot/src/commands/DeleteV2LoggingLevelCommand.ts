@@ -64,6 +64,7 @@ export interface DeleteV2LoggingLevelCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DeleteV2LoggingLevelCommand extends $Command

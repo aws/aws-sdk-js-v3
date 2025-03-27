@@ -104,6 +104,33 @@ export interface PutSolFunctionPackageContentCommandOutput
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example Upload a function package content
+ * ```javascript
+ * //
+ * const input = {
+ *   contentType: "application/zip",
+ *   file: "UEsDBBQAAAAAAPqLiVMAAAAAAAAAAAAAAAAMACAAZnJlZTVnYy1hbWYvVVQNAAcIrrJhBK",
+ *   vnfPkgId: "fp-07aa863e53460a2a6"
+ * };
+ * const command = new PutSolFunctionPackageContentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   id: "fp-07aa863e53460a2a6",
+ *   metadata: {
+ *     vnfd: {
+ *       overrides:       []
+ *     }
+ *   },
+ *   vnfProductName: "Sample AMF",
+ *   vnfProvider: "Sample",
+ *   vnfdId: "0d72acd9-e45d-4644-9bcd-1fe67cd0e2c8",
+ *   vnfdVersion: "1.0.0"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class PutSolFunctionPackageContentCommand extends $Command

@@ -233,57 +233,57 @@ export interface CompareFacesCommandOutput extends CompareFacesResponse, __Metad
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To compare two images
  * ```javascript
  * // This operation compares the largest face detected in the source image with each face detected in the target image.
  * const input = {
- *   "SimilarityThreshold": 90,
- *   "SourceImage": {
- *     "S3Object": {
- *       "Bucket": "mybucket",
- *       "Name": "mysourceimage"
+ *   SimilarityThreshold: 90,
+ *   SourceImage: {
+ *     S3Object: {
+ *       Bucket: "mybucket",
+ *       Name: "mysourceimage"
  *     }
  *   },
- *   "TargetImage": {
- *     "S3Object": {
- *       "Bucket": "mybucket",
- *       "Name": "mytargetimage"
+ *   TargetImage: {
+ *     S3Object: {
+ *       Bucket: "mybucket",
+ *       Name: "mytargetimage"
  *     }
  *   }
  * };
  * const command = new CompareFacesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "FaceMatches": [
+ *   FaceMatches: [
  *     {
- *       "Face": {
- *         "BoundingBox": {
- *           "Height": 0.33481481671333313,
- *           "Left": 0.31888890266418457,
- *           "Top": 0.4933333396911621,
- *           "Width": 0.25
+ *       Face: {
+ *         BoundingBox: {
+ *           Height: 0.33481481671333313,
+ *           Left: 0.31888890266418457,
+ *           Top: 0.4933333396911621,
+ *           Width: 0.25
  *         },
- *         "Confidence": 99.9991226196289
+ *         Confidence: 99.9991226196289
  *       },
- *       "Similarity": 100
+ *       Similarity: 100
  *     }
  *   ],
- *   "SourceImageFace": {
- *     "BoundingBox": {
- *       "Height": 0.33481481671333313,
- *       "Left": 0.31888890266418457,
- *       "Top": 0.4933333396911621,
- *       "Width": 0.25
+ *   SourceImageFace: {
+ *     BoundingBox: {
+ *       Height: 0.33481481671333313,
+ *       Left: 0.31888890266418457,
+ *       Top: 0.4933333396911621,
+ *       Width: 0.25
  *     },
- *     "Confidence": 99.9991226196289
+ *     Confidence: 99.9991226196289
  *   }
  * }
  * *\/
- * // example id: to-compare-two-images-1482181985581
  * ```
  *
+ * @public
  */
 export class CompareFacesCommand extends $Command
   .classBuilder<

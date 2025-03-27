@@ -81,6 +81,7 @@ export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __Met
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeAgentCommand extends $Command

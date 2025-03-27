@@ -135,6 +135,7 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ *
  * @public
  */
 export class GetRecommendationsCommand extends $Command

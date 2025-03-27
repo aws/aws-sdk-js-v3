@@ -331,6 +331,7 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ *
  * @public
  */
 export class ListTemplatesCommand extends $Command

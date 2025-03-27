@@ -95,6 +95,7 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanRespons
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdatePricingPlanCommand extends $Command

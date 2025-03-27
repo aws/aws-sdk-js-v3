@@ -92,6 +92,7 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class ListResourcesCommand extends $Command

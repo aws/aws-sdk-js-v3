@@ -94,6 +94,7 @@ export interface ListEventRulesCommandOutput extends ListEventRulesResponse, __M
  * @throws {@link NotificationsServiceException}
  * <p>Base exception class for all service exceptions from Notifications service.</p>
  *
+ *
  * @public
  */
 export class ListEventRulesCommand extends $Command

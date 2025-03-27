@@ -104,6 +104,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResult, __Metadat
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class DeleteDomainCommand extends $Command

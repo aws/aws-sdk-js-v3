@@ -80,6 +80,7 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeEventsServiceException}
  * <p>Base exception class for all service exceptions from PersonalizeEvents service.</p>
  *
+ *
  * @public
  */
 export class PutEventsCommand extends $Command

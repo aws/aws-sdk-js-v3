@@ -79,6 +79,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateProjectCommand extends $Command

@@ -88,6 +88,7 @@ export interface CreateChangesetCommandOutput extends CreateChangesetResponse, _
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ *
  * @public
  */
 export class CreateChangesetCommand extends $Command

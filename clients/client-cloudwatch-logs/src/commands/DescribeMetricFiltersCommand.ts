@@ -92,6 +92,7 @@ export interface DescribeMetricFiltersCommandOutput extends DescribeMetricFilter
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class DescribeMetricFiltersCommand extends $Command

@@ -183,6 +183,7 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * @throws {@link QLDBSessionServiceException}
  * <p>Base exception class for all service exceptions from QLDBSession service.</p>
  *
+ *
  * @public
  */
 export class SendCommandCommand extends $Command

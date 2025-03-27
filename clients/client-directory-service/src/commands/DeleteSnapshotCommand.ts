@@ -67,6 +67,7 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DeleteSnapshotCommand extends $Command

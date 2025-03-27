@@ -108,15 +108,15 @@ export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a NAT gateway
  * ```javascript
  * // This example describes the NAT gateway for the specified VPC.
  * const input = {
- *   "Filter": [
+ *   Filter: [
  *     {
- *       "Name": "vpc-id",
- *       "Values": [
+ *       Name: "vpc-id",
+ *       Values: [
  *         "vpc-1a2b3c4d"
  *       ]
  *     }
@@ -124,30 +124,30 @@ export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysRes
  * };
  * const command = new DescribeNatGatewaysCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NatGateways": [
+ *   NatGateways: [
  *     {
- *       "CreateTime": "2015-12-01T12:26:55.983Z",
- *       "NatGatewayAddresses": [
+ *       CreateTime: "2015-12-01T12:26:55.983Z",
+ *       NatGatewayAddresses: [
  *         {
- *           "AllocationId": "eipalloc-89c620ec",
- *           "NetworkInterfaceId": "eni-9dec76cd",
- *           "PrivateIp": "10.0.0.149",
- *           "PublicIp": "198.11.222.333"
+ *           AllocationId: "eipalloc-89c620ec",
+ *           NetworkInterfaceId: "eni-9dec76cd",
+ *           PrivateIp: "10.0.0.149",
+ *           PublicIp: "198.11.222.333"
  *         }
  *       ],
- *       "NatGatewayId": "nat-05dba92075d71c408",
- *       "State": "available",
- *       "SubnetId": "subnet-847e4dc2",
- *       "VpcId": "vpc-1a2b3c4d"
+ *       NatGatewayId: "nat-05dba92075d71c408",
+ *       State: "available",
+ *       SubnetId: "subnet-847e4dc2",
+ *       VpcId: "vpc-1a2b3c4d"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-nat-gateways-1
  * ```
  *
+ * @public
  */
 export class DescribeNatGatewaysCommand extends $Command
   .classBuilder<

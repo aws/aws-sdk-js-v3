@@ -130,6 +130,7 @@ export interface CreateAdapterVersionCommandOutput extends CreateAdapterVersionR
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ *
  * @public
  */
 export class CreateAdapterVersionCommand extends $Command

@@ -84,6 +84,7 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class ListResourcesCommand extends $Command

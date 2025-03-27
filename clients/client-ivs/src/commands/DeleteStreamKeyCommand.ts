@@ -66,6 +66,7 @@ export interface DeleteStreamKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class DeleteStreamKeyCommand extends $Command

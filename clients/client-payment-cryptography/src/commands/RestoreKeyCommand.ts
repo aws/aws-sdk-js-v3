@@ -136,6 +136,7 @@ export interface RestoreKeyCommandOutput extends RestoreKeyOutput, __MetadataBea
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ *
  * @public
  */
 export class RestoreKeyCommand extends $Command

@@ -85,6 +85,7 @@ export interface DescribeVpcPeeringAuthorizationsCommandOutput
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class DescribeVpcPeeringAuthorizationsCommand extends $Command

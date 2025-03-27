@@ -68,6 +68,7 @@ export interface DeleteSiteCommandOutput extends DeleteSiteOutput, __MetadataBea
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class DeleteSiteCommand extends $Command

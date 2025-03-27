@@ -90,24 +90,24 @@ export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupName
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To reset all parameters to their default values
  * ```javascript
  * // The following example resets all parameter values in a customer-created DB parameter group to their default values.
  * const input = {
- *   "DBParameterGroupName": "mypg",
- *   "ResetAllParameters": true
+ *   DBParameterGroupName: "mypg",
+ *   ResetAllParameters: true
  * };
  * const command = new ResetDBParameterGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBParameterGroupName": "mypg"
+ *   DBParameterGroupName: "mypg"
  * }
  * *\/
- * // example id: to-reset-all-parameters-to-their-default-values-1680069721142
  * ```
  *
+ * @public
  */
 export class ResetDBParameterGroupCommand extends $Command
   .classBuilder<

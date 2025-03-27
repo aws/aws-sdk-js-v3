@@ -370,79 +370,79 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To modify a DB cluster
  * ```javascript
  * // The following example changes the master user password for the DB cluster named cluster-2 and sets the backup retention period to 14 days. The ApplyImmediately parameter causes the changes to be made immediately, instead of waiting until the next maintenance window.
  * const input = {
- *   "ApplyImmediately": true,
- *   "BackupRetentionPeriod": 14,
- *   "DBClusterIdentifier": "cluster-2",
- *   "MasterUserPassword": "newpassword99"
+ *   ApplyImmediately: true,
+ *   BackupRetentionPeriod: 14,
+ *   DBClusterIdentifier: "cluster-2",
+ *   MasterUserPassword: "newpassword99"
  * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBCluster": {
- *     "AllocatedStorage": 1,
- *     "AssociatedRoles": [],
- *     "AvailabilityZones": [
+ *   DBCluster: {
+ *     AllocatedStorage: 1,
+ *     AssociatedRoles:     [],
+ *     AvailabilityZones: [
  *       "eu-central-1b",
  *       "eu-central-1c",
  *       "eu-central-1a"
  *     ],
- *     "BackupRetentionPeriod": 14,
- *     "ClusterCreateTime": "2020-04-03T14:44:02.764Z",
- *     "CopyTagsToSnapshot": true,
- *     "CrossAccountClone": false,
- *     "DBClusterArn": "arn:aws:rds:eu-central-1:123456789012:cluster:cluster-2",
- *     "DBClusterIdentifier": "cluster-2",
- *     "DBClusterMembers": [
+ *     BackupRetentionPeriod: 14,
+ *     ClusterCreateTime: "2020-04-03T14:44:02.764Z",
+ *     CopyTagsToSnapshot: true,
+ *     CrossAccountClone: false,
+ *     DBClusterArn: "arn:aws:rds:eu-central-1:123456789012:cluster:cluster-2",
+ *     DBClusterIdentifier: "cluster-2",
+ *     DBClusterMembers: [
  *       {
- *         "DBClusterParameterGroupStatus": "in-sync",
- *         "DBInstanceIdentifier": "cluster-2-instance-1",
- *         "IsClusterWriter": true,
- *         "PromotionTier": 1
+ *         DBClusterParameterGroupStatus: "in-sync",
+ *         DBInstanceIdentifier: "cluster-2-instance-1",
+ *         IsClusterWriter: true,
+ *         PromotionTier: 1
  *       }
  *     ],
- *     "DBClusterParameterGroup": "default.aurora5.6",
- *     "DBSubnetGroup": "default-vpc-2305ca49",
- *     "DatabaseName": "",
- *     "DbClusterResourceId": "cluster-AGJ7XI77XVIS6FUXHU1EXAMPLE",
- *     "DeletionProtection": false,
- *     "DomainMemberships": [],
- *     "EarliestRestorableTime": "2020-06-03T02:07:29.637Z",
- *     "Endpoint": "cluster-2.cluster-############.eu-central-1.rds.amazonaws.com",
- *     "Engine": "aurora",
- *     "EngineMode": "provisioned",
- *     "EngineVersion": "5.6.10a",
- *     "HostedZoneId": "Z1RLNU0EXAMPLE",
- *     "HttpEndpointEnabled": false,
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "KmsKeyId": "arn:aws:kms:eu-central-1:123456789012:key/d1bd7c8f-5cdb-49ca-8a62-a1b2c3d4e5f6",
- *     "LatestRestorableTime": "2020-06-04T15:11:25.748Z",
- *     "MasterUsername": "admin",
- *     "MultiAZ": false,
- *     "Port": 3306,
- *     "PreferredBackupWindow": "01:55-02:25",
- *     "PreferredMaintenanceWindow": "thu:21:14-thu:21:44",
- *     "ReadReplicaIdentifiers": [],
- *     "ReaderEndpoint": "cluster-2.cluster-ro-############.eu-central-1.rds.amazonaws.com",
- *     "Status": "available",
- *     "StorageEncrypted": true,
- *     "VpcSecurityGroups": [
+ *     DBClusterParameterGroup: "default.aurora5.6",
+ *     DBSubnetGroup: "default-vpc-2305ca49",
+ *     DatabaseName: "",
+ *     DbClusterResourceId: "cluster-AGJ7XI77XVIS6FUXHU1EXAMPLE",
+ *     DeletionProtection: false,
+ *     DomainMemberships:     [],
+ *     EarliestRestorableTime: "2020-06-03T02:07:29.637Z",
+ *     Endpoint: "cluster-2.cluster-############.eu-central-1.rds.amazonaws.com",
+ *     Engine: "aurora",
+ *     EngineMode: "provisioned",
+ *     EngineVersion: "5.6.10a",
+ *     HostedZoneId: "Z1RLNU0EXAMPLE",
+ *     HttpEndpointEnabled: false,
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     KmsKeyId: "arn:aws:kms:eu-central-1:123456789012:key/d1bd7c8f-5cdb-49ca-8a62-a1b2c3d4e5f6",
+ *     LatestRestorableTime: "2020-06-04T15:11:25.748Z",
+ *     MasterUsername: "admin",
+ *     MultiAZ: false,
+ *     Port: 3306,
+ *     PreferredBackupWindow: "01:55-02:25",
+ *     PreferredMaintenanceWindow: "thu:21:14-thu:21:44",
+ *     ReadReplicaIdentifiers:     [],
+ *     ReaderEndpoint: "cluster-2.cluster-ro-############.eu-central-1.rds.amazonaws.com",
+ *     Status: "available",
+ *     StorageEncrypted: true,
+ *     VpcSecurityGroups: [
  *       {
- *         "Status": "active",
- *         "VpcSecurityGroupId": "sg-20a5c047"
+ *         Status: "active",
+ *         VpcSecurityGroupId: "sg-20a5c047"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: to-modify-a-db-cluster-1680310823999
  * ```
  *
+ * @public
  */
 export class ModifyDBClusterCommand extends $Command
   .classBuilder<

@@ -246,54 +246,8 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
- * @public
- * @example To describe a table
- * ```javascript
- * // This example describes the Music table.
- * const input = {
- *   "TableName": "Music"
- * };
- * const command = new DescribeTableCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Table": {
- *     "AttributeDefinitions": [
- *       {
- *         "AttributeName": "Artist",
- *         "AttributeType": "S"
- *       },
- *       {
- *         "AttributeName": "SongTitle",
- *         "AttributeType": "S"
- *       }
- *     ],
- *     "CreationDateTime": "1421866952.062",
- *     "ItemCount": 0,
- *     "KeySchema": [
- *       {
- *         "AttributeName": "Artist",
- *         "KeyType": "HASH"
- *       },
- *       {
- *         "AttributeName": "SongTitle",
- *         "KeyType": "RANGE"
- *       }
- *     ],
- *     "ProvisionedThroughput": {
- *       "NumberOfDecreasesToday": 1,
- *       "ReadCapacityUnits": 5,
- *       "WriteCapacityUnits": 5
- *     },
- *     "TableName": "Music",
- *     "TableSizeBytes": 0,
- *     "TableStatus": "ACTIVE"
- *   }
- * }
- * *\/
- * // example id: to-describe-a-table-1475884440502
- * ```
  *
+ * @public
  */
 export class DescribeTableCommand extends $Command
   .classBuilder<

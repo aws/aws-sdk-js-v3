@@ -228,6 +228,7 @@ export interface UpdateComputeNodeGroupCommandOutput extends UpdateComputeNodeGr
  * @throws {@link PCSServiceException}
  * <p>Base exception class for all service exceptions from PCS service.</p>
  *
+ *
  * @public
  */
 export class UpdateComputeNodeGroupCommand extends $Command

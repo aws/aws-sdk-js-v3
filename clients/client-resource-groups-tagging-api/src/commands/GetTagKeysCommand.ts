@@ -103,6 +103,7 @@ export interface GetTagKeysCommandOutput extends GetTagKeysOutput, __MetadataBea
  * @throws {@link ResourceGroupsTaggingAPIServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
+ *
  * @public
  */
 export class GetTagKeysCommand extends $Command

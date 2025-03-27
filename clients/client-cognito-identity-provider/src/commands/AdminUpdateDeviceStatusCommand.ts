@@ -113,6 +113,7 @@ export interface AdminUpdateDeviceStatusCommandOutput extends AdminUpdateDeviceS
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminUpdateDeviceStatusCommand extends $Command

@@ -99,6 +99,7 @@ export interface EnableApplicationLayerAutomaticResponseCommandOutput
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ *
  * @public
  */
 export class EnableApplicationLayerAutomaticResponseCommand extends $Command

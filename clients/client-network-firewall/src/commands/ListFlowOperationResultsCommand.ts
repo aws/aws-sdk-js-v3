@@ -110,6 +110,7 @@ export interface ListFlowOperationResultsCommandOutput extends ListFlowOperation
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class ListFlowOperationResultsCommand extends $Command

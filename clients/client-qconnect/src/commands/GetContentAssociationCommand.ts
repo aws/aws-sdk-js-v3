@@ -85,6 +85,7 @@ export interface GetContentAssociationCommandOutput extends GetContentAssociatio
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class GetContentAssociationCommand extends $Command

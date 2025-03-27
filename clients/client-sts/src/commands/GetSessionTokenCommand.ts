@@ -131,30 +131,30 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>
  *
- * @public
+ *
  * @example To get temporary credentials for an IAM user or an AWS account
  * ```javascript
  * //
  * const input = {
- *   "DurationSeconds": 3600,
- *   "SerialNumber": "YourMFASerialNumber",
- *   "TokenCode": "123456"
+ *   DurationSeconds: 3600,
+ *   SerialNumber: "YourMFASerialNumber",
+ *   TokenCode: "123456"
  * };
  * const command = new GetSessionTokenCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Credentials": {
- *     "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
- *     "Expiration": "2011-07-11T19:55:29.611Z",
- *     "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY",
- *     "SessionToken": "AQoEXAMPLEH4aoAH0gNCAPyJxz4BlCFFxWNE1OPTgk5TthT+FvwqnKwRcOIfrRh3c/LTo6UDdyJwOOvEVPvLXCrrrUtdnniCEXAMPLE/IvU1dYUg2RVAJBanLiHb4IgRmpRV3zrkuWJOgQs8IZZaIv2BXIa2R4OlgkBN9bkUDNCJiBeb/AXlzBBko7b15fjrBs2+cTQtpZ3CYWFXG8C5zqx37wnOE49mRl/+OtkIKGO7fAE"
+ *   Credentials: {
+ *     AccessKeyId: "AKIAIOSFODNN7EXAMPLE",
+ *     Expiration: "2011-07-11T19:55:29.611Z",
+ *     SecretAccessKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY",
+ *     SessionToken: "AQoEXAMPLEH4aoAH0gNCAPyJxz4BlCFFxWNE1OPTgk5TthT+FvwqnKwRcOIfrRh3c/LTo6UDdyJwOOvEVPvLXCrrrUtdnniCEXAMPLE/IvU1dYUg2RVAJBanLiHb4IgRmpRV3zrkuWJOgQs8IZZaIv2BXIa2R4OlgkBN9bkUDNCJiBeb/AXlzBBko7b15fjrBs2+cTQtpZ3CYWFXG8C5zqx37wnOE49mRl/+OtkIKGO7fAE"
  *   }
  * }
  * *\/
- * // example id: to-get-temporary-credentials-for-an-iam-user-or-an-aws-account-1480540814038
  * ```
  *
+ * @public
  */
 export class GetSessionTokenCommand extends $Command
   .classBuilder<

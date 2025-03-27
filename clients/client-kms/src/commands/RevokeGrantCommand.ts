@@ -143,19 +143,22 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To revoke a grant
  * ```javascript
  * // The following example revokes a grant.
  * const input = {
- *   "GrantId": "0c237476b39f8bc44e45212e08498fbe3151305030726c0590dd8d3e9f3d6a60",
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   GrantId: "0c237476b39f8bc44e45212e08498fbe3151305030726c0590dd8d3e9f3d6a60",
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new RevokeGrantCommand(input);
- * await client.send(command);
- * // example id: to-revoke-a-grant-1481329549302
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RevokeGrantCommand extends $Command
   .classBuilder<

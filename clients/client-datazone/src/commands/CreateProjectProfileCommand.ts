@@ -166,6 +166,7 @@ export interface CreateProjectProfileCommandOutput extends CreateProjectProfileO
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class CreateProjectProfileCommand extends $Command

@@ -101,6 +101,7 @@ export interface SearchDashboardsCommandOutput extends SearchDashboardsResponse,
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class SearchDashboardsCommand extends $Command

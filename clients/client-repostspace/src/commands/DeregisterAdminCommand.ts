@@ -69,6 +69,7 @@ export interface DeregisterAdminCommandOutput extends __MetadataBearer {}
  * @throws {@link RepostspaceServiceException}
  * <p>Base exception class for all service exceptions from Repostspace service.</p>
  *
+ *
  * @public
  */
 export class DeregisterAdminCommand extends $Command

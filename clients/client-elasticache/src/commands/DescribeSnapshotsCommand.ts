@@ -133,53 +133,53 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMes
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example DescribeSnapshots
  * ```javascript
  * // Returns information about the snapshot mysnapshot. By default.
  * const input = {
- *   "SnapshotName": "snapshot-20161212"
+ *   SnapshotName: "snapshot-20161212"
  * };
  * const command = new DescribeSnapshotsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "",
- *   "Snapshots": [
+ *   Marker: "",
+ *   Snapshots: [
  *     {
- *       "AutoMinorVersionUpgrade": true,
- *       "CacheClusterCreateTime": "2016-12-21T22:27:12.543Z",
- *       "CacheClusterId": "my-redis5",
- *       "CacheNodeType": "cache.m3.large",
- *       "CacheParameterGroupName": "default.redis3.2",
- *       "CacheSubnetGroupName": "default",
- *       "Engine": "redis",
- *       "EngineVersion": "3.2.4",
- *       "NodeSnapshots": [
+ *       AutoMinorVersionUpgrade: true,
+ *       CacheClusterCreateTime: "2016-12-21T22:27:12.543Z",
+ *       CacheClusterId: "my-redis5",
+ *       CacheNodeType: "cache.m3.large",
+ *       CacheParameterGroupName: "default.redis3.2",
+ *       CacheSubnetGroupName: "default",
+ *       Engine: "redis",
+ *       EngineVersion: "3.2.4",
+ *       NodeSnapshots: [
  *         {
- *           "CacheNodeCreateTime": "2016-12-21T22:27:12.543Z",
- *           "CacheNodeId": "0001",
- *           "CacheSize": "3 MB",
- *           "SnapshotCreateTime": "2016-12-21T22:30:26Z"
+ *           CacheNodeCreateTime: "2016-12-21T22:27:12.543Z",
+ *           CacheNodeId: "0001",
+ *           CacheSize: "3 MB",
+ *           SnapshotCreateTime: "2016-12-21T22:30:26Z"
  *         }
  *       ],
- *       "NumCacheNodes": 1,
- *       "Port": 6379,
- *       "PreferredAvailabilityZone": "us-east-1c",
- *       "PreferredMaintenanceWindow": "fri:05:30-fri:06:30",
- *       "SnapshotName": "snapshot-20161212",
- *       "SnapshotRetentionLimit": 7,
- *       "SnapshotSource": "manual",
- *       "SnapshotStatus": "available",
- *       "SnapshotWindow": "10:00-11:00",
- *       "VpcId": "vpc-91280df6"
+ *       NumCacheNodes: 1,
+ *       Port: 6379,
+ *       PreferredAvailabilityZone: "us-east-1c",
+ *       PreferredMaintenanceWindow: "fri:05:30-fri:06:30",
+ *       SnapshotName: "snapshot-20161212",
+ *       SnapshotRetentionLimit: 7,
+ *       SnapshotSource: "manual",
+ *       SnapshotStatus: "available",
+ *       SnapshotWindow: "10:00-11:00",
+ *       VpcId: "vpc-91280df6"
  *     }
  *   ]
  * }
  * *\/
- * // example id: describesnapshots-1481743399584
  * ```
  *
+ * @public
  */
 export class DescribeSnapshotsCommand extends $Command
   .classBuilder<

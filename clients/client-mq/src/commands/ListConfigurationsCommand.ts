@@ -86,6 +86,7 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ *
  * @public
  */
 export class ListConfigurationsCommand extends $Command

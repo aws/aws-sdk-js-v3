@@ -107,6 +107,7 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class DescribeAppCommand extends $Command

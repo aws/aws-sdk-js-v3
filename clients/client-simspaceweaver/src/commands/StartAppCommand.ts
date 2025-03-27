@@ -81,6 +81,7 @@ export interface StartAppCommandOutput extends StartAppOutput, __MetadataBearer 
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ *
  * @public
  */
 export class StartAppCommand extends $Command

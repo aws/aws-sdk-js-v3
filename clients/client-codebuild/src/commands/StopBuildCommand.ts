@@ -257,6 +257,7 @@ export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBeare
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class StopBuildCommand extends $Command

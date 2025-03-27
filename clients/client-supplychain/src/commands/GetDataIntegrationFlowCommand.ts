@@ -125,51 +125,51 @@ export interface GetDataIntegrationFlowCommandOutput extends GetDataIntegrationF
  * @throws {@link SupplyChainServiceException}
  * <p>Base exception class for all service exceptions from SupplyChain service.</p>
  *
- * @public
+ *
  * @example Successful GetDataIntegrationFlow
  * ```javascript
  * //
  * const input = {
- *   "name": "testStagingFlow",
- *   "instanceId": "8850c54e-e187-4fa7-89d4-6370f165174d"
+ *   instanceId: "8850c54e-e187-4fa7-89d4-6370f165174d",
+ *   name: "testStagingFlow"
  * };
  * const command = new GetDataIntegrationFlowCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "flow": {
- *     "name": "testStagingFlow",
- *     "createdTime": 1724956400.44,
- *     "instanceId": "8850c54e-e187-4fa7-89d4-6370f165174d",
- *     "lastModifiedTime": 1724956400.44,
- *     "sources": [
+ *   flow: {
+ *     createdTime: 1.72495640044E9,
+ *     instanceId: "8850c54e-e187-4fa7-89d4-6370f165174d",
+ *     lastModifiedTime: 1.72495640044E9,
+ *     name: "testStagingFlow",
+ *     sources: [
  *       {
- *         "s3Source": {
- *           "bucketName": "aws-supply-chain-data-b8c7bb28-a576-4334-b481-6d6e8e47371f",
- *           "prefix": "example-prefix"
+ *         s3Source: {
+ *           bucketName: "aws-supply-chain-data-b8c7bb28-a576-4334-b481-6d6e8e47371f",
+ *           prefix: "example-prefix"
  *         },
- *         "sourceName": "testSourceName",
- *         "sourceType": "S3"
+ *         sourceName: "testSourceName",
+ *         sourceType: "S3"
  *       }
  *     ],
- *     "target": {
- *       "datasetTarget": {
- *         "datasetIdentifier": "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset"
+ *     target: {
+ *       datasetTarget: {
+ *         datasetIdentifier: "arn:aws:scn:us-east-1:123456789012:instance/8850c54e-e187-4fa7-89d4-6370f165174d/namespaces/default/datasets/my_staging_dataset"
  *       },
- *       "targetType": "DATASET"
+ *       targetType: "DATASET"
  *     },
- *     "transformation": {
- *       "sqlTransformation": {
- *         "query": "SELECT * FROM testSourceName"
+ *     transformation: {
+ *       sqlTransformation: {
+ *         query: "SELECT * FROM testSourceName"
  *       },
- *       "transformationType": "SQL"
+ *       transformationType: "SQL"
  *     }
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetDataIntegrationFlowCommand extends $Command
   .classBuilder<

@@ -86,19 +86,22 @@ export interface AcceptAdministratorInvitationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To accept an invitation be a member account
  * ```javascript
  * // The following example demonstrates how an account can accept an invitation from the Security Hub administrator account to be a member account. This operation is applicable only to member accounts that are not added through AWS Organizations.
  * const input = {
- *   "AdministratorId": "123456789012",
- *   "InvitationId": "7ab938c5d52d7904ad09f9e7c20cc4eb"
+ *   AdministratorId: "123456789012",
+ *   InvitationId: "7ab938c5d52d7904ad09f9e7c20cc4eb"
  * };
  * const command = new AcceptAdministratorInvitationCommand(input);
- * await client.send(command);
- * // example id: to-accept-an-invitation-be-a-member-account-1674849870467
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AcceptAdministratorInvitationCommand extends $Command
   .classBuilder<

@@ -63,6 +63,7 @@ export interface StopAccessLoggingCommandOutput extends StopAccessLoggingOutput,
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ *
  * @public
  */
 export class StopAccessLoggingCommand extends $Command

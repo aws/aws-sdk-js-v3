@@ -88,6 +88,7 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DeleteAccountCustomizationCommand extends $Command

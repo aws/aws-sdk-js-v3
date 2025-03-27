@@ -68,6 +68,7 @@ export interface GetDigestCommandOutput extends GetDigestResponse, __MetadataBea
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ *
  * @public
  */
 export class GetDigestCommand extends $Command

@@ -89,6 +89,7 @@ export interface DeleteKeySigningKeyCommandOutput extends DeleteKeySigningKeyRes
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class DeleteKeySigningKeyCommand extends $Command

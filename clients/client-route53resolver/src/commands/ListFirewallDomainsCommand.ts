@@ -79,6 +79,7 @@ export interface ListFirewallDomainsCommandOutput extends ListFirewallDomainsRes
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class ListFirewallDomainsCommand extends $Command

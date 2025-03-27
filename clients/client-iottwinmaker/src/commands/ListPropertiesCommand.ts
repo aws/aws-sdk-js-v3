@@ -149,6 +149,7 @@ export interface ListPropertiesCommandOutput extends ListPropertiesResponse, __M
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class ListPropertiesCommand extends $Command

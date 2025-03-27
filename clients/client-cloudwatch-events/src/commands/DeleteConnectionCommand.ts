@@ -68,6 +68,7 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class DeleteConnectionCommand extends $Command

@@ -80,6 +80,7 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class StartContentUploadCommand extends $Command

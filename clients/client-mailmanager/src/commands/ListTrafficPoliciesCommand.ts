@@ -66,6 +66,68 @@ export interface ListTrafficPoliciesCommandOutput extends ListTrafficPoliciesRes
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
+ * @example List TrafficPolicies
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new ListTrafficPoliciesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   TrafficPolicies: [
+ *     {
+ *       DefaultAction: "DENY",
+ *       TrafficPolicyId: "tp-12345",
+ *       TrafficPolicyName: "trafficPolicyName"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example List TrafficPolicies with PageSize
+ * ```javascript
+ * //
+ * const input = {
+ *   PageSize: 10
+ * };
+ * const command = new ListTrafficPoliciesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   TrafficPolicies: [
+ *     {
+ *       DefaultAction: "DENY",
+ *       TrafficPolicyId: "tp-12345",
+ *       TrafficPolicyName: "trafficPolicyName"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example List TrafficPolicies with NextToken
+ * ```javascript
+ * //
+ * const input = {
+ *   NextToken: "nextToken"
+ * };
+ * const command = new ListTrafficPoliciesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   TrafficPolicies: [
+ *     {
+ *       DefaultAction: "DENY",
+ *       TrafficPolicyId: "tp-12345",
+ *       TrafficPolicyName: "trafficPolicyName"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListTrafficPoliciesCommand extends $Command

@@ -56,6 +56,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyO
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class DeleteResourcePolicyCommand extends $Command

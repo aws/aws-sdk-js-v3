@@ -75,6 +75,7 @@ export interface CancelSimulationJobBatchCommandOutput extends CancelSimulationJ
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class CancelSimulationJobBatchCommand extends $Command

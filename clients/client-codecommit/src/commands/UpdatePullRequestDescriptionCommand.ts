@@ -118,6 +118,7 @@ export interface UpdatePullRequestDescriptionCommandOutput
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class UpdatePullRequestDescriptionCommand extends $Command

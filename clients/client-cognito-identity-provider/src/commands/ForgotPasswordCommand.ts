@@ -166,6 +166,7 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class ForgotPasswordCommand extends $Command

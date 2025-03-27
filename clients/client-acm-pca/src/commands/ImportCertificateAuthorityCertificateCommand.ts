@@ -214,6 +214,7 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ *
  * @public
  */
 export class ImportCertificateAuthorityCertificateCommand extends $Command

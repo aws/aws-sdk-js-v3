@@ -71,6 +71,7 @@ export interface GetScheduleGroupCommandOutput extends GetScheduleGroupOutput, _
  * @throws {@link SchedulerServiceException}
  * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
+ *
  * @public
  */
 export class GetScheduleGroupCommand extends $Command

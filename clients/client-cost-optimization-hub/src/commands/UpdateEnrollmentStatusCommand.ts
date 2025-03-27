@@ -80,6 +80,7 @@ export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentSta
  * @throws {@link CostOptimizationHubServiceException}
  * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
  *
+ *
  * @public
  */
 export class UpdateEnrollmentStatusCommand extends $Command

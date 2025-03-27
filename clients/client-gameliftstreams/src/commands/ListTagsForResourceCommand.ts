@@ -80,6 +80,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

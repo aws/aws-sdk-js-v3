@@ -122,6 +122,7 @@ export interface CreateLicenseVersionCommandOutput extends CreateLicenseVersionR
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class CreateLicenseVersionCommand extends $Command

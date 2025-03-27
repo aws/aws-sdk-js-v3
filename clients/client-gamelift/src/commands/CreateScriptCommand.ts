@@ -142,6 +142,7 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class CreateScriptCommand extends $Command

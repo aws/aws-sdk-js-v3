@@ -62,6 +62,7 @@ export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBea
  * @throws {@link CodeConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ *
  * @public
  */
 export class DeleteHostCommand extends $Command

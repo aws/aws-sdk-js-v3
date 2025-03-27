@@ -76,6 +76,7 @@ export interface GetInstanceOnboardingJobStatusCommandOutput
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ *
  * @public
  */
 export class GetInstanceOnboardingJobStatusCommand extends $Command

@@ -143,6 +143,7 @@ export interface GetInventoryCommandOutput extends GetInventoryResult, __Metadat
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class GetInventoryCommand extends $Command

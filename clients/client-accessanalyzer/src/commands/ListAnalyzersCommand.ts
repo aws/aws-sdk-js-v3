@@ -105,6 +105,7 @@ export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __Met
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class ListAnalyzersCommand extends $Command

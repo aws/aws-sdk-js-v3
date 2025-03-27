@@ -110,6 +110,7 @@ export interface RescoreCommandOutput extends RescoreResult, __MetadataBearer {}
  * @throws {@link KendraRankingServiceException}
  * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
+ *
  * @public
  */
 export class RescoreCommand extends $Command

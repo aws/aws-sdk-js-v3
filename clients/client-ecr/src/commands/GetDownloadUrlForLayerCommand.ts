@@ -88,6 +88,7 @@ export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLa
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class GetDownloadUrlForLayerCommand extends $Command

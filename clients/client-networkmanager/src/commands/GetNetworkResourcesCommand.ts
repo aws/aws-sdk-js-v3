@@ -101,6 +101,7 @@ export interface GetNetworkResourcesCommandOutput extends GetNetworkResourcesRes
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetNetworkResourcesCommand extends $Command

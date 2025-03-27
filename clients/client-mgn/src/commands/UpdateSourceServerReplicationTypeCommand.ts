@@ -191,6 +191,7 @@ export interface UpdateSourceServerReplicationTypeCommandOutput extends SourceSe
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class UpdateSourceServerReplicationTypeCommand extends $Command

@@ -160,6 +160,7 @@ export interface GetOTAUpdateCommandOutput extends GetOTAUpdateResponse, __Metad
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class GetOTAUpdateCommand extends $Command

@@ -395,6 +395,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeDomainCommand extends $Command

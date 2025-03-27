@@ -358,6 +358,7 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class PutTargetsCommand extends $Command

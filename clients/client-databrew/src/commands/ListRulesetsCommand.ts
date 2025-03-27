@@ -81,6 +81,7 @@ export interface ListRulesetsCommandOutput extends ListRulesetsResponse, __Metad
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class ListRulesetsCommand extends $Command

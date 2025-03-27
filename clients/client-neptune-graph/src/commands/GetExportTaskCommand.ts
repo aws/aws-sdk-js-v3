@@ -106,6 +106,7 @@ export interface GetExportTaskCommandOutput extends GetExportTaskOutput, __Metad
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class GetExportTaskCommand extends $Command

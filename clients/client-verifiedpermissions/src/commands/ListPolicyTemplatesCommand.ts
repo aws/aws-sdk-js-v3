@@ -170,38 +170,38 @@ export interface ListPolicyTemplatesCommandOutput extends ListPolicyTemplatesOut
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
- * @public
+ *
  * @example ListPolicyTemplates
  * ```javascript
  * // The following example retrieves a list of all of the policy templates in the specified policy store.
  * const input = {
- *   "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a"
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
  * };
  * const command = new ListPolicyTemplatesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "policyTemplates": [
+ *   policyTemplates: [
  *     {
- *       "createdDate": "2024-08-12T18:20:50.99Z",
- *       "description": "Generic template",
- *       "lastUpdatedDate": "2024-08-12T18:20:50.99Z",
- *       "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
- *       "policyTemplateId": "PTEXAMPLEabcdefg111111"
+ *       createdDate: "2024-08-12T18:20:50.99Z",
+ *       description: "Generic template",
+ *       lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *       policyTemplateId: "PTEXAMPLEabcdefg111111"
  *     },
  *     {
- *       "createdDate": "2024-08-12T18:20:50.99Z",
- *       "description": "Template for research dept",
- *       "lastUpdatedDate": "2024-08-12T18:20:50.99Z",
- *       "policyStoreId": "C7v5xMplfFH3i3e4Jrzb1a",
- *       "policyTemplateId": "PTEXAMPLEabcdefg222222"
+ *       createdDate: "2024-08-12T18:20:50.99Z",
+ *       description: "Template for research dept",
+ *       lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *       policyTemplateId: "PTEXAMPLEabcdefg222222"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListPolicyTemplatesCommand extends $Command
   .classBuilder<

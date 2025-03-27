@@ -79,6 +79,7 @@ export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataB
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class CopyProductCommand extends $Command

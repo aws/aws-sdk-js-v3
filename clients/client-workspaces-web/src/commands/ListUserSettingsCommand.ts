@@ -109,6 +109,7 @@ export interface ListUserSettingsCommandOutput extends ListUserSettingsResponse,
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class ListUserSettingsCommand extends $Command

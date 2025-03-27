@@ -76,25 +76,25 @@ export interface CreateActionTargetCommandOutput extends CreateActionTargetRespo
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To create a custom action target
  * ```javascript
  * // The following example creates a custom action target in Security Hub. Custom actions on findings and insights automatically trigger actions in Amazon CloudWatch Events.
  * const input = {
- *   "Description": "Action to send the finding for remediation tracking",
- *   "Id": "Remediation",
- *   "Name": "Send to remediation"
+ *   Description: "Action to send the finding for remediation tracking",
+ *   Id: "Remediation",
+ *   Name: "Send to remediation"
  * };
  * const command = new CreateActionTargetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ActionTargetArn": "arn:aws:securityhub:us-west-1:123456789012:action/custom/Remediation"
+ *   ActionTargetArn: "arn:aws:securityhub:us-west-1:123456789012:action/custom/Remediation"
  * }
  * *\/
- * // example id: to-create-a-custom-action-target-1675184966299
  * ```
  *
+ * @public
  */
 export class CreateActionTargetCommand extends $Command
   .classBuilder<

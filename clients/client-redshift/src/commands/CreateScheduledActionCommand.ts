@@ -131,6 +131,7 @@ export interface CreateScheduledActionCommandOutput extends ScheduledAction, __M
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class CreateScheduledActionCommand extends $Command

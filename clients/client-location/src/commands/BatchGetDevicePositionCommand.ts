@@ -102,6 +102,7 @@ export interface BatchGetDevicePositionCommandOutput extends BatchGetDevicePosit
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class BatchGetDevicePositionCommand extends $Command

@@ -74,6 +74,7 @@ export interface DeleteLandingZoneCommandOutput extends DeleteLandingZoneOutput,
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class DeleteLandingZoneCommand extends $Command

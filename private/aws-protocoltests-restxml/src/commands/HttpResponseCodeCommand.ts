@@ -52,6 +52,7 @@ export interface HttpResponseCodeCommandOutput extends HttpResponseCodeOutput, _
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class HttpResponseCodeCommand extends $Command
   .classBuilder<

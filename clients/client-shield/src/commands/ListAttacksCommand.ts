@@ -90,6 +90,7 @@ export interface ListAttacksCommandOutput extends ListAttacksResponse, __Metadat
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ *
  * @public
  */
 export class ListAttacksCommand extends $Command

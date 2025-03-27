@@ -78,6 +78,7 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsRespons
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ *
  * @public
  */
 export class ListSubscriptionsCommand extends $Command

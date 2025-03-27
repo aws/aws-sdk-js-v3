@@ -91,6 +91,7 @@ export interface ListAssetInstancesCommandOutput extends ListAssetInstancesOutpu
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class ListAssetInstancesCommand extends $Command

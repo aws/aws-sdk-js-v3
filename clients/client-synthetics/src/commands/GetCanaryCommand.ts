@@ -127,6 +127,7 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class GetCanaryCommand extends $Command

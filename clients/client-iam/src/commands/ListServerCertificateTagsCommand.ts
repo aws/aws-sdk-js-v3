@@ -81,6 +81,7 @@ export interface ListServerCertificateTagsCommandOutput extends ListServerCertif
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class ListServerCertificateTagsCommand extends $Command

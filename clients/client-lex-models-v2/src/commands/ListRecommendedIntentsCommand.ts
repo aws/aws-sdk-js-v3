@@ -92,6 +92,7 @@ export interface ListRecommendedIntentsCommandOutput extends ListRecommendedInte
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class ListRecommendedIntentsCommand extends $Command

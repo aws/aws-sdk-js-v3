@@ -92,6 +92,7 @@ export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __Met
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class DescribeStudioCommand extends $Command

@@ -95,6 +95,33 @@ export interface CreateSolNetworkInstanceCommandOutput extends CreateSolNetworkI
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example Create a Sol Network Instance
+ * ```javascript
+ * //
+ * const input = {
+ *   nsDescription: "Test network for CITY",
+ *   nsName: "CITY Instance",
+ *   nsdInfoId: "np-0d5b823eb5c2a9241",
+ *   tags: {
+ *     Name: "Resource"
+ *   }
+ * };
+ * const command = new CreateSolNetworkInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   arn: "arn:aws:tnb:us-west-2:123456789000:network-instance/ni-07aa863e53460a2a6",
+ *   id: "ni-07aa863e53460a2a6",
+ *   nsInstanceName: "CITY Instance",
+ *   nsdInfoId: "np-0d5b823eb5c2a9241",
+ *   tags: {
+ *     Name: "Resource"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateSolNetworkInstanceCommand extends $Command

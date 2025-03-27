@@ -77,6 +77,7 @@ export interface DeleteConnectorCommandOutput extends __MetadataBearer {}
  * @throws {@link PcaConnectorScepServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorScep service.</p>
  *
+ *
  * @public
  */
 export class DeleteConnectorCommand extends $Command

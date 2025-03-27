@@ -80,6 +80,7 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

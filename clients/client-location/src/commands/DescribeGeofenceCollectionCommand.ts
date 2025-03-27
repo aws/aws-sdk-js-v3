@@ -82,6 +82,7 @@ export interface DescribeGeofenceCollectionCommandOutput extends DescribeGeofenc
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class DescribeGeofenceCollectionCommand extends $Command

@@ -108,6 +108,7 @@ export interface CopyImageSetCommandOutput extends CopyImageSetResponse, __Metad
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ *
  * @public
  */
 export class CopyImageSetCommand extends $Command

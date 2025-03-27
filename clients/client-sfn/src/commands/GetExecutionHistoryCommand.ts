@@ -288,6 +288,7 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class GetExecutionHistoryCommand extends $Command

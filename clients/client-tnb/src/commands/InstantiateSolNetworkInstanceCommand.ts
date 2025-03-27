@@ -95,6 +95,47 @@ export interface InstantiateSolNetworkInstanceCommandOutput
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
  *
+ *
+ * @example Instantiate a Sol Network Instance
+ * ```javascript
+ * //
+ * const input = {
+ *   nsInstanceId: "ni-0d5b823eb5c2a9241",
+ *   tags: {
+ *     Name: "Resource"
+ *   }
+ * };
+ * const command = new InstantiateSolNetworkInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   nsLcmOpOccId: "no-0d5b823eb5c2a9241",
+ *   tags: {
+ *     Name: "Resource"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example Instantiate a Sol Network Instance with Overrides
+ * ```javascript
+ * //
+ * const input = {
+ *   additionalParamsForNs: {
+ *     availability_zone: "us-west-2a",
+ *     cidr_block: "10.0.0.0/16"
+ *   },
+ *   nsInstanceId: "ni-0d5b823eb5c2a9241"
+ * };
+ * const command = new InstantiateSolNetworkInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   nsLcmOpOccId: "no-0d5b823eb5c2a9241"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class InstantiateSolNetworkInstanceCommand extends $Command

@@ -55,6 +55,7 @@ export interface EnableAlarmActionsCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class EnableAlarmActionsCommand extends $Command

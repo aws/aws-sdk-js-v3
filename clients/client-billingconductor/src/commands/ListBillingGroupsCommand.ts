@@ -109,6 +109,7 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput,
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ *
  * @public
  */
 export class ListBillingGroupsCommand extends $Command

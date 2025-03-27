@@ -72,6 +72,7 @@ export interface DeleteModelVersionCommandOutput extends DeleteModelVersionResul
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class DeleteModelVersionCommand extends $Command

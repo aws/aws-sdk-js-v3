@@ -94,6 +94,7 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class ListWorkloadsCommand extends $Command

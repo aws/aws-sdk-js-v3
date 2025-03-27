@@ -99,6 +99,7 @@ export interface SelectAggregateResourceConfigCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class SelectAggregateResourceConfigCommand extends $Command

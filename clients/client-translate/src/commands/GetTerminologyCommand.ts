@@ -100,6 +100,7 @@ export interface GetTerminologyCommandOutput extends GetTerminologyResponse, __M
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ *
  * @public
  */
 export class GetTerminologyCommand extends $Command

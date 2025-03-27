@@ -73,6 +73,7 @@ export interface StartIngestionCommandOutput extends StartIngestionResponse, __M
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ *
  * @public
  */
 export class StartIngestionCommand extends $Command

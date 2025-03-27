@@ -105,6 +105,7 @@ export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedW
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class CreateUpdatedWorkspaceImageCommand extends $Command

@@ -221,6 +221,7 @@ export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput,
  * @throws {@link MarketplaceAgreementServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceAgreement service.</p>
  *
+ *
  * @public
  */
 export class GetAgreementTermsCommand extends $Command

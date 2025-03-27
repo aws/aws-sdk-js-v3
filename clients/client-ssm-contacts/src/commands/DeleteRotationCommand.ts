@@ -73,6 +73,7 @@ export interface DeleteRotationCommandOutput extends DeleteRotationResult, __Met
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class DeleteRotationCommand extends $Command

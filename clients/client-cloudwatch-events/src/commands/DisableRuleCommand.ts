@@ -74,6 +74,7 @@ export interface DisableRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class DisableRuleCommand extends $Command

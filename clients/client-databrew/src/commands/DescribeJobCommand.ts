@@ -207,6 +207,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResponse, __Metadat
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class DescribeJobCommand extends $Command

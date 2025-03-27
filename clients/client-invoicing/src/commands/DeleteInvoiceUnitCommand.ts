@@ -75,23 +75,23 @@ export interface DeleteInvoiceUnitCommandOutput extends DeleteInvoiceUnitRespons
  * @throws {@link InvoicingServiceException}
  * <p>Base exception class for all service exceptions from Invoicing service.</p>
  *
- * @public
+ *
  * @example DeleteInvoiceUnit
  * ```javascript
  * //
  * const input = {
- *   "InvoiceUnitArn": "arn:aws:invoicing::000000000000:invoice-unit/12345678"
+ *   InvoiceUnitArn: "arn:aws:invoicing::000000000000:invoice-unit/12345678"
  * };
  * const command = new DeleteInvoiceUnitCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InvoiceUnitArn": "arn:aws:invoicing::000000000000:invoice-unit/12345678"
+ *   InvoiceUnitArn: "arn:aws:invoicing::000000000000:invoice-unit/12345678"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class DeleteInvoiceUnitCommand extends $Command
   .classBuilder<

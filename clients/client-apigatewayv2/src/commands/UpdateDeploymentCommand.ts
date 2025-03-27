@@ -74,6 +74,7 @@ export interface UpdateDeploymentCommandOutput extends UpdateDeploymentResponse,
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class UpdateDeploymentCommand extends $Command

@@ -98,6 +98,7 @@ export interface RestoreTableFromSnapshotCommandOutput extends RestoreTableFromS
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class RestoreTableFromSnapshotCommand extends $Command

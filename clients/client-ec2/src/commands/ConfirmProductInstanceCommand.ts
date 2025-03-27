@@ -60,24 +60,24 @@ export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInsta
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To confirm the product instance
  * ```javascript
  * // This example determines whether the specified product code is associated with the specified instance.
  * const input = {
- *   "InstanceId": "i-1234567890abcdef0",
- *   "ProductCode": "774F4FF8"
+ *   InstanceId: "i-1234567890abcdef0",
+ *   ProductCode: "774F4FF8"
  * };
  * const command = new ConfirmProductInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OwnerId": "123456789012"
+ *   OwnerId: "123456789012"
  * }
  * *\/
- * // example id: to-confirm-the-product-instance-1472712108494
  * ```
  *
+ * @public
  */
 export class ConfirmProductInstanceCommand extends $Command
   .classBuilder<

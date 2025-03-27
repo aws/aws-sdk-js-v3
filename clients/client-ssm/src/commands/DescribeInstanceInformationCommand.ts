@@ -148,6 +148,7 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DescribeInstanceInformationCommand extends $Command

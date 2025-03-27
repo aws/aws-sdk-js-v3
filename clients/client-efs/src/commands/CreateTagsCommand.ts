@@ -81,24 +81,27 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
- * @public
+ *
  * @example To create a new tag
  * ```javascript
  * // This operation creates a new tag for an EFS file system.
  * const input = {
- *   "FileSystemId": "fs-01234567",
- *   "Tags": [
+ *   FileSystemId: "fs-01234567",
+ *   Tags: [
  *     {
- *       "Key": "Name",
- *       "Value": "MyFileSystem"
+ *       Key: "Name",
+ *       Value: "MyFileSystem"
  *     }
  *   ]
  * };
  * const command = new CreateTagsCommand(input);
- * await client.send(command);
- * // example id: to-create-a-new-tag-1481843409357
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateTagsCommand extends $Command
   .classBuilder<

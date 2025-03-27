@@ -77,6 +77,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ *
  * @public
  */
 export class CreateGroupCommand extends $Command

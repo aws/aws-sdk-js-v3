@@ -67,6 +67,7 @@ export interface UpdatePipelineExecutionCommandOutput extends UpdatePipelineExec
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdatePipelineExecutionCommand extends $Command

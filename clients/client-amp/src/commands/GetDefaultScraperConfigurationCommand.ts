@@ -68,6 +68,20 @@ export interface GetDefaultScraperConfigurationCommandOutput
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
  *
+ *
+ * @example GetDefaultScraperConfiguration
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new GetDefaultScraperConfigurationCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   configuration: "blob"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetDefaultScraperConfigurationCommand extends $Command

@@ -95,6 +95,7 @@ export interface DetectStackResourceDriftCommandOutput extends DetectStackResour
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DetectStackResourceDriftCommand extends $Command

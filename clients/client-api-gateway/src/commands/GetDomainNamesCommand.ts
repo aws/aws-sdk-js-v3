@@ -109,6 +109,7 @@ export interface GetDomainNamesCommandOutput extends DomainNames, __MetadataBear
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetDomainNamesCommand extends $Command

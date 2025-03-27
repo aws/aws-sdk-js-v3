@@ -73,6 +73,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link CostAndUsageReportServiceServiceException}
  * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command

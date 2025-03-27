@@ -186,6 +186,7 @@ export interface CreateAnalysisTemplateCommandOutput extends CreateAnalysisTempl
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class CreateAnalysisTemplateCommand extends $Command

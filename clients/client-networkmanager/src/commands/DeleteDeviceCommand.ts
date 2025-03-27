@@ -103,6 +103,7 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteDeviceCommand extends $Command

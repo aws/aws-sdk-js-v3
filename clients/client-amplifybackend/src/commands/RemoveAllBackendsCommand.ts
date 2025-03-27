@@ -72,6 +72,7 @@ export interface RemoveAllBackendsCommandOutput extends RemoveAllBackendsRespons
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ *
  * @public
  */
 export class RemoveAllBackendsCommand extends $Command

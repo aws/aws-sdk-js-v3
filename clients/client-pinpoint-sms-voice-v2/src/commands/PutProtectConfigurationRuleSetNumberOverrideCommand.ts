@@ -102,6 +102,7 @@ export interface PutProtectConfigurationRuleSetNumberOverrideCommandOutput
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ *
  * @public
  */
 export class PutProtectConfigurationRuleSetNumberOverrideCommand extends $Command

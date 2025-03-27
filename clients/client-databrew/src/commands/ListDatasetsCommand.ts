@@ -154,6 +154,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class ListDatasetsCommand extends $Command

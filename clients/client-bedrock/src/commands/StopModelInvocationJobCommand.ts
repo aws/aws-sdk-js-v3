@@ -71,6 +71,7 @@ export interface StopModelInvocationJobCommandOutput extends StopModelInvocation
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class StopModelInvocationJobCommand extends $Command

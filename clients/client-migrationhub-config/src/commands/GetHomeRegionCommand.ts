@@ -79,6 +79,7 @@ export interface GetHomeRegionCommandOutput extends GetHomeRegionResult, __Metad
  * @throws {@link MigrationHubConfigServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubConfig service.</p>
  *
+ *
  * @public
  */
 export class GetHomeRegionCommand extends $Command

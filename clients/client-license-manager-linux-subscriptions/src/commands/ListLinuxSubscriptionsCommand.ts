@@ -87,6 +87,7 @@ export interface ListLinuxSubscriptionsCommandOutput extends ListLinuxSubscripti
  * @throws {@link LicenseManagerLinuxSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerLinuxSubscriptions service.</p>
  *
+ *
  * @public
  */
 export class ListLinuxSubscriptionsCommand extends $Command

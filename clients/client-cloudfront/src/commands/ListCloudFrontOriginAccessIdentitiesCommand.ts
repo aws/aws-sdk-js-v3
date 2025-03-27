@@ -80,6 +80,7 @@ export interface ListCloudFrontOriginAccessIdentitiesCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListCloudFrontOriginAccessIdentitiesCommand extends $Command

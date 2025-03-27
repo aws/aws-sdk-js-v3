@@ -104,6 +104,7 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __Metad
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class UpdateWebhookCommand extends $Command

@@ -89,6 +89,7 @@ export interface UpdateDataCellsFilterCommandOutput extends UpdateDataCellsFilte
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class UpdateDataCellsFilterCommand extends $Command

@@ -87,6 +87,7 @@ export interface ListSecurityProfilePermissionsCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListSecurityProfilePermissionsCommand extends $Command

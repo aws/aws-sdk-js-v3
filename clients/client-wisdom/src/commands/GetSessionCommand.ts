@@ -76,6 +76,7 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class GetSessionCommand extends $Command

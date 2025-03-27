@@ -57,6 +57,7 @@ export interface DisableUserCommandOutput extends DisableUserResult, __MetadataB
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DisableUserCommand extends $Command

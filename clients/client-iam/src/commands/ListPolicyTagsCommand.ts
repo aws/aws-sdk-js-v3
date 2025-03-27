@@ -78,6 +78,7 @@ export interface ListPolicyTagsCommandOutput extends ListPolicyTagsResponse, __M
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class ListPolicyTagsCommand extends $Command

@@ -70,6 +70,7 @@ export interface ListIntegrationsCommandOutput extends ListIntegrationsResponse,
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class ListIntegrationsCommand extends $Command

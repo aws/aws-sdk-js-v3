@@ -103,6 +103,7 @@ export interface DescribeGlobalReplicationGroupsCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class DescribeGlobalReplicationGroupsCommand extends $Command

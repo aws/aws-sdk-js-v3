@@ -87,6 +87,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * @throws {@link TimestreamQueryServiceException}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ *
  * @public
  */
 export class DescribeEndpointsCommand extends $Command

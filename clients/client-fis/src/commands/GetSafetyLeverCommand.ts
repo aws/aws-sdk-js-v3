@@ -67,6 +67,7 @@ export interface GetSafetyLeverCommandOutput extends GetSafetyLeverResponse, __M
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ *
  * @public
  */
 export class GetSafetyLeverCommand extends $Command

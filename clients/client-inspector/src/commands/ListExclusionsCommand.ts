@@ -74,6 +74,7 @@ export interface ListExclusionsCommandOutput extends ListExclusionsResponse, __M
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ *
  * @public
  */
 export class ListExclusionsCommand extends $Command

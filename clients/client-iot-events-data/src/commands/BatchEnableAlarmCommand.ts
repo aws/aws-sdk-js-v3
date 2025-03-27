@@ -81,6 +81,7 @@ export interface BatchEnableAlarmCommandOutput extends BatchEnableAlarmResponse,
  * @throws {@link IoTEventsDataServiceException}
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
+ *
  * @public
  */
 export class BatchEnableAlarmCommand extends $Command

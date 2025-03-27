@@ -87,6 +87,7 @@ export interface ResetGraphCommandOutput extends ResetGraphOutput, __MetadataBea
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class ResetGraphCommand extends $Command

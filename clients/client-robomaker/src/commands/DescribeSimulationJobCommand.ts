@@ -224,6 +224,7 @@ export interface DescribeSimulationJobCommandOutput extends DescribeSimulationJo
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeSimulationJobCommand extends $Command

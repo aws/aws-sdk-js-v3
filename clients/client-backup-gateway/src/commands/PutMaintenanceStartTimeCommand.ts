@@ -75,6 +75,7 @@ export interface PutMaintenanceStartTimeCommandOutput extends PutMaintenanceStar
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ *
  * @public
  */
 export class PutMaintenanceStartTimeCommand extends $Command

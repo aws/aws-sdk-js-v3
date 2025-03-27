@@ -60,6 +60,7 @@ export interface DeleteImagePermissionsCommandOutput extends DeleteImagePermissi
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DeleteImagePermissionsCommand extends $Command

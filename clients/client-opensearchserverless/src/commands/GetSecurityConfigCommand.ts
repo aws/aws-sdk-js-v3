@@ -93,6 +93,7 @@ export interface GetSecurityConfigCommandOutput extends GetSecurityConfigRespons
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ *
  * @public
  */
 export class GetSecurityConfigCommand extends $Command

@@ -92,6 +92,7 @@ export interface ListReservationsCommandOutput extends ListReservationsResponse,
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ *
  * @public
  */
 export class ListReservationsCommand extends $Command

@@ -356,6 +356,7 @@ export interface GetLendingAnalysisCommandOutput extends GetLendingAnalysisRespo
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ *
  * @public
  */
 export class GetLendingAnalysisCommand extends $Command

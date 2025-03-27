@@ -129,6 +129,7 @@ export interface UpdateRecipeJobCommandOutput extends UpdateRecipeJobResponse, _
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class UpdateRecipeJobCommand extends $Command

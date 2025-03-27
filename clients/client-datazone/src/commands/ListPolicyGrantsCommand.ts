@@ -145,6 +145,7 @@ export interface ListPolicyGrantsCommandOutput extends ListPolicyGrantsOutput, _
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class ListPolicyGrantsCommand extends $Command

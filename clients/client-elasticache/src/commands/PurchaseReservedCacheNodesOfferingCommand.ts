@@ -112,18 +112,21 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example PurchaseReservedCacheNodesOfferings
  * ```javascript
  * // Allows you to purchase a reserved cache node offering.
  * const input = {
- *   "ReservedCacheNodesOfferingId": "1ef01f5b-94ff-433f-a530-61a56bfc8e7a"
+ *   ReservedCacheNodesOfferingId: "1ef01f5b-94ff-433f-a530-61a56bfc8e7a"
  * };
  * const command = new PurchaseReservedCacheNodesOfferingCommand(input);
- * await client.send(command);
- * // example id: purchasereservedcachenodesofferings-1483040798484
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PurchaseReservedCacheNodesOfferingCommand extends $Command
   .classBuilder<

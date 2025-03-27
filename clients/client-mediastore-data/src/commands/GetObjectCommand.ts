@@ -43,6 +43,11 @@ export interface GetObjectCommandOutput extends Omit<GetObjectResponse, "Body">,
  * };
  * const command = new GetObjectCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.Body.transformToByteArray();
+ * // const str = await response.Body.transformToString();
+ * // response.Body.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetObjectResponse
  * //   Body: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   CacheControl: "STRING_VALUE",
@@ -76,6 +81,7 @@ export interface GetObjectCommandOutput extends Omit<GetObjectResponse, "Body">,
  *
  * @throws {@link MediaStoreDataServiceException}
  * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
+ *
  *
  * @public
  */

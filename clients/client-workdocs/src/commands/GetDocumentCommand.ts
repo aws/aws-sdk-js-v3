@@ -117,6 +117,7 @@ export interface GetDocumentCommandOutput extends GetDocumentResponse, __Metadat
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class GetDocumentCommand extends $Command

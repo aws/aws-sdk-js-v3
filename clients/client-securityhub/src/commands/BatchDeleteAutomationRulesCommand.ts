@@ -85,35 +85,35 @@ export interface BatchDeleteAutomationRulesCommandOutput extends BatchDeleteAuto
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To delete one or more automation rules
  * ```javascript
  * // The following example deletes the specified automation rules.
  * const input = {
- *   "AutomationRulesArns": [
+ *   AutomationRulesArns: [
  *     "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
  *     "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
  *   ]
  * };
  * const command = new BatchDeleteAutomationRulesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ProcessedAutomationRules": [
+ *   ProcessedAutomationRules: [
  *     "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  *   ],
- *   "UnprocessedAutomationRules": [
+ *   UnprocessedAutomationRules: [
  *     {
- *       "ErrorCode": 500,
- *       "ErrorMessage": "InternalException",
- *       "RuleArn": "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+ *       ErrorCode: 500,
+ *       ErrorMessage: "InternalException",
+ *       RuleArn: "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-delete-one-or-more-automation-rules-1684769550318
  * ```
  *
+ * @public
  */
 export class BatchDeleteAutomationRulesCommand extends $Command
   .classBuilder<

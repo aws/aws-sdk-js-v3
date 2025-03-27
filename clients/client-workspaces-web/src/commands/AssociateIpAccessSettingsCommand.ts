@@ -75,6 +75,7 @@ export interface AssociateIpAccessSettingsCommandOutput extends AssociateIpAcces
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class AssociateIpAccessSettingsCommand extends $Command

@@ -90,6 +90,7 @@ export interface SearchProductsCommandOutput extends SearchProductsOutput, __Met
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class SearchProductsCommand extends $Command

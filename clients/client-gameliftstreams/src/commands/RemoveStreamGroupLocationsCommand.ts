@@ -76,6 +76,7 @@ export interface RemoveStreamGroupLocationsCommandOutput extends __MetadataBeare
  * @throws {@link GameLiftStreamsServiceException}
  * <p>Base exception class for all service exceptions from GameLiftStreams service.</p>
  *
+ *
  * @public
  */
 export class RemoveStreamGroupLocationsCommand extends $Command

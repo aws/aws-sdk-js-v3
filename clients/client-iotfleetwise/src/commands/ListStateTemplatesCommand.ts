@@ -83,6 +83,7 @@ export interface ListStateTemplatesCommandOutput extends ListStateTemplatesRespo
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class ListStateTemplatesCommand extends $Command

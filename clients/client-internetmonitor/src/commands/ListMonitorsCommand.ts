@@ -78,6 +78,7 @@ export interface ListMonitorsCommandOutput extends ListMonitorsOutput, __Metadat
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ *
  * @public
  */
 export class ListMonitorsCommand extends $Command

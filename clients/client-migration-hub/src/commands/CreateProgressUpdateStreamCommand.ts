@@ -87,6 +87,7 @@ export interface CreateProgressUpdateStreamCommandOutput extends CreateProgressU
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ *
  * @public
  */
 export class CreateProgressUpdateStreamCommand extends $Command

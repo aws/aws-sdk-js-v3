@@ -87,6 +87,7 @@ export interface ListAccessorsCommandOutput extends ListAccessorsOutput, __Metad
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class ListAccessorsCommand extends $Command

@@ -168,6 +168,7 @@ export interface XmlListsCommandOutput extends XmlListsResponse, __MetadataBeare
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class XmlListsCommand extends $Command

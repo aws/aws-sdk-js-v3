@@ -61,18 +61,21 @@ export interface DeleteSecurityGroupCommandOutput extends DeleteSecurityGroupRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete a security group
  * ```javascript
  * // This example deletes the specified security group.
  * const input = {
- *   "GroupId": "sg-903004f8"
+ *   GroupId: "sg-903004f8"
  * };
  * const command = new DeleteSecurityGroupCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-security-group-1529024952972
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteSecurityGroupCommand extends $Command
   .classBuilder<

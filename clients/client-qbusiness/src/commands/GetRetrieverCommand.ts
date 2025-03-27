@@ -114,6 +114,7 @@ export interface GetRetrieverCommandOutput extends GetRetrieverResponse, __Metad
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ *
  * @public
  */
 export class GetRetrieverCommand extends $Command

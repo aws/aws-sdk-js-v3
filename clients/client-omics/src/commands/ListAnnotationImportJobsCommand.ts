@@ -94,6 +94,7 @@ export interface ListAnnotationImportJobsCommandOutput extends ListAnnotationImp
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class ListAnnotationImportJobsCommand extends $Command

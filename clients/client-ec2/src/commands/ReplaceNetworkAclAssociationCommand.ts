@@ -62,24 +62,24 @@ export interface ReplaceNetworkAclAssociationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To replace the network ACL associated with a subnet
  * ```javascript
  * // This example associates the specified network ACL with the subnet for the specified network ACL association.
  * const input = {
- *   "AssociationId": "aclassoc-e5b95c8c",
- *   "NetworkAclId": "acl-5fb85d36"
+ *   AssociationId: "aclassoc-e5b95c8c",
+ *   NetworkAclId: "acl-5fb85d36"
  * };
  * const command = new ReplaceNetworkAclAssociationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NewAssociationId": "aclassoc-3999875b"
+ *   NewAssociationId: "aclassoc-3999875b"
  * }
  * *\/
- * // example id: ec2-replace-network-acl-association-1
  * ```
  *
+ * @public
  */
 export class ReplaceNetworkAclAssociationCommand extends $Command
   .classBuilder<

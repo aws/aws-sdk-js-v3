@@ -107,6 +107,7 @@ export interface GetProposalCommandOutput extends GetProposalOutput, __MetadataB
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class GetProposalCommand extends $Command

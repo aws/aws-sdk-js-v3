@@ -90,6 +90,7 @@ export interface ListServicesByNamespaceCommandOutput extends ListServicesByName
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ *
  * @public
  */
 export class ListServicesByNamespaceCommand extends $Command

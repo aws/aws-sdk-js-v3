@@ -128,6 +128,7 @@ export interface GetApiCommandOutput extends GetApiResponse, __MetadataBearer {}
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class GetApiCommand extends $Command

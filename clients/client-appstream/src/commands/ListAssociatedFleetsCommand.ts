@@ -59,6 +59,7 @@ export interface ListAssociatedFleetsCommandOutput extends ListAssociatedFleetsR
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class ListAssociatedFleetsCommand extends $Command

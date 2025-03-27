@@ -91,34 +91,34 @@ export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemp
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a launch template
  * ```javascript
  * // This example describes the specified launch template.
  * const input = {
- *   "LaunchTemplateIds": [
+ *   LaunchTemplateIds: [
  *     "lt-01238c059e3466abc"
  *   ]
  * };
  * const command = new DescribeLaunchTemplatesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LaunchTemplates": [
+ *   LaunchTemplates: [
  *     {
- *       "CreateTime": "2018-01-16T04:32:57.000Z",
- *       "CreatedBy": "arn:aws:iam::123456789012:root",
- *       "DefaultVersionNumber": 1,
- *       "LatestVersionNumber": 1,
- *       "LaunchTemplateId": "lt-01238c059e3466abc",
- *       "LaunchTemplateName": "my-template"
+ *       CreateTime: "2018-01-16T04:32:57.000Z",
+ *       CreatedBy: "arn:aws:iam::123456789012:root",
+ *       DefaultVersionNumber: 1,
+ *       LatestVersionNumber: 1,
+ *       LaunchTemplateId: "lt-01238c059e3466abc",
+ *       LaunchTemplateName: "my-template"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-a-launch-template-1529344182862
  * ```
  *
+ * @public
  */
 export class DescribeLaunchTemplatesCommand extends $Command
   .classBuilder<

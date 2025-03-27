@@ -89,6 +89,7 @@ export interface ListThirdPartyFirewallFirewallPoliciesCommandOutput
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class ListThirdPartyFirewallFirewallPoliciesCommand extends $Command

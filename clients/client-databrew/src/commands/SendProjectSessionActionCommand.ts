@@ -99,6 +99,7 @@ export interface SendProjectSessionActionCommandOutput extends SendProjectSessio
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class SendProjectSessionActionCommand extends $Command

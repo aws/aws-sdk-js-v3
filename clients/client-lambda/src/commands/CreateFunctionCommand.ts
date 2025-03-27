@@ -300,71 +300,71 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To create a function
  * ```javascript
  * // The following example creates a function with a deployment package in Amazon S3 and enables X-Ray tracing and environment variable encryption.
  * const input = {
- *   "Code": {
- *     "S3Bucket": "my-bucket-1xpuxmplzrlbh",
- *     "S3Key": "function.zip"
+ *   Code: {
+ *     S3Bucket: "my-bucket-1xpuxmplzrlbh",
+ *     S3Key: "function.zip"
  *   },
- *   "Description": "Process image objects from Amazon S3.",
- *   "Environment": {
- *     "Variables": {
- *       "BUCKET": "my-bucket-1xpuxmplzrlbh",
- *       "PREFIX": "inbound"
+ *   Description: "Process image objects from Amazon S3.",
+ *   Environment: {
+ *     Variables: {
+ *       BUCKET: "my-bucket-1xpuxmplzrlbh",
+ *       PREFIX: "inbound"
  *     }
  *   },
- *   "FunctionName": "my-function",
- *   "Handler": "index.handler",
- *   "KMSKeyArn": "arn:aws:kms:us-west-2:123456789012:key/b0844d6c-xmpl-4463-97a4-d49f50839966",
- *   "MemorySize": 256,
- *   "Publish": true,
- *   "Role": "arn:aws:iam::123456789012:role/lambda-role",
- *   "Runtime": "nodejs12.x",
- *   "Tags": {
- *     "DEPARTMENT": "Assets"
+ *   FunctionName: "my-function",
+ *   Handler: "index.handler",
+ *   KMSKeyArn: "arn:aws:kms:us-west-2:123456789012:key/b0844d6c-xmpl-4463-97a4-d49f50839966",
+ *   MemorySize: 256,
+ *   Publish: true,
+ *   Role: "arn:aws:iam::123456789012:role/lambda-role",
+ *   Runtime: "nodejs12.x",
+ *   Tags: {
+ *     DEPARTMENT: "Assets"
  *   },
- *   "Timeout": 15,
- *   "TracingConfig": {
- *     "Mode": "Active"
+ *   Timeout: 15,
+ *   TracingConfig: {
+ *     Mode: "Active"
  *   }
  * };
  * const command = new CreateFunctionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CodeSha256": "YFgDgEKG3ugvF1+pX64gV6tu9qNuIYNUdgJm8nCxsm4=",
- *   "CodeSize": 5797206,
- *   "Description": "Process image objects from Amazon S3.",
- *   "Environment": {
- *     "Variables": {
- *       "BUCKET": "my-bucket-1xpuxmplzrlbh",
- *       "PREFIX": "inbound"
+ *   CodeSha256: "YFgDgEKG3ugvF1+pX64gV6tu9qNuIYNUdgJm8nCxsm4=",
+ *   CodeSize: 5797206,
+ *   Description: "Process image objects from Amazon S3.",
+ *   Environment: {
+ *     Variables: {
+ *       BUCKET: "my-bucket-1xpuxmplzrlbh",
+ *       PREFIX: "inbound"
  *     }
  *   },
- *   "FunctionArn": "arn:aws:lambda:us-west-2:123456789012:function:my-function",
- *   "FunctionName": "my-function",
- *   "Handler": "index.handler",
- *   "KMSKeyArn": "arn:aws:kms:us-west-2:123456789012:key/b0844d6c-xmpl-4463-97a4-d49f50839966",
- *   "LastModified": "2020-04-10T19:06:32.563+0000",
- *   "LastUpdateStatus": "Successful",
- *   "MemorySize": 256,
- *   "RevisionId": "b75dcd81-xmpl-48a8-a75a-93ba8b5b9727",
- *   "Role": "arn:aws:iam::123456789012:role/lambda-role",
- *   "Runtime": "nodejs12.x",
- *   "State": "Active",
- *   "Timeout": 15,
- *   "TracingConfig": {
- *     "Mode": "Active"
+ *   FunctionArn: "arn:aws:lambda:us-west-2:123456789012:function:my-function",
+ *   FunctionName: "my-function",
+ *   Handler: "index.handler",
+ *   KMSKeyArn: "arn:aws:kms:us-west-2:123456789012:key/b0844d6c-xmpl-4463-97a4-d49f50839966",
+ *   LastModified: "2020-04-10T19:06:32.563+0000",
+ *   LastUpdateStatus: "Successful",
+ *   MemorySize: 256,
+ *   RevisionId: "b75dcd81-xmpl-48a8-a75a-93ba8b5b9727",
+ *   Role: "arn:aws:iam::123456789012:role/lambda-role",
+ *   Runtime: "nodejs12.x",
+ *   State: "Active",
+ *   Timeout: 15,
+ *   TracingConfig: {
+ *     Mode: "Active"
  *   },
- *   "Version": "1"
+ *   Version: "1"
  * }
  * *\/
- * // example id: to-create-a-function-1586492061186
  * ```
  *
+ * @public
  */
 export class CreateFunctionCommand extends $Command
   .classBuilder<

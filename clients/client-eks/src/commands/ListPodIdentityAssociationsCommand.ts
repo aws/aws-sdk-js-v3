@@ -92,6 +92,7 @@ export interface ListPodIdentityAssociationsCommandOutput
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class ListPodIdentityAssociationsCommand extends $Command

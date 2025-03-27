@@ -80,6 +80,7 @@ export interface ListDataIntegrationsCommandOutput extends ListDataIntegrationsR
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ *
  * @public
  */
 export class ListDataIntegrationsCommand extends $Command

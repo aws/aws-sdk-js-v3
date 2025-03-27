@@ -82,6 +82,7 @@ export interface StartInstanceOnboardingJobCommandOutput extends StartInstanceOn
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ *
  * @public
  */
 export class StartInstanceOnboardingJobCommand extends $Command

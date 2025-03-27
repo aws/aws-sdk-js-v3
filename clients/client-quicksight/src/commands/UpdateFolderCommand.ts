@@ -90,6 +90,7 @@ export interface UpdateFolderCommandOutput extends UpdateFolderResponse, __Metad
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateFolderCommand extends $Command

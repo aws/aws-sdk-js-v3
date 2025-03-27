@@ -79,6 +79,7 @@ export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsRes
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListV2LoggingLevelsCommand extends $Command

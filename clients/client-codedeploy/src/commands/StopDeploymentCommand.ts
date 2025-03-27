@@ -76,6 +76,7 @@ export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __Met
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class StopDeploymentCommand extends $Command

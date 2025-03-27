@@ -86,6 +86,7 @@ export interface AssumeFleetRoleForWorkerCommandOutput extends AssumeFleetRoleFo
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ *
  * @public
  */
 export class AssumeFleetRoleForWorkerCommand extends $Command

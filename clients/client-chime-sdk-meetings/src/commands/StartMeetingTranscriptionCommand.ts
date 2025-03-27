@@ -122,6 +122,7 @@ export interface StartMeetingTranscriptionCommandOutput extends __MetadataBearer
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ *
  * @public
  */
 export class StartMeetingTranscriptionCommand extends $Command

@@ -128,6 +128,7 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class ListWorkgroupsCommand extends $Command

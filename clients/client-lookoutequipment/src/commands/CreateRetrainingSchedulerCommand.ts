@@ -85,51 +85,50 @@ export interface CreateRetrainingSchedulerCommandOutput extends CreateRetraining
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
- * @public
+ *
  * @example Creates a retraining scheduler with manual promote mode
  * ```javascript
  * //
  * const input = {
- *   "ClientToken": "sample-client-token",
- *   "LookbackWindow": "P360D",
- *   "ModelName": "sample-model",
- *   "PromoteMode": "MANUAL",
- *   "RetrainingFrequency": "P1M"
+ *   ClientToken: "sample-client-token",
+ *   LookbackWindow: "P360D",
+ *   ModelName: "sample-model",
+ *   PromoteMode: "MANUAL",
+ *   RetrainingFrequency: "P1M"
  * };
  * const command = new CreateRetrainingSchedulerCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ModelArn": "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "ModelName": "sample-model",
- *   "Status": "PENDING"
+ *   ModelArn: "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   ModelName: "sample-model",
+ *   Status: "PENDING"
  * }
  * *\/
- * // example id: creates-a-retraining-scheduler-with-manual-promote-mode-1694018486212
  * ```
  *
  * @example Creates a retraining scheduler with a specific start date
  * ```javascript
  * //
  * const input = {
- *   "ClientToken": "sample-client-token",
- *   "LookbackWindow": "P360D",
- *   "ModelName": "sample-model",
- *   "RetrainingFrequency": "P1M",
- *   "RetrainingStartDate": "2024-01-01T00:00:00Z"
+ *   ClientToken: "sample-client-token",
+ *   LookbackWindow: "P360D",
+ *   ModelName: "sample-model",
+ *   RetrainingFrequency: "P1M",
+ *   RetrainingStartDate: "2024-01-01T00:00:00Z"
  * };
  * const command = new CreateRetrainingSchedulerCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ModelArn": "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "ModelName": "sample-model",
- *   "Status": "PENDING"
+ *   ModelArn: "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   ModelName: "sample-model",
+ *   Status: "PENDING"
  * }
  * *\/
- * // example id: creates-a-retraining-scheduler-with-a-specific-start-date-1694018790519
  * ```
  *
+ * @public
  */
 export class CreateRetrainingSchedulerCommand extends $Command
   .classBuilder<

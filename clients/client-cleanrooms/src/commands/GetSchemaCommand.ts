@@ -125,6 +125,7 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class GetSchemaCommand extends $Command

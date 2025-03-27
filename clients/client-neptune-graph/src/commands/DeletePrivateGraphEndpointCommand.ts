@@ -76,6 +76,7 @@ export interface DeletePrivateGraphEndpointCommandOutput extends DeletePrivateGr
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class DeletePrivateGraphEndpointCommand extends $Command

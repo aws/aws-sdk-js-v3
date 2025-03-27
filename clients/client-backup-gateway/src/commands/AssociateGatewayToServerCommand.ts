@@ -70,6 +70,7 @@ export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayT
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ *
  * @public
  */
 export class AssociateGatewayToServerCommand extends $Command

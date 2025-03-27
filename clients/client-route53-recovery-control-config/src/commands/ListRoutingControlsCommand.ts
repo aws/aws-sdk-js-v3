@@ -85,6 +85,7 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ *
  * @public
  */
 export class ListRoutingControlsCommand extends $Command

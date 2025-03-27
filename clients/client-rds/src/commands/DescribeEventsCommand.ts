@@ -91,45 +91,45 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe events
  * ```javascript
  * // The following retrieves details for the events that have occurred for the specified DB instance.
  * const input = {
- *   "SourceIdentifier": "test-instance",
- *   "SourceType": "db-instance"
+ *   SourceIdentifier: "test-instance",
+ *   SourceType: "db-instance"
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Events": [
+ *   Events: [
  *     {
- *       "Date": "2018-07-31T23:09:23.983Z",
- *       "EventCategories": [
+ *       Date: "2018-07-31T23:09:23.983Z",
+ *       EventCategories: [
  *         "backup"
  *       ],
- *       "Message": "Backing up DB instance",
- *       "SourceArn": "arn:aws:rds:us-east-1:123456789012:db:test-instance",
- *       "SourceIdentifier": "test-instance",
- *       "SourceType": "db-instance"
+ *       Message: "Backing up DB instance",
+ *       SourceArn: "arn:aws:rds:us-east-1:123456789012:db:test-instance",
+ *       SourceIdentifier: "test-instance",
+ *       SourceType: "db-instance"
  *     },
  *     {
- *       "Date": "2018-07-31T23:15:13.049Z",
- *       "EventCategories": [
+ *       Date: "2018-07-31T23:15:13.049Z",
+ *       EventCategories: [
  *         "backup"
  *       ],
- *       "Message": "Finished DB Instance backup",
- *       "SourceArn": "arn:aws:rds:us-east-1:123456789012:db:test-instance",
- *       "SourceIdentifier": "test-instance",
- *       "SourceType": "db-instance"
+ *       Message: "Finished DB Instance backup",
+ *       SourceArn: "arn:aws:rds:us-east-1:123456789012:db:test-instance",
+ *       SourceIdentifier: "test-instance",
+ *       SourceType: "db-instance"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-events-1680281559411
  * ```
  *
+ * @public
  */
 export class DescribeEventsCommand extends $Command
   .classBuilder<

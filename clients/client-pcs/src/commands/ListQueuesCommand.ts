@@ -145,6 +145,7 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  * @throws {@link PCSServiceException}
  * <p>Base exception class for all service exceptions from PCS service.</p>
  *
+ *
  * @public
  */
 export class ListQueuesCommand extends $Command

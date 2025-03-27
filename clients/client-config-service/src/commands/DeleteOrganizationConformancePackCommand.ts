@@ -113,6 +113,7 @@ export interface DeleteOrganizationConformancePackCommandOutput extends __Metada
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DeleteOrganizationConformancePackCommand extends $Command

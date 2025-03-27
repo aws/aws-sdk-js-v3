@@ -102,20 +102,23 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To record a lifecycle action heartbeat
  * ```javascript
  * // This example records a lifecycle action heartbeat to keep the instance in a pending state.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "LifecycleActionToken": "bcd2f1b8-9a78-44d3-8a7a-4dd07d7cf635",
- *   "LifecycleHookName": "my-lifecycle-hook"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   LifecycleActionToken: "bcd2f1b8-9a78-44d3-8a7a-4dd07d7cf635",
+ *   LifecycleHookName: "my-lifecycle-hook"
  * };
  * const command = new RecordLifecycleActionHeartbeatCommand(input);
- * await client.send(command);
- * // example id: autoscaling-record-lifecycle-action-heartbeat-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RecordLifecycleActionHeartbeatCommand extends $Command
   .classBuilder<

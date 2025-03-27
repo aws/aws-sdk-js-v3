@@ -108,6 +108,7 @@ export interface ListInventoryEntriesCommandOutput extends ListInventoryEntriesR
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class ListInventoryEntriesCommand extends $Command

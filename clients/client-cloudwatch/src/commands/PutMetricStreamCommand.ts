@@ -143,6 +143,7 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class PutMetricStreamCommand extends $Command

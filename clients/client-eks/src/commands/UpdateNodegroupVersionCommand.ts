@@ -131,6 +131,7 @@ export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVers
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class UpdateNodegroupVersionCommand extends $Command

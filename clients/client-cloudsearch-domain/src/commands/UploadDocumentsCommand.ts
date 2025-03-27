@@ -80,6 +80,7 @@ export interface UploadDocumentsCommandOutput extends UploadDocumentsResponse, _
  * @throws {@link CloudSearchDomainServiceException}
  * <p>Base exception class for all service exceptions from CloudSearchDomain service.</p>
  *
+ *
  * @public
  */
 export class UploadDocumentsCommand extends $Command

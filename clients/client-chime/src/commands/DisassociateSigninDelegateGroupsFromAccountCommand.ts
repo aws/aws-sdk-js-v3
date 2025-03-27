@@ -86,6 +86,7 @@ export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command

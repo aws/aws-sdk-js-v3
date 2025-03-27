@@ -74,6 +74,7 @@ export interface DeleteSequenceStoreCommandOutput extends DeleteSequenceStoreRes
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class DeleteSequenceStoreCommand extends $Command

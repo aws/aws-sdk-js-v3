@@ -83,6 +83,7 @@ export interface AssociateTrackerConsumerCommandOutput extends AssociateTrackerC
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class AssociateTrackerConsumerCommand extends $Command

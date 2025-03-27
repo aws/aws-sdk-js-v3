@@ -75,6 +75,7 @@ export interface DescribeCustomMetricCommandOutput extends DescribeCustomMetricR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeCustomMetricCommand extends $Command

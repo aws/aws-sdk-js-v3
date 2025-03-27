@@ -111,6 +111,7 @@ export interface ListGroupsForMemberCommandOutput extends ListGroupsForMemberRes
  * @throws {@link DirectoryServiceDataServiceException}
  * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
+ *
  * @public
  */
 export class ListGroupsForMemberCommand extends $Command

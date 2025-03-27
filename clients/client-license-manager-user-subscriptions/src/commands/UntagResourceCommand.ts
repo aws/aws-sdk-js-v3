@@ -70,6 +70,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

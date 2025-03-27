@@ -78,6 +78,7 @@ export interface UpdateReportDefinitionCommandOutput extends UpdateReportDefinit
  * @throws {@link ApplicationCostProfilerServiceException}
  * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
+ *
  * @public
  */
 export class UpdateReportDefinitionCommand extends $Command

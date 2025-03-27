@@ -94,6 +94,7 @@ export interface DescribeAccessCommandOutput extends DescribeAccessResponse, __M
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccessCommand extends $Command

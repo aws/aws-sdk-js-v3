@@ -96,6 +96,7 @@ export interface CreateMaintenanceWindowCommandOutput extends CreateMaintenanceW
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class CreateMaintenanceWindowCommand extends $Command

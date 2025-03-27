@@ -79,6 +79,7 @@ export interface ListImportFailuresCommandOutput extends ListImportFailuresRespo
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class ListImportFailuresCommand extends $Command

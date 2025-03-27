@@ -87,6 +87,7 @@ export interface GetEventActionCommandOutput extends GetEventActionResponse, __M
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class GetEventActionCommand extends $Command

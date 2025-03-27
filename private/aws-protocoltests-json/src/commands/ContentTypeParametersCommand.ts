@@ -52,6 +52,7 @@ export interface ContentTypeParametersCommandOutput extends ContentTypeParameter
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class ContentTypeParametersCommand extends $Command

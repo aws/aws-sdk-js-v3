@@ -264,6 +264,7 @@ export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelin
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class ValidatePipelineDefinitionCommand extends $Command

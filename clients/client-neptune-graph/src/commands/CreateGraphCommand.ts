@@ -97,6 +97,7 @@ export interface CreateGraphCommandOutput extends CreateGraphOutput, __MetadataB
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class CreateGraphCommand extends $Command

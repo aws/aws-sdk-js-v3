@@ -119,6 +119,7 @@ export interface CreateSlotTypeVersionCommandOutput extends CreateSlotTypeVersio
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ *
  * @public
  */
 export class CreateSlotTypeVersionCommand extends $Command

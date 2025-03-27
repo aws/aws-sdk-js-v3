@@ -79,6 +79,7 @@ export interface DescribeIdentityCommandOutput extends IdentityDescription, __Me
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ *
  * @public
  */
 export class DescribeIdentityCommand extends $Command

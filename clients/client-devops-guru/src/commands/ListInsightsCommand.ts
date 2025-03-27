@@ -167,6 +167,7 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class ListInsightsCommand extends $Command

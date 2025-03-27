@@ -79,18 +79,21 @@ export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBea
  * @throws {@link DSQLServiceException}
  * <p>Base exception class for all service exceptions from DSQL service.</p>
  *
- * @public
+ *
  * @example Get Cluster
  * ```javascript
  * //
  * const input = {
- *   "identifier": "kiqenqglxyl2snyvkvnj2c3s2e"
+ *   identifier: "kiqenqglxyl2snyvkvnj2c3s2e"
  * };
  * const command = new GetClusterCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class GetClusterCommand extends $Command
   .classBuilder<

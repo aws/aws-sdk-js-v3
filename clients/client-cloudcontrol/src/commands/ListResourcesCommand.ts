@@ -139,6 +139,7 @@ export interface ListResourcesCommandOutput extends ListResourcesOutput, __Metad
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ *
  * @public
  */
 export class ListResourcesCommand extends $Command

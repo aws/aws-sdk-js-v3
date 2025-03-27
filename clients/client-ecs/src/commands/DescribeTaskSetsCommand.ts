@@ -180,60 +180,60 @@ export interface DescribeTaskSetsCommandOutput extends DescribeTaskSetsResponse,
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To describe a task set
  * ```javascript
  * // This example describes a task set in service MyService that uses an EXTERNAL deployment controller.
  * const input = {
- *   "cluster": "MyCluster",
- *   "service": "MyService",
- *   "taskSets": [
+ *   cluster: "MyCluster",
+ *   service: "MyService",
+ *   taskSets: [
  *     "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789"
  *   ]
  * };
  * const command = new DescribeTaskSetsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "failures": [],
- *   "taskSets": [
+ *   failures:   [],
+ *   taskSets: [
  *     {
- *       "computedDesiredCount": 0,
- *       "createdAt": 1557207715.195,
- *       "id": "ecs-svc/1234567890123456789",
- *       "launchType": "EC2",
- *       "loadBalancers": [],
- *       "networkConfiguration": {
- *         "awsvpcConfiguration": {
- *           "assignPublicIp": "DISABLED",
- *           "securityGroups": [
+ *       computedDesiredCount: 0,
+ *       createdAt: 1.557207715195E9,
+ *       id: "ecs-svc/1234567890123456789",
+ *       launchType: "EC2",
+ *       loadBalancers:       [],
+ *       networkConfiguration: {
+ *         awsvpcConfiguration: {
+ *           assignPublicIp: "DISABLED",
+ *           securityGroups: [
  *             "sg-1234431"
  *           ],
- *           "subnets": [
+ *           subnets: [
  *             "subnet-12344321"
  *           ]
  *         }
  *       },
- *       "pendingCount": 0,
- *       "runningCount": 0,
- *       "scale": {
- *         "value": 0,
- *         "unit": "PERCENT"
+ *       pendingCount: 0,
+ *       runningCount: 0,
+ *       scale: {
+ *         unit: "PERCENT",
+ *         value: 0
  *       },
- *       "serviceRegistries": [],
- *       "stabilityStatus": "STEADY_STATE",
- *       "stabilityStatusAt": 1557207740.014,
- *       "status": "ACTIVE",
- *       "taskDefinition": "arn:aws:ecs:us-west-2:123456789012:task-definition/sample-fargate:2",
- *       "taskSetArn": "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789",
- *       "updatedAt": 1557207740.014
+ *       serviceRegistries:       [],
+ *       stabilityStatus: "STEADY_STATE",
+ *       stabilityStatusAt: 1.557207740014E9,
+ *       status: "ACTIVE",
+ *       taskDefinition: "arn:aws:ecs:us-west-2:123456789012:task-definition/sample-fargate:2",
+ *       taskSetArn: "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789",
+ *       updatedAt: 1.557207740014E9
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-a-task-set--1734035629507
  * ```
  *
+ * @public
  */
 export class DescribeTaskSetsCommand extends $Command
   .classBuilder<

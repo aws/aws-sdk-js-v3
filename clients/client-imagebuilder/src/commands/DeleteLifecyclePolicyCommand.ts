@@ -80,6 +80,7 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class DeleteLifecyclePolicyCommand extends $Command

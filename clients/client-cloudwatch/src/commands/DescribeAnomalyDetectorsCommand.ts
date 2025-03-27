@@ -145,6 +145,7 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class DescribeAnomalyDetectorsCommand extends $Command

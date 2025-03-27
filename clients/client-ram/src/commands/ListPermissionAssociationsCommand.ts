@@ -95,6 +95,7 @@ export interface ListPermissionAssociationsCommandOutput extends ListPermissionA
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ *
  * @public
  */
 export class ListPermissionAssociationsCommand extends $Command

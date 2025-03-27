@@ -151,6 +151,7 @@ export interface ListRecordsCommandOutput extends ListRecordsResponse, __Metadat
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class ListRecordsCommand extends $Command

@@ -68,6 +68,7 @@ export interface GetGlyphsCommandOutput extends GetGlyphsCommandOutputType, __Me
  * @throws {@link GeoMapsServiceException}
  * <p>Base exception class for all service exceptions from GeoMaps service.</p>
  *
+ *
  * @public
  */
 export class GetGlyphsCommand extends $Command

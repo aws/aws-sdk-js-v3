@@ -85,6 +85,7 @@ export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultP
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ *
  * @public
  */
 export class DescribeDefaultParametersCommand extends $Command

@@ -84,26 +84,26 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link SecurityIRServiceException}
  * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
- * @public
+ *
  * @example Invoke ListTagsForResource
  * ```javascript
  * //
  * const input = {
- *   "resourceArn": "arn:aws:security-ir:us-west-1:123456789012:membership/m-abcd1234efgh"
+ *   resourceArn: "arn:aws:security-ir:us-west-1:123456789012:membership/m-abcd1234efgh"
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "tags": {
- *     "key": "example-tag-key",
- *     "value": "example-tag-value"
+ *   tags: {
+ *     key: "example-tag-key",
+ *     value: "example-tag-value"
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

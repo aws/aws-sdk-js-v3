@@ -97,6 +97,7 @@ export interface SendWorkflowStepActionCommandOutput extends SendWorkflowStepAct
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class SendWorkflowStepActionCommand extends $Command

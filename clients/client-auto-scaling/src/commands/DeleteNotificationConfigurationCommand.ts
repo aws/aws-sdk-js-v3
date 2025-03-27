@@ -61,19 +61,22 @@ export interface DeleteNotificationConfigurationCommandOutput extends __Metadata
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To delete an Auto Scaling notification
  * ```javascript
  * // This example deletes the specified notification from the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "TopicARN": "arn:aws:sns:us-west-2:123456789012:my-sns-topic"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   TopicARN: "arn:aws:sns:us-west-2:123456789012:my-sns-topic"
  * };
  * const command = new DeleteNotificationConfigurationCommand(input);
- * await client.send(command);
- * // example id: autoscaling-delete-notification-configuration-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteNotificationConfigurationCommand extends $Command
   .classBuilder<

@@ -206,6 +206,7 @@ export interface DescribeAutomationExecutionsCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DescribeAutomationExecutionsCommand extends $Command

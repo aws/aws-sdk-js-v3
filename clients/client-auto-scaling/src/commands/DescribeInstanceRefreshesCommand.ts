@@ -243,70 +243,8 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
- * @example To list instance refreshes
- * ```javascript
- * // This example describes the instance refreshes for the specified Auto Scaling group.
- * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group"
- * };
- * const command = new DescribeInstanceRefreshesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "InstanceRefreshes": [
- *     {
- *       "AutoScalingGroupName": "my-auto-scaling-group",
- *       "InstanceRefreshId": "08b91cf7-8fa6-48af-b6a6-d227f40f1b9b",
- *       "InstancesToUpdate": 0,
- *       "PercentageComplete": 50,
- *       "Preferences": {
- *         "AlarmSpecification": {
- *           "Alarms": [
- *             "my-alarm"
- *           ]
- *         },
- *         "AutoRollback": true,
- *         "InstanceWarmup": 200,
- *         "MaxHealthyPercentage": 120,
- *         "MinHealthyPercentage": 90,
- *         "ScaleInProtectedInstances": "Ignore",
- *         "SkipMatching": false,
- *         "StandbyInstances": "Ignore"
- *       },
- *       "StartTime": "2023-06-13T16:46:52+00:00",
- *       "Status": "InProgress",
- *       "StatusReason": "Waiting for instances to warm up before continuing. For example: i-0645704820a8e83ff is warming up."
- *     },
- *     {
- *       "AutoScalingGroupName": "my-auto-scaling-group",
- *       "EndTime": "2023-06-02T13:59:45+00:00",
- *       "InstanceRefreshId": "0e151305-1e57-4a32-a256-1fd14157c5ec",
- *       "InstancesToUpdate": 0,
- *       "PercentageComplete": 100,
- *       "Preferences": {
- *         "AlarmSpecification": {
- *           "Alarms": [
- *             "my-alarm"
- *           ]
- *         },
- *         "AutoRollback": true,
- *         "InstanceWarmup": 200,
- *         "MaxHealthyPercentage": 120,
- *         "MinHealthyPercentage": 90,
- *         "ScaleInProtectedInstances": "Ignore",
- *         "SkipMatching": false,
- *         "StandbyInstances": "Ignore"
- *       },
- *       "StartTime": "2023-06-02T13:53:37+00:00",
- *       "Status": "Successful"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-list-instance-refreshes-1592959593746
- * ```
  *
+ * @public
  */
 export class DescribeInstanceRefreshesCommand extends $Command
   .classBuilder<

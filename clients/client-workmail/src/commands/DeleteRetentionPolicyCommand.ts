@@ -65,6 +65,7 @@ export interface DeleteRetentionPolicyCommandOutput extends DeleteRetentionPolic
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class DeleteRetentionPolicyCommand extends $Command

@@ -87,6 +87,7 @@ export interface GetApplicationPolicyCommandOutput extends GetApplicationPolicyR
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ *
  * @public
  */
 export class GetApplicationPolicyCommand extends $Command

@@ -76,6 +76,7 @@ export interface GetBackendJobCommandOutput extends GetBackendJobResponse, __Met
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ *
  * @public
  */
 export class GetBackendJobCommand extends $Command

@@ -69,6 +69,7 @@ export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __Metadat
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class DeleteLFTagCommand extends $Command

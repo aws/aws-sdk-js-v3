@@ -98,145 +98,142 @@ export interface ListInvoiceUnitsCommandOutput extends ListInvoiceUnitsResponse,
  * @throws {@link InvoicingServiceException}
  * <p>Base exception class for all service exceptions from Invoicing service.</p>
  *
- * @public
+ *
  * @example ListInvoiceUnits without filters as of current time
  * ```javascript
  * //
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListInvoiceUnitsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InvoiceUnits": [
+ *   InvoiceUnits: [
  *     {
- *       "Description": "Description changed on 1733788800",
- *       "InvoiceReceiver": "111111111111",
- *       "InvoiceUnitArn": "arn:aws:invoicing::000000000000:invoice-unit/12345678",
- *       "LastModified": 1733788800,
- *       "Name": "Example Invoice Unit A",
- *       "Rule": {
- *         "LinkedAccounts": [
+ *       Description: "Description changed on 1733788800",
+ *       InvoiceReceiver: "111111111111",
+ *       InvoiceUnitArn: "arn:aws:invoicing::000000000000:invoice-unit/12345678",
+ *       LastModified: 1733788800,
+ *       Name: "Example Invoice Unit A",
+ *       Rule: {
+ *         LinkedAccounts: [
  *           "222222222222"
  *         ]
  *       },
- *       "TaxInheritanceDisabled": false
+ *       TaxInheritanceDisabled: false
  *     },
  *     {
- *       "Description": "Description changed on 1733788800",
- *       "InvoiceReceiver": "333333333333",
- *       "InvoiceUnitArn": "arn:aws:invoicing::000000000000:invoice-unit/87654321",
- *       "LastModified": 1733788800,
- *       "Name": "Example Invoice Unit B",
- *       "Rule": {
- *         "LinkedAccounts": [
+ *       Description: "Description changed on 1733788800",
+ *       InvoiceReceiver: "333333333333",
+ *       InvoiceUnitArn: "arn:aws:invoicing::000000000000:invoice-unit/87654321",
+ *       LastModified: 1733788800,
+ *       Name: "Example Invoice Unit B",
+ *       Rule: {
+ *         LinkedAccounts: [
  *           "333333333333"
  *         ]
  *       },
- *       "TaxInheritanceDisabled": true
+ *       TaxInheritanceDisabled: true
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
  * @example ListInvoiceUnits with filters as of specified time
  * ```javascript
  * //
  * const input = {
- *   "AsOf": 1733097600,
- *   "Filters": {
- *     "InvoiceReceivers": [
+ *   AsOf: 1733097600,
+ *   Filters: {
+ *     InvoiceReceivers: [
  *       "333333333333"
  *     ]
  *   }
  * };
  * const command = new ListInvoiceUnitsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InvoiceUnits": [
+ *   InvoiceUnits: [
  *     {
- *       "Description": "Description changed on 1733011200",
- *       "InvoiceReceiver": "333333333333",
- *       "InvoiceUnitArn": "arn:aws:invoicing::000000000000:invoice-unit/87654321",
- *       "LastModified": 1733011200,
- *       "Name": "Example Invoice Unit B",
- *       "Rule": {
- *         "LinkedAccounts": [
+ *       Description: "Description changed on 1733011200",
+ *       InvoiceReceiver: "333333333333",
+ *       InvoiceUnitArn: "arn:aws:invoicing::000000000000:invoice-unit/87654321",
+ *       LastModified: 1733011200,
+ *       Name: "Example Invoice Unit B",
+ *       Rule: {
+ *         LinkedAccounts: [
  *           "333333333333"
  *         ]
  *       },
- *       "TaxInheritanceDisabled": false
+ *       TaxInheritanceDisabled: false
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-2
  * ```
  *
  * @example ListInvoiceUnits with pagination - first page
  * ```javascript
  * //
  * const input = {
- *   "MaxResults": 1
+ *   MaxResults: 1
  * };
  * const command = new ListInvoiceUnitsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InvoiceUnits": [
+ *   InvoiceUnits: [
  *     {
- *       "Description": "Description changed on 1733788800",
- *       "InvoiceReceiver": "111111111111",
- *       "InvoiceUnitArn": "arn:aws:invoicing::000000000000:invoice-unit/12345678",
- *       "LastModified": 1733788800,
- *       "Name": "Example Invoice Unit A",
- *       "Rule": {
- *         "LinkedAccounts": [
+ *       Description: "Description changed on 1733788800",
+ *       InvoiceReceiver: "111111111111",
+ *       InvoiceUnitArn: "arn:aws:invoicing::000000000000:invoice-unit/12345678",
+ *       LastModified: 1733788800,
+ *       Name: "Example Invoice Unit A",
+ *       Rule: {
+ *         LinkedAccounts: [
  *           "222222222222"
  *         ]
  *       },
- *       "TaxInheritanceDisabled": false
+ *       TaxInheritanceDisabled: false
  *     }
  *   ],
- *   "NextToken": "nextTokenExample"
+ *   NextToken: "nextTokenExample"
  * }
  * *\/
- * // example id: example-3
  * ```
  *
  * @example ListInvoiceUnits with pagination - second page
  * ```javascript
  * //
  * const input = {
- *   "MaxResults": 1,
- *   "NextToken": "nextTokenExample"
+ *   MaxResults: 1,
+ *   NextToken: "nextTokenExample"
  * };
  * const command = new ListInvoiceUnitsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InvoiceUnits": [
+ *   InvoiceUnits: [
  *     {
- *       "Description": "Description changed on 1733788800",
- *       "InvoiceReceiver": "333333333333",
- *       "InvoiceUnitArn": "arn:aws:invoicing::000000000000:invoice-unit/87654321",
- *       "LastModified": 1733788800,
- *       "Name": "Example Invoice Unit B",
- *       "Rule": {
- *         "LinkedAccounts": [
+ *       Description: "Description changed on 1733788800",
+ *       InvoiceReceiver: "333333333333",
+ *       InvoiceUnitArn: "arn:aws:invoicing::000000000000:invoice-unit/87654321",
+ *       LastModified: 1733788800,
+ *       Name: "Example Invoice Unit B",
+ *       Rule: {
+ *         LinkedAccounts: [
  *           "333333333333"
  *         ]
  *       },
- *       "TaxInheritanceDisabled": true
+ *       TaxInheritanceDisabled: true
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-4
  * ```
  *
+ * @public
  */
 export class ListInvoiceUnitsCommand extends $Command
   .classBuilder<

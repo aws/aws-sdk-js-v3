@@ -98,69 +98,68 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To allow two AWS accounts to restore a DB snapshot
  * ```javascript
  * // The following example grants permission to two AWS accounts, with the identifiers 111122223333 and 444455556666, to restore the DB snapshot named mydbsnapshot.
  * const input = {
- *   "AttributeName": "restore",
- *   "DBSnapshotIdentifier": "mydbsnapshot",
- *   "ValuesToAdd": [
+ *   AttributeName: "restore",
+ *   DBSnapshotIdentifier: "mydbsnapshot",
+ *   ValuesToAdd: [
  *     "111122223333",
  *     "444455556666"
  *   ]
  * };
  * const command = new ModifyDBSnapshotAttributeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBSnapshotAttributesResult": {
- *     "DBSnapshotAttributes": [
+ *   DBSnapshotAttributesResult: {
+ *     DBSnapshotAttributes: [
  *       {
- *         "AttributeName": "restore",
- *         "AttributeValues": [
+ *         AttributeName: "restore",
+ *         AttributeValues: [
  *           "111122223333",
  *           "444455556666"
  *         ]
  *       }
  *     ],
- *     "DBSnapshotIdentifier": "mydbsnapshot"
+ *     DBSnapshotIdentifier: "mydbsnapshot"
  *   }
  * }
  * *\/
- * // example id: to-allow-two-aws-accounts-to-restore-a-db-snapshot-1680389647513
  * ```
  *
  * @example To prevent an AWS account from restoring a DB snapshot
  * ```javascript
  * // The following example removes permission from the AWS account with the identifier 444455556666 to restore the DB snapshot named mydbsnapshot.
  * const input = {
- *   "AttributeName": "restore",
- *   "DBSnapshotIdentifier": "mydbsnapshot",
- *   "ValuesToRemove": [
+ *   AttributeName: "restore",
+ *   DBSnapshotIdentifier: "mydbsnapshot",
+ *   ValuesToRemove: [
  *     "444455556666"
  *   ]
  * };
  * const command = new ModifyDBSnapshotAttributeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBSnapshotAttributesResult": {
- *     "DBSnapshotAttributes": [
+ *   DBSnapshotAttributesResult: {
+ *     DBSnapshotAttributes: [
  *       {
- *         "AttributeName": "restore",
- *         "AttributeValues": [
+ *         AttributeName: "restore",
+ *         AttributeValues: [
  *           "111122223333"
  *         ]
  *       }
  *     ],
- *     "DBSnapshotIdentifier": "mydbsnapshot"
+ *     DBSnapshotIdentifier: "mydbsnapshot"
  *   }
  * }
  * *\/
- * // example id: to-prevent-an-aws-account-from-restoring-a-db-snapshot-1680389850879
  * ```
  *
+ * @public
  */
 export class ModifyDBSnapshotAttributeCommand extends $Command
   .classBuilder<

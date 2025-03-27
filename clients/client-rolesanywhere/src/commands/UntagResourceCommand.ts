@@ -73,6 +73,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command

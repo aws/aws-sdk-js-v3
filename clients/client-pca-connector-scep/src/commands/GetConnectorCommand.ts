@@ -95,6 +95,7 @@ export interface GetConnectorCommandOutput extends GetConnectorResponse, __Metad
  * @throws {@link PcaConnectorScepServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorScep service.</p>
  *
+ *
  * @public
  */
 export class GetConnectorCommand extends $Command

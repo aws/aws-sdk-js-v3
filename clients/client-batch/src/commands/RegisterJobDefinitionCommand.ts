@@ -657,83 +657,82 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
- * @example To register a job definition
- * ```javascript
- * // This example registers a job definition for a simple container job.
- * const input = {
- *   "type": "container",
- *   "containerProperties": {
- *     "command": [
- *       "sleep",
- *       "10"
- *     ],
- *     "image": "busybox",
- *     "resourceRequirements": [
- *       {
- *         "type": "MEMORY",
- *         "value": "128"
- *       },
- *       {
- *         "type": "VCPU",
- *         "value": "1"
- *       }
- *     ]
- *   },
- *   "jobDefinitionName": "sleep10"
- * };
- * const command = new RegisterJobDefinitionCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "jobDefinitionArn": "arn:aws:batch:us-east-1:012345678910:job-definition/sleep10:1",
- *   "jobDefinitionName": "sleep10",
- *   "revision": 1
- * }
- * *\/
- * // example id: to-register-a-job-definition-1481154325325
- * ```
  *
  * @example RegisterJobDefinition with tags
  * ```javascript
  * // This demonstrates calling the RegisterJobDefinition action, including tags.
  * const input = {
- *   "type": "container",
- *   "containerProperties": {
- *     "command": [
+ *   containerProperties: {
+ *     command: [
  *       "sleep",
  *       "30"
  *     ],
- *     "image": "busybox",
- *     "resourceRequirements": [
+ *     image: "busybox",
+ *     resourceRequirements: [
  *       {
- *         "type": "MEMORY",
- *         "value": "128"
+ *         type: "MEMORY",
+ *         value: "128"
  *       },
  *       {
- *         "type": "VCPU",
- *         "value": "1"
+ *         type: "VCPU",
+ *         value: "1"
  *       }
  *     ]
  *   },
- *   "jobDefinitionName": "sleep30",
- *   "tags": {
- *     "Department": "Engineering",
- *     "User": "JaneDoe"
- *   }
+ *   jobDefinitionName: "sleep30",
+ *   tags: {
+ *     Department: "Engineering",
+ *     User: "JaneDoe"
+ *   },
+ *   type: "container"
  * };
  * const command = new RegisterJobDefinitionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "jobDefinitionArn": "arn:aws:batch:us-east-1:012345678910:job-definition/sleep30:1",
- *   "jobDefinitionName": "sleep30",
- *   "revision": 1
+ *   jobDefinitionArn: "arn:aws:batch:us-east-1:012345678910:job-definition/sleep30:1",
+ *   jobDefinitionName: "sleep30",
+ *   revision: 1
  * }
  * *\/
- * // example id: registerjobdefinition-with-tags-1591290509028
  * ```
  *
+ * @example To register a job definition
+ * ```javascript
+ * // This example registers a job definition for a simple container job.
+ * const input = {
+ *   containerProperties: {
+ *     command: [
+ *       "sleep",
+ *       "10"
+ *     ],
+ *     image: "busybox",
+ *     resourceRequirements: [
+ *       {
+ *         type: "MEMORY",
+ *         value: "128"
+ *       },
+ *       {
+ *         type: "VCPU",
+ *         value: "1"
+ *       }
+ *     ]
+ *   },
+ *   jobDefinitionName: "sleep10",
+ *   type: "container"
+ * };
+ * const command = new RegisterJobDefinitionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   jobDefinitionArn: "arn:aws:batch:us-east-1:012345678910:job-definition/sleep10:1",
+ *   jobDefinitionName: "sleep10",
+ *   revision: 1
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class RegisterJobDefinitionCommand extends $Command
   .classBuilder<

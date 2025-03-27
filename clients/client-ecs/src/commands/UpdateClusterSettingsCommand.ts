@@ -157,45 +157,45 @@ export interface UpdateClusterSettingsCommandOutput extends UpdateClusterSetting
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To update a cluster's settings
  * ```javascript
  * // This example enables CloudWatch Container Insights for the default cluster.
  * const input = {
- *   "cluster": "default",
- *   "settings": [
+ *   cluster: "default",
+ *   settings: [
  *     {
- *       "name": "containerInsights",
- *       "value": "enabled"
+ *       name: "containerInsights",
+ *       value: "enabled"
  *     }
  *   ]
  * };
  * const command = new UpdateClusterSettingsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "cluster": {
- *     "activeServicesCount": 0,
- *     "clusterArn": "arn:aws:ecs:us-west-2:123456789012:cluster/MyCluster",
- *     "clusterName": "default",
- *     "pendingTasksCount": 0,
- *     "registeredContainerInstancesCount": 0,
- *     "runningTasksCount": 0,
- *     "settings": [
+ *   cluster: {
+ *     activeServicesCount: 0,
+ *     clusterArn: "arn:aws:ecs:us-west-2:123456789012:cluster/MyCluster",
+ *     clusterName: "default",
+ *     pendingTasksCount: 0,
+ *     registeredContainerInstancesCount: 0,
+ *     runningTasksCount: 0,
+ *     settings: [
  *       {
- *         "name": "containerInsights",
- *         "value": "enabled"
+ *         name: "containerInsights",
+ *         value: "enabled"
  *       }
  *     ],
- *     "statistics": [],
- *     "status": "ACTIVE",
- *     "tags": []
+ *     statistics:     [],
+ *     status: "ACTIVE",
+ *     tags:     []
  *   }
  * }
  * *\/
- * // example id: to-update-a-clusters-settings-1734628004887
  * ```
  *
+ * @public
  */
 export class UpdateClusterSettingsCommand extends $Command
   .classBuilder<

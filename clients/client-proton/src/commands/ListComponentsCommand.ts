@@ -91,6 +91,7 @@ export interface ListComponentsCommandOutput extends ListComponentsOutput, __Met
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class ListComponentsCommand extends $Command

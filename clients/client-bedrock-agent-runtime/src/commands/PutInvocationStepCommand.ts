@@ -126,6 +126,7 @@ export interface PutInvocationStepCommandOutput extends PutInvocationStepRespons
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ *
  * @public
  */
 export class PutInvocationStepCommand extends $Command

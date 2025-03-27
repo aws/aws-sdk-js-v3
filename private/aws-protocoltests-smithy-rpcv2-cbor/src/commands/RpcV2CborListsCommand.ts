@@ -132,6 +132,7 @@ export interface RpcV2CborListsCommandOutput extends RpcV2CborListInputOutput, _
  * @throws {@link RpcV2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from RpcV2Protocol service.</p>
  *
+ *
  * @public
  */
 export class RpcV2CborListsCommand extends $Command

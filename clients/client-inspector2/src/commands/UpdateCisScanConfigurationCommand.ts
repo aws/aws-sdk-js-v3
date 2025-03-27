@@ -108,6 +108,42 @@ export interface UpdateCisScanConfigurationCommandOutput extends UpdateCisScanCo
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
+ * @example Sample UpdateCisScanConfiguration Call
+ * ```javascript
+ * //
+ * const input = {
+ *   scanConfigurationArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-configuration/624b746d-e080-44ae-8c1d-48e653365a38",
+ *   scanName: "sample_new",
+ *   schedule: {
+ *     daily: {
+ *       startTime: {
+ *         timeOfDay: "12:56",
+ *         timezone: "UTC"
+ *       }
+ *     }
+ *   },
+ *   securityLevel: "LEVEL_2",
+ *   targets: {
+ *     accountIds: [
+ *       "SELF"
+ *     ],
+ *     targetResourceTags: {
+ *       key2: [
+ *         "value2"
+ *       ]
+ *     }
+ *   }
+ * };
+ * const command = new UpdateCisScanConfigurationCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   scanConfigurationArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-configuration/624b746d-e080-44ae-8c1d-48e653365a38"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateCisScanConfigurationCommand extends $Command

@@ -91,6 +91,7 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResult, __M
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class StartDeploymentCommand extends $Command

@@ -86,6 +86,7 @@ export interface UpdateAvailabilityConfigurationCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class UpdateAvailabilityConfigurationCommand extends $Command

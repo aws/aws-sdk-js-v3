@@ -97,6 +97,7 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class ListBuildsCommand extends $Command

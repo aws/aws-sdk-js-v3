@@ -89,6 +89,7 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class DescribeDomainsCommand extends $Command

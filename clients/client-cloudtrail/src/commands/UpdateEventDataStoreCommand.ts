@@ -249,6 +249,7 @@ export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreR
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class UpdateEventDataStoreCommand extends $Command

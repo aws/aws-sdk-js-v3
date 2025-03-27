@@ -204,28 +204,28 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To rename an organizational unit
  * ```javascript
  * // The following example shows how to rename an OU. The output confirms the new name:/n/n
  * const input = {
- *   "Name": "AccountingOU",
- *   "OrganizationalUnitId": "ou-examplerootid111-exampleouid111"
+ *   Name: "AccountingOU",
+ *   OrganizationalUnitId: "ou-examplerootid111-exampleouid111"
  * };
  * const command = new UpdateOrganizationalUnitCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OrganizationalUnit": {
- *     "Arn": "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
- *     "Id": "ou-examplerootid111-exampleouid111",
- *     "Name": "AccountingOU"
+ *   OrganizationalUnit: {
+ *     Arn: "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
+ *     Id: "ou-examplerootid111-exampleouid111",
+ *     Name: "AccountingOU"
  *   }
  * }
  * *\/
- * // example id: to-rename-an-organizational-unit
  * ```
  *
+ * @public
  */
 export class UpdateOrganizationalUnitCommand extends $Command
   .classBuilder<

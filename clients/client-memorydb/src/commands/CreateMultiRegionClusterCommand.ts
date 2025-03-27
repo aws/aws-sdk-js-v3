@@ -105,6 +105,7 @@ export interface CreateMultiRegionClusterCommandOutput extends CreateMultiRegion
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class CreateMultiRegionClusterCommand extends $Command

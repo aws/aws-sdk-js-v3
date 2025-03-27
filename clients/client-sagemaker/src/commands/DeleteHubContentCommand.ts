@@ -62,6 +62,7 @@ export interface DeleteHubContentCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteHubContentCommand extends $Command

@@ -80,6 +80,7 @@ export interface ListVocabularyFiltersCommandOutput extends ListVocabularyFilter
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class ListVocabularyFiltersCommand extends $Command

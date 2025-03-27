@@ -100,6 +100,7 @@ export interface UpdateContentCommandOutput extends UpdateContentResponse, __Met
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class UpdateContentCommand extends $Command

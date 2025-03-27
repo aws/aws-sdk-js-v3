@@ -84,6 +84,7 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class GetControlOperationCommand extends $Command

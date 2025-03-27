@@ -105,6 +105,7 @@ export interface ImportApiCommandOutput extends ImportApiResponse, __MetadataBea
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class ImportApiCommand extends $Command

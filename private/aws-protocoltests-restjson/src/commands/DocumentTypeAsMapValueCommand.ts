@@ -57,6 +57,7 @@ export interface DocumentTypeAsMapValueCommandOutput extends DocumentTypeAsMapVa
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class DocumentTypeAsMapValueCommand extends $Command

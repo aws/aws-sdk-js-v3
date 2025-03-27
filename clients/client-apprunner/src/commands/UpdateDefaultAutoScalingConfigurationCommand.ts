@@ -87,6 +87,7 @@ export interface UpdateDefaultAutoScalingConfigurationCommandOutput
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ *
  * @public
  */
 export class UpdateDefaultAutoScalingConfigurationCommand extends $Command

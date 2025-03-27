@@ -264,6 +264,7 @@ export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class RebootDBClusterCommand extends $Command

@@ -64,6 +64,7 @@ export interface DeleteEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class DeleteEphemerisCommand extends $Command

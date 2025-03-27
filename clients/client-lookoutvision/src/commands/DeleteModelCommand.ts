@@ -83,6 +83,7 @@ export interface DeleteModelCommandOutput extends DeleteModelResponse, __Metadat
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ *
  * @public
  */
 export class DeleteModelCommand extends $Command

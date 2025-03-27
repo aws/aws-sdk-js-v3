@@ -89,6 +89,7 @@ export interface GetVoiceConnectorLoggingConfigurationCommandOutput
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class GetVoiceConnectorLoggingConfigurationCommand extends $Command

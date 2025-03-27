@@ -86,33 +86,33 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
+ *
  * @example To describe all the addresses you've created for AWS Snowball
  * ```javascript
  * // This operation describes all the addresses that you've created for AWS Snowball. Calling this API in one of the US regions will return addresses from the list of all addresses associated with this account in all US regions.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeAddressesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Addresses": [
+ *   Addresses: [
  *     {
- *       "AddressId": "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
- *       "City": "Seattle",
- *       "Company": "My Company",
- *       "Country": "US",
- *       "Name": "My Name",
- *       "PhoneNumber": "425-555-5555",
- *       "PostalCode": "98101",
- *       "StateOrProvince": "WA",
- *       "Street1": "123 Main Street"
+ *       AddressId: "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
+ *       City: "Seattle",
+ *       Company: "My Company",
+ *       Country: "US",
+ *       Name: "My Name",
+ *       PhoneNumber: "425-555-5555",
+ *       PostalCode: "98101",
+ *       StateOrProvince: "WA",
+ *       Street1: "123 Main Street"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-all-the-addresses-youve-created-for-aws-snowball-1482538936603
  * ```
  *
+ * @public
  */
 export class DescribeAddressesCommand extends $Command
   .classBuilder<

@@ -79,6 +79,7 @@ export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __M
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ *
  * @public
  */
 export class ListDatastoresCommand extends $Command

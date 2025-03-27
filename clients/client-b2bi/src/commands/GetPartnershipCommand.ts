@@ -114,34 +114,34 @@ export interface GetPartnershipCommandOutput extends GetPartnershipResponse, __M
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample GetPartnership call
  * ```javascript
  * //
  * const input = {
- *   "partnershipId": "ps-219fa02f5b4242af8"
+ *   partnershipId: "ps-219fa02f5b4242af8"
  * };
  * const command = new GetPartnershipCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "name": "b2bipartner",
- *   "capabilities": [
+ *   capabilities: [
  *     "ca-963a8121e4fc4e348"
  *   ],
- *   "createdAt": "2023-11-01T21:51:05.504Z",
- *   "email": "john@example.com",
- *   "modifiedAt": "2023-11-01T21:51:05.504Z",
- *   "partnershipArn": "arn:aws:b2bi:us-west-2:123456789012:partnership/ps-219fa02f5b4242af8",
- *   "partnershipId": "ps-219fa02f5b4242af8",
- *   "phone": "5555555555",
- *   "profileId": "p-60fbc37c87f04fce9",
- *   "tradingPartnerId": "tp-2a17ca447f6f4a8a8"
+ *   createdAt: "2023-11-01T21:51:05.504Z",
+ *   email: "john@example.com",
+ *   modifiedAt: "2023-11-01T21:51:05.504Z",
+ *   name: "b2bipartner",
+ *   partnershipArn: "arn:aws:b2bi:us-west-2:123456789012:partnership/ps-219fa02f5b4242af8",
+ *   partnershipId: "ps-219fa02f5b4242af8",
+ *   phone: "5555555555",
+ *   profileId: "p-60fbc37c87f04fce9",
+ *   tradingPartnerId: "tp-2a17ca447f6f4a8a8"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetPartnershipCommand extends $Command
   .classBuilder<

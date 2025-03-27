@@ -100,33 +100,33 @@ export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer 
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
- * @public
+ *
  * @example To get a list of bots
  * ```javascript
  * // This example shows how to get a list of all of the bots in your account.
  * const input = {
- *   "maxResults": 5,
- *   "nextToken": ""
+ *   maxResults: 5,
+ *   nextToken: ""
  * };
  * const command = new GetBotsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "bots": [
+ *   bots: [
  *     {
- *       "version": "$LATEST",
- *       "name": "DocOrderPizzaBot",
- *       "createdDate": 1494360160.133,
- *       "description": "Orders a pizza from a local pizzeria.",
- *       "lastUpdatedDate": 1494360160.133,
- *       "status": "NOT_BUILT"
+ *       createdDate: 1.494360160133E9,
+ *       description: "Orders a pizza from a local pizzeria.",
+ *       lastUpdatedDate: 1.494360160133E9,
+ *       name: "DocOrderPizzaBot",
+ *       status: "NOT_BUILT",
+ *       version: "$LATEST"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-a-list-of-bots-1494432220036
  * ```
  *
+ * @public
  */
 export class GetBotsCommand extends $Command
   .classBuilder<

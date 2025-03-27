@@ -74,6 +74,7 @@ export interface AcceptPageCommandOutput extends AcceptPageResult, __MetadataBea
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class AcceptPageCommand extends $Command

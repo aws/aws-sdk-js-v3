@@ -86,6 +86,7 @@ export interface ListRecordingConfigurationsCommandOutput
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class ListRecordingConfigurationsCommand extends $Command

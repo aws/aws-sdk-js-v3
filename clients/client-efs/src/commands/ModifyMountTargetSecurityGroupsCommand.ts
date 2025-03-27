@@ -101,21 +101,24 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
- * @public
+ *
  * @example To modify the security groups associated with a mount target for a file system
  * ```javascript
  * // This operation modifies the security groups associated with a mount target for a file system.
  * const input = {
- *   "MountTargetId": "fsmt-12340abc",
- *   "SecurityGroups": [
+ *   MountTargetId: "fsmt-12340abc",
+ *   SecurityGroups: [
  *     "sg-abcd1234"
  *   ]
  * };
  * const command = new ModifyMountTargetSecurityGroupsCommand(input);
- * await client.send(command);
- * // example id: to-modify-the-security-groups-associated-with-a-mount-target-for-a-file-system-1481850772562
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ModifyMountTargetSecurityGroupsCommand extends $Command
   .classBuilder<

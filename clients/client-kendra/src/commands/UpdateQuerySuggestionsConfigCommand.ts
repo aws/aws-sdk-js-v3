@@ -105,6 +105,7 @@ export interface UpdateQuerySuggestionsConfigCommandOutput extends __MetadataBea
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class UpdateQuerySuggestionsConfigCommand extends $Command

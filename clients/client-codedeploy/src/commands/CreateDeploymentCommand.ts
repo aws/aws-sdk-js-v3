@@ -244,6 +244,7 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class CreateDeploymentCommand extends $Command

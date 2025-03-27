@@ -91,6 +91,7 @@ export interface ReplicateInstanceCommandOutput extends ReplicateInstanceRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ReplicateInstanceCommand extends $Command

@@ -204,6 +204,7 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ *
  * @public
  */
 export class UpdateRuleGroupCommand extends $Command

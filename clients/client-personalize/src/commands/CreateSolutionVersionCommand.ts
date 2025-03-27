@@ -147,6 +147,7 @@ export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersio
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class CreateSolutionVersionCommand extends $Command

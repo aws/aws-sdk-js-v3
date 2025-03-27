@@ -83,6 +83,7 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class ListDatabasesCommand extends $Command

@@ -81,21 +81,24 @@ export interface BatchDeleteCategoryCommandOutput extends __MetadataBearer {}
  * @throws {@link QAppsServiceException}
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
- * @public
+ *
  * @example Deletes the categories in the library
  * ```javascript
  * //
  * const input = {
- *   "categories": [
+ *   categories: [
  *     "9c871ed4-1c41-4065-aefe-321cd4b61cf8"
  *   ],
- *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
+ *   instanceId: "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f"
  * };
  * const command = new BatchDeleteCategoryCommand(input);
- * await client.send(command);
- * // example id: example-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class BatchDeleteCategoryCommand extends $Command
   .classBuilder<

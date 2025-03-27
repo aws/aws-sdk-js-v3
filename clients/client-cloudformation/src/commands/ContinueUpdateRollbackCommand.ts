@@ -70,6 +70,7 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ContinueUpdateRollbackCommand extends $Command

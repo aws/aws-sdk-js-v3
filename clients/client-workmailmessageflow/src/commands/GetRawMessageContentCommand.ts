@@ -52,6 +52,11 @@ export interface GetRawMessageContentCommandOutput
  * };
  * const command = new GetRawMessageContentCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.messageContent.transformToByteArray();
+ * // const str = await response.messageContent.transformToString();
+ * // response.messageContent.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetRawMessageContentResponse
  * //   messageContent: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes // required
  * // };
@@ -69,6 +74,7 @@ export interface GetRawMessageContentCommandOutput
  *
  * @throws {@link WorkMailMessageFlowServiceException}
  * <p>Base exception class for all service exceptions from WorkMailMessageFlow service.</p>
+ *
  *
  * @public
  */

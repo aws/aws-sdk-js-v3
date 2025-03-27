@@ -105,6 +105,7 @@ export interface CreateVoiceProfileCommandOutput extends CreateVoiceProfileRespo
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class CreateVoiceProfileCommand extends $Command

@@ -54,6 +54,7 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ *
  * @public
  */
 export class DeleteTemplateCommand extends $Command

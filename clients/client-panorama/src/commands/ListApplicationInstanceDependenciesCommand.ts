@@ -78,6 +78,7 @@ export interface ListApplicationInstanceDependenciesCommandOutput
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationInstanceDependenciesCommand extends $Command

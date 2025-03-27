@@ -76,6 +76,7 @@ export interface ListAvailableZonesCommandOutput extends ListAvailableZonesRespo
  * @throws {@link CloudHSMServiceException}
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ *
  * @public
  */
 export class ListAvailableZonesCommand extends $Command

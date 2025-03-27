@@ -57,6 +57,7 @@ export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __M
  * @throws {@link SupportAppServiceException}
  * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
+ *
  * @public
  */
 export class GetAccountAliasCommand extends $Command

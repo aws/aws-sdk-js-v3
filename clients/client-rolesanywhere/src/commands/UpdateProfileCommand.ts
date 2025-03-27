@@ -108,6 +108,7 @@ export interface UpdateProfileCommandOutput extends ProfileDetailResponse, __Met
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ *
  * @public
  */
 export class UpdateProfileCommand extends $Command

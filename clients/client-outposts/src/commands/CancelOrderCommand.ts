@@ -68,6 +68,7 @@ export interface CancelOrderCommandOutput extends CancelOrderOutput, __MetadataB
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class CancelOrderCommand extends $Command

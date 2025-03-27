@@ -86,6 +86,7 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class ListWorkflowsCommand extends $Command

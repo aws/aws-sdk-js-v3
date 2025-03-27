@@ -55,6 +55,7 @@ export interface EndpointWithHostLabelHeaderOperationCommandOutput extends __Met
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class EndpointWithHostLabelHeaderOperationCommand extends $Command
   .classBuilder<

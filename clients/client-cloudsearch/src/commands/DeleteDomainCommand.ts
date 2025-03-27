@@ -84,6 +84,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class DeleteDomainCommand extends $Command

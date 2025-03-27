@@ -101,6 +101,7 @@ export interface DeleteBucketCommandOutput extends DeleteBucketResult, __Metadat
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class DeleteBucketCommand extends $Command

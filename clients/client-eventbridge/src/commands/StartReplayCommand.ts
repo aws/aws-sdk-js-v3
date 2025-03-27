@@ -92,6 +92,7 @@ export interface StartReplayCommandOutput extends StartReplayResponse, __Metadat
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class StartReplayCommand extends $Command

@@ -83,6 +83,7 @@ export interface RotateTunnelAccessTokenCommandOutput extends RotateTunnelAccess
  * @throws {@link IoTSecureTunnelingServiceException}
  * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
+ *
  * @public
  */
 export class RotateTunnelAccessTokenCommand extends $Command

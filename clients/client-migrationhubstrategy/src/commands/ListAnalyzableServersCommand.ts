@@ -82,6 +82,30 @@ export interface ListAnalyzableServersCommandOutput extends ListAnalyzableServer
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ *
+ * @example Invoke ListAnalyzableServers
+ * ```javascript
+ * //
+ * const input = {
+ *   maxResults: 100,
+ *   sort: "ASC"
+ * };
+ * const command = new ListAnalyzableServersCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   analyzableServers: [
+ *     {
+ *       hostname: "Ubuntu 1",
+ *       ipAddress: "1.1.1.1",
+ *       source: "Application Discover Service",
+ *       vmId: "vm-1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListAnalyzableServersCommand extends $Command

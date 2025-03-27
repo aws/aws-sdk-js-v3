@@ -107,6 +107,7 @@ export interface UpdateSequenceStoreCommandOutput extends UpdateSequenceStoreRes
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class UpdateSequenceStoreCommand extends $Command

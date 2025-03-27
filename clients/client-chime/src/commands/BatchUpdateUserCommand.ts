@@ -97,6 +97,7 @@ export interface BatchUpdateUserCommandOutput extends BatchUpdateUserResponse, _
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class BatchUpdateUserCommand extends $Command

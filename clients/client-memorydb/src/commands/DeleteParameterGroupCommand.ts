@@ -76,6 +76,7 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class DeleteParameterGroupCommand extends $Command

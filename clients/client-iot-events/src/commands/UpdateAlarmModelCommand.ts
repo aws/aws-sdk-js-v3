@@ -223,6 +223,7 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ *
  * @public
  */
 export class UpdateAlarmModelCommand extends $Command

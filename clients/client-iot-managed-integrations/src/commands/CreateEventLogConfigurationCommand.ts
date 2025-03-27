@@ -87,6 +87,7 @@ export interface CreateEventLogConfigurationCommandOutput
  * @throws {@link IoTManagedIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from IoTManagedIntegrations service.</p>
  *
+ *
  * @public
  */
 export class CreateEventLogConfigurationCommand extends $Command

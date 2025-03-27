@@ -85,6 +85,7 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class ListCampaignsCommand extends $Command

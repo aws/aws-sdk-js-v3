@@ -96,6 +96,7 @@ export interface CreateBotCommandOutput extends CreateBotResponse, __MetadataBea
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class CreateBotCommand extends $Command

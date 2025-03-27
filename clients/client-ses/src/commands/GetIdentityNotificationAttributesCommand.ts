@@ -80,35 +80,35 @@ export interface GetIdentityNotificationAttributesCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example GetIdentityNotificationAttributes
  * ```javascript
  * // The following example returns the notification attributes for an identity:
  * const input = {
- *   "Identities": [
+ *   Identities: [
  *     "example.com"
  *   ]
  * };
  * const command = new GetIdentityNotificationAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NotificationAttributes": {
- *     "example.com": {
- *       "BounceTopic": "arn:aws:sns:us-east-1:EXAMPLE65304:ExampleTopic",
- *       "ComplaintTopic": "arn:aws:sns:us-east-1:EXAMPLE65304:ExampleTopic",
- *       "DeliveryTopic": "arn:aws:sns:us-east-1:EXAMPLE65304:ExampleTopic",
- *       "ForwardingEnabled": true,
- *       "HeadersInBounceNotificationsEnabled": false,
- *       "HeadersInComplaintNotificationsEnabled": false,
- *       "HeadersInDeliveryNotificationsEnabled": false
+ *   NotificationAttributes: {
+ *     example.com: {
+ *       BounceTopic: "arn:aws:sns:us-east-1:EXAMPLE65304:ExampleTopic",
+ *       ComplaintTopic: "arn:aws:sns:us-east-1:EXAMPLE65304:ExampleTopic",
+ *       DeliveryTopic: "arn:aws:sns:us-east-1:EXAMPLE65304:ExampleTopic",
+ *       ForwardingEnabled: true,
+ *       HeadersInBounceNotificationsEnabled: false,
+ *       HeadersInComplaintNotificationsEnabled: false,
+ *       HeadersInDeliveryNotificationsEnabled: false
  *     }
  *   }
  * }
  * *\/
- * // example id: getidentitynotificationattributes-1469123466947
  * ```
  *
+ * @public
  */
 export class GetIdentityNotificationAttributesCommand extends $Command
   .classBuilder<

@@ -50,6 +50,11 @@ export interface GetImageFrameCommandOutput extends Omit<GetImageFrameResponse, 
  * };
  * const command = new GetImageFrameCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.imageFrameBlob.transformToByteArray();
+ * // const str = await response.imageFrameBlob.transformToString();
+ * // response.imageFrameBlob.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetImageFrameResponse
  * //   imageFrameBlob: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes // required
  * //   contentType: "STRING_VALUE",
@@ -83,6 +88,7 @@ export interface GetImageFrameCommandOutput extends Omit<GetImageFrameResponse, 
  *
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
+ *
  *
  * @public
  */

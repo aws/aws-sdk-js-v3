@@ -66,6 +66,7 @@ export interface GetAccountSettingCommandOutput extends GetAccountSettingRespons
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class GetAccountSettingCommand extends $Command

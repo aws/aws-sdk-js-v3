@@ -83,6 +83,7 @@ export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __Met
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
  * @public
  */
 export class PublishSchemaCommand extends $Command

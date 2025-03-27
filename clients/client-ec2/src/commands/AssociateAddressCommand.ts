@@ -78,41 +78,40 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To associate an Elastic IP address
  * ```javascript
  * // This example associates the specified Elastic IP address with the specified instance.
  * const input = {
- *   "AllocationId": "eipalloc-64d5890a",
- *   "InstanceId": "i-0b263919b6498b123"
+ *   AllocationId: "eipalloc-64d5890a",
+ *   InstanceId: "i-0b263919b6498b123"
  * };
  * const command = new AssociateAddressCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AssociationId": "eipassoc-2bebb745"
+ *   AssociationId: "eipassoc-2bebb745"
  * }
  * *\/
- * // example id: ec2-associate-address-1
  * ```
  *
  * @example To associate an Elastic IP address with a network interface
  * ```javascript
  * // This example associates the specified Elastic IP address with the specified network interface.
  * const input = {
- *   "AllocationId": "eipalloc-64d5890a",
- *   "NetworkInterfaceId": "eni-1a2b3c4d"
+ *   AllocationId: "eipalloc-64d5890a",
+ *   NetworkInterfaceId: "eni-1a2b3c4d"
  * };
  * const command = new AssociateAddressCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AssociationId": "eipassoc-2bebb745"
+ *   AssociationId: "eipassoc-2bebb745"
  * }
  * *\/
- * // example id: ec2-associate-address-2
  * ```
  *
+ * @public
  */
 export class AssociateAddressCommand extends $Command
   .classBuilder<

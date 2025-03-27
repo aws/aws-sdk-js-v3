@@ -72,25 +72,25 @@ export interface TestMappingCommandOutput extends TestMappingResponse, __Metadat
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample TestMapping call
  * ```javascript
  * //
  * const input = {
- *   "fileFormat": "JSON",
- *   "inputFileContent": "Sample file content",
- *   "mappingTemplate": "$"
+ *   fileFormat: "JSON",
+ *   inputFileContent: "Sample file content",
+ *   mappingTemplate: "$"
  * };
  * const command = new TestMappingCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "mappedFileContent": "Sample file content"
+ *   mappedFileContent: "Sample file content"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class TestMappingCommand extends $Command
   .classBuilder<

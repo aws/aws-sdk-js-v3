@@ -172,6 +172,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class DeleteDBClusterCommand extends $Command

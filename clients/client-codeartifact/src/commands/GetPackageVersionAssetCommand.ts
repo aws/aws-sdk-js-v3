@@ -60,6 +60,11 @@ export interface GetPackageVersionAssetCommandOutput
  * };
  * const command = new GetPackageVersionAssetCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.asset.transformToByteArray();
+ * // const str = await response.asset.transformToString();
+ * // response.asset.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetPackageVersionAssetResult
  * //   asset: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   assetName: "STRING_VALUE",
@@ -105,6 +110,7 @@ export interface GetPackageVersionAssetCommandOutput
  *
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
+ *
  *
  * @public
  */

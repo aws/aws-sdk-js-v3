@@ -86,6 +86,7 @@ export interface GetBlueprintCommandOutput extends GetBlueprintResponse, __Metad
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetBlueprintCommand extends $Command

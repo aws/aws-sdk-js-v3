@@ -71,6 +71,7 @@ export interface DeleteConfiguredTableCommandOutput extends DeleteConfiguredTabl
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class DeleteConfiguredTableCommand extends $Command

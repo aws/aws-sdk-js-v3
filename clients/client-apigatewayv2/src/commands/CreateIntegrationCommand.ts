@@ -123,6 +123,7 @@ export interface CreateIntegrationCommandOutput extends CreateIntegrationResult,
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateIntegrationCommand extends $Command

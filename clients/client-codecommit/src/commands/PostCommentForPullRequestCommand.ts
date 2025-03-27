@@ -183,6 +183,7 @@ export interface PostCommentForPullRequestCommandOutput extends PostCommentForPu
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class PostCommentForPullRequestCommand extends $Command

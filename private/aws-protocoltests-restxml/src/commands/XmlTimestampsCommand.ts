@@ -67,6 +67,7 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsResponse, __Met
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class XmlTimestampsCommand extends $Command

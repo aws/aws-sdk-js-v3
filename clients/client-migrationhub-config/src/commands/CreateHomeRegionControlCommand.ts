@@ -94,6 +94,7 @@ export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionCo
  * @throws {@link MigrationHubConfigServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubConfig service.</p>
  *
+ *
  * @public
  */
 export class CreateHomeRegionControlCommand extends $Command

@@ -115,6 +115,7 @@ export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse,
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class BatchPutGeofenceCommand extends $Command

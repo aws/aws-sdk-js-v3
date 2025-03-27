@@ -80,6 +80,7 @@ export interface AcceptInputDeviceTransferCommandOutput extends AcceptInputDevic
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class AcceptInputDeviceTransferCommand extends $Command

@@ -73,6 +73,7 @@ export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenR
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class ExchangeCodeForTokenCommand extends $Command

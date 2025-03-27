@@ -59,6 +59,7 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ *
  * @public
  */
 export class DeleteConfigurationSetCommand extends $Command

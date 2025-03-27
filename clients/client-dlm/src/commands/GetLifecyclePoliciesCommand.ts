@@ -93,6 +93,7 @@ export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesR
  * @throws {@link DLMServiceException}
  * <p>Base exception class for all service exceptions from DLM service.</p>
  *
+ *
  * @public
  */
 export class GetLifecyclePoliciesCommand extends $Command

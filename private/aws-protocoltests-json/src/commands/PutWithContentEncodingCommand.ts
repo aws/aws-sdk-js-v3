@@ -54,6 +54,7 @@ export interface PutWithContentEncodingCommandOutput extends __MetadataBearer {}
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  */
 export class PutWithContentEncodingCommand extends $Command
   .classBuilder<

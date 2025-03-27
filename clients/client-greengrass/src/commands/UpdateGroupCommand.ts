@@ -57,6 +57,7 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ *
  * @public
  */
 export class UpdateGroupCommand extends $Command

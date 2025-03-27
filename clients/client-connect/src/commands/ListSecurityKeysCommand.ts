@@ -80,6 +80,7 @@ export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse,
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListSecurityKeysCommand extends $Command

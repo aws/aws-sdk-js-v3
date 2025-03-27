@@ -89,6 +89,7 @@ export interface JoinStorageSessionAsViewerCommandOutput extends __MetadataBeare
  * @throws {@link KinesisVideoWebRTCStorageServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoWebRTCStorage service.</p>
  *
+ *
  * @public
  */
 export class JoinStorageSessionAsViewerCommand extends $Command

@@ -66,18 +66,21 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To delete a project
  * ```javascript
  * // The following example deletes a specific project.
  * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456"
+ *   arn: "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456"
  * };
  * const command = new DeleteProjectCommand(input);
- * await client.send(command);
- * // example id: deleteproject-example-1470867374212
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteProjectCommand extends $Command
   .classBuilder<

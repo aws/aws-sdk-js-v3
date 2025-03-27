@@ -97,14 +97,14 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To modify a DB subnet group
  * ```javascript
  * // The following example adds a subnet with the ID subnet-08e41f9e230222222 to the DB subnet group named mysubnetgroup. To keep the existing subnets in the subnet group, include their IDs as values in the --subnet-ids option. Make sure to have subnets with at least two different Availability Zones in the DB subnet group.
  * const input = {
- *   "DBSubnetGroupDescription": "",
- *   "DBSubnetGroupName": "mysubnetgroup",
- *   "SubnetIds": [
+ *   DBSubnetGroupDescription: "",
+ *   DBSubnetGroupName: "mysubnetgroup",
+ *   SubnetIds: [
  *     "subnet-0a1dc4e1a6f123456",
  *     "subnet-070dd7ecb3aaaaaaa",
  *     "subnet-00f5b198bc0abcdef",
@@ -113,50 +113,50 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
  * };
  * const command = new ModifyDBSubnetGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBSubnetGroup": {
- *     "DBSubnetGroupArn": "arn:aws:rds:us-west-2:123456789012:subgrp:mysubnetgroup",
- *     "DBSubnetGroupDescription": "test DB subnet group",
- *     "DBSubnetGroupName": "mysubnetgroup",
- *     "SubnetGroupStatus": "Complete",
- *     "Subnets": [
+ *   DBSubnetGroup: {
+ *     DBSubnetGroupArn: "arn:aws:rds:us-west-2:123456789012:subgrp:mysubnetgroup",
+ *     DBSubnetGroupDescription: "test DB subnet group",
+ *     DBSubnetGroupName: "mysubnetgroup",
+ *     SubnetGroupStatus: "Complete",
+ *     Subnets: [
  *       {
- *         "SubnetAvailabilityZone": {
- *           "Name": "us-west-2a"
+ *         SubnetAvailabilityZone: {
+ *           Name: "us-west-2a"
  *         },
- *         "SubnetIdentifier": "subnet-08e41f9e230222222",
- *         "SubnetStatus": "Active"
+ *         SubnetIdentifier: "subnet-08e41f9e230222222",
+ *         SubnetStatus: "Active"
  *       },
  *       {
- *         "SubnetAvailabilityZone": {
- *           "Name": "us-west-2b"
+ *         SubnetAvailabilityZone: {
+ *           Name: "us-west-2b"
  *         },
- *         "SubnetIdentifier": "subnet-070dd7ecb3aaaaaaa",
- *         "SubnetStatus": "Active"
+ *         SubnetIdentifier: "subnet-070dd7ecb3aaaaaaa",
+ *         SubnetStatus: "Active"
  *       },
  *       {
- *         "SubnetAvailabilityZone": {
- *           "Name": "us-west-2d"
+ *         SubnetAvailabilityZone: {
+ *           Name: "us-west-2d"
  *         },
- *         "SubnetIdentifier": "subnet-00f5b198bc0abcdef",
- *         "SubnetStatus": "Active"
+ *         SubnetIdentifier: "subnet-00f5b198bc0abcdef",
+ *         SubnetStatus: "Active"
  *       },
  *       {
- *         "SubnetAvailabilityZone": {
- *           "Name": "us-west-2b"
+ *         SubnetAvailabilityZone: {
+ *           Name: "us-west-2b"
  *         },
- *         "SubnetIdentifier": "subnet-0a1dc4e1a6f123456",
- *         "SubnetStatus": "Active"
+ *         SubnetIdentifier: "subnet-0a1dc4e1a6f123456",
+ *         SubnetStatus: "Active"
  *       }
  *     ],
- *     "VpcId": "vpc-0f08e7610a1b2c3d4"
+ *     VpcId: "vpc-0f08e7610a1b2c3d4"
  *   }
  * }
  * *\/
- * // example id: to-modify-a-db-subnet-group-1680383300785
  * ```
  *
+ * @public
  */
 export class ModifyDBSubnetGroupCommand extends $Command
   .classBuilder<

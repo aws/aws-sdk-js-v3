@@ -74,6 +74,7 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class DescribeArchiveCommand extends $Command

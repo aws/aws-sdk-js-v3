@@ -78,6 +78,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command

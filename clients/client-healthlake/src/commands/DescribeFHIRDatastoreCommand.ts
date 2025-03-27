@@ -95,6 +95,7 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ *
  * @public
  */
 export class DescribeFHIRDatastoreCommand extends $Command

@@ -107,6 +107,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ListImagesCommand extends $Command

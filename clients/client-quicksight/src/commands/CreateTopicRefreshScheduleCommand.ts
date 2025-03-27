@@ -97,6 +97,7 @@ export interface CreateTopicRefreshScheduleCommandOutput extends CreateTopicRefr
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateTopicRefreshScheduleCommand extends $Command

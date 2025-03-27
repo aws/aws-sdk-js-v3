@@ -72,6 +72,7 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ *
  * @public
  */
 export class GetConnectionCommand extends $Command

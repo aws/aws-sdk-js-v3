@@ -210,6 +210,7 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * @throws {@link LexRuntimeV2ServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
+ *
  * @public
  */
 export class GetSessionCommand extends $Command

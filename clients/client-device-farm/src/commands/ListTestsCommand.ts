@@ -95,24 +95,24 @@ export interface ListTestsCommandOutput extends ListTestsResult, __MetadataBeare
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To get information about tests
  * ```javascript
  * // The following example returns information about tests, given a specific Device Farm project.
  * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456",
- *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE"
+ *   arn: "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456",
+ *   nextToken: "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE"
  * };
  * const command = new ListTestsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "tests": []
+ *   tests:   []
  * }
  * *\/
- * // example id: to-get-information-about-tests-1472617372212
  * ```
  *
+ * @public
  */
 export class ListTestsCommand extends $Command
   .classBuilder<

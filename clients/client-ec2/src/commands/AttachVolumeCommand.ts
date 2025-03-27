@@ -89,29 +89,29 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To attach a volume to an instance
  * ```javascript
  * // This example attaches a volume (``vol-1234567890abcdef0``) to an instance (``i-01474ef662b89480``) as ``/dev/sdf``.
  * const input = {
- *   "Device": "/dev/sdf",
- *   "InstanceId": "i-01474ef662b89480",
- *   "VolumeId": "vol-1234567890abcdef0"
+ *   Device: "/dev/sdf",
+ *   InstanceId: "i-01474ef662b89480",
+ *   VolumeId: "vol-1234567890abcdef0"
  * };
  * const command = new AttachVolumeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AttachTime": "2016-08-29T18:52:32.724Z",
- *   "Device": "/dev/sdf",
- *   "InstanceId": "i-01474ef662b89480",
- *   "State": "attaching",
- *   "VolumeId": "vol-1234567890abcdef0"
+ *   AttachTime: "2016-08-29T18:52:32.724Z",
+ *   Device: "/dev/sdf",
+ *   InstanceId: "i-01474ef662b89480",
+ *   State: "attaching",
+ *   VolumeId: "vol-1234567890abcdef0"
  * }
  * *\/
- * // example id: to-attach-a-volume-to-an-instance-1472499213109
  * ```
  *
+ * @public
  */
 export class AttachVolumeCommand extends $Command
   .classBuilder<

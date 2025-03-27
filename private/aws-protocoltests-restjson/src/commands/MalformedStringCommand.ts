@@ -52,6 +52,7 @@ export interface MalformedStringCommandOutput extends __MetadataBearer {}
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedStringCommand extends $Command
   .classBuilder<

@@ -85,6 +85,7 @@ export interface CreateEmailContactCommandOutput extends CreateEmailContactRespo
  * @throws {@link NotificationsContactsServiceException}
  * <p>Base exception class for all service exceptions from NotificationsContacts service.</p>
  *
+ *
  * @public
  */
 export class CreateEmailContactCommand extends $Command

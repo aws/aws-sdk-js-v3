@@ -78,6 +78,7 @@ export interface DescribeIpGroupsCommandOutput extends DescribeIpGroupsResult, _
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DescribeIpGroupsCommand extends $Command

@@ -75,6 +75,7 @@ export interface PutLabelCommandOutput extends PutLabelResult, __MetadataBearer 
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class PutLabelCommand extends $Command

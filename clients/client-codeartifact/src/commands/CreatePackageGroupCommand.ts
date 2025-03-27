@@ -125,6 +125,7 @@ export interface CreatePackageGroupCommandOutput extends CreatePackageGroupResul
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class CreatePackageGroupCommand extends $Command

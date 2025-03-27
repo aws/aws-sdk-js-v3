@@ -120,6 +120,7 @@ export interface GetIntegrationCommandOutput extends GetIntegrationResponse, __M
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class GetIntegrationCommand extends $Command

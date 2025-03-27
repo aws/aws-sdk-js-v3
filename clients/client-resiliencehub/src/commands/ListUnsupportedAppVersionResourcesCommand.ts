@@ -113,6 +113,7 @@ export interface ListUnsupportedAppVersionResourcesCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListUnsupportedAppVersionResourcesCommand extends $Command

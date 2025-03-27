@@ -96,6 +96,7 @@ export interface UpdateAssistantAIAgentCommandOutput extends UpdateAssistantAIAg
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class UpdateAssistantAIAgentCommand extends $Command

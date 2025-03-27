@@ -116,6 +116,7 @@ export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataB
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ *
  * @public
  */
 export class CreateAliasCommand extends $Command

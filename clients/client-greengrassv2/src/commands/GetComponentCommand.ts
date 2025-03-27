@@ -77,6 +77,7 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ *
  * @public
  */
 export class GetComponentCommand extends $Command

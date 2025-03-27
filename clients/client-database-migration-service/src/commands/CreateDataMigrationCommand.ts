@@ -152,6 +152,7 @@ export interface CreateDataMigrationCommandOutput extends CreateDataMigrationRes
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class CreateDataMigrationCommand extends $Command

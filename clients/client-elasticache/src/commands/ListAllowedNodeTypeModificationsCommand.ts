@@ -83,18 +83,33 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example ListAllowedNodeTypeModifications
  * ```javascript
  * // Lists all available node types that you can scale your Redis cluster's or replication group's current node type up to.
  * const input = {
- *   "ReplicationGroupId": "myreplgroup"
+ *   CacheClusterId: "mycluster"
  * };
  * const command = new ListAllowedNodeTypeModificationsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ScaleUpModifications": [
+ *   ScaleUpModifications:   []
+ * }
+ * *\/
+ * ```
+ *
+ * @example ListAllowedNodeTypeModifications
+ * ```javascript
+ * // Lists all available node types that you can scale your Redis cluster's or replication group's current node type up to.
+ * const input = {
+ *   ReplicationGroupId: "myreplgroup"
+ * };
+ * const command = new ListAllowedNodeTypeModificationsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ScaleUpModifications: [
  *     "cache.m4.10xlarge",
  *     "cache.m4.2xlarge",
  *     "cache.m4.4xlarge",
@@ -106,9 +121,9 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  *   ]
  * }
  * *\/
- * // example id: listallowednodetypemodifications-1481748494872
  * ```
  *
+ * @public
  */
 export class ListAllowedNodeTypeModificationsCommand extends $Command
   .classBuilder<

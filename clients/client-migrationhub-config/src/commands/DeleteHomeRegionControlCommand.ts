@@ -75,6 +75,7 @@ export interface DeleteHomeRegionControlCommandOutput extends DeleteHomeRegionCo
  * @throws {@link MigrationHubConfigServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubConfig service.</p>
  *
+ *
  * @public
  */
 export class DeleteHomeRegionControlCommand extends $Command

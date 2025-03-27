@@ -92,6 +92,7 @@ export interface UpdateIntegrationResponseCommandOutput extends IntegrationRespo
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class UpdateIntegrationResponseCommand extends $Command

@@ -73,6 +73,7 @@ export interface CreatePublishingDestinationCommandOutput
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class CreatePublishingDestinationCommand extends $Command

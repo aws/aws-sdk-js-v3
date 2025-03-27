@@ -66,6 +66,7 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class StopStackSetOperationCommand extends $Command

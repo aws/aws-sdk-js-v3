@@ -264,6 +264,7 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class PutOrganizationConfigRuleCommand extends $Command

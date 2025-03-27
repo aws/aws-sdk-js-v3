@@ -135,6 +135,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ *
  * @public
  */
 export class GetFindingsCommand extends $Command

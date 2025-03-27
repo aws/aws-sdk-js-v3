@@ -82,20 +82,23 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
- * @public
+ *
  * @example To remove a Lambda function's permissions
  * ```javascript
  * // The following example removes a permissions statement named xaccount from the PROD alias of a function named my-function.
  * const input = {
- *   "FunctionName": "my-function",
- *   "Qualifier": "PROD",
- *   "StatementId": "xaccount"
+ *   FunctionName: "my-function",
+ *   Qualifier: "PROD",
+ *   StatementId: "xaccount"
  * };
  * const command = new RemovePermissionCommand(input);
- * await client.send(command);
- * // example id: to-remove-a-lambda-functions-permissions-1481661337021
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RemovePermissionCommand extends $Command
   .classBuilder<

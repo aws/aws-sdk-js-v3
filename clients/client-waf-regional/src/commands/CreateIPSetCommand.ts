@@ -156,34 +156,34 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To create an IP set
  * ```javascript
  * // The following example creates an IP match set named MyIPSetFriendlyName.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "Name": "MyIPSetFriendlyName"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   Name: "MyIPSetFriendlyName"
  * };
  * const command = new CreateIPSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "IPSet": {
- *     "IPSetDescriptors": [
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   IPSet: {
+ *     IPSetDescriptors: [
  *       {
- *         "Type": "IPV4",
- *         "Value": "192.0.2.44/32"
+ *         Type: "IPV4",
+ *         Value: "192.0.2.44/32"
  *       }
  *     ],
- *     "IPSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
- *     "Name": "MyIPSetFriendlyName"
+ *     IPSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *     Name: "MyIPSetFriendlyName"
  *   }
  * }
  * *\/
- * // example id: createipset-1472501003122
  * ```
  *
+ * @public
  */
 export class CreateIPSetCommand extends $Command
   .classBuilder<

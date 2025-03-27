@@ -80,18 +80,21 @@ export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To delete bucket website configuration
  * ```javascript
  * // The following example deletes bucket website configuration.
  * const input = {
- *   "Bucket": "examplebucket"
+ *   Bucket: "examplebucket"
  * };
  * const command = new DeleteBucketWebsiteCommand(input);
- * await client.send(command);
- * // example id: to-delete-bucket-website-configuration-1483043937825
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteBucketWebsiteCommand extends $Command
   .classBuilder<

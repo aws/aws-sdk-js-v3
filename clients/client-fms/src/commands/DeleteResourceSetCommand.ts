@@ -70,6 +70,7 @@ export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class DeleteResourceSetCommand extends $Command

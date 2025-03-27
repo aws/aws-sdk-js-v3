@@ -108,6 +108,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateUserCommand extends $Command

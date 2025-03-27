@@ -75,6 +75,7 @@ export interface XmlIntEnumsCommandOutput extends XmlIntEnumsResponse, __Metadat
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  * @public
  */
 export class XmlIntEnumsCommand extends $Command

@@ -118,6 +118,7 @@ export interface GetPortfolioSummaryCommandOutput extends GetPortfolioSummaryRes
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ *
  * @public
  */
 export class GetPortfolioSummaryCommand extends $Command

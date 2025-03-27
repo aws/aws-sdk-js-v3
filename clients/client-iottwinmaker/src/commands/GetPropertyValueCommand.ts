@@ -192,6 +192,7 @@ export interface GetPropertyValueCommandOutput extends GetPropertyValueResponse,
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class GetPropertyValueCommand extends $Command

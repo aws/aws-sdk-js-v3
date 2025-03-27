@@ -76,6 +76,7 @@ export interface PutRuntimeManagementConfigCommandOutput extends PutRuntimeManag
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class PutRuntimeManagementConfigCommand extends $Command

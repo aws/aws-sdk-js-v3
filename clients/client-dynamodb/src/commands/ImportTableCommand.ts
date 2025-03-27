@@ -254,6 +254,7 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class ImportTableCommand extends $Command

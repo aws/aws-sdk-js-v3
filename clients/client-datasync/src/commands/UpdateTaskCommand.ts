@@ -133,6 +133,7 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class UpdateTaskCommand extends $Command

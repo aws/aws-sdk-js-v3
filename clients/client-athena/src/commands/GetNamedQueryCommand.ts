@@ -71,6 +71,7 @@ export interface GetNamedQueryCommandOutput extends GetNamedQueryOutput, __Metad
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class GetNamedQueryCommand extends $Command

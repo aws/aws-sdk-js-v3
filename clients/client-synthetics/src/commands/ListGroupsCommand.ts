@@ -70,6 +70,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class ListGroupsCommand extends $Command

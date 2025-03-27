@@ -69,6 +69,7 @@ export interface DeleteAllowListCommandOutput extends DeleteAllowListResponse, _
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteAllowListCommand extends $Command

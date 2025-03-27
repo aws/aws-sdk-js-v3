@@ -161,46 +161,46 @@ export interface CreatePartnershipCommandOutput extends CreatePartnershipRespons
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample CreatePartnership call
  * ```javascript
  * //
  * const input = {
- *   "name": "b2bipartner",
- *   "capabilities": [
+ *   capabilities: [
  *     "ca-963a8121e4fc4e348"
  *   ],
- *   "clientToken": "foo",
- *   "email": "john@example.com",
- *   "phone": "5555555555",
- *   "profileId": "p-60fbc37c87f04fce9",
- *   "tags": [
+ *   clientToken: "foo",
+ *   email: "john@example.com",
+ *   name: "b2bipartner",
+ *   phone: "5555555555",
+ *   profileId: "p-60fbc37c87f04fce9",
+ *   tags: [
  *     {
- *       "Key": "sampleKey1",
- *       "Value": "sampleValue1"
+ *       Key: "sampleKey1",
+ *       Value: "sampleValue1"
  *     }
  *   ]
  * };
  * const command = new CreatePartnershipCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "name": "b2bipartner",
- *   "capabilities": [
+ *   capabilities: [
  *     "ca-963a8121e4fc4e348"
  *   ],
- *   "createdAt": "2023-11-01T21:51:05.504Z",
- *   "email": "john@example.com",
- *   "partnershipArn": "arn:aws:b2bi:us-west-2:123456789012:partnership/ps-60fbc37c87f04fce9",
- *   "partnershipId": "ps-219fa02f5b4242af8",
- *   "phone": "5555555555",
- *   "profileId": "p-60fbc37c87f04fce9",
- *   "tradingPartnerId": "tp-2a17ca447f6f4a8a8"
+ *   createdAt: "2023-11-01T21:51:05.504Z",
+ *   email: "john@example.com",
+ *   name: "b2bipartner",
+ *   partnershipArn: "arn:aws:b2bi:us-west-2:123456789012:partnership/ps-60fbc37c87f04fce9",
+ *   partnershipId: "ps-219fa02f5b4242af8",
+ *   phone: "5555555555",
+ *   profileId: "p-60fbc37c87f04fce9",
+ *   tradingPartnerId: "tp-2a17ca447f6f4a8a8"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class CreatePartnershipCommand extends $Command
   .classBuilder<

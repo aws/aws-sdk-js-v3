@@ -73,6 +73,7 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class CreateComponentCommand extends $Command

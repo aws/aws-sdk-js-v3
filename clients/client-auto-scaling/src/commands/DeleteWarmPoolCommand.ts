@@ -73,6 +73,7 @@ export interface DeleteWarmPoolCommandOutput extends DeleteWarmPoolAnswer, __Met
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ *
  * @public
  */
 export class DeleteWarmPoolCommand extends $Command

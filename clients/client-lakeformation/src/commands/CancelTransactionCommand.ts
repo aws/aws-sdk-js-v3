@@ -74,6 +74,7 @@ export interface CancelTransactionCommandOutput extends CancelTransactionRespons
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class CancelTransactionCommand extends $Command

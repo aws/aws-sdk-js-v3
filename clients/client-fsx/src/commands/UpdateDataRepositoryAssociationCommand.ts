@@ -142,6 +142,7 @@ export interface UpdateDataRepositoryAssociationCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ *
  * @public
  */
 export class UpdateDataRepositoryAssociationCommand extends $Command

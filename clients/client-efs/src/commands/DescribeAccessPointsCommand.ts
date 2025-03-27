@@ -110,6 +110,7 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccessPointsCommand extends $Command

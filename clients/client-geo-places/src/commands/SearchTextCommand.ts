@@ -315,6 +315,7 @@ export interface SearchTextCommandOutput extends SearchTextResponse, __MetadataB
  * @throws {@link GeoPlacesServiceException}
  * <p>Base exception class for all service exceptions from GeoPlaces service.</p>
  *
+ *
  * @public
  */
 export class SearchTextCommand extends $Command

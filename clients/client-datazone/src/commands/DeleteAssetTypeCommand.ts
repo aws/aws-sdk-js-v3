@@ -75,6 +75,7 @@ export interface DeleteAssetTypeCommandOutput extends DeleteAssetTypeOutput, __M
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class DeleteAssetTypeCommand extends $Command

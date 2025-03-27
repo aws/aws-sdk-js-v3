@@ -80,6 +80,7 @@ export interface DeleteLakeFormationIdentityCenterConfigurationCommandOutput
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class DeleteLakeFormationIdentityCenterConfigurationCommand extends $Command

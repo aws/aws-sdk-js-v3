@@ -80,6 +80,7 @@ export interface ListCodeSigningConfigsCommandOutput extends ListCodeSigningConf
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class ListCodeSigningConfigsCommand extends $Command

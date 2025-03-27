@@ -82,6 +82,7 @@ export interface DetectSentimentCommandOutput extends DetectSentimentResponse, _
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class DetectSentimentCommand extends $Command

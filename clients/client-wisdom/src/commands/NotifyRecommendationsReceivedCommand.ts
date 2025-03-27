@@ -83,6 +83,7 @@ export interface NotifyRecommendationsReceivedCommandOutput
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class NotifyRecommendationsReceivedCommand extends $Command

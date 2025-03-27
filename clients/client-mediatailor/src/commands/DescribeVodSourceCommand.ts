@@ -75,6 +75,7 @@ export interface DescribeVodSourceCommandOutput extends DescribeVodSourceRespons
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class DescribeVodSourceCommand extends $Command

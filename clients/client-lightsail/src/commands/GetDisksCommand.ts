@@ -124,6 +124,7 @@ export interface GetDisksCommandOutput extends GetDisksResult, __MetadataBearer 
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetDisksCommand extends $Command

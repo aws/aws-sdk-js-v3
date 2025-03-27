@@ -110,6 +110,7 @@ export interface ForecastGeofenceEventsCommandOutput extends ForecastGeofenceEve
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class ForecastGeofenceEventsCommand extends $Command

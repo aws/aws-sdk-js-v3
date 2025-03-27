@@ -100,6 +100,7 @@ export interface CreatePhoneNumberOrderCommandOutput extends CreatePhoneNumberOr
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class CreatePhoneNumberOrderCommand extends $Command

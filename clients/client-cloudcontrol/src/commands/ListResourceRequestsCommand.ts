@@ -88,6 +88,7 @@ export interface ListResourceRequestsCommandOutput extends ListResourceRequestsO
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ *
  * @public
  */
 export class ListResourceRequestsCommand extends $Command

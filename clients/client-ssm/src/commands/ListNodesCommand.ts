@@ -107,59 +107,8 @@ export interface ListNodesCommandOutput extends ListNodesResult, __MetadataBeare
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
- * @public
- * @example ListNodes
- * ```javascript
- * // This example illustrates one usage of ListNodes
- * const input = {
- *   "Filters": [
- *     {
- *       "Key": "Region",
- *       "Type": "Equal",
- *       "Values": [
- *         "us-east-2"
- *       ]
- *     }
- *   ],
- *   "MaxResults": 1,
- *   "SyncName": "AWS-QuickSetup-ManagedNode"
- * };
- * const command = new ListNodesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "NextToken": "A9lT8CAxj9aDFRi+MNAoFq08IEXAMPLE",
- *   "Nodes": [
- *     {
- *       "CaptureTime": "2024-11-19T22:01:18",
- *       "Id": "i-02573cafcfEXAMPLE",
- *       "NodeType": {
- *         "Instance": {
- *           "AgentType": "amazon-ssm-agent",
- *           "AgentVersion": "3.3.859.0",
- *           "ComputerName": "ip-192.0.2.0.ec2.internal",
- *           "InstanceStatus": "Active",
- *           "IpAddress": "192.0.2.0",
- *           "ManagedStatus": "Managed",
- *           "PlatformName": "Amazon Linux",
- *           "PlatformType": "Linux",
- *           "PlatformVersion": "2023",
- *           "ResourceType": "EC2Instance"
- *         }
- *       },
- *       "Owner": {
- *         "AccountId": "111122223333",
- *         "OrganizationalUnitId": "ou-b8dn-sasv9tfp",
- *         "OrganizationalUnitPath": "r-b8dn/ou-b8dn-sasv9tfp"
- *       },
- *       "Region": "us-east-2"
- *     }
- *   ]
- * }
- * *\/
- * // example id: listnodes--ec13d561ee02
- * ```
  *
+ * @public
  */
 export class ListNodesCommand extends $Command
   .classBuilder<

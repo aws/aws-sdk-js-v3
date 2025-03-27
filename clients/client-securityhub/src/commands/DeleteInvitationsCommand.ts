@@ -87,25 +87,25 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To delete a custom insight
  * ```javascript
  * // The following example deletes an invitation sent by the Security Hub administrator account to a prospective member account. This operation is used only for invitations sent to accounts that aren't part of an organization. Organization accounts don't receive invitations.
  * const input = {
- *   "AccountIds": [
+ *   AccountIds: [
  *     "123456789012"
  *   ]
  * };
  * const command = new DeleteInvitationsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "UnprocessedAccounts": []
+ *   UnprocessedAccounts:   []
  * }
  * *\/
- * // example id: to-delete-a-custom-insight-1675702697204
  * ```
  *
+ * @public
  */
 export class DeleteInvitationsCommand extends $Command
   .classBuilder<

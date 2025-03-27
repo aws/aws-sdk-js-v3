@@ -100,6 +100,7 @@ export interface ListRasterDataCollectionsCommandOutput extends ListRasterDataCo
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ *
  * @public
  */
 export class ListRasterDataCollectionsCommand extends $Command

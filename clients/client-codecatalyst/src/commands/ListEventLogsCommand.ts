@@ -122,6 +122,7 @@ export interface ListEventLogsCommandOutput extends ListEventLogsResponse, __Met
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class ListEventLogsCommand extends $Command

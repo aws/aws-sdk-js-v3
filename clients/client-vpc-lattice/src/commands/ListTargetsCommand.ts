@@ -88,6 +88,7 @@ export interface ListTargetsCommandOutput extends ListTargetsResponse, __Metadat
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class ListTargetsCommand extends $Command

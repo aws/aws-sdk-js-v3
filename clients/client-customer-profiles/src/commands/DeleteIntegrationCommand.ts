@@ -71,6 +71,7 @@ export interface DeleteIntegrationCommandOutput extends DeleteIntegrationRespons
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class DeleteIntegrationCommand extends $Command

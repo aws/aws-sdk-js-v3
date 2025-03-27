@@ -135,6 +135,7 @@ export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataB
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ *
  * @public
  */
 export class RebootNodeCommand extends $Command

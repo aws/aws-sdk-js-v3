@@ -85,6 +85,7 @@ export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusRespons
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class UpdateAgentStatusCommand extends $Command

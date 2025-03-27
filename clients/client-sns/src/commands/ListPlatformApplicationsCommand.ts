@@ -82,6 +82,7 @@ export interface ListPlatformApplicationsCommandOutput extends ListPlatformAppli
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ *
  * @public
  */
 export class ListPlatformApplicationsCommand extends $Command

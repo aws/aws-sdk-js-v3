@@ -155,23 +155,23 @@ export interface GetRemoteAccessSessionCommandOutput extends GetRemoteAccessSess
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To get a remote access session
  * ```javascript
  * // The following example gets a specific remote access session.
  * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:session:EXAMPLE-GUID-123-456"
+ *   arn: "arn:aws:devicefarm:us-west-2:123456789101:session:EXAMPLE-GUID-123-456"
  * };
  * const command = new GetRemoteAccessSessionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "remoteAccessSession": {}
+ *   remoteAccessSession:   { /* empty *\/ }
  * }
  * *\/
- * // example id: to-get-a-remote-access-session-1471014119414
  * ```
  *
+ * @public
  */
 export class GetRemoteAccessSessionCommand extends $Command
   .classBuilder<

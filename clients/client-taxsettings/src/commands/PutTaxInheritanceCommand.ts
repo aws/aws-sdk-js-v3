@@ -67,6 +67,7 @@ export interface PutTaxInheritanceCommandOutput extends PutTaxInheritanceRespons
  * @throws {@link TaxSettingsServiceException}
  * <p>Base exception class for all service exceptions from TaxSettings service.</p>
  *
+ *
  * @public
  */
 export class PutTaxInheritanceCommand extends $Command

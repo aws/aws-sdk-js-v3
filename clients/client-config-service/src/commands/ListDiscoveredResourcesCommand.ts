@@ -134,6 +134,7 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class ListDiscoveredResourcesCommand extends $Command

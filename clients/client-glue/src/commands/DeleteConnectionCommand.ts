@@ -60,6 +60,7 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class DeleteConnectionCommand extends $Command

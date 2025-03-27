@@ -214,67 +214,67 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
- * @public
+ *
  * @example An AdminCreateUser request for for a test user named John.
  * ```javascript
  * // This request submits a value for all possible parameters for AdminCreateUser.
  * const input = {
- *   "DesiredDeliveryMediums": [
+ *   DesiredDeliveryMediums: [
  *     "SMS"
  *   ],
- *   "MessageAction": "SUPPRESS",
- *   "TemporaryPassword": "This-is-my-test-99!",
- *   "UserAttributes": [
+ *   MessageAction: "SUPPRESS",
+ *   TemporaryPassword: "This-is-my-test-99!",
+ *   UserAttributes: [
  *     {
- *       "Name": "name",
- *       "Value": "John"
+ *       Name: "name",
+ *       Value: "John"
  *     },
  *     {
- *       "Name": "phone_number",
- *       "Value": "+12065551212"
+ *       Name: "phone_number",
+ *       Value: "+12065551212"
  *     },
  *     {
- *       "Name": "email",
- *       "Value": "testuser@example.com"
+ *       Name: "email",
+ *       Value: "testuser@example.com"
  *     }
  *   ],
- *   "UserPoolId": "us-east-1_EXAMPLE",
- *   "Username": "testuser"
+ *   UserPoolId: "us-east-1_EXAMPLE",
+ *   Username: "testuser"
  * };
  * const command = new AdminCreateUserCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "User": {
- *     "Attributes": [
+ *   User: {
+ *     Attributes: [
  *       {
- *         "Name": "sub",
- *         "Value": "d16b4aa8-8633-4abd-93b3-5062a8e1b5f8"
+ *         Name: "sub",
+ *         Value: "d16b4aa8-8633-4abd-93b3-5062a8e1b5f8"
  *       },
  *       {
- *         "Name": "name",
- *         "Value": "John"
+ *         Name: "name",
+ *         Value: "John"
  *       },
  *       {
- *         "Name": "phone_number",
- *         "Value": "+12065551212"
+ *         Name: "phone_number",
+ *         Value: "+12065551212"
  *       },
  *       {
- *         "Name": "email",
- *         "Value": "testuser@example.com"
+ *         Name: "email",
+ *         Value: "testuser@example.com"
  *       }
  *     ],
- *     "Enabled": true,
- *     "UserCreateDate": 1689980857.949,
- *     "UserLastModifiedDate": 1689980857.949,
- *     "UserStatus": "FORCE_CHANGE_PASSWORD",
- *     "Username": "testuser"
+ *     Enabled: true,
+ *     UserCreateDate: 1.689980857949E9,
+ *     UserLastModifiedDate: 1.689980857949E9,
+ *     UserStatus: "FORCE_CHANGE_PASSWORD",
+ *     Username: "testuser"
  *   }
  * }
  * *\/
- * // example id: an-admincreateuser-request-for-for-a-test-user-named-john-1689980900481
  * ```
  *
+ * @public
  */
 export class AdminCreateUserCommand extends $Command
   .classBuilder<

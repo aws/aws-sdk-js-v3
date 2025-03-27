@@ -79,21 +79,24 @@ export interface DeleteScheduledActionCommandOutput extends DeleteScheduledActio
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
- * @public
+ *
  * @example To delete a scheduled action
  * ```javascript
  * // This example deletes a scheduled action for the AppStream 2.0 fleet called sample-fleet.
  * const input = {
- *   "ResourceId": "fleet/sample-fleet",
- *   "ScalableDimension": "appstream:fleet:DesiredCapacity",
- *   "ScheduledActionName": "my-recurring-action",
- *   "ServiceNamespace": "appstream"
+ *   ResourceId: "fleet/sample-fleet",
+ *   ScalableDimension: "appstream:fleet:DesiredCapacity",
+ *   ScheduledActionName: "my-recurring-action",
+ *   ServiceNamespace: "appstream"
  * };
  * const command = new DeleteScheduledActionCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-scheduled-action-1677963329606
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteScheduledActionCommand extends $Command
   .classBuilder<

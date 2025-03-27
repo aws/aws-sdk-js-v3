@@ -52,6 +52,7 @@ export interface Float16CommandOutput extends Float16Output, __MetadataBearer {}
  * @throws {@link RpcV2ProtocolServiceException}
  * <p>Base exception class for all service exceptions from RpcV2Protocol service.</p>
  *
+ *
  */
 export class Float16Command extends $Command
   .classBuilder<

@@ -103,28 +103,28 @@ export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevice
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To list virtual MFA devices
  * ```javascript
  * // The following command lists the virtual MFA devices that have been configured for the current account.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListVirtualMFADevicesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "VirtualMFADevices": [
+ *   VirtualMFADevices: [
  *     {
- *       "SerialNumber": "arn:aws:iam::123456789012:mfa/ExampleMFADevice"
+ *       SerialNumber: "arn:aws:iam::123456789012:mfa/ExampleMFADevice"
  *     },
  *     {
- *       "SerialNumber": "arn:aws:iam::123456789012:mfa/Juan"
+ *       SerialNumber: "arn:aws:iam::123456789012:mfa/Juan"
  *     }
  *   ]
  * }
  * *\/
- * // example id: 54f9ac18-5100-4070-bec4-fe5f612710d5
  * ```
  *
+ * @public
  */
 export class ListVirtualMFADevicesCommand extends $Command
   .classBuilder<

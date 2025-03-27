@@ -81,6 +81,7 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class CreateWorkflowCommand extends $Command

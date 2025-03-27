@@ -80,6 +80,7 @@ export interface EnableLDAPSCommandOutput extends EnableLDAPSResult, __MetadataB
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class EnableLDAPSCommand extends $Command

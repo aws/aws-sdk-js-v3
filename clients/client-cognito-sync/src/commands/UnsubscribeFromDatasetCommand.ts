@@ -122,6 +122,7 @@ export interface UnsubscribeFromDatasetCommandOutput extends UnsubscribeFromData
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class UnsubscribeFromDatasetCommand extends $Command

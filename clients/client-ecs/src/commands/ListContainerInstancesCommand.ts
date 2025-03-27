@@ -90,26 +90,26 @@ export interface ListContainerInstancesCommandOutput extends ListContainerInstan
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To list your available container instances in a cluster
  * ```javascript
  * // This example lists all of your available container instances in the specified cluster in your default region.
  * const input = {
- *   "cluster": "default"
+ *   cluster: "default"
  * };
  * const command = new ListContainerInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "containerInstanceArns": [
+ *   containerInstanceArns: [
  *     "arn:aws:ecs:us-east-1:<aws_account_id>:container-instance/default/f6bbb147-5370-4ace-8c73-c7181ded911f",
  *     "arn:aws:ecs:us-east-1:<aws_account_id>:container-instance/default/ffe3d344-77e2-476c-a4d0-bf560ad50acb"
  *   ]
  * }
  * *\/
- * // example id: 62a82a94-713c-4e18-8420-1d2b2ba9d484
  * ```
  *
+ * @public
  */
 export class ListContainerInstancesCommand extends $Command
   .classBuilder<

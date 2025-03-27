@@ -93,6 +93,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class CreateDatasetCommand extends $Command

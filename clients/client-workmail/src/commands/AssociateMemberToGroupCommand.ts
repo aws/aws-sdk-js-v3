@@ -83,6 +83,7 @@ export interface AssociateMemberToGroupCommandOutput extends AssociateMemberToGr
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class AssociateMemberToGroupCommand extends $Command

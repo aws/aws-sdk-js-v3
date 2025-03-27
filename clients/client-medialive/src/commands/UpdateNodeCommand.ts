@@ -96,6 +96,7 @@ export interface UpdateNodeCommandOutput extends UpdateNodeResponse, __MetadataB
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class UpdateNodeCommand extends $Command

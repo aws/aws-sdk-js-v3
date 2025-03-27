@@ -144,6 +144,7 @@ export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTe
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ *
  * @public
  */
 export class StartDocumentTextDetectionCommand extends $Command

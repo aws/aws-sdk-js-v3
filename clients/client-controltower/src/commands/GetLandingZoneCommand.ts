@@ -79,6 +79,7 @@ export interface GetLandingZoneCommandOutput extends GetLandingZoneOutput, __Met
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class GetLandingZoneCommand extends $Command

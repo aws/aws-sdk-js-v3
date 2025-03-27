@@ -75,6 +75,7 @@ export interface DescribeImageVersionCommandOutput extends DescribeImageVersionR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeImageVersionCommand extends $Command

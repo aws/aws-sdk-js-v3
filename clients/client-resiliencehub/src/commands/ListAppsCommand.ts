@@ -103,6 +103,7 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListAppsCommand extends $Command

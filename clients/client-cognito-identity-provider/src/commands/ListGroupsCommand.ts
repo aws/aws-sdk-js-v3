@@ -110,6 +110,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class ListGroupsCommand extends $Command

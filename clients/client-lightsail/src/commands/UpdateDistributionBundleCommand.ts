@@ -106,6 +106,7 @@ export interface UpdateDistributionBundleCommandOutput extends UpdateDistributio
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class UpdateDistributionBundleCommand extends $Command

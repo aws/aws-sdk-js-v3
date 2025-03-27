@@ -108,6 +108,7 @@ export interface ListEntitiesDetectionV2JobsCommandOutput
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ *
  * @public
  */
 export class ListEntitiesDetectionV2JobsCommand extends $Command

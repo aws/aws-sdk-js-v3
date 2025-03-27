@@ -62,6 +62,7 @@ export interface GetDataLakePrincipalCommandOutput extends GetDataLakePrincipalR
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class GetDataLakePrincipalCommand extends $Command

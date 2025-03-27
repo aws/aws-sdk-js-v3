@@ -73,33 +73,33 @@ export interface GetInstanceCommandOutput extends GetInstanceResponse, __Metadat
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example GetInstance example
  * ```javascript
  * // This example gets information about a specified instance.
  * const input = {
- *   "InstanceId": "i-abcd1234",
- *   "ServiceId": "srv-e4anhexample0004"
+ *   InstanceId: "i-abcd1234",
+ *   ServiceId: "srv-e4anhexample0004"
  * };
  * const command = new GetInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Instance": {
- *     "Attributes": {
- *       "AWS_INSTANCE_IPV4": "192.0.2.44",
- *       "AWS_INSTANCE_PORT": "80",
- *       "color": "green",
- *       "region": "us-west-2",
- *       "stage": "beta"
+ *   Instance: {
+ *     Attributes: {
+ *       AWS_INSTANCE_IPV4: "192.0.2.44",
+ *       AWS_INSTANCE_PORT: "80",
+ *       color: "green",
+ *       region: "us-west-2",
+ *       stage: "beta"
  *     },
- *     "Id": "i-abcd1234"
+ *     Id: "i-abcd1234"
  *   }
  * }
  * *\/
- * // example id: getinstance-example-1590115065598
  * ```
  *
+ * @public
  */
 export class GetInstanceCommand extends $Command
   .classBuilder<

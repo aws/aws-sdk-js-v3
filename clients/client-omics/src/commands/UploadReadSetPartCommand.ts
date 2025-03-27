@@ -93,6 +93,7 @@ export interface UploadReadSetPartCommandOutput extends UploadReadSetPartRespons
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class UploadReadSetPartCommand extends $Command

@@ -90,6 +90,7 @@ export interface CreateWaveCommandOutput extends Wave, __MetadataBearer {}
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class CreateWaveCommand extends $Command

@@ -82,6 +82,7 @@ export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentRes
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class DeleteAppAssessmentCommand extends $Command

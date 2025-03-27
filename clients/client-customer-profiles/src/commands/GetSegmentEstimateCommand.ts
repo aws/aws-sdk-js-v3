@@ -76,6 +76,7 @@ export interface GetSegmentEstimateCommandOutput extends GetSegmentEstimateRespo
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class GetSegmentEstimateCommand extends $Command

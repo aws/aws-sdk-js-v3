@@ -114,6 +114,7 @@ export interface AddApplicationVpcConfigurationCommandOutput
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ *
  * @public
  */
 export class AddApplicationVpcConfigurationCommand extends $Command

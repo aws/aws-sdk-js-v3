@@ -142,6 +142,7 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  * @throws {@link CodeGuruReviewerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ *
  * @public
  */
 export class AssociateRepositoryCommand extends $Command

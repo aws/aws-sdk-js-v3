@@ -81,6 +81,7 @@ export interface GetGeoMatchSetCommandOutput extends GetGeoMatchSetResponse, __M
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ *
  * @public
  */
 export class GetGeoMatchSetCommand extends $Command
