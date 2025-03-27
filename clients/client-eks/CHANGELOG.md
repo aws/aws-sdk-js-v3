@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.777.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.776.0...v3.777.0) (2025-03-27)
+
+
+### Features
+
+* **client-eks:** Added support for BOTTLEROCKET FIPS AMIs to AMI types in US regions. ([09d8cf0](https://github.com/aws/aws-sdk-js-v3/commit/09d8cf0d84b109d9a98c5631b1cb773dae1886b0))
+
+
+
+
+
 # [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
 
 

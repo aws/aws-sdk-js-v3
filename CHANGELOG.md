@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.777.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.776.0...v3.777.0) (2025-03-27)
+
+
+### Features
+
+* **client-batch:** This release will enable two features: Firelens log driver, and Execute Command on Batch jobs on ECS. Both features will be passed through to ECS. ([e7c7403](https://github.com/aws/aws-sdk-js-v3/commit/e7c7403e5282bee1eb5658602bfdabc0772a6215))
+* **client-bcm-pricing-calculator:** Added standaloneAccountRateTypeSelections for GetPreferences and UpdatePreferences APIs. Added STALE enum value to status attribute in GetBillScenario and UpdateBillScenario APIs. ([f3fe1af](https://github.com/aws/aws-sdk-js-v3/commit/f3fe1af841d89452453b1d51d01c42e1b84fd6cd))
+* **client-bedrock-agent-runtime:** bedrock flow now support node action trace. ([9621bd3](https://github.com/aws/aws-sdk-js-v3/commit/9621bd3866992efeb80624ef103c30f1c155fae0))
+* **client-cloudformation:** Adding support for the new parameter "ScanFilters" in the CloudFormation StartResourceScan API. When this parameter is included, the StartResourceScan API will initiate a scan limited to the resource types specified by the parameter. ([2da6a12](https://github.com/aws/aws-sdk-js-v3/commit/2da6a12c4a3c0c3054b9ad1b7ecb649856597750))
+* **client-datazone:** This release adds new action type of Create Listing Changeset for the Metadata Enforcement Rule feature. ([7b29a72](https://github.com/aws/aws-sdk-js-v3/commit/7b29a722f38886e3f9af1cfa78a28eff0cd9985c))
+* **client-eks:** Added support for BOTTLEROCKET FIPS AMIs to AMI types in US regions. ([09d8cf0](https://github.com/aws/aws-sdk-js-v3/commit/09d8cf0d84b109d9a98c5631b1cb773dae1886b0))
+* **client-gamelift:** Amazon GameLift Servers add support for additional instance types. ([a31949f](https://github.com/aws/aws-sdk-js-v3/commit/a31949fff1b7b0a46d97bdecba76175e0fedd54b))
+* **client-iam:** Update IAM dual-stack endpoints for BJS, IAD and PDT partitions ([678eaeb](https://github.com/aws/aws-sdk-js-v3/commit/678eaebc36cab3d330da5373aa28c4a3062711cf))
+* **client-sagemaker:** add: recovery mode for SageMaker Studio apps ([126e606](https://github.com/aws/aws-sdk-js-v3/commit/126e606d56fa6c854c83858e4aaa8c9ecb30140d))
+* **client-sso-oidc:** This release adds AwsAdditionalDetails in the CreateTokenWithIAM API response. ([ad60044](https://github.com/aws/aws-sdk-js-v3/commit/ad600448a1d41fa93158206c44d99df8cb4e3b0c))
+* **clients:** update client endpoints as of 2025-03-27 ([810fd8c](https://github.com/aws/aws-sdk-js-v3/commit/810fd8c3a9d93f2b00f51c54df63685dda3afb32))
+
+
+
+
+
 # [3.776.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.775.0...v3.776.0) (2025-03-26)
 
 

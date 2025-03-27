@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.777.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.776.0...v3.777.0) (2025-03-27)
+
+
+### Features
+
+* **client-sso-oidc:** This release adds AwsAdditionalDetails in the CreateTokenWithIAM API response. ([ad60044](https://github.com/aws/aws-sdk-js-v3/commit/ad600448a1d41fa93158206c44d99df8cb4e3b0c))
+
+
+
+
+
 # [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
 
 **Note:** Version bump only for package @aws-sdk/client-sso-oidc

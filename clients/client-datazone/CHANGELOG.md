@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.777.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.776.0...v3.777.0) (2025-03-27)
+
+
+### Features
+
+* **client-datazone:** This release adds new action type of Create Listing Changeset for the Metadata Enforcement Rule feature. ([7b29a72](https://github.com/aws/aws-sdk-js-v3/commit/7b29a722f38886e3f9af1cfa78a28eff0cd9985c))
+
+
+
+
+
 # [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone
