@@ -152,7 +152,7 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //           swappiness: Number("int"),
  * //         },
  * //         logConfiguration: { // LogConfiguration
- * //           logDriver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk", // required
+ * //           logDriver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk" || "awsfirelens", // required
  * //           options: { // LogConfigurationOptionsMap
  * //             "<keys>": "STRING_VALUE",
  * //           },
@@ -175,6 +175,7 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //         fargatePlatformConfiguration: { // FargatePlatformConfiguration
  * //           platformVersion: "STRING_VALUE",
  * //         },
+ * //         enableExecuteCommand: true || false,
  * //         ephemeralStorage: { // EphemeralStorage
  * //           sizeInGiB: Number("int"), // required
  * //         },
@@ -275,7 +276,7 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //                 swappiness: Number("int"),
  * //               },
  * //               logConfiguration: {
- * //                 logDriver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk", // required
+ * //                 logDriver: "json-file" || "syslog" || "journald" || "gelf" || "fluentd" || "awslogs" || "splunk" || "awsfirelens", // required
  * //                 options: {
  * //                   "<keys>": "STRING_VALUE",
  * //                 },
@@ -288,6 +289,7 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //               fargatePlatformConfiguration: {
  * //                 platformVersion: "STRING_VALUE",
  * //               },
+ * //               enableExecuteCommand: true || false,
  * //               ephemeralStorage: {
  * //                 sizeInGiB: Number("int"), // required
  * //               },
@@ -314,6 +316,12 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //                       ],
  * //                       environment: "<EnvironmentVariables>",
  * //                       essential: true || false,
+ * //                       firelensConfiguration: { // FirelensConfiguration
+ * //                         type: "fluentd" || "fluentbit", // required
+ * //                         options: { // FirelensConfigurationOptionsMap
+ * //                           "<keys>": "STRING_VALUE",
+ * //                         },
+ * //                       },
  * //                       image: "STRING_VALUE", // required
  * //                       linuxParameters: "<LinuxParameters>",
  * //                       logConfiguration: "<LogConfiguration>",
@@ -337,6 +345,7 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //                   networkConfiguration: "<NetworkConfiguration>",
  * //                   runtimePlatform: "<RuntimePlatform>",
  * //                   volumes: "<Volumes>",
+ * //                   enableExecuteCommand: true || false,
  * //                 },
  * //               ],
  * //             },
@@ -492,6 +501,12 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //                 ],
  * //                 environment: "<EnvironmentVariables>",
  * //                 essential: true || false,
+ * //                 firelensConfiguration: {
+ * //                   type: "fluentd" || "fluentbit", // required
+ * //                   options: {
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                 },
  * //                 image: "STRING_VALUE", // required
  * //                 linuxParameters: "<LinuxParameters>",
  * //                 logConfiguration: "<LogConfiguration>",
@@ -515,6 +530,7 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //             networkConfiguration: "<NetworkConfiguration>",
  * //             runtimePlatform: "<RuntimePlatform>",
  * //             volumes: "<Volumes>",
+ * //             enableExecuteCommand: true || false,
  * //           },
  * //         ],
  * //       },

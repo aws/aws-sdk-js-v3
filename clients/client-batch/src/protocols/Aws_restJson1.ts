@@ -158,6 +158,7 @@ import {
   EvaluateOnExit,
   FairsharePolicy,
   FargatePlatformConfiguration,
+  FirelensConfiguration,
   Host,
   ImagePullSecret,
   JobDefinition,
@@ -1766,6 +1767,10 @@ const se_FairsharePolicy = (input: FairsharePolicy, context: __SerdeContext): an
 
 // se_FargatePlatformConfiguration omitted.
 
+// se_FirelensConfiguration omitted.
+
+// se_FirelensConfigurationOptionsMap omitted.
+
 // se_Host omitted.
 
 // se_ImagePullSecret omitted.
@@ -2061,6 +2066,10 @@ const de_FairsharePolicy = (output: any, context: __SerdeContext): FairsharePoli
 };
 
 // de_FargatePlatformConfiguration omitted.
+
+// de_FirelensConfiguration omitted.
+
+// de_FirelensConfigurationOptionsMap omitted.
 
 // de_FrontOfQueueDetail omitted.
 

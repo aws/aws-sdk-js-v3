@@ -35,7 +35,7 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *       parameters in a <code>resourceRequirements</code> object that's included in the
  *         <code>containerOverrides</code> parameter.</p>
  *          <note>
- *             <p>Job queues with a scheduling policy are limited to 500 active fair share identifiers at
+ *             <p>Job queues with a scheduling policy are limited to 500 active share identifiers at
  *         a time. </p>
  *          </note>
  *          <important>
