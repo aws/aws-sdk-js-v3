@@ -204,6 +204,7 @@ export const de_CreateTokenWithIAMCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     accessToken: __expectString,
+    awsAdditionalDetails: _json,
     expiresIn: __expectInt32,
     idToken: __expectString,
     issuedTokenType: __expectString,
@@ -628,6 +629,8 @@ const de_UnsupportedGrantTypeExceptionRes = async (
 // se_RedirectUris omitted.
 
 // se_Scopes omitted.
+
+// de_AwsAdditionalDetails omitted.
 
 // de_Scopes omitted.
 

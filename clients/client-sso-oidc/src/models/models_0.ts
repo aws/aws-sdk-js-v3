@@ -74,6 +74,21 @@ export class AuthorizationPendingException extends __BaseException {
 }
 
 /**
+ * <p>This structure contains Amazon Web Services-specific parameter extensions for the token endpoint
+ *       responses and includes the identity context.</p>
+ * @public
+ */
+export interface AwsAdditionalDetails {
+  /**
+   * <p>STS context assertion that carries a user identifier to the Amazon Web Services service that it calls
+   *       and can be used to obtain an identity-enhanced IAM role session. This value corresponds to
+   *       the <code>sts:identity_context</code> claim in the ID token.</p>
+   * @public
+   */
+  identityContext?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateTokenRequest {
@@ -681,6 +696,15 @@ export interface CreateTokenWithIAMResponse {
    * @public
    */
   scope?: string[] | undefined;
+
+  /**
+   * <p>A structure containing information from the <code>idToken</code>. Only the
+   *         <code>identityContext</code> is in it, which is a value extracted from the
+   *         <code>idToken</code>. This provides direct access to identity information without requiring
+   *       JWT parsing.</p>
+   * @public
+   */
+  awsAdditionalDetails?: AwsAdditionalDetails | undefined;
 }
 
 /**

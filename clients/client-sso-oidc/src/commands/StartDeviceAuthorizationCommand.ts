@@ -105,8 +105,8 @@ export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthor
  *   expiresIn: 1579729529,
  *   interval: 1,
  *   userCode: "makdfsk83yJraWQiOiJrZXktMTU2Njk2sImFsZyI6IkhTMzIn0EXAMPLEUSERCODE",
- *   verificationUri: "https://device.sso.us-west-2.amazonaws.com",
- *   verificationUriComplete: "https://device.sso.us-west-2.amazonaws.com?user_code=makdfsk83yJraWQiOiJrZXktMTU2Njk2sImFsZyI6IkhTMzIn0EXAMPLEUSERCODE"
+ *   verificationUri: "https://directory-alias-example.awsapps.com/start/#/device",
+ *   verificationUriComplete: "https://directory-alias-example.awsapps.com/start/#/device?user_code=makdfsk83yJraWQiOiJrZXktMTU2Njk2sImFsZyI6IkhTMzIn0EXAMPLEUSERCODE"
  * }
  * *\/
  * ```
