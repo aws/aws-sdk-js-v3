@@ -33,7 +33,7 @@ export interface GetPreferencesCommandOutput extends GetPreferencesResponse, __M
 
 /**
  * <p>
- *         Retrieves the current preferences for the Amazon Web Services Cost Explorer service.
+ *         Retrieves the current preferences for Pricing Calculator.
  *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +49,9 @@ export interface GetPreferencesCommandOutput extends GetPreferencesResponse, __M
  * //     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS",
  * //   ],
  * //   memberAccountRateTypeSelections: [
+ * //     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS",
+ * //   ],
+ * //   standaloneAccountRateTypeSelections: [
  * //     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS",
  * //   ],
  * // };

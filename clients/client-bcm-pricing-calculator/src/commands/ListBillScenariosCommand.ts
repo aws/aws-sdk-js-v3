@@ -73,7 +73,7 @@ export interface ListBillScenariosCommandOutput extends ListBillScenariosRespons
  * //         start: new Date("TIMESTAMP"),
  * //         end: new Date("TIMESTAMP"),
  * //       },
- * //       status: "READY" || "LOCKED" || "FAILED",
+ * //       status: "READY" || "LOCKED" || "FAILED" || "STALE",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       expiresAt: new Date("TIMESTAMP"),
  * //       failureMessage: "STRING_VALUE",

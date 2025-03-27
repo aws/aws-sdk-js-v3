@@ -33,7 +33,7 @@ export interface UpdatePreferencesCommandOutput extends UpdatePreferencesRespons
 
 /**
  * <p>
- *                         Updates the preferences for the Amazon Web Services Cost Explorer service.
+ *                         Updates the preferences for Pricing Calculator.
  *                 </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,6 +48,9 @@ export interface UpdatePreferencesCommandOutput extends UpdatePreferencesRespons
  *   memberAccountRateTypeSelections: [
  *     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS",
  *   ],
+ *   standaloneAccountRateTypeSelections: [
+ *     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS",
+ *   ],
  * };
  * const command = new UpdatePreferencesCommand(input);
  * const response = await client.send(command);
@@ -56,6 +59,9 @@ export interface UpdatePreferencesCommandOutput extends UpdatePreferencesRespons
  * //     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS",
  * //   ],
  * //   memberAccountRateTypeSelections: [
+ * //     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS",
+ * //   ],
+ * //   standaloneAccountRateTypeSelections: [
  * //     "BEFORE_DISCOUNTS" || "AFTER_DISCOUNTS",
  * //   ],
  * // };

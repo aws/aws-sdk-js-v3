@@ -2267,6 +2267,7 @@ export const BillScenarioStatus = {
   FAILED: "FAILED",
   LOCKED: "LOCKED",
   READY: "READY",
+  STALE: "STALE",
 } as const;
 
 /**
@@ -3113,6 +3114,14 @@ export interface GetPreferencesResponse {
    * @public
    */
   memberAccountRateTypeSelections?: RateType[] | undefined;
+
+  /**
+   * <p>
+   *                         The preferred rate types for a standalone account.
+   *                 </p>
+   * @public
+   */
+  standaloneAccountRateTypeSelections?: RateType[] | undefined;
 }
 
 /**
@@ -3212,6 +3221,14 @@ export interface UpdatePreferencesRequest {
    * @public
    */
   memberAccountRateTypeSelections?: RateType[] | undefined;
+
+  /**
+   * <p>
+   *                         The updated preferred rate types for a standalone account.
+   *                 </p>
+   * @public
+   */
+  standaloneAccountRateTypeSelections?: RateType[] | undefined;
 }
 
 /**
@@ -3233,6 +3250,14 @@ export interface UpdatePreferencesResponse {
    * @public
    */
   memberAccountRateTypeSelections?: RateType[] | undefined;
+
+  /**
+   * <p>
+   *                         The updated preferred rate types for a standalone account.
+   *                 </p>
+   * @public
+   */
+  standaloneAccountRateTypeSelections?: RateType[] | undefined;
 }
 
 /**
