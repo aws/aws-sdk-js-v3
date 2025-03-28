@@ -355,6 +355,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                   sensitiveInformationPolicyUnits: Number("int"), // required
  * //                   sensitiveInformationPolicyFreeUnits: Number("int"), // required
  * //                   contextualGroundingPolicyUnits: Number("int"), // required
+ * //                   contentPolicyImageUnits: Number("int"),
  * //                 },
  * //                 guardrailCoverage: { // GuardrailCoverage
  * //                   textCharacters: { // GuardrailTextCharactersCoverage
@@ -442,6 +443,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //                     sensitiveInformationPolicyUnits: Number("int"), // required
  * //                     sensitiveInformationPolicyFreeUnits: Number("int"), // required
  * //                     contextualGroundingPolicyUnits: Number("int"), // required
+ * //                     contentPolicyImageUnits: Number("int"),
  * //                   },
  * //                   guardrailCoverage: {
  * //                     textCharacters: {

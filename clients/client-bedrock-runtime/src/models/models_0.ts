@@ -1024,6 +1024,12 @@ export interface GuardrailUsage {
    * @public
    */
   contextualGroundingPolicyUnits: number | undefined;
+
+  /**
+   * <p>The content policy image units processed by the guardrail.</p>
+   * @public
+   */
+  contentPolicyImageUnits?: number | undefined;
 }
 
 /**

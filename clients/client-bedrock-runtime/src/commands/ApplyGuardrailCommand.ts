@@ -72,6 +72,7 @@ export interface ApplyGuardrailCommandOutput extends ApplyGuardrailResponse, __M
  * //     sensitiveInformationPolicyUnits: Number("int"), // required
  * //     sensitiveInformationPolicyFreeUnits: Number("int"), // required
  * //     contextualGroundingPolicyUnits: Number("int"), // required
+ * //     contentPolicyImageUnits: Number("int"),
  * //   },
  * //   action: "NONE" || "GUARDRAIL_INTERVENED", // required
  * //   outputs: [ // GuardrailOutputContentList // required
@@ -151,6 +152,7 @@ export interface ApplyGuardrailCommandOutput extends ApplyGuardrailResponse, __M
  * //           sensitiveInformationPolicyUnits: Number("int"), // required
  * //           sensitiveInformationPolicyFreeUnits: Number("int"), // required
  * //           contextualGroundingPolicyUnits: Number("int"), // required
+ * //           contentPolicyImageUnits: Number("int"),
  * //         },
  * //         guardrailCoverage: { // GuardrailCoverage
  * //           textCharacters: { // GuardrailTextCharactersCoverage

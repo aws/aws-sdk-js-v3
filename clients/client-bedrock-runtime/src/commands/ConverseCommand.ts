@@ -407,6 +407,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //               sensitiveInformationPolicyUnits: Number("int"), // required
  * //               sensitiveInformationPolicyFreeUnits: Number("int"), // required
  * //               contextualGroundingPolicyUnits: Number("int"), // required
+ * //               contentPolicyImageUnits: Number("int"),
  * //             },
  * //             guardrailCoverage: { // GuardrailCoverage
  * //               textCharacters: { // GuardrailTextCharactersCoverage
@@ -494,6 +495,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //                 sensitiveInformationPolicyUnits: Number("int"), // required
  * //                 sensitiveInformationPolicyFreeUnits: Number("int"), // required
  * //                 contextualGroundingPolicyUnits: Number("int"), // required
+ * //                 contentPolicyImageUnits: Number("int"),
  * //               },
  * //               guardrailCoverage: {
  * //                 textCharacters: {
