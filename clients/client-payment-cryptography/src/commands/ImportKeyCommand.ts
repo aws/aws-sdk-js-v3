@@ -40,10 +40,6 @@ export interface ImportKeyCommandOutput extends ImportKeyOutput, __MetadataBeare
  *          <p>
  *             <b>To import a public root key certificate</b>
  *          </p>
- *          <p>You can also import a <i>root public key certificate</i>, used to sign other public key certificates, or a <i>trusted public key certificate</i> under an already established root public key certificate.</p>
- *          <p>
- *             <b>To import a public root key certificate</b>
- *          </p>
  *          <p>Using this operation, you can import the public component (in PEM cerificate format) of your private root key. You can use the imported public root key certificate for digital signatures, for example signing wrapping key or signing key in TR-34, within your Amazon Web Services Payment Cryptography account.</p>
  *          <p>Set the following parameters:</p>
  *          <ul>
@@ -245,6 +241,18 @@ export interface ImportKeyCommandOutput extends ImportKeyOutput, __MetadataBeare
  *       ImportToken: "STRING_VALUE", // required
  *       WrappingSpec: "STRING_VALUE",
  *     },
+ *     DiffieHellmanTr31KeyBlock: { // ImportDiffieHellmanTr31KeyBlock
+ *       PrivateKeyIdentifier: "STRING_VALUE", // required
+ *       CertificateAuthorityPublicKeyIdentifier: "STRING_VALUE", // required
+ *       PublicKeyCertificate: "STRING_VALUE", // required
+ *       DeriveKeyAlgorithm: "TDES_2KEY" || "TDES_3KEY" || "AES_128" || "AES_192" || "AES_256", // required
+ *       KeyDerivationFunction: "NIST_SP800" || "ANSI_X963", // required
+ *       KeyDerivationHashAlgorithm: "SHA_256" || "SHA_384" || "SHA_512", // required
+ *       DerivationData: { // DiffieHellmanDerivationData Union: only one key present
+ *         SharedInformation: "STRING_VALUE",
+ *       },
+ *       WrappedKeyBlock: "STRING_VALUE", // required
+ *     },
  *   },
  *   KeyCheckValueAlgorithm: "STRING_VALUE",
  *   Enabled: true || false,
@@ -287,6 +295,7 @@ export interface ImportKeyCommandOutput extends ImportKeyOutput, __MetadataBeare
  * //     UsageStopTimestamp: new Date("TIMESTAMP"),
  * //     DeletePendingTimestamp: new Date("TIMESTAMP"),
  * //     DeleteTimestamp: new Date("TIMESTAMP"),
+ * //     DeriveKeyUsage: "STRING_VALUE",
  * //   },
  * // };
  *

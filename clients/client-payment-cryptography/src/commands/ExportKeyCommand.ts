@@ -197,6 +197,35 @@ export interface ExportKeyCommandOutput extends ExportKeyOutput, __MetadataBeare
  *       WrappingKeyCertificate: "STRING_VALUE", // required
  *       WrappingSpec: "STRING_VALUE",
  *     },
+ *     DiffieHellmanTr31KeyBlock: { // ExportDiffieHellmanTr31KeyBlock
+ *       PrivateKeyIdentifier: "STRING_VALUE", // required
+ *       CertificateAuthorityPublicKeyIdentifier: "STRING_VALUE", // required
+ *       PublicKeyCertificate: "STRING_VALUE", // required
+ *       DeriveKeyAlgorithm: "TDES_2KEY" || "TDES_3KEY" || "AES_128" || "AES_192" || "AES_256", // required
+ *       KeyDerivationFunction: "NIST_SP800" || "ANSI_X963", // required
+ *       KeyDerivationHashAlgorithm: "SHA_256" || "SHA_384" || "SHA_512", // required
+ *       DerivationData: { // DiffieHellmanDerivationData Union: only one key present
+ *         SharedInformation: "STRING_VALUE",
+ *       },
+ *       KeyBlockHeaders: {
+ *         KeyModesOfUse: {
+ *           Encrypt: true || false,
+ *           Decrypt: true || false,
+ *           Wrap: true || false,
+ *           Unwrap: true || false,
+ *           Generate: true || false,
+ *           Sign: true || false,
+ *           Verify: true || false,
+ *           DeriveKey: true || false,
+ *           NoRestrictions: true || false,
+ *         },
+ *         KeyExportability: "STRING_VALUE",
+ *         KeyVersion: "STRING_VALUE",
+ *         OptionalBlocks: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *     },
  *   },
  *   ExportKeyIdentifier: "STRING_VALUE", // required
  *   ExportAttributes: { // ExportAttributes

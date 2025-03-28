@@ -90,6 +90,7 @@ export interface CreateKeyCommandOutput extends CreateKeyOutput, __MetadataBeare
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   DeriveKeyUsage: "STRING_VALUE",
  * };
  * const command = new CreateKeyCommand(input);
  * const response = await client.send(command);
@@ -123,6 +124,7 @@ export interface CreateKeyCommandOutput extends CreateKeyOutput, __MetadataBeare
  * //     UsageStopTimestamp: new Date("TIMESTAMP"),
  * //     DeletePendingTimestamp: new Date("TIMESTAMP"),
  * //     DeleteTimestamp: new Date("TIMESTAMP"),
+ * //     DeriveKeyUsage: "STRING_VALUE",
  * //   },
  * // };
  *

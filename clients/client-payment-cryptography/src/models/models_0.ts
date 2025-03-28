@@ -346,12 +346,44 @@ export interface UpdateAliasOutput {
  * @public
  * @enum
  */
+export const DeriveKeyUsage = {
+  TR31_B0_BASE_DERIVATION_KEY: "TR31_B0_BASE_DERIVATION_KEY",
+  TR31_C0_CARD_VERIFICATION_KEY: "TR31_C0_CARD_VERIFICATION_KEY",
+  TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY: "TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY",
+  TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS: "TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS",
+  TR31_E1_EMV_MKEY_CONFIDENTIALITY: "TR31_E1_EMV_MKEY_CONFIDENTIALITY",
+  TR31_E2_EMV_MKEY_INTEGRITY: "TR31_E2_EMV_MKEY_INTEGRITY",
+  TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS: "TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS",
+  TR31_E5_EMV_MKEY_CARD_PERSONALIZATION: "TR31_E5_EMV_MKEY_CARD_PERSONALIZATION",
+  TR31_E6_EMV_MKEY_OTHER: "TR31_E6_EMV_MKEY_OTHER",
+  TR31_K0_KEY_ENCRYPTION_KEY: "TR31_K0_KEY_ENCRYPTION_KEY",
+  TR31_K1_KEY_BLOCK_PROTECTION_KEY: "TR31_K1_KEY_BLOCK_PROTECTION_KEY",
+  TR31_M1_ISO_9797_1_MAC_KEY: "TR31_M1_ISO_9797_1_MAC_KEY",
+  TR31_M3_ISO_9797_3_MAC_KEY: "TR31_M3_ISO_9797_3_MAC_KEY",
+  TR31_M6_ISO_9797_5_CMAC_KEY: "TR31_M6_ISO_9797_5_CMAC_KEY",
+  TR31_M7_HMAC_KEY: "TR31_M7_HMAC_KEY",
+  TR31_P0_PIN_ENCRYPTION_KEY: "TR31_P0_PIN_ENCRYPTION_KEY",
+  TR31_P1_PIN_GENERATION_KEY: "TR31_P1_PIN_GENERATION_KEY",
+  TR31_V1_IBM3624_PIN_VERIFICATION_KEY: "TR31_V1_IBM3624_PIN_VERIFICATION_KEY",
+  TR31_V2_VISA_PIN_VERIFICATION_KEY: "TR31_V2_VISA_PIN_VERIFICATION_KEY",
+} as const;
+
+/**
+ * @public
+ */
+export type DeriveKeyUsage = (typeof DeriveKeyUsage)[keyof typeof DeriveKeyUsage];
+
+/**
+ * @public
+ * @enum
+ */
 export const KeyAlgorithm = {
   AES_128: "AES_128",
   AES_192: "AES_192",
   AES_256: "AES_256",
   ECC_NIST_P256: "ECC_NIST_P256",
   ECC_NIST_P384: "ECC_NIST_P384",
+  ECC_NIST_P521: "ECC_NIST_P521",
   RSA_2048: "RSA_2048",
   RSA_3072: "RSA_3072",
   RSA_4096: "RSA_4096",
@@ -579,6 +611,12 @@ export interface CreateKeyInput {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.</p>
+   * @public
+   */
+  DeriveKeyUsage?: DeriveKeyUsage | undefined;
 }
 
 /**
@@ -694,6 +732,12 @@ export interface Key {
    * @public
    */
   DeleteTimestamp?: Date | undefined;
+
+  /**
+   * <p>The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.</p>
+   * @public
+   */
+  DeriveKeyUsage?: DeriveKeyUsage | undefined;
 }
 
 /**
@@ -736,6 +780,47 @@ export interface DeleteKeyOutput {
 }
 
 /**
+ * <p>Derivation data used to derive an ECDH key.</p>
+ * @public
+ */
+export type DiffieHellmanDerivationData =
+  | DiffieHellmanDerivationData.SharedInformationMember
+  | DiffieHellmanDerivationData.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DiffieHellmanDerivationData {
+  /**
+   * <p>A byte string containing information that binds the ECDH derived key to the two parties involved or to the context of the key.</p>
+   *          <p>It may include details like identities of the two parties deriving the key, context of the operation, session IDs, and optionally a nonce. It must not contain zero bytes, and re-using shared information for multiple ECDH key derivations is not recommended.</p>
+   * @public
+   */
+  export interface SharedInformationMember {
+    SharedInformation: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    SharedInformation?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    SharedInformation: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DiffieHellmanDerivationData, visitor: Visitor<T>): T => {
+    if (value.SharedInformation !== undefined) return visitor.SharedInformation(value.SharedInformation);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>Parameter information for IPEK generation during export.</p>
  * @public
  */
@@ -771,39 +856,18 @@ export interface ExportAttributes {
  * @public
  * @enum
  */
-export const WrappingKeySpec = {
-  RSA_OAEP_SHA_256: "RSA_OAEP_SHA_256",
-  RSA_OAEP_SHA_512: "RSA_OAEP_SHA_512",
+export const SymmetricKeyAlgorithm = {
+  AES_128: "AES_128",
+  AES_192: "AES_192",
+  AES_256: "AES_256",
+  TDES_2KEY: "TDES_2KEY",
+  TDES_3KEY: "TDES_3KEY",
 } as const;
 
 /**
  * @public
  */
-export type WrappingKeySpec = (typeof WrappingKeySpec)[keyof typeof WrappingKeySpec];
-
-/**
- * <p>Parameter information for key material export using asymmetric RSA wrap and unwrap key exchange method.</p>
- * @public
- */
-export interface ExportKeyCryptogram {
-  /**
-   * <p>The <code>KeyARN</code> of the certificate chain that signs the wrapping key certificate during RSA wrap and unwrap key export.</p>
-   * @public
-   */
-  CertificateAuthorityPublicKeyIdentifier: string | undefined;
-
-  /**
-   * <p>The wrapping key certificate in PEM format (base64 encoded). Amazon Web Services Payment Cryptography uses this certificate to wrap the key under export.</p>
-   * @public
-   */
-  WrappingKeyCertificate: string | undefined;
-
-  /**
-   * <p>The wrapping spec for the key under export.</p>
-   * @public
-   */
-  WrappingSpec?: WrappingKeySpec | undefined;
-}
+export type SymmetricKeyAlgorithm = (typeof SymmetricKeyAlgorithm)[keyof typeof SymmetricKeyAlgorithm];
 
 /**
  * @public
@@ -850,6 +914,127 @@ export interface KeyBlockHeaders {
    * @public
    */
   OptionalBlocks?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyDerivationFunction = {
+  ANSI_X963: "ANSI_X963",
+  NIST_SP800: "NIST_SP800",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyDerivationFunction = (typeof KeyDerivationFunction)[keyof typeof KeyDerivationFunction];
+
+/**
+ * @public
+ * @enum
+ */
+export const KeyDerivationHashAlgorithm = {
+  SHA_256: "SHA_256",
+  SHA_384: "SHA_384",
+  SHA_512: "SHA_512",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyDerivationHashAlgorithm = (typeof KeyDerivationHashAlgorithm)[keyof typeof KeyDerivationHashAlgorithm];
+
+/**
+ * <p>Parameter information for key material export using the asymmetric ECDH key exchange method.</p>
+ * @public
+ */
+export interface ExportDiffieHellmanTr31KeyBlock {
+  /**
+   * <p>The <code>keyARN</code> of the asymmetric ECC key.</p>
+   * @public
+   */
+  PrivateKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The <code>keyARN</code> of the certificate that signed the client's <code>PublicKeyCertificate</code>.</p>
+   * @public
+   */
+  CertificateAuthorityPublicKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The client's public key certificate in PEM format (base64 encoded) to use for ECDH key derivation.</p>
+   * @public
+   */
+  PublicKeyCertificate: string | undefined;
+
+  /**
+   * <p>The key algorithm of the derived ECDH key.</p>
+   * @public
+   */
+  DeriveKeyAlgorithm: SymmetricKeyAlgorithm | undefined;
+
+  /**
+   * <p>The key derivation function to use for deriving a key using ECDH.</p>
+   * @public
+   */
+  KeyDerivationFunction: KeyDerivationFunction | undefined;
+
+  /**
+   * <p>The hash type to use for deriving a key using ECDH.</p>
+   * @public
+   */
+  KeyDerivationHashAlgorithm: KeyDerivationHashAlgorithm | undefined;
+
+  /**
+   * <p>Derivation data used to derive an ECDH key.</p>
+   * @public
+   */
+  DerivationData: DiffieHellmanDerivationData | undefined;
+
+  /**
+   * <p>Optional metadata for export associated with the key material. This data is signed but transmitted in clear text.</p>
+   * @public
+   */
+  KeyBlockHeaders?: KeyBlockHeaders | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WrappingKeySpec = {
+  RSA_OAEP_SHA_256: "RSA_OAEP_SHA_256",
+  RSA_OAEP_SHA_512: "RSA_OAEP_SHA_512",
+} as const;
+
+/**
+ * @public
+ */
+export type WrappingKeySpec = (typeof WrappingKeySpec)[keyof typeof WrappingKeySpec];
+
+/**
+ * <p>Parameter information for key material export using asymmetric RSA wrap and unwrap key exchange method.</p>
+ * @public
+ */
+export interface ExportKeyCryptogram {
+  /**
+   * <p>The <code>KeyARN</code> of the certificate chain that signs the wrapping key certificate during RSA wrap and unwrap key export.</p>
+   * @public
+   */
+  CertificateAuthorityPublicKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The wrapping key certificate in PEM format (base64 encoded). Amazon Web Services Payment Cryptography uses this certificate to wrap the key under export.</p>
+   * @public
+   */
+  WrappingKeyCertificate: string | undefined;
+
+  /**
+   * <p>The wrapping spec for the key under export.</p>
+   * @public
+   */
+  WrappingSpec?: WrappingKeySpec | undefined;
 }
 
 /**
@@ -930,6 +1115,7 @@ export interface ExportTr34KeyBlock {
  * @public
  */
 export type ExportKeyMaterial =
+  | ExportKeyMaterial.DiffieHellmanTr31KeyBlockMember
   | ExportKeyMaterial.KeyCryptogramMember
   | ExportKeyMaterial.Tr31KeyBlockMember
   | ExportKeyMaterial.Tr34KeyBlockMember
@@ -947,6 +1133,7 @@ export namespace ExportKeyMaterial {
     Tr31KeyBlock: ExportTr31KeyBlock;
     Tr34KeyBlock?: never;
     KeyCryptogram?: never;
+    DiffieHellmanTr31KeyBlock?: never;
     $unknown?: never;
   }
 
@@ -958,6 +1145,7 @@ export namespace ExportKeyMaterial {
     Tr31KeyBlock?: never;
     Tr34KeyBlock: ExportTr34KeyBlock;
     KeyCryptogram?: never;
+    DiffieHellmanTr31KeyBlock?: never;
     $unknown?: never;
   }
 
@@ -969,6 +1157,19 @@ export namespace ExportKeyMaterial {
     Tr31KeyBlock?: never;
     Tr34KeyBlock?: never;
     KeyCryptogram: ExportKeyCryptogram;
+    DiffieHellmanTr31KeyBlock?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Parameter information for key material export using the asymmetric ECDH key exchange method.</p>
+   * @public
+   */
+  export interface DiffieHellmanTr31KeyBlockMember {
+    Tr31KeyBlock?: never;
+    Tr34KeyBlock?: never;
+    KeyCryptogram?: never;
+    DiffieHellmanTr31KeyBlock: ExportDiffieHellmanTr31KeyBlock;
     $unknown?: never;
   }
 
@@ -979,6 +1180,7 @@ export namespace ExportKeyMaterial {
     Tr31KeyBlock?: never;
     Tr34KeyBlock?: never;
     KeyCryptogram?: never;
+    DiffieHellmanTr31KeyBlock?: never;
     $unknown: [string, any];
   }
 
@@ -986,6 +1188,7 @@ export namespace ExportKeyMaterial {
     Tr31KeyBlock: (value: ExportTr31KeyBlock) => T;
     Tr34KeyBlock: (value: ExportTr34KeyBlock) => T;
     KeyCryptogram: (value: ExportKeyCryptogram) => T;
+    DiffieHellmanTr31KeyBlock: (value: ExportDiffieHellmanTr31KeyBlock) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -993,6 +1196,8 @@ export namespace ExportKeyMaterial {
     if (value.Tr31KeyBlock !== undefined) return visitor.Tr31KeyBlock(value.Tr31KeyBlock);
     if (value.Tr34KeyBlock !== undefined) return visitor.Tr34KeyBlock(value.Tr34KeyBlock);
     if (value.KeyCryptogram !== undefined) return visitor.KeyCryptogram(value.KeyCryptogram);
+    if (value.DiffieHellmanTr31KeyBlock !== undefined)
+      return visitor.DiffieHellmanTr31KeyBlock(value.DiffieHellmanTr31KeyBlock);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1257,6 +1462,60 @@ export interface GetPublicKeyCertificateOutput {
 }
 
 /**
+ * <p>Parameter information for key material import using the asymmetric ECDH key exchange method.</p>
+ * @public
+ */
+export interface ImportDiffieHellmanTr31KeyBlock {
+  /**
+   * <p>The <code>keyARN</code> of the asymmetric ECC key.</p>
+   * @public
+   */
+  PrivateKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The <code>keyARN</code> of the certificate that signed the client's <code>PublicKeyCertificate</code>.</p>
+   * @public
+   */
+  CertificateAuthorityPublicKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The client's public key certificate in PEM format (base64 encoded) to use for ECDH key derivation.</p>
+   * @public
+   */
+  PublicKeyCertificate: string | undefined;
+
+  /**
+   * <p>The key algorithm of the derived ECDH key.</p>
+   * @public
+   */
+  DeriveKeyAlgorithm: SymmetricKeyAlgorithm | undefined;
+
+  /**
+   * <p>The key derivation function to use for deriving a key using ECDH.</p>
+   * @public
+   */
+  KeyDerivationFunction: KeyDerivationFunction | undefined;
+
+  /**
+   * <p>The hash type to use for deriving a key using ECDH.</p>
+   * @public
+   */
+  KeyDerivationHashAlgorithm: KeyDerivationHashAlgorithm | undefined;
+
+  /**
+   * <p>Derivation data used to derive an ECDH key.</p>
+   * @public
+   */
+  DerivationData: DiffieHellmanDerivationData | undefined;
+
+  /**
+   * <p>The ECDH wrapped key block to import.</p>
+   * @public
+   */
+  WrappedKeyBlock: string | undefined;
+}
+
+/**
  * <p>Parameter information for key material import using asymmetric RSA wrap and unwrap key exchange method.</p>
  * @public
  */
@@ -1399,6 +1658,7 @@ export interface TrustedCertificatePublicKey {
  * @public
  */
 export type ImportKeyMaterial =
+  | ImportKeyMaterial.DiffieHellmanTr31KeyBlockMember
   | ImportKeyMaterial.KeyCryptogramMember
   | ImportKeyMaterial.RootCertificatePublicKeyMember
   | ImportKeyMaterial.Tr31KeyBlockMember
@@ -1420,6 +1680,7 @@ export namespace ImportKeyMaterial {
     Tr31KeyBlock?: never;
     Tr34KeyBlock?: never;
     KeyCryptogram?: never;
+    DiffieHellmanTr31KeyBlock?: never;
     $unknown?: never;
   }
 
@@ -1433,6 +1694,7 @@ export namespace ImportKeyMaterial {
     Tr31KeyBlock?: never;
     Tr34KeyBlock?: never;
     KeyCryptogram?: never;
+    DiffieHellmanTr31KeyBlock?: never;
     $unknown?: never;
   }
 
@@ -1446,6 +1708,7 @@ export namespace ImportKeyMaterial {
     Tr31KeyBlock: ImportTr31KeyBlock;
     Tr34KeyBlock?: never;
     KeyCryptogram?: never;
+    DiffieHellmanTr31KeyBlock?: never;
     $unknown?: never;
   }
 
@@ -1459,6 +1722,7 @@ export namespace ImportKeyMaterial {
     Tr31KeyBlock?: never;
     Tr34KeyBlock: ImportTr34KeyBlock;
     KeyCryptogram?: never;
+    DiffieHellmanTr31KeyBlock?: never;
     $unknown?: never;
   }
 
@@ -1472,6 +1736,21 @@ export namespace ImportKeyMaterial {
     Tr31KeyBlock?: never;
     Tr34KeyBlock?: never;
     KeyCryptogram: ImportKeyCryptogram;
+    DiffieHellmanTr31KeyBlock?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Parameter information for key material import using the asymmetric ECDH key exchange method.</p>
+   * @public
+   */
+  export interface DiffieHellmanTr31KeyBlockMember {
+    RootCertificatePublicKey?: never;
+    TrustedCertificatePublicKey?: never;
+    Tr31KeyBlock?: never;
+    Tr34KeyBlock?: never;
+    KeyCryptogram?: never;
+    DiffieHellmanTr31KeyBlock: ImportDiffieHellmanTr31KeyBlock;
     $unknown?: never;
   }
 
@@ -1484,6 +1763,7 @@ export namespace ImportKeyMaterial {
     Tr31KeyBlock?: never;
     Tr34KeyBlock?: never;
     KeyCryptogram?: never;
+    DiffieHellmanTr31KeyBlock?: never;
     $unknown: [string, any];
   }
 
@@ -1493,6 +1773,7 @@ export namespace ImportKeyMaterial {
     Tr31KeyBlock: (value: ImportTr31KeyBlock) => T;
     Tr34KeyBlock: (value: ImportTr34KeyBlock) => T;
     KeyCryptogram: (value: ImportKeyCryptogram) => T;
+    DiffieHellmanTr31KeyBlock: (value: ImportDiffieHellmanTr31KeyBlock) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1504,6 +1785,8 @@ export namespace ImportKeyMaterial {
     if (value.Tr31KeyBlock !== undefined) return visitor.Tr31KeyBlock(value.Tr31KeyBlock);
     if (value.Tr34KeyBlock !== undefined) return visitor.Tr34KeyBlock(value.Tr34KeyBlock);
     if (value.KeyCryptogram !== undefined) return visitor.KeyCryptogram(value.KeyCryptogram);
+    if (value.DiffieHellmanTr31KeyBlock !== undefined)
+      return visitor.DiffieHellmanTr31KeyBlock(value.DiffieHellmanTr31KeyBlock);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1801,17 +2084,27 @@ export interface UntagResourceOutput {}
 /**
  * @internal
  */
-export const ExportKeyCryptogramFilterSensitiveLog = (obj: ExportKeyCryptogram): any => ({
+export const KeyBlockHeadersFilterSensitiveLog = (obj: KeyBlockHeaders): any => ({
   ...obj,
-  ...(obj.WrappingKeyCertificate && { WrappingKeyCertificate: SENSITIVE_STRING }),
+  ...(obj.OptionalBlocks && { OptionalBlocks: SENSITIVE_STRING }),
 });
 
 /**
  * @internal
  */
-export const KeyBlockHeadersFilterSensitiveLog = (obj: KeyBlockHeaders): any => ({
+export const ExportDiffieHellmanTr31KeyBlockFilterSensitiveLog = (obj: ExportDiffieHellmanTr31KeyBlock): any => ({
   ...obj,
-  ...(obj.OptionalBlocks && { OptionalBlocks: SENSITIVE_STRING }),
+  ...(obj.PublicKeyCertificate && { PublicKeyCertificate: SENSITIVE_STRING }),
+  ...(obj.DerivationData && { DerivationData: obj.DerivationData }),
+  ...(obj.KeyBlockHeaders && { KeyBlockHeaders: KeyBlockHeadersFilterSensitiveLog(obj.KeyBlockHeaders) }),
+});
+
+/**
+ * @internal
+ */
+export const ExportKeyCryptogramFilterSensitiveLog = (obj: ExportKeyCryptogram): any => ({
+  ...obj,
+  ...(obj.WrappingKeyCertificate && { WrappingKeyCertificate: SENSITIVE_STRING }),
 });
 
 /**
@@ -1839,6 +2132,10 @@ export const ExportKeyMaterialFilterSensitiveLog = (obj: ExportKeyMaterial): any
   if (obj.Tr34KeyBlock !== undefined) return { Tr34KeyBlock: ExportTr34KeyBlockFilterSensitiveLog(obj.Tr34KeyBlock) };
   if (obj.KeyCryptogram !== undefined)
     return { KeyCryptogram: ExportKeyCryptogramFilterSensitiveLog(obj.KeyCryptogram) };
+  if (obj.DiffieHellmanTr31KeyBlock !== undefined)
+    return {
+      DiffieHellmanTr31KeyBlock: ExportDiffieHellmanTr31KeyBlockFilterSensitiveLog(obj.DiffieHellmanTr31KeyBlock),
+    };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -1896,6 +2193,16 @@ export const GetPublicKeyCertificateOutputFilterSensitiveLog = (obj: GetPublicKe
 /**
  * @internal
  */
+export const ImportDiffieHellmanTr31KeyBlockFilterSensitiveLog = (obj: ImportDiffieHellmanTr31KeyBlock): any => ({
+  ...obj,
+  ...(obj.PublicKeyCertificate && { PublicKeyCertificate: SENSITIVE_STRING }),
+  ...(obj.DerivationData && { DerivationData: obj.DerivationData }),
+  ...(obj.WrappedKeyBlock && { WrappedKeyBlock: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const ImportKeyCryptogramFilterSensitiveLog = (obj: ImportKeyCryptogram): any => ({
   ...obj,
   ...(obj.WrappedKeyCryptogram && { WrappedKeyCryptogram: SENSITIVE_STRING }),
@@ -1948,6 +2255,10 @@ export const ImportKeyMaterialFilterSensitiveLog = (obj: ImportKeyMaterial): any
   if (obj.Tr34KeyBlock !== undefined) return { Tr34KeyBlock: ImportTr34KeyBlockFilterSensitiveLog(obj.Tr34KeyBlock) };
   if (obj.KeyCryptogram !== undefined)
     return { KeyCryptogram: ImportKeyCryptogramFilterSensitiveLog(obj.KeyCryptogram) };
+  if (obj.DiffieHellmanTr31KeyBlock !== undefined)
+    return {
+      DiffieHellmanTr31KeyBlock: ImportDiffieHellmanTr31KeyBlockFilterSensitiveLog(obj.DiffieHellmanTr31KeyBlock),
+    };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
