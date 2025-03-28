@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.778.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.777.0...v3.778.0) (2025-03-28)
+
+
+### Bug Fixes
+
+* **credential-providers:** allow env and configFile selection of region in fromTemporaryCredentials ([#6982](https://github.com/aws/aws-sdk-js-v3/issues/6982)) ([f46323d](https://github.com/aws/aws-sdk-js-v3/commit/f46323d4ba3dbcbc960dff9194ac913405993641))
+
+
+
+
+
 # [3.777.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.776.0...v3.777.0) (2025-03-27)
 
 **Note:** Version bump only for package @aws-sdk/credential-providers

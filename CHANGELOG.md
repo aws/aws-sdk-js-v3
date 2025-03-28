@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.778.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.777.0...v3.778.0) (2025-03-28)
+
+
+### Bug Fixes
+
+* **credential-providers:** allow env and configFile selection of region in fromTemporaryCredentials ([#6982](https://github.com/aws/aws-sdk-js-v3/issues/6982)) ([f46323d](https://github.com/aws/aws-sdk-js-v3/commit/f46323d4ba3dbcbc960dff9194ac913405993641))
+* **lib-dynamodb:** read input from middleware instead of command ([#6984](https://github.com/aws/aws-sdk-js-v3/issues/6984)) ([371f05c](https://github.com/aws/aws-sdk-js-v3/commit/371f05c1dac71bfac79255c0c14349069c388b07))
+
+
+### Features
+
+* **client-api-gateway:** Adds support for setting the IP address type to allow dual-stack or IPv4 address types to invoke your APIs or domain names. ([ef4a874](https://github.com/aws/aws-sdk-js-v3/commit/ef4a874d488afe48d336f8ec99d31c254e3b3eae))
+* **client-apigatewayv2:** Adds support for setting the IP address type to allow dual-stack or IPv4 address types to invoke your APIs or domain names. ([7528ca9](https://github.com/aws/aws-sdk-js-v3/commit/7528ca99f2a286420daf484971ad4c6190f7ecb8))
+* **client-bedrock-runtime:** Launching Multi-modality Content Filter for Amazon Bedrock Guardrails. ([76cfd9b](https://github.com/aws/aws-sdk-js-v3/commit/76cfd9b56916259ca2ba8b19a36cb208423ce20a))
+* **client-codebuild:** This release adds support for cacheNamespace in ProjectCache ([add93bd](https://github.com/aws/aws-sdk-js-v3/commit/add93bd50f87b240884dd949429eab5227e7428a))
+* **client-marketplace-metering:** Add support for Marketplace Metering Service dual-stack endpoints. ([76dce29](https://github.com/aws/aws-sdk-js-v3/commit/76dce2947c997a2d48ff4cc5b67990a196dd7ebf))
+* **client-networkmanager:** Add support for NetworkManager Dualstack endpoints. ([cd55850](https://github.com/aws/aws-sdk-js-v3/commit/cd55850c23e9769947a5b6d6aec339318c897799))
+* **client-payment-cryptography:** The service adds support for transferring AES-256 and other keys between the service and other service providers and HSMs. This feature uses ECDH to derive a one-time key transport key to enable these secure key exchanges. ([06a1cb5](https://github.com/aws/aws-sdk-js-v3/commit/06a1cb57e502c03a73831671a874ac417c35d828))
+* **client-quicksight:** RLS permission dataset with userAs: RLS_RULES flag, Q in QuickSight/Threshold Alerts/Schedules/Snapshots in QS embedding, toggle dataset refresh email alerts via API, transposed table with options: column width, type and index, toggle Q&A on dashboards, Oracle Service Name when creating data source. ([625ee9c](https://github.com/aws/aws-sdk-js-v3/commit/625ee9cdd28390ed94f22ceca922158a745b6d93))
+* **client-sagemaker:** TransformAmiVersion for Batch Transform and SageMaker Search Service Aggregate Search API Extension ([86ab9f4](https://github.com/aws/aws-sdk-js-v3/commit/86ab9f462ef71236f327a6f6682bbaad108c5d04))
+* **clients:** update client endpoints as of 2025-03-28 ([daf689a](https://github.com/aws/aws-sdk-js-v3/commit/daf689ae1f64226ea898dbccf57753dcda38eff1))
+
+
+
+
+
 # [3.777.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.776.0...v3.777.0) (2025-03-27)
 
 

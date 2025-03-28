@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.778.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.777.0...v3.778.0) (2025-03-28)
+
+
+### Features
+
+* **client-apigatewayv2:** Adds support for setting the IP address type to allow dual-stack or IPv4 address types to invoke your APIs or domain names. ([7528ca9](https://github.com/aws/aws-sdk-js-v3/commit/7528ca99f2a286420daf484971ad4c6190f7ecb8))
+
+
+
+
+
 # [3.777.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.776.0...v3.777.0) (2025-03-27)
 
 **Note:** Version bump only for package @aws-sdk/client-apigatewayv2

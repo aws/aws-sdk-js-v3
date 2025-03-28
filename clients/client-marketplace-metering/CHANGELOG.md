@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.778.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.777.0...v3.778.0) (2025-03-28)
+
+
+### Features
+
+* **client-marketplace-metering:** Add support for Marketplace Metering Service dual-stack endpoints. ([76dce29](https://github.com/aws/aws-sdk-js-v3/commit/76dce2947c997a2d48ff4cc5b67990a196dd7ebf))
+
+
+
+
+
 # [3.777.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.776.0...v3.777.0) (2025-03-27)
 
 **Note:** Version bump only for package @aws-sdk/client-marketplace-metering
