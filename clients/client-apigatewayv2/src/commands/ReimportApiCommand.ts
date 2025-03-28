@@ -71,6 +71,7 @@ export interface ReimportApiCommandOutput extends ReimportApiResponse, __Metadat
  * //   ImportInfo: [ // __listOf__string
  * //     "STRING_VALUE",
  * //   ],
+ * //   IpAddressType: "ipv4" || "dualstack",
  * //   Name: "STRING_VALUE",
  * //   ProtocolType: "WEBSOCKET" || "HTTP",
  * //   RouteSelectionExpression: "STRING_VALUE",

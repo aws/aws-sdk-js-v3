@@ -49,6 +49,20 @@ export interface Cors {
  * @public
  * @enum
  */
+export const IpAddressType = {
+  dualstack: "dualstack",
+  ipv4: "ipv4",
+} as const;
+
+/**
+ * @public
+ */
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ProtocolType = {
   HTTP: "HTTP",
   WEBSOCKET: "WEBSOCKET",
@@ -123,6 +137,12 @@ export interface Api {
    * @public
    */
   ImportInfo?: string[] | undefined;
+
+  /**
+   * <p>The IP address types that can invoke the API.</p>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
 
   /**
    * <p>The name of the API.</p>
@@ -450,6 +470,12 @@ export interface DomainNameConfiguration {
    * @public
    */
   HostedZoneId?: string | undefined;
+
+  /**
+   * <p>The IP address types that can invoke the domain name. Use ipv4 to allow only IPv4 addresses to invoke your domain name, or use dualstack to allow both IPv4 and IPv6 addresses to invoke your domain name.</p>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
 
   /**
    * <p>The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are TLS_1_0 and TLS_1_2.</p>
@@ -1316,6 +1342,12 @@ export interface CreateApiRequest {
   DisableExecuteApiEndpoint?: boolean | undefined;
 
   /**
+   * <p>The IP address types that can invoke the API.</p>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
+
+  /**
    * <p>The name of the API.</p>
    * @public
    */
@@ -1421,6 +1453,12 @@ export interface CreateApiResponse {
    * @public
    */
   ImportInfo?: string[] | undefined;
+
+  /**
+   * <p>The IP address types that can invoke the API.</p>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
 
   /**
    * <p>The name of the API.</p>
@@ -3190,6 +3228,12 @@ export interface GetApiResponse {
   ImportInfo?: string[] | undefined;
 
   /**
+   * <p>The IP address types that can invoke the API.</p>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
+
+  /**
    * <p>The name of the API.</p>
    * @public
    */
@@ -4675,6 +4719,12 @@ export interface ImportApiResponse {
   ImportInfo?: string[] | undefined;
 
   /**
+   * <p>The IP address types that can invoke the API.</p>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
+
+  /**
    * <p>The name of the API.</p>
    * @public
    */
@@ -4804,6 +4854,12 @@ export interface ReimportApiResponse {
    * @public
    */
   ImportInfo?: string[] | undefined;
+
+  /**
+   * <p>The IP address types that can invoke the API.</p>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
 
   /**
    * <p>The name of the API.</p>
@@ -4947,6 +5003,12 @@ export interface UpdateApiRequest {
   DisableExecuteApiEndpoint?: boolean | undefined;
 
   /**
+   * <p>The IP address types that can invoke your API or domain name.</p>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
+
+  /**
    * <p>The name of the API.</p>
    * @public
    */
@@ -5040,6 +5102,12 @@ export interface UpdateApiResponse {
    * @public
    */
   ImportInfo?: string[] | undefined;
+
+  /**
+   * <p>The IP address types that can invoke the API.</p>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
 
   /**
    * <p>The name of the API.</p>

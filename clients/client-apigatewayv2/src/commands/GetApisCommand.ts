@@ -71,6 +71,7 @@ export interface GetApisCommandOutput extends GetApisResponse, __MetadataBearer 
  * //       ImportInfo: [ // __listOf__string
  * //         "STRING_VALUE",
  * //       ],
+ * //       IpAddressType: "ipv4" || "dualstack",
  * //       Name: "STRING_VALUE", // required
  * //       ProtocolType: "WEBSOCKET" || "HTTP", // required
  * //       RouteSelectionExpression: "STRING_VALUE", // required

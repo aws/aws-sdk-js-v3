@@ -70,6 +70,7 @@ export interface ImportApiCommandOutput extends ImportApiResponse, __MetadataBea
  * //   ImportInfo: [ // __listOf__string
  * //     "STRING_VALUE",
  * //   ],
+ * //   IpAddressType: "ipv4" || "dualstack",
  * //   Name: "STRING_VALUE",
  * //   ProtocolType: "WEBSOCKET" || "HTTP",
  * //   RouteSelectionExpression: "STRING_VALUE",

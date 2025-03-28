@@ -56,6 +56,7 @@ export interface GetDomainNamesCommandOutput extends GetDomainNamesResponse, __M
  * //           DomainNameStatusMessage: "STRING_VALUE",
  * //           EndpointType: "REGIONAL" || "EDGE",
  * //           HostedZoneId: "STRING_VALUE",
+ * //           IpAddressType: "ipv4" || "dualstack",
  * //           SecurityPolicy: "TLS_1_0" || "TLS_1_2",
  * //           OwnershipVerificationCertificateArn: "STRING_VALUE",
  * //         },

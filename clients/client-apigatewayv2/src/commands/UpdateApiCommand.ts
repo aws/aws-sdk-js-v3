@@ -58,6 +58,7 @@ export interface UpdateApiCommandOutput extends UpdateApiResponse, __MetadataBea
  *   Description: "STRING_VALUE",
  *   DisableSchemaValidation: true || false,
  *   DisableExecuteApiEndpoint: true || false,
+ *   IpAddressType: "ipv4" || "dualstack",
  *   Name: "STRING_VALUE",
  *   RouteKey: "STRING_VALUE",
  *   RouteSelectionExpression: "STRING_VALUE",
@@ -94,6 +95,7 @@ export interface UpdateApiCommandOutput extends UpdateApiResponse, __MetadataBea
  * //   ImportInfo: [ // __listOf__string
  * //     "STRING_VALUE",
  * //   ],
+ * //   IpAddressType: "ipv4" || "dualstack",
  * //   Name: "STRING_VALUE",
  * //   ProtocolType: "WEBSOCKET" || "HTTP",
  * //   RouteSelectionExpression: "STRING_VALUE",
