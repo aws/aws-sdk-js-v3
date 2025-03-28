@@ -61,6 +61,7 @@ export interface GetDomainNamesCommandOutput extends DomainNames, __MetadataBear
  * //         types: [ // ListOfEndpointType
  * //           "REGIONAL" || "EDGE" || "PRIVATE",
  * //         ],
+ * //         ipAddressType: "ipv4" || "dualstack",
  * //         vpcEndpointIds: [ // ListOfString
  * //           "STRING_VALUE",
  * //         ],

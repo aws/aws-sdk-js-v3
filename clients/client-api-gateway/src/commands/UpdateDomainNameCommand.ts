@@ -66,6 +66,7 @@ export interface UpdateDomainNameCommandOutput extends DomainName, __MetadataBea
  * //     types: [ // ListOfEndpointType
  * //       "REGIONAL" || "EDGE" || "PRIVATE",
  * //     ],
+ * //     ipAddressType: "ipv4" || "dualstack",
  * //     vpcEndpointIds: [ // ListOfString
  * //       "STRING_VALUE",
  * //     ],

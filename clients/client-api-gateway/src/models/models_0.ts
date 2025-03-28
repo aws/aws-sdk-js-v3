@@ -1035,6 +1035,20 @@ export interface DocumentationVersion {
  * @public
  * @enum
  */
+export const IpAddressType = {
+  dualstack: "dualstack",
+  ipv4: "ipv4",
+} as const;
+
+/**
+ * @public
+ */
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
+ * @public
+ * @enum
+ */
 export const EndpointType = {
   EDGE: "EDGE",
   PRIVATE: "PRIVATE",
@@ -1047,7 +1061,7 @@ export const EndpointType = {
 export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 
 /**
- * <p>The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has. </p>
+ * <p>The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it. </p>
  * @public
  */
 export interface EndpointConfiguration {
@@ -1056,6 +1070,14 @@ export interface EndpointConfiguration {
    * @public
    */
   types?: EndpointType[] | undefined;
+
+  /**
+   * <p>The IP address types that can invoke an API (RestApi) or a DomainName. Use <code>ipv4</code> to allow only IPv4 addresses to
+   *     invoke an API or DomainName, or use <code>dualstack</code> to allow both IPv4 and IPv6 addresses to invoke an API or a DomainName. For the
+   *       <code>PRIVATE</code> endpoint type, only <code>dualstack</code> is supported.</p>
+   * @public
+   */
+  ipAddressType?: IpAddressType | undefined;
 
   /**
    * <p>A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for <code>PRIVATE</code> endpoint type.</p>
@@ -1156,7 +1178,7 @@ export interface CreateDomainNameRequest {
   regionalCertificateArn?: string | undefined;
 
   /**
-   * <p>The endpoint configuration of this DomainName showing the endpoint types of the domain name. </p>
+   * <p>The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name. </p>
    * @public
    */
   endpointConfiguration?: EndpointConfiguration | undefined;
@@ -1327,7 +1349,7 @@ export interface DomainName {
   distributionHostedZoneId?: string | undefined;
 
   /**
-   * <p>The endpoint configuration of this DomainName showing the endpoint types of the domain name. </p>
+   * <p>The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name. </p>
    * @public
    */
   endpointConfiguration?: EndpointConfiguration | undefined;
@@ -2044,7 +2066,7 @@ export interface CreateRestApiRequest {
   apiKeySource?: ApiKeySourceType | undefined;
 
   /**
-   * <p>The endpoint configuration of this RestApi showing the endpoint types of the API. </p>
+   * <p>The endpoint configuration of this RestApi showing the endpoint types and IP address types of the API. </p>
    * @public
    */
   endpointConfiguration?: EndpointConfiguration | undefined;
@@ -2134,7 +2156,7 @@ export interface RestApi {
   apiKeySource?: ApiKeySourceType | undefined;
 
   /**
-   * <p>The endpoint configuration of this RestApi showing the endpoint types of the API. </p>
+   * <p>The endpoint configuration of this RestApi showing the endpoint types and IP address types of the API. </p>
    * @public
    */
   endpointConfiguration?: EndpointConfiguration | undefined;

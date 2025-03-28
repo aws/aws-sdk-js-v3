@@ -48,6 +48,7 @@ export interface CreateDomainNameCommandOutput extends DomainName, __MetadataBea
  *     types: [ // ListOfEndpointType
  *       "REGIONAL" || "EDGE" || "PRIVATE",
  *     ],
+ *     ipAddressType: "ipv4" || "dualstack",
  *     vpcEndpointIds: [ // ListOfString
  *       "STRING_VALUE",
  *     ],
@@ -82,6 +83,7 @@ export interface CreateDomainNameCommandOutput extends DomainName, __MetadataBea
  * //     types: [ // ListOfEndpointType
  * //       "REGIONAL" || "EDGE" || "PRIVATE",
  * //     ],
+ * //     ipAddressType: "ipv4" || "dualstack",
  * //     vpcEndpointIds: [ // ListOfString
  * //       "STRING_VALUE",
  * //     ],

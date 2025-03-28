@@ -66,6 +66,7 @@ export interface UpdateRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * //     types: [ // ListOfEndpointType
  * //       "REGIONAL" || "EDGE" || "PRIVATE",
  * //     ],
+ * //     ipAddressType: "ipv4" || "dualstack",
  * //     vpcEndpointIds: [
  * //       "STRING_VALUE",
  * //     ],
