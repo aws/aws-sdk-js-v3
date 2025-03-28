@@ -29,14 +29,11 @@ import {
   MeasureFieldFilterSensitiveLog,
   NumberDisplayFormatConfiguration,
   NumberDisplayFormatConfigurationFilterSensitiveLog,
+  NumericFormatConfiguration,
+  NumericFormatConfigurationFilterSensitiveLog,
   PercentageDisplayFormatConfiguration,
   PercentageDisplayFormatConfigurationFilterSensitiveLog,
-  ReferenceLineCustomLabelConfiguration,
-  ReferenceLineDataConfiguration,
-  ReferenceLineDataConfigurationFilterSensitiveLog,
-  ReferenceLineLabelHorizontalPosition,
-  ReferenceLineValueLabelConfiguration,
-  ReferenceLineValueLabelConfigurationFilterSensitiveLog,
+  ReferenceLineDynamicDataConfiguration,
   SortDirection,
   TimeGranularity,
   Visibility,
@@ -44,6 +41,159 @@ import {
   VisualInteractionOptions,
   WidgetStatus,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceLineSeriesType = {
+  BAR: "BAR",
+  LINE: "LINE",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceLineSeriesType = (typeof ReferenceLineSeriesType)[keyof typeof ReferenceLineSeriesType];
+
+/**
+ * <p>The static data configuration of the reference line data configuration.</p>
+ * @public
+ */
+export interface ReferenceLineStaticDataConfiguration {
+  /**
+   * <p>The double input of the static data.</p>
+   * @public
+   */
+  Value: number | undefined;
+}
+
+/**
+ * <p>The data configuration of the reference line.</p>
+ * @public
+ */
+export interface ReferenceLineDataConfiguration {
+  /**
+   * <p>The static data configuration of the reference line data configuration.</p>
+   * @public
+   */
+  StaticConfiguration?: ReferenceLineStaticDataConfiguration | undefined;
+
+  /**
+   * <p>The dynamic configuration of the reference line data configuration.</p>
+   * @public
+   */
+  DynamicConfiguration?: ReferenceLineDynamicDataConfiguration | undefined;
+
+  /**
+   * <p>The axis binding type of the reference line. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PrimaryY</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SecondaryY</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AxisBinding?: AxisBinding | undefined;
+
+  /**
+   * <p>The series type of the reference line data configuration. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BAR</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LINE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SeriesType?: ReferenceLineSeriesType | undefined;
+}
+
+/**
+ * <p>The configuration for a custom label on a <code>ReferenceLine</code>.</p>
+ * @public
+ */
+export interface ReferenceLineCustomLabelConfiguration {
+  /**
+   * <p>The string text of the custom label.</p>
+   * @public
+   */
+  CustomLabel: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceLineLabelHorizontalPosition = {
+  CENTER: "CENTER",
+  LEFT: "LEFT",
+  RIGHT: "RIGHT",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceLineLabelHorizontalPosition =
+  (typeof ReferenceLineLabelHorizontalPosition)[keyof typeof ReferenceLineLabelHorizontalPosition];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceLineValueLabelRelativePosition = {
+  AFTER_CUSTOM_LABEL: "AFTER_CUSTOM_LABEL",
+  BEFORE_CUSTOM_LABEL: "BEFORE_CUSTOM_LABEL",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceLineValueLabelRelativePosition =
+  (typeof ReferenceLineValueLabelRelativePosition)[keyof typeof ReferenceLineValueLabelRelativePosition];
+
+/**
+ * <p>The value label configuration of the label in a reference line.</p>
+ * @public
+ */
+export interface ReferenceLineValueLabelConfiguration {
+  /**
+   * <p>The relative position of the value label. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BEFORE_CUSTOM_LABEL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AFTER_CUSTOM_LABEL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  RelativePosition?: ReferenceLineValueLabelRelativePosition | undefined;
+
+  /**
+   * <p>The format configuration of the value label.</p>
+   * @public
+   */
+  FormatConfiguration?: NumericFormatConfiguration | undefined;
+}
 
 /**
  * @public
@@ -7643,163 +7793,36 @@ export interface TextConditionalFormat {
 }
 
 /**
- * <p>The cell conditional formatting option for a pivot table.</p>
- * @public
+ * @internal
  */
-export interface PivotTableCellConditionalFormatting {
-  /**
-   * <p>The field ID of the cell for conditional formatting.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The text format of the cell for conditional formatting.</p>
-   * @public
-   */
-  TextFormat?: TextConditionalFormat | undefined;
-
-  /**
-   * <p>The scope of the cell for conditional formatting.</p>
-   * @public
-   */
-  Scope?: PivotTableConditionalFormattingScope | undefined;
-
-  /**
-   * <p>A list of cell scopes for conditional formatting.</p>
-   * @public
-   */
-  Scopes?: PivotTableConditionalFormattingScope[] | undefined;
-}
+export const ReferenceLineStaticDataConfigurationFilterSensitiveLog = (
+  obj: ReferenceLineStaticDataConfiguration
+): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
 
 /**
- * <p>Conditional formatting options for a <code>PivotTableVisual</code>.</p>
- * @public
+ * @internal
  */
-export interface PivotTableConditionalFormattingOption {
-  /**
-   * <p>The cell conditional formatting option for a pivot table.</p>
-   * @public
-   */
-  Cell?: PivotTableCellConditionalFormatting | undefined;
-}
+export const ReferenceLineDataConfigurationFilterSensitiveLog = (obj: ReferenceLineDataConfiguration): any => ({
+  ...obj,
+  ...(obj.StaticConfiguration && {
+    StaticConfiguration: ReferenceLineStaticDataConfigurationFilterSensitiveLog(obj.StaticConfiguration),
+  }),
+});
 
 /**
- * <p>The conditional formatting for a <code>PivotTableVisual</code>.</p>
- * @public
+ * @internal
  */
-export interface PivotTableConditionalFormatting {
-  /**
-   * <p>Conditional formatting options for a <code>PivotTableVisual</code>.</p>
-   * @public
-   */
-  ConditionalFormattingOptions?: PivotTableConditionalFormattingOption[] | undefined;
-}
-
-/**
- * <p>A pivot table.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html">Using pivot tables</a> in the <i>Amazon QuickSight User Guide</i>.</p>
- * @public
- */
-export interface PivotTableVisual {
-  /**
-   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..</p>
-   * @public
-   */
-  VisualId: string | undefined;
-
-  /**
-   * <p>The title that is displayed on the visual.</p>
-   * @public
-   */
-  Title?: VisualTitleLabelOptions | undefined;
-
-  /**
-   * <p>The subtitle that is displayed on the visual.</p>
-   * @public
-   */
-  Subtitle?: VisualSubtitleLabelOptions | undefined;
-
-  /**
-   * <p>The configuration settings of the visual.</p>
-   * @public
-   */
-  ChartConfiguration?: PivotTableConfiguration | undefined;
-
-  /**
-   * <p>The conditional formatting for a <code>PivotTableVisual</code>.</p>
-   * @public
-   */
-  ConditionalFormatting?: PivotTableConditionalFormatting | undefined;
-
-  /**
-   * <p>The list of custom actions that are configured for a visual.</p>
-   * @public
-   */
-  Actions?: VisualCustomAction[] | undefined;
-
-  /**
-   * <p>The alt text for the visual.</p>
-   * @public
-   */
-  VisualContentAltText?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const PluginVisualAxisName = {
-  GROUP_BY: "GROUP_BY",
-  VALUE: "VALUE",
-} as const;
-
-/**
- * @public
- */
-export type PluginVisualAxisName = (typeof PluginVisualAxisName)[keyof typeof PluginVisualAxisName];
-
-/**
- * <p>A collection of field wells for a plugin visual.</p>
- * @public
- */
-export interface PluginVisualFieldWell {
-  /**
-   * <p>The semantic axis name for the field well.</p>
-   * @public
-   */
-  AxisName?: PluginVisualAxisName | undefined;
-
-  /**
-   * <p>A list of dimensions for the field well.</p>
-   * @public
-   */
-  Dimensions?: DimensionField[] | undefined;
-
-  /**
-   * <p>A list of measures that exist in the field well.</p>
-   * @public
-   */
-  Measures?: MeasureField[] | undefined;
-
-  /**
-   * <p>A list of unaggregated fields that exist in the field well.</p>
-   * @public
-   */
-  Unaggregated?: UnaggregatedField[] | undefined;
-}
-
-/**
- * <p>A query limits configuration.</p>
- * @public
- */
-export interface PluginVisualItemsLimitConfiguration {
-  /**
-   * <p>Determines how many values are be fetched at once.</p>
-   * @public
-   */
-  ItemsLimit?: number | undefined;
-}
+export const ReferenceLineValueLabelConfigurationFilterSensitiveLog = (
+  obj: ReferenceLineValueLabelConfiguration
+): any => ({
+  ...obj,
+  ...(obj.FormatConfiguration && {
+    FormatConfiguration: NumericFormatConfigurationFilterSensitiveLog(obj.FormatConfiguration),
+  }),
+});
 
 /**
  * @internal
@@ -8790,55 +8813,4 @@ export const TextConditionalFormatFilterSensitiveLog = (obj: TextConditionalForm
   ...(obj.BackgroundColor && { BackgroundColor: ConditionalFormattingColorFilterSensitiveLog(obj.BackgroundColor) }),
   ...(obj.TextColor && { TextColor: ConditionalFormattingColorFilterSensitiveLog(obj.TextColor) }),
   ...(obj.Icon && { Icon: ConditionalFormattingIconFilterSensitiveLog(obj.Icon) }),
-});
-
-/**
- * @internal
- */
-export const PivotTableCellConditionalFormattingFilterSensitiveLog = (
-  obj: PivotTableCellConditionalFormatting
-): any => ({
-  ...obj,
-  ...(obj.TextFormat && { TextFormat: TextConditionalFormatFilterSensitiveLog(obj.TextFormat) }),
-});
-
-/**
- * @internal
- */
-export const PivotTableConditionalFormattingOptionFilterSensitiveLog = (
-  obj: PivotTableConditionalFormattingOption
-): any => ({
-  ...obj,
-  ...(obj.Cell && { Cell: PivotTableCellConditionalFormattingFilterSensitiveLog(obj.Cell) }),
-});
-
-/**
- * @internal
- */
-export const PivotTableConditionalFormattingFilterSensitiveLog = (obj: PivotTableConditionalFormatting): any => ({
-  ...obj,
-  ...(obj.ConditionalFormattingOptions && {
-    ConditionalFormattingOptions: obj.ConditionalFormattingOptions.map((item) =>
-      PivotTableConditionalFormattingOptionFilterSensitiveLog(item)
-    ),
-  }),
-});
-
-/**
- * @internal
- */
-export const PivotTableVisualFilterSensitiveLog = (obj: PivotTableVisual): any => ({
-  ...obj,
-  ...(obj.ConditionalFormatting && {
-    ConditionalFormatting: PivotTableConditionalFormattingFilterSensitiveLog(obj.ConditionalFormatting),
-  }),
-});
-
-/**
- * @internal
- */
-export const PluginVisualFieldWellFilterSensitiveLog = (obj: PluginVisualFieldWell): any => ({
-  ...obj,
-  ...(obj.Measures && { Measures: obj.Measures.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-  ...(obj.Unaggregated && { Unaggregated: obj.Unaggregated.map((item) => UnaggregatedFieldFilterSensitiveLog(item)) }),
 });

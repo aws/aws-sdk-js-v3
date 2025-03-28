@@ -628,6 +628,8 @@ import {
   AllSheetsFilterScopeConfiguration,
   AmazonElasticsearchParameters,
   AmazonOpenSearchParameters,
+  AmazonQInQuickSightConsoleConfigurations,
+  AmazonQInQuickSightDashboardConfigurations,
   Analysis,
   AnalysisDefaults,
   AnchorDateConfiguration,
@@ -682,7 +684,9 @@ import {
   DataLabelOptions,
   DataLabelType,
   DataPathLabelType,
+  DataQnAConfigurations,
   DataSetIdentifierDeclaration,
+  DataStoriesConfigurations,
   DateAxisOptions,
   DateDimensionField,
   DateMeasureField,
@@ -715,6 +719,7 @@ import {
   DropDownControlDisplayOptions,
   DynamicDefaultValue,
   ExcludePeriodConfiguration,
+  ExecutiveSummaryConfigurations,
   FieldLabelType,
   Filter,
   FilterControl,
@@ -743,6 +748,7 @@ import {
   FreeFormLayoutElementBorderStyle,
   FreeFormLayoutScreenCanvasSizeOptions,
   FreeFormSectionLayoutConfiguration,
+  GenerativeAuthoringConfigurations,
   GridLayoutCanvasSizeOptions,
   GridLayoutConfiguration,
   GridLayoutElement,
@@ -797,11 +803,7 @@ import {
   PercentVisibleRange,
   QueryExecutionOptions,
   RangeEndsLabelType,
-  ReferenceLineCustomLabelConfiguration,
-  ReferenceLineDataConfiguration,
   ReferenceLineDynamicDataConfiguration,
-  ReferenceLineStaticDataConfiguration,
-  ReferenceLineValueLabelConfiguration,
   RelativeDatesFilter,
   RelativeDateTimeControlDisplayOptions,
   RollingDateConfiguration,
@@ -1035,9 +1037,6 @@ import {
   PieChartVisual,
   PivotFieldSortOptions,
   PivotTableAggregatedFieldWells,
-  PivotTableCellConditionalFormatting,
-  PivotTableConditionalFormatting,
-  PivotTableConditionalFormattingOption,
   PivotTableConditionalFormattingScope,
   PivotTableConfiguration,
   PivotTableDataPathOption,
@@ -1053,15 +1052,16 @@ import {
   PivotTableSortBy,
   PivotTableSortConfiguration,
   PivotTableTotalOptions,
-  PivotTableVisual,
   PivotTotalOptions,
-  PluginVisualFieldWell,
-  PluginVisualItemsLimitConfiguration,
   PredefinedHierarchy,
   ProgressBarOptions,
   ReferenceLine,
+  ReferenceLineCustomLabelConfiguration,
+  ReferenceLineDataConfiguration,
   ReferenceLineLabelConfiguration,
+  ReferenceLineStaticDataConfiguration,
   ReferenceLineStyleConfiguration,
+  ReferenceLineValueLabelConfiguration,
   RowAlternateColorOptions,
   SecondaryValueOptions,
   SeriesItem,
@@ -1178,15 +1178,7 @@ import {
   BrandElementStyle,
   BrandSummary,
   CalculatedColumn,
-  Capabilities,
-  CastColumnTypeOperation,
-  CellValueSynonym,
-  CollectiveConstant,
   CollectiveConstantEntry,
-  ColumnDescription,
-  ColumnGroup,
-  ColumnGroupColumnSchema,
-  ColumnGroupSchema,
   ConflictException,
   ContributionAnalysisFactor,
   ContributionAnalysisTimeRanges,
@@ -1194,22 +1186,24 @@ import {
   DataBarsOptions,
   DatabricksParameters,
   DataSetReference,
+  DataSetRefreshProperties,
   DataSourceParameters,
   DisplayFormatOptions,
   ExasolParameters,
   FilterAggMetrics,
-  GeoSpatialColumnGroup,
   Identifier,
   IdentityCenterConfiguration,
   ImageConfiguration,
   ImageSetConfiguration,
   ImageSource,
   ImageStaticFile,
+  IncrementalRefresh,
   InternalFailureException,
   InvalidParameterValueException,
   JiraParameters,
   LogoConfiguration,
   LogoSetConfiguration,
+  LookbackWindow,
   ManifestFileLocation,
   MariaDbParameters,
   MySqlParameters,
@@ -1219,8 +1213,14 @@ import {
   OAuthParameters,
   OracleParameters,
   Palette,
+  PivotTableCellConditionalFormatting,
+  PivotTableConditionalFormatting,
+  PivotTableConditionalFormattingOption,
+  PivotTableVisual,
   PluginVisual,
   PluginVisualConfiguration,
+  PluginVisualFieldWell,
+  PluginVisualItemsLimitConfiguration,
   PluginVisualOptions,
   PluginVisualProperty,
   PluginVisualSortConfiguration,
@@ -1237,7 +1237,9 @@ import {
   RdsParameters,
   RedshiftIAMParameters,
   RedshiftParameters,
-  ResourceExistsException,
+  RefreshConfiguration,
+  RefreshFailureConfiguration,
+  RefreshFailureEmailAlert,
   ResourceNotFoundException,
   S3BucketConfiguration,
   S3Parameters,
@@ -1305,6 +1307,7 @@ import {
   TopicSortClause,
   TopicTemplate,
   TotalOptions,
+  TransposedTableOption,
   TreeMapAggregatedFieldWells,
   TreeMapConfiguration,
   TreeMapFieldWells,
@@ -1332,6 +1335,14 @@ import {
 } from "../models/models_2";
 import {
   _Parameters,
+  Capabilities,
+  CastColumnTypeOperation,
+  CellValueSynonym,
+  CollectiveConstant,
+  ColumnDescription,
+  ColumnGroup,
+  ColumnGroupColumnSchema,
+  ColumnGroupSchema,
   ColumnLevelPermissionRule,
   ColumnSchema,
   ColumnTag,
@@ -1357,11 +1368,11 @@ import {
   DataPointDrillUpDownOption,
   DataPointMenuLabelOption,
   DataPointTooltipOption,
+  DataQAEnabledOption,
   DataSet,
   DataSetConfiguration,
   DatasetMetadata,
   DatasetParameter,
-  DataSetRefreshProperties,
   DataSetSchema,
   DataSetSearchFilter,
   DataSetSummary,
@@ -1383,8 +1394,8 @@ import {
   FieldFolder,
   FilterOperation,
   Font,
+  GeoSpatialColumnGroup,
   GutterStyle,
-  IncrementalRefresh,
   InputColumn,
   IntegerDatasetParameter,
   IntegerDatasetParameterDefaultValues,
@@ -1397,7 +1408,6 @@ import {
   LinkSharingConfiguration,
   LogicalTable,
   LogicalTableSource,
-  LookbackWindow,
   MarginStyle,
   NamedEntityDefinition,
   NamedEntityDefinitionMetric,
@@ -1408,11 +1418,11 @@ import {
   PreconditionNotMetException,
   ProjectOperation,
   RangeConstant,
-  RefreshConfiguration,
   RefreshFrequency,
   RefreshSchedule,
   RelationalTable,
   RenameColumnOperation,
+  ResourceExistsException,
   ResourcePermission,
   ResourceUnavailableException,
   RowLevelPermissionDataSet,
@@ -1471,6 +1481,7 @@ import {
   Ingestion,
   InvalidNextTokenException,
   QuickSightUserNotFoundException,
+  RecentSnapshotsConfigurations,
   RegisteredCustomerManagedKey,
   RegisteredUserConsoleFeatureConfigurations,
   RegisteredUserDashboardEmbeddingConfiguration,
@@ -1480,13 +1491,13 @@ import {
   RegisteredUserGenerativeQnAEmbeddingConfiguration,
   RegisteredUserQSearchBarEmbeddingConfiguration,
   RegisteredUserQuickSightConsoleEmbeddingConfiguration,
+  SchedulesConfigurations,
   SessionLifetimeInMinutesInvalidException,
   SessionTag,
   SnapshotAnonymousUser,
   SnapshotConfiguration,
   SnapshotDestinationConfiguration,
   SnapshotFileGroup,
-  SnapshotUserConfiguration,
   StatePersistenceConfigurations,
   Template,
   TemplateSummary,
@@ -1496,13 +1507,19 @@ import {
   ThemeSummary,
   ThemeVersion,
   ThemeVersionSummary,
+  ThresholdAlertsConfigurations,
   TopicRefreshScheduleSummary,
   TopicSearchFilter,
   UnsupportedPricingPlanException,
   VPCConnection,
   VPCConnectionSummary,
 } from "../models/models_4";
-import { CreateTopicReviewedAnswer, TopicReviewedAnswer, TopicVisual } from "../models/models_5";
+import {
+  CreateTopicReviewedAnswer,
+  SnapshotUserConfiguration,
+  TopicReviewedAnswer,
+  TopicVisual,
+} from "../models/models_5";
 import { QuickSightServiceException as __BaseException } from "../models/QuickSightServiceException";
 
 /**
@@ -1788,6 +1805,7 @@ export const se_CreateDataSetCommand = async (
       RowLevelPermissionDataSet: (_) => _json(_),
       RowLevelPermissionTagConfiguration: (_) => _json(_),
       Tags: (_) => _json(_),
+      UseAs: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -12025,6 +12043,10 @@ const se_AggregationSortConfigurationList = (input: AggregationSortConfiguration
 
 // se_AmazonOpenSearchParameters omitted.
 
+// se_AmazonQInQuickSightConsoleConfigurations omitted.
+
+// se_AmazonQInQuickSightDashboardConfigurations omitted.
+
 // se_AnalysisDefaults omitted.
 
 /**
@@ -13237,6 +13259,12 @@ const se_DataColor = (input: DataColor, context: __SerdeContext): any => {
 
 // se_DataPointTooltipOption omitted.
 
+// se_DataQAEnabledOption omitted.
+
+// se_DataQnAConfigurations omitted.
+
+// se_DataSetArnsList omitted.
+
 // se_DataSetConfiguration omitted.
 
 // se_DataSetConfigurationList omitted.
@@ -13295,6 +13323,8 @@ const se_DatasetParameterList = (input: DatasetParameter[], context: __SerdeCont
 // se_DataSourceSearchFilter omitted.
 
 // se_DataSourceSearchFilterList omitted.
+
+// se_DataStoriesConfigurations omitted.
 
 // se_DateAxisOptions omitted.
 
@@ -13661,6 +13691,8 @@ const se_EmptyVisual = (input: EmptyVisual, context: __SerdeContext): any => {
 // se_ExasolParameters omitted.
 
 // se_ExcludePeriodConfiguration omitted.
+
+// se_ExecutiveSummaryConfigurations omitted.
 
 /**
  * serializeAws_restJson1ExplicitHierarchy
@@ -14249,6 +14281,8 @@ const se_GaugeChartVisual = (input: GaugeChartVisual, context: __SerdeContext): 
     VisualId: [],
   });
 };
+
+// se_GenerativeAuthoringConfigurations omitted.
 
 /**
  * serializeAws_restJson1GeospatialCategoricalColor
@@ -16195,6 +16229,8 @@ const se_RadarChartVisual = (input: RadarChartVisual, context: __SerdeContext): 
 
 // se_RdsParameters omitted.
 
+// se_RecentSnapshotsConfigurations omitted.
+
 // se_RedshiftIAMParameters omitted.
 
 // se_RedshiftParameters omitted.
@@ -16269,6 +16305,10 @@ const se_ReferenceLineStaticDataConfiguration = (
 // se_ReferenceLineValueLabelConfiguration omitted.
 
 // se_RefreshConfiguration omitted.
+
+// se_RefreshFailureConfiguration omitted.
+
+// se_RefreshFailureEmailAlert omitted.
 
 // se_RefreshFrequency omitted.
 
@@ -16508,6 +16548,8 @@ const se_ScatterPlotVisual = (input: ScatterPlotVisual, context: __SerdeContext)
 };
 
 // se_ScheduleRefreshOnEntity omitted.
+
+// se_SchedulesConfigurations omitted.
 
 /**
  * serializeAws_restJson1ScrollBarOptions
@@ -17045,6 +17087,8 @@ const se_TextConditionalFormat = (input: TextConditionalFormat, context: __Serde
 
 // se_ThousandSeparatorOptions omitted.
 
+// se_ThresholdAlertsConfigurations omitted.
+
 // se_TileLayoutStyle omitted.
 
 // se_TileStyle omitted.
@@ -17347,6 +17391,10 @@ const se_TransformOperationList = (input: TransformOperation[], context: __Serde
       return se_TransformOperation(entry, context);
     });
 };
+
+// se_TransposedTableOption omitted.
+
+// se_TransposedTableOptionList omitted.
 
 /**
  * serializeAws_restJson1TreeMapAggregatedFieldWells
@@ -19223,6 +19271,8 @@ const de_DataColor = (output: any, context: __SerdeContext): DataColor => {
 
 // de_DataPointTooltipOption omitted.
 
+// de_DataQAEnabledOption omitted.
+
 /**
  * deserializeAws_restJson1DataSet
  */
@@ -19246,6 +19296,7 @@ const de_DataSet = (output: any, context: __SerdeContext): DataSet => {
     PhysicalTableMap: _json,
     RowLevelPermissionDataSet: _json,
     RowLevelPermissionTagConfiguration: _json,
+    UseAs: __expectString,
   }) as any;
 };
 
@@ -19305,6 +19356,7 @@ const de_DataSetSummary = (output: any, context: __SerdeContext): DataSetSummary
     Name: __expectString,
     RowLevelPermissionDataSet: _json,
     RowLevelPermissionTagConfigurationApplied: __expectBoolean,
+    UseAs: __expectString,
   }) as any;
 };
 
@@ -22534,6 +22586,10 @@ const de_ReferenceLineStaticDataConfiguration = (
 
 // de_RefreshConfiguration omitted.
 
+// de_RefreshFailureConfiguration omitted.
+
+// de_RefreshFailureEmailAlert omitted.
+
 // de_RefreshFrequency omitted.
 
 /**
@@ -23924,6 +23980,10 @@ const de_TransformOperationList = (output: any, context: __SerdeContext): Transf
     });
   return retVal;
 };
+
+// de_TransposedTableOption omitted.
+
+// de_TransposedTableOptionList omitted.
 
 /**
  * deserializeAws_restJson1TreeMapAggregatedFieldWells

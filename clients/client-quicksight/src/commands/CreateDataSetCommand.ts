@@ -304,6 +304,7 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *       },
  *     ],
  *   },
+ *   UseAs: "RLS_RULES",
  * };
  * const command = new CreateDataSetCommand(input);
  * const response = await client.send(command);

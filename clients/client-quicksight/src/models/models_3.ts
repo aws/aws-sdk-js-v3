@@ -3,8 +3,6 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import {
   AccountCustomization,
-  AccountInfo,
-  AccountSettings,
   AdHocFilteringOption,
   AnalysisDefaults,
   AssetOptions,
@@ -38,19 +36,6 @@ import {
   BrandDetail,
   CalculatedColumn,
   CalculatedColumnFilterSensitiveLog,
-  Capabilities,
-  CastColumnTypeOperation,
-  CategoryFilterFunction,
-  CategoryFilterType,
-  CellValueSynonym,
-  CollectiveConstant,
-  ColumnDataRole,
-  ColumnDataSubType,
-  ColumnDataType,
-  ColumnDescription,
-  ColumnDescriptionFilterSensitiveLog,
-  ColumnGroup,
-  ColumnGroupSchema,
   ConstantType,
   DataSetReference,
   DataSourceParameters,
@@ -68,6 +53,389 @@ import {
 } from "./models_2";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>The resource specified already exists. </p>
+ * @public
+ */
+export class ResourceExistsException extends __BaseException {
+  readonly name: "ResourceExistsException" = "ResourceExistsException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * <p>The resource type for this request.</p>
+   * @public
+   */
+  ResourceType?: ExceptionResourceType | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceExistsException, __BaseException>) {
+    super({
+      name: "ResourceExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceExistsException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapabilityState = {
+  DENY: "DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type CapabilityState = (typeof CapabilityState)[keyof typeof CapabilityState];
+
+/**
+ * <p>A set of actions that correspond to Amazon QuickSight permissions.</p>
+ * @public
+ */
+export interface Capabilities {
+  /**
+   * <p>The ability to export to CSV files.</p>
+   * @public
+   */
+  ExportToCsv?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to export to Excel files.</p>
+   * @public
+   */
+  ExportToExcel?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to export to Create and Update themes.</p>
+   * @public
+   */
+  CreateAndUpdateThemes?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to add or run anomaly detection.</p>
+   * @public
+   */
+  AddOrRunAnomalyDetectionForAnalyses?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share analyses.</p>
+   * @public
+   */
+  ShareAnalyses?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update datasets.</p>
+   * @public
+   */
+  CreateAndUpdateDatasets?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share datasets.</p>
+   * @public
+   */
+  ShareDatasets?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to subscribe to email reports.</p>
+   * @public
+   */
+  SubscribeDashboardEmailReports?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update email reports.</p>
+   * @public
+   */
+  CreateAndUpdateDashboardEmailReports?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share dashboards.</p>
+   * @public
+   */
+  ShareDashboards?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update threshold alerts.</p>
+   * @public
+   */
+  CreateAndUpdateThresholdAlerts?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to rename shared folders.</p>
+   * @public
+   */
+  RenameSharedFolders?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create shared folders.</p>
+   * @public
+   */
+  CreateSharedFolders?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update data sources.</p>
+   * @public
+   */
+  CreateAndUpdateDataSources?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share data sources.</p>
+   * @public
+   */
+  ShareDataSources?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to view account SPICE capacity.</p>
+   * @public
+   */
+  ViewAccountSPICECapacity?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create a SPICE dataset.</p>
+   * @public
+   */
+  CreateSPICEDataset?: CapabilityState | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ColumnDataType = {
+  DATETIME: "DATETIME",
+  DECIMAL: "DECIMAL",
+  INTEGER: "INTEGER",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnDataType = (typeof ColumnDataType)[keyof typeof ColumnDataType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ColumnDataSubType = {
+  FIXED: "FIXED",
+  FLOAT: "FLOAT",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnDataSubType = (typeof ColumnDataSubType)[keyof typeof ColumnDataSubType];
+
+/**
+ * <p>A transform operation that casts a column to a different type.</p>
+ * @public
+ */
+export interface CastColumnTypeOperation {
+  /**
+   * <p>Column name.</p>
+   * @public
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>New column data type.</p>
+   * @public
+   */
+  NewColumnType: ColumnDataType | undefined;
+
+  /**
+   * <p>The sub data type of the new column. Sub types are only available for decimal columns that are part of a SPICE dataset.</p>
+   * @public
+   */
+  SubType?: ColumnDataSubType | undefined;
+
+  /**
+   * <p>When casting a column from string to datetime type, you can supply a string in a
+   *             format supported by Amazon QuickSight to denote the source data format.</p>
+   * @public
+   */
+  Format?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CategoryFilterFunction = {
+  CONTAINS: "CONTAINS",
+  EXACT: "EXACT",
+} as const;
+
+/**
+ * @public
+ */
+export type CategoryFilterFunction = (typeof CategoryFilterFunction)[keyof typeof CategoryFilterFunction];
+
+/**
+ * @public
+ * @enum
+ */
+export const CategoryFilterType = {
+  CUSTOM_FILTER: "CUSTOM_FILTER",
+  CUSTOM_FILTER_LIST: "CUSTOM_FILTER_LIST",
+  FILTER_LIST: "FILTER_LIST",
+} as const;
+
+/**
+ * @public
+ */
+export type CategoryFilterType = (typeof CategoryFilterType)[keyof typeof CategoryFilterType];
+
+/**
+ * <p>A structure that represents the cell value synonym.</p>
+ * @public
+ */
+export interface CellValueSynonym {
+  /**
+   * <p>The cell value.</p>
+   * @public
+   */
+  CellValue?: string | undefined;
+
+  /**
+   * <p>Other names or aliases for the cell value.</p>
+   * @public
+   */
+  Synonyms?: string[] | undefined;
+}
+
+/**
+ * <p>A structure that represents a collective constant.</p>
+ * @public
+ */
+export interface CollectiveConstant {
+  /**
+   * <p>A list of values for the collective constant.</p>
+   * @public
+   */
+  ValueList?: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ColumnDataRole = {
+  DIMENSION: "DIMENSION",
+  MEASURE: "MEASURE",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnDataRole = (typeof ColumnDataRole)[keyof typeof ColumnDataRole];
+
+/**
+ * <p>Metadata that contains a description for a column.</p>
+ * @public
+ */
+export interface ColumnDescription {
+  /**
+   * <p>The text of a description for a column.</p>
+   * @public
+   */
+  Text?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GeoSpatialCountryCode = {
+  US: "US",
+} as const;
+
+/**
+ * @public
+ */
+export type GeoSpatialCountryCode = (typeof GeoSpatialCountryCode)[keyof typeof GeoSpatialCountryCode];
+
+/**
+ * <p>Geospatial column group that denotes a hierarchy.</p>
+ * @public
+ */
+export interface GeoSpatialColumnGroup {
+  /**
+   * <p>A display name for the hierarchy.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Country code.</p>
+   * @public
+   */
+  CountryCode?: GeoSpatialCountryCode | undefined;
+
+  /**
+   * <p>Columns in this hierarchy.</p>
+   * @public
+   */
+  Columns: string[] | undefined;
+}
+
+/**
+ * <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
+ *             a variant type structure. For this structure to be valid, only one of the attributes can
+ *             be non-null.</p>
+ * @public
+ */
+export interface ColumnGroup {
+  /**
+   * <p>Geospatial column group that denotes a hierarchy.</p>
+   * @public
+   */
+  GeoSpatialColumnGroup?: GeoSpatialColumnGroup | undefined;
+}
+
+/**
+ * <p>A structure describing the name, data type, and geographic role of the columns.</p>
+ * @public
+ */
+export interface ColumnGroupColumnSchema {
+  /**
+   * <p>The name of the column group's column schema.</p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * <p>The column group schema.</p>
+ * @public
+ */
+export interface ColumnGroupSchema {
+  /**
+   * <p>The name of the column group schema.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A structure containing the list of schemas for column group columns.</p>
+   * @public
+   */
+  ColumnGroupColumnSchemaList?: ColumnGroupColumnSchema[] | undefined;
+}
 
 /**
  * <p>A rule defined to grant access on one or more restricted columns.
@@ -1163,6 +1531,18 @@ export interface DataPointTooltipOption {
 }
 
 /**
+ * <p>Adds Q&A capabilities to a dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is enabled.</p>
+ * @public
+ */
+export interface DataQAEnabledOption {
+  /**
+   * <p>The status of the Data Q&A option on the dashboard.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
  * <p>Export to .csv option.</p>
  * @public
  */
@@ -1332,6 +1712,12 @@ export interface DashboardPublishOptions {
    * @public
    */
   DataPointTooltipOption?: DataPointTooltipOption | undefined;
+
+  /**
+   * <p>Adds Q&A capabilities to an Amazon QuickSight dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is used.</p>
+   * @public
+   */
+  DataQAEnabledOption?: DataQAEnabledOption | undefined;
 }
 
 /**
@@ -2792,6 +3178,19 @@ export interface RowLevelPermissionTagConfiguration {
 
 /**
  * @public
+ * @enum
+ */
+export const DataSetUseAs = {
+  RLS_RULES: "RLS_RULES",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSetUseAs = (typeof DataSetUseAs)[keyof typeof DataSetUseAs];
+
+/**
+ * @public
  */
 export interface CreateDataSetRequest {
   /**
@@ -2897,6 +3296,12 @@ export interface CreateDataSetRequest {
    * @public
    */
   PerformanceConfiguration?: PerformanceConfiguration | undefined;
+
+  /**
+   * <p>The usage of the dataset. <code>RLS_RULES</code> must be specified for RLS permission datasets.</p>
+   * @public
+   */
+  UseAs?: DataSetUseAs | undefined;
 }
 
 /**
@@ -6873,6 +7278,12 @@ export interface DataSet {
    * @public
    */
   PerformanceConfiguration?: PerformanceConfiguration | undefined;
+
+  /**
+   * <p>The usage of the dataset.</p>
+   * @public
+   */
+  UseAs?: DataSetUseAs | undefined;
 }
 
 /**
@@ -6892,81 +7303,6 @@ export const DataSetFilterAttribute = {
  * @public
  */
 export type DataSetFilterAttribute = (typeof DataSetFilterAttribute)[keyof typeof DataSetFilterAttribute];
-
-/**
- * @public
- * @enum
- */
-export const LookbackWindowSizeUnit = {
-  DAY: "DAY",
-  HOUR: "HOUR",
-  WEEK: "WEEK",
-} as const;
-
-/**
- * @public
- */
-export type LookbackWindowSizeUnit = (typeof LookbackWindowSizeUnit)[keyof typeof LookbackWindowSizeUnit];
-
-/**
- * <p>The lookback window setup of an incremental refresh configuration.</p>
- * @public
- */
-export interface LookbackWindow {
-  /**
-   * <p>The name of the lookback window column.</p>
-   * @public
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>The lookback window column size.</p>
-   * @public
-   */
-  Size: number | undefined;
-
-  /**
-   * <p>The size unit that is used for the lookback window column. Valid values for this structure are <code>HOUR</code>, <code>DAY</code>, and <code>WEEK</code>.</p>
-   * @public
-   */
-  SizeUnit: LookbackWindowSizeUnit | undefined;
-}
-
-/**
- * <p>The incremental refresh configuration for a dataset.</p>
- * @public
- */
-export interface IncrementalRefresh {
-  /**
-   * <p>The lookback window setup for an incremental refresh configuration.</p>
-   * @public
-   */
-  LookbackWindow: LookbackWindow | undefined;
-}
-
-/**
- * <p>The refresh configuration of a dataset.</p>
- * @public
- */
-export interface RefreshConfiguration {
-  /**
-   * <p>The incremental refresh for the dataset.</p>
-   * @public
-   */
-  IncrementalRefresh: IncrementalRefresh | undefined;
-}
-
-/**
- * <p>The refresh properties of a dataset.</p>
- * @public
- */
-export interface DataSetRefreshProperties {
-  /**
-   * <p>The refresh configuration for a dataset.</p>
-   * @public
-   */
-  RefreshConfiguration: RefreshConfiguration | undefined;
-}
 
 /**
  * <p>A filter that you apply when searching for datasets.</p>
@@ -7082,6 +7418,12 @@ export interface DataSetSummary {
    * @public
    */
   ColumnLevelPermissionRulesApplied?: boolean | undefined;
+
+  /**
+   * <p>The usage of the dataset.</p>
+   * @public
+   */
+  UseAs?: DataSetUseAs | undefined;
 }
 
 /**
@@ -8553,347 +8895,12 @@ export interface DeleteUserRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface DeleteUserResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DeleteUserByPrincipalIdRequest {
-  /**
-   * <p>The principal ID of the user.</p>
-   * @public
-   */
-  PrincipalId: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteUserByPrincipalIdResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteUserCustomPermissionRequest {
-  /**
-   * <p>The username of the user that you want to remove custom permissions from.</p>
-   * @public
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the custom permission configuration that you want to delete.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that the user belongs to.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteUserCustomPermissionResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVPCConnectionRequest {
-  /**
-   * <p>The Amazon Web Services account ID of the account where you want to delete a VPC
-   * 			connection.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the VPC connection that you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
-   * 				Amazon Web Services account.</p>
-   * @public
-   */
-  VPCConnectionId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVPCConnectionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the deleted VPC connection.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the VPC connection that
-   * 			you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
-   * 				Amazon Web Services account.</p>
-   * @public
-   */
-  VPCConnectionId?: string | undefined;
-
-  /**
-   * <p>The deletion status of the VPC connection.</p>
-   * @public
-   */
-  DeletionStatus?: VPCConnectionResourceStatus | undefined;
-
-  /**
-   * <p>The availability status of the VPC connection.</p>
-   * @public
-   */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountCustomizationRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that you want to describe Amazon QuickSight customizations
-   *             for.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The Amazon QuickSight namespace that you want to describe Amazon QuickSight customizations
-   *             for.</p>
-   * @public
-   */
-  Namespace?: string | undefined;
-
-  /**
-   * <p>The <code>Resolved</code> flag works with the other parameters to determine which view
-   *             of Amazon QuickSight customizations is returned. You can add this flag to your command to use
-   *             the same view that Amazon QuickSight uses to identify which customizations to apply to the
-   *             console. Omit this flag, or set it to <code>no-resolved</code>, to reveal customizations
-   *             that are configured at different levels. </p>
-   * @public
-   */
-  Resolved?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountCustomizationResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the customization that's associated with this Amazon Web Services account.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that you're describing.</p>
-   * @public
-   */
-  AwsAccountId?: string | undefined;
-
-  /**
-   * <p>The Amazon QuickSight namespace that you're describing. </p>
-   * @public
-   */
-  Namespace?: string | undefined;
-
-  /**
-   * <p>The Amazon QuickSight customizations that exist in the current Amazon Web Services Region. </p>
-   * @public
-   */
-  AccountCustomization?: AccountCustomization | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountSettingsRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the settings that you want to list.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountSettingsResponse {
-  /**
-   * <p>The Amazon QuickSight settings for this Amazon Web Services account. This information
-   *             includes the edition of Amazon Amazon QuickSight that you subscribed to (Standard or
-   *             Enterprise) and the notification email for the Amazon QuickSight subscription. </p>
-   *          <p>In the QuickSight console, the Amazon QuickSight subscription is sometimes referred to
-   *             as a QuickSight "account" even though it's technically not an account by
-   *             itself. Instead, it's a subscription to the Amazon QuickSight service for your
-   *                 Amazon Web Services account. The edition that you subscribe to applies to Amazon QuickSight in every Amazon Web Services Region where you use it.</p>
-   * @public
-   */
-  AccountSettings?: AccountSettings | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountSubscriptionRequest {
-  /**
-   * <p>The Amazon Web Services account ID associated with your Amazon QuickSight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountSubscriptionResponse {
-  /**
-   * <p>A structure that contains the following elements:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Your Amazon QuickSight account name.</p>
-   *             </li>
-   *             <li>
-   *                <p>The edition of Amazon QuickSight that your account is using.</p>
-   *             </li>
-   *             <li>
-   *                <p>The notification email address that is associated with the Amazon QuickSight
-   *                     account.
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>The authentication type of the Amazon QuickSight account.</p>
-   *             </li>
-   *             <li>
-   *                <p>The status of the Amazon QuickSight account's subscription.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  AccountInfo?: AccountInfo | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAnalysisRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the analysis. You must be using the
-   *             Amazon Web Services account that the analysis is in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the analysis that you're describing. The ID is part of the URL of the
-   *             analysis.</p>
-   * @public
-   */
-  AnalysisId: string | undefined;
-}
+export const ColumnDescriptionFilterSensitiveLog = (obj: ColumnDescription): any => ({
+  ...obj,
+  ...(obj.Text && { Text: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

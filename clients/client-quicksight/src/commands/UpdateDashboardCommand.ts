@@ -132,6 +132,9 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *     DataPointTooltipOption: { // DataPointTooltipOption
  *       AvailabilityStatus: "ENABLED" || "DISABLED",
  *     },
+ *     DataQAEnabledOption: { // DataQAEnabledOption
+ *       AvailabilityStatus: "ENABLED" || "DISABLED",
+ *     },
  *   },
  *   ThemeArn: "STRING_VALUE",
  *   Definition: { // DashboardVersionDefinition
@@ -997,6 +1000,13 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *                       "STRING_VALUE",
  *                     ],
  *                   },
+ *                   TransposedTableOptions: [ // TransposedTableOptionList
+ *                     { // TransposedTableOption
+ *                       ColumnIndex: Number("int"),
+ *                       ColumnWidth: "STRING_VALUE",
+ *                       ColumnType: "ROW_HEADER_COLUMN" || "VALUE_COLUMN", // required
+ *                     },
+ *                   ],
  *                 },
  *                 PaginatedReportOptions: { // TablePaginatedReportOptions
  *                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
@@ -5481,6 +5491,10 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *     Options: { // AssetOptions
  *       Timezone: "STRING_VALUE",
  *       WeekStart: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY",
+ *       QBusinessInsightsStatus: "ENABLED" || "DISABLED",
+ *       ExcludedDataSetArns: [ // DataSetArnsList
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *     StaticFiles: [ // StaticFileList
  *       { // StaticFile

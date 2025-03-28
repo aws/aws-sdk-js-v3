@@ -53,6 +53,11 @@ export interface PutDataSetRefreshPropertiesCommandOutput
  *         },
  *       },
  *     },
+ *     FailureConfiguration: { // RefreshFailureConfiguration
+ *       EmailAlert: { // RefreshFailureEmailAlert
+ *         AlertStatus: "ENABLED" || "DISABLED",
+ *       },
+ *     },
  *   },
  * };
  * const command = new PutDataSetRefreshPropertiesCommand(input);

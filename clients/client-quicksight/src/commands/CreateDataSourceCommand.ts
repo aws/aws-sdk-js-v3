@@ -82,6 +82,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       Host: "STRING_VALUE", // required
  *       Port: Number("int"), // required
  *       Database: "STRING_VALUE", // required
+ *       UseServiceName: true || false,
  *     },
  *     PostgreSqlParameters: { // PostgreSqlParameters
  *       Host: "STRING_VALUE", // required
@@ -238,6 +239,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *             Host: "STRING_VALUE", // required
  *             Port: Number("int"), // required
  *             Database: "STRING_VALUE", // required
+ *             UseServiceName: true || false,
  *           },
  *           PostgreSqlParameters: {
  *             Host: "STRING_VALUE", // required

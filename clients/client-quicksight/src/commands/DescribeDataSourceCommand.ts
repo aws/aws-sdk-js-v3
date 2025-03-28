@@ -88,6 +88,7 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //         Host: "STRING_VALUE", // required
  * //         Port: Number("int"), // required
  * //         Database: "STRING_VALUE", // required
+ * //         UseServiceName: true || false,
  * //       },
  * //       PostgreSqlParameters: { // PostgreSqlParameters
  * //         Host: "STRING_VALUE", // required
@@ -240,6 +241,7 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //           Host: "STRING_VALUE", // required
  * //           Port: Number("int"), // required
  * //           Database: "STRING_VALUE", // required
+ * //           UseServiceName: true || false,
  * //         },
  * //         PostgreSqlParameters: {
  * //           Host: "STRING_VALUE", // required

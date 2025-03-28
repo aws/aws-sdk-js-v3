@@ -62,6 +62,20 @@ export interface GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput
  *         Bookmarks: { // BookmarksConfigurations
  *           Enabled: true || false, // required
  *         },
+ *         AmazonQInQuickSight: { // AmazonQInQuickSightDashboardConfigurations
+ *           ExecutiveSummary: { // ExecutiveSummaryConfigurations
+ *             Enabled: true || false, // required
+ *           },
+ *         },
+ *         Schedules: { // SchedulesConfigurations
+ *           Enabled: true || false, // required
+ *         },
+ *         RecentSnapshots: { // RecentSnapshotsConfigurations
+ *           Enabled: true || false, // required
+ *         },
+ *         ThresholdAlerts: { // ThresholdAlertsConfigurations
+ *           Enabled: true || false, // required
+ *         },
  *       },
  *     },
  *     QuickSightConsole: { // RegisteredUserQuickSightConsoleEmbeddingConfiguration
@@ -71,6 +85,29 @@ export interface GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput
  *           Enabled: true || false, // required
  *         },
  *         SharedView: {
+ *           Enabled: true || false, // required
+ *         },
+ *         AmazonQInQuickSight: { // AmazonQInQuickSightConsoleConfigurations
+ *           DataQnA: { // DataQnAConfigurations
+ *             Enabled: true || false, // required
+ *           },
+ *           GenerativeAuthoring: { // GenerativeAuthoringConfigurations
+ *             Enabled: true || false, // required
+ *           },
+ *           ExecutiveSummary: {
+ *             Enabled: true || false, // required
+ *           },
+ *           DataStories: { // DataStoriesConfigurations
+ *             Enabled: true || false, // required
+ *           },
+ *         },
+ *         Schedules: {
+ *           Enabled: true || false, // required
+ *         },
+ *         RecentSnapshots: {
+ *           Enabled: true || false, // required
+ *         },
+ *         ThresholdAlerts: {
  *           Enabled: true || false, // required
  *         },
  *       },

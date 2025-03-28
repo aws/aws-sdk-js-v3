@@ -59,6 +59,11 @@ export interface DescribeDataSetRefreshPropertiesCommandOutput
  * //         },
  * //       },
  * //     },
+ * //     FailureConfiguration: { // RefreshFailureConfiguration
+ * //       EmailAlert: { // RefreshFailureEmailAlert
+ * //         AlertStatus: "ENABLED" || "DISABLED",
+ * //       },
+ * //     },
  * //   },
  * // };
  *

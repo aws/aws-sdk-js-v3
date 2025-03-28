@@ -35,7 +35,7 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  *             namespaces. You can create a namespace after your Amazon Web Services account is subscribed to
  *             Amazon QuickSight. The namespace must be unique within the Amazon Web Services account. By default, there is a
  *             limit of 100 namespaces per Amazon Web Services account. To increase your limit, create a ticket with
- *             Amazon Web Services Support. </p>
+ *             Amazon Web ServicesSupport. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

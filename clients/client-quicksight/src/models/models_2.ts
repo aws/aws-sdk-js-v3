@@ -73,9 +73,8 @@ import {
   LineChartVisual,
   PaginationConfiguration,
   PieChartVisual,
-  PivotTableVisual,
-  PluginVisualFieldWell,
-  PluginVisualItemsLimitConfiguration,
+  PivotTableConditionalFormattingScope,
+  PivotTableConfiguration,
   RowAlternateColorOptions,
   TableCellStyle,
   TableTotalsPlacement,
@@ -93,6 +92,165 @@ import {
 } from "./models_1";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>The cell conditional formatting option for a pivot table.</p>
+ * @public
+ */
+export interface PivotTableCellConditionalFormatting {
+  /**
+   * <p>The field ID of the cell for conditional formatting.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The text format of the cell for conditional formatting.</p>
+   * @public
+   */
+  TextFormat?: TextConditionalFormat | undefined;
+
+  /**
+   * <p>The scope of the cell for conditional formatting.</p>
+   * @public
+   */
+  Scope?: PivotTableConditionalFormattingScope | undefined;
+
+  /**
+   * <p>A list of cell scopes for conditional formatting.</p>
+   * @public
+   */
+  Scopes?: PivotTableConditionalFormattingScope[] | undefined;
+}
+
+/**
+ * <p>Conditional formatting options for a <code>PivotTableVisual</code>.</p>
+ * @public
+ */
+export interface PivotTableConditionalFormattingOption {
+  /**
+   * <p>The cell conditional formatting option for a pivot table.</p>
+   * @public
+   */
+  Cell?: PivotTableCellConditionalFormatting | undefined;
+}
+
+/**
+ * <p>The conditional formatting for a <code>PivotTableVisual</code>.</p>
+ * @public
+ */
+export interface PivotTableConditionalFormatting {
+  /**
+   * <p>Conditional formatting options for a <code>PivotTableVisual</code>.</p>
+   * @public
+   */
+  ConditionalFormattingOptions?: PivotTableConditionalFormattingOption[] | undefined;
+}
+
+/**
+ * <p>A pivot table.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html">Using pivot tables</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ * @public
+ */
+export interface PivotTableVisual {
+  /**
+   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..</p>
+   * @public
+   */
+  VisualId: string | undefined;
+
+  /**
+   * <p>The title that is displayed on the visual.</p>
+   * @public
+   */
+  Title?: VisualTitleLabelOptions | undefined;
+
+  /**
+   * <p>The subtitle that is displayed on the visual.</p>
+   * @public
+   */
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
+
+  /**
+   * <p>The configuration settings of the visual.</p>
+   * @public
+   */
+  ChartConfiguration?: PivotTableConfiguration | undefined;
+
+  /**
+   * <p>The conditional formatting for a <code>PivotTableVisual</code>.</p>
+   * @public
+   */
+  ConditionalFormatting?: PivotTableConditionalFormatting | undefined;
+
+  /**
+   * <p>The list of custom actions that are configured for a visual.</p>
+   * @public
+   */
+  Actions?: VisualCustomAction[] | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PluginVisualAxisName = {
+  GROUP_BY: "GROUP_BY",
+  VALUE: "VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type PluginVisualAxisName = (typeof PluginVisualAxisName)[keyof typeof PluginVisualAxisName];
+
+/**
+ * <p>A collection of field wells for a plugin visual.</p>
+ * @public
+ */
+export interface PluginVisualFieldWell {
+  /**
+   * <p>The semantic axis name for the field well.</p>
+   * @public
+   */
+  AxisName?: PluginVisualAxisName | undefined;
+
+  /**
+   * <p>A list of dimensions for the field well.</p>
+   * @public
+   */
+  Dimensions?: DimensionField[] | undefined;
+
+  /**
+   * <p>A list of measures that exist in the field well.</p>
+   * @public
+   */
+  Measures?: MeasureField[] | undefined;
+
+  /**
+   * <p>A list of unaggregated fields that exist in the field well.</p>
+   * @public
+   */
+  Unaggregated?: UnaggregatedField[] | undefined;
+}
+
+/**
+ * <p>A query limits configuration.</p>
+ * @public
+ */
+export interface PluginVisualItemsLimitConfiguration {
+  /**
+   * <p>Determines how many values are be fetched at once.</p>
+   * @public
+   */
+  ItemsLimit?: number | undefined;
+}
 
 /**
  * <p>The table query sorting options for the plugin visual.</p>
@@ -1040,6 +1198,54 @@ export interface TableFieldOption {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const TransposedColumnType = {
+  ROW_HEADER_COLUMN: "ROW_HEADER_COLUMN",
+  VALUE_COLUMN: "VALUE_COLUMN",
+} as const;
+
+/**
+ * @public
+ */
+export type TransposedColumnType = (typeof TransposedColumnType)[keyof typeof TransposedColumnType];
+
+/**
+ * <p>The column option of the transposed table.</p>
+ * @public
+ */
+export interface TransposedTableOption {
+  /**
+   * <p>The index of a columns in a transposed table. The index range is 0-9999.</p>
+   * @public
+   */
+  ColumnIndex?: number | undefined;
+
+  /**
+   * <p>The width of a column in a transposed table.</p>
+   * @public
+   */
+  ColumnWidth?: string | undefined;
+
+  /**
+   * <p>The column type of the column in a transposed table. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ROW_HEADER_COLUMN</code>: Refers to the leftmost column of the row header in the transposed table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VALUE_COLUMN</code>: Refers to all value columns in the transposed table.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ColumnType: TransposedColumnType | undefined;
+}
+
+/**
  * <p>The field options of a table visual.</p>
  * @public
  */
@@ -1061,6 +1267,12 @@ export interface TableFieldOptions {
    * @public
    */
   PinnedFieldOptions?: TablePinnedFieldOptions | undefined;
+
+  /**
+   * <p>The <code>TableOptions</code> of a transposed table.</p>
+   * @public
+   */
+  TransposedTableOptions?: TransposedTableOption[] | undefined;
 }
 
 /**
@@ -3335,6 +3547,7 @@ export interface AssetBundleExportJobDashboardOverrideProperties {
  */
 export const AssetBundleExportJobDataSetPropertyToOverride = {
   NAME: "Name",
+  REFRESH_FAILURE_EMAIL_ALERT_STATUS: "RefreshFailureEmailAlertStatus",
 } as const;
 
 /**
@@ -3930,6 +4143,125 @@ export interface AssetBundleImportJobDashboardOverrideTags {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const RefreshFailureAlertStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type RefreshFailureAlertStatus = (typeof RefreshFailureAlertStatus)[keyof typeof RefreshFailureAlertStatus];
+
+/**
+ * <p>The configuration settings for the email alerts that are sent when a dataset refresh fails.</p>
+ * @public
+ */
+export interface RefreshFailureEmailAlert {
+  /**
+   * <p>The status value that determines if email alerts are sent.</p>
+   * @public
+   */
+  AlertStatus?: RefreshFailureAlertStatus | undefined;
+}
+
+/**
+ * <p>The failure configuration of a dataset.</p>
+ * @public
+ */
+export interface RefreshFailureConfiguration {
+  /**
+   * <p>The email alert configuration for a dataset refresh failure.</p>
+   * @public
+   */
+  EmailAlert?: RefreshFailureEmailAlert | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LookbackWindowSizeUnit = {
+  DAY: "DAY",
+  HOUR: "HOUR",
+  WEEK: "WEEK",
+} as const;
+
+/**
+ * @public
+ */
+export type LookbackWindowSizeUnit = (typeof LookbackWindowSizeUnit)[keyof typeof LookbackWindowSizeUnit];
+
+/**
+ * <p>The lookback window setup of an incremental refresh configuration.</p>
+ * @public
+ */
+export interface LookbackWindow {
+  /**
+   * <p>The name of the lookback window column.</p>
+   * @public
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>The lookback window column size.</p>
+   * @public
+   */
+  Size: number | undefined;
+
+  /**
+   * <p>The size unit that is used for the lookback window column. Valid values for this structure are <code>HOUR</code>, <code>DAY</code>, and <code>WEEK</code>.</p>
+   * @public
+   */
+  SizeUnit: LookbackWindowSizeUnit | undefined;
+}
+
+/**
+ * <p>The incremental refresh configuration for a dataset.</p>
+ * @public
+ */
+export interface IncrementalRefresh {
+  /**
+   * <p>The lookback window setup for an incremental refresh configuration.</p>
+   * @public
+   */
+  LookbackWindow: LookbackWindow | undefined;
+}
+
+/**
+ * <p>The refresh configuration of a dataset.</p>
+ * @public
+ */
+export interface RefreshConfiguration {
+  /**
+   * <p>The incremental refresh for the dataset.</p>
+   * @public
+   */
+  IncrementalRefresh: IncrementalRefresh | undefined;
+}
+
+/**
+ * <p>The refresh properties of a dataset.</p>
+ * @public
+ */
+export interface DataSetRefreshProperties {
+  /**
+   * <p>The refresh configuration for a dataset.</p>
+   * @public
+   */
+  RefreshConfiguration?: RefreshConfiguration | undefined;
+
+  /**
+   * <p>The failure configuration for a dataset.</p>
+   * @public
+   */
+  FailureConfiguration?: RefreshFailureConfiguration | undefined;
+}
+
+/**
  * <p>The override parameters for a single dataset that is being imported.</p>
  * @public
  */
@@ -3945,6 +4277,12 @@ export interface AssetBundleImportJobDataSetOverrideParameters {
    * @public
    */
   Name?: string | undefined;
+
+  /**
+   * <p>The refresh properties of a dataset.</p>
+   * @public
+   */
+  DataSetRefreshProperties?: DataSetRefreshProperties | undefined;
 }
 
 /**
@@ -4239,6 +4577,12 @@ export interface OracleParameters {
    * @public
    */
   Database: string | undefined;
+
+  /**
+   * <p>A Boolean value that indicates whether the <code>Database</code> uses a service name or an SID. If this value is left blank, the default value is <code>SID</code>. If this value is set to <code>false</code>, the value is <code>SID</code>.</p>
+   * @public
+   */
+  UseServiceName?: boolean | undefined;
 }
 
 /**
@@ -8029,387 +8373,55 @@ export interface CancelIngestionResponse {
 }
 
 /**
- * <p>The resource specified already exists. </p>
- * @public
+ * @internal
  */
-export class ResourceExistsException extends __BaseException {
-  readonly name: "ResourceExistsException" = "ResourceExistsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The resource type for this request.</p>
-   * @public
-   */
-  ResourceType?: ExceptionResourceType | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceExistsException, __BaseException>) {
-    super({
-      name: "ResourceExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceExistsException.prototype);
-    this.Message = opts.Message;
-    this.ResourceType = opts.ResourceType;
-    this.RequestId = opts.RequestId;
-  }
-}
+export const PivotTableCellConditionalFormattingFilterSensitiveLog = (
+  obj: PivotTableCellConditionalFormatting
+): any => ({
+  ...obj,
+  ...(obj.TextFormat && { TextFormat: TextConditionalFormatFilterSensitiveLog(obj.TextFormat) }),
+});
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const CapabilityState = {
-  DENY: "DENY",
-} as const;
+export const PivotTableConditionalFormattingOptionFilterSensitiveLog = (
+  obj: PivotTableConditionalFormattingOption
+): any => ({
+  ...obj,
+  ...(obj.Cell && { Cell: PivotTableCellConditionalFormattingFilterSensitiveLog(obj.Cell) }),
+});
 
 /**
- * @public
+ * @internal
  */
-export type CapabilityState = (typeof CapabilityState)[keyof typeof CapabilityState];
+export const PivotTableConditionalFormattingFilterSensitiveLog = (obj: PivotTableConditionalFormatting): any => ({
+  ...obj,
+  ...(obj.ConditionalFormattingOptions && {
+    ConditionalFormattingOptions: obj.ConditionalFormattingOptions.map((item) =>
+      PivotTableConditionalFormattingOptionFilterSensitiveLog(item)
+    ),
+  }),
+});
 
 /**
- * <p>A set of actions that correspond to Amazon QuickSight permissions.</p>
- * @public
+ * @internal
  */
-export interface Capabilities {
-  /**
-   * <p>The ability to export to CSV files.</p>
-   * @public
-   */
-  ExportToCsv?: CapabilityState | undefined;
-
-  /**
-   * <p>The ability to export to Excel files.</p>
-   * @public
-   */
-  ExportToExcel?: CapabilityState | undefined;
-
-  /**
-   * <p>The ability to export to Create and Update themes.</p>
-   * @public
-   */
-  CreateAndUpdateThemes?: CapabilityState | undefined;
-
-  /**
-   * <p>The ability to add or run anomaly detection.</p>
-   * @public
-   */
-  AddOrRunAnomalyDetectionForAnalyses?: CapabilityState | undefined;
-
-  /**
-   * <p>The ability to share analyses.</p>
-   * @public
-   */
-  ShareAnalyses?: CapabilityState | undefined;
-
-  /**
-   * <p>The ability to create and update datasets.</p>
-   * @public
-   */
-  CreateAndUpdateDatasets?: CapabilityState | undefined;
-
-  /**
-   * <p>The ability to share datasets.</p>
-   * @public
-   */
-  ShareDatasets?: CapabilityState | undefined;
-
-  /**
-   * <p>The ability to subscribe to email reports.</p>
-   * @public
-   */
-  SubscribeDashboardEmailReports?: CapabilityState | undefined;
-
-  /**
-   * <p>The ability to create and update email reports.</p>
-   * @public
-   */
-  CreateAndUpdateDashboardEmailReports?: CapabilityState | undefined;
-
-  /**
-   * <p>The ability to share dashboards.</p>
-   * @public
-   */
-  ShareDashboards?: CapabilityState | undefined;
-
-  /**
-   * <p>The ability to create and update threshold alerts.</p>
-   * @public
-   */
-  CreateAndUpdateThresholdAlerts?: CapabilityState | undefined;
-
-  /**
-   * <p>The ability to rename shared folders.</p>
-   * @public
-   */
-  RenameSharedFolders?: CapabilityState | undefined;
-
-  /**
-   * <p>The ability to create shared folders.</p>
-   * @public
-   */
-  CreateSharedFolders?: CapabilityState | undefined;
-
-  /**
-   * <p>The ability to create and update data sources.</p>
-   * @public
-   */
-  CreateAndUpdateDataSources?: CapabilityState | undefined;
-
-  /**
-   * <p>The ability to share data sources.</p>
-   * @public
-   */
-  ShareDataSources?: CapabilityState | undefined;
-
-  /**
-   * <p>The ability to view account SPICE capacity.</p>
-   * @public
-   */
-  ViewAccountSPICECapacity?: CapabilityState | undefined;
-
-  /**
-   * <p>The ability to create a SPICE dataset.</p>
-   * @public
-   */
-  CreateSPICEDataset?: CapabilityState | undefined;
-}
+export const PivotTableVisualFilterSensitiveLog = (obj: PivotTableVisual): any => ({
+  ...obj,
+  ...(obj.ConditionalFormatting && {
+    ConditionalFormatting: PivotTableConditionalFormattingFilterSensitiveLog(obj.ConditionalFormatting),
+  }),
+});
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const ColumnDataType = {
-  DATETIME: "DATETIME",
-  DECIMAL: "DECIMAL",
-  INTEGER: "INTEGER",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type ColumnDataType = (typeof ColumnDataType)[keyof typeof ColumnDataType];
-
-/**
- * @public
- * @enum
- */
-export const ColumnDataSubType = {
-  FIXED: "FIXED",
-  FLOAT: "FLOAT",
-} as const;
-
-/**
- * @public
- */
-export type ColumnDataSubType = (typeof ColumnDataSubType)[keyof typeof ColumnDataSubType];
-
-/**
- * <p>A transform operation that casts a column to a different type.</p>
- * @public
- */
-export interface CastColumnTypeOperation {
-  /**
-   * <p>Column name.</p>
-   * @public
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>New column data type.</p>
-   * @public
-   */
-  NewColumnType: ColumnDataType | undefined;
-
-  /**
-   * <p>The sub data type of the new column. Sub types are only available for decimal columns that are part of a SPICE dataset.</p>
-   * @public
-   */
-  SubType?: ColumnDataSubType | undefined;
-
-  /**
-   * <p>When casting a column from string to datetime type, you can supply a string in a
-   *             format supported by Amazon QuickSight to denote the source data format.</p>
-   * @public
-   */
-  Format?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const CategoryFilterFunction = {
-  CONTAINS: "CONTAINS",
-  EXACT: "EXACT",
-} as const;
-
-/**
- * @public
- */
-export type CategoryFilterFunction = (typeof CategoryFilterFunction)[keyof typeof CategoryFilterFunction];
-
-/**
- * @public
- * @enum
- */
-export const CategoryFilterType = {
-  CUSTOM_FILTER: "CUSTOM_FILTER",
-  CUSTOM_FILTER_LIST: "CUSTOM_FILTER_LIST",
-  FILTER_LIST: "FILTER_LIST",
-} as const;
-
-/**
- * @public
- */
-export type CategoryFilterType = (typeof CategoryFilterType)[keyof typeof CategoryFilterType];
-
-/**
- * <p>A structure that represents the cell value synonym.</p>
- * @public
- */
-export interface CellValueSynonym {
-  /**
-   * <p>The cell value.</p>
-   * @public
-   */
-  CellValue?: string | undefined;
-
-  /**
-   * <p>Other names or aliases for the cell value.</p>
-   * @public
-   */
-  Synonyms?: string[] | undefined;
-}
-
-/**
- * <p>A structure that represents a collective constant.</p>
- * @public
- */
-export interface CollectiveConstant {
-  /**
-   * <p>A list of values for the collective constant.</p>
-   * @public
-   */
-  ValueList?: string[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ColumnDataRole = {
-  DIMENSION: "DIMENSION",
-  MEASURE: "MEASURE",
-} as const;
-
-/**
- * @public
- */
-export type ColumnDataRole = (typeof ColumnDataRole)[keyof typeof ColumnDataRole];
-
-/**
- * <p>Metadata that contains a description for a column.</p>
- * @public
- */
-export interface ColumnDescription {
-  /**
-   * <p>The text of a description for a column.</p>
-   * @public
-   */
-  Text?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const GeoSpatialCountryCode = {
-  US: "US",
-} as const;
-
-/**
- * @public
- */
-export type GeoSpatialCountryCode = (typeof GeoSpatialCountryCode)[keyof typeof GeoSpatialCountryCode];
-
-/**
- * <p>Geospatial column group that denotes a hierarchy.</p>
- * @public
- */
-export interface GeoSpatialColumnGroup {
-  /**
-   * <p>A display name for the hierarchy.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Country code.</p>
-   * @public
-   */
-  CountryCode?: GeoSpatialCountryCode | undefined;
-
-  /**
-   * <p>Columns in this hierarchy.</p>
-   * @public
-   */
-  Columns: string[] | undefined;
-}
-
-/**
- * <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
- *             a variant type structure. For this structure to be valid, only one of the attributes can
- *             be non-null.</p>
- * @public
- */
-export interface ColumnGroup {
-  /**
-   * <p>Geospatial column group that denotes a hierarchy.</p>
-   * @public
-   */
-  GeoSpatialColumnGroup?: GeoSpatialColumnGroup | undefined;
-}
-
-/**
- * <p>A structure describing the name, data type, and geographic role of the columns.</p>
- * @public
- */
-export interface ColumnGroupColumnSchema {
-  /**
-   * <p>The name of the column group's column schema.</p>
-   * @public
-   */
-  Name?: string | undefined;
-}
-
-/**
- * <p>The column group schema.</p>
- * @public
- */
-export interface ColumnGroupSchema {
-  /**
-   * <p>The name of the column group schema.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A structure containing the list of schemas for column group columns.</p>
-   * @public
-   */
-  ColumnGroupColumnSchemaList?: ColumnGroupColumnSchema[] | undefined;
-}
+export const PluginVisualFieldWellFilterSensitiveLog = (obj: PluginVisualFieldWell): any => ({
+  ...obj,
+  ...(obj.Measures && { Measures: obj.Measures.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
+  ...(obj.Unaggregated && { Unaggregated: obj.Unaggregated.map((item) => UnaggregatedFieldFilterSensitiveLog(item)) }),
+});
 
 /**
  * @internal
@@ -8850,12 +8862,4 @@ export const TopicIRFilterSensitiveLog = (obj: TopicIR): any => ({
 export const CalculatedColumnFilterSensitiveLog = (obj: CalculatedColumn): any => ({
   ...obj,
   ...(obj.Expression && { Expression: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ColumnDescriptionFilterSensitiveLog = (obj: ColumnDescription): any => ({
-  ...obj,
-  ...(obj.Text && { Text: SENSITIVE_STRING }),
 });

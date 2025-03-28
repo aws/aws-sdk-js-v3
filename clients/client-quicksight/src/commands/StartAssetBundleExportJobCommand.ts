@@ -77,7 +77,7 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
  *       { // AssetBundleExportJobDataSetOverrideProperties
  *         Arn: "STRING_VALUE", // required
  *         Properties: [ // AssetBundleExportJobDataSetPropertyToOverrideList // required
- *           "Name",
+ *           "Name" || "RefreshFailureEmailAlertStatus",
  *         ],
  *       },
  *     ],

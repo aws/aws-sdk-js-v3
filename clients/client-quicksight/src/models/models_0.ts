@@ -666,6 +666,96 @@ export interface AmazonOpenSearchParameters {
 }
 
 /**
+ * <p>The generative Q&A settings of an embedded Amazon QuickSight console.</p>
+ * @public
+ */
+export interface DataQnAConfigurations {
+  /**
+   * <p>The generative Q&A settings of an embedded Amazon QuickSight console.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+}
+
+/**
+ * <p>The data story settings of an embedded Amazon QuickSight console.</p>
+ * @public
+ */
+export interface DataStoriesConfigurations {
+  /**
+   * <p>The data story settings of an embedded Amazon QuickSight console.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+}
+
+/**
+ * <p>The executive summary settings of an embedded Amazon QuickSight console or dashboard.</p>
+ * @public
+ */
+export interface ExecutiveSummaryConfigurations {
+  /**
+   * <p>The executive summary settings of an embedded Amazon QuickSight console or dashboard.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+}
+
+/**
+ * <p>The generative BI authoring settings of an embedded Amazon QuickSight console.</p>
+ * @public
+ */
+export interface GenerativeAuthoringConfigurations {
+  /**
+   * <p>The generative BI authoring settings of an embedded Amazon QuickSight console.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+}
+
+/**
+ * <p>A collection of Amazon Q feature configurations in an embedded Amazon QuickSight console.</p>
+ * @public
+ */
+export interface AmazonQInQuickSightConsoleConfigurations {
+  /**
+   * <p>Adds generative Q&A capabilitiees to an embedded Amazon QuickSight console.</p>
+   * @public
+   */
+  DataQnA?: DataQnAConfigurations | undefined;
+
+  /**
+   * <p>Adds the generative BI authoring experience to an embedded Amazon QuickSight console.</p>
+   * @public
+   */
+  GenerativeAuthoring?: GenerativeAuthoringConfigurations | undefined;
+
+  /**
+   * <p>Adds the executive summaries feature to an embedded Amazon QuickSight console.</p>
+   * @public
+   */
+  ExecutiveSummary?: ExecutiveSummaryConfigurations | undefined;
+
+  /**
+   * <p>Adds the data stories feature to an embedded Amazon QuickSight console.</p>
+   * @public
+   */
+  DataStories?: DataStoriesConfigurations | undefined;
+}
+
+/**
+ * <p>A collection of Amazon Q feature configurations in an embedded Amazon QuickSight dashboard.</p>
+ * @public
+ */
+export interface AmazonQInQuickSightDashboardConfigurations {
+  /**
+   * <p>A generated executive summary of an embedded Amazon QuickSight dashboard.</p>
+   * @public
+   */
+  ExecutiveSummary?: ExecutiveSummaryConfigurations | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -4071,6 +4161,20 @@ export interface FilterGroup {
  * @public
  * @enum
  */
+export const QBusinessInsightsStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type QBusinessInsightsStatus = (typeof QBusinessInsightsStatus)[keyof typeof QBusinessInsightsStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const DayOfTheWeek = {
   FRIDAY: "FRIDAY",
   MONDAY: "MONDAY",
@@ -4102,6 +4206,18 @@ export interface AssetOptions {
    * @public
    */
   WeekStart?: DayOfTheWeek | undefined;
+
+  /**
+   * <p>Determines whether insight summaries from Amazon Q Business are allowed in Dashboard Q&A.</p>
+   * @public
+   */
+  QBusinessInsightsStatus?: QBusinessInsightsStatus | undefined;
+
+  /**
+   * <p>A list of dataset ARNS to exclude from Dashboard Q&A.</p>
+   * @public
+   */
+  ExcludedDataSetArns?: string[] | undefined;
 }
 
 /**
@@ -7303,159 +7419,6 @@ export interface ReferenceLineDynamicDataConfiguration {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReferenceLineSeriesType = {
-  BAR: "BAR",
-  LINE: "LINE",
-} as const;
-
-/**
- * @public
- */
-export type ReferenceLineSeriesType = (typeof ReferenceLineSeriesType)[keyof typeof ReferenceLineSeriesType];
-
-/**
- * <p>The static data configuration of the reference line data configuration.</p>
- * @public
- */
-export interface ReferenceLineStaticDataConfiguration {
-  /**
-   * <p>The double input of the static data.</p>
-   * @public
-   */
-  Value: number | undefined;
-}
-
-/**
- * <p>The data configuration of the reference line.</p>
- * @public
- */
-export interface ReferenceLineDataConfiguration {
-  /**
-   * <p>The static data configuration of the reference line data configuration.</p>
-   * @public
-   */
-  StaticConfiguration?: ReferenceLineStaticDataConfiguration | undefined;
-
-  /**
-   * <p>The dynamic configuration of the reference line data configuration.</p>
-   * @public
-   */
-  DynamicConfiguration?: ReferenceLineDynamicDataConfiguration | undefined;
-
-  /**
-   * <p>The axis binding type of the reference line. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PrimaryY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SecondaryY</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  AxisBinding?: AxisBinding | undefined;
-
-  /**
-   * <p>The series type of the reference line data configuration. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BAR</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LINE</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SeriesType?: ReferenceLineSeriesType | undefined;
-}
-
-/**
- * <p>The configuration for a custom label on a <code>ReferenceLine</code>.</p>
- * @public
- */
-export interface ReferenceLineCustomLabelConfiguration {
-  /**
-   * <p>The string text of the custom label.</p>
-   * @public
-   */
-  CustomLabel: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ReferenceLineLabelHorizontalPosition = {
-  CENTER: "CENTER",
-  LEFT: "LEFT",
-  RIGHT: "RIGHT",
-} as const;
-
-/**
- * @public
- */
-export type ReferenceLineLabelHorizontalPosition =
-  (typeof ReferenceLineLabelHorizontalPosition)[keyof typeof ReferenceLineLabelHorizontalPosition];
-
-/**
- * @public
- * @enum
- */
-export const ReferenceLineValueLabelRelativePosition = {
-  AFTER_CUSTOM_LABEL: "AFTER_CUSTOM_LABEL",
-  BEFORE_CUSTOM_LABEL: "BEFORE_CUSTOM_LABEL",
-} as const;
-
-/**
- * @public
- */
-export type ReferenceLineValueLabelRelativePosition =
-  (typeof ReferenceLineValueLabelRelativePosition)[keyof typeof ReferenceLineValueLabelRelativePosition];
-
-/**
- * <p>The value label configuration of the label in a reference line.</p>
- * @public
- */
-export interface ReferenceLineValueLabelConfiguration {
-  /**
-   * <p>The relative position of the value label. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BEFORE_CUSTOM_LABEL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AFTER_CUSTOM_LABEL</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  RelativePosition?: ReferenceLineValueLabelRelativePosition | undefined;
-
-  /**
-   * <p>The format configuration of the value label.</p>
-   * @public
-   */
-  FormatConfiguration?: NumericFormatConfiguration | undefined;
-}
-
-/**
  * @internal
  */
 export const CustomParameterValuesFilterSensitiveLog = (obj: CustomParameterValues): any => ({
@@ -8105,36 +8068,4 @@ export const BarChartAggregatedFieldWellsFilterSensitiveLog = (obj: BarChartAggr
  */
 export const BarChartFieldWellsFilterSensitiveLog = (obj: BarChartFieldWells): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const ReferenceLineStaticDataConfigurationFilterSensitiveLog = (
-  obj: ReferenceLineStaticDataConfiguration
-): any => ({
-  ...obj,
-  ...(obj.Value && { Value: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ReferenceLineDataConfigurationFilterSensitiveLog = (obj: ReferenceLineDataConfiguration): any => ({
-  ...obj,
-  ...(obj.StaticConfiguration && {
-    StaticConfiguration: ReferenceLineStaticDataConfigurationFilterSensitiveLog(obj.StaticConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const ReferenceLineValueLabelConfigurationFilterSensitiveLog = (
-  obj: ReferenceLineValueLabelConfiguration
-): any => ({
-  ...obj,
-  ...(obj.FormatConfiguration && {
-    FormatConfiguration: NumericFormatConfigurationFilterSensitiveLog(obj.FormatConfiguration),
-  }),
 });

@@ -61,6 +61,7 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * //       },
  * //       RowLevelPermissionTagConfigurationApplied: true || false,
  * //       ColumnLevelPermissionRulesApplied: true || false,
+ * //       UseAs: "RLS_RULES",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

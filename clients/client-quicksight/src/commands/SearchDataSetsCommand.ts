@@ -67,6 +67,7 @@ export interface SearchDataSetsCommandOutput extends SearchDataSetsResponse, __M
  * //       },
  * //       RowLevelPermissionTagConfigurationApplied: true || false,
  * //       ColumnLevelPermissionRulesApplied: true || false,
+ * //       UseAs: "RLS_RULES",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

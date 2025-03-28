@@ -144,6 +144,7 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //             Host: "STRING_VALUE", // required
  * //             Port: Number("int"), // required
  * //             Database: "STRING_VALUE", // required
+ * //             UseServiceName: true || false,
  * //           },
  * //           PostgreSqlParameters: { // PostgreSqlParameters
  * //             Host: "STRING_VALUE", // required
@@ -276,6 +277,22 @@ export interface DescribeAssetBundleImportJobCommandOutput
  * //       { // AssetBundleImportJobDataSetOverrideParameters
  * //         DataSetId: "STRING_VALUE", // required
  * //         Name: "STRING_VALUE",
+ * //         DataSetRefreshProperties: { // DataSetRefreshProperties
+ * //           RefreshConfiguration: { // RefreshConfiguration
+ * //             IncrementalRefresh: { // IncrementalRefresh
+ * //               LookbackWindow: { // LookbackWindow
+ * //                 ColumnName: "STRING_VALUE", // required
+ * //                 Size: Number("long"), // required
+ * //                 SizeUnit: "HOUR" || "DAY" || "WEEK", // required
+ * //               },
+ * //             },
+ * //           },
+ * //           FailureConfiguration: { // RefreshFailureConfiguration
+ * //             EmailAlert: { // RefreshFailureEmailAlert
+ * //               AlertStatus: "ENABLED" || "DISABLED",
+ * //             },
+ * //           },
+ * //         },
  * //       },
  * //     ],
  * //     Themes: [ // AssetBundleImportJobThemeOverrideParametersList

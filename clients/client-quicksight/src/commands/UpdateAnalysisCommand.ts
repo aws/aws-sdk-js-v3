@@ -9,7 +9,7 @@ import {
   UpdateAnalysisRequest,
   UpdateAnalysisRequestFilterSensitiveLog,
   UpdateAnalysisResponse,
-} from "../models/models_4";
+} from "../models/models_5";
 import { de_UpdateAnalysisCommand, se_UpdateAnalysisCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -952,6 +952,13 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *                       "STRING_VALUE",
  *                     ],
  *                   },
+ *                   TransposedTableOptions: [ // TransposedTableOptionList
+ *                     { // TransposedTableOption
+ *                       ColumnIndex: Number("int"),
+ *                       ColumnWidth: "STRING_VALUE",
+ *                       ColumnType: "ROW_HEADER_COLUMN" || "VALUE_COLUMN", // required
+ *                     },
+ *                   ],
  *                 },
  *                 PaginatedReportOptions: { // TablePaginatedReportOptions
  *                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
@@ -5438,6 +5445,10 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *     Options: { // AssetOptions
  *       Timezone: "STRING_VALUE",
  *       WeekStart: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY",
+ *       QBusinessInsightsStatus: "ENABLED" || "DISABLED",
+ *       ExcludedDataSetArns: [ // DataSetArnsList
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *     QueryExecutionOptions: { // QueryExecutionOptions
  *       QueryExecutionMode: "AUTO" || "MANUAL",

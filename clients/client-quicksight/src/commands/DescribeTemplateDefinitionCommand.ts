@@ -952,6 +952,13 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                       "STRING_VALUE",
  * //                     ],
  * //                   },
+ * //                   TransposedTableOptions: [ // TransposedTableOptionList
+ * //                     { // TransposedTableOption
+ * //                       ColumnIndex: Number("int"),
+ * //                       ColumnWidth: "STRING_VALUE",
+ * //                       ColumnType: "ROW_HEADER_COLUMN" || "VALUE_COLUMN", // required
+ * //                     },
+ * //                   ],
  * //                 },
  * //                 PaginatedReportOptions: { // TablePaginatedReportOptions
  * //                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
@@ -5438,6 +5445,10 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //     Options: { // AssetOptions
  * //       Timezone: "STRING_VALUE",
  * //       WeekStart: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY",
+ * //       QBusinessInsightsStatus: "ENABLED" || "DISABLED",
+ * //       ExcludedDataSetArns: [ // DataSetArnsList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //     QueryExecutionOptions: { // QueryExecutionOptions
  * //       QueryExecutionMode: "AUTO" || "MANUAL",

@@ -305,6 +305,7 @@ export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, _
  * //         },
  * //       ],
  * //     },
+ * //     UseAs: "RLS_RULES",
  * //   },
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),

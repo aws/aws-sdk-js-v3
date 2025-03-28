@@ -103,7 +103,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //       { // AssetBundleExportJobDataSetOverrideProperties
  * //         Arn: "STRING_VALUE", // required
  * //         Properties: [ // AssetBundleExportJobDataSetPropertyToOverrideList // required
- * //           "Name",
+ * //           "Name" || "RefreshFailureEmailAlertStatus",
  * //         ],
  * //       },
  * //     ],
