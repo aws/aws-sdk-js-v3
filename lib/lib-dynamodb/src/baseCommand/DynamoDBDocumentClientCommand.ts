@@ -53,7 +53,7 @@ export abstract class DynamoDBDocumentClientCommand<
           args: InitializeHandlerArguments<Input | BaseInput>
         ): Promise<InitializeHandlerOutput<Output | BaseOutput>> => {
           setFeature(context, "DDB_MAPPER", "d");
-          args.input = marshallInput(this.input, this.inputKeyNodes, marshallOptions);
+          args.input = marshallInput(args.input, this.inputKeyNodes, marshallOptions);
           context.dynamoDbDocumentClientOptions =
             context.dynamoDbDocumentClientOptions || DynamoDBDocumentClientCommand.defaultLogFilterOverrides;
 
