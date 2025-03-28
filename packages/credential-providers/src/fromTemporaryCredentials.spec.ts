@@ -1,18 +1,23 @@
 import { AssumeRoleCommand, STSClient } from "@aws-sdk/nested-clients/sts";
-import { beforeEach, describe, expect, test as it, vi } from "vitest";
+import { LoadedConfigSelectors } from "@smithy/node-config-provider";
+import type { ParsedIniData } from "@smithy/types";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromTemporaryCredentials as fromTemporaryCredentialsNode } from "./fromTemporaryCredentials";
 import { fromTemporaryCredentials } from "./fromTemporaryCredentials.base";
 
 const mockSend = vi.fn();
 const mockUsePlugin = vi.fn();
+
 vi.mock("@aws-sdk/nested-clients/sts", () => ({
   STSClient: vi.fn().mockImplementation((config) => ({
     config,
     send: vi.fn().mockImplementation(async function (command) {
       // Mock resolving client credentials provider at send()
-      if (typeof config.credentials === "function") config.credentials = await config.credentials();
-      return await mockSend(command);
+      if (typeof config.credentials === "function") {
+        config.credentials = await config.credentials();
+      }
+      return mockSend(command);
     }),
     middlewareStack: { use: mockUsePlugin },
   })),
@@ -25,6 +30,20 @@ vi.mock("@aws-sdk/nested-clients/sts", () => ({
   }),
 }));
 
+let iniProfileData: ParsedIniData = null as any;
+vi.mock(import("@smithy/node-config-provider"), async (importOriginal) => {
+  return {
+    ...(await importOriginal()),
+    loadConfig: ((
+      { environmentVariableSelector, configFileSelector, default: defaultValue }: LoadedConfigSelectors<any>,
+      { profile = process.env.AWS_PROFILE ?? "default" }: { profile?: string }
+    ) => {
+      return () =>
+        environmentVariableSelector(process.env) ?? configFileSelector(iniProfileData[profile] ?? {}) ?? defaultValue();
+    }) as any,
+  };
+});
+
 describe("fromTemporaryCredentials", () => {
   const RoleArn = "ROLE_ARN";
   const RoleSessionName = "ROLE_SESSION_NAME";
@@ -33,16 +52,32 @@ describe("fromTemporaryCredentials", () => {
     secretAccessKey: "SECRET_ACCESS_KEY",
   };
   const region = "US_BAR_1";
+  let processSnapshot: Record<string, any>;
 
   beforeEach(() => {
     vi.clearAllMocks();
-    mockSend.mockResolvedValueOnce({
+    mockSend.mockResolvedValue({
       Credentials: {
         AccessKeyId: "ACCESS_KEY_ID",
         SecretAccessKey: "SECRET_ACCESS_KEY",
         SessionToken: "SESSION_TOKEN",
       },
     });
+
+    processSnapshot = {
+      ...process.env,
+    };
+    process.env = {};
+
+    iniProfileData = {
+      default: {
+        region: "us-west-2",
+      },
+    };
+  });
+
+  afterEach(() => {
+    process.env = processSnapshot;
   });
 
   it("should call STS::AssumeRole API with master credentials", async () => {
@@ -91,7 +126,7 @@ describe("fromTemporaryCredentials", () => {
       credentials: masterCredentials,
       logger: void 0,
       profile: void 0,
-      region: "us-east-1",
+      region: "us-west-2", // profile default
       requestHandler: void 0,
     });
     expect(mockUsePlugin).toHaveBeenCalledTimes(1);
@@ -101,6 +136,7 @@ describe("fromTemporaryCredentials", () => {
   it("should create a role session name if none provided", async () => {
     const provider = fromTemporaryCredentialsNode({
       params: { RoleArn },
+      masterCredentials,
     });
     await provider();
     expect(AssumeRoleCommand as unknown as any).toHaveBeenCalledWith({
@@ -299,6 +335,7 @@ describe("fromTemporaryCredentials", () => {
     const provider = fromTemporaryCredentialsNode({
       params: { RoleArn, SerialNumber, RoleSessionName },
       mfaCodeProvider,
+      masterCredentials,
     });
     await provider();
     expect(mfaCodeProvider).toHaveBeenCalledWith(SerialNumber);
@@ -325,5 +362,122 @@ describe("fromTemporaryCredentials", () => {
       expect(e.message).toEqual(expect.stringContaining("Temporary credential requires multi-factor authentication"));
       expect(e.tryNextLink).toBe(false);
     }
+  });
+
+  describe("env configuration", () => {
+    beforeEach(() => {
+      iniProfileData = {
+        default: {
+          region: "us-west-2",
+        },
+        abc: {
+          region: "eu-central-1",
+        },
+        xyz: {
+          region: "us-west-1",
+        },
+        regionless: {},
+      };
+    });
+
+    it("should allow region configuration from config file", async () => {
+      const provider = fromTemporaryCredentialsNode({
+        params: {
+          RoleArn,
+          RoleSessionName,
+        },
+        masterCredentials,
+      });
+      await provider();
+      expect(vi.mocked(STSClient as any).mock.calls[0][0]).toMatchObject({
+        region: "us-west-2",
+      });
+    });
+
+    it("should allow region configuration from config file non-default profile", async () => {
+      // SDK does not use AWS_DEFAULT_PROFILE.
+      process.env.AWS_PROFILE = "xyz";
+      const provider = fromTemporaryCredentialsNode({
+        params: {
+          RoleArn,
+          RoleSessionName,
+        },
+        masterCredentials,
+      });
+      await provider();
+      expect(vi.mocked(STSClient as any).mock.calls[0][0]).toMatchObject({
+        region: "us-west-1",
+      });
+    });
+
+    it("should allow region configuration from env", async () => {
+      // SDK does not use AWS_DEFAULT_REGION.
+      process.env.AWS_REGION = "ap-southeast-7";
+      const provider = fromTemporaryCredentialsNode({
+        params: {
+          RoleArn,
+          RoleSessionName,
+        },
+        masterCredentials,
+      });
+      await provider();
+      expect(vi.mocked(STSClient as any).mock.calls[0][0]).toMatchObject({
+        region: "ap-southeast-7",
+      });
+    });
+
+    it("should allow region configuration from env overriding region in profile", async () => {
+      process.env.AWS_PROFILE = "xyz";
+      process.env.AWS_REGION = "eu-west-1";
+      const provider = fromTemporaryCredentialsNode({
+        params: {
+          RoleArn,
+          RoleSessionName,
+        },
+        masterCredentials,
+      });
+      await provider();
+      expect(vi.mocked(STSClient as any).mock.calls[0][0]).toMatchObject({
+        region: "eu-west-1",
+      });
+    });
+
+    it("should allow region configuration from env overriding region in profile where profile in code overrides env profile", async () => {
+      process.env.AWS_PROFILE = "xyz";
+      const provider = fromTemporaryCredentialsNode({
+        params: {
+          RoleArn,
+          RoleSessionName,
+        },
+        masterCredentials,
+        clientConfig: {
+          profile: "abc",
+        },
+      });
+      await provider();
+      expect(vi.mocked(STSClient as any).mock.calls[0][0]).toMatchObject({
+        region: "eu-central-1",
+      });
+    });
+
+    it("should use us-east-1 if no region is configured anywhere", async () => {
+      // no configured region for the provider
+      // no caller client with region
+      // no region env
+      // no region in profile
+      process.env.AWS_PROFILE = "regionless";
+      process.env.AWS_REGION = undefined;
+      const provider = fromTemporaryCredentialsNode({
+        params: {
+          RoleArn,
+          RoleSessionName,
+        },
+        masterCredentials,
+      });
+      await provider();
+      expect(vi.mocked(STSClient as any).mock.calls[0][0]).toMatchObject({
+        region: "us-east-1",
+      });
+    });
   });
 });

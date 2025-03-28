@@ -21,11 +21,14 @@ const ASSUME_ROLE_DEFAULT_REGION = "us-east-1";
 
 export const fromTemporaryCredentials = (
   options: FromTemporaryCredentialsOptions,
-  credentialDefaultProvider?: () => AwsCredentialIdentityProvider
+  credentialDefaultProvider?: () => AwsCredentialIdentityProvider,
+  regionProvider?: ({ profile }: { profile?: string }) => Promise<string | undefined>
 ): RuntimeConfigAwsCredentialIdentityProvider => {
   let stsClient: STSClient;
   return async (awsIdentityProperties: AwsIdentityProperties = {}): Promise<AwsCredentialIdentity> => {
     const { callerClientConfig } = awsIdentityProperties;
+    const profile = options.clientConfig?.profile ?? callerClientConfig?.profile;
+
     const logger = options.logger ?? callerClientConfig?.logger;
     logger?.debug("@aws-sdk/credential-providers - fromTemporaryCredentials (STS)");
 
@@ -78,12 +81,21 @@ export const fromTemporaryCredentials = (
         credentialSource = "AWS SDK default credentials";
       }
 
-      const regionSources = [options.clientConfig?.region, callerClientConfig?.region, ASSUME_ROLE_DEFAULT_REGION];
+      const regionSources = [
+        options.clientConfig?.region,
+        callerClientConfig?.region,
+        await regionProvider?.({
+          profile,
+        }),
+        ASSUME_ROLE_DEFAULT_REGION,
+      ];
       let regionSource = "default partition's default region";
       if (regionSources[0]) {
         regionSource = "options.clientConfig.region";
       } else if (regionSources[1]) {
         regionSource = "caller client's region";
+      } else if (regionSources[2]) {
+        regionSource = "file or env region";
       }
 
       const requestHandlerSources = [
@@ -108,7 +120,7 @@ export const fromTemporaryCredentials = (
         ...options.clientConfig,
         credentials: coalesce(credentialSources),
         logger,
-        profile: options.clientConfig?.profile ?? callerClientConfig?.profile,
+        profile,
         region: coalesce(regionSources),
         requestHandler: coalesce(requestHandlerSources),
       });
