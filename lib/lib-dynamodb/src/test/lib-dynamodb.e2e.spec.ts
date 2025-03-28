@@ -14,15 +14,19 @@ import {
   DynamoDBDocument,
   ExecuteStatementCommandOutput,
   ExecuteTransactionCommandOutput,
+  GetCommandInput,
   GetCommandOutput,
   NumberValue,
   PutCommandOutput,
+  QueryCommandInput,
   QueryCommandOutput,
+  ScanCommandInput,
   ScanCommandOutput,
   TransactGetCommandOutput,
   TransactWriteCommandOutput,
   UpdateCommandOutput,
 } from "@aws-sdk/lib-dynamodb";
+import { HttpRequest } from "@smithy/protocol-http";
 import { afterAll, beforeAll, describe, expect, test as it, vi } from "vitest";
 
 // expected running time: table creation (~20s) + operations 10s
@@ -80,6 +84,43 @@ describe(
         wrapNumbers: true,
       },
     });
+
+    doc.middlewareStack.add(
+      (next, context) => async (args) => {
+        if (context.commandName === "GetCommand" || context.commandName === "GetItemCommand") {
+          (args.input as GetCommandInput).ConsistentRead = true;
+        }
+        if (context.commandName === "QueryCommand") {
+          (args.input as QueryCommandInput).ConsistentRead = true;
+        }
+        if (context.commandName === "ScanCommand") {
+          (args.input as ScanCommandInput).ConsistentRead = true;
+        }
+        return next(args);
+      },
+      {
+        step: "initialize",
+        name: "SetConsistentReadMiddleware",
+        override: true,
+      }
+    );
+
+    doc.middlewareStack.add(
+      (next, context) => async (args) => {
+        const { request } = args;
+        if (HttpRequest.isInstance(request)) {
+          if (["GetCommand", "GetItemCommand", "QueryCommand", "ScanCommand"].includes(context.commandName ?? "")) {
+            expect(request.body).toContain(`"ConsistentRead":true`);
+          }
+        }
+        return next(args);
+      },
+      {
+        step: "finalizeRequest",
+        name: "VerifyConsistentReadMiddleware",
+        override: true,
+      }
+    );
 
     function throwIfError(e: unknown) {
       if (e instanceof Error) {
@@ -243,7 +284,6 @@ describe(
 
         log.read[id] = await doc
           .get({
-            ConsistentRead: true,
             TableName,
             Key: {
               id,
@@ -338,7 +378,6 @@ describe(
       for (const [k] of Object.entries(data)) {
         log.executeTransactionReadBack[k] = await doc
           .get({
-            ConsistentRead: true,
             TableName,
             Key: {
               id: k + "-exec-transact",
@@ -358,7 +397,6 @@ describe(
       for (const [k] of Object.entries(data)) {
         log.executeStatementReadBack[k] = await doc
           .get({
-            ConsistentRead: true,
             TableName,
             Key: {
               id: k + "-statement",
@@ -400,7 +438,6 @@ describe(
           ExpressionAttributeValues: {
             ":id": "map",
           },
-          ConsistentRead: true,
         })
         .catch(passError);
 
@@ -415,7 +452,6 @@ describe(
             ":data1": data.list,
             ":data2": data.map,
           },
-          ConsistentRead: true,
         })
         .catch(passError);
 
@@ -439,7 +475,6 @@ describe(
           Key: {
             id: "undefinedColumns",
           },
-          ConsistentRead: true,
         })
         .catch(passError);
 
@@ -461,7 +496,6 @@ describe(
 
         log.updateReadBack[id] = await doc
           .get({
-            ConsistentRead: true,
             TableName,
             Key: {
               id,
@@ -530,7 +564,6 @@ describe(
 
       log.classInstanceConversion.read = await doc
         .get({
-          ConsistentRead: true,
           TableName,
           Key: {
             id: "classInstance",
