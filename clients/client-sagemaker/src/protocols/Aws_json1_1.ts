@@ -2167,9 +2167,8 @@ import {
   StopMlflowTrackingServerResponse,
   StopMonitoringScheduleRequest,
   StopNotebookInstanceInput,
-  StopOptimizationJobRequest,
-  StopPipelineExecutionRequest,
   StudioLifecycleConfigDetails,
+  TotalHits,
   TrackingServerSummary,
   TrainingJob,
   TrainingJobStepMetadata,
@@ -2195,6 +2194,8 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  StopOptimizationJobRequest,
+  StopPipelineExecutionRequest,
   StopPipelineExecutionResponse,
   StopProcessingJobRequest,
   StopTrainingJobRequest,
@@ -30035,6 +30036,7 @@ const de_SearchResponse = (output: any, context: __SerdeContext): SearchResponse
   return take(output, {
     NextToken: __expectString,
     Results: (_: any) => de_SearchResultsList(_, context),
+    TotalHits: (_: any) => de_TotalHits(_, context),
   }) as any;
 };
 
@@ -30774,6 +30776,16 @@ const de_TimeSeriesTransformations = (output: any, context: __SerdeContext): Tim
 };
 
 /**
+ * deserializeAws_json1_1TotalHits
+ */
+const de_TotalHits = (output: any, context: __SerdeContext): TotalHits => {
+  return take(output, {
+    Relation: __expectString,
+    Value: __expectLong,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1TrackingServerSummary
  */
 const de_TrackingServerSummary = (output: any, context: __SerdeContext): TrackingServerSummary => {
@@ -31241,6 +31253,7 @@ const de_TransformResources = (output: any, context: __SerdeContext): TransformR
   return take(output, {
     InstanceCount: __expectInt32,
     InstanceType: __expectString,
+    TransformAmiVersion: __expectString,
     VolumeKmsKeyId: __expectString,
   }) as any;
 };

@@ -8769,8 +8769,9 @@ export const ModelVariantAction = {
 export type ModelVariantAction = (typeof ModelVariantAction)[keyof typeof ModelVariantAction];
 
 /**
- * <p>A list of nested <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Filter.html">Filter</a> objects. A resource must satisfy the conditions
- *       of all filters to be included in the results returned from the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
+ * <p>A list of nested <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Filter.html">Filter</a> objects. A resource must
+ *       satisfy the conditions of all filters to be included in the results returned from the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a>
+ *       API.</p>
  *          <p>For example, to filter on a training job's <code>InputDataConfig</code> property with a
  *       specific channel name and <code>S3Uri</code> prefix, define the following filters:</p>
  *          <ul>
@@ -8790,18 +8791,17 @@ export type ModelVariantAction = (typeof ModelVariantAction)[keyof typeof ModelV
  */
 export interface NestedFilters {
   /**
-   * <p>The name of the property to use in the nested filters. The value must match a listed property name,
-   *       such as <code>InputDataConfig</code>.</p>
+   * <p>The name of the property to use in the nested filters. The value must match a listed
+   *       property name, such as <code>InputDataConfig</code>.</p>
    * @public
    */
   NestedPropertyName: string | undefined;
 
   /**
    * <p>A list of filters. Each filter acts on a property. Filters must contain at least one
-   *       <code>Filters</code> value. For example, a <code>NestedFilters</code> call might
-   *       include a filter on the <code>PropertyName</code> parameter of the
-   *       <code>InputDataConfig</code> property:
-   *       <code>InputDataConfig.DataSource.S3DataSource.S3Uri</code>.</p>
+   *         <code>Filters</code> value. For example, a <code>NestedFilters</code> call might include a
+   *       filter on the <code>PropertyName</code> parameter of the <code>InputDataConfig</code>
+   *       property: <code>InputDataConfig.DataSource.S3DataSource.S3Uri</code>.</p>
    * @public
    */
   Filters: Filter[] | undefined;
@@ -9529,6 +9529,20 @@ export interface RegisterDevicesRequest {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const Relation = {
+  EQUAL_TO: "EqualTo",
+  GREATER_THAN_OR_EQUAL_TO: "GreaterThanOrEqualTo",
+} as const;
+
+/**
+ * @public
+ */
+export type Relation = (typeof Relation)[keyof typeof Relation];
+
+/**
  * <p>Configuration for remote debugging for the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateTrainingJob.html">UpdateTrainingJob</a> API. To learn more about the remote debugging
  *             functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container
  *                 through Amazon Web Services Systems Manager (SSM) for remote
@@ -9747,13 +9761,17 @@ export const SearchSortOrder = {
 export type SearchSortOrder = (typeof SearchSortOrder)[keyof typeof SearchSortOrder];
 
 /**
- * <p>The list of key-value pairs used to filter your search results. If a search result contains a key from your list, it is included in the final search response if the value associated with the key in the result matches the value you specified.
- *       If the value doesn't match, the result is excluded from the search response. Any resources that don't have a key from the list that you've provided will also be included in the search response.</p>
+ * <p>The list of key-value pairs used to filter your search results. If a search result
+ *       contains a key from your list, it is included in the final search response if the value
+ *       associated with the key in the result matches the value you specified. If the value doesn't
+ *       match, the result is excluded from the search response. Any resources that don't have a key
+ *       from the list that you've provided will also be included in the search response.</p>
  * @public
  */
 export interface VisibilityConditions {
   /**
-   * <p>The key that specifies the tag that you're using to filter the search results. It must be in the following format: <code>Tags.<key></code>.</p>
+   * <p>The key that specifies the tag that you're using to filter the search results. It must be
+   *       in the following format: <code>Tags.<key></code>.</p>
    * @public
    */
   Key?: string | undefined;
@@ -10578,6 +10596,43 @@ export interface SearchRecord {
 }
 
 /**
+ * <p>Represents the total number of matching results and indicates how accurate that count
+ *       is.</p>
+ *          <p>The <code>Value</code> field provides the count, which may be exact or estimated. The
+ *         <code>Relation</code> field indicates whether it's an exact figure or a lower bound. This
+ *       helps understand the full scope of search results, especially when dealing with large result
+ *       sets.</p>
+ * @public
+ */
+export interface TotalHits {
+  /**
+   * <p>The total number of matching results. This value may be exact or an estimate, depending on
+   *       the <code>Relation</code> field.</p>
+   * @public
+   */
+  Value?: number | undefined;
+
+  /**
+   * <p>Indicates the relationship between the returned <code>Value</code> and the actual total
+   *       number of matching results. Possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EqualTo</code>: The <code>Value</code> is the exact count of matching
+   *           results.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GreaterThanOrEqualTo</code>: The <code>Value</code> is a lower bound of the
+   *           actual count of matching results.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Relation?: Relation | undefined;
+}
+
+/**
  * @public
  */
 export interface SearchResponse {
@@ -10594,6 +10649,12 @@ export interface SearchResponse {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of matching results.</p>
+   * @public
+   */
+  TotalHits?: TotalHits | undefined;
 }
 
 /**
@@ -11165,35 +11226,6 @@ export interface StopNotebookInstanceInput {
    * @public
    */
   NotebookInstanceName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopOptimizationJobRequest {
-  /**
-   * <p>The name that you assigned to the optimization job.</p>
-   * @public
-   */
-  OptimizationJobName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopPipelineExecutionRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   * @public
-   */
-  PipelineExecutionArn: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          operation. An idempotent operation completes no more than once.</p>
-   * @public
-   */
-  ClientRequestToken?: string | undefined;
 }
 
 /**

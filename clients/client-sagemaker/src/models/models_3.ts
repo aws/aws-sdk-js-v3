@@ -8657,8 +8657,8 @@ export type Operator = (typeof Operator)[keyof typeof Operator];
 
 /**
  * <p>A conditional statement for a search expression that includes a resource property, a
- *       Boolean operator, and a value. Resources that match the statement are returned in the
- *       results from the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
+ *       Boolean operator, and a value. Resources that match the statement are returned in the results
+ *       from the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
  *          <p>If you specify a <code>Value</code>, but not an <code>Operator</code>, SageMaker uses the
  *       equals operator.</p>
  *          <p>In search, there are several property types:</p>
@@ -8666,10 +8666,9 @@ export type Operator = (typeof Operator)[keyof typeof Operator];
  *             <dt>Metrics</dt>
  *             <dd>
  *                <p>To define a metric filter, enter a value using the form
- *             <code>"Metrics.<name>"</code>, where <code><name></code> is
- *             a metric name. For example, the following filter searches for training jobs
- *             with an <code>"accuracy"</code> metric greater than
- *             <code>"0.9"</code>:</p>
+ *               <code>"Metrics.<name>"</code>, where <code><name></code> is a metric name.
+ *             For example, the following filter searches for training jobs with an
+ *               <code>"accuracy"</code> metric greater than <code>"0.9"</code>:</p>
  *                <p>
  *                   <code>\{</code>
  *                </p>
@@ -8689,13 +8688,12 @@ export type Operator = (typeof Operator)[keyof typeof Operator];
  *             <dt>HyperParameters</dt>
  *             <dd>
  *                <p>To define a hyperparameter filter, enter a value with the form
- *             <code>"HyperParameters.<name>"</code>. Decimal hyperparameter
- *             values are treated as a decimal in a comparison if the specified
- *             <code>Value</code> is also a decimal value. If the specified
- *             <code>Value</code> is an integer, the decimal hyperparameter values are
- *             treated as integers. For example, the following filter is satisfied by
- *             training jobs with a <code>"learning_rate"</code> hyperparameter that is
- *             less than <code>"0.5"</code>:</p>
+ *               <code>"HyperParameters.<name>"</code>. Decimal hyperparameter values are treated
+ *             as a decimal in a comparison if the specified <code>Value</code> is also a decimal
+ *             value. If the specified <code>Value</code> is an integer, the decimal hyperparameter
+ *             values are treated as integers. For example, the following filter is satisfied by
+ *             training jobs with a <code>"learning_rate"</code> hyperparameter that is less than
+ *               <code>"0.5"</code>:</p>
  *                <p>
  *                   <code> \{</code>
  *                </p>
@@ -8722,16 +8720,16 @@ export type Operator = (typeof Operator)[keyof typeof Operator];
  */
 export interface Filter {
   /**
-   * <p>A resource property name. For example, <code>TrainingJobName</code>. For
-   *       valid property names, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchRecord.html">SearchRecord</a>.
-   *       You must specify a valid property for the resource.</p>
+   * <p>A resource property name. For example, <code>TrainingJobName</code>. For valid property
+   *       names, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchRecord.html">SearchRecord</a>. You must
+   *       specify a valid property for the resource.</p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A Boolean binary operator that is used to evaluate the filter. The operator field
-   *       contains one of the following values:</p>
+   * <p>A Boolean binary operator that is used to evaluate the filter. The operator field contains
+   *       one of the following values:</p>
    *          <dl>
    *             <dt>Equals</dt>
    *             <dd>
@@ -8751,33 +8749,33 @@ export interface Filter {
    *             </dd>
    *             <dt>GreaterThan</dt>
    *             <dd>
-   *                <p>The value of <code>Name</code> is greater than <code>Value</code>.
-   *             Not supported for text properties.</p>
+   *                <p>The value of <code>Name</code> is greater than <code>Value</code>. Not supported for
+   *             text properties.</p>
    *             </dd>
    *             <dt>GreaterThanOrEqualTo</dt>
    *             <dd>
-   *                <p>The value of <code>Name</code> is greater than or equal to <code>Value</code>.
-   *             Not supported for text properties.</p>
+   *                <p>The value of <code>Name</code> is greater than or equal to <code>Value</code>. Not
+   *             supported for text properties.</p>
    *             </dd>
    *             <dt>LessThan</dt>
    *             <dd>
-   *                <p>The value of <code>Name</code> is less than <code>Value</code>.
-   *             Not supported for text properties.</p>
+   *                <p>The value of <code>Name</code> is less than <code>Value</code>. Not supported for
+   *             text properties.</p>
    *             </dd>
    *             <dt>LessThanOrEqualTo</dt>
    *             <dd>
-   *                <p>The value of <code>Name</code> is less than or equal to <code>Value</code>.
-   *             Not supported for text properties.</p>
+   *                <p>The value of <code>Name</code> is less than or equal to <code>Value</code>. Not
+   *             supported for text properties.</p>
    *             </dd>
    *             <dt>In</dt>
    *             <dd>
    *                <p>The value of <code>Name</code> is one of the comma delimited strings in
-   *             <code>Value</code>. Only supported for text properties.</p>
+   *               <code>Value</code>. Only supported for text properties.</p>
    *             </dd>
    *             <dt>Contains</dt>
    *             <dd>
-   *                <p>The value of <code>Name</code> contains the string <code>Value</code>.
-   *             Only supported for text properties.</p>
+   *                <p>The value of <code>Name</code> contains the string <code>Value</code>. Only
+   *             supported for text properties.</p>
    *                <p>A <code>SearchExpression</code> can include the <code>Contains</code> operator
    *             multiple times when the value of <code>Name</code> is one of the following:</p>
    *                <ul>
@@ -8839,9 +8837,9 @@ export interface Filter {
    *                </ul>
    *                <p>A <code>SearchExpression</code> can include only one <code>Contains</code> operator
    *             for all other values of <code>Name</code>. In these cases, if you include multiple
-   *             <code>Contains</code> operators in the <code>SearchExpression</code>, the result is
+   *               <code>Contains</code> operators in the <code>SearchExpression</code>, the result is
    *             the following error message: "<code>'CONTAINS' operator usage limit of 1
-   *             exceeded.</code>"</p>
+   *               exceeded.</code>"</p>
    *             </dd>
    *          </dl>
    * @public
@@ -8849,11 +8847,10 @@ export interface Filter {
   Operator?: Operator | undefined;
 
   /**
-   * <p>A value used with <code>Name</code> and <code>Operator</code> to determine which
-   *         resources satisfy the filter's condition. For numerical properties, <code>Value</code>
-   *         must be an integer or floating-point decimal. For timestamp properties,
-   *         <code>Value</code> must be an ISO 8601 date-time string of the following format:
-   *         <code>YYYY-mm-dd'T'HH:MM:SS</code>.</p>
+   * <p>A value used with <code>Name</code> and <code>Operator</code> to determine which resources
+   *       satisfy the filter's condition. For numerical properties, <code>Value</code> must be an
+   *       integer or floating-point decimal. For timestamp properties, <code>Value</code> must be an ISO
+   *       8601 date-time string of the following format: <code>YYYY-mm-dd'T'HH:MM:SS</code>.</p>
    * @public
    */
   Value?: string | undefined;
@@ -9211,14 +9208,14 @@ export interface PropertyNameQuery {
 }
 
 /**
- * <p>Specified in the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_GetSearchSuggestions.html">GetSearchSuggestions</a> request.
- *       Limits the property names that are included in the response.</p>
+ * <p>Specified in the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_GetSearchSuggestions.html">GetSearchSuggestions</a> request. Limits the property names that are included in the
+ *       response.</p>
  * @public
  */
 export interface SuggestionQuery {
   /**
-   * <p>Defines a property name hint. Only property
-   *       names that begin with the specified hint are included in the response.</p>
+   * <p>Defines a property name hint. Only property names that begin with the specified hint are
+   *       included in the response.</p>
    * @public
    */
   PropertyNameQuery?: PropertyNameQuery | undefined;
@@ -9242,8 +9239,8 @@ export interface GetSearchSuggestionsRequest {
 }
 
 /**
- * <p>A property name returned from a <code>GetSearchSuggestions</code> call that specifies
- *       a value in the <code>PropertyNameQuery</code> field.</p>
+ * <p>A property name returned from a <code>GetSearchSuggestions</code> call that specifies a
+ *       value in the <code>PropertyNameQuery</code> field.</p>
  * @public
  */
 export interface PropertyNameSuggestion {
@@ -9261,7 +9258,7 @@ export interface PropertyNameSuggestion {
 export interface GetSearchSuggestionsResponse {
   /**
    * <p>A list of property names for a <code>Resource</code> that match a
-   *       <code>SuggestionQuery</code>.</p>
+   *         <code>SuggestionQuery</code>.</p>
    * @public
    */
   PropertyNameSuggestions?: PropertyNameSuggestion[] | undefined;

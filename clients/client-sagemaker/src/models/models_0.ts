@@ -2727,6 +2727,38 @@ export interface TransformResources {
    * @public
    */
   VolumeKmsKeyId?: string | undefined;
+
+  /**
+   * <p>Specifies an option from a collection of preconfigured Amazon Machine Image (AMI)
+   *             images. Each image is configured by Amazon Web Services with a set of software and driver
+   *             versions.</p>
+   *          <dl>
+   *             <dt>al2-ami-sagemaker-batch-gpu-470</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>Accelerator: GPU</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>NVIDIA driver version: 470</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *             <dt>al2-ami-sagemaker-batch-gpu-535</dt>
+   *             <dd>
+   *                <ul>
+   *                   <li>
+   *                      <p>Accelerator: GPU</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>NVIDIA driver version: 535</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  TransformAmiVersion?: string | undefined;
 }
 
 /**

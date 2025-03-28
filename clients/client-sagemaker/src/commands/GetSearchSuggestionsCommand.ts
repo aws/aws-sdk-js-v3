@@ -29,9 +29,9 @@ export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsR
 
 /**
  * <p>An auto-complete API for the search functionality in the SageMaker console. It returns
- *       suggestions of possible matches for the property name to use in <code>Search</code>
- *       queries. Provides suggestions for <code>HyperParameters</code>, <code>Tags</code>, and
- *       <code>Metrics</code>.</p>
+ *       suggestions of possible matches for the property name to use in <code>Search</code> queries.
+ *       Provides suggestions for <code>HyperParameters</code>, <code>Tags</code>, and
+ *         <code>Metrics</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
