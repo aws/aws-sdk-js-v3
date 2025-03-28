@@ -119,6 +119,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  *     modes: [ // ProjectCacheModes
  *       "LOCAL_DOCKER_LAYER_CACHE" || "LOCAL_SOURCE_CACHE" || "LOCAL_CUSTOM_CACHE",
  *     ],
+ *     cacheNamespace: "STRING_VALUE",
  *   },
  *   environment: { // ProjectEnvironment
  *     type: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER" || "LINUX_EC2" || "ARM_EC2" || "WINDOWS_EC2" || "MAC_ARM", // required
@@ -296,6 +297,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * //       modes: [ // ProjectCacheModes
  * //         "LOCAL_DOCKER_LAYER_CACHE" || "LOCAL_SOURCE_CACHE" || "LOCAL_CUSTOM_CACHE",
  * //       ],
+ * //       cacheNamespace: "STRING_VALUE",
  * //     },
  * //     environment: { // ProjectEnvironment
  * //       type: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER" || "LINUX_EC2" || "ARM_EC2" || "WINDOWS_EC2" || "MAC_ARM", // required

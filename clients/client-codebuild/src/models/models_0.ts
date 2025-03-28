@@ -688,6 +688,14 @@ export interface ProjectCache {
    * @public
    */
   modes?: CacheMode[] | undefined;
+
+  /**
+   * <p>Defines the scope of the cache. You can use this namespace to share a cache across
+   *             multiple projects. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/caching-s3.html#caching-s3-sharing">Cache sharing
+   *                 between projects</a> in the <i>CodeBuild User Guide</i>.</p>
+   * @public
+   */
+  cacheNamespace?: string | undefined;
 }
 
 /**
