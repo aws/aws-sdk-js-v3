@@ -3,15 +3,19 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   AccessScopeAnalysisFinding,
-  AddressAttribute,
   AddressTransfer,
   AllowedImagesSettingsEnabledState,
-  AutoPlacement,
+  AsnAssociation,
+  AssociationStatus,
   CurrencyCodeValues,
   DeviceTrustProviderType,
-  HostMaintenance,
-  HostRecovery,
+  IamInstanceProfileAssociation,
+  InstanceEventWindow,
   IpamPoolAllocation,
+  IpamResourceDiscoveryAssociation,
+  NatGatewayAddress,
+  RouteServerAssociation,
+  SecurityGroupVpcAssociationState,
   SubnetAssociation,
   SubnetIpv6CidrBlockAssociation,
   Tag,
@@ -22,36 +26,19 @@ import {
   TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPolicyTableAssociation,
-  UnsuccessfulItem,
   UserTrustProviderType,
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
 } from "./models_0";
 
 import {
-  _InstanceType,
-  AttributeValue,
-  CapacityReservationPreference,
   CapacityReservationState,
-  CapacityReservationTarget,
-  ClientConnectOptions,
-  ClientLoginBannerOptions,
-  ConnectionLogOptions,
   DiskImageFormat,
-  EndDateType,
-  FleetExcessCapacityTerminationPolicy,
-  FleetLaunchTemplateConfigRequest,
-  InstanceMatchCriteria,
   InstanceRequirementsRequest,
   IpamResourceTag,
-  Placement,
-  PlatformValues,
   RequestIpamResourceTag,
   ResponseLaunchTemplateData,
   ResponseLaunchTemplateDataFilterSensitiveLog,
-  SelfServicePortal,
-  ShutdownBehavior,
-  TargetCapacitySpecificationRequest,
   TargetCapacityUnitType,
 } from "./models_1";
 
@@ -62,52 +49,792 @@ import {
   TransitGatewayPrefixListReference,
 } from "./models_2";
 
+import { Filter, IpamPoolCidr, MetricType, PeriodType, StatisticType } from "./models_3";
+
 import {
-  ConversionTask,
-  ConversionTaskFilterSensitiveLog,
+  ArchitectureType,
+  BootModeValues,
   ExportTaskS3Location,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchResourceType,
-  Filter,
-  IpamPoolCidr,
-  MetricType,
-  PeriodType,
-  StatisticType,
-} from "./models_3";
-
-import {
-  AnalysisStatus,
-  ArchitectureType,
-  ArchitectureValues,
-  AttributeBooleanValue,
-  BootModeValues,
   FastLaunchSnapshotConfigurationResponse,
   FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
-  FpgaImageAttribute,
-  FpgaImageAttributeName,
   HttpTokensState,
   ImportImageLicenseConfigurationResponse,
-  InstanceAttributeName,
   InstanceMetadataEndpointState,
   InstanceMetadataTagsState,
-  LaunchPermission,
-  LockState,
   PaymentOption,
-  PermissionGroup,
   SnapshotDetail,
   SnapshotDetailFilterSensitiveLog,
-  SnapshotTaskDetail,
-  SnapshotTaskDetailFilterSensitiveLog,
   VirtualizationType,
 } from "./models_4";
 
-import {
-  ManagedBy,
-  SnapshotBlockPublicAccessState,
-  TransitGatewayPropagation,
-  TransitGatewayPropagationState,
-} from "./models_5";
+import { AnalysisStatus, ManagedBy } from "./models_5";
+
+/**
+ * @public
+ */
+export interface DisableIpamOrganizationAdminAccountResult {
+  /**
+   * <p>The result of disabling the IPAM account.</p>
+   * @public
+   */
+  Success?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableRouteServerPropagationRequest {
+  /**
+   * <p>The ID of the route server for which to disable propagation.</p>
+   * @public
+   */
+  RouteServerId: string | undefined;
+
+  /**
+   * <p>The ID of the route table for which to disable route server propagation.</p>
+   * @public
+   */
+  RouteTableId: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteServerPropagationState = {
+  AVAILABLE: "available",
+  DELETING: "deleting",
+  PENDING: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type RouteServerPropagationState =
+  (typeof RouteServerPropagationState)[keyof typeof RouteServerPropagationState];
+
+/**
+ * <p>Describes the route propagation configuration between a route server and a route table.</p>
+ *          <p>When enabled, route server propagation installs the routes in the FIB on the route table you've specified. Route server supports IPv4 and IPv6 route propagation.</p>
+ * @public
+ */
+export interface RouteServerPropagation {
+  /**
+   * <p>The ID of the route server configured for route propagation.</p>
+   * @public
+   */
+  RouteServerId?: string | undefined;
+
+  /**
+   * <p>The ID of the route table configured for route server propagation.</p>
+   * @public
+   */
+  RouteTableId?: string | undefined;
+
+  /**
+   * <p>The current state of route propagation.</p>
+   * @public
+   */
+  State?: RouteServerPropagationState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableRouteServerPropagationResult {
+  /**
+   * <p>Information about the disabled route server propagation.</p>
+   * @public
+   */
+  RouteServerPropagation?: RouteServerPropagation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableSerialConsoleAccessRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableSerialConsoleAccessResult {
+  /**
+   * <p>If <code>true</code>, access to the EC2 serial console of all instances is enabled for
+   * 			your account. If <code>false</code>, access to the EC2 serial console of all instances
+   * 			is disabled for your account.</p>
+   * @public
+   */
+  SerialConsoleAccessEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableSnapshotBlockPublicAccessRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotBlockPublicAccessState = {
+  block_all_sharing: "block-all-sharing",
+  block_new_sharing: "block-new-sharing",
+  unblocked: "unblocked",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapshotBlockPublicAccessState =
+  (typeof SnapshotBlockPublicAccessState)[keyof typeof SnapshotBlockPublicAccessState];
+
+/**
+ * @public
+ */
+export interface DisableSnapshotBlockPublicAccessResult {
+  /**
+   * <p>Returns <code>unblocked</code> if the request succeeds.</p>
+   * @public
+   */
+  State?: SnapshotBlockPublicAccessState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableTransitGatewayRouteTablePropagationRequest {
+  /**
+   * <p>The ID of the propagation route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the route table announcement.</p>
+   * @public
+   */
+  TransitGatewayRouteTableAnnouncementId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TransitGatewayPropagationState = {
+  disabled: "disabled",
+  disabling: "disabling",
+  enabled: "enabled",
+  enabling: "enabling",
+} as const;
+
+/**
+ * @public
+ */
+export type TransitGatewayPropagationState =
+  (typeof TransitGatewayPropagationState)[keyof typeof TransitGatewayPropagationState];
+
+/**
+ * <p>Describes route propagation.</p>
+ * @public
+ */
+export interface TransitGatewayPropagation {
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>The ID of the resource.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
+   * @public
+   */
+  ResourceType?: TransitGatewayAttachmentResourceType | undefined;
+
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId?: string | undefined;
+
+  /**
+   * <p>The state.</p>
+   * @public
+   */
+  State?: TransitGatewayPropagationState | undefined;
+
+  /**
+   * <p>The ID of the transit gateway route table announcement.</p>
+   * @public
+   */
+  TransitGatewayRouteTableAnnouncementId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableTransitGatewayRouteTablePropagationResult {
+  /**
+   * <p>Information about route propagation.</p>
+   * @public
+   */
+  Propagation?: TransitGatewayPropagation | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DisableVgwRoutePropagation.</p>
+ * @public
+ */
+export interface DisableVgwRoutePropagationRequest {
+  /**
+   * <p>The ID of the virtual private gateway.</p>
+   * @public
+   */
+  GatewayId: string | undefined;
+
+  /**
+   * <p>The ID of the route table.</p>
+   * @public
+   */
+  RouteTableId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableVpcClassicLinkRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableVpcClassicLinkResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableVpcClassicLinkDnsSupportRequest {
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableVpcClassicLinkDnsSupportResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateAddressRequest {
+  /**
+   * <p>The association ID. This parameter is required.</p>
+   * @public
+   */
+  AssociationId?: string | undefined;
+
+  /**
+   * <p>Deprecated.</p>
+   * @public
+   */
+  PublicIp?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateCapacityReservationBillingOwnerRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>The ID of the consumer account to which the request was sent.</p>
+   * @public
+   */
+  UnusedReservationBillingOwnerId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateCapacityReservationBillingOwnerResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateClientVpnTargetNetworkRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint from which to disassociate the target network.</p>
+   * @public
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>The ID of the target network association.</p>
+   * @public
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateClientVpnTargetNetworkResult {
+  /**
+   * <p>The ID of the target network association.</p>
+   * @public
+   */
+  AssociationId?: string | undefined;
+
+  /**
+   * <p>The current state of the target network association.</p>
+   * @public
+   */
+  Status?: AssociationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateEnclaveCertificateIamRoleRequest {
+  /**
+   * <p>The ARN of the ACM certificate from which to disassociate the IAM role.</p>
+   * @public
+   */
+  CertificateArn: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role to disassociate.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateEnclaveCertificateIamRoleResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateIamInstanceProfileRequest {
+  /**
+   * <p>The ID of the IAM instance profile association.</p>
+   * @public
+   */
+  AssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateIamInstanceProfileResult {
+  /**
+   * <p>Information about the IAM instance profile association.</p>
+   * @public
+   */
+  IamInstanceProfileAssociation?: IamInstanceProfileAssociation | undefined;
+}
+
+/**
+ * <p>The targets to disassociate from the specified event window.</p>
+ * @public
+ */
+export interface InstanceEventWindowDisassociationRequest {
+  /**
+   * <p>The IDs of the instances to disassociate from the event window.</p>
+   * @public
+   */
+  InstanceIds?: string[] | undefined;
+
+  /**
+   * <p>The instance tags to disassociate from the event window. Any instances associated with
+   *          the tags will be disassociated from the event window.</p>
+   * @public
+   */
+  InstanceTags?: Tag[] | undefined;
+
+  /**
+   * <p>The IDs of the Dedicated Hosts to disassociate from the event window.</p>
+   * @public
+   */
+  DedicatedHostIds?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateInstanceEventWindowRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the event window.</p>
+   * @public
+   */
+  InstanceEventWindowId: string | undefined;
+
+  /**
+   * <p>One or more targets to disassociate from the specified event window.</p>
+   * @public
+   */
+  AssociationTarget: InstanceEventWindowDisassociationRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateInstanceEventWindowResult {
+  /**
+   * <p>Information about the event window.</p>
+   * @public
+   */
+  InstanceEventWindow?: InstanceEventWindow | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateIpamByoasnRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A public 2-byte or 4-byte ASN.</p>
+   * @public
+   */
+  Asn: string | undefined;
+
+  /**
+   * <p>A BYOIP CIDR.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateIpamByoasnResult {
+  /**
+   * <p>An ASN and BYOIP CIDR association.</p>
+   * @public
+   */
+  AsnAssociation?: AsnAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateIpamResourceDiscoveryRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A resource discovery association ID.</p>
+   * @public
+   */
+  IpamResourceDiscoveryAssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateIpamResourceDiscoveryResult {
+  /**
+   * <p>A resource discovery association.</p>
+   * @public
+   */
+  IpamResourceDiscoveryAssociation?: IpamResourceDiscoveryAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateNatGatewayAddressRequest {
+  /**
+   * <p>The ID of the NAT gateway.</p>
+   * @public
+   */
+  NatGatewayId: string | undefined;
+
+  /**
+   * <p>The association IDs of EIPs that have been associated with the NAT gateway.</p>
+   * @public
+   */
+  AssociationIds: string[] | undefined;
+
+  /**
+   * <p>The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.</p>
+   * @public
+   */
+  MaxDrainDurationSeconds?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateNatGatewayAddressResult {
+  /**
+   * <p>The ID of the NAT gateway.</p>
+   * @public
+   */
+  NatGatewayId?: string | undefined;
+
+  /**
+   * <p>Information about the NAT gateway IP addresses.</p>
+   * @public
+   */
+  NatGatewayAddresses?: NatGatewayAddress[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateRouteServerRequest {
+  /**
+   * <p>The ID of the route server to disassociate.</p>
+   * @public
+   */
+  RouteServerId: string | undefined;
+
+  /**
+   * <p>The ID of the VPC to disassociate from the route server.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateRouteServerResult {
+  /**
+   * <p>Information about the disassociated route server.</p>
+   * @public
+   */
+  RouteServerAssociation?: RouteServerAssociation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateRouteTableRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The association ID representing the current association between the route table and subnet or gateway.</p>
+   * @public
+   */
+  AssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSecurityGroupVpcRequest {
+  /**
+   * <p>A security group ID.</p>
+   * @public
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>A VPC ID.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSecurityGroupVpcResult {
+  /**
+   * <p>The state of the disassociation.</p>
+   * @public
+   */
+  State?: SecurityGroupVpcAssociationState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateSubnetCidrBlockRequest {
+  /**
+   * <p>The association ID for the CIDR block.</p>
+   * @public
+   */
+  AssociationId: string | undefined;
+}
 
 /**
  * @public
@@ -1008,6 +1735,42 @@ export interface EnableReachabilityAnalyzerOrganizationSharingResult {
    * @public
    */
   ReturnValue?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableRouteServerPropagationRequest {
+  /**
+   * <p>The ID of the route server for which to enable propagation.</p>
+   * @public
+   */
+  RouteServerId: string | undefined;
+
+  /**
+   * <p>The ID of the route table to which route server will propagate routes.</p>
+   * @public
+   */
+  RouteTableId: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableRouteServerPropagationResult {
+  /**
+   * <p>Information about the enabled route server propagation.</p>
+   * @public
+   */
+  RouteServerPropagation?: RouteServerPropagation | undefined;
 }
 
 /**
@@ -5041,6 +5804,241 @@ export interface GetReservedInstancesExchangeQuoteResult {
 /**
  * @public
  */
+export interface GetRouteServerAssociationsRequest {
+  /**
+   * <p>The ID of the route server for which to get association information.</p>
+   * @public
+   */
+  RouteServerId: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRouteServerAssociationsResult {
+  /**
+   * <p>Information about the associations for the specified route server.</p>
+   * @public
+   */
+  RouteServerAssociations?: RouteServerAssociation[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRouteServerPropagationsRequest {
+  /**
+   * <p>The ID of the route server for which to get propagation information.</p>
+   * @public
+   */
+  RouteServerId: string | undefined;
+
+  /**
+   * <p>The ID of the route table for which to get propagation information.</p>
+   * @public
+   */
+  RouteTableId?: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRouteServerPropagationsResult {
+  /**
+   * <p>Information about the route propagations for the specified route server.</p>
+   * @public
+   */
+  RouteServerPropagations?: RouteServerPropagation[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRouteServerRoutingDatabaseRequest {
+  /**
+   * <p>The ID of the route server for which to get the routing database.</p>
+   * @public
+   */
+  RouteServerId: string | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of routing database entries to return in a single response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Filters to apply to the routing database query.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteServerRouteInstallationStatus = {
+  INSTALLED: "installed",
+  REJECTED: "rejected",
+} as const;
+
+/**
+ * @public
+ */
+export type RouteServerRouteInstallationStatus =
+  (typeof RouteServerRouteInstallationStatus)[keyof typeof RouteServerRouteInstallationStatus];
+
+/**
+ * <p>Describes the installation status of a route in a route table.</p>
+ * @public
+ */
+export interface RouteServerRouteInstallationDetail {
+  /**
+   * <p>The ID of the route table where the route is being installed.</p>
+   * @public
+   */
+  RouteTableId?: string | undefined;
+
+  /**
+   * <p>The current installation status of the route in the route table.</p>
+   * @public
+   */
+  RouteInstallationStatus?: RouteServerRouteInstallationStatus | undefined;
+
+  /**
+   * <p>The reason for the current installation status of the route.</p>
+   * @public
+   */
+  RouteInstallationStatusReason?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteServerRouteStatus = {
+  IN_FIB: "in-fib",
+  IN_RIB: "in-rib",
+} as const;
+
+/**
+ * @public
+ */
+export type RouteServerRouteStatus = (typeof RouteServerRouteStatus)[keyof typeof RouteServerRouteStatus];
+
+/**
+ * <p>Describes a route in the route server's routing database.</p>
+ * @public
+ */
+export interface RouteServerRoute {
+  /**
+   * <p>The ID of the route server endpoint that received this route.</p>
+   * @public
+   */
+  RouteServerEndpointId?: string | undefined;
+
+  /**
+   * <p>The ID of the route server peer that advertised this route.</p>
+   * @public
+   */
+  RouteServerPeerId?: string | undefined;
+
+  /**
+   * <p>Details about the installation status of this route in route tables.</p>
+   * @public
+   */
+  RouteInstallationDetails?: RouteServerRouteInstallationDetail[] | undefined;
+
+  /**
+   * <p>The current status of the route in the routing database. Values are <code>in-rib</code> or <code>in-fib</code> depending on if the routes are in the RIB or the FIB database.</p>
+   *          <p>The <a href="https://en.wikipedia.org/wiki/Routing_table">Routing Information Base (RIB)</a> serves as a database that stores all the routing information and network topology data collected by a router or routing system, such as routes learned from BGP peers. The RIB is constantly updated as new routing information is received or existing routes change. This ensures that the route server always has the most current view of the network topology and can make optimal routing decisions.</p>
+   *          <p>The <a href="https://en.wikipedia.org/wiki/Forwarding_information_base">Forwarding Information Base (FIB)</a> serves as a forwarding table for what route server has determined are the best-path routes in the RIB after evaluating all available routing information and policies. The FIB routes that are installed on the route tables. The FIB is recomputed whenever there are changes to the RIB.</p>
+   * @public
+   */
+  RouteStatus?: RouteServerRouteStatus | undefined;
+
+  /**
+   * <p>The destination CIDR block of the route.</p>
+   * @public
+   */
+  Prefix?: string | undefined;
+
+  /**
+   * <p>The AS path attributes of the BGP route.</p>
+   * @public
+   */
+  AsPaths?: string[] | undefined;
+
+  /**
+   * <p>The Multi-Exit Discriminator (MED) value of the BGP route.</p>
+   * @public
+   */
+  Med?: number | undefined;
+
+  /**
+   * <p>The IP address for the next hop.</p>
+   * @public
+   */
+  NextHopIp?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRouteServerRoutingDatabaseResult {
+  /**
+   * <p>Indicates whether routes are being persisted in the routing database.</p>
+   * @public
+   */
+  AreRoutesPersisted?: boolean | undefined;
+
+  /**
+   * <p>The collection of routes in the route server's routing database.</p>
+   * @public
+   */
+  Routes?: RouteServerRoute[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetSecurityGroupsForVpcRequest {
   /**
    * <p>The VPC ID where the security group can be used.</p>
@@ -7009,1989 +8007,6 @@ export interface DiskImage {
 }
 
 /**
- * <p>Describes the user data for an instance.</p>
- * @public
- */
-export interface UserData {
-  /**
-   * <p>The user data. If you are using an Amazon Web Services SDK or command line tool, Base64-encoding is performed for you, and you
-   *    can load the text from a file. Otherwise, you must provide Base64-encoded text.</p>
-   * @public
-   */
-  Data?: string | undefined;
-}
-
-/**
- * <p>Describes the launch specification for VM import.</p>
- * @public
- */
-export interface ImportInstanceLaunchSpecification {
-  /**
-   * <p>The architecture of the instance.</p>
-   * @public
-   */
-  Architecture?: ArchitectureValues | undefined;
-
-  /**
-   * <p>The security group names.</p>
-   * @public
-   */
-  GroupNames?: string[] | undefined;
-
-  /**
-   * <p>The security group IDs.</p>
-   * @public
-   */
-  GroupIds?: string[] | undefined;
-
-  /**
-   * <p>Reserved.</p>
-   * @public
-   */
-  AdditionalInfo?: string | undefined;
-
-  /**
-   * <p>The Base64-encoded user data to make available to the instance.</p>
-   * @public
-   */
-  UserData?: UserData | undefined;
-
-  /**
-   * <p>The instance type. For more information about the instance types that you can import, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types">Instance Types</a> in the
-   *    VM Import/Export User Guide.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>The placement information for the instance.</p>
-   * @public
-   */
-  Placement?: Placement | undefined;
-
-  /**
-   * <p>Indicates whether monitoring is enabled.</p>
-   * @public
-   */
-  Monitoring?: boolean | undefined;
-
-  /**
-   * <p>[EC2-VPC] The ID of the subnet in which to launch the instance.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the
-   *    operating system command for system shutdown).</p>
-   * @public
-   */
-  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | undefined;
-
-  /**
-   * <p>[EC2-VPC] An available IP address from the IP address range of the subnet.</p>
-   * @public
-   */
-  PrivateIpAddress?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportInstanceRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A description for the instance being imported.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The launch specification.</p>
-   * @public
-   */
-  LaunchSpecification?: ImportInstanceLaunchSpecification | undefined;
-
-  /**
-   * <p>The disk image.</p>
-   * @public
-   */
-  DiskImages?: DiskImage[] | undefined;
-
-  /**
-   * <p>The instance operating system.</p>
-   * @public
-   */
-  Platform: PlatformValues | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportInstanceResult {
-  /**
-   * <p>Information about the conversion task.</p>
-   * @public
-   */
-  ConversionTask?: ConversionTask | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportKeyPairRequest {
-  /**
-   * <p>The tags to apply to the imported key pair.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A unique name for the key pair.</p>
-   * @public
-   */
-  KeyName: string | undefined;
-
-  /**
-   * <p>The public key.</p>
-   * @public
-   */
-  PublicKeyMaterial: Uint8Array | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportKeyPairResult {
-  /**
-   * <ul>
-   *             <li>
-   *                <p>For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.</p>
-   *             </li>
-   *             <li>
-   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  KeyFingerprint?: string | undefined;
-
-  /**
-   * <p>The key pair name that you provided.</p>
-   * @public
-   */
-  KeyName?: string | undefined;
-
-  /**
-   * <p>The ID of the resulting key pair.</p>
-   * @public
-   */
-  KeyPairId?: string | undefined;
-
-  /**
-   * <p>The tags applied to the imported key pair.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>The disk container object for the import snapshot request.</p>
- * @public
- */
-export interface SnapshotDiskContainer {
-  /**
-   * <p>The description of the disk image being imported.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The format of the disk image being imported.</p>
-   *          <p>Valid values: <code>VHD</code> | <code>VMDK</code> | <code>RAW</code>
-   *          </p>
-   * @public
-   */
-  Format?: string | undefined;
-
-  /**
-   * <p>The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon
-   *    S3 URL (s3://..).</p>
-   * @public
-   */
-  Url?: string | undefined;
-
-  /**
-   * <p>The Amazon S3 bucket for the disk image.</p>
-   * @public
-   */
-  UserBucket?: UserBucket | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportSnapshotRequest {
-  /**
-   * <p>The client-specific data.</p>
-   * @public
-   */
-  ClientData?: ClientData | undefined;
-
-  /**
-   * <p>Token to enable idempotency for VM import requests.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The description string for the import snapshot task.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Information about the disk container.</p>
-   * @public
-   */
-  DiskContainer?: SnapshotDiskContainer | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is
-   *    used unless you specify a non-default KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
-   *     <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   * @public
-   */
-  Encrypted?: boolean | undefined;
-
-  /**
-   * <p>An identifier for the symmetric KMS key to use when creating the
-   *    encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this
-   *    parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is
-   *    specified, the <code>Encrypted</code> flag must also be set. </p>
-   *          <p>The KMS key identifier may be provided in any of the following formats: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Key ID</p>
-   *             </li>
-   *             <li>
-   *                <p>Key alias</p>
-   *             </li>
-   *             <li>
-   *                <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
-   *             </li>
-   *          </ul>
-   *          <p>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even
-   *    though you provided an invalid identifier. This action will eventually report failure. </p>
-   *          <p>The specified KMS key must exist in the Region that the snapshot is being copied to.</p>
-   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>The name of the role to use when not using the default role, 'vmimport'.</p>
-   * @public
-   */
-  RoleName?: string | undefined;
-
-  /**
-   * <p>The tags to apply to the import snapshot task during creation.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportSnapshotResult {
-  /**
-   * <p>A description of the import snapshot task.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The ID of the import snapshot task.</p>
-   * @public
-   */
-  ImportTaskId?: string | undefined;
-
-  /**
-   * <p>Information about the import snapshot task.</p>
-   * @public
-   */
-  SnapshotTaskDetail?: SnapshotTaskDetail | undefined;
-
-  /**
-   * <p>Any tags assigned to the import snapshot task.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportVolumeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The Availability Zone for the resulting EBS volume.</p>
-   * @public
-   */
-  AvailabilityZone: string | undefined;
-
-  /**
-   * <p>The disk image.</p>
-   * @public
-   */
-  Image: DiskImageDetail | undefined;
-
-  /**
-   * <p>A description of the volume.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The volume size.</p>
-   * @public
-   */
-  Volume: VolumeDetail | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportVolumeResult {
-  /**
-   * <p>Information about the conversion task.</p>
-   * @public
-   */
-  ConversionTask?: ConversionTask | undefined;
-}
-
-/**
- * @public
- */
-export interface ListImagesInRecycleBinRequest {
-  /**
-   * <p>The IDs of the AMIs to list. Omit this parameter to list all of the AMIs that are in the
-   *       Recycle Bin. You can specify up to 20 IDs in a single request.</p>
-   * @public
-   */
-  ImageIds?: string[] | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Information about an AMI that is currently in the Recycle Bin.</p>
- * @public
- */
-export interface ImageRecycleBinInfo {
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The name of the AMI.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the AMI.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The date and time when the AMI entered the Recycle Bin.</p>
-   * @public
-   */
-  RecycleBinEnterTime?: Date | undefined;
-
-  /**
-   * <p>The date and time when the AMI is to be permanently deleted from the Recycle Bin.</p>
-   * @public
-   */
-  RecycleBinExitTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListImagesInRecycleBinResult {
-  /**
-   * <p>Information about the AMIs.</p>
-   * @public
-   */
-  Images?: ImageRecycleBinInfo[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSnapshotsInRecycleBinRequest {
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *   Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The IDs of the snapshots to list. Omit this parameter to list all of the
-   *       snapshots that are in the Recycle Bin.</p>
-   * @public
-   */
-  SnapshotIds?: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Information about a snapshot that is currently in the Recycle Bin.</p>
- * @public
- */
-export interface SnapshotRecycleBinInfo {
-  /**
-   * <p>The ID of the snapshot.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-
-  /**
-   * <p>The date and time when the snapshot entered the Recycle Bin.</p>
-   * @public
-   */
-  RecycleBinEnterTime?: Date | undefined;
-
-  /**
-   * <p>The date and time when the snapshot is to be permanently deleted from the Recycle Bin.</p>
-   * @public
-   */
-  RecycleBinExitTime?: Date | undefined;
-
-  /**
-   * <p>The description for the snapshot.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The ID of the volume from which the snapshot was created.</p>
-   * @public
-   */
-  VolumeId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSnapshotsInRecycleBinResult {
-  /**
-   * <p>Information about the snapshots.</p>
-   * @public
-   */
-  Snapshots?: SnapshotRecycleBinInfo[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items.
-   *   This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const LockMode = {
-  compliance: "compliance",
-  governance: "governance",
-} as const;
-
-/**
- * @public
- */
-export type LockMode = (typeof LockMode)[keyof typeof LockMode];
-
-/**
- * @public
- */
-export interface LockSnapshotRequest {
-  /**
-   * <p>The ID of the snapshot to lock.</p>
-   * @public
-   */
-  SnapshotId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The mode in which to lock the snapshot. Specify one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>governance</code> - Locks the snapshot in governance mode. Snapshots locked in governance
-   *           mode can't be deleted until one of the following conditions are met:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>The lock duration expires.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The snapshot is unlocked by a user with the appropriate permissions.</p>
-   *                   </li>
-   *                </ul>
-   *                <p>Users with the appropriate IAM permissions can unlock the snapshot, increase or decrease the lock
-   *           duration, and change the lock mode to <code>compliance</code> at any time.</p>
-   *                <p>If you lock a snapshot in <code>governance</code> mode, omit <b>
-   *           CoolOffPeriod</b>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>compliance</code> - Locks the snapshot in compliance mode. Snapshots locked in compliance
-   *           mode can't be unlocked by any user. They can be deleted only after the lock duration expires. Users
-   *           can't decrease the lock duration or change the lock mode to <code>governance</code>. However, users
-   *           with appropriate IAM permissions can increase the lock duration at any time.</p>
-   *                <p>If you lock a snapshot in <code>compliance</code> mode, you can optionally specify
-   *           <b>CoolOffPeriod</b>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  LockMode: LockMode | undefined;
-
-  /**
-   * <p>The cooling-off period during which you can unlock the snapshot or modify the lock settings after
-   *       locking the snapshot in compliance mode, in hours. After the cooling-off period expires, you can't
-   *       unlock or delete the snapshot, decrease the lock duration, or change the lock mode. You can increase
-   *       the lock duration after the cooling-off period expires.</p>
-   *          <p>The cooling-off period is optional when locking a snapshot in compliance mode. If you are locking
-   *       the snapshot in governance mode, omit this parameter.</p>
-   *          <p>To lock the snapshot in compliance mode immediately without a cooling-off period, omit this
-   *       parameter.</p>
-   *          <p>If you are extending the lock duration for a snapshot that is locked in compliance mode after
-   *       the cooling-off period has expired, omit this parameter. If you specify a cooling-period in a such
-   *       a request, the request fails.</p>
-   *          <p>Allowed values: Min 1, max 72.</p>
-   * @public
-   */
-  CoolOffPeriod?: number | undefined;
-
-  /**
-   * <p>The period of time for which to lock the snapshot, in days. The snapshot lock will automatically
-   *       expire after this period lapses.</p>
-   *          <p>You must specify either this parameter or <b>ExpirationDate</b>, but
-   *       not both.</p>
-   *          <p>Allowed values: Min: 1, max 36500</p>
-   * @public
-   */
-  LockDuration?: number | undefined;
-
-  /**
-   * <p>The date and time at which the snapshot lock is to automatically expire, in the UTC time zone
-   *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
-   *          <p>You must specify either this parameter or <b>LockDuration</b>, but
-   *       not both.</p>
-   * @public
-   */
-  ExpirationDate?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface LockSnapshotResult {
-  /**
-   * <p>The ID of the snapshot</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-
-  /**
-   * <p>The state of the snapshot lock. Valid states include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>compliance-cooloff</code> - The snapshot has been locked in
-   *           compliance mode but it is still within the cooling-off period. The snapshot can't be
-   *           deleted, but it can be unlocked and the lock settings can be modified by users with
-   *           appropriate permissions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>governance</code> - The snapshot is locked in governance mode. The
-   *           snapshot can't be deleted, but it can be unlocked and the lock settings can be
-   *           modified by users with appropriate permissions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>compliance</code> - The snapshot is locked in compliance mode and the
-   *           cooling-off period has expired. The snapshot can't be unlocked or deleted. The lock
-   *           duration can only be increased by users with appropriate permissions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>expired</code> - The snapshot was locked in compliance or governance
-   *           mode but the lock duration has expired. The snapshot is not locked and can be deleted.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  LockState?: LockState | undefined;
-
-  /**
-   * <p>The period of time for which the snapshot is locked, in days.</p>
-   * @public
-   */
-  LockDuration?: number | undefined;
-
-  /**
-   * <p>The compliance mode cooling-off period, in hours.</p>
-   * @public
-   */
-  CoolOffPeriod?: number | undefined;
-
-  /**
-   * <p>The date and time at which the compliance mode cooling-off period expires, in the UTC time zone
-   *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
-   * @public
-   */
-  CoolOffPeriodExpiresOn?: Date | undefined;
-
-  /**
-   * <p>The date and time at which the snapshot was locked, in the UTC time zone
-   *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
-   * @public
-   */
-  LockCreatedOn?: Date | undefined;
-
-  /**
-   * <p>The date and time at which the lock will expire, in the UTC time zone
-   *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
-   * @public
-   */
-  LockExpiresOn?: Date | undefined;
-
-  /**
-   * <p>The date and time at which the lock duration started, in the UTC time zone
-   *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
-   * @public
-   */
-  LockDurationStartTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyAddressAttributeRequest {
-  /**
-   * <p>[EC2-VPC] The allocation ID.</p>
-   * @public
-   */
-  AllocationId: string | undefined;
-
-  /**
-   * <p>The domain name to modify for the IP address.</p>
-   * @public
-   */
-  DomainName?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyAddressAttributeResult {
-  /**
-   * <p>Information about the Elastic IP address.</p>
-   * @public
-   */
-  Address?: AddressAttribute | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ModifyAvailabilityZoneOptInStatus = {
-  not_opted_in: "not-opted-in",
-  opted_in: "opted-in",
-} as const;
-
-/**
- * @public
- */
-export type ModifyAvailabilityZoneOptInStatus =
-  (typeof ModifyAvailabilityZoneOptInStatus)[keyof typeof ModifyAvailabilityZoneOptInStatus];
-
-/**
- * @public
- */
-export interface ModifyAvailabilityZoneGroupRequest {
-  /**
-   * <p>The name of the Availability Zone group, Local Zone group, or Wavelength Zone
-   *       group.</p>
-   * @public
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>Indicates whether to opt in to the zone group. The only valid value is <code>opted-in</code>.
-   *       You must contact Amazon Web Services Support to opt out of a Local Zone or Wavelength Zone group.</p>
-   * @public
-   */
-  OptInStatus: ModifyAvailabilityZoneOptInStatus | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyAvailabilityZoneGroupResult {
-  /**
-   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyCapacityReservationRequest {
-  /**
-   * <p>The ID of the Capacity Reservation.</p>
-   * @public
-   */
-  CapacityReservationId: string | undefined;
-
-  /**
-   * <p>The number of instances for which to reserve capacity. The number of instances can't
-   * 			be increased or decreased by more than <code>1000</code> in a single request.</p>
-   * @public
-   */
-  InstanceCount?: number | undefined;
-
-  /**
-   * <p>The date and time at which the Capacity Reservation expires. When a Capacity
-   * 			Reservation expires, the reserved capacity is released and you can no longer launch
-   * 			instances into it. The Capacity Reservation's state changes to <code>expired</code> when
-   * 			it reaches its end date and time.</p>
-   *          <p>The Capacity Reservation is cancelled within an hour from the specified time. For
-   * 			example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to
-   * 			end between 13:30:55 and 14:30:55 on 5/31/2019.</p>
-   *          <p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is
-   * 				<code>limited</code>. Omit <code>EndDate</code> if <code>EndDateType</code> is
-   * 				<code>unlimited</code>.</p>
-   * @public
-   */
-  EndDate?: Date | undefined;
-
-  /**
-   * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can
-   * 			have one of the following end types:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>unlimited</code> - The Capacity Reservation remains active until you
-   * 					explicitly cancel it. Do not provide an <code>EndDate</code> value if
-   * 						<code>EndDateType</code> is <code>unlimited</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>limited</code> - The Capacity Reservation expires automatically at a
-   * 					specified date and time. You must provide an <code>EndDate</code> value if
-   * 						<code>EndDateType</code> is <code>limited</code>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  EndDateType?: EndDateType | undefined;
-
-  /**
-   * <p>Reserved. Capacity Reservations you have created are accepted by default.</p>
-   * @public
-   */
-  Accept?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Reserved for future use.</p>
-   * @public
-   */
-  AdditionalInfo?: string | undefined;
-
-  /**
-   * <p> The matching criteria (instance eligibility) that you want to use in the modified
-   * 			Capacity Reservation. If you change the instance eligibility of an existing Capacity
-   * 			Reservation from <code>targeted</code> to <code>open</code>, any running instances that
-   * 			match the attributes of the Capacity Reservation, have the
-   * 				<code>CapacityReservationPreference</code> set to <code>open</code>, and are not yet
-   * 			running in the Capacity Reservation, will automatically use the modified Capacity
-   * 			Reservation. </p>
-   *          <p>To modify the instance eligibility, the Capacity Reservation must be completely idle
-   * 			(zero usage).</p>
-   * @public
-   */
-  InstanceMatchCriteria?: InstanceMatchCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyCapacityReservationResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyCapacityReservationFleetRequest {
-  /**
-   * <p>The ID of the Capacity Reservation Fleet to modify.</p>
-   * @public
-   */
-  CapacityReservationFleetId: string | undefined;
-
-  /**
-   * <p>The total number of capacity units to be reserved by the Capacity Reservation Fleet.
-   * 			This value, together with the instance type weights that you assign to each instance
-   * 			type used by the Fleet determine the number of instances for which the Fleet reserves
-   * 			capacity. Both values are based on units that make sense for your workload. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
-   * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  TotalTargetCapacity?: number | undefined;
-
-  /**
-   * <p>The date and time at which the Capacity Reservation Fleet expires. When the Capacity
-   * 			Reservation Fleet expires, its state changes to <code>expired</code> and all of the
-   * 			Capacity Reservations in the Fleet expire.</p>
-   *          <p>The Capacity Reservation Fleet expires within an hour after the specified time. For
-   * 			example, if you specify <code>5/31/2019</code>, <code>13:30:55</code>, the Capacity
-   * 			Reservation Fleet is guaranteed to expire between <code>13:30:55</code> and
-   * 				<code>14:30:55</code> on <code>5/31/2019</code>.</p>
-   *          <p>You can't specify <b>EndDate</b> and <b>
-   * 				RemoveEndDate</b> in the same request.</p>
-   * @public
-   */
-  EndDate?: Date | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether to remove the end date from the Capacity Reservation Fleet. If you
-   * 			remove the end date, the Capacity Reservation Fleet does not expire and it remains
-   * 			active until you explicitly cancel it using the <b>CancelCapacityReservationFleet</b> action.</p>
-   *          <p>You can't specify <b>RemoveEndDate</b> and <b> EndDate</b> in the same request.</p>
-   * @public
-   */
-  RemoveEndDate?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyCapacityReservationFleetResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * <p>Information about the DNS server to be used.</p>
- * @public
- */
-export interface DnsServersOptionsModifyStructure {
-  /**
-   * <p>The IPv4 address range, in CIDR notation, of the DNS servers to be used. You can specify up to
-   * 			two DNS servers. Ensure that the DNS servers can be reached by the clients. The specified values
-   * 			overwrite the existing values.</p>
-   * @public
-   */
-  CustomDnsServers?: string[] | undefined;
-
-  /**
-   * <p>Indicates whether DNS servers should be used. Specify <code>False</code> to delete the existing DNS
-   * 			servers.</p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyClientVpnEndpointRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint to modify.</p>
-   * @public
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The ARN of the server certificate to be used. The server certificate must be provisioned in
-   * 			Certificate Manager (ACM).</p>
-   * @public
-   */
-  ServerCertificateArn?: string | undefined;
-
-  /**
-   * <p>Information about the client connection logging options.</p>
-   *          <p>If you enable client connection logging, data about client connections is sent to a
-   * 			Cloudwatch Logs log stream. The following information is logged:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Client connection requests</p>
-   *             </li>
-   *             <li>
-   *                <p>Client connection results (successful and unsuccessful)</p>
-   *             </li>
-   *             <li>
-   *                <p>Reasons for unsuccessful client connection requests</p>
-   *             </li>
-   *             <li>
-   *                <p>Client connection termination time</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ConnectionLogOptions?: ConnectionLogOptions | undefined;
-
-  /**
-   * <p>Information about the DNS servers to be used by Client VPN connections. A Client VPN endpoint can have
-   * 			up to two DNS servers.</p>
-   * @public
-   */
-  DnsServers?: DnsServersOptionsModifyStructure | undefined;
-
-  /**
-   * <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
-   *          <p>Valid Values: <code>443</code> | <code>1194</code>
-   *          </p>
-   *          <p>Default Value: <code>443</code>
-   *          </p>
-   * @public
-   */
-  VpnPort?: number | undefined;
-
-  /**
-   * <p>A brief description of the Client VPN endpoint.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Indicates whether the VPN is split-tunnel.</p>
-   *          <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
-   *         	<i>Client VPN Administrator Guide</i>.</p>
-   * @public
-   */
-  SplitTunnel?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IDs of one or more security groups to apply to the target network.</p>
-   * @public
-   */
-  SecurityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>The ID of the VPC to associate with the Client VPN endpoint.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p>
-   * @public
-   */
-  SelfServicePortal?: SelfServicePortal | undefined;
-
-  /**
-   * <p>The options for managing connection authorization for new client connections.</p>
-   * @public
-   */
-  ClientConnectOptions?: ClientConnectOptions | undefined;
-
-  /**
-   * <p>The maximum VPN session duration time in hours.</p>
-   *          <p>Valid values: <code>8 | 10 | 12 | 24</code>
-   *          </p>
-   *          <p>Default value: <code>24</code>
-   *          </p>
-   * @public
-   */
-  SessionTimeoutHours?: number | undefined;
-
-  /**
-   * <p>Options for enabling a customizable text banner that will be displayed on
-   * 			Amazon Web Services provided clients when a VPN session is established.</p>
-   * @public
-   */
-  ClientLoginBannerOptions?: ClientLoginBannerOptions | undefined;
-
-  /**
-   * <p>Indicates whether the client VPN session is disconnected after the maximum timeout specified in <code>sessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically. The default value is <code>false</code>.</p>
-   * @public
-   */
-  DisconnectOnSessionTimeout?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyClientVpnEndpointResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyDefaultCreditSpecificationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The instance family.</p>
-   * @public
-   */
-  InstanceFamily: UnlimitedSupportedInstanceFamily | undefined;
-
-  /**
-   * <p>The credit option for CPU usage of the instance family.</p>
-   *          <p>Valid Values: <code>standard</code> | <code>unlimited</code>
-   *          </p>
-   * @public
-   */
-  CpuCredits: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyDefaultCreditSpecificationResult {
-  /**
-   * <p>The default credit option for CPU usage of the instance family.</p>
-   * @public
-   */
-  InstanceFamilyCreditSpecification?: InstanceFamilyCreditSpecification | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyEbsDefaultKmsKeyIdRequest {
-  /**
-   * <p>The identifier of the KMS key to use for Amazon EBS encryption.
-   *       If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code> is
-   *       specified, the encrypted state must be <code>true</code>.</p>
-   *          <p>You can specify the KMS key using any of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p>
-   *             </li>
-   *             <li>
-   *                <p>Key alias. For example, alias/ExampleAlias.</p>
-   *             </li>
-   *             <li>
-   *                <p>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</p>
-   *             </li>
-   *             <li>
-   *                <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid,
-   *       the action can appear to complete, but eventually fails.</p>
-   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
-   * @public
-   */
-  KmsKeyId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyEbsDefaultKmsKeyIdResult {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the default KMS key for encryption by default.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyFleetRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether running instances should be terminated if the total target capacity of
-   *          the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
-   *          <p>Supported only for fleets of type <code>maintain</code>.</p>
-   * @public
-   */
-  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | undefined;
-
-  /**
-   * <p>The launch template and overrides.</p>
-   * @public
-   */
-  LaunchTemplateConfigs?: FleetLaunchTemplateConfigRequest[] | undefined;
-
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   * @public
-   */
-  FleetId: string | undefined;
-
-  /**
-   * <p>The size of the EC2 Fleet.</p>
-   * @public
-   */
-  TargetCapacitySpecification?: TargetCapacitySpecificationRequest | undefined;
-
-  /**
-   * <p>Reserved.</p>
-   * @public
-   */
-  Context?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyFleetResult {
-  /**
-   * <p>If the request succeeds, the response returns <code>true</code>. If the request fails,
-   *          no response is returned, and instead an error message is returned.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * <p>Describes a load permission.</p>
- * @public
- */
-export interface LoadPermissionRequest {
-  /**
-   * <p>The name of the group.</p>
-   * @public
-   */
-  Group?: PermissionGroup | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  UserId?: string | undefined;
-}
-
-/**
- * <p>Describes modifications to the load permissions of an Amazon FPGA image (AFI).</p>
- * @public
- */
-export interface LoadPermissionModifications {
-  /**
-   * <p>The load permissions to add.</p>
-   * @public
-   */
-  Add?: LoadPermissionRequest[] | undefined;
-
-  /**
-   * <p>The load permissions to remove.</p>
-   * @public
-   */
-  Remove?: LoadPermissionRequest[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const OperationType = {
-  add: "add",
-  remove: "remove",
-} as const;
-
-/**
- * @public
- */
-export type OperationType = (typeof OperationType)[keyof typeof OperationType];
-
-/**
- * @public
- */
-export interface ModifyFpgaImageAttributeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the AFI.</p>
-   * @public
-   */
-  FpgaImageId: string | undefined;
-
-  /**
-   * <p>The name of the attribute.</p>
-   * @public
-   */
-  Attribute?: FpgaImageAttributeName | undefined;
-
-  /**
-   * <p>The operation type.</p>
-   * @public
-   */
-  OperationType?: OperationType | undefined;
-
-  /**
-   * <p>The Amazon Web Services account IDs. This parameter is valid only when modifying the <code>loadPermission</code> attribute.</p>
-   * @public
-   */
-  UserIds?: string[] | undefined;
-
-  /**
-   * <p>The user groups. This parameter is valid only when modifying the <code>loadPermission</code> attribute.</p>
-   * @public
-   */
-  UserGroups?: string[] | undefined;
-
-  /**
-   * <p>The product codes. After you add a product code to an AFI, it can't be removed.
-   * 		    This parameter is valid only when modifying the <code>productCodes</code> attribute.</p>
-   * @public
-   */
-  ProductCodes?: string[] | undefined;
-
-  /**
-   * <p>The load permission for the AFI.</p>
-   * @public
-   */
-  LoadPermission?: LoadPermissionModifications | undefined;
-
-  /**
-   * <p>A description for the AFI.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A name for the AFI.</p>
-   * @public
-   */
-  Name?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyFpgaImageAttributeResult {
-  /**
-   * <p>Information about the attribute.</p>
-   * @public
-   */
-  FpgaImageAttribute?: FpgaImageAttribute | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyHostsRequest {
-  /**
-   * <p>Indicates whether to enable or disable host recovery for the Dedicated Host. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html">Host recovery</a> in
-   *             the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  HostRecovery?: HostRecovery | undefined;
-
-  /**
-   * <p>Specifies the instance type to be supported by the Dedicated Host. Specify this
-   *             parameter to modify a Dedicated Host to support only a specific instance type.</p>
-   *          <p>If you want to modify a Dedicated Host to support multiple instance types in its
-   *             current instance family, omit this parameter and specify <b>InstanceFamily</b> instead. You cannot specify <b>InstanceType</b> and <b>InstanceFamily</b> in the
-   *             same request.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-
-  /**
-   * <p>Specifies the instance family to be supported by the Dedicated Host. Specify this
-   *             parameter to modify a Dedicated Host to support multiple instance types within its
-   *             current instance family.</p>
-   *          <p>If you want to modify a Dedicated Host to support a specific instance type only, omit
-   *             this parameter and specify <b>InstanceType</b> instead. You
-   *             cannot specify <b>InstanceFamily</b> and <b>InstanceType</b> in the same request.</p>
-   * @public
-   */
-  InstanceFamily?: string | undefined;
-
-  /**
-   * <p>Indicates whether to enable or disable host maintenance for the Dedicated Host. For
-   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html">Host
-   *                 maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  HostMaintenance?: HostMaintenance | undefined;
-
-  /**
-   * <p>The IDs of the Dedicated Hosts to modify.</p>
-   * @public
-   */
-  HostIds: string[] | undefined;
-
-  /**
-   * <p>Specify whether to enable or disable auto-placement.</p>
-   * @public
-   */
-  AutoPlacement?: AutoPlacement | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyHostsResult {
-  /**
-   * <p>The IDs of the Dedicated Hosts that were successfully modified.</p>
-   * @public
-   */
-  Successful?: string[] | undefined;
-
-  /**
-   * <p>The IDs of the Dedicated Hosts that could not be modified. Check whether the setting
-   *             you requested can be used.</p>
-   * @public
-   */
-  Unsuccessful?: UnsuccessfulItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyIdentityIdFormatRequest {
-  /**
-   * <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *           <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *           <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *           <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code>
-   *           | <code>network-acl-association</code> | <code>network-interface</code> |
-   *           <code>network-interface-attachment</code> | <code>prefix-list</code> |
-   *           <code>route-table</code> | <code>route-table-association</code> |
-   *           <code>security-group</code> | <code>subnet</code> |
-   *           <code>subnet-cidr-block-association</code> | <code>vpc</code> |
-   *           <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
-   *          <p>Alternatively, use the <code>all-current</code> option to include all resource types that are
-   *           currently within their opt-in period for longer IDs.</p>
-   * @public
-   */
-  Resource: string | undefined;
-
-  /**
-   * <p>Indicates whether the resource should use longer IDs (17-character IDs)</p>
-   * @public
-   */
-  UseLongIds: boolean | undefined;
-
-  /**
-   * <p>The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify
-   *        <code>all</code> to modify the ID format for all IAM users, IAM roles, and the root user of
-   *        the account.</p>
-   * @public
-   */
-  PrincipalArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyIdFormatRequest {
-  /**
-   * <p>The type of resource: <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *            <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *            <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *            <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code>
-   *            | <code>network-acl-association</code> | <code>network-interface</code> |
-   *            <code>network-interface-attachment</code> | <code>prefix-list</code> |
-   *            <code>route-table</code> | <code>route-table-association</code> |
-   *            <code>security-group</code> | <code>subnet</code> |
-   *            <code>subnet-cidr-block-association</code> | <code>vpc</code> |
-   *            <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
-   *          <p>Alternatively, use the <code>all-current</code> option to include all resource types that are
-   *        currently within their opt-in period for longer IDs.</p>
-   * @public
-   */
-  Resource: string | undefined;
-
-  /**
-   * <p>Indicate whether the resource should use longer IDs (17-character IDs).</p>
-   * @public
-   */
-  UseLongIds: boolean | undefined;
-}
-
-/**
- * <p>Describes a launch permission modification.</p>
- * @public
- */
-export interface LaunchPermissionModifications {
-  /**
-   * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to add to the list of
-   *       launch permissions for the AMI.</p>
-   * @public
-   */
-  Add?: LaunchPermission[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to remove from the list of
-   *       launch permissions for the AMI.</p>
-   * @public
-   */
-  Remove?: LaunchPermission[] | undefined;
-}
-
-/**
- * <p>Contains the parameters for ModifyImageAttribute.</p>
- * @public
- */
-export interface ModifyImageAttributeRequest {
-  /**
-   * <p>The name of the attribute to modify.</p>
-   *          <p>Valid values: <code>description</code> | <code>imdsSupport</code> |
-   *         <code>launchPermission</code>
-   *          </p>
-   * @public
-   */
-  Attribute?: string | undefined;
-
-  /**
-   * <p>A new description for the AMI.</p>
-   * @public
-   */
-  Description?: AttributeValue | undefined;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>A new launch permission for the AMI.</p>
-   * @public
-   */
-  LaunchPermission?: LaunchPermissionModifications | undefined;
-
-  /**
-   * <p>The operation type. This parameter can be used only when the <code>Attribute</code>
-   *       parameter is <code>launchPermission</code>.</p>
-   * @public
-   */
-  OperationType?: OperationType | undefined;
-
-  /**
-   * <p>Not supported.</p>
-   * @public
-   */
-  ProductCodes?: string[] | undefined;
-
-  /**
-   * <p>The user groups. This parameter can be used only when the <code>Attribute</code> parameter
-   *       is <code>launchPermission</code>.</p>
-   * @public
-   */
-  UserGroups?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services account IDs. This parameter can be used only when the
-   *         <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
-   * @public
-   */
-  UserIds?: string[] | undefined;
-
-  /**
-   * <p>The value of the attribute being modified. This parameter can be used only when the
-   *         <code>Attribute</code> parameter is <code>description</code> or
-   *       <code>imdsSupport</code>.</p>
-   * @public
-   */
-  Value?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an organization. This parameter can be used only when
-   *       the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
-   * @public
-   */
-  OrganizationArns?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an organizational unit (OU). This parameter can be used
-   *       only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
-   * @public
-   */
-  OrganizationalUnitArns?: string[] | undefined;
-
-  /**
-   * <p>Set to <code>v2.0</code> to indicate that IMDSv2 is specified in the AMI. Instances
-   *       launched from this AMI will have <code>HttpTokens</code> automatically set to
-   *         <code>required</code> so that, by default, the instance requires that IMDSv2 is used when
-   *       requesting instance metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to
-   *         <code>2</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <important>
-   *             <p>Do not use this parameter unless your AMI software supports IMDSv2. After you set the
-   *         value to <code>v2.0</code>, you can't undo it. The only way to “reset” your AMI is to create
-   *         a new AMI from the underlying snapshot.</p>
-   *          </important>
-   * @public
-   */
-  ImdsSupport?: AttributeValue | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes information used to set up an EBS volume specified in a block device
- *             mapping.</p>
- * @public
- */
-export interface EbsInstanceBlockDeviceSpecification {
-  /**
-   * <p>The ID of the EBS volume.</p>
-   * @public
-   */
-  VolumeId?: string | undefined;
-
-  /**
-   * <p>Indicates whether the volume is deleted on instance termination.</p>
-   * @public
-   */
-  DeleteOnTermination?: boolean | undefined;
-}
-
-/**
- * <p>Describes a block device mapping entry.</p>
- * @public
- */
-export interface InstanceBlockDeviceMappingSpecification {
-  /**
-   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
-   * @public
-   */
-  DeviceName?: string | undefined;
-
-  /**
-   * <p>Parameters used to automatically set up EBS volumes when the instance is
-   *             launched.</p>
-   * @public
-   */
-  Ebs?: EbsInstanceBlockDeviceSpecification | undefined;
-
-  /**
-   * <p>The virtual device name.</p>
-   * @public
-   */
-  VirtualName?: string | undefined;
-
-  /**
-   * <p>Suppresses the specified device included in the block device mapping.</p>
-   * @public
-   */
-  NoDevice?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface BlobAttributeValue {
-  Value?: Uint8Array | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyInstanceAttributeRequest {
-  /**
-   * <p>Enable or disable source/destination checks, which ensure that the instance is either
-   *             the source or the destination of any traffic that it receives. If the value is
-   *                 <code>true</code>, source/destination checks are enabled; otherwise, they are
-   *             disabled. The default value is <code>true</code>. You must disable source/destination
-   *             checks if the instance runs services such as network address translation, routing, or
-   *             firewalls.</p>
-   * @public
-   */
-  SourceDestCheck?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>Indicates whether an instance is enabled for stop protection. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html">Enable stop
-   *                 protection for your instance</a>.</p>
-   *          <p></p>
-   * @public
-   */
-  DisableApiStop?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The name of the attribute to modify.</p>
-   *          <important>
-   *             <p>You can modify the following attributes only: <code>disableApiTermination</code> |
-   *                     <code>instanceType</code> | <code>kernel</code> | <code>ramdisk</code> |
-   *                     <code>instanceInitiatedShutdownBehavior</code> | <code>blockDeviceMapping</code>
-   *                 | <code>userData</code> | <code>sourceDestCheck</code> | <code>groupSet</code> |
-   *                     <code>ebsOptimized</code> | <code>sriovNetSupport</code> |
-   *                     <code>enaSupport</code> | <code>nvmeSupport</code> | <code>disableApiStop</code>
-   *                 | <code>enclaveOptions</code>
-   *             </p>
-   *          </important>
-   * @public
-   */
-  Attribute?: InstanceAttributeName | undefined;
-
-  /**
-   * <p>A new value for the attribute. Use only with the <code>kernel</code>,
-   *                 <code>ramdisk</code>, <code>userData</code>, <code>disableApiTermination</code>, or
-   *                 <code>instanceInitiatedShutdownBehavior</code> attribute.</p>
-   * @public
-   */
-  Value?: string | undefined;
-
-  /**
-   * <p>Modifies the <code>DeleteOnTermination</code> attribute for volumes that are currently
-   *             attached. The volume must be owned by the caller. If no value is specified for
-   *                 <code>DeleteOnTermination</code>, the default is <code>true</code> and the volume is
-   *             deleted when the instance is terminated. You can't modify the <code>DeleteOnTermination</code>
-   *             attribute for volumes that are attached to Fargate tasks.</p>
-   *          <p>To add instance store volumes to an Amazon EBS-backed instance, you must add them when
-   *             you launch the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Update the block device mapping when launching an instance</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  BlockDeviceMappings?: InstanceBlockDeviceMappingSpecification[] | undefined;
-
-  /**
-   * <p>Enable or disable termination protection for the instance. If the value is <code>true</code>,
-   *             you can't terminate the instance using the Amazon EC2 console, command line interface, or API.
-   *             You can't enable termination protection for Spot Instances.</p>
-   * @public
-   */
-  DisableApiTermination?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>Changes the instance type to the specified value. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
-   *                 types</a> in the <i>Amazon EC2 User Guide</i>. If the instance type is
-   *             not valid, the error returned is <code>InvalidInstanceAttributeValue</code>.</p>
-   * @public
-   */
-  InstanceType?: AttributeValue | undefined;
-
-  /**
-   * <p>Changes the instance's kernel to the specified value. We recommend that you use
-   *             PV-GRUB instead of kernels and RAM disks. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">PV-GRUB</a>.</p>
-   * @public
-   */
-  Kernel?: AttributeValue | undefined;
-
-  /**
-   * <p>Changes the instance's RAM disk to the specified value. We recommend that you use
-   *             PV-GRUB instead of kernels and RAM disks. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">PV-GRUB</a>.</p>
-   * @public
-   */
-  Ramdisk?: AttributeValue | undefined;
-
-  /**
-   * <p>Changes the instance's user data to the specified value. User data must be base64-encoded.
-   *             Depending on the tool or SDK that you're using, the base64-encoding might be performed for you.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-add-user-data.html">Work with instance user data</a>.</p>
-   * @public
-   */
-  UserData?: BlobAttributeValue | undefined;
-
-  /**
-   * <p>Specifies whether an instance stops or terminates when you initiate shutdown from the
-   *             instance (using the operating system command for system shutdown).</p>
-   * @public
-   */
-  InstanceInitiatedShutdownBehavior?: AttributeValue | undefined;
-
-  /**
-   * <p>Replaces the security groups of the instance with the specified security groups.
-   *             You must specify the ID of at least one security group, even if it's just the default
-   *             security group for the VPC.</p>
-   * @public
-   */
-  Groups?: string[] | undefined;
-
-  /**
-   * <p>Specifies whether the instance is optimized for Amazon EBS I/O. This optimization
-   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
-   *             provide optimal EBS I/O performance. This optimization isn't available with all instance
-   *             types. Additional usage charges apply when using an EBS Optimized instance.</p>
-   * @public
-   */
-  EbsOptimized?: AttributeBooleanValue | undefined;
-
-  /**
-   * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual
-   *             Function interface for the instance.</p>
-   *          <p>There is no way to disable enhanced networking with the Intel 82599 Virtual Function
-   *             interface at this time.</p>
-   *          <p>This option is supported only for HVM instances. Specifying this option with a PV
-   *             instance can make it unreachable.</p>
-   * @public
-   */
-  SriovNetSupport?: AttributeValue | undefined;
-
-  /**
-   * <p>Set to <code>true</code> to enable enhanced networking with ENA for the
-   *             instance.</p>
-   *          <p>This option is supported only for HVM instances. Specifying this option with a PV
-   *             instance can make it unreachable.</p>
-   * @public
-   */
-  EnaSupport?: AttributeBooleanValue | undefined;
-}
-
-/**
- * <p>Describes an instance's Capacity Reservation targeting option. </p>
- *          <p>Use the <code>CapacityReservationPreference</code> parameter to configure the instance to
- * 			run as an On-Demand Instance, to run in any <code>open</code> Capacity Reservation that
- * 			has matching attributes, or to run only in a Capacity Reservation or Capacity
- * 			Reservation group. Use the <code>CapacityReservationTarget</code> parameter to
- * 			explicitly target a specific Capacity Reservation or a Capacity Reservation
- * 			group.</p>
- *          <p>You can only specify <code>CapacityReservationPreference</code> and <code>CapacityReservationTarget</code> if the <code>CapacityReservationPreference</code> is <code>capacity-reservations-only</code>.</p>
- * @public
- */
-export interface CapacityReservationSpecification {
-  /**
-   * <p>Indicates the instance's Capacity Reservation preferences. Possible preferences
-   * 			include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>capacity-reservations-only</code> - The instance will only run in a
-   * 					Capacity Reservation or Capacity Reservation group. If capacity isn't
-   * 					available, the instance will fail to launch.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>open</code> - The instance can run in any <code>open</code> Capacity
-   * 					Reservation that has matching attributes (instance type, platform,
-   * 					Availability Zone, and tenancy). If capacity isn't available, the instance
-   * 					runs as an On-Demand Instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>none</code> - The instance doesn't run in a Capacity Reservation even if one is available. The
-   * 					instance runs as an On-Demand Instance.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  CapacityReservationPreference?: CapacityReservationPreference | undefined;
-
-  /**
-   * <p>Information about the target Capacity Reservation or Capacity Reservation group.</p>
-   * @public
-   */
-  CapacityReservationTarget?: CapacityReservationTarget | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyInstanceCapacityReservationAttributesRequest {
-  /**
-   * <p>The ID of the instance to be modified.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Information about the Capacity Reservation targeting option.</p>
-   * @public
-   */
-  CapacityReservationSpecification: CapacityReservationSpecification | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
  * @internal
  */
 export const VerifiedAccessInstanceUserTrustProviderClientConfigurationFilterSensitiveLog = (
@@ -9093,78 +8108,4 @@ export const DiskImageDetailFilterSensitiveLog = (obj: DiskImageDetail): any => 
 export const DiskImageFilterSensitiveLog = (obj: DiskImage): any => ({
   ...obj,
   ...(obj.Image && { Image: DiskImageDetailFilterSensitiveLog(obj.Image) }),
-});
-
-/**
- * @internal
- */
-export const UserDataFilterSensitiveLog = (obj: UserData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportInstanceLaunchSpecificationFilterSensitiveLog = (obj: ImportInstanceLaunchSpecification): any => ({
-  ...obj,
-  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImportInstanceRequestFilterSensitiveLog = (obj: ImportInstanceRequest): any => ({
-  ...obj,
-  ...(obj.LaunchSpecification && {
-    LaunchSpecification: ImportInstanceLaunchSpecificationFilterSensitiveLog(obj.LaunchSpecification),
-  }),
-  ...(obj.DiskImages && { DiskImages: obj.DiskImages.map((item) => DiskImageFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ImportInstanceResultFilterSensitiveLog = (obj: ImportInstanceResult): any => ({
-  ...obj,
-  ...(obj.ConversionTask && { ConversionTask: ConversionTaskFilterSensitiveLog(obj.ConversionTask) }),
-});
-
-/**
- * @internal
- */
-export const SnapshotDiskContainerFilterSensitiveLog = (obj: SnapshotDiskContainer): any => ({
-  ...obj,
-  ...(obj.Url && { Url: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImportSnapshotRequestFilterSensitiveLog = (obj: ImportSnapshotRequest): any => ({
-  ...obj,
-  ...(obj.DiskContainer && { DiskContainer: SnapshotDiskContainerFilterSensitiveLog(obj.DiskContainer) }),
-});
-
-/**
- * @internal
- */
-export const ImportSnapshotResultFilterSensitiveLog = (obj: ImportSnapshotResult): any => ({
-  ...obj,
-  ...(obj.SnapshotTaskDetail && { SnapshotTaskDetail: SnapshotTaskDetailFilterSensitiveLog(obj.SnapshotTaskDetail) }),
-});
-
-/**
- * @internal
- */
-export const ImportVolumeRequestFilterSensitiveLog = (obj: ImportVolumeRequest): any => ({
-  ...obj,
-  ...(obj.Image && { Image: DiskImageDetailFilterSensitiveLog(obj.Image) }),
-});
-
-/**
- * @internal
- */
-export const ImportVolumeResultFilterSensitiveLog = (obj: ImportVolumeResult): any => ({
-  ...obj,
-  ...(obj.ConversionTask && { ConversionTask: ConversionTaskFilterSensitiveLog(obj.ConversionTask) }),
 });

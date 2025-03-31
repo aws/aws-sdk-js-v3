@@ -11,7 +11,7 @@ import {
   ImportVolumeRequestFilterSensitiveLog,
   ImportVolumeResult,
   ImportVolumeResultFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import { de_ImportVolumeCommand, se_ImportVolumeCommand } from "../protocols/Aws_ec2";
 
 /**

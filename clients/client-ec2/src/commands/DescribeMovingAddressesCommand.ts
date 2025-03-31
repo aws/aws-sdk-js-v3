@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeMovingAddressesRequest, DescribeMovingAddressesResult } from "../models/models_4";
+import { DescribeMovingAddressesRequest } from "../models/models_4";
+import { DescribeMovingAddressesResult } from "../models/models_5";
 import { de_DescribeMovingAddressesCommand, se_DescribeMovingAddressesCommand } from "../protocols/Aws_ec2";
 
 /**

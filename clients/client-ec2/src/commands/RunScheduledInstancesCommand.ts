@@ -10,7 +10,7 @@ import {
   RunScheduledInstancesRequest,
   RunScheduledInstancesRequestFilterSensitiveLog,
   RunScheduledInstancesResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import { de_RunScheduledInstancesCommand, se_RunScheduledInstancesCommand } from "../protocols/Aws_ec2";
 
 /**

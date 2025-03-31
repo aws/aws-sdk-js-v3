@@ -35,12 +35,8 @@ import {
   ClientVpnRouteStatus,
   CoipCidr,
   CoipPool,
-  CustomerGateway,
-  DhcpOptions,
   DiskImageFormat,
   Ec2InstanceConnectEndpoint,
-  EgressOnlyInternetGateway,
-  ExportTask,
   FleetCapacityReservation,
   FleetCapacityReservationTenancy,
   FleetInstanceMatchCriteria,
@@ -51,20 +47,21 @@ import {
   IpamResourceDiscovery,
   IpamScope,
   LaunchTemplate,
-  LocalGatewayRoute,
-  PlatformValues,
   TransportProtocol,
 } from "./models_1";
 
 import {
-  GatewayAssociationState,
   GroupIdentifier,
+  IKEVersionsRequestListValue,
+  LocalGatewayRoute,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
+  RouteServer,
+  RouteServerEndpoint,
+  RouteServerPeer,
   SubnetCidrReservation,
-  TelemetryStatus,
   TransitGateway,
   TransitGatewayConnect,
   TransitGatewayConnectPeer,
@@ -74,14 +71,885 @@ import {
   TransitGatewayRoute,
   TransitGatewayRouteTable,
   TransitGatewayRouteTableAnnouncement,
+  TunnelInsideIpVersion,
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
-  VpnConnectionOptions,
-  VpnConnectionOptionsFilterSensitiveLog,
-  VpnState,
-  VpnStaticRoute,
+  VpnTunnelLogOptionsSpecification,
 } from "./models_2";
+
+/**
+ * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE
+ *             negotiations.</p>
+ * @public
+ */
+export interface Phase1DHGroupNumbersRequestListValue {
+  /**
+   * <p>The Diffie-Hellmann group number.</p>
+   * @public
+   */
+  Value?: number | undefined;
+}
+
+/**
+ * <p>Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE
+ *             negotiations.</p>
+ * @public
+ */
+export interface Phase1EncryptionAlgorithmsRequestListValue {
+  /**
+   * <p>The value for the encryption algorithm.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE
+ *             negotiations.</p>
+ * @public
+ */
+export interface Phase1IntegrityAlgorithmsRequestListValue {
+  /**
+   * <p>The value for the integrity algorithm.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE
+ *             negotiations.</p>
+ * @public
+ */
+export interface Phase2DHGroupNumbersRequestListValue {
+  /**
+   * <p>The Diffie-Hellmann group number.</p>
+   * @public
+   */
+  Value?: number | undefined;
+}
+
+/**
+ * <p>Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE
+ *             negotiations.</p>
+ * @public
+ */
+export interface Phase2EncryptionAlgorithmsRequestListValue {
+  /**
+   * <p>The encryption algorithm.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE
+ *             negotiations.</p>
+ * @public
+ */
+export interface Phase2IntegrityAlgorithmsRequestListValue {
+  /**
+   * <p>The integrity algorithm.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>The tunnel options for a single VPN tunnel.</p>
+ * @public
+ */
+export interface VpnTunnelOptionsSpecification {
+  /**
+   * <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be
+   *             unique across all VPN connections that use the same virtual private gateway. </p>
+   *          <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
+   *             following CIDR blocks are reserved and cannot be used:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.0.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.1.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.2.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.3.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.4.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.5.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>169.254.169.252/30</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TunnelInsideCidr?: string | undefined;
+
+  /**
+   * <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be
+   *             unique across all VPN connections that use the same transit gateway.</p>
+   *          <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
+   * @public
+   */
+  TunnelInsideIpv6Cidr?: string | undefined;
+
+  /**
+   * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
+   *             private gateway and customer gateway.</p>
+   *          <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and
+   *             underscores (_). Must be between 8 and 64 characters in length and cannot start with
+   *             zero (0).</p>
+   * @public
+   */
+  PreSharedKey?: string | undefined;
+
+  /**
+   * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
+   *          <p>Constraints: A value between 900 and 28,800.</p>
+   *          <p>Default: <code>28800</code>
+   *          </p>
+   * @public
+   */
+  Phase1LifetimeSeconds?: number | undefined;
+
+  /**
+   * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
+   *          <p>Constraints: A value between 900 and 3,600. The value must be less than the value for
+   *                 <code>Phase1LifetimeSeconds</code>.</p>
+   *          <p>Default: <code>3600</code>
+   *          </p>
+   * @public
+   */
+  Phase2LifetimeSeconds?: number | undefined;
+
+  /**
+   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
+   *                 Amazon Web Services side of the VPN connection performs an IKE rekey. The exact time
+   *             of the rekey is randomly selected based on the value for
+   *                 <code>RekeyFuzzPercentage</code>.</p>
+   *          <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
+   *          <p>Default: <code>270</code>
+   *          </p>
+   * @public
+   */
+  RekeyMarginTimeSeconds?: number | undefined;
+
+  /**
+   * <p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>)
+   *             during which the rekey time is randomly selected.</p>
+   *          <p>Constraints: A value between 0 and 100.</p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   * @public
+   */
+  RekeyFuzzPercentage?: number | undefined;
+
+  /**
+   * <p>The number of packets in an IKE replay window.</p>
+   *          <p>Constraints: A value between 64 and 2048.</p>
+   *          <p>Default: <code>1024</code>
+   *          </p>
+   * @public
+   */
+  ReplayWindowSize?: number | undefined;
+
+  /**
+   * <p>The number of seconds after which a DPD timeout occurs.</p>
+   *          <p>Constraints: A value greater than or equal to 30.</p>
+   *          <p>Default: <code>30</code>
+   *          </p>
+   * @public
+   */
+  DPDTimeoutSeconds?: number | undefined;
+
+  /**
+   * <p>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart
+   *             the IKE initiation. Specify <code>clear</code> to end the IKE session.</p>
+   *          <p>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code>
+   *          </p>
+   *          <p>Default: <code>clear</code>
+   *          </p>
+   * @public
+   */
+  DPDTimeoutAction?: string | undefined;
+
+  /**
+   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1
+   *             IKE negotiations.</p>
+   *          <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
+   *                 <code>AES256-GCM-16</code>
+   *          </p>
+   * @public
+   */
+  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsRequestListValue[] | undefined;
+
+  /**
+   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2
+   *             IKE negotiations.</p>
+   *          <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
+   *                 <code>AES256-GCM-16</code>
+   *          </p>
+   * @public
+   */
+  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsRequestListValue[] | undefined;
+
+  /**
+   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE
+   *             negotiations.</p>
+   *          <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+   *                 <code>SHA2-512</code>
+   *          </p>
+   * @public
+   */
+  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsRequestListValue[] | undefined;
+
+  /**
+   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE
+   *             negotiations.</p>
+   *          <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+   *                 <code>SHA2-512</code>
+   *          </p>
+   * @public
+   */
+  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsRequestListValue[] | undefined;
+
+  /**
+   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
+   *             phase 1 IKE negotiations.</p>
+   *          <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> |
+   *                 <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> |
+   *                 <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
+   *          </p>
+   * @public
+   */
+  Phase1DHGroupNumbers?: Phase1DHGroupNumbersRequestListValue[] | undefined;
+
+  /**
+   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
+   *             phase 2 IKE negotiations.</p>
+   *          <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> |
+   *                 <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> |
+   *                 <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> |
+   *                 <code>24</code>
+   *          </p>
+   * @public
+   */
+  Phase2DHGroupNumbers?: Phase2DHGroupNumbersRequestListValue[] | undefined;
+
+  /**
+   * <p>The IKE versions that are permitted for the VPN tunnel.</p>
+   *          <p>Valid values: <code>ikev1</code> | <code>ikev2</code>
+   *          </p>
+   * @public
+   */
+  IKEVersions?: IKEVersionsRequestListValue[] | undefined;
+
+  /**
+   * <p>The action to take when the establishing the tunnel for the VPN connection. By
+   *             default, your customer gateway device must initiate the IKE negotiation and bring up the
+   *             tunnel. Specify <code>start</code> for Amazon Web Services to initiate the IKE
+   *             negotiation.</p>
+   *          <p>Valid Values: <code>add</code> | <code>start</code>
+   *          </p>
+   *          <p>Default: <code>add</code>
+   *          </p>
+   * @public
+   */
+  StartupAction?: string | undefined;
+
+  /**
+   * <p>Options for logging VPN tunnel activity.</p>
+   * @public
+   */
+  LogOptions?: VpnTunnelLogOptionsSpecification | undefined;
+
+  /**
+   * <p>Turn on or off tunnel endpoint lifecycle control feature.</p>
+   * @public
+   */
+  EnableTunnelLifecycleControl?: boolean | undefined;
+}
+
+/**
+ * <p>Describes VPN connection options.</p>
+ * @public
+ */
+export interface VpnConnectionOptionsSpecification {
+  /**
+   * <p>Indicate whether to enable acceleration for the VPN connection.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  EnableAcceleration?: boolean | undefined;
+
+  /**
+   * <p>Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
+   *          <p>Default: <code>ipv4</code>
+   *          </p>
+   * @public
+   */
+  TunnelInsideIpVersion?: TunnelInsideIpVersion | undefined;
+
+  /**
+   * <p>The tunnel options for the VPN connection.</p>
+   * @public
+   */
+  TunnelOptions?: VpnTunnelOptionsSpecification[] | undefined;
+
+  /**
+   * <p>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
+   *          <p>Default: <code>0.0.0.0/0</code>
+   *          </p>
+   * @public
+   */
+  LocalIpv4NetworkCidr?: string | undefined;
+
+  /**
+   * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
+   *          <p>Default: <code>0.0.0.0/0</code>
+   *          </p>
+   * @public
+   */
+  RemoteIpv4NetworkCidr?: string | undefined;
+
+  /**
+   * <p>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
+   *          <p>Default: <code>::/0</code>
+   *          </p>
+   * @public
+   */
+  LocalIpv6NetworkCidr?: string | undefined;
+
+  /**
+   * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
+   *          <p>Default: <code>::/0</code>
+   *          </p>
+   * @public
+   */
+  RemoteIpv6NetworkCidr?: string | undefined;
+
+  /**
+   * <p>The type of IPv4 address assigned to the outside interface of the customer gateway device.</p>
+   *          <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code>
+   *          </p>
+   *          <p>Default: <code>PublicIpv4</code>
+   *          </p>
+   * @public
+   */
+  OutsideIpAddressType?: string | undefined;
+
+  /**
+   * <p>The transit gateway attachment ID to use for the VPN tunnel.</p>
+   *          <p>Required if <code>OutsideIpAddressType</code> is set to <code>PrivateIpv4</code>.</p>
+   * @public
+   */
+  TransportTransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>Indicate whether the VPN connection uses static routes only. If you are creating a VPN
+   *             connection for a device that does not support BGP, you must specify <code>true</code>.
+   *             Use <a>CreateVpnConnectionRoute</a> to create a static route.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  StaticRoutesOnly?: boolean | undefined;
+}
+
+/**
+ * <p>Contains the parameters for CreateVpnConnection.</p>
+ * @public
+ */
+export interface CreateVpnConnectionRequest {
+  /**
+   * <p>The ID of the customer gateway.</p>
+   * @public
+   */
+  CustomerGatewayId: string | undefined;
+
+  /**
+   * <p>The type of VPN connection (<code>ipsec.1</code>).</p>
+   * @public
+   */
+  Type: string | undefined;
+
+  /**
+   * <p>The ID of the virtual private gateway. If you specify a virtual private gateway, you
+   *             cannot specify a transit gateway.</p>
+   * @public
+   */
+  VpnGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the transit gateway. If you specify a transit gateway, you cannot specify a virtual private
+   *             gateway.</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>The tags to apply to the VPN connection.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The options for the VPN connection.</p>
+   * @public
+   */
+  Options?: VpnConnectionOptionsSpecification | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GatewayAssociationState = {
+  associated: "associated",
+  associating: "associating",
+  disassociating: "disassociating",
+  not_associated: "not-associated",
+} as const;
+
+/**
+ * @public
+ */
+export type GatewayAssociationState = (typeof GatewayAssociationState)[keyof typeof GatewayAssociationState];
+
+/**
+ * <p>The internet key exchange (IKE) version permitted for the VPN tunnel.</p>
+ * @public
+ */
+export interface IKEVersionsListValue {
+  /**
+   * <p>The IKE version.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Options for sending VPN tunnel logs to CloudWatch.</p>
+ * @public
+ */
+export interface CloudWatchLogOptions {
+  /**
+   * <p>Status of VPN tunnel logging feature. Default value is <code>False</code>.</p>
+   *          <p>Valid values: <code>True</code> | <code>False</code>
+   *          </p>
+   * @public
+   */
+  LogEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.</p>
+   * @public
+   */
+  LogGroupArn?: string | undefined;
+
+  /**
+   * <p>Configured log format. Default format is <code>json</code>.</p>
+   *          <p>Valid values: <code>json</code> | <code>text</code>
+   *          </p>
+   * @public
+   */
+  LogOutputFormat?: string | undefined;
+}
+
+/**
+ * <p>Options for logging VPN tunnel activity.</p>
+ * @public
+ */
+export interface VpnTunnelLogOptions {
+  /**
+   * <p>Options for sending VPN tunnel logs to CloudWatch.</p>
+   * @public
+   */
+  CloudWatchLogOptions?: CloudWatchLogOptions | undefined;
+}
+
+/**
+ * <p>The Diffie-Hellmann group number for phase 1 IKE negotiations.</p>
+ * @public
+ */
+export interface Phase1DHGroupNumbersListValue {
+  /**
+   * <p>The Diffie-Hellmann group number.</p>
+   * @public
+   */
+  Value?: number | undefined;
+}
+
+/**
+ * <p>The encryption algorithm for phase 1 IKE negotiations.</p>
+ * @public
+ */
+export interface Phase1EncryptionAlgorithmsListValue {
+  /**
+   * <p>The value for the encryption algorithm.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>The integrity algorithm for phase 1 IKE negotiations.</p>
+ * @public
+ */
+export interface Phase1IntegrityAlgorithmsListValue {
+  /**
+   * <p>The value for the integrity algorithm.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>The Diffie-Hellmann group number for phase 2 IKE negotiations.</p>
+ * @public
+ */
+export interface Phase2DHGroupNumbersListValue {
+  /**
+   * <p>The Diffie-Hellmann group number.</p>
+   * @public
+   */
+  Value?: number | undefined;
+}
+
+/**
+ * <p>The encryption algorithm for phase 2 IKE negotiations.</p>
+ * @public
+ */
+export interface Phase2EncryptionAlgorithmsListValue {
+  /**
+   * <p>The encryption algorithm.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>The integrity algorithm for phase 2 IKE negotiations.</p>
+ * @public
+ */
+export interface Phase2IntegrityAlgorithmsListValue {
+  /**
+   * <p>The integrity algorithm.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>The VPN tunnel options.</p>
+ * @public
+ */
+export interface TunnelOption {
+  /**
+   * <p>The external IP address of the VPN tunnel.</p>
+   * @public
+   */
+  OutsideIpAddress?: string | undefined;
+
+  /**
+   * <p>The range of inside IPv4 addresses for the tunnel.</p>
+   * @public
+   */
+  TunnelInsideCidr?: string | undefined;
+
+  /**
+   * <p>The range of inside IPv6 addresses for the tunnel.</p>
+   * @public
+   */
+  TunnelInsideIpv6Cidr?: string | undefined;
+
+  /**
+   * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
+   *             private gateway and the customer gateway.</p>
+   * @public
+   */
+  PreSharedKey?: string | undefined;
+
+  /**
+   * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
+   * @public
+   */
+  Phase1LifetimeSeconds?: number | undefined;
+
+  /**
+   * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
+   * @public
+   */
+  Phase2LifetimeSeconds?: number | undefined;
+
+  /**
+   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
+   *                 Amazon Web Services side of the VPN connection performs an IKE rekey.</p>
+   * @public
+   */
+  RekeyMarginTimeSeconds?: number | undefined;
+
+  /**
+   * <p>The percentage of the rekey window determined by <code>RekeyMarginTimeSeconds</code>
+   *             during which the rekey time is randomly selected.</p>
+   * @public
+   */
+  RekeyFuzzPercentage?: number | undefined;
+
+  /**
+   * <p>The number of packets in an IKE replay window.</p>
+   * @public
+   */
+  ReplayWindowSize?: number | undefined;
+
+  /**
+   * <p>The number of seconds after which a DPD timeout occurs.</p>
+   * @public
+   */
+  DpdTimeoutSeconds?: number | undefined;
+
+  /**
+   * <p>The action to take after a DPD timeout occurs.</p>
+   * @public
+   */
+  DpdTimeoutAction?: string | undefined;
+
+  /**
+   * <p>The permitted encryption algorithms for the VPN tunnel for phase 1 IKE
+   *             negotiations.</p>
+   * @public
+   */
+  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsListValue[] | undefined;
+
+  /**
+   * <p>The permitted encryption algorithms for the VPN tunnel for phase 2 IKE
+   *             negotiations.</p>
+   * @public
+   */
+  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsListValue[] | undefined;
+
+  /**
+   * <p>The permitted integrity algorithms for the VPN tunnel for phase 1 IKE
+   *             negotiations.</p>
+   * @public
+   */
+  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsListValue[] | undefined;
+
+  /**
+   * <p>The permitted integrity algorithms for the VPN tunnel for phase 2 IKE
+   *             negotiations.</p>
+   * @public
+   */
+  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsListValue[] | undefined;
+
+  /**
+   * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 1 IKE
+   *             negotiations.</p>
+   * @public
+   */
+  Phase1DHGroupNumbers?: Phase1DHGroupNumbersListValue[] | undefined;
+
+  /**
+   * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 2 IKE
+   *             negotiations.</p>
+   * @public
+   */
+  Phase2DHGroupNumbers?: Phase2DHGroupNumbersListValue[] | undefined;
+
+  /**
+   * <p>The IKE versions that are permitted for the VPN tunnel.</p>
+   * @public
+   */
+  IkeVersions?: IKEVersionsListValue[] | undefined;
+
+  /**
+   * <p>The action to take when the establishing the VPN tunnels for a VPN connection.</p>
+   * @public
+   */
+  StartupAction?: string | undefined;
+
+  /**
+   * <p>Options for logging VPN tunnel activity.</p>
+   * @public
+   */
+  LogOptions?: VpnTunnelLogOptions | undefined;
+
+  /**
+   * <p>Status of tunnel endpoint lifecycle control feature.</p>
+   * @public
+   */
+  EnableTunnelLifecycleControl?: boolean | undefined;
+}
+
+/**
+ * <p>Describes VPN connection options.</p>
+ * @public
+ */
+export interface VpnConnectionOptions {
+  /**
+   * <p>Indicates whether acceleration is enabled for the VPN connection.</p>
+   * @public
+   */
+  EnableAcceleration?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the VPN connection uses static routes only. Static routes must be
+   *             used for devices that don't support BGP.</p>
+   * @public
+   */
+  StaticRoutesOnly?: boolean | undefined;
+
+  /**
+   * <p>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
+   * @public
+   */
+  LocalIpv4NetworkCidr?: string | undefined;
+
+  /**
+   * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
+   * @public
+   */
+  RemoteIpv4NetworkCidr?: string | undefined;
+
+  /**
+   * <p>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
+   * @public
+   */
+  LocalIpv6NetworkCidr?: string | undefined;
+
+  /**
+   * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
+   * @public
+   */
+  RemoteIpv6NetworkCidr?: string | undefined;
+
+  /**
+   * <p>The type of IPv4 address assigned to the outside interface of the customer gateway.</p>
+   *          <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code>
+   *          </p>
+   *          <p>Default: <code>PublicIpv4</code>
+   *          </p>
+   * @public
+   */
+  OutsideIpAddressType?: string | undefined;
+
+  /**
+   * <p>The transit gateway attachment ID in use for the VPN tunnel.</p>
+   * @public
+   */
+  TransportTransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
+   * @public
+   */
+  TunnelInsideIpVersion?: TunnelInsideIpVersion | undefined;
+
+  /**
+   * <p>Indicates the VPN tunnel options.</p>
+   * @public
+   */
+  TunnelOptions?: TunnelOption[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VpnStaticRouteSource = {
+  Static: "Static",
+} as const;
+
+/**
+ * @public
+ */
+export type VpnStaticRouteSource = (typeof VpnStaticRouteSource)[keyof typeof VpnStaticRouteSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const VpnState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type VpnState = (typeof VpnState)[keyof typeof VpnState];
+
+/**
+ * <p>Describes a static route for a VPN connection.</p>
+ * @public
+ */
+export interface VpnStaticRoute {
+  /**
+   * <p>The CIDR block associated with the local subnet of the customer data center.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string | undefined;
+
+  /**
+   * <p>Indicates how the routes were provided.</p>
+   * @public
+   */
+  Source?: VpnStaticRouteSource | undefined;
+
+  /**
+   * <p>The current state of the static route.</p>
+   * @public
+   */
+  State?: VpnState | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TelemetryStatus = {
+  DOWN: "DOWN",
+  UP: "UP",
+} as const;
+
+/**
+ * @public
+ */
+export type TelemetryStatus = (typeof TelemetryStatus)[keyof typeof TelemetryStatus];
 
 /**
  * <p>Describes telemetry for a VPN tunnel.</p>
@@ -1944,6 +2812,96 @@ export interface DeleteRouteRequest {
    * @public
    */
   DestinationIpv6CidrBlock?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouteServerRequest {
+  /**
+   * <p>The ID of the route server to delete.</p>
+   * @public
+   */
+  RouteServerId: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouteServerResult {
+  /**
+   * <p>Information about the deleted route server.</p>
+   * @public
+   */
+  RouteServer?: RouteServer | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouteServerEndpointRequest {
+  /**
+   * <p>The ID of the route server endpoint to delete.</p>
+   * @public
+   */
+  RouteServerEndpointId: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouteServerEndpointResult {
+  /**
+   * <p>Information about the deleted route server endpoint.</p>
+   * @public
+   */
+  RouteServerEndpoint?: RouteServerEndpoint | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouteServerPeerRequest {
+  /**
+   * <p>The ID of the route server peer to delete.</p>
+   * @public
+   */
+  RouteServerPeerId: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouteServerPeerResult {
+  /**
+   * <p>Information about the deleted route server peer.</p>
+   * @public
+   */
+  RouteServerPeer?: RouteServerPeer | undefined;
 }
 
 /**
@@ -6744,987 +7702,46 @@ export interface DiskImageVolumeDescription {
 }
 
 /**
- * <p>Describes an import volume task.</p>
- * @public
+ * @internal
  */
-export interface ImportInstanceVolumeDetailItem {
-  /**
-   * <p>The Availability Zone where the resulting instance will reside.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The number of bytes converted so far.</p>
-   * @public
-   */
-  BytesConverted?: number | undefined;
-
-  /**
-   * <p>A description of the task.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The image.</p>
-   * @public
-   */
-  Image?: DiskImageDescription | undefined;
-
-  /**
-   * <p>The status of the import of this particular disk image.</p>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>The status information or errors related to the disk image.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>The volume.</p>
-   * @public
-   */
-  Volume?: DiskImageVolumeDescription | undefined;
-}
+export const VpnTunnelOptionsSpecificationFilterSensitiveLog = (obj: VpnTunnelOptionsSpecification): any => ({
+  ...obj,
+  ...(obj.PreSharedKey && { PreSharedKey: SENSITIVE_STRING }),
+});
 
 /**
- * <p>Describes an import instance task.</p>
- * @public
+ * @internal
  */
-export interface ImportInstanceTaskDetails {
-  /**
-   * <p>A description of the task.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The instance operating system.</p>
-   * @public
-   */
-  Platform?: PlatformValues | undefined;
-
-  /**
-   * <p>The volumes.</p>
-   * @public
-   */
-  Volumes?: ImportInstanceVolumeDetailItem[] | undefined;
-}
+export const VpnConnectionOptionsSpecificationFilterSensitiveLog = (obj: VpnConnectionOptionsSpecification): any => ({
+  ...obj,
+  ...(obj.TunnelOptions && {
+    TunnelOptions: obj.TunnelOptions.map((item) => VpnTunnelOptionsSpecificationFilterSensitiveLog(item)),
+  }),
+});
 
 /**
- * <p>Describes an import volume task.</p>
- * @public
+ * @internal
  */
-export interface ImportVolumeTaskDetails {
-  /**
-   * <p>The Availability Zone where the resulting volume will reside.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The number of bytes converted so far.</p>
-   * @public
-   */
-  BytesConverted?: number | undefined;
-
-  /**
-   * <p>The description you provided when starting the import volume task.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The image.</p>
-   * @public
-   */
-  Image?: DiskImageDescription | undefined;
-
-  /**
-   * <p>The volume.</p>
-   * @public
-   */
-  Volume?: DiskImageVolumeDescription | undefined;
-}
+export const CreateVpnConnectionRequestFilterSensitiveLog = (obj: CreateVpnConnectionRequest): any => ({
+  ...obj,
+  ...(obj.Options && { Options: VpnConnectionOptionsSpecificationFilterSensitiveLog(obj.Options) }),
+});
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const ConversionTaskState = {
-  active: "active",
-  cancelled: "cancelled",
-  cancelling: "cancelling",
-  completed: "completed",
-} as const;
+export const TunnelOptionFilterSensitiveLog = (obj: TunnelOption): any => ({
+  ...obj,
+  ...(obj.PreSharedKey && { PreSharedKey: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export type ConversionTaskState = (typeof ConversionTaskState)[keyof typeof ConversionTaskState];
-
-/**
- * <p>Describes a conversion task.</p>
- * @public
- */
-export interface ConversionTask {
-  /**
-   * <p>The ID of the conversion task.</p>
-   * @public
-   */
-  ConversionTaskId?: string | undefined;
-
-  /**
-   * <p>The time when the task expires. If the upload isn't complete before the expiration time, we automatically cancel
-   *    the task.</p>
-   * @public
-   */
-  ExpirationTime?: string | undefined;
-
-  /**
-   * <p>If the task is for importing an instance, this contains information about the import instance task.</p>
-   * @public
-   */
-  ImportInstance?: ImportInstanceTaskDetails | undefined;
-
-  /**
-   * <p>If the task is for importing a volume, this contains information about the import volume task.</p>
-   * @public
-   */
-  ImportVolume?: ImportVolumeTaskDetails | undefined;
-
-  /**
-   * <p>The state of the conversion task.</p>
-   * @public
-   */
-  State?: ConversionTaskState | undefined;
-
-  /**
-   * <p>The status message related to the conversion task.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>Any tags assigned to the task.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeConversionTasksResult {
-  /**
-   * <p>Information about the conversion tasks.</p>
-   * @public
-   */
-  ConversionTasks?: ConversionTask[] | undefined;
-}
-
-/**
- * <p>Contains the parameters for DescribeCustomerGateways.</p>
- * @public
- */
-export interface DescribeCustomerGatewaysRequest {
-  /**
-   * <p>One or more customer gateway IDs.</p>
-   *          <p>Default: Describes all your customer gateways.</p>
-   * @public
-   */
-  CustomerGatewayIds?: string[] | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP)
-   *                     Autonomous System Number (ASN).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>customer-gateway-id</code> - The ID of the customer gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ip-address</code> - The IP address of the customer gateway
-   *                     device's external interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the customer gateway (<code>pending</code> |
-   *                         <code>available</code> | <code>deleting</code> |
-   *                     <code>deleted</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>type</code> - The type of customer gateway. Currently, the only
-   *                     supported type is <code>ipsec.1</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Contains the output of DescribeCustomerGateways.</p>
- * @public
- */
-export interface DescribeCustomerGatewaysResult {
-  /**
-   * <p>Information about one or more customer gateways.</p>
-   * @public
-   */
-  CustomerGateways?: CustomerGateway[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDeclarativePoliciesReportsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>One or more report IDs.</p>
-   * @public
-   */
-  ReportIds?: string[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ReportState = {
-  cancelled: "cancelled",
-  complete: "complete",
-  error: "error",
-  running: "running",
-} as const;
-
-/**
- * @public
- */
-export type ReportState = (typeof ReportState)[keyof typeof ReportState];
-
-/**
- * <p>Describes the metadata of the account status report.</p>
- * @public
- */
-export interface DeclarativePoliciesReport {
-  /**
-   * <p>The ID of the report.</p>
-   * @public
-   */
-  ReportId?: string | undefined;
-
-  /**
-   * <p>The name of the Amazon S3 bucket where the report is located.</p>
-   * @public
-   */
-  S3Bucket?: string | undefined;
-
-  /**
-   * <p>The prefix for your S3 object.</p>
-   * @public
-   */
-  S3Prefix?: string | undefined;
-
-  /**
-   * <p>The root ID, organizational unit ID, or account ID.</p>
-   *          <p>Format:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For root: <code>r-ab12</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>For OU: <code>ou-ab12-cdef1234</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>For account: <code>123456789012</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  TargetId?: string | undefined;
-
-  /**
-   * <p>The time when the report generation started.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The time when the report generation ended.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>The current status of the report.</p>
-   * @public
-   */
-  Status?: ReportState | undefined;
-
-  /**
-   * <p>Any tags assigned to the report.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDeclarativePoliciesReportsResult {
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The report metadata.</p>
-   * @public
-   */
-  Reports?: DeclarativePoliciesReport[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDhcpOptionsRequest {
-  /**
-   * <p>The IDs of DHCP option sets.</p>
-   * @public
-   */
-  DhcpOptionsIds?: string[] | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>dhcp-options-id</code> - The ID of a DHCP options set.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>key</code> - The key for one of the options (for example, <code>domain-name</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>value</code> - The value for one of the options.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the DHCP options set.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDhcpOptionsResult {
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the DHCP options sets.</p>
-   * @public
-   */
-  DhcpOptions?: DhcpOptions[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEgressOnlyInternetGatewaysRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IDs of the egress-only internet gateways.</p>
-   * @public
-   */
-  EgressOnlyInternetGatewayIds?: string[] | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeEgressOnlyInternetGatewaysResult {
-  /**
-   * <p>Information about the egress-only internet gateways.</p>
-   * @public
-   */
-  EgressOnlyInternetGateways?: EgressOnlyInternetGateway[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeElasticGpusRequest {
-  /**
-   * <p>The Elastic Graphics accelerator IDs.</p>
-   * @public
-   */
-  ElasticGpuIds?: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone in which the
-   *                     Elastic Graphics accelerator resides.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>elastic-gpu-health</code> - The status of the Elastic Graphics accelerator
-   *                         (<code>OK</code> | <code>IMPAIRED</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>elastic-gpu-state</code> - The state of the Elastic Graphics accelerator
-   *                         (<code>ATTACHED</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>elastic-gpu-type</code> - The type of Elastic Graphics accelerator; for example,
-   *                         <code>eg1.medium</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-id</code> - The ID of the instance to which the
-   *                     Elastic Graphics accelerator is associated.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 5 and 1000.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ElasticGpuStatus = {
-  Impaired: "IMPAIRED",
-  Ok: "OK",
-} as const;
-
-/**
- * @public
- */
-export type ElasticGpuStatus = (typeof ElasticGpuStatus)[keyof typeof ElasticGpuStatus];
-
-/**
- * <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
- *          </note>
- *          <p>Describes the status of an Elastic Graphics accelerator.</p>
- * @public
- */
-export interface ElasticGpuHealth {
-  /**
-   * <p>The health status.</p>
-   * @public
-   */
-  Status?: ElasticGpuStatus | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ElasticGpuState = {
-  Attached: "ATTACHED",
-} as const;
-
-/**
- * @public
- */
-export type ElasticGpuState = (typeof ElasticGpuState)[keyof typeof ElasticGpuState];
-
-/**
- * <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
- *          </note>
- *          <p>Describes an Elastic Graphics accelerator.</p>
- * @public
- */
-export interface ElasticGpus {
-  /**
-   * <p>The ID of the Elastic Graphics accelerator.</p>
-   * @public
-   */
-  ElasticGpuId?: string | undefined;
-
-  /**
-   * <p>The Availability Zone in the which the Elastic Graphics accelerator resides.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The type of Elastic Graphics accelerator.</p>
-   * @public
-   */
-  ElasticGpuType?: string | undefined;
-
-  /**
-   * <p>The status of the Elastic Graphics accelerator.</p>
-   * @public
-   */
-  ElasticGpuHealth?: ElasticGpuHealth | undefined;
-
-  /**
-   * <p>The state of the Elastic Graphics accelerator.</p>
-   * @public
-   */
-  ElasticGpuState?: ElasticGpuState | undefined;
-
-  /**
-   * <p>The ID of the instance to which the Elastic Graphics accelerator is attached.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The tags assigned to the Elastic Graphics accelerator.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeElasticGpusResult {
-  /**
-   * <p>Information about the Elastic Graphics accelerators.</p>
-   * @public
-   */
-  ElasticGpuSet?: ElasticGpus[] | undefined;
-
-  /**
-   * <p>The total number of items to return. If the total number of items available is more
-   *             than the value specified in max-items then a Next-Token will be provided in the output
-   *             that you can use to resume pagination.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is
-   *                 <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeExportImageTasksRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Filter tasks using the <code>task-state</code> filter and one of the following values: <code>active</code>,
-   *     <code>completed</code>, <code>deleting</code>, or <code>deleted</code>.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The IDs of the export image tasks.</p>
-   * @public
-   */
-  ExportImageTaskIds?: string[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A token that indicates the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Describes the destination for an export image task.</p>
- * @public
- */
-export interface ExportTaskS3Location {
-  /**
-   * <p>The destination Amazon S3 bucket.</p>
-   * @public
-   */
-  S3Bucket?: string | undefined;
-
-  /**
-   * <p>The prefix (logical hierarchy) in the bucket.</p>
-   * @public
-   */
-  S3Prefix?: string | undefined;
-}
-
-/**
- * <p>Describes an export image task.</p>
- * @public
- */
-export interface ExportImageTask {
-  /**
-   * <p>A description of the image being exported.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The ID of the export image task.</p>
-   * @public
-   */
-  ExportImageTaskId?: string | undefined;
-
-  /**
-   * <p>The ID of the image.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The percent complete of the export image task.</p>
-   * @public
-   */
-  Progress?: string | undefined;
-
-  /**
-   * <p>Information about the destination Amazon S3 bucket.</p>
-   * @public
-   */
-  S3ExportLocation?: ExportTaskS3Location | undefined;
-
-  /**
-   * <p>The status of the export image task. The possible values are <code>active</code>, <code>completed</code>,
-   *     <code>deleting</code>, and <code>deleted</code>.</p>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>The status message for the export image task.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>Any tags assigned to the export image task.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeExportImageTasksResult {
-  /**
-   * <p>Information about the export image tasks.</p>
-   * @public
-   */
-  ExportImageTasks?: ExportImageTask[] | undefined;
-
-  /**
-   * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
-   *    to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeExportTasksRequest {
-  /**
-   * <p>the filters for the export tasks.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The export task IDs.</p>
-   * @public
-   */
-  ExportTaskIds?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeExportTasksResult {
-  /**
-   * <p>Information about the export tasks.</p>
-   * @public
-   */
-  ExportTasks?: ExportTask[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFastLaunchImagesRequest {
-  /**
-   * <p>Specify one or more Windows AMI image IDs for the request.</p>
-   * @public
-   */
-  ImageIds?: string[] | undefined;
-
-  /**
-   * <p>Use the following filters to streamline results.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>resource-type</code> - The resource type for pre-provisioning.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The owner ID for the pre-provisioning resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The current state of fast launching for the Windows AMI.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Identifies the launch template that the AMI uses for Windows fast launch.</p>
- * @public
- */
-export interface FastLaunchLaunchTemplateSpecificationResponse {
-  /**
-   * <p>The ID of the launch template that the AMI uses for Windows fast launch.</p>
-   * @public
-   */
-  LaunchTemplateId?: string | undefined;
-
-  /**
-   * <p>The name of the launch template that the AMI uses for Windows fast launch.</p>
-   * @public
-   */
-  LaunchTemplateName?: string | undefined;
-
-  /**
-   * <p>The version of the launch template that the AMI uses for Windows fast launch.</p>
-   * @public
-   */
-  Version?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const FastLaunchResourceType = {
-  SNAPSHOT: "snapshot",
-} as const;
-
-/**
- * @public
- */
-export type FastLaunchResourceType = (typeof FastLaunchResourceType)[keyof typeof FastLaunchResourceType];
+export const VpnConnectionOptionsFilterSensitiveLog = (obj: VpnConnectionOptions): any => ({
+  ...obj,
+  ...(obj.TunnelOptions && { TunnelOptions: obj.TunnelOptions.map((item) => TunnelOptionFilterSensitiveLog(item)) }),
+});
 
 /**
  * @internal
@@ -7769,47 +7786,4 @@ export const DescribeBundleTasksResultFilterSensitiveLog = (obj: DescribeBundleT
 export const DiskImageDescriptionFilterSensitiveLog = (obj: DiskImageDescription): any => ({
   ...obj,
   ...(obj.ImportManifestUrl && { ImportManifestUrl: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ImportInstanceVolumeDetailItemFilterSensitiveLog = (obj: ImportInstanceVolumeDetailItem): any => ({
-  ...obj,
-  ...(obj.Image && { Image: DiskImageDescriptionFilterSensitiveLog(obj.Image) }),
-});
-
-/**
- * @internal
- */
-export const ImportInstanceTaskDetailsFilterSensitiveLog = (obj: ImportInstanceTaskDetails): any => ({
-  ...obj,
-  ...(obj.Volumes && { Volumes: obj.Volumes.map((item) => ImportInstanceVolumeDetailItemFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ImportVolumeTaskDetailsFilterSensitiveLog = (obj: ImportVolumeTaskDetails): any => ({
-  ...obj,
-  ...(obj.Image && { Image: DiskImageDescriptionFilterSensitiveLog(obj.Image) }),
-});
-
-/**
- * @internal
- */
-export const ConversionTaskFilterSensitiveLog = (obj: ConversionTask): any => ({
-  ...obj,
-  ...(obj.ImportInstance && { ImportInstance: ImportInstanceTaskDetailsFilterSensitiveLog(obj.ImportInstance) }),
-  ...(obj.ImportVolume && { ImportVolume: ImportVolumeTaskDetailsFilterSensitiveLog(obj.ImportVolume) }),
-});
-
-/**
- * @internal
- */
-export const DescribeConversionTasksResultFilterSensitiveLog = (obj: DescribeConversionTasksResult): any => ({
-  ...obj,
-  ...(obj.ConversionTasks && {
-    ConversionTasks: obj.ConversionTasks.map((item) => ConversionTaskFilterSensitiveLog(item)),
-  }),
 });

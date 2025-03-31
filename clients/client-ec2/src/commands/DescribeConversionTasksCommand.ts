@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeConversionTasksRequest,
-  DescribeConversionTasksResult,
-  DescribeConversionTasksResultFilterSensitiveLog,
-} from "../models/models_3";
+import { DescribeConversionTasksRequest } from "../models/models_3";
+import { DescribeConversionTasksResult, DescribeConversionTasksResultFilterSensitiveLog } from "../models/models_4";
 import { de_DescribeConversionTasksCommand, se_DescribeConversionTasksCommand } from "../protocols/Aws_ec2";
 
 /**

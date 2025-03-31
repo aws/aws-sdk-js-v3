@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateLocalGatewayRouteRequest } from "../models/models_1";
-import { CreateLocalGatewayRouteResult } from "../models/models_2";
+import { CreateLocalGatewayRouteRequest, CreateLocalGatewayRouteResult } from "../models/models_2";
 import { de_CreateLocalGatewayRouteCommand, se_CreateLocalGatewayRouteCommand } from "../protocols/Aws_ec2";
 
 /**

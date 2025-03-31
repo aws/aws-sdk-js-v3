@@ -146,6 +146,10 @@ import {
   AssociateNatGatewayAddressCommandOutput,
 } from "./commands/AssociateNatGatewayAddressCommand";
 import {
+  AssociateRouteServerCommandInput,
+  AssociateRouteServerCommandOutput,
+} from "./commands/AssociateRouteServerCommand";
+import {
   AssociateRouteTableCommandInput,
   AssociateRouteTableCommandOutput,
 } from "./commands/AssociateRouteTableCommand";
@@ -393,6 +397,15 @@ import {
   CreateRestoreImageTaskCommandOutput,
 } from "./commands/CreateRestoreImageTaskCommand";
 import { CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
+import { CreateRouteServerCommandInput, CreateRouteServerCommandOutput } from "./commands/CreateRouteServerCommand";
+import {
+  CreateRouteServerEndpointCommandInput,
+  CreateRouteServerEndpointCommandOutput,
+} from "./commands/CreateRouteServerEndpointCommand";
+import {
+  CreateRouteServerPeerCommandInput,
+  CreateRouteServerPeerCommandOutput,
+} from "./commands/CreateRouteServerPeerCommand";
 import { CreateRouteTableCommandInput, CreateRouteTableCommandOutput } from "./commands/CreateRouteTableCommand";
 import {
   CreateSecurityGroupCommandInput,
@@ -639,6 +652,15 @@ import {
   DeleteQueuedReservedInstancesCommandOutput,
 } from "./commands/DeleteQueuedReservedInstancesCommand";
 import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
+import { DeleteRouteServerCommandInput, DeleteRouteServerCommandOutput } from "./commands/DeleteRouteServerCommand";
+import {
+  DeleteRouteServerEndpointCommandInput,
+  DeleteRouteServerEndpointCommandOutput,
+} from "./commands/DeleteRouteServerEndpointCommand";
+import {
+  DeleteRouteServerPeerCommandInput,
+  DeleteRouteServerPeerCommandOutput,
+} from "./commands/DeleteRouteServerPeerCommand";
 import { DeleteRouteTableCommandInput, DeleteRouteTableCommandOutput } from "./commands/DeleteRouteTableCommand";
 import {
   DeleteSecurityGroupCommandInput,
@@ -1139,6 +1161,18 @@ import {
   DescribeReservedInstancesOfferingsCommandOutput,
 } from "./commands/DescribeReservedInstancesOfferingsCommand";
 import {
+  DescribeRouteServerEndpointsCommandInput,
+  DescribeRouteServerEndpointsCommandOutput,
+} from "./commands/DescribeRouteServerEndpointsCommand";
+import {
+  DescribeRouteServerPeersCommandInput,
+  DescribeRouteServerPeersCommandOutput,
+} from "./commands/DescribeRouteServerPeersCommand";
+import {
+  DescribeRouteServersCommandInput,
+  DescribeRouteServersCommandOutput,
+} from "./commands/DescribeRouteServersCommand";
+import {
   DescribeRouteTablesCommandInput,
   DescribeRouteTablesCommandOutput,
 } from "./commands/DescribeRouteTablesCommand";
@@ -1420,6 +1454,10 @@ import {
   DisableIpamOrganizationAdminAccountCommandOutput,
 } from "./commands/DisableIpamOrganizationAdminAccountCommand";
 import {
+  DisableRouteServerPropagationCommandInput,
+  DisableRouteServerPropagationCommandOutput,
+} from "./commands/DisableRouteServerPropagationCommand";
+import {
   DisableSerialConsoleAccessCommandInput,
   DisableSerialConsoleAccessCommandOutput,
 } from "./commands/DisableSerialConsoleAccessCommand";
@@ -1479,6 +1517,10 @@ import {
   DisassociateNatGatewayAddressCommandInput,
   DisassociateNatGatewayAddressCommandOutput,
 } from "./commands/DisassociateNatGatewayAddressCommand";
+import {
+  DisassociateRouteServerCommandInput,
+  DisassociateRouteServerCommandOutput,
+} from "./commands/DisassociateRouteServerCommand";
 import {
   DisassociateRouteTableCommandInput,
   DisassociateRouteTableCommandOutput,
@@ -1553,6 +1595,10 @@ import {
   EnableReachabilityAnalyzerOrganizationSharingCommandInput,
   EnableReachabilityAnalyzerOrganizationSharingCommandOutput,
 } from "./commands/EnableReachabilityAnalyzerOrganizationSharingCommand";
+import {
+  EnableRouteServerPropagationCommandInput,
+  EnableRouteServerPropagationCommandOutput,
+} from "./commands/EnableRouteServerPropagationCommand";
 import {
   EnableSerialConsoleAccessCommandInput,
   EnableSerialConsoleAccessCommandOutput,
@@ -1719,6 +1765,18 @@ import {
   GetReservedInstancesExchangeQuoteCommandInput,
   GetReservedInstancesExchangeQuoteCommandOutput,
 } from "./commands/GetReservedInstancesExchangeQuoteCommand";
+import {
+  GetRouteServerAssociationsCommandInput,
+  GetRouteServerAssociationsCommandOutput,
+} from "./commands/GetRouteServerAssociationsCommand";
+import {
+  GetRouteServerPropagationsCommandInput,
+  GetRouteServerPropagationsCommandOutput,
+} from "./commands/GetRouteServerPropagationsCommand";
+import {
+  GetRouteServerRoutingDatabaseCommandInput,
+  GetRouteServerRoutingDatabaseCommandOutput,
+} from "./commands/GetRouteServerRoutingDatabaseCommand";
 import {
   GetSecurityGroupsForVpcCommandInput,
   GetSecurityGroupsForVpcCommandOutput,
@@ -1931,6 +1989,7 @@ import {
   ModifyReservedInstancesCommandInput,
   ModifyReservedInstancesCommandOutput,
 } from "./commands/ModifyReservedInstancesCommand";
+import { ModifyRouteServerCommandInput, ModifyRouteServerCommandOutput } from "./commands/ModifyRouteServerCommand";
 import {
   ModifySecurityGroupRulesCommandInput,
   ModifySecurityGroupRulesCommandOutput,
@@ -2342,6 +2401,7 @@ export type ServiceInputTypes =
   | AssociateIpamByoasnCommandInput
   | AssociateIpamResourceDiscoveryCommandInput
   | AssociateNatGatewayAddressCommandInput
+  | AssociateRouteServerCommandInput
   | AssociateRouteTableCommandInput
   | AssociateSecurityGroupVpcCommandInput
   | AssociateSubnetCidrBlockCommandInput
@@ -2422,6 +2482,9 @@ export type ServiceInputTypes =
   | CreateReservedInstancesListingCommandInput
   | CreateRestoreImageTaskCommandInput
   | CreateRouteCommandInput
+  | CreateRouteServerCommandInput
+  | CreateRouteServerEndpointCommandInput
+  | CreateRouteServerPeerCommandInput
   | CreateRouteTableCommandInput
   | CreateSecurityGroupCommandInput
   | CreateSnapshotCommandInput
@@ -2500,6 +2563,9 @@ export type ServiceInputTypes =
   | DeletePublicIpv4PoolCommandInput
   | DeleteQueuedReservedInstancesCommandInput
   | DeleteRouteCommandInput
+  | DeleteRouteServerCommandInput
+  | DeleteRouteServerEndpointCommandInput
+  | DeleteRouteServerPeerCommandInput
   | DeleteRouteTableCommandInput
   | DeleteSecurityGroupCommandInput
   | DeleteSnapshotCommandInput
@@ -2645,6 +2711,9 @@ export type ServiceInputTypes =
   | DescribeReservedInstancesListingsCommandInput
   | DescribeReservedInstancesModificationsCommandInput
   | DescribeReservedInstancesOfferingsCommandInput
+  | DescribeRouteServerEndpointsCommandInput
+  | DescribeRouteServerPeersCommandInput
+  | DescribeRouteServersCommandInput
   | DescribeRouteTablesCommandInput
   | DescribeScheduledInstanceAvailabilityCommandInput
   | DescribeScheduledInstancesCommandInput
@@ -2722,6 +2791,7 @@ export type ServiceInputTypes =
   | DisableImageDeprecationCommandInput
   | DisableImageDeregistrationProtectionCommandInput
   | DisableIpamOrganizationAdminAccountCommandInput
+  | DisableRouteServerPropagationCommandInput
   | DisableSerialConsoleAccessCommandInput
   | DisableSnapshotBlockPublicAccessCommandInput
   | DisableTransitGatewayRouteTablePropagationCommandInput
@@ -2737,6 +2807,7 @@ export type ServiceInputTypes =
   | DisassociateIpamByoasnCommandInput
   | DisassociateIpamResourceDiscoveryCommandInput
   | DisassociateNatGatewayAddressCommandInput
+  | DisassociateRouteServerCommandInput
   | DisassociateRouteTableCommandInput
   | DisassociateSecurityGroupVpcCommandInput
   | DisassociateSubnetCidrBlockCommandInput
@@ -2757,6 +2828,7 @@ export type ServiceInputTypes =
   | EnableImageDeregistrationProtectionCommandInput
   | EnableIpamOrganizationAdminAccountCommandInput
   | EnableReachabilityAnalyzerOrganizationSharingCommandInput
+  | EnableRouteServerPropagationCommandInput
   | EnableSerialConsoleAccessCommandInput
   | EnableSnapshotBlockPublicAccessCommandInput
   | EnableTransitGatewayRouteTablePropagationCommandInput
@@ -2803,6 +2875,9 @@ export type ServiceInputTypes =
   | GetNetworkInsightsAccessScopeContentCommandInput
   | GetPasswordDataCommandInput
   | GetReservedInstancesExchangeQuoteCommandInput
+  | GetRouteServerAssociationsCommandInput
+  | GetRouteServerPropagationsCommandInput
+  | GetRouteServerRoutingDatabaseCommandInput
   | GetSecurityGroupsForVpcCommandInput
   | GetSerialConsoleAccessStatusCommandInput
   | GetSnapshotBlockPublicAccessStateCommandInput
@@ -2865,6 +2940,7 @@ export type ServiceInputTypes =
   | ModifyNetworkInterfaceAttributeCommandInput
   | ModifyPrivateDnsNameOptionsCommandInput
   | ModifyReservedInstancesCommandInput
+  | ModifyRouteServerCommandInput
   | ModifySecurityGroupRulesCommandInput
   | ModifySnapshotAttributeCommandInput
   | ModifySnapshotTierCommandInput
@@ -3005,6 +3081,7 @@ export type ServiceOutputTypes =
   | AssociateIpamByoasnCommandOutput
   | AssociateIpamResourceDiscoveryCommandOutput
   | AssociateNatGatewayAddressCommandOutput
+  | AssociateRouteServerCommandOutput
   | AssociateRouteTableCommandOutput
   | AssociateSecurityGroupVpcCommandOutput
   | AssociateSubnetCidrBlockCommandOutput
@@ -3085,6 +3162,9 @@ export type ServiceOutputTypes =
   | CreateReservedInstancesListingCommandOutput
   | CreateRestoreImageTaskCommandOutput
   | CreateRouteCommandOutput
+  | CreateRouteServerCommandOutput
+  | CreateRouteServerEndpointCommandOutput
+  | CreateRouteServerPeerCommandOutput
   | CreateRouteTableCommandOutput
   | CreateSecurityGroupCommandOutput
   | CreateSnapshotCommandOutput
@@ -3163,6 +3243,9 @@ export type ServiceOutputTypes =
   | DeletePublicIpv4PoolCommandOutput
   | DeleteQueuedReservedInstancesCommandOutput
   | DeleteRouteCommandOutput
+  | DeleteRouteServerCommandOutput
+  | DeleteRouteServerEndpointCommandOutput
+  | DeleteRouteServerPeerCommandOutput
   | DeleteRouteTableCommandOutput
   | DeleteSecurityGroupCommandOutput
   | DeleteSnapshotCommandOutput
@@ -3308,6 +3391,9 @@ export type ServiceOutputTypes =
   | DescribeReservedInstancesListingsCommandOutput
   | DescribeReservedInstancesModificationsCommandOutput
   | DescribeReservedInstancesOfferingsCommandOutput
+  | DescribeRouteServerEndpointsCommandOutput
+  | DescribeRouteServerPeersCommandOutput
+  | DescribeRouteServersCommandOutput
   | DescribeRouteTablesCommandOutput
   | DescribeScheduledInstanceAvailabilityCommandOutput
   | DescribeScheduledInstancesCommandOutput
@@ -3385,6 +3471,7 @@ export type ServiceOutputTypes =
   | DisableImageDeprecationCommandOutput
   | DisableImageDeregistrationProtectionCommandOutput
   | DisableIpamOrganizationAdminAccountCommandOutput
+  | DisableRouteServerPropagationCommandOutput
   | DisableSerialConsoleAccessCommandOutput
   | DisableSnapshotBlockPublicAccessCommandOutput
   | DisableTransitGatewayRouteTablePropagationCommandOutput
@@ -3400,6 +3487,7 @@ export type ServiceOutputTypes =
   | DisassociateIpamByoasnCommandOutput
   | DisassociateIpamResourceDiscoveryCommandOutput
   | DisassociateNatGatewayAddressCommandOutput
+  | DisassociateRouteServerCommandOutput
   | DisassociateRouteTableCommandOutput
   | DisassociateSecurityGroupVpcCommandOutput
   | DisassociateSubnetCidrBlockCommandOutput
@@ -3420,6 +3508,7 @@ export type ServiceOutputTypes =
   | EnableImageDeregistrationProtectionCommandOutput
   | EnableIpamOrganizationAdminAccountCommandOutput
   | EnableReachabilityAnalyzerOrganizationSharingCommandOutput
+  | EnableRouteServerPropagationCommandOutput
   | EnableSerialConsoleAccessCommandOutput
   | EnableSnapshotBlockPublicAccessCommandOutput
   | EnableTransitGatewayRouteTablePropagationCommandOutput
@@ -3466,6 +3555,9 @@ export type ServiceOutputTypes =
   | GetNetworkInsightsAccessScopeContentCommandOutput
   | GetPasswordDataCommandOutput
   | GetReservedInstancesExchangeQuoteCommandOutput
+  | GetRouteServerAssociationsCommandOutput
+  | GetRouteServerPropagationsCommandOutput
+  | GetRouteServerRoutingDatabaseCommandOutput
   | GetSecurityGroupsForVpcCommandOutput
   | GetSerialConsoleAccessStatusCommandOutput
   | GetSnapshotBlockPublicAccessStateCommandOutput
@@ -3528,6 +3620,7 @@ export type ServiceOutputTypes =
   | ModifyNetworkInterfaceAttributeCommandOutput
   | ModifyPrivateDnsNameOptionsCommandOutput
   | ModifyReservedInstancesCommandOutput
+  | ModifyRouteServerCommandOutput
   | ModifySecurityGroupRulesCommandOutput
   | ModifySnapshotAttributeCommandOutput
   | ModifySnapshotTierCommandOutput

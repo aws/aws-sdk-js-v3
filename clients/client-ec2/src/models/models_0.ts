@@ -198,6 +198,9 @@ export const ResourceType = {
   prefix_list: "prefix-list",
   replace_root_volume_task: "replace-root-volume-task",
   reserved_instances: "reserved-instances",
+  route_server: "route-server",
+  route_server_endpoint: "route-server-endpoint",
+  route_server_peer: "route-server-peer",
   route_table: "route-table",
   security_group: "security-group",
   security_group_rule: "security-group-rule",
@@ -5062,6 +5065,83 @@ export interface AssociateNatGatewayAddressResult {
 /**
  * @public
  */
+export interface AssociateRouteServerRequest {
+  /**
+   * <p>The unique identifier for the route server to be associated.</p>
+   * @public
+   */
+  RouteServerId: string | undefined;
+
+  /**
+   * <p>The ID of the VPC to associate with the route server.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteServerAssociationState = {
+  ASSOCIATED: "associated",
+  ASSOCIATING: "associating",
+  DISASSOCIATING: "disassociating",
+} as const;
+
+/**
+ * @public
+ */
+export type RouteServerAssociationState =
+  (typeof RouteServerAssociationState)[keyof typeof RouteServerAssociationState];
+
+/**
+ * <p>Describes the association between a route server and a VPC.</p>
+ *          <p>A route server association is the connection established between a route server and a VPC. This is a fundamental configuration step that enables the route server to work with appliances in your VPC.</p>
+ * @public
+ */
+export interface RouteServerAssociation {
+  /**
+   * <p>The ID of the associated route server.</p>
+   * @public
+   */
+  RouteServerId?: string | undefined;
+
+  /**
+   * <p>The ID of the associated VPC.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The current state of the association.</p>
+   * @public
+   */
+  State?: RouteServerAssociationState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateRouteServerResult {
+  /**
+   * <p>Information about the association between the route server and the VPC.</p>
+   * @public
+   */
+  RouteServerAssociation?: RouteServerAssociation | undefined;
+}
+
+/**
+ * @public
+ */
 export interface AssociateRouteTableRequest {
   /**
    * <p>The ID of the internet gateway or virtual private gateway.</p>
@@ -8283,304 +8363,6 @@ export interface CopyFpgaImageResult {
 }
 
 /**
- * <p>Contains the parameters for CopyImage.</p>
- * @public
- */
-export interface CopyImageRequest {
-  /**
-   * <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For
-   *       more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
-   *       in the <i>Amazon EC2 API Reference</i>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>A description for the new AMI in the destination Region.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Specifies whether the destination snapshots of the copied image should be encrypted. You
-   *       can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted copy of an
-   *       encrypted snapshot. The default KMS key for Amazon EBS is used unless you specify a non-default
-   *       Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with
-   *         EBS-backed AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  Encrypted?: boolean | undefined;
-
-  /**
-   * <p>The identifier of the symmetric Key Management Service (KMS) KMS key to use when creating encrypted volumes.
-   *       If this parameter is not specified, your Amazon Web Services managed KMS key for Amazon EBS is used. If you
-   *       specify a KMS key, you must also set the encrypted state to <code>true</code>.</p>
-   *          <p>You can specify a KMS key using any of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p>
-   *             </li>
-   *             <li>
-   *                <p>Key alias. For example, alias/ExampleAlias.</p>
-   *             </li>
-   *             <li>
-   *                <p>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</p>
-   *             </li>
-   *             <li>
-   *                <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an identifier
-   *       that is not valid, the action can appear to complete, but eventually fails.</p>
-   *          <p>The specified KMS key must exist in the destination Region.</p>
-   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>The name of the new AMI in the destination Region.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The ID of the AMI to copy.</p>
-   * @public
-   */
-  SourceImageId: string | undefined;
-
-  /**
-   * <p>The name of the Region that contains the AMI to copy.</p>
-   * @public
-   */
-  SourceRegion: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI. Only specify this
-   *       parameter when copying an AMI from an Amazon Web Services Region to an Outpost. The AMI must be in the
-   *       Region of the destination Outpost. You cannot copy an AMI from an Outpost to a Region, from
-   *       one Outpost to another, or within the same Outpost.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#copy-amis">Copy AMIs from an Amazon Web Services Region
-   *         to an Outpost</a> in the <i>Amazon EBS User Guide</i>.</p>
-   * @public
-   */
-  DestinationOutpostArn?: string | undefined;
-
-  /**
-   * <p>Indicates whether to include your user-defined AMI tags when copying the AMI.</p>
-   *          <p>The following tags will not be copied:</p>
-   *          <ul>
-   *             <li>
-   *                <p>System tags (prefixed with <code>aws:</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>For public and shared AMIs, user-defined tags that are attached by other Amazon Web Services
-   *           accounts</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: Your user-defined AMI tags are not copied.</p>
-   * @public
-   */
-  CopyImageTags?: boolean | undefined;
-
-  /**
-   * <p>The tags to apply to the new AMI and new snapshots. You can tag the AMI, the snapshots, or
-   *       both.</p>
-   *          <ul>
-   *             <li>
-   *                <p>To tag the new AMI, the value for <code>ResourceType</code> must be
-   *           <code>image</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To tag the new snapshots, the value for <code>ResourceType</code> must be
-   *             <code>snapshot</code>. The same tag is applied to all the new snapshots.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you specify other values for <code>ResourceType</code>, the request fails.</p>
-   *          <p>To tag an AMI or snapshot after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Specify a completion duration, in 15 minute increments, to initiate a time-based
-   *       AMI copy. The specified completion duration applies to each of the snapshots associated
-   *       with the AMI. Each snapshot associated with the AMI will be completed within the
-   *       specified completion duration, regardless of their size.</p>
-   *          <p>If you do not specify a value, the AMI copy operation is completed on a best-effort
-   *       basis.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/time-based-copies.html">
-   *       Time-based copies</a>.</p>
-   * @public
-   */
-  SnapshotCopyCompletionDurationMinutes?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Contains the output of CopyImage.</p>
- * @public
- */
-export interface CopyImageResult {
-  /**
-   * <p>The ID of the new AMI.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CopySnapshotRequest {
-  /**
-   * <p>A description for the EBS snapshot.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the snapshot. Only
-   * 		specify this parameter when copying a snapshot from an Amazon Web Services Region to an Outpost.
-   * 		The snapshot must be in the Region for the destination Outpost. You cannot copy a
-   * 		snapshot from an Outpost to a Region, from one Outpost to another, or within the same
-   * 		Outpost.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#copy-snapshots">
-   *   		Copy snapshots from an Amazon Web Services Region to an Outpost</a> in the
-   *   		<i>Amazon EBS User Guide</i>.</p>
-   * @public
-   */
-  DestinationOutpostArn?: string | undefined;
-
-  /**
-   * <p>The destination Region to use in the <code>PresignedUrl</code> parameter of a snapshot
-   *       copy operation. This parameter is only valid for specifying the destination Region in a
-   *         <code>PresignedUrl</code> parameter, where it is required.</p>
-   *          <p>The snapshot copy is sent to the regional endpoint that you sent the HTTP
-   *     	request to (for example, <code>ec2.us-east-1.amazonaws.com</code>). With the CLI, this is
-   *       specified using the <code>--region</code> parameter or the default Region in your Amazon Web Services
-   *       configuration file.</p>
-   * @public
-   */
-  DestinationRegion?: string | undefined;
-
-  /**
-   * <p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled,
-   *       enable encryption using this parameter. Otherwise, omit this parameter. Encrypted snapshots
-   *       are encrypted, even if you omit this parameter and encryption by default is not enabled. You
-   *       cannot set this parameter to false. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a> in the
-   *       <i>Amazon EBS User Guide</i>.</p>
-   * @public
-   */
-  Encrypted?: boolean | undefined;
-
-  /**
-   * <p>The identifier of the KMS key to use for Amazon EBS encryption.
-   *       If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code> is
-   *       specified, the encrypted state must be <code>true</code>.</p>
-   *          <p>You can specify the KMS key using any of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p>
-   *             </li>
-   *             <li>
-   *                <p>Key alias. For example, alias/ExampleAlias.</p>
-   *             </li>
-   *             <li>
-   *                <p>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</p>
-   *             </li>
-   *             <li>
-   *                <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid,
-   *       the action can appear to complete, but eventually fails.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply a
-   *       pre-signed URL. This parameter is optional for unencrypted snapshots. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
-   *         requests</a>.</p>
-   *          <p>The <code>PresignedUrl</code> should use the snapshot source endpoint, the
-   *         <code>CopySnapshot</code> action, and include the <code>SourceRegion</code>,
-   *         <code>SourceSnapshotId</code>, and <code>DestinationRegion</code> parameters. The
-   *         <code>PresignedUrl</code> must be signed using Amazon Web Services Signature Version 4. Because EBS
-   *       snapshots are stored in Amazon S3, the signing algorithm for this parameter uses the same logic
-   *       that is described in <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
-   *         Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>. An
-   *       invalid or improperly signed <code>PresignedUrl</code> will cause the copy operation to fail
-   *       asynchronously, and the snapshot will move to an <code>error</code> state.</p>
-   * @public
-   */
-  PresignedUrl?: string | undefined;
-
-  /**
-   * <p>The ID of the Region that contains the snapshot to be copied.</p>
-   * @public
-   */
-  SourceRegion: string | undefined;
-
-  /**
-   * <p>The ID of the EBS snapshot to copy.</p>
-   * @public
-   */
-  SourceSnapshotId: string | undefined;
-
-  /**
-   * <p>The tags to apply to the new snapshot.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Specify a completion duration, in 15 minute increments, to initiate a time-based snapshot
-   *       copy. Time-based snapshot copy operations complete within the specified duration. For more
-   *       information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/time-based-copies.html">
-   *         Time-based copies</a>.</p>
-   *          <p>If you do not specify a value, the snapshot copy operation is completed on a
-   *       best-effort basis.</p>
-   * @public
-   */
-  CompletionDurationMinutes?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface CopySnapshotResult {
-  /**
-   * <p>Any tags applied to the new snapshot.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The ID of the new snapshot.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const OidcOptionsFilterSensitiveLog = (obj: OidcOptions): any => ({
@@ -8654,12 +8436,4 @@ export const BundleInstanceResultFilterSensitiveLog = (obj: BundleInstanceResult
 export const CancelBundleTaskResultFilterSensitiveLog = (obj: CancelBundleTaskResult): any => ({
   ...obj,
   ...(obj.BundleTask && { BundleTask: BundleTaskFilterSensitiveLog(obj.BundleTask) }),
-});
-
-/**
- * @internal
- */
-export const CopySnapshotRequestFilterSensitiveLog = (obj: CopySnapshotRequest): any => ({
-  ...obj,
-  ...(obj.PresignedUrl && { PresignedUrl: SENSITIVE_STRING }),
 });

@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartVpcEndpointServicePrivateDnsVerificationRequest,
   StartVpcEndpointServicePrivateDnsVerificationResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import {
   de_StartVpcEndpointServicePrivateDnsVerificationCommand,
   se_StartVpcEndpointServicePrivateDnsVerificationCommand,

@@ -79,7 +79,7 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * //       VpcId: "STRING_VALUE",
  * //       VpcEncryptionControlId: "STRING_VALUE",
  * //       Mode: "monitor" || "enforce",
- * //       State: "enforce-in-progress" || "monitor-in-progress" || "enforce-failed" || "monitor-failed" || "deleting" || "deleted" || "available",
+ * //       State: "enforce-in-progress" || "monitor-in-progress" || "enforce-failed" || "monitor-failed" || "deleting" || "deleted" || "available" || "creating" || "delete-failed",
  * //       StateMessage: "STRING_VALUE",
  * //       ResourceExclusions: { // VpcEncryptionControlExclusions
  * //         InternetGateway: { // VpcEncryptionControlExclusion

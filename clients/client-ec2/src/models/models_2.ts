@@ -40,7 +40,6 @@ import {
   InstanceIpv6Address,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
-  LocalGatewayRoute,
   OperatorRequest,
   OperatorResponse,
   PrivateIpAddressSpecification,
@@ -49,6 +48,158 @@ import {
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateLocalGatewayRouteRequest {
+  /**
+   * <p>The CIDR range used for destination matches. Routing decisions are based on
+   *         the most specific match.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string | undefined;
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   * @public
+   */
+  LocalGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of the virtual interface group.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceGroupId?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string | undefined;
+
+  /**
+   * <p>
+   *          The ID of the prefix list. Use a prefix list in place of <code>DestinationCidrBlock</code>. You
+   *          cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request.
+   *       </p>
+   * @public
+   */
+  DestinationPrefixListId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LocalGatewayRouteState = {
+  active: "active",
+  blackhole: "blackhole",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type LocalGatewayRouteState = (typeof LocalGatewayRouteState)[keyof typeof LocalGatewayRouteState];
+
+/**
+ * @public
+ * @enum
+ */
+export const LocalGatewayRouteType = {
+  propagated: "propagated",
+  static: "static",
+} as const;
+
+/**
+ * @public
+ */
+export type LocalGatewayRouteType = (typeof LocalGatewayRouteType)[keyof typeof LocalGatewayRouteType];
+
+/**
+ * <p>Describes a route for a local gateway route table.</p>
+ * @public
+ */
+export interface LocalGatewayRoute {
+  /**
+   * <p>The CIDR block used for destination matches.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string | undefined;
+
+  /**
+   * <p>The ID of the virtual interface group.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceGroupId?: string | undefined;
+
+  /**
+   * <p>The route type.</p>
+   * @public
+   */
+  Type?: LocalGatewayRouteType | undefined;
+
+  /**
+   * <p>The state of the route.</p>
+   * @public
+   */
+  State?: LocalGatewayRouteState | undefined;
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   * @public
+   */
+  LocalGatewayRouteTableId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the local gateway route table.</p>
+   * @public
+   */
+  LocalGatewayRouteTableArn?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the local gateway route.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The ID of the customer-owned address pool.</p>
+   * @public
+   */
+  CoipPoolId?: string | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string | undefined;
+
+  /**
+   * <p>
+   *          The ID of the prefix list.
+   *       </p>
+   * @public
+   */
+  DestinationPrefixListId?: string | undefined;
+}
 
 /**
  * @public
@@ -3051,6 +3202,610 @@ export interface CreateRouteResult {
    * @public
    */
   Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteServerPersistRoutesAction = {
+  DISABLE: "disable",
+  ENABLE: "enable",
+  RESET: "reset",
+} as const;
+
+/**
+ * @public
+ */
+export type RouteServerPersistRoutesAction =
+  (typeof RouteServerPersistRoutesAction)[keyof typeof RouteServerPersistRoutesAction];
+
+/**
+ * @public
+ */
+export interface CreateRouteServerRequest {
+  /**
+   * <p>The private Autonomous System Number (ASN) for the Amazon side of the BGP session. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.</p>
+   * @public
+   */
+  AmazonSideAsn: number | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether routes should be persisted after all BGP sessions are terminated.</p>
+   * @public
+   */
+  PersistRoutes?: RouteServerPersistRoutesAction | undefined;
+
+  /**
+   * <p>The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if PersistRoutes is <code>enabled</code>.</p>
+   *          <p>If you set the duration to 1 minute, then when your network appliance re-establishes BGP with route server, it has 1 minute to relearn it's adjacent network and advertise those routes to route server before route server resumes normal functionality. In most cases, 1 minute is probably sufficient. If, however, you have concerns that your BGP network may not be capable of fully re-establishing and re-learning everything in 1 minute, you can increase the duration up to 5 minutes.</p>
+   * @public
+   */
+  PersistRoutesDuration?: number | undefined;
+
+  /**
+   * <p>Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by Amazon Web Services.</p>
+   * @public
+   */
+  SnsNotificationsEnabled?: boolean | undefined;
+
+  /**
+   * <p>The tags to apply to the route server during creation.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteServerPersistRoutesState = {
+  DISABLED: "disabled",
+  DISABLING: "disabling",
+  ENABLED: "enabled",
+  ENABLING: "enabling",
+  MODIFYING: "modifying",
+  RESETTING: "resetting",
+} as const;
+
+/**
+ * @public
+ */
+export type RouteServerPersistRoutesState =
+  (typeof RouteServerPersistRoutesState)[keyof typeof RouteServerPersistRoutesState];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteServerState = {
+  AVAILABLE: "available",
+  DELETED: "deleted",
+  DELETING: "deleting",
+  MODIFYING: "modifying",
+  PENDING: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type RouteServerState = (typeof RouteServerState)[keyof typeof RouteServerState];
+
+/**
+ * <p>Describes a route server and its configuration.</p>
+ *          <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature, VPC Route Server dynamically updates VPC and gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p>
+ *          <p>Route server supports the follow route table types:</p>
+ *          <ul>
+ *             <li>
+ *                <p>VPC route tables</p>
+ *             </li>
+ *             <li>
+ *                <p>Subnet route tables</p>
+ *             </li>
+ *             <li>
+ *                <p>Internet gateway route tables</p>
+ *             </li>
+ *          </ul>
+ *          <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html">Transit Gateway Connect</a>.</p>
+ * @public
+ */
+export interface RouteServer {
+  /**
+   * <p>The unique identifier of the route server.</p>
+   * @public
+   */
+  RouteServerId?: string | undefined;
+
+  /**
+   * <p>The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.</p>
+   * @public
+   */
+  AmazonSideAsn?: number | undefined;
+
+  /**
+   * <p>The current state of the route server.</p>
+   * @public
+   */
+  State?: RouteServerState | undefined;
+
+  /**
+   * <p>Any tags assigned to the route server.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The current state of route persistence for the route server.</p>
+   * @public
+   */
+  PersistRoutesState?: RouteServerPersistRoutesState | undefined;
+
+  /**
+   * <p>The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. The default value is 1. Only valid if <code>persistRoutesState</code> is 'enabled'.</p>
+   *          <p>If you set the duration to 1 minute, then when your network appliance re-establishes BGP with route server, it has 1 minute to relearn it's adjacent network and advertise those routes to route server before route server resumes normal functionality. In most cases, 1 minute is probably sufficient. If, however, you have concerns that your BGP network may not be capable of fully re-establishing and re-learning everything in 1 minute, you can increase the duration up to 5 minutes.</p>
+   * @public
+   */
+  PersistRoutesDuration?: number | undefined;
+
+  /**
+   * <p>Indicates whether SNS notifications are enabled for the route server. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by Amazon Web Services.</p>
+   * @public
+   */
+  SnsNotificationsEnabled?: boolean | undefined;
+
+  /**
+   * <p>The ARN of the SNS topic where notifications are published.</p>
+   * @public
+   */
+  SnsTopicArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouteServerResult {
+  /**
+   * <p>Information about the created route server.</p>
+   * @public
+   */
+  RouteServer?: RouteServer | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouteServerEndpointRequest {
+  /**
+   * <p>The ID of the route server for which to create an endpoint.</p>
+   * @public
+   */
+  RouteServerId: string | undefined;
+
+  /**
+   * <p>The ID of the subnet in which to create the route server endpoint.</p>
+   * @public
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The tags to apply to the route server endpoint during creation.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteServerEndpointState = {
+  AVAILABLE: "available",
+  DELETED: "deleted",
+  DELETE_FAILED: "delete-failed",
+  DELETING: "deleting",
+  FAILED: "failed",
+  FAILING: "failing",
+  PENDING: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type RouteServerEndpointState = (typeof RouteServerEndpointState)[keyof typeof RouteServerEndpointState];
+
+/**
+ * <p>Describes a route server endpoint and its properties.</p>
+ *          <p>A route server endpoint is an Amazon Web Services-managed component inside a subnet that facilitates BGP (Border Gateway Protocol) connections between your route server and your BGP peers. Create two endpoints per subnet for redundancy.</p>
+ * @public
+ */
+export interface RouteServerEndpoint {
+  /**
+   * <p>The ID of the route server associated with this endpoint.</p>
+   * @public
+   */
+  RouteServerId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the route server endpoint.</p>
+   * @public
+   */
+  RouteServerEndpointId?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC containing the endpoint.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The ID of the subnet to place the route server endpoint into.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The ID of the Elastic network interface for the endpoint.</p>
+   * @public
+   */
+  EniId?: string | undefined;
+
+  /**
+   * <p>The IP address of the Elastic network interface for the endpoint.</p>
+   * @public
+   */
+  EniAddress?: string | undefined;
+
+  /**
+   * <p>The current state of the route server endpoint.</p>
+   * @public
+   */
+  State?: RouteServerEndpointState | undefined;
+
+  /**
+   * <p>The reason for any failure in endpoint creation or operation.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>Any tags assigned to the route server endpoint.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouteServerEndpointResult {
+  /**
+   * <p>Information about the created route server endpoint.</p>
+   * @public
+   */
+  RouteServerEndpoint?: RouteServerEndpoint | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteServerPeerLivenessMode = {
+  BFD: "bfd",
+  BGP_KEEPALIVE: "bgp-keepalive",
+} as const;
+
+/**
+ * @public
+ */
+export type RouteServerPeerLivenessMode =
+  (typeof RouteServerPeerLivenessMode)[keyof typeof RouteServerPeerLivenessMode];
+
+/**
+ * <p>The BGP configuration options requested for a route server peer.</p>
+ * @public
+ */
+export interface RouteServerBgpOptionsRequest {
+  /**
+   * <p>The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.</p>
+   * @public
+   */
+  PeerAsn: number | undefined;
+
+  /**
+   * <p>The requested liveness detection protocol for the BGP peer.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>bgp-keepalive</code>: The standard BGP keep alive mechanism (<a href="https://www.rfc-editor.org/rfc/rfc4271#page-21">RFC4271</a>) that is stable but may take longer to fail-over in cases of network impact or router failure.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bfd</code>: An additional Bidirectional Forwarding Detection (BFD) protocol (<a href="https://www.rfc-editor.org/rfc/rfc5880">RFC5880</a>) that enables fast failover by using more sensitive liveness detection.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Defaults to <code>bgp-keepalive</code>.</p>
+   * @public
+   */
+  PeerLivenessDetection?: RouteServerPeerLivenessMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouteServerPeerRequest {
+  /**
+   * <p>The ID of the route server endpoint for which to create a peer.</p>
+   * @public
+   */
+  RouteServerEndpointId: string | undefined;
+
+  /**
+   * <p>The IPv4 address of the peer.</p>
+   * @public
+   */
+  PeerAddress: string | undefined;
+
+  /**
+   * <p>The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings.</p>
+   * @public
+   */
+  BgpOptions: RouteServerBgpOptionsRequest | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The tags to apply to the route server peer during creation.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteServerBfdState = {
+  DOWN: "down",
+  UP: "up",
+} as const;
+
+/**
+ * @public
+ */
+export type RouteServerBfdState = (typeof RouteServerBfdState)[keyof typeof RouteServerBfdState];
+
+/**
+ * <p>The current status of Bidirectional Forwarding Detection (BFD) for a BGP session.</p>
+ * @public
+ */
+export interface RouteServerBfdStatus {
+  /**
+   * <p>The operational status of the BFD session.</p>
+   * @public
+   */
+  Status?: RouteServerBfdState | undefined;
+}
+
+/**
+ * <p>The BGP configuration options for a route server peer.</p>
+ * @public
+ */
+export interface RouteServerBgpOptions {
+  /**
+   * <p>The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.</p>
+   * @public
+   */
+  PeerAsn?: number | undefined;
+
+  /**
+   * <p>The liveness detection protocol used for the BGP peer.</p>
+   *          <p>The requested liveness detection protocol for the BGP peer.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>bgp-keepalive</code>: The standard BGP keep alive mechanism (<a href="https://www.rfc-editor.org/rfc/rfc4271#page-21">RFC4271</a>) that is stable but may take longer to fail-over in cases of network impact or router failure.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bfd</code>: An additional Bidirectional Forwarding Detection (BFD) protocol (<a href="https://www.rfc-editor.org/rfc/rfc5880">RFC5880</a>) that enables fast failover by using more sensitive liveness detection.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Defaults to <code>bgp-keepalive</code>.</p>
+   * @public
+   */
+  PeerLivenessDetection?: RouteServerPeerLivenessMode | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteServerBgpState = {
+  DOWN: "down",
+  UP: "up",
+} as const;
+
+/**
+ * @public
+ */
+export type RouteServerBgpState = (typeof RouteServerBgpState)[keyof typeof RouteServerBgpState];
+
+/**
+ * <p>The current status of a BGP session.</p>
+ * @public
+ */
+export interface RouteServerBgpStatus {
+  /**
+   * <p>The operational status of the BGP session. The status enables you to monitor session liveness if you lack monitoring on your router/appliance.</p>
+   * @public
+   */
+  Status?: RouteServerBgpState | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteServerPeerState = {
+  AVAILABLE: "available",
+  DELETED: "deleted",
+  DELETING: "deleting",
+  FAILED: "failed",
+  FAILING: "failing",
+  PENDING: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type RouteServerPeerState = (typeof RouteServerPeerState)[keyof typeof RouteServerPeerState];
+
+/**
+ * <p>Describes a BGP peer configuration for a route server endpoint.</p>
+ *          <p>A route server peer is a network appliance or function deployed in Amazon Web Services, such as firewall appliances and other network security functions, that meet these requirements:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Have an elastic network interface in the VPC</p>
+ *             </li>
+ *             <li>
+ *                <p>Support BGP (Border Gateway Protocol)</p>
+ *             </li>
+ *             <li>
+ *                <p>Can initiate BGP sessions</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface RouteServerPeer {
+  /**
+   * <p>The unique identifier of the route server peer.</p>
+   * @public
+   */
+  RouteServerPeerId?: string | undefined;
+
+  /**
+   * <p>The ID of the route server endpoint associated with this peer.</p>
+   * @public
+   */
+  RouteServerEndpointId?: string | undefined;
+
+  /**
+   * <p>The ID of the route server associated with this peer.</p>
+   * @public
+   */
+  RouteServerId?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC containing the route server peer.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The ID of the subnet containing the route server peer.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The current state of the route server peer.</p>
+   * @public
+   */
+  State?: RouteServerPeerState | undefined;
+
+  /**
+   * <p>The reason for any failure in peer creation or operation.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The ID of the Elastic network interface for the route server endpoint.</p>
+   * @public
+   */
+  EndpointEniId?: string | undefined;
+
+  /**
+   * <p>The IP address of the Elastic network interface for the route server endpoint.</p>
+   * @public
+   */
+  EndpointEniAddress?: string | undefined;
+
+  /**
+   * <p>The IPv4 address of the peer.</p>
+   * @public
+   */
+  PeerAddress?: string | undefined;
+
+  /**
+   * <p>The BGP configuration options for this peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings.</p>
+   * @public
+   */
+  BgpOptions?: RouteServerBgpOptions | undefined;
+
+  /**
+   * <p>The current status of the BGP session with this peer.</p>
+   * @public
+   */
+  BgpStatus?: RouteServerBgpStatus | undefined;
+
+  /**
+   * <p>The current status of the BFD session with this peer.</p>
+   * @public
+   */
+  BfdStatus?: RouteServerBfdStatus | undefined;
+
+  /**
+   * <p>Any tags assigned to the route server peer.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouteServerPeerResult {
+  /**
+   * <p>Information about the created route server peer.</p>
+   * @public
+   */
+  RouteServerPeer?: RouteServerPeer | undefined;
 }
 
 /**
@@ -9551,879 +10306,6 @@ export interface VpnTunnelLogOptionsSpecification {
 }
 
 /**
- * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE
- *             negotiations.</p>
- * @public
- */
-export interface Phase1DHGroupNumbersRequestListValue {
-  /**
-   * <p>The Diffie-Hellmann group number.</p>
-   * @public
-   */
-  Value?: number | undefined;
-}
-
-/**
- * <p>Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE
- *             negotiations.</p>
- * @public
- */
-export interface Phase1EncryptionAlgorithmsRequestListValue {
-  /**
-   * <p>The value for the encryption algorithm.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE
- *             negotiations.</p>
- * @public
- */
-export interface Phase1IntegrityAlgorithmsRequestListValue {
-  /**
-   * <p>The value for the integrity algorithm.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE
- *             negotiations.</p>
- * @public
- */
-export interface Phase2DHGroupNumbersRequestListValue {
-  /**
-   * <p>The Diffie-Hellmann group number.</p>
-   * @public
-   */
-  Value?: number | undefined;
-}
-
-/**
- * <p>Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE
- *             negotiations.</p>
- * @public
- */
-export interface Phase2EncryptionAlgorithmsRequestListValue {
-  /**
-   * <p>The encryption algorithm.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE
- *             negotiations.</p>
- * @public
- */
-export interface Phase2IntegrityAlgorithmsRequestListValue {
-  /**
-   * <p>The integrity algorithm.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>The tunnel options for a single VPN tunnel.</p>
- * @public
- */
-export interface VpnTunnelOptionsSpecification {
-  /**
-   * <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be
-   *             unique across all VPN connections that use the same virtual private gateway. </p>
-   *          <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
-   *             following CIDR blocks are reserved and cannot be used:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.0.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.1.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.2.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.3.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.4.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.5.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>169.254.169.252/30</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  TunnelInsideCidr?: string | undefined;
-
-  /**
-   * <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be
-   *             unique across all VPN connections that use the same transit gateway.</p>
-   *          <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
-   * @public
-   */
-  TunnelInsideIpv6Cidr?: string | undefined;
-
-  /**
-   * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
-   *             private gateway and customer gateway.</p>
-   *          <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and
-   *             underscores (_). Must be between 8 and 64 characters in length and cannot start with
-   *             zero (0).</p>
-   * @public
-   */
-  PreSharedKey?: string | undefined;
-
-  /**
-   * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
-   *          <p>Constraints: A value between 900 and 28,800.</p>
-   *          <p>Default: <code>28800</code>
-   *          </p>
-   * @public
-   */
-  Phase1LifetimeSeconds?: number | undefined;
-
-  /**
-   * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
-   *          <p>Constraints: A value between 900 and 3,600. The value must be less than the value for
-   *                 <code>Phase1LifetimeSeconds</code>.</p>
-   *          <p>Default: <code>3600</code>
-   *          </p>
-   * @public
-   */
-  Phase2LifetimeSeconds?: number | undefined;
-
-  /**
-   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
-   *                 Amazon Web Services side of the VPN connection performs an IKE rekey. The exact time
-   *             of the rekey is randomly selected based on the value for
-   *                 <code>RekeyFuzzPercentage</code>.</p>
-   *          <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
-   *          <p>Default: <code>270</code>
-   *          </p>
-   * @public
-   */
-  RekeyMarginTimeSeconds?: number | undefined;
-
-  /**
-   * <p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>)
-   *             during which the rekey time is randomly selected.</p>
-   *          <p>Constraints: A value between 0 and 100.</p>
-   *          <p>Default: <code>100</code>
-   *          </p>
-   * @public
-   */
-  RekeyFuzzPercentage?: number | undefined;
-
-  /**
-   * <p>The number of packets in an IKE replay window.</p>
-   *          <p>Constraints: A value between 64 and 2048.</p>
-   *          <p>Default: <code>1024</code>
-   *          </p>
-   * @public
-   */
-  ReplayWindowSize?: number | undefined;
-
-  /**
-   * <p>The number of seconds after which a DPD timeout occurs.</p>
-   *          <p>Constraints: A value greater than or equal to 30.</p>
-   *          <p>Default: <code>30</code>
-   *          </p>
-   * @public
-   */
-  DPDTimeoutSeconds?: number | undefined;
-
-  /**
-   * <p>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart
-   *             the IKE initiation. Specify <code>clear</code> to end the IKE session.</p>
-   *          <p>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code>
-   *          </p>
-   *          <p>Default: <code>clear</code>
-   *          </p>
-   * @public
-   */
-  DPDTimeoutAction?: string | undefined;
-
-  /**
-   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1
-   *             IKE negotiations.</p>
-   *          <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
-   *                 <code>AES256-GCM-16</code>
-   *          </p>
-   * @public
-   */
-  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsRequestListValue[] | undefined;
-
-  /**
-   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2
-   *             IKE negotiations.</p>
-   *          <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
-   *                 <code>AES256-GCM-16</code>
-   *          </p>
-   * @public
-   */
-  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsRequestListValue[] | undefined;
-
-  /**
-   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE
-   *             negotiations.</p>
-   *          <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
-   *                 <code>SHA2-512</code>
-   *          </p>
-   * @public
-   */
-  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsRequestListValue[] | undefined;
-
-  /**
-   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE
-   *             negotiations.</p>
-   *          <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
-   *                 <code>SHA2-512</code>
-   *          </p>
-   * @public
-   */
-  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsRequestListValue[] | undefined;
-
-  /**
-   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
-   *             phase 1 IKE negotiations.</p>
-   *          <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> |
-   *                 <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> |
-   *                 <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
-   *          </p>
-   * @public
-   */
-  Phase1DHGroupNumbers?: Phase1DHGroupNumbersRequestListValue[] | undefined;
-
-  /**
-   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
-   *             phase 2 IKE negotiations.</p>
-   *          <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> |
-   *                 <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> |
-   *                 <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> |
-   *                 <code>24</code>
-   *          </p>
-   * @public
-   */
-  Phase2DHGroupNumbers?: Phase2DHGroupNumbersRequestListValue[] | undefined;
-
-  /**
-   * <p>The IKE versions that are permitted for the VPN tunnel.</p>
-   *          <p>Valid values: <code>ikev1</code> | <code>ikev2</code>
-   *          </p>
-   * @public
-   */
-  IKEVersions?: IKEVersionsRequestListValue[] | undefined;
-
-  /**
-   * <p>The action to take when the establishing the tunnel for the VPN connection. By
-   *             default, your customer gateway device must initiate the IKE negotiation and bring up the
-   *             tunnel. Specify <code>start</code> for Amazon Web Services to initiate the IKE
-   *             negotiation.</p>
-   *          <p>Valid Values: <code>add</code> | <code>start</code>
-   *          </p>
-   *          <p>Default: <code>add</code>
-   *          </p>
-   * @public
-   */
-  StartupAction?: string | undefined;
-
-  /**
-   * <p>Options for logging VPN tunnel activity.</p>
-   * @public
-   */
-  LogOptions?: VpnTunnelLogOptionsSpecification | undefined;
-
-  /**
-   * <p>Turn on or off tunnel endpoint lifecycle control feature.</p>
-   * @public
-   */
-  EnableTunnelLifecycleControl?: boolean | undefined;
-}
-
-/**
- * <p>Describes VPN connection options.</p>
- * @public
- */
-export interface VpnConnectionOptionsSpecification {
-  /**
-   * <p>Indicate whether to enable acceleration for the VPN connection.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  EnableAcceleration?: boolean | undefined;
-
-  /**
-   * <p>Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
-   *          <p>Default: <code>ipv4</code>
-   *          </p>
-   * @public
-   */
-  TunnelInsideIpVersion?: TunnelInsideIpVersion | undefined;
-
-  /**
-   * <p>The tunnel options for the VPN connection.</p>
-   * @public
-   */
-  TunnelOptions?: VpnTunnelOptionsSpecification[] | undefined;
-
-  /**
-   * <p>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   *          <p>Default: <code>0.0.0.0/0</code>
-   *          </p>
-   * @public
-   */
-  LocalIpv4NetworkCidr?: string | undefined;
-
-  /**
-   * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   *          <p>Default: <code>0.0.0.0/0</code>
-   *          </p>
-   * @public
-   */
-  RemoteIpv4NetworkCidr?: string | undefined;
-
-  /**
-   * <p>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   *          <p>Default: <code>::/0</code>
-   *          </p>
-   * @public
-   */
-  LocalIpv6NetworkCidr?: string | undefined;
-
-  /**
-   * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   *          <p>Default: <code>::/0</code>
-   *          </p>
-   * @public
-   */
-  RemoteIpv6NetworkCidr?: string | undefined;
-
-  /**
-   * <p>The type of IPv4 address assigned to the outside interface of the customer gateway device.</p>
-   *          <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code>
-   *          </p>
-   *          <p>Default: <code>PublicIpv4</code>
-   *          </p>
-   * @public
-   */
-  OutsideIpAddressType?: string | undefined;
-
-  /**
-   * <p>The transit gateway attachment ID to use for the VPN tunnel.</p>
-   *          <p>Required if <code>OutsideIpAddressType</code> is set to <code>PrivateIpv4</code>.</p>
-   * @public
-   */
-  TransportTransitGatewayAttachmentId?: string | undefined;
-
-  /**
-   * <p>Indicate whether the VPN connection uses static routes only. If you are creating a VPN
-   *             connection for a device that does not support BGP, you must specify <code>true</code>.
-   *             Use <a>CreateVpnConnectionRoute</a> to create a static route.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  StaticRoutesOnly?: boolean | undefined;
-}
-
-/**
- * <p>Contains the parameters for CreateVpnConnection.</p>
- * @public
- */
-export interface CreateVpnConnectionRequest {
-  /**
-   * <p>The ID of the customer gateway.</p>
-   * @public
-   */
-  CustomerGatewayId: string | undefined;
-
-  /**
-   * <p>The type of VPN connection (<code>ipsec.1</code>).</p>
-   * @public
-   */
-  Type: string | undefined;
-
-  /**
-   * <p>The ID of the virtual private gateway. If you specify a virtual private gateway, you
-   *             cannot specify a transit gateway.</p>
-   * @public
-   */
-  VpnGatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of the transit gateway. If you specify a transit gateway, you cannot specify a virtual private
-   *             gateway.</p>
-   * @public
-   */
-  TransitGatewayId?: string | undefined;
-
-  /**
-   * <p>The tags to apply to the VPN connection.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The options for the VPN connection.</p>
-   * @public
-   */
-  Options?: VpnConnectionOptionsSpecification | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const GatewayAssociationState = {
-  associated: "associated",
-  associating: "associating",
-  disassociating: "disassociating",
-  not_associated: "not-associated",
-} as const;
-
-/**
- * @public
- */
-export type GatewayAssociationState = (typeof GatewayAssociationState)[keyof typeof GatewayAssociationState];
-
-/**
- * <p>The internet key exchange (IKE) version permitted for the VPN tunnel.</p>
- * @public
- */
-export interface IKEVersionsListValue {
-  /**
-   * <p>The IKE version.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>Options for sending VPN tunnel logs to CloudWatch.</p>
- * @public
- */
-export interface CloudWatchLogOptions {
-  /**
-   * <p>Status of VPN tunnel logging feature. Default value is <code>False</code>.</p>
-   *          <p>Valid values: <code>True</code> | <code>False</code>
-   *          </p>
-   * @public
-   */
-  LogEnabled?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.</p>
-   * @public
-   */
-  LogGroupArn?: string | undefined;
-
-  /**
-   * <p>Configured log format. Default format is <code>json</code>.</p>
-   *          <p>Valid values: <code>json</code> | <code>text</code>
-   *          </p>
-   * @public
-   */
-  LogOutputFormat?: string | undefined;
-}
-
-/**
- * <p>Options for logging VPN tunnel activity.</p>
- * @public
- */
-export interface VpnTunnelLogOptions {
-  /**
-   * <p>Options for sending VPN tunnel logs to CloudWatch.</p>
-   * @public
-   */
-  CloudWatchLogOptions?: CloudWatchLogOptions | undefined;
-}
-
-/**
- * <p>The Diffie-Hellmann group number for phase 1 IKE negotiations.</p>
- * @public
- */
-export interface Phase1DHGroupNumbersListValue {
-  /**
-   * <p>The Diffie-Hellmann group number.</p>
-   * @public
-   */
-  Value?: number | undefined;
-}
-
-/**
- * <p>The encryption algorithm for phase 1 IKE negotiations.</p>
- * @public
- */
-export interface Phase1EncryptionAlgorithmsListValue {
-  /**
-   * <p>The value for the encryption algorithm.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>The integrity algorithm for phase 1 IKE negotiations.</p>
- * @public
- */
-export interface Phase1IntegrityAlgorithmsListValue {
-  /**
-   * <p>The value for the integrity algorithm.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>The Diffie-Hellmann group number for phase 2 IKE negotiations.</p>
- * @public
- */
-export interface Phase2DHGroupNumbersListValue {
-  /**
-   * <p>The Diffie-Hellmann group number.</p>
-   * @public
-   */
-  Value?: number | undefined;
-}
-
-/**
- * <p>The encryption algorithm for phase 2 IKE negotiations.</p>
- * @public
- */
-export interface Phase2EncryptionAlgorithmsListValue {
-  /**
-   * <p>The encryption algorithm.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>The integrity algorithm for phase 2 IKE negotiations.</p>
- * @public
- */
-export interface Phase2IntegrityAlgorithmsListValue {
-  /**
-   * <p>The integrity algorithm.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>The VPN tunnel options.</p>
- * @public
- */
-export interface TunnelOption {
-  /**
-   * <p>The external IP address of the VPN tunnel.</p>
-   * @public
-   */
-  OutsideIpAddress?: string | undefined;
-
-  /**
-   * <p>The range of inside IPv4 addresses for the tunnel.</p>
-   * @public
-   */
-  TunnelInsideCidr?: string | undefined;
-
-  /**
-   * <p>The range of inside IPv6 addresses for the tunnel.</p>
-   * @public
-   */
-  TunnelInsideIpv6Cidr?: string | undefined;
-
-  /**
-   * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
-   *             private gateway and the customer gateway.</p>
-   * @public
-   */
-  PreSharedKey?: string | undefined;
-
-  /**
-   * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
-   * @public
-   */
-  Phase1LifetimeSeconds?: number | undefined;
-
-  /**
-   * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
-   * @public
-   */
-  Phase2LifetimeSeconds?: number | undefined;
-
-  /**
-   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
-   *                 Amazon Web Services side of the VPN connection performs an IKE rekey.</p>
-   * @public
-   */
-  RekeyMarginTimeSeconds?: number | undefined;
-
-  /**
-   * <p>The percentage of the rekey window determined by <code>RekeyMarginTimeSeconds</code>
-   *             during which the rekey time is randomly selected.</p>
-   * @public
-   */
-  RekeyFuzzPercentage?: number | undefined;
-
-  /**
-   * <p>The number of packets in an IKE replay window.</p>
-   * @public
-   */
-  ReplayWindowSize?: number | undefined;
-
-  /**
-   * <p>The number of seconds after which a DPD timeout occurs.</p>
-   * @public
-   */
-  DpdTimeoutSeconds?: number | undefined;
-
-  /**
-   * <p>The action to take after a DPD timeout occurs.</p>
-   * @public
-   */
-  DpdTimeoutAction?: string | undefined;
-
-  /**
-   * <p>The permitted encryption algorithms for the VPN tunnel for phase 1 IKE
-   *             negotiations.</p>
-   * @public
-   */
-  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsListValue[] | undefined;
-
-  /**
-   * <p>The permitted encryption algorithms for the VPN tunnel for phase 2 IKE
-   *             negotiations.</p>
-   * @public
-   */
-  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsListValue[] | undefined;
-
-  /**
-   * <p>The permitted integrity algorithms for the VPN tunnel for phase 1 IKE
-   *             negotiations.</p>
-   * @public
-   */
-  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsListValue[] | undefined;
-
-  /**
-   * <p>The permitted integrity algorithms for the VPN tunnel for phase 2 IKE
-   *             negotiations.</p>
-   * @public
-   */
-  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsListValue[] | undefined;
-
-  /**
-   * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 1 IKE
-   *             negotiations.</p>
-   * @public
-   */
-  Phase1DHGroupNumbers?: Phase1DHGroupNumbersListValue[] | undefined;
-
-  /**
-   * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 2 IKE
-   *             negotiations.</p>
-   * @public
-   */
-  Phase2DHGroupNumbers?: Phase2DHGroupNumbersListValue[] | undefined;
-
-  /**
-   * <p>The IKE versions that are permitted for the VPN tunnel.</p>
-   * @public
-   */
-  IkeVersions?: IKEVersionsListValue[] | undefined;
-
-  /**
-   * <p>The action to take when the establishing the VPN tunnels for a VPN connection.</p>
-   * @public
-   */
-  StartupAction?: string | undefined;
-
-  /**
-   * <p>Options for logging VPN tunnel activity.</p>
-   * @public
-   */
-  LogOptions?: VpnTunnelLogOptions | undefined;
-
-  /**
-   * <p>Status of tunnel endpoint lifecycle control feature.</p>
-   * @public
-   */
-  EnableTunnelLifecycleControl?: boolean | undefined;
-}
-
-/**
- * <p>Describes VPN connection options.</p>
- * @public
- */
-export interface VpnConnectionOptions {
-  /**
-   * <p>Indicates whether acceleration is enabled for the VPN connection.</p>
-   * @public
-   */
-  EnableAcceleration?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether the VPN connection uses static routes only. Static routes must be
-   *             used for devices that don't support BGP.</p>
-   * @public
-   */
-  StaticRoutesOnly?: boolean | undefined;
-
-  /**
-   * <p>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   * @public
-   */
-  LocalIpv4NetworkCidr?: string | undefined;
-
-  /**
-   * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   * @public
-   */
-  RemoteIpv4NetworkCidr?: string | undefined;
-
-  /**
-   * <p>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   * @public
-   */
-  LocalIpv6NetworkCidr?: string | undefined;
-
-  /**
-   * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   * @public
-   */
-  RemoteIpv6NetworkCidr?: string | undefined;
-
-  /**
-   * <p>The type of IPv4 address assigned to the outside interface of the customer gateway.</p>
-   *          <p>Valid values: <code>PrivateIpv4</code> | <code>PublicIpv4</code>
-   *          </p>
-   *          <p>Default: <code>PublicIpv4</code>
-   *          </p>
-   * @public
-   */
-  OutsideIpAddressType?: string | undefined;
-
-  /**
-   * <p>The transit gateway attachment ID in use for the VPN tunnel.</p>
-   * @public
-   */
-  TransportTransitGatewayAttachmentId?: string | undefined;
-
-  /**
-   * <p>Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
-   * @public
-   */
-  TunnelInsideIpVersion?: TunnelInsideIpVersion | undefined;
-
-  /**
-   * <p>Indicates the VPN tunnel options.</p>
-   * @public
-   */
-  TunnelOptions?: TunnelOption[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const VpnStaticRouteSource = {
-  Static: "Static",
-} as const;
-
-/**
- * @public
- */
-export type VpnStaticRouteSource = (typeof VpnStaticRouteSource)[keyof typeof VpnStaticRouteSource];
-
-/**
- * @public
- * @enum
- */
-export const VpnState = {
-  available: "available",
-  deleted: "deleted",
-  deleting: "deleting",
-  pending: "pending",
-} as const;
-
-/**
- * @public
- */
-export type VpnState = (typeof VpnState)[keyof typeof VpnState];
-
-/**
- * <p>Describes a static route for a VPN connection.</p>
- * @public
- */
-export interface VpnStaticRoute {
-  /**
-   * <p>The CIDR block associated with the local subnet of the customer data center.</p>
-   * @public
-   */
-  DestinationCidrBlock?: string | undefined;
-
-  /**
-   * <p>Indicates how the routes were provided.</p>
-   * @public
-   */
-  Source?: VpnStaticRouteSource | undefined;
-
-  /**
-   * <p>The current state of the static route.</p>
-   * @public
-   */
-  State?: VpnState | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TelemetryStatus = {
-  DOWN: "DOWN",
-  UP: "UP",
-} as const;
-
-/**
- * @public
- */
-export type TelemetryStatus = (typeof TelemetryStatus)[keyof typeof TelemetryStatus];
-
-/**
  * @internal
  */
 export const CreateVerifiedAccessNativeApplicationOidcOptionsFilterSensitiveLog = (
@@ -10470,46 +10352,4 @@ export const CreateVerifiedAccessTrustProviderResultFilterSensitiveLog = (
   ...(obj.VerifiedAccessTrustProvider && {
     VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
   }),
-});
-
-/**
- * @internal
- */
-export const VpnTunnelOptionsSpecificationFilterSensitiveLog = (obj: VpnTunnelOptionsSpecification): any => ({
-  ...obj,
-  ...(obj.PreSharedKey && { PreSharedKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const VpnConnectionOptionsSpecificationFilterSensitiveLog = (obj: VpnConnectionOptionsSpecification): any => ({
-  ...obj,
-  ...(obj.TunnelOptions && {
-    TunnelOptions: obj.TunnelOptions.map((item) => VpnTunnelOptionsSpecificationFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
-export const CreateVpnConnectionRequestFilterSensitiveLog = (obj: CreateVpnConnectionRequest): any => ({
-  ...obj,
-  ...(obj.Options && { Options: VpnConnectionOptionsSpecificationFilterSensitiveLog(obj.Options) }),
-});
-
-/**
- * @internal
- */
-export const TunnelOptionFilterSensitiveLog = (obj: TunnelOption): any => ({
-  ...obj,
-  ...(obj.PreSharedKey && { PreSharedKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const VpnConnectionOptionsFilterSensitiveLog = (obj: VpnConnectionOptions): any => ({
-  ...obj,
-  ...(obj.TunnelOptions && { TunnelOptions: obj.TunnelOptions.map((item) => TunnelOptionFilterSensitiveLog(item)) }),
 });

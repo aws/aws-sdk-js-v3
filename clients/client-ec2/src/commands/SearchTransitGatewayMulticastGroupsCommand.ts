@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   SearchTransitGatewayMulticastGroupsRequest,
   SearchTransitGatewayMulticastGroupsResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import {
   de_SearchTransitGatewayMulticastGroupsCommand,
   se_SearchTransitGatewayMulticastGroupsCommand,

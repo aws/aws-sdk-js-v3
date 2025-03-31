@@ -117,6 +117,10 @@ import {
   AssociateNatGatewayAddressCommandOutput,
 } from "../commands/AssociateNatGatewayAddressCommand";
 import {
+  AssociateRouteServerCommandInput,
+  AssociateRouteServerCommandOutput,
+} from "../commands/AssociateRouteServerCommand";
+import {
   AssociateRouteTableCommandInput,
   AssociateRouteTableCommandOutput,
 } from "../commands/AssociateRouteTableCommand";
@@ -364,6 +368,15 @@ import {
   CreateRestoreImageTaskCommandOutput,
 } from "../commands/CreateRestoreImageTaskCommand";
 import { CreateRouteCommandInput, CreateRouteCommandOutput } from "../commands/CreateRouteCommand";
+import { CreateRouteServerCommandInput, CreateRouteServerCommandOutput } from "../commands/CreateRouteServerCommand";
+import {
+  CreateRouteServerEndpointCommandInput,
+  CreateRouteServerEndpointCommandOutput,
+} from "../commands/CreateRouteServerEndpointCommand";
+import {
+  CreateRouteServerPeerCommandInput,
+  CreateRouteServerPeerCommandOutput,
+} from "../commands/CreateRouteServerPeerCommand";
 import { CreateRouteTableCommandInput, CreateRouteTableCommandOutput } from "../commands/CreateRouteTableCommand";
 import {
   CreateSecurityGroupCommandInput,
@@ -610,6 +623,15 @@ import {
   DeleteQueuedReservedInstancesCommandOutput,
 } from "../commands/DeleteQueuedReservedInstancesCommand";
 import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "../commands/DeleteRouteCommand";
+import { DeleteRouteServerCommandInput, DeleteRouteServerCommandOutput } from "../commands/DeleteRouteServerCommand";
+import {
+  DeleteRouteServerEndpointCommandInput,
+  DeleteRouteServerEndpointCommandOutput,
+} from "../commands/DeleteRouteServerEndpointCommand";
+import {
+  DeleteRouteServerPeerCommandInput,
+  DeleteRouteServerPeerCommandOutput,
+} from "../commands/DeleteRouteServerPeerCommand";
 import { DeleteRouteTableCommandInput, DeleteRouteTableCommandOutput } from "../commands/DeleteRouteTableCommand";
 import {
   DeleteSecurityGroupCommandInput,
@@ -1110,6 +1132,18 @@ import {
   DescribeReservedInstancesOfferingsCommandOutput,
 } from "../commands/DescribeReservedInstancesOfferingsCommand";
 import {
+  DescribeRouteServerEndpointsCommandInput,
+  DescribeRouteServerEndpointsCommandOutput,
+} from "../commands/DescribeRouteServerEndpointsCommand";
+import {
+  DescribeRouteServerPeersCommandInput,
+  DescribeRouteServerPeersCommandOutput,
+} from "../commands/DescribeRouteServerPeersCommand";
+import {
+  DescribeRouteServersCommandInput,
+  DescribeRouteServersCommandOutput,
+} from "../commands/DescribeRouteServersCommand";
+import {
   DescribeRouteTablesCommandInput,
   DescribeRouteTablesCommandOutput,
 } from "../commands/DescribeRouteTablesCommand";
@@ -1391,6 +1425,10 @@ import {
   DisableIpamOrganizationAdminAccountCommandOutput,
 } from "../commands/DisableIpamOrganizationAdminAccountCommand";
 import {
+  DisableRouteServerPropagationCommandInput,
+  DisableRouteServerPropagationCommandOutput,
+} from "../commands/DisableRouteServerPropagationCommand";
+import {
   DisableSerialConsoleAccessCommandInput,
   DisableSerialConsoleAccessCommandOutput,
 } from "../commands/DisableSerialConsoleAccessCommand";
@@ -1450,6 +1488,10 @@ import {
   DisassociateNatGatewayAddressCommandInput,
   DisassociateNatGatewayAddressCommandOutput,
 } from "../commands/DisassociateNatGatewayAddressCommand";
+import {
+  DisassociateRouteServerCommandInput,
+  DisassociateRouteServerCommandOutput,
+} from "../commands/DisassociateRouteServerCommand";
 import {
   DisassociateRouteTableCommandInput,
   DisassociateRouteTableCommandOutput,
@@ -1524,6 +1566,10 @@ import {
   EnableReachabilityAnalyzerOrganizationSharingCommandInput,
   EnableReachabilityAnalyzerOrganizationSharingCommandOutput,
 } from "../commands/EnableReachabilityAnalyzerOrganizationSharingCommand";
+import {
+  EnableRouteServerPropagationCommandInput,
+  EnableRouteServerPropagationCommandOutput,
+} from "../commands/EnableRouteServerPropagationCommand";
 import {
   EnableSerialConsoleAccessCommandInput,
   EnableSerialConsoleAccessCommandOutput,
@@ -1690,6 +1736,18 @@ import {
   GetReservedInstancesExchangeQuoteCommandInput,
   GetReservedInstancesExchangeQuoteCommandOutput,
 } from "../commands/GetReservedInstancesExchangeQuoteCommand";
+import {
+  GetRouteServerAssociationsCommandInput,
+  GetRouteServerAssociationsCommandOutput,
+} from "../commands/GetRouteServerAssociationsCommand";
+import {
+  GetRouteServerPropagationsCommandInput,
+  GetRouteServerPropagationsCommandOutput,
+} from "../commands/GetRouteServerPropagationsCommand";
+import {
+  GetRouteServerRoutingDatabaseCommandInput,
+  GetRouteServerRoutingDatabaseCommandOutput,
+} from "../commands/GetRouteServerRoutingDatabaseCommand";
 import {
   GetSecurityGroupsForVpcCommandInput,
   GetSecurityGroupsForVpcCommandOutput,
@@ -1902,6 +1960,7 @@ import {
   ModifyReservedInstancesCommandInput,
   ModifyReservedInstancesCommandOutput,
 } from "../commands/ModifyReservedInstancesCommand";
+import { ModifyRouteServerCommandInput, ModifyRouteServerCommandOutput } from "../commands/ModifyRouteServerCommand";
 import {
   ModifySecurityGroupRulesCommandInput,
   ModifySecurityGroupRulesCommandOutput,
@@ -2358,6 +2417,8 @@ import {
   AssociateIpamResourceDiscoveryResult,
   AssociateNatGatewayAddressRequest,
   AssociateNatGatewayAddressResult,
+  AssociateRouteServerRequest,
+  AssociateRouteServerResult,
   AssociateRouteTableRequest,
   AssociateRouteTableResult,
   AssociateSecurityGroupVpcRequest,
@@ -2428,10 +2489,6 @@ import {
   ConfirmProductInstanceResult,
   CopyFpgaImageRequest,
   CopyFpgaImageResult,
-  CopyImageRequest,
-  CopyImageResult,
-  CopySnapshotRequest,
-  CopySnapshotResult,
   DeviceOptions,
   DeviceTrustProviderType,
   EnaSrdSpecification,
@@ -2474,6 +2531,7 @@ import {
   ReservedInstancesListing,
   ResourceStatement,
   ResourceStatementRequest,
+  RouteServerAssociation,
   RouteTableAssociationState,
   RuleGroupRuleOptionsPair,
   RuleGroupTypePair,
@@ -2544,6 +2602,10 @@ import {
   ConnectionLogOptions,
   ConnectionTrackingSpecification,
   ConnectionTrackingSpecificationRequest,
+  CopyImageRequest,
+  CopyImageResult,
+  CopySnapshotRequest,
+  CopySnapshotResult,
   CpuManufacturer,
   CpuPerformanceFactor,
   CpuPerformanceFactorRequest,
@@ -2606,7 +2668,6 @@ import {
   CreateLaunchTemplateResult,
   CreateLaunchTemplateVersionRequest,
   CreateLaunchTemplateVersionResult,
-  CreateLocalGatewayRouteRequest,
   CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
@@ -2703,7 +2764,6 @@ import {
   LaunchTemplateTagSpecification,
   LaunchTemplateTagSpecificationRequest,
   LaunchTemplateVersion,
-  LocalGatewayRoute,
   LocalStorageType,
   MemoryGiBPerVCpu,
   MemoryGiBPerVCpuRequest,
@@ -2745,10 +2805,10 @@ import {
 import {
   AttachmentEnaSrdSpecification,
   AttachmentEnaSrdUdpSpecification,
-  CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
   ConnectionTrackingConfiguration,
+  CreateLocalGatewayRouteRequest,
   CreateLocalGatewayRouteResult,
   CreateLocalGatewayRouteTableRequest,
   CreateLocalGatewayRouteTableResult,
@@ -2783,6 +2843,12 @@ import {
   CreateRestoreImageTaskResult,
   CreateRouteRequest,
   CreateRouteResult,
+  CreateRouteServerEndpointRequest,
+  CreateRouteServerEndpointResult,
+  CreateRouteServerPeerRequest,
+  CreateRouteServerPeerResult,
+  CreateRouteServerRequest,
+  CreateRouteServerResult,
   CreateRouteTableRequest,
   CreateRouteTableResult,
   CreateSecurityGroupRequest,
@@ -2862,18 +2928,17 @@ import {
   CreateVpcPeeringConnectionResult,
   CreateVpcRequest,
   CreateVpcResult,
-  CreateVpnConnectionRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
   FilterPortRange,
   GroupIdentifier,
   IcmpTypeCode,
-  IKEVersionsListValue,
   IKEVersionsRequestListValue,
   InstanceSpecification,
   Ipv6PrefixSpecification,
   LastError,
+  LocalGatewayRoute,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
@@ -2894,18 +2959,6 @@ import {
   NetworkInterfacePrivateIpAddress,
   PathFilter,
   PathRequestFilter,
-  Phase1DHGroupNumbersListValue,
-  Phase1DHGroupNumbersRequestListValue,
-  Phase1EncryptionAlgorithmsListValue,
-  Phase1EncryptionAlgorithmsRequestListValue,
-  Phase1IntegrityAlgorithmsListValue,
-  Phase1IntegrityAlgorithmsRequestListValue,
-  Phase2DHGroupNumbersListValue,
-  Phase2DHGroupNumbersRequestListValue,
-  Phase2EncryptionAlgorithmsListValue,
-  Phase2EncryptionAlgorithmsRequestListValue,
-  Phase2IntegrityAlgorithmsListValue,
-  Phase2IntegrityAlgorithmsRequestListValue,
   PlacementGroup,
   PriceScheduleSpecification,
   PrivateDnsNameConfiguration,
@@ -2914,6 +2967,13 @@ import {
   ReplaceRootVolumeTask,
   RequestFilterPortRange,
   Route,
+  RouteServer,
+  RouteServerBfdStatus,
+  RouteServerBgpOptions,
+  RouteServerBgpOptionsRequest,
+  RouteServerBgpStatus,
+  RouteServerEndpoint,
+  RouteServerPeer,
   RouteTable,
   RouteTableAssociation,
   S3ObjectTag,
@@ -2955,7 +3015,6 @@ import {
   TransitGatewayRouteAttachment,
   TransitGatewayRouteTable,
   TransitGatewayRouteTableAnnouncement,
-  TunnelOption,
   VerifiedAccessEndpoint,
   VerifiedAccessEndpointCidrOptions,
   VerifiedAccessEndpointEniOptions,
@@ -2968,12 +3027,7 @@ import {
   Volume,
   VpcBlockPublicAccessExclusion,
   VpcEndpoint,
-  VpnConnectionOptions,
-  VpnConnectionOptionsSpecification,
-  VpnStaticRoute,
-  VpnTunnelLogOptions,
   VpnTunnelLogOptionsSpecification,
-  VpnTunnelOptionsSpecification,
 } from "../models/models_2";
 import {
   AssociatedTargetNetwork,
@@ -2997,13 +3051,13 @@ import {
   ClientVpnEndpoint,
   ClientVpnEndpointAttributeStatus,
   ClientVpnRoute,
+  CloudWatchLogOptions,
   ConnectionLogResponseOptions,
-  ConversionTask,
+  CreateVpnConnectionRequest,
   CreateVpnConnectionResult,
   CreateVpnConnectionRouteRequest,
   CreateVpnGatewayRequest,
   CreateVpnGatewayResult,
-  DeclarativePoliciesReport,
   DeleteCarrierGatewayRequest,
   DeleteCarrierGatewayResult,
   DeleteClientVpnEndpointRequest,
@@ -3082,6 +3136,12 @@ import {
   DeleteQueuedReservedInstancesRequest,
   DeleteQueuedReservedInstancesResult,
   DeleteRouteRequest,
+  DeleteRouteServerEndpointRequest,
+  DeleteRouteServerEndpointResult,
+  DeleteRouteServerPeerRequest,
+  DeleteRouteServerPeerResult,
+  DeleteRouteServerRequest,
+  DeleteRouteServerResult,
   DeleteRouteTableRequest,
   DeleteSecurityGroupRequest,
   DeleteSecurityGroupResult,
@@ -3208,6 +3268,58 @@ import {
   DescribeCoipPoolsRequest,
   DescribeCoipPoolsResult,
   DescribeConversionTasksRequest,
+  DirectoryServiceAuthentication,
+  DiskImageDescription,
+  DiskImageVolumeDescription,
+  FailedQueuedPurchaseDeletion,
+  FederatedAuthentication,
+  Filter,
+  IdFormat,
+  IKEVersionsListValue,
+  InstanceEventWindowStateChange,
+  InstanceTagNotificationAttribute,
+  IpamPoolCidr,
+  IpamPoolCidrFailureReason,
+  Phase1DHGroupNumbersListValue,
+  Phase1DHGroupNumbersRequestListValue,
+  Phase1EncryptionAlgorithmsListValue,
+  Phase1EncryptionAlgorithmsRequestListValue,
+  Phase1IntegrityAlgorithmsListValue,
+  Phase1IntegrityAlgorithmsRequestListValue,
+  Phase2DHGroupNumbersListValue,
+  Phase2DHGroupNumbersRequestListValue,
+  Phase2EncryptionAlgorithmsListValue,
+  Phase2EncryptionAlgorithmsRequestListValue,
+  Phase2IntegrityAlgorithmsListValue,
+  Phase2IntegrityAlgorithmsRequestListValue,
+  ResponseError,
+  Subscription,
+  SuccessfulQueuedPurchaseDeletion,
+  TargetNetwork,
+  TransitGatewayMulticastDeregisteredGroupMembers,
+  TransitGatewayMulticastDeregisteredGroupSources,
+  TunnelOption,
+  VgwTelemetry,
+  VpnConnection,
+  VpnConnectionOptions,
+  VpnConnectionOptionsSpecification,
+  VpnGateway,
+  VpnStaticRoute,
+  VpnTunnelLogOptions,
+  VpnTunnelOptionsSpecification,
+} from "../models/models_3";
+import {
+  ArchitectureType,
+  AttributeBooleanValue,
+  AvailableCapacity,
+  BandwidthWeightingType,
+  BootModeType,
+  CapacityReservationOptions,
+  CapacityReservationSpecificationResponse,
+  ConnectionTrackingSpecificationResponse,
+  ConversionTask,
+  CpuOptions,
+  DeclarativePoliciesReport,
   DescribeConversionTasksResult,
   DescribeCustomerGatewaysRequest,
   DescribeCustomerGatewaysResult,
@@ -3224,45 +3336,6 @@ import {
   DescribeExportTasksRequest,
   DescribeExportTasksResult,
   DescribeFastLaunchImagesRequest,
-  DirectoryServiceAuthentication,
-  DiskImageDescription,
-  DiskImageVolumeDescription,
-  ElasticGpuHealth,
-  ElasticGpus,
-  ExportImageTask,
-  ExportTaskS3Location,
-  FailedQueuedPurchaseDeletion,
-  FastLaunchLaunchTemplateSpecificationResponse,
-  FederatedAuthentication,
-  Filter,
-  IdFormat,
-  ImportInstanceTaskDetails,
-  ImportInstanceVolumeDetailItem,
-  ImportVolumeTaskDetails,
-  InstanceEventWindowStateChange,
-  InstanceTagNotificationAttribute,
-  IpamPoolCidr,
-  IpamPoolCidrFailureReason,
-  ResponseError,
-  Subscription,
-  SuccessfulQueuedPurchaseDeletion,
-  TargetNetwork,
-  TransitGatewayMulticastDeregisteredGroupMembers,
-  TransitGatewayMulticastDeregisteredGroupSources,
-  VgwTelemetry,
-  VpnConnection,
-  VpnGateway,
-} from "../models/models_3";
-import {
-  ArchitectureType,
-  AttributeBooleanValue,
-  AvailableCapacity,
-  BandwidthWeightingType,
-  BootModeType,
-  CapacityReservationOptions,
-  CapacityReservationSpecificationResponse,
-  ConnectionTrackingSpecificationResponse,
-  CpuOptions,
   DescribeFastLaunchImagesResult,
   DescribeFastLaunchImagesSuccessItem,
   DescribeFastSnapshotRestoresRequest,
@@ -3365,30 +3438,6 @@ import {
   DescribeManagedPrefixListsRequest,
   DescribeManagedPrefixListsResult,
   DescribeMovingAddressesRequest,
-  DescribeMovingAddressesResult,
-  DescribeNatGatewaysRequest,
-  DescribeNatGatewaysResult,
-  DescribeNetworkAclsRequest,
-  DescribeNetworkAclsResult,
-  DescribeNetworkInsightsAccessScopeAnalysesRequest,
-  DescribeNetworkInsightsAccessScopeAnalysesResult,
-  DescribeNetworkInsightsAccessScopesRequest,
-  DescribeNetworkInsightsAccessScopesResult,
-  DescribeNetworkInsightsAnalysesRequest,
-  DescribeNetworkInsightsAnalysesResult,
-  DescribeNetworkInsightsPathsRequest,
-  DescribeNetworkInsightsPathsResult,
-  DescribeNetworkInterfaceAttributeRequest,
-  DescribeNetworkInterfaceAttributeResult,
-  DescribeNetworkInterfacePermissionsRequest,
-  DescribeNetworkInterfacePermissionsResult,
-  DescribeNetworkInterfacesRequest,
-  DescribeNetworkInterfacesResult,
-  DescribePlacementGroupsRequest,
-  DescribePlacementGroupsResult,
-  DescribePrefixListsRequest,
-  DescribePrefixListsResult,
-  DescribePrincipalIdFormatRequest,
   DestinationOptionsResponse,
   DiskInfo,
   EbsInfo,
@@ -3398,9 +3447,14 @@ import {
   EbsStatusSummary,
   EfaInfo,
   ElasticGpuAssociation,
+  ElasticGpuHealth,
+  ElasticGpus,
   ElasticInferenceAcceleratorAssociation,
   EnclaveOptions,
   EventInformation,
+  ExportImageTask,
+  ExportTaskS3Location,
+  FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchSnapshotConfigurationResponse,
   FleetData,
   FleetLaunchTemplateConfig,
@@ -3428,7 +3482,10 @@ import {
   ImageMetadata,
   ImportImageLicenseConfigurationResponse,
   ImportImageTask,
+  ImportInstanceTaskDetails,
+  ImportInstanceVolumeDetailItem,
   ImportSnapshotTask,
+  ImportVolumeTaskDetails,
   InferenceAcceleratorInfo,
   InferenceDeviceInfo,
   InferenceDeviceMemoryInfo,
@@ -3473,11 +3530,8 @@ import {
   MediaDeviceMemoryInfo,
   MemoryInfo,
   Monitoring,
-  MovingAddressStatus,
   NetworkCardInfo,
   NetworkInfo,
-  NetworkInsightsAccessScopeAnalysis,
-  NetworkInsightsAnalysis,
   NeuronDeviceCoreInfo,
   NeuronDeviceInfo,
   NeuronDeviceMemoryInfo,
@@ -3488,7 +3542,6 @@ import {
   PlacementGroupInfo,
   PlacementGroupStrategy,
   PoolCidrBlock,
-  PrefixList,
   PrivateDnsNameOptionsResponse,
   ProcessorInfo,
   ProductCode,
@@ -3509,6 +3562,30 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeMovingAddressesResult,
+  DescribeNatGatewaysRequest,
+  DescribeNatGatewaysResult,
+  DescribeNetworkAclsRequest,
+  DescribeNetworkAclsResult,
+  DescribeNetworkInsightsAccessScopeAnalysesRequest,
+  DescribeNetworkInsightsAccessScopeAnalysesResult,
+  DescribeNetworkInsightsAccessScopesRequest,
+  DescribeNetworkInsightsAccessScopesResult,
+  DescribeNetworkInsightsAnalysesRequest,
+  DescribeNetworkInsightsAnalysesResult,
+  DescribeNetworkInsightsPathsRequest,
+  DescribeNetworkInsightsPathsResult,
+  DescribeNetworkInterfaceAttributeRequest,
+  DescribeNetworkInterfaceAttributeResult,
+  DescribeNetworkInterfacePermissionsRequest,
+  DescribeNetworkInterfacePermissionsResult,
+  DescribeNetworkInterfacesRequest,
+  DescribeNetworkInterfacesResult,
+  DescribePlacementGroupsRequest,
+  DescribePlacementGroupsResult,
+  DescribePrefixListsRequest,
+  DescribePrefixListsResult,
+  DescribePrincipalIdFormatRequest,
   DescribePrincipalIdFormatResult,
   DescribePublicIpv4PoolsRequest,
   DescribePublicIpv4PoolsResult,
@@ -3524,6 +3601,12 @@ import {
   DescribeReservedInstancesOfferingsResult,
   DescribeReservedInstancesRequest,
   DescribeReservedInstancesResult,
+  DescribeRouteServerEndpointsRequest,
+  DescribeRouteServerEndpointsResult,
+  DescribeRouteServerPeersRequest,
+  DescribeRouteServerPeersResult,
+  DescribeRouteServersRequest,
+  DescribeRouteServersResult,
   DescribeRouteTablesRequest,
   DescribeRouteTablesResult,
   DescribeScheduledInstanceAvailabilityRequest,
@@ -3677,46 +3760,16 @@ import {
   DisableImageRequest,
   DisableImageResult,
   DisableIpamOrganizationAdminAccountRequest,
-  DisableIpamOrganizationAdminAccountResult,
-  DisableSerialConsoleAccessRequest,
-  DisableSerialConsoleAccessResult,
-  DisableSnapshotBlockPublicAccessRequest,
-  DisableSnapshotBlockPublicAccessResult,
-  DisableTransitGatewayRouteTablePropagationRequest,
-  DisableTransitGatewayRouteTablePropagationResult,
-  DisableVgwRoutePropagationRequest,
-  DisableVpcClassicLinkDnsSupportRequest,
-  DisableVpcClassicLinkDnsSupportResult,
-  DisableVpcClassicLinkRequest,
-  DisableVpcClassicLinkResult,
-  DisassociateAddressRequest,
-  DisassociateCapacityReservationBillingOwnerRequest,
-  DisassociateCapacityReservationBillingOwnerResult,
-  DisassociateClientVpnTargetNetworkRequest,
-  DisassociateClientVpnTargetNetworkResult,
-  DisassociateEnclaveCertificateIamRoleRequest,
-  DisassociateEnclaveCertificateIamRoleResult,
-  DisassociateIamInstanceProfileRequest,
-  DisassociateIamInstanceProfileResult,
-  DisassociateInstanceEventWindowRequest,
-  DisassociateInstanceEventWindowResult,
-  DisassociateIpamByoasnRequest,
-  DisassociateIpamByoasnResult,
-  DisassociateIpamResourceDiscoveryRequest,
-  DisassociateIpamResourceDiscoveryResult,
-  DisassociateNatGatewayAddressRequest,
-  DisassociateNatGatewayAddressResult,
-  DisassociateRouteTableRequest,
-  DisassociateSecurityGroupVpcRequest,
-  DisassociateSecurityGroupVpcResult,
-  DisassociateSubnetCidrBlockRequest,
   HistoryRecord,
-  InstanceEventWindowDisassociationRequest,
   InstanceNetworkInterfaceSpecification,
   LaunchSpecification,
   LaunchTemplateConfig,
   LaunchTemplateOverrides,
   LoadBalancersConfig,
+  MovingAddressStatus,
+  NetworkInsightsAccessScopeAnalysis,
+  NetworkInsightsAnalysis,
+  PrefixList,
   PricingDetail,
   PrincipalIdFormat,
   PrivateDnsDetails,
@@ -3761,7 +3814,6 @@ import {
   TargetGroupsConfig,
   TransitGatewayAttachment,
   TransitGatewayAttachmentAssociation,
-  TransitGatewayPropagation,
   VerifiedAccessInstanceLoggingConfiguration,
   VerifiedAccessLogCloudWatchLogsDestination,
   VerifiedAccessLogDeliveryStatus,
@@ -3784,14 +3836,49 @@ import {
   AssociatedRole,
   AthenaIntegration,
   AttributeSummary,
-  BlobAttributeValue,
   CapacityReservationGroup,
-  CapacityReservationSpecification,
   ClientCertificateRevocationListStatus,
   ClientData,
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DisableIpamOrganizationAdminAccountResult,
+  DisableRouteServerPropagationRequest,
+  DisableRouteServerPropagationResult,
+  DisableSerialConsoleAccessRequest,
+  DisableSerialConsoleAccessResult,
+  DisableSnapshotBlockPublicAccessRequest,
+  DisableSnapshotBlockPublicAccessResult,
+  DisableTransitGatewayRouteTablePropagationRequest,
+  DisableTransitGatewayRouteTablePropagationResult,
+  DisableVgwRoutePropagationRequest,
+  DisableVpcClassicLinkDnsSupportRequest,
+  DisableVpcClassicLinkDnsSupportResult,
+  DisableVpcClassicLinkRequest,
+  DisableVpcClassicLinkResult,
+  DisassociateAddressRequest,
+  DisassociateCapacityReservationBillingOwnerRequest,
+  DisassociateCapacityReservationBillingOwnerResult,
+  DisassociateClientVpnTargetNetworkRequest,
+  DisassociateClientVpnTargetNetworkResult,
+  DisassociateEnclaveCertificateIamRoleRequest,
+  DisassociateEnclaveCertificateIamRoleResult,
+  DisassociateIamInstanceProfileRequest,
+  DisassociateIamInstanceProfileResult,
+  DisassociateInstanceEventWindowRequest,
+  DisassociateInstanceEventWindowResult,
+  DisassociateIpamByoasnRequest,
+  DisassociateIpamByoasnResult,
+  DisassociateIpamResourceDiscoveryRequest,
+  DisassociateIpamResourceDiscoveryResult,
+  DisassociateNatGatewayAddressRequest,
+  DisassociateNatGatewayAddressResult,
+  DisassociateRouteServerRequest,
+  DisassociateRouteServerResult,
+  DisassociateRouteTableRequest,
+  DisassociateSecurityGroupVpcRequest,
+  DisassociateSecurityGroupVpcResult,
+  DisassociateSubnetCidrBlockRequest,
   DisassociateSubnetCidrBlockResult,
   DisassociateTransitGatewayMulticastDomainRequest,
   DisassociateTransitGatewayMulticastDomainResult,
@@ -3805,8 +3892,6 @@ import {
   DisassociateVpcCidrBlockResult,
   DiskImage,
   DiskImageDetail,
-  DnsServersOptionsModifyStructure,
-  EbsInstanceBlockDeviceSpecification,
   EnableAddressTransferRequest,
   EnableAddressTransferResult,
   EnableAllowedImagesSettingsRequest,
@@ -3835,6 +3920,8 @@ import {
   EnableIpamOrganizationAdminAccountResult,
   EnableReachabilityAnalyzerOrganizationSharingRequest,
   EnableReachabilityAnalyzerOrganizationSharingResult,
+  EnableRouteServerPropagationRequest,
+  EnableRouteServerPropagationResult,
   EnableSerialConsoleAccessRequest,
   EnableSerialConsoleAccessResult,
   EnableSnapshotBlockPublicAccessRequest,
@@ -3928,6 +4015,12 @@ import {
   GetPasswordDataResult,
   GetReservedInstancesExchangeQuoteRequest,
   GetReservedInstancesExchangeQuoteResult,
+  GetRouteServerAssociationsRequest,
+  GetRouteServerAssociationsResult,
+  GetRouteServerPropagationsRequest,
+  GetRouteServerPropagationsResult,
+  GetRouteServerRoutingDatabaseRequest,
+  GetRouteServerRoutingDatabaseResult,
   GetSecurityGroupsForVpcRequest,
   GetSecurityGroupsForVpcResult,
   GetSerialConsoleAccessStatusRequest,
@@ -3966,22 +4059,12 @@ import {
   GetVpnTunnelReplacementStatusResult,
   ImageCriterion,
   ImageDiskContainer,
-  ImageRecycleBinInfo,
   ImportClientVpnClientCertificateRevocationListRequest,
   ImportClientVpnClientCertificateRevocationListResult,
   ImportImageLicenseConfigurationRequest,
   ImportImageRequest,
   ImportImageResult,
-  ImportInstanceLaunchSpecification,
-  ImportInstanceRequest,
-  ImportInstanceResult,
-  ImportKeyPairRequest,
-  ImportKeyPairResult,
-  ImportSnapshotRequest,
-  ImportSnapshotResult,
-  ImportVolumeRequest,
-  ImportVolumeResult,
-  InstanceBlockDeviceMappingSpecification,
+  InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceMetadataDefaultsResponse,
   InstanceRequirementsWithMetadataRequest,
@@ -3998,6 +4081,60 @@ import {
   IpamPublicAddressTags,
   IpamResourceCidr,
   Ipv6CidrAssociation,
+  MaintenanceDetails,
+  MetricPoint,
+  PrefixListAssociation,
+  PrefixListEntry,
+  Purchase,
+  RegionalSummary,
+  ReservationValue,
+  ReservedInstanceReservationValue,
+  RouteServerPropagation,
+  RouteServerRoute,
+  RouteServerRouteInstallationDetail,
+  SecurityGroupForVpc,
+  SpotPlacementScore,
+  TargetConfiguration,
+  TargetReservationValue,
+  TransitGatewayAttachmentPropagation,
+  TransitGatewayMulticastDomainAssociation,
+  TransitGatewayPolicyRule,
+  TransitGatewayPolicyRuleMetaData,
+  TransitGatewayPolicyTableEntry,
+  TransitGatewayPropagation,
+  TransitGatewayRouteTableAssociation,
+  TransitGatewayRouteTablePropagation,
+  UserBucket,
+  VerifiedAccessEndpointTarget,
+  VerifiedAccessInstanceOpenVpnClientConfiguration,
+  VerifiedAccessInstanceOpenVpnClientConfigurationRoute,
+  VerifiedAccessInstanceUserTrustProviderClientConfiguration,
+  VolumeDetail,
+  VpnConnectionDeviceType,
+} from "../models/models_6";
+import {
+  AsnAuthorizationContext,
+  BlobAttributeValue,
+  CapacityReservationSpecification,
+  CidrAuthorizationContext,
+  CreateVolumePermissionModifications,
+  DnsServersOptionsModifyStructure,
+  EbsInstanceBlockDeviceSpecification,
+  ImageCriterionRequest,
+  ImageRecycleBinInfo,
+  ImportInstanceLaunchSpecification,
+  ImportInstanceRequest,
+  ImportInstanceResult,
+  ImportKeyPairRequest,
+  ImportKeyPairResult,
+  ImportSnapshotRequest,
+  ImportSnapshotResult,
+  ImportVolumeRequest,
+  ImportVolumeResult,
+  InstanceBlockDeviceMappingSpecification,
+  InstanceCreditSpecificationRequest,
+  InstanceMonitoring,
+  IpamCidrAuthorizationContext,
   LaunchPermissionModifications,
   ListImagesInRecycleBinRequest,
   ListImagesInRecycleBinResult,
@@ -4007,8 +4144,6 @@ import {
   LoadPermissionRequest,
   LockSnapshotRequest,
   LockSnapshotResult,
-  MaintenanceDetails,
-  MetricPoint,
   ModifyAddressAttributeRequest,
   ModifyAddressAttributeResult,
   ModifyAvailabilityZoneGroupRequest,
@@ -4034,53 +4169,6 @@ import {
   ModifyImageAttributeRequest,
   ModifyInstanceAttributeRequest,
   ModifyInstanceCapacityReservationAttributesRequest,
-  PrefixListAssociation,
-  PrefixListEntry,
-  Purchase,
-  RegionalSummary,
-  ReservationValue,
-  ReservedInstanceReservationValue,
-  SecurityGroupForVpc,
-  SnapshotDiskContainer,
-  SnapshotRecycleBinInfo,
-  SpotPlacementScore,
-  TargetConfiguration,
-  TargetReservationValue,
-  TransitGatewayAttachmentPropagation,
-  TransitGatewayMulticastDomainAssociation,
-  TransitGatewayPolicyRule,
-  TransitGatewayPolicyRuleMetaData,
-  TransitGatewayPolicyTableEntry,
-  TransitGatewayRouteTableAssociation,
-  TransitGatewayRouteTablePropagation,
-  UserBucket,
-  UserData,
-  VerifiedAccessEndpointTarget,
-  VerifiedAccessInstanceOpenVpnClientConfiguration,
-  VerifiedAccessInstanceOpenVpnClientConfigurationRoute,
-  VerifiedAccessInstanceUserTrustProviderClientConfiguration,
-  VolumeDetail,
-  VpnConnectionDeviceType,
-} from "../models/models_6";
-import {
-  AsnAuthorizationContext,
-  CidrAuthorizationContext,
-  CpuOptionsRequest,
-  CreateVolumePermissionModifications,
-  ElasticInferenceAccelerator,
-  EnclaveOptionsRequest,
-  HibernationOptionsRequest,
-  ImageCriterionRequest,
-  InstanceCreditSpecificationRequest,
-  InstanceMaintenanceOptionsRequest,
-  InstanceMarketOptionsRequest,
-  InstanceMetadataOptionsRequest,
-  InstanceMonitoring,
-  InstanceNetworkPerformanceOptionsRequest,
-  InstanceStateChange,
-  IpamCidrAuthorizationContext,
-  LaunchTemplateSpecification,
-  LicenseConfigurationRequest,
   ModifyInstanceCapacityReservationAttributesResult,
   ModifyInstanceCpuOptionsRequest,
   ModifyInstanceCpuOptionsResult,
@@ -4121,6 +4209,8 @@ import {
   ModifyPrivateDnsNameOptionsResult,
   ModifyReservedInstancesRequest,
   ModifyReservedInstancesResult,
+  ModifyRouteServerRequest,
+  ModifyRouteServerResult,
   ModifySecurityGroupRulesRequest,
   ModifySecurityGroupRulesResult,
   ModifySnapshotAttributeRequest,
@@ -4207,7 +4297,6 @@ import {
   NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
-  PrivateDnsNameOptionsRequest,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResult,
   ProvisionIpamByoasnRequest,
@@ -4293,6 +4382,36 @@ import {
   RestoreAddressToClassicResult,
   RestoreImageFromRecycleBinRequest,
   RestoreImageFromRecycleBinResult,
+  SecurityGroupRuleRequest,
+  SecurityGroupRuleUpdate,
+  SnapshotDiskContainer,
+  SnapshotRecycleBinInfo,
+  SuccessfulInstanceCreditSpecificationItem,
+  TrafficMirrorFilterRuleField,
+  TrafficMirrorSessionField,
+  TransitGatewayMulticastRegisteredGroupMembers,
+  TransitGatewayMulticastRegisteredGroupSources,
+  UnsuccessfulInstanceCreditSpecificationItem,
+  UnsuccessfulInstanceCreditSpecificationItemError,
+  UserData,
+  VerifiedAccessLogCloudWatchLogsDestinationOptions,
+  VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
+  VerifiedAccessLogOptions,
+  VerifiedAccessLogS3DestinationOptions,
+} from "../models/models_7";
+import {
+  CpuOptionsRequest,
+  ElasticInferenceAccelerator,
+  EnclaveOptionsRequest,
+  HibernationOptionsRequest,
+  InstanceMaintenanceOptionsRequest,
+  InstanceMarketOptionsRequest,
+  InstanceMetadataOptionsRequest,
+  InstanceNetworkPerformanceOptionsRequest,
+  InstanceStateChange,
+  LaunchTemplateSpecification,
+  LicenseConfigurationRequest,
+  PrivateDnsNameOptionsRequest,
   RestoreManagedPrefixListVersionRequest,
   RestoreManagedPrefixListVersionResult,
   RestoreSnapshotFromRecycleBinRequest,
@@ -4324,8 +4443,7 @@ import {
   SearchTransitGatewayMulticastGroupsResult,
   SearchTransitGatewayRoutesRequest,
   SearchTransitGatewayRoutesResult,
-  SecurityGroupRuleRequest,
-  SecurityGroupRuleUpdate,
+  SecurityGroupRuleDescription,
   SendDiagnosticInterruptRequest,
   SpotMarketOptions,
   StartDeclarativePoliciesReportRequest,
@@ -4338,21 +4456,6 @@ import {
   StartNetworkInsightsAnalysisResult,
   StartVpcEndpointServicePrivateDnsVerificationRequest,
   StartVpcEndpointServicePrivateDnsVerificationResult,
-  SuccessfulInstanceCreditSpecificationItem,
-  TrafficMirrorFilterRuleField,
-  TrafficMirrorSessionField,
-  TransitGatewayMulticastGroup,
-  TransitGatewayMulticastRegisteredGroupMembers,
-  TransitGatewayMulticastRegisteredGroupSources,
-  UnsuccessfulInstanceCreditSpecificationItem,
-  UnsuccessfulInstanceCreditSpecificationItemError,
-  VerifiedAccessLogCloudWatchLogsDestinationOptions,
-  VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
-  VerifiedAccessLogOptions,
-  VerifiedAccessLogS3DestinationOptions,
-} from "../models/models_7";
-import {
-  SecurityGroupRuleDescription,
   StopInstancesRequest,
   StopInstancesResult,
   TerminateClientVpnConnectionsRequest,
@@ -4360,6 +4463,7 @@ import {
   TerminateConnectionStatus,
   TerminateInstancesRequest,
   TerminateInstancesResult,
+  TransitGatewayMulticastGroup,
   UnassignIpv6AddressesRequest,
   UnassignIpv6AddressesResult,
   UnassignPrivateIpAddressesRequest,
@@ -4814,6 +4918,23 @@ export const se_AssociateNatGatewayAddressCommand = async (
   body = buildFormUrlencodedString({
     ...se_AssociateNatGatewayAddressRequest(input, context),
     [_A]: _ANGA,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2AssociateRouteServerCommand
+ */
+export const se_AssociateRouteServerCommand = async (
+  input: AssociateRouteServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_AssociateRouteServerRequest(input, context),
+    [_A]: _ARS,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -6180,6 +6301,57 @@ export const se_CreateRouteCommand = async (
 };
 
 /**
+ * serializeAws_ec2CreateRouteServerCommand
+ */
+export const se_CreateRouteServerCommand = async (
+  input: CreateRouteServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateRouteServerRequest(input, context),
+    [_A]: _CRS,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2CreateRouteServerEndpointCommand
+ */
+export const se_CreateRouteServerEndpointCommand = async (
+  input: CreateRouteServerEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateRouteServerEndpointRequest(input, context),
+    [_A]: _CRSE,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2CreateRouteServerPeerCommand
+ */
+export const se_CreateRouteServerPeerCommand = async (
+  input: CreateRouteServerPeerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateRouteServerPeerRequest(input, context),
+    [_A]: _CRSP,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2CreateRouteTableCommand
  */
 export const se_CreateRouteTableCommand = async (
@@ -7500,6 +7672,57 @@ export const se_DeleteRouteCommand = async (
   body = buildFormUrlencodedString({
     ...se_DeleteRouteRequest(input, context),
     [_A]: _DR,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DeleteRouteServerCommand
+ */
+export const se_DeleteRouteServerCommand = async (
+  input: DeleteRouteServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteRouteServerRequest(input, context),
+    [_A]: _DRS,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DeleteRouteServerEndpointCommand
+ */
+export const se_DeleteRouteServerEndpointCommand = async (
+  input: DeleteRouteServerEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteRouteServerEndpointRequest(input, context),
+    [_A]: _DRSE,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DeleteRouteServerPeerCommand
+ */
+export const se_DeleteRouteServerPeerCommand = async (
+  input: DeleteRouteServerPeerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteRouteServerPeerRequest(input, context),
+    [_A]: _DRSP,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -9971,6 +10194,57 @@ export const se_DescribeReservedInstancesOfferingsCommand = async (
 };
 
 /**
+ * serializeAws_ec2DescribeRouteServerEndpointsCommand
+ */
+export const se_DescribeRouteServerEndpointsCommand = async (
+  input: DescribeRouteServerEndpointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeRouteServerEndpointsRequest(input, context),
+    [_A]: _DRSEe,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeRouteServerPeersCommand
+ */
+export const se_DescribeRouteServerPeersCommand = async (
+  input: DescribeRouteServerPeersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeRouteServerPeersRequest(input, context),
+    [_A]: _DRSPe,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeRouteServersCommand
+ */
+export const se_DescribeRouteServersCommand = async (
+  input: DescribeRouteServersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeRouteServersRequest(input, context),
+    [_A]: _DRSe,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2DescribeRouteTablesCommand
  */
 export const se_DescribeRouteTablesCommand = async (
@@ -11280,6 +11554,23 @@ export const se_DisableIpamOrganizationAdminAccountCommand = async (
 };
 
 /**
+ * serializeAws_ec2DisableRouteServerPropagationCommand
+ */
+export const se_DisableRouteServerPropagationCommand = async (
+  input: DisableRouteServerPropagationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DisableRouteServerPropagationRequest(input, context),
+    [_A]: _DRSPi,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2DisableSerialConsoleAccessCommand
  */
 export const se_DisableSerialConsoleAccessCommand = async (
@@ -11529,6 +11820,23 @@ export const se_DisassociateNatGatewayAddressCommand = async (
   body = buildFormUrlencodedString({
     ...se_DisassociateNatGatewayAddressRequest(input, context),
     [_A]: _DNGA,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DisassociateRouteServerCommand
+ */
+export const se_DisassociateRouteServerCommand = async (
+  input: DisassociateRouteServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DisassociateRouteServerRequest(input, context),
+    [_A]: _DRSi,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -11869,6 +12177,23 @@ export const se_EnableReachabilityAnalyzerOrganizationSharingCommand = async (
   body = buildFormUrlencodedString({
     ...se_EnableReachabilityAnalyzerOrganizationSharingRequest(input, context),
     [_A]: _ERAOS,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2EnableRouteServerPropagationCommand
+ */
+export const se_EnableRouteServerPropagationCommand = async (
+  input: EnableRouteServerPropagationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_EnableRouteServerPropagationRequest(input, context),
+    [_A]: _ERSP,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -12651,6 +12976,57 @@ export const se_GetReservedInstancesExchangeQuoteCommand = async (
   body = buildFormUrlencodedString({
     ...se_GetReservedInstancesExchangeQuoteRequest(input, context),
     [_A]: _GRIEQ,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2GetRouteServerAssociationsCommand
+ */
+export const se_GetRouteServerAssociationsCommand = async (
+  input: GetRouteServerAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetRouteServerAssociationsRequest(input, context),
+    [_A]: _GRSA,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2GetRouteServerPropagationsCommand
+ */
+export const se_GetRouteServerPropagationsCommand = async (
+  input: GetRouteServerPropagationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetRouteServerPropagationsRequest(input, context),
+    [_A]: _GRSP,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2GetRouteServerRoutingDatabaseCommand
+ */
+export const se_GetRouteServerRoutingDatabaseCommand = async (
+  input: GetRouteServerRoutingDatabaseCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_GetRouteServerRoutingDatabaseRequest(input, context),
+    [_A]: _GRSRD,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -13705,6 +14081,23 @@ export const se_ModifyReservedInstancesCommand = async (
   body = buildFormUrlencodedString({
     ...se_ModifyReservedInstancesRequest(input, context),
     [_A]: _MRI,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2ModifyRouteServerCommand
+ */
+export const se_ModifyRouteServerCommand = async (
+  input: ModifyRouteServerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyRouteServerRequest(input, context),
+    [_A]: _MRS,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -16081,6 +16474,26 @@ export const de_AssociateNatGatewayAddressCommand = async (
 };
 
 /**
+ * deserializeAws_ec2AssociateRouteServerCommand
+ */
+export const de_AssociateRouteServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateRouteServerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AssociateRouteServerResult(data, context);
+  const response: AssociateRouteServerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2AssociateRouteTableCommand
  */
 export const de_AssociateRouteTableCommand = async (
@@ -17669,6 +18082,66 @@ export const de_CreateRouteCommand = async (
 };
 
 /**
+ * deserializeAws_ec2CreateRouteServerCommand
+ */
+export const de_CreateRouteServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRouteServerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateRouteServerResult(data, context);
+  const response: CreateRouteServerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2CreateRouteServerEndpointCommand
+ */
+export const de_CreateRouteServerEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRouteServerEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateRouteServerEndpointResult(data, context);
+  const response: CreateRouteServerEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2CreateRouteServerPeerCommand
+ */
+export const de_CreateRouteServerPeerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRouteServerPeerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateRouteServerPeerResult(data, context);
+  const response: CreateRouteServerPeerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2CreateRouteTableCommand
  */
 export const de_CreateRouteTableCommand = async (
@@ -19194,6 +19667,66 @@ export const de_DeleteRouteCommand = async (
   await collectBody(output.body, context);
   const response: DeleteRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DeleteRouteServerCommand
+ */
+export const de_DeleteRouteServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRouteServerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteRouteServerResult(data, context);
+  const response: DeleteRouteServerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DeleteRouteServerEndpointCommand
+ */
+export const de_DeleteRouteServerEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRouteServerEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteRouteServerEndpointResult(data, context);
+  const response: DeleteRouteServerEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DeleteRouteServerPeerCommand
+ */
+export const de_DeleteRouteServerPeerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRouteServerPeerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteRouteServerPeerResult(data, context);
+  const response: DeleteRouteServerPeerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -22069,6 +22602,66 @@ export const de_DescribeReservedInstancesOfferingsCommand = async (
 };
 
 /**
+ * deserializeAws_ec2DescribeRouteServerEndpointsCommand
+ */
+export const de_DescribeRouteServerEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRouteServerEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeRouteServerEndpointsResult(data, context);
+  const response: DescribeRouteServerEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeRouteServerPeersCommand
+ */
+export const de_DescribeRouteServerPeersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRouteServerPeersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeRouteServerPeersResult(data, context);
+  const response: DescribeRouteServerPeersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeRouteServersCommand
+ */
+export const de_DescribeRouteServersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRouteServersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeRouteServersResult(data, context);
+  const response: DescribeRouteServersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2DescribeRouteTablesCommand
  */
 export const de_DescribeRouteTablesCommand = async (
@@ -23600,6 +24193,26 @@ export const de_DisableIpamOrganizationAdminAccountCommand = async (
 };
 
 /**
+ * deserializeAws_ec2DisableRouteServerPropagationCommand
+ */
+export const de_DisableRouteServerPropagationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableRouteServerPropagationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DisableRouteServerPropagationResult(data, context);
+  const response: DisableRouteServerPropagationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2DisableSerialConsoleAccessCommand
  */
 export const de_DisableSerialConsoleAccessCommand = async (
@@ -23887,6 +24500,26 @@ export const de_DisassociateNatGatewayAddressCommand = async (
   let contents: any = {};
   contents = de_DisassociateNatGatewayAddressResult(data, context);
   const response: DisassociateNatGatewayAddressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DisassociateRouteServerCommand
+ */
+export const de_DisassociateRouteServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateRouteServerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DisassociateRouteServerResult(data, context);
+  const response: DisassociateRouteServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -24284,6 +24917,26 @@ export const de_EnableReachabilityAnalyzerOrganizationSharingCommand = async (
   let contents: any = {};
   contents = de_EnableReachabilityAnalyzerOrganizationSharingResult(data, context);
   const response: EnableReachabilityAnalyzerOrganizationSharingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2EnableRouteServerPropagationCommand
+ */
+export const de_EnableRouteServerPropagationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableRouteServerPropagationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EnableRouteServerPropagationResult(data, context);
+  const response: EnableRouteServerPropagationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -25198,6 +25851,66 @@ export const de_GetReservedInstancesExchangeQuoteCommand = async (
   let contents: any = {};
   contents = de_GetReservedInstancesExchangeQuoteResult(data, context);
   const response: GetReservedInstancesExchangeQuoteCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2GetRouteServerAssociationsCommand
+ */
+export const de_GetRouteServerAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRouteServerAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetRouteServerAssociationsResult(data, context);
+  const response: GetRouteServerAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2GetRouteServerPropagationsCommand
+ */
+export const de_GetRouteServerPropagationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRouteServerPropagationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetRouteServerPropagationsResult(data, context);
+  const response: GetRouteServerPropagationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2GetRouteServerRoutingDatabaseCommand
+ */
+export const de_GetRouteServerRoutingDatabaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRouteServerRoutingDatabaseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetRouteServerRoutingDatabaseResult(data, context);
+  const response: GetRouteServerRoutingDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -26423,6 +27136,26 @@ export const de_ModifyReservedInstancesCommand = async (
   let contents: any = {};
   contents = de_ModifyReservedInstancesResult(data, context);
   const response: ModifyReservedInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2ModifyRouteServerCommand
+ */
+export const de_ModifyRouteServerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyRouteServerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyRouteServerResult(data, context);
+  const response: ModifyRouteServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -29635,6 +30368,23 @@ const se_AssociateNatGatewayAddressRequest = (
 };
 
 /**
+ * serializeAws_ec2AssociateRouteServerRequest
+ */
+const se_AssociateRouteServerRequest = (input: AssociateRouteServerRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RSIo] != null) {
+    entries[_RSIo] = input[_RSIo];
+  }
+  if (input[_VI] != null) {
+    entries[_VI] = input[_VI];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2AssociateRouteTableRequest
  */
 const se_AssociateRouteTableRequest = (input: AssociateRouteTableRequest, context: __SerdeContext): any => {
@@ -31007,6 +31757,9 @@ const se_CopyFpgaImageRequest = (input: CopyFpgaImageRequest, context: __SerdeCo
  */
 const se_CopyImageRequest = (input: CopyImageRequest, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
   if (input[_CTl] != null) {
     entries[_CTl] = input[_CTl];
   }
@@ -32972,6 +33725,103 @@ const se_CreateRouteRequest = (input: CreateRouteRequest, context: __SerdeContex
 };
 
 /**
+ * serializeAws_ec2CreateRouteServerEndpointRequest
+ */
+const se_CreateRouteServerEndpointRequest = (input: CreateRouteServerEndpointRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RSIo] != null) {
+    entries[_RSIo] = input[_RSIo];
+  }
+  if (input[_SIub] != null) {
+    entries[_SIub] = input[_SIub];
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2CreateRouteServerPeerRequest
+ */
+const se_CreateRouteServerPeerRequest = (input: CreateRouteServerPeerRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RSEI] != null) {
+    entries[_RSEI] = input[_RSEI];
+  }
+  if (input[_PAe] != null) {
+    entries[_PAe] = input[_PAe];
+  }
+  if (input[_BO] != null) {
+    const memberEntries = se_RouteServerBgpOptionsRequest(input[_BO], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `BgpOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2CreateRouteServerRequest
+ */
+const se_CreateRouteServerRequest = (input: CreateRouteServerRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_ASA] != null) {
+    entries[_ASA] = input[_ASA];
+  }
+  if (input[_CTl] === undefined) {
+    input[_CTl] = generateIdempotencyToken();
+  }
+  if (input[_CTl] != null) {
+    entries[_CTl] = input[_CTl];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_PRe] != null) {
+    entries[_PRe] = input[_PRe];
+  }
+  if (input[_PRD] != null) {
+    entries[_PRD] = input[_PRD];
+  }
+  if (input[_SNE] != null) {
+    entries[_SNE] = input[_SNE];
+  }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2CreateRouteTableRequest
  */
 const se_CreateRouteTableRequest = (input: CreateRouteTableRequest, context: __SerdeContext): any => {
@@ -33578,8 +34428,8 @@ const se_CreateTransitGatewayPeeringAttachmentRequest = (
   if (input[_PAI] != null) {
     entries[_PAI] = input[_PAI];
   }
-  if (input[_PRe] != null) {
-    entries[_PRe] = input[_PRe];
+  if (input[_PRee] != null) {
+    entries[_PRee] = input[_PRee];
   }
   if (input[_Op] != null) {
     const memberEntries = se_CreateTransitGatewayPeeringAttachmentRequestOptions(input[_Op], context);
@@ -34668,8 +35518,8 @@ const se_CreateVpcPeeringConnectionRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input[_PRe] != null) {
-    entries[_PRe] = input[_PRe];
+  if (input[_PRee] != null) {
+    entries[_PRee] = input[_PRee];
   }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
@@ -35594,6 +36444,48 @@ const se_DeleteRouteRequest = (input: DeleteRouteRequest, context: __SerdeContex
   }
   if (input[_DICB] != null) {
     entries[_DICB] = input[_DICB];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DeleteRouteServerEndpointRequest
+ */
+const se_DeleteRouteServerEndpointRequest = (input: DeleteRouteServerEndpointRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RSEI] != null) {
+    entries[_RSEI] = input[_RSEI];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DeleteRouteServerPeerRequest
+ */
+const se_DeleteRouteServerPeerRequest = (input: DeleteRouteServerPeerRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RSPI] != null) {
+    entries[_RSPI] = input[_RSPI];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DeleteRouteServerRequest
+ */
+const se_DeleteRouteServerRequest = (input: DeleteRouteServerRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RSIo] != null) {
+    entries[_RSIo] = input[_RSIo];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
   }
   return entries;
 };
@@ -39501,6 +40393,102 @@ const se_DescribeReservedInstancesRequest = (input: DescribeReservedInstancesReq
 };
 
 /**
+ * serializeAws_ec2DescribeRouteServerEndpointsRequest
+ */
+const se_DescribeRouteServerEndpointsRequest = (
+  input: DescribeRouteServerEndpointsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_RSEIo] != null) {
+    const memberEntries = se_RouteServerEndpointIdsList(input[_RSEIo], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RouteServerEndpointId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeRouteServerPeersRequest
+ */
+const se_DescribeRouteServerPeersRequest = (input: DescribeRouteServerPeersRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RSPIo] != null) {
+    const memberEntries = se_RouteServerPeerIdsList(input[_RSPIo], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RouteServerPeerId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeRouteServersRequest
+ */
+const se_DescribeRouteServersRequest = (input: DescribeRouteServersRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RSIou] != null) {
+    const memberEntries = se_RouteServerIdsList(input[_RSIou], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RouteServerId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2DescribeRouteTablesRequest
  */
 const se_DescribeRouteTablesRequest = (input: DescribeRouteTablesRequest, context: __SerdeContext): any => {
@@ -41720,6 +42708,26 @@ const se_DisableIpamOrganizationAdminAccountRequest = (
 };
 
 /**
+ * serializeAws_ec2DisableRouteServerPropagationRequest
+ */
+const se_DisableRouteServerPropagationRequest = (
+  input: DisableRouteServerPropagationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_RSIo] != null) {
+    entries[_RSIo] = input[_RSIo];
+  }
+  if (input[_RTI] != null) {
+    entries[_RTI] = input[_RTI];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2DisableSerialConsoleAccessRequest
  */
 const se_DisableSerialConsoleAccessRequest = (
@@ -41987,6 +42995,23 @@ const se_DisassociateNatGatewayAddressRequest = (
   }
   if (input[_MDDS] != null) {
     entries[_MDDS] = input[_MDDS];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DisassociateRouteServerRequest
+ */
+const se_DisassociateRouteServerRequest = (input: DisassociateRouteServerRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RSIo] != null) {
+    entries[_RSIo] = input[_RSIo];
+  }
+  if (input[_VI] != null) {
+    entries[_VI] = input[_VI];
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
@@ -42647,6 +43672,26 @@ const se_EnableReachabilityAnalyzerOrganizationSharingRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2EnableRouteServerPropagationRequest
+ */
+const se_EnableRouteServerPropagationRequest = (
+  input: EnableRouteServerPropagationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_RSIo] != null) {
+    entries[_RSIo] = input[_RSIo];
+  }
+  if (input[_RTI] != null) {
+    entries[_RTI] = input[_RTI];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -44253,6 +45298,73 @@ const se_GetReservedInstancesExchangeQuoteRequest = (
     const memberEntries = se_TargetConfigurationRequestSet(input[_TC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetConfiguration.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2GetRouteServerAssociationsRequest
+ */
+const se_GetRouteServerAssociationsRequest = (
+  input: GetRouteServerAssociationsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_RSIo] != null) {
+    entries[_RSIo] = input[_RSIo];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2GetRouteServerPropagationsRequest
+ */
+const se_GetRouteServerPropagationsRequest = (
+  input: GetRouteServerPropagationsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_RSIo] != null) {
+    entries[_RSIo] = input[_RSIo];
+  }
+  if (input[_RTI] != null) {
+    entries[_RTI] = input[_RTI];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2GetRouteServerRoutingDatabaseRequest
+ */
+const se_GetRouteServerRoutingDatabaseRequest = (
+  input: GetRouteServerRoutingDatabaseRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_RSIo] != null) {
+    entries[_RSIo] = input[_RSIo];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -48403,8 +49515,8 @@ const se_ModifyInstanceCapacityReservationAttributesRequest = (
   if (input[_IIn] != null) {
     entries[_IIn] = input[_IIn];
   }
-  if (input[_CRS] != null) {
-    const memberEntries = se_CapacityReservationSpecification(input[_CRS], context);
+  if (input[_CRSa] != null) {
+    const memberEntries = se_CapacityReservationSpecification(input[_CRSa], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CapacityReservationSpecification.${key}`;
       entries[loc] = value;
@@ -49018,6 +50130,29 @@ const se_ModifyReservedInstancesRequest = (input: ModifyReservedInstancesRequest
       const loc = `ReservedInstancesConfigurationSetItemType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ModifyRouteServerRequest
+ */
+const se_ModifyRouteServerRequest = (input: ModifyRouteServerRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_RSIo] != null) {
+    entries[_RSIo] = input[_RSIo];
+  }
+  if (input[_PRe] != null) {
+    entries[_PRe] = input[_PRe];
+  }
+  if (input[_PRD] != null) {
+    entries[_PRD] = input[_PRD];
+  }
+  if (input[_SNE] != null) {
+    entries[_SNE] = input[_SNE];
+  }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
   }
   return entries;
 };
@@ -53075,8 +54210,8 @@ const se_RequestLaunchTemplateData = (input: RequestLaunchTemplateData, context:
       entries[loc] = value;
     });
   }
-  if (input[_CRS] != null) {
-    const memberEntries = se_LaunchTemplateCapacityReservationSpecificationRequest(input[_CRS], context);
+  if (input[_CRSa] != null) {
+    const memberEntries = se_LaunchTemplateCapacityReservationSpecificationRequest(input[_CRSa], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CapacityReservationSpecification.${key}`;
       entries[loc] = value;
@@ -53916,6 +55051,68 @@ const se_RevokeSecurityGroupIngressRequest = (
 };
 
 /**
+ * serializeAws_ec2RouteServerBgpOptionsRequest
+ */
+const se_RouteServerBgpOptionsRequest = (input: RouteServerBgpOptionsRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_PAee] != null) {
+    entries[_PAee] = input[_PAee];
+  }
+  if (input[_PLD] != null) {
+    entries[_PLD] = input[_PLD];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2RouteServerEndpointIdsList
+ */
+const se_RouteServerEndpointIdsList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2RouteServerIdsList
+ */
+const se_RouteServerIdsList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2RouteServerPeerIdsList
+ */
+const se_RouteServerPeerIdsList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2RouteTableIdStringList
  */
 const se_RouteTableIdStringList = (input: string[], context: __SerdeContext): any => {
@@ -54068,8 +55265,8 @@ const se_RunInstancesRequest = (input: RunInstancesRequest, context: __SerdeCont
       entries[loc] = value;
     });
   }
-  if (input[_CRS] != null) {
-    const memberEntries = se_CapacityReservationSpecification(input[_CRS], context);
+  if (input[_CRSa] != null) {
+    const memberEntries = se_CapacityReservationSpecification(input[_CRSa], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CapacityReservationSpecification.${key}`;
       entries[loc] = value;
@@ -58166,6 +59363,17 @@ const de_AsnAssociationSet = (output: any, context: __SerdeContext): AsnAssociat
 };
 
 /**
+ * deserializeAws_ec2AsPath
+ */
+const de_AsPath = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
  * deserializeAws_ec2AssignedPrivateIpAddress
  */
 const de_AssignedPrivateIpAddress = (output: any, context: __SerdeContext): AssignedPrivateIpAddress => {
@@ -58434,6 +59642,17 @@ const de_AssociateNatGatewayAddressResult = (
     contents[_NGA] = [];
   } else if (output[_nGAS] != null && output[_nGAS][_i] != null) {
     contents[_NGA] = de_NatGatewayAddressList(__getArrayIfSingleItem(output[_nGAS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2AssociateRouteServerResult
+ */
+const de_AssociateRouteServerResult = (output: any, context: __SerdeContext): AssociateRouteServerResult => {
+  const contents: any = {};
+  if (output[_rSA] != null) {
+    contents[_RSAo] = de_RouteServerAssociation(output[_rSA], context);
   }
   return contents;
 };
@@ -61558,6 +62777,39 @@ const de_CreateRouteResult = (output: any, context: __SerdeContext): CreateRoute
 };
 
 /**
+ * deserializeAws_ec2CreateRouteServerEndpointResult
+ */
+const de_CreateRouteServerEndpointResult = (output: any, context: __SerdeContext): CreateRouteServerEndpointResult => {
+  const contents: any = {};
+  if (output[_rSE] != null) {
+    contents[_RSE] = de_RouteServerEndpoint(output[_rSE], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2CreateRouteServerPeerResult
+ */
+const de_CreateRouteServerPeerResult = (output: any, context: __SerdeContext): CreateRouteServerPeerResult => {
+  const contents: any = {};
+  if (output[_rSP] != null) {
+    contents[_RSP] = de_RouteServerPeer(output[_rSP], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2CreateRouteServerResult
+ */
+const de_CreateRouteServerResult = (output: any, context: __SerdeContext): CreateRouteServerResult => {
+  const contents: any = {};
+  if (output[_rSo] != null) {
+    contents[_RSo] = de_RouteServer(output[_rSo], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2CreateRouteTableResult
  */
 const de_CreateRouteTableResult = (output: any, context: __SerdeContext): CreateRouteTableResult => {
@@ -62781,6 +64033,39 @@ const de_DeleteQueuedReservedInstancesResult = (
     contents[_FQPD] = [];
   } else if (output[_fQPDS] != null && output[_fQPDS][_i] != null) {
     contents[_FQPD] = de_FailedQueuedPurchaseDeletionSet(__getArrayIfSingleItem(output[_fQPDS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DeleteRouteServerEndpointResult
+ */
+const de_DeleteRouteServerEndpointResult = (output: any, context: __SerdeContext): DeleteRouteServerEndpointResult => {
+  const contents: any = {};
+  if (output[_rSE] != null) {
+    contents[_RSE] = de_RouteServerEndpoint(output[_rSE], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DeleteRouteServerPeerResult
+ */
+const de_DeleteRouteServerPeerResult = (output: any, context: __SerdeContext): DeleteRouteServerPeerResult => {
+  const contents: any = {};
+  if (output[_rSP] != null) {
+    contents[_RSP] = de_RouteServerPeer(output[_rSP], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DeleteRouteServerResult
+ */
+const de_DeleteRouteServerResult = (output: any, context: __SerdeContext): DeleteRouteServerResult => {
+  const contents: any = {};
+  if (output[_rSo] != null) {
+    contents[_RSo] = de_RouteServer(output[_rSo], context);
   }
   return contents;
 };
@@ -65145,6 +66430,57 @@ const de_DescribeReservedInstancesResult = (output: any, context: __SerdeContext
 };
 
 /**
+ * deserializeAws_ec2DescribeRouteServerEndpointsResult
+ */
+const de_DescribeRouteServerEndpointsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeRouteServerEndpointsResult => {
+  const contents: any = {};
+  if (output.routeServerEndpointSet === "") {
+    contents[_RSEo] = [];
+  } else if (output[_rSES] != null && output[_rSES][_i] != null) {
+    contents[_RSEo] = de_RouteServerEndpointsList(__getArrayIfSingleItem(output[_rSES][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DescribeRouteServerPeersResult
+ */
+const de_DescribeRouteServerPeersResult = (output: any, context: __SerdeContext): DescribeRouteServerPeersResult => {
+  const contents: any = {};
+  if (output.routeServerPeerSet === "") {
+    contents[_RSPo] = [];
+  } else if (output[_rSPS] != null && output[_rSPS][_i] != null) {
+    contents[_RSPo] = de_RouteServerPeersList(__getArrayIfSingleItem(output[_rSPS][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DescribeRouteServersResult
+ */
+const de_DescribeRouteServersResult = (output: any, context: __SerdeContext): DescribeRouteServersResult => {
+  const contents: any = {};
+  if (output.routeServerSet === "") {
+    contents[_RSou] = [];
+  } else if (output[_rSSo] != null && output[_rSSo][_i] != null) {
+    contents[_RSou] = de_RouteServersList(__getArrayIfSingleItem(output[_rSSo][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DescribeRouteTablesResult
  */
 const de_DescribeRouteTablesResult = (output: any, context: __SerdeContext): DescribeRouteTablesResult => {
@@ -66710,6 +68046,20 @@ const de_DisableIpamOrganizationAdminAccountResult = (
 };
 
 /**
+ * deserializeAws_ec2DisableRouteServerPropagationResult
+ */
+const de_DisableRouteServerPropagationResult = (
+  output: any,
+  context: __SerdeContext
+): DisableRouteServerPropagationResult => {
+  const contents: any = {};
+  if (output[_rSPo] != null) {
+    contents[_RSPou] = de_RouteServerPropagation(output[_rSPo], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2DisableSerialConsoleAccessResult
  */
 const de_DisableSerialConsoleAccessResult = (
@@ -66889,6 +68239,17 @@ const de_DisassociateNatGatewayAddressResult = (
     contents[_NGA] = [];
   } else if (output[_nGAS] != null && output[_nGAS][_i] != null) {
     contents[_NGA] = de_NatGatewayAddressList(__getArrayIfSingleItem(output[_nGAS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DisassociateRouteServerResult
+ */
+const de_DisassociateRouteServerResult = (output: any, context: __SerdeContext): DisassociateRouteServerResult => {
+  const contents: any = {};
+  if (output[_rSA] != null) {
+    contents[_RSAo] = de_RouteServerAssociation(output[_rSA], context);
   }
   return contents;
 };
@@ -67857,6 +69218,20 @@ const de_EnableReachabilityAnalyzerOrganizationSharingResult = (
   const contents: any = {};
   if (output[_rV] != null) {
     contents[_RV] = __parseBoolean(output[_rV]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2EnableRouteServerPropagationResult
+ */
+const de_EnableRouteServerPropagationResult = (
+  output: any,
+  context: __SerdeContext
+): EnableRouteServerPropagationResult => {
+  const contents: any = {};
+  if (output[_rSPo] != null) {
+    contents[_RSPou] = de_RouteServerPropagation(output[_rSPo], context);
   }
   return contents;
 };
@@ -69073,7 +70448,7 @@ const de_FpgaImage = (output: any, context: __SerdeContext): FpgaImage => {
     contents[_Pu] = __parseBoolean(output[_pu]);
   }
   if (output[_dRS] != null) {
-    contents[_DRS] = __parseBoolean(output[_dRS]);
+    contents[_DRSa] = __parseBoolean(output[_dRS]);
   }
   if (output.instanceTypes === "") {
     contents[_ITnst] = [];
@@ -69799,6 +71174,60 @@ const de_GetReservedInstancesExchangeQuoteResult = (
   }
   if (output[_vFR] != null) {
     contents[_VFR] = __expectString(output[_vFR]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2GetRouteServerAssociationsResult
+ */
+const de_GetRouteServerAssociationsResult = (
+  output: any,
+  context: __SerdeContext
+): GetRouteServerAssociationsResult => {
+  const contents: any = {};
+  if (output.routeServerAssociationSet === "") {
+    contents[_RSAou] = [];
+  } else if (output[_rSAS] != null && output[_rSAS][_i] != null) {
+    contents[_RSAou] = de_RouteServerAssociationsList(__getArrayIfSingleItem(output[_rSAS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2GetRouteServerPropagationsResult
+ */
+const de_GetRouteServerPropagationsResult = (
+  output: any,
+  context: __SerdeContext
+): GetRouteServerPropagationsResult => {
+  const contents: any = {};
+  if (output.routeServerPropagationSet === "") {
+    contents[_RSPout] = [];
+  } else if (output[_rSPSo] != null && output[_rSPSo][_i] != null) {
+    contents[_RSPout] = de_RouteServerPropagationsList(__getArrayIfSingleItem(output[_rSPSo][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2GetRouteServerRoutingDatabaseResult
+ */
+const de_GetRouteServerRoutingDatabaseResult = (
+  output: any,
+  context: __SerdeContext
+): GetRouteServerRoutingDatabaseResult => {
+  const contents: any = {};
+  if (output[_aRP] != null) {
+    contents[_ARP] = __parseBoolean(output[_aRP]);
+  }
+  if (output.routeSet === "") {
+    contents[_Rout] = [];
+  } else if (output[_rSou] != null && output[_rSou][_i] != null) {
+    contents[_Rout] = de_RouteServerRouteList(__getArrayIfSingleItem(output[_rSou][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
   }
   return contents;
 };
@@ -71488,7 +72917,7 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
     contents[_CRI] = __expectString(output[_cRI]);
   }
   if (output[_cRSa] != null) {
-    contents[_CRS] = de_CapacityReservationSpecificationResponse(output[_cRSa], context);
+    contents[_CRSa] = de_CapacityReservationSpecificationResponse(output[_cRSa], context);
   }
   if (output[_hO] != null) {
     contents[_HO] = de_HibernationOptions(output[_hO], context);
@@ -72945,7 +74374,7 @@ const de_InstanceTypeInfo = (output: any, context: __SerdeContext): InstanceType
     contents[_DHS] = __parseBoolean(output[_dHS]);
   }
   if (output[_aRSu] != null) {
-    contents[_ARS] = __parseBoolean(output[_aRSu]);
+    contents[_ARSu] = __parseBoolean(output[_aRSu]);
   }
   if (output.supportedBootModes === "") {
     contents[_SBM] = [];
@@ -76483,6 +77912,17 @@ const de_ModifyReservedInstancesResult = (output: any, context: __SerdeContext):
   const contents: any = {};
   if (output[_rIMI] != null) {
     contents[_RIMIe] = __expectString(output[_rIMI]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2ModifyRouteServerResult
+ */
+const de_ModifyRouteServerResult = (output: any, context: __SerdeContext): ModifyRouteServerResult => {
+  const contents: any = {};
+  if (output[_rSo] != null) {
+    contents[_RSo] = de_RouteServer(output[_rSo], context);
   }
   return contents;
 };
@@ -80406,7 +81846,7 @@ const de_ResponseLaunchTemplateData = (output: any, context: __SerdeContext): Re
     contents[_COp] = de_LaunchTemplateCpuOptions(output[_cO], context);
   }
   if (output[_cRSa] != null) {
-    contents[_CRS] = de_LaunchTemplateCapacityReservationSpecificationResponse(output[_cRSa], context);
+    contents[_CRSa] = de_LaunchTemplateCapacityReservationSpecificationResponse(output[_cRSa], context);
   }
   if (output.licenseSet === "") {
     contents[_LSi] = [];
@@ -80736,6 +82176,335 @@ const de_RouteList = (output: any, context: __SerdeContext): Route[] => {
 };
 
 /**
+ * deserializeAws_ec2RouteServer
+ */
+const de_RouteServer = (output: any, context: __SerdeContext): RouteServer => {
+  const contents: any = {};
+  if (output[_rSI] != null) {
+    contents[_RSIo] = __expectString(output[_rSI]);
+  }
+  if (output[_aSA] != null) {
+    contents[_ASA] = __strictParseLong(output[_aSA]) as number;
+  }
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
+  }
+  if (output.tagSet === "") {
+    contents[_Ta] = [];
+  } else if (output[_tS] != null && output[_tS][_i] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  if (output[_pRSe] != null) {
+    contents[_PRS] = __expectString(output[_pRSe]);
+  }
+  if (output[_pRD] != null) {
+    contents[_PRD] = __strictParseLong(output[_pRD]) as number;
+  }
+  if (output[_sNE] != null) {
+    contents[_SNE] = __parseBoolean(output[_sNE]);
+  }
+  if (output[_sTA] != null) {
+    contents[_STA] = __expectString(output[_sTA]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2RouteServerAssociation
+ */
+const de_RouteServerAssociation = (output: any, context: __SerdeContext): RouteServerAssociation => {
+  const contents: any = {};
+  if (output[_rSI] != null) {
+    contents[_RSIo] = __expectString(output[_rSI]);
+  }
+  if (output[_vI] != null) {
+    contents[_VI] = __expectString(output[_vI]);
+  }
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2RouteServerAssociationsList
+ */
+const de_RouteServerAssociationsList = (output: any, context: __SerdeContext): RouteServerAssociation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RouteServerAssociation(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2RouteServerBfdStatus
+ */
+const de_RouteServerBfdStatus = (output: any, context: __SerdeContext): RouteServerBfdStatus => {
+  const contents: any = {};
+  if (output[_sta] != null) {
+    contents[_Statu] = __expectString(output[_sta]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2RouteServerBgpOptions
+ */
+const de_RouteServerBgpOptions = (output: any, context: __SerdeContext): RouteServerBgpOptions => {
+  const contents: any = {};
+  if (output[_pAee] != null) {
+    contents[_PAee] = __strictParseLong(output[_pAee]) as number;
+  }
+  if (output[_pLD] != null) {
+    contents[_PLD] = __expectString(output[_pLD]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2RouteServerBgpStatus
+ */
+const de_RouteServerBgpStatus = (output: any, context: __SerdeContext): RouteServerBgpStatus => {
+  const contents: any = {};
+  if (output[_sta] != null) {
+    contents[_Statu] = __expectString(output[_sta]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2RouteServerEndpoint
+ */
+const de_RouteServerEndpoint = (output: any, context: __SerdeContext): RouteServerEndpoint => {
+  const contents: any = {};
+  if (output[_rSI] != null) {
+    contents[_RSIo] = __expectString(output[_rSI]);
+  }
+  if (output[_rSEI] != null) {
+    contents[_RSEI] = __expectString(output[_rSEI]);
+  }
+  if (output[_vI] != null) {
+    contents[_VI] = __expectString(output[_vI]);
+  }
+  if (output[_sIu] != null) {
+    contents[_SIub] = __expectString(output[_sIu]);
+  }
+  if (output[_eIn] != null) {
+    contents[_EIn] = __expectString(output[_eIn]);
+  }
+  if (output[_eA] != null) {
+    contents[_EAn] = __expectString(output[_eA]);
+  }
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
+  }
+  if (output[_fR] != null) {
+    contents[_FR] = __expectString(output[_fR]);
+  }
+  if (output.tagSet === "") {
+    contents[_Ta] = [];
+  } else if (output[_tS] != null && output[_tS][_i] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2RouteServerEndpointsList
+ */
+const de_RouteServerEndpointsList = (output: any, context: __SerdeContext): RouteServerEndpoint[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RouteServerEndpoint(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2RouteServerPeer
+ */
+const de_RouteServerPeer = (output: any, context: __SerdeContext): RouteServerPeer => {
+  const contents: any = {};
+  if (output[_rSPI] != null) {
+    contents[_RSPI] = __expectString(output[_rSPI]);
+  }
+  if (output[_rSEI] != null) {
+    contents[_RSEI] = __expectString(output[_rSEI]);
+  }
+  if (output[_rSI] != null) {
+    contents[_RSIo] = __expectString(output[_rSI]);
+  }
+  if (output[_vI] != null) {
+    contents[_VI] = __expectString(output[_vI]);
+  }
+  if (output[_sIu] != null) {
+    contents[_SIub] = __expectString(output[_sIu]);
+  }
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
+  }
+  if (output[_fR] != null) {
+    contents[_FR] = __expectString(output[_fR]);
+  }
+  if (output[_eEI] != null) {
+    contents[_EEI] = __expectString(output[_eEI]);
+  }
+  if (output[_eEA] != null) {
+    contents[_EEA] = __expectString(output[_eEA]);
+  }
+  if (output[_pAe] != null) {
+    contents[_PAe] = __expectString(output[_pAe]);
+  }
+  if (output[_bO] != null) {
+    contents[_BO] = de_RouteServerBgpOptions(output[_bO], context);
+  }
+  if (output[_bSg] != null) {
+    contents[_BS] = de_RouteServerBgpStatus(output[_bSg], context);
+  }
+  if (output[_bSf] != null) {
+    contents[_BSf] = de_RouteServerBfdStatus(output[_bSf], context);
+  }
+  if (output.tagSet === "") {
+    contents[_Ta] = [];
+  } else if (output[_tS] != null && output[_tS][_i] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2RouteServerPeersList
+ */
+const de_RouteServerPeersList = (output: any, context: __SerdeContext): RouteServerPeer[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RouteServerPeer(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2RouteServerPropagation
+ */
+const de_RouteServerPropagation = (output: any, context: __SerdeContext): RouteServerPropagation => {
+  const contents: any = {};
+  if (output[_rSI] != null) {
+    contents[_RSIo] = __expectString(output[_rSI]);
+  }
+  if (output[_rTI] != null) {
+    contents[_RTI] = __expectString(output[_rTI]);
+  }
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2RouteServerPropagationsList
+ */
+const de_RouteServerPropagationsList = (output: any, context: __SerdeContext): RouteServerPropagation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RouteServerPropagation(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2RouteServerRoute
+ */
+const de_RouteServerRoute = (output: any, context: __SerdeContext): RouteServerRoute => {
+  const contents: any = {};
+  if (output[_rSEI] != null) {
+    contents[_RSEI] = __expectString(output[_rSEI]);
+  }
+  if (output[_rSPI] != null) {
+    contents[_RSPI] = __expectString(output[_rSPI]);
+  }
+  if (output.routeInstallationDetailSet === "") {
+    contents[_RID] = [];
+  } else if (output[_rIDS] != null && output[_rIDS][_i] != null) {
+    contents[_RID] = de_RouteServerRouteInstallationDetails(__getArrayIfSingleItem(output[_rIDS][_i]), context);
+  }
+  if (output[_rSout] != null) {
+    contents[_RSout] = __expectString(output[_rSout]);
+  }
+  if (output[_pre] != null) {
+    contents[_Pr] = __expectString(output[_pre]);
+  }
+  if (output.asPathSet === "") {
+    contents[_APs] = [];
+  } else if (output[_aPSs] != null && output[_aPSs][_i] != null) {
+    contents[_APs] = de_AsPath(__getArrayIfSingleItem(output[_aPSs][_i]), context);
+  }
+  if (output[_med] != null) {
+    contents[_Med] = __strictParseInt32(output[_med]) as number;
+  }
+  if (output[_nHI] != null) {
+    contents[_NHI] = __expectString(output[_nHI]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2RouteServerRouteInstallationDetail
+ */
+const de_RouteServerRouteInstallationDetail = (
+  output: any,
+  context: __SerdeContext
+): RouteServerRouteInstallationDetail => {
+  const contents: any = {};
+  if (output[_rTI] != null) {
+    contents[_RTI] = __expectString(output[_rTI]);
+  }
+  if (output[_rISo] != null) {
+    contents[_RISo] = __expectString(output[_rISo]);
+  }
+  if (output[_rISR] != null) {
+    contents[_RISR] = __expectString(output[_rISR]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2RouteServerRouteInstallationDetails
+ */
+const de_RouteServerRouteInstallationDetails = (
+  output: any,
+  context: __SerdeContext
+): RouteServerRouteInstallationDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RouteServerRouteInstallationDetail(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2RouteServerRouteList
+ */
+const de_RouteServerRouteList = (output: any, context: __SerdeContext): RouteServerRoute[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RouteServerRoute(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2RouteServersList
+ */
+const de_RouteServersList = (output: any, context: __SerdeContext): RouteServer[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RouteServer(entry, context);
+    });
+};
+
+/**
  * deserializeAws_ec2RouteTable
  */
 const de_RouteTable = (output: any, context: __SerdeContext): RouteTable => {
@@ -80755,8 +82524,8 @@ const de_RouteTable = (output: any, context: __SerdeContext): RouteTable => {
   }
   if (output.routeSet === "") {
     contents[_Rout] = [];
-  } else if (output[_rSo] != null && output[_rSo][_i] != null) {
-    contents[_Rout] = de_RouteList(__getArrayIfSingleItem(output[_rSo][_i]), context);
+  } else if (output[_rSou] != null && output[_rSou][_i] != null) {
+    contents[_Rout] = de_RouteList(__getArrayIfSingleItem(output[_rSou][_i]), context);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -81114,8 +82883,8 @@ const de_SearchLocalGatewayRoutesResult = (output: any, context: __SerdeContext)
   const contents: any = {};
   if (output.routeSet === "") {
     contents[_Rout] = [];
-  } else if (output[_rSo] != null && output[_rSo][_i] != null) {
-    contents[_Rout] = de_LocalGatewayRouteList(__getArrayIfSingleItem(output[_rSo][_i]), context);
+  } else if (output[_rSou] != null && output[_rSou][_i] != null) {
+    contents[_Rout] = de_LocalGatewayRouteList(__getArrayIfSingleItem(output[_rSou][_i]), context);
   }
   if (output[_nTe] != null) {
     contents[_NT] = __expectString(output[_nTe]);
@@ -81152,8 +82921,8 @@ const de_SearchTransitGatewayRoutesResult = (
   const contents: any = {};
   if (output.routeSet === "") {
     contents[_Rout] = [];
-  } else if (output[_rSo] != null && output[_rSo][_i] != null) {
-    contents[_Rout] = de_TransitGatewayRouteList(__getArrayIfSingleItem(output[_rSo][_i]), context);
+  } else if (output[_rSou] != null && output[_rSou][_i] != null) {
+    contents[_Rout] = de_TransitGatewayRouteList(__getArrayIfSingleItem(output[_rSou][_i]), context);
   }
   if (output[_aRAd] != null) {
     contents[_ARAd] = __parseBoolean(output[_aRAd]);
@@ -85867,9 +87636,9 @@ const de_VerifiedAccessInstanceOpenVpnClientConfiguration = (
   }
   if (output.routeSet === "") {
     contents[_Rout] = [];
-  } else if (output[_rSo] != null && output[_rSo][_i] != null) {
+  } else if (output[_rSou] != null && output[_rSou][_i] != null) {
     contents[_Rout] = de_VerifiedAccessInstanceOpenVpnClientConfigurationRouteList(
-      __getArrayIfSingleItem(output[_rSo][_i]),
+      __getArrayIfSingleItem(output[_rSou][_i]),
       context
     );
   }
@@ -86053,8 +87822,8 @@ const de_VerifiedAccessLogS3Destination = (output: any, context: __SerdeContext)
   if (output[_pre] != null) {
     contents[_Pr] = __expectString(output[_pre]);
   }
-  if (output[_bO] != null) {
-    contents[_BOu] = __expectString(output[_bO]);
+  if (output[_bOu] != null) {
+    contents[_BOu] = __expectString(output[_bOu]);
   }
   return contents;
 };
@@ -86743,8 +88512,8 @@ const de_VpcBlockPublicAccessOptions = (output: any, context: __SerdeContext): V
   if (output[_mB] != null) {
     contents[_MB] = __expectString(output[_mB]);
   }
-  if (output[_eA] != null) {
-    contents[_EAx] = __expectString(output[_eA]);
+  if (output[_eAx] != null) {
+    contents[_EAx] = __expectString(output[_eAx]);
   }
   return contents;
 };
@@ -87667,6 +89436,7 @@ const _APM = "ApplyPendingMaintenance";
 const _APNGA = "AssignPrivateNatGatewayAddress";
 const _APd = "AddedPrincipals";
 const _APl = "AllowedPrincipals";
+const _APs = "AsPaths";
 const _AR = "AllowReassignment";
 const _ARA = "AssociatedRoleArn";
 const _ARAd = "AdditionalRoutesAvailable";
@@ -87674,7 +89444,9 @@ const _ARAs = "AssociatedResourceAccessibility";
 const _ARAss = "AssociatedResourceArn";
 const _ARC = "AcceptedRouteCount";
 const _ARIEQ = "AcceptReservedInstancesExchangeQuote";
-const _ARS = "AutoRecoverySupported";
+const _ARP = "AreRoutesPersisted";
+const _ARS = "AssociateRouteServer";
+const _ARSu = "AutoRecoverySupported";
 const _ART = "AssociateRouteTable";
 const _ARTI = "AddRouteTableIds";
 const _ARTl = "AllocationResourceTags";
@@ -87797,6 +89569,7 @@ const _BPF = "BaselinePerformanceFactors";
 const _BPS = "BurstablePerformanceSupported";
 const _BPi = "BillingProducts";
 const _BS = "BgpStatus";
+const _BSf = "BfdStatus";
 const _BT = "BannerText";
 const _BTE = "BundleTaskError";
 const _BTIMB = "BaselineThroughputInMBps";
@@ -87992,7 +89765,10 @@ const _CRO = "CapacityReservationOptions";
 const _CRP = "CapacityReservationPreference";
 const _CRRGA = "CapacityReservationResourceGroupArn";
 const _CRRVT = "CreateReplaceRootVolumeTask";
-const _CRS = "CapacityReservationSpecification";
+const _CRS = "CreateRouteServer";
+const _CRSE = "CreateRouteServerEndpoint";
+const _CRSP = "CreateRouteServerPeer";
+const _CRSa = "CapacityReservationSpecification";
 const _CRT = "CreateRouteTable";
 const _CRTa = "CapacityReservationTarget";
 const _CRa = "CancelReason";
@@ -88329,7 +90105,15 @@ const _DRIO = "DescribeReservedInstancesOfferings";
 const _DRIT = "DnsRecordIpType";
 const _DRRV = "DeleteReplacedRootVolume";
 const _DRRVT = "DescribeReplaceRootVolumeTasks";
-const _DRS = "DataRetentionSupport";
+const _DRS = "DeleteRouteServer";
+const _DRSE = "DeleteRouteServerEndpoint";
+const _DRSEe = "DescribeRouteServerEndpoints";
+const _DRSP = "DeleteRouteServerPeer";
+const _DRSPe = "DescribeRouteServerPeers";
+const _DRSPi = "DisableRouteServerPropagation";
+const _DRSa = "DataRetentionSupport";
+const _DRSe = "DescribeRouteServers";
+const _DRSi = "DisassociateRouteServer";
 const _DRT = "DeleteRouteTable";
 const _DRTA = "DefaultRouteTableAssociation";
 const _DRTP = "DefaultRouteTablePropagation";
@@ -88490,6 +90274,7 @@ const _EA = "EnableAcceleration";
 const _EAIS = "EnableAllowedImagesSettings";
 const _EANPMS = "EnableAwsNetworkPerformanceMetricSubscription";
 const _EAT = "EnableAddressTransfer";
+const _EAn = "EniAddress";
 const _EAx = "ExclusionsAllowed";
 const _EB = "EgressBytes";
 const _EBV = "ExcludeBootVolume";
@@ -88511,8 +90296,10 @@ const _EDn = "EnableDns64";
 const _EDnd = "EndpointDomain";
 const _EDv = "EventDescription";
 const _EDx = "ExpirationDate";
+const _EEA = "EndpointEniAddress";
 const _EEBD = "EbsEncryptionByDefault";
 const _EEEBD = "EnableEbsEncryptionByDefault";
+const _EEI = "EndpointEniId";
 const _EFL = "EnableFastLaunch";
 const _EFR = "EgressFilterRules";
 const _EFSR = "EnableFastSnapshotRestores";
@@ -88547,6 +90334,7 @@ const _EITS = "EncryptionInTransitSupported";
 const _EITx = "ExportImageTasks";
 const _EIb = "EbsInfo";
 const _EIf = "EfaInfo";
+const _EIn = "EniId";
 const _EIv = "EventInformation";
 const _EIve = "EventId";
 const _EIx = "ExportImage";
@@ -88575,6 +90363,7 @@ const _ERNDAAAAR = "EnableResourceNameDnsAAAARecord";
 const _ERNDAAAAROL = "EnableResourceNameDnsAAAARecordOnLaunch";
 const _ERNDAR = "EnableResourceNameDnsARecord";
 const _ERNDAROL = "EnableResourceNameDnsARecordOnLaunch";
+const _ERSP = "EnableRouteServerPropagation";
 const _ES = "EphemeralStorage";
 const _ESBPA = "EnableSnapshotBlockPublicAccess";
 const _ESCA = "EnableSerialConsoleAccess";
@@ -88728,6 +90517,9 @@ const _GNr = "GroupNames";
 const _GOI = "GroupOwnerId";
 const _GPD = "GetPasswordData";
 const _GRIEQ = "GetReservedInstancesExchangeQuote";
+const _GRSA = "GetRouteServerAssociations";
+const _GRSP = "GetRouteServerPropagations";
+const _GRSRD = "GetRouteServerRoutingDatabase";
 const _GS = "GroupSource";
 const _GSBPAS = "GetSnapshotBlockPublicAccessState";
 const _GSCAS = "GetSerialConsoleAccessStatus";
@@ -89201,6 +90993,7 @@ const _MPa = "MaxPrice";
 const _MPe = "MetricPoints";
 const _MR = "MaxResults";
 const _MRI = "ModifyReservedInstances";
+const _MRS = "ModifyRouteServer";
 const _MRo = "ModificationResults";
 const _MRu = "MultiRegion";
 const _MS = "MaintenanceStrategies";
@@ -89261,6 +91054,7 @@ const _Man = "Manufacturer";
 const _Mana = "Managed";
 const _Mar = "Marketplace";
 const _Me = "Message";
+const _Med = "Med";
 const _Mes = "Messages";
 const _Met = "Metric";
 const _Mo = "Mode";
@@ -89289,6 +91083,7 @@ const _NGA = "NatGatewayAddresses";
 const _NGI = "NatGatewayId";
 const _NGIa = "NatGatewayIds";
 const _NGa = "NatGateways";
+const _NHI = "NextHopIp";
 const _NI = "NetworkInterfaces";
 const _NIA = "NetworkInsightsAnalyses";
 const _NIAA = "NetworkInsightsAnalysisArn";
@@ -89488,6 +91283,7 @@ const _PKM = "PublicKeyMaterial";
 const _PL = "PacketLength";
 const _PLA = "PrefixListAssociations";
 const _PLAr = "PrefixListArn";
+const _PLD = "PeerLivenessDetection";
 const _PLF = "PartitionLoadFrequency";
 const _PLI = "PrefixListId";
 const _PLIr = "PrefixListIds";
@@ -89506,12 +91302,15 @@ const _POe = "PeeringOptions";
 const _PP = "ProgressPercentage";
 const _PPIPC = "ProvisionPublicIpv4PoolCidr";
 const _PR = "PortRange";
+const _PRD = "PersistRoutesDuration";
 const _PRIO = "PurchaseReservedInstancesOffering";
 const _PRN = "PolicyReferenceName";
 const _PRNo = "PolicyRuleNumber";
+const _PRS = "PersistRoutesState";
 const _PRU = "PtrRecordUpdate";
 const _PRa = "PayerResponsibility";
-const _PRe = "PeerRegion";
+const _PRe = "PersistRoutes";
+const _PRee = "PeerRegion";
 const _PRer = "PermanentRestore";
 const _PRo = "PortRanges";
 const _PRol = "PolicyRule";
@@ -89618,6 +91417,7 @@ const _RI = "RebootInstances";
 const _RIA = "ResetImageAttribute";
 const _RIAe = "ResetInstanceAttribute";
 const _RICIAIS = "ReplaceImageCriteriaInAllowedImagesSettings";
+const _RID = "RouteInstallationDetails";
 const _RIENA = "RegisterInstanceEventNotificationAttributes";
 const _RIFRB = "RestoreImageFromRecycleBin";
 const _RII = "ReservedInstanceIds";
@@ -89637,6 +91437,8 @@ const _RIOI = "ReservedInstancesOfferingIds";
 const _RIOIe = "ReservedInstancesOfferingId";
 const _RIPA = "ReleaseIpamPoolAllocation";
 const _RIS = "ReportInstanceStatus";
+const _RISR = "RouteInstallationStatusReason";
+const _RISo = "RouteInstallationStatus";
 const _RIVR = "ReservedInstanceValueRollup";
 const _RIVS = "ReservedInstanceValueSet";
 const _RIa = "RamdiskId";
@@ -89688,6 +91490,12 @@ const _RRVTe = "ReplaceRootVolumeTasks";
 const _RRe = "ResourceRegion";
 const _RS = "ReplacementStrategy";
 const _RSA = "ResetSnapshotAttribute";
+const _RSAo = "RouteServerAssociation";
+const _RSAou = "RouteServerAssociations";
+const _RSE = "RouteServerEndpoint";
+const _RSEI = "RouteServerEndpointId";
+const _RSEIo = "RouteServerEndpointIds";
+const _RSEo = "RouteServerEndpoints";
 const _RSF = "RequestSpotFleet";
 const _RSFRB = "RestoreSnapshotFromRecycleBin";
 const _RSGE = "RevokeSecurityGroupEgress";
@@ -89697,12 +91505,23 @@ const _RSGR = "RevokedSecurityGroupRules";
 const _RSI = "RequestSpotInstances";
 const _RSIAT = "RemoveSupportedIpAddressTypes";
 const _RSIe = "RemoveSubnetIds";
+const _RSIo = "RouteServerId";
+const _RSIou = "RouteServerIds";
 const _RSIu = "RunScheduledInstances";
+const _RSP = "RouteServerPeer";
+const _RSPI = "RouteServerPeerId";
+const _RSPIo = "RouteServerPeerIds";
+const _RSPo = "RouteServerPeers";
+const _RSPou = "RouteServerPropagation";
+const _RSPout = "RouteServerPropagations";
 const _RSR = "RemoveSupportedRegions";
 const _RST = "RestoreSnapshotTier";
 const _RSTe = "RestoreStartTime";
 const _RSe = "ResourceStatement";
 const _RSeg = "RegionalSummaries";
+const _RSo = "RouteServer";
+const _RSou = "RouteServers";
+const _RSout = "RouteStatus";
 const _RT = "ResourceType";
 const _RTAI = "RouteTableAssociationId";
 const _RTGCB = "RemoveTransitGatewayCidrBlocks";
@@ -89866,6 +91685,7 @@ const _SMt = "StatusMessage";
 const _SMta = "StateMessage";
 const _SN = "SessionNumber";
 const _SNA = "ServiceNetworkArn";
+const _SNE = "SnsNotificationsEnabled";
 const _SNIA = "StartNetworkInsightsAnalysis";
 const _SNIASA = "StartNetworkInsightsAccessScopeAnalysis";
 const _SNN = "ServiceNetworkName";
@@ -89915,6 +91735,7 @@ const _SSe = "ServiceState";
 const _SSu = "SupportedStrategies";
 const _SSy = "SystemStatus";
 const _ST = "SplitTunnel";
+const _STA = "SnsTopicArn";
 const _STC = "SpotTargetCapacity";
 const _STD = "SnapshotTaskDetail";
 const _STFR = "StoreTaskFailureReason";
@@ -90340,6 +92161,7 @@ const _aPHS = "alternatePathHintSet";
 const _aPIA = "associatePublicIpAddress";
 const _aPIAS = "assignedPrivateIpAddressesSet";
 const _aPS = "addedPrincipalSet";
+const _aPSs = "asPathSet";
 const _aPu = "autoPlacement";
 const _aR = "authorizationRule";
 const _aRA = "associatedRoleArn";
@@ -90347,6 +92169,7 @@ const _aRAd = "additionalRoutesAvailable";
 const _aRAs = "associatedResourceAccessibility";
 const _aRAss = "associatedResourceArn";
 const _aRC = "acceptedRouteCount";
+const _aRP = "areRoutesPersisted";
 const _aRS = "associatedRoleSet";
 const _aRSu = "autoRecoverySupported";
 const _aRTS = "allocationResourceTagSet";
@@ -90430,12 +92253,14 @@ const _bIa = "baselineIops";
 const _bM = "bootMode";
 const _bMa = "bareMetal";
 const _bN = "bucketName";
-const _bO = "bucketOwner";
+const _bO = "bgpOptions";
+const _bOu = "bucketOwner";
 const _bP = "burstablePerformance";
 const _bPAS = "blockPublicAccessStates";
 const _bPF = "baselinePerformanceFactors";
 const _bPS = "burstablePerformanceSupported";
 const _bS = "byoasnSet";
+const _bSf = "bfdStatus";
 const _bSg = "bgpStatus";
 const _bT = "bannerText";
 const _bTIMB = "baselineThroughputInMBps";
@@ -90693,8 +92518,9 @@ const _dis = "disks";
 const _do = "domain";
 const _du = "duration";
 const _e = "egress";
-const _eA = "exclusionsAllowed";
+const _eA = "eniAddress";
 const _eAn = "enableAcceleration";
+const _eAx = "exclusionsAllowed";
 const _eB = "egressBytes";
 const _eC = "errorCode";
 const _eCTP = "excessCapacityTerminationPolicy";
@@ -90708,7 +92534,9 @@ const _eDf = "effectiveDate";
 const _eDn = "enableDns64";
 const _eDnd = "endpointDomain";
 const _eDv = "eventDescription";
+const _eEA = "endpointEniAddress";
 const _eEBD = "ebsEncryptionByDefault";
+const _eEI = "endpointEniId";
 const _eFRS = "egressFilterRuleSet";
 const _eGAI = "elasticGpuAssociationId";
 const _eGAS = "elasticGpuAssociationState";
@@ -90734,6 +92562,7 @@ const _eITSn = "encryptionInTransitSupported";
 const _eITSx = "excludedInstanceTypeSet";
 const _eIb = "ebsInfo";
 const _eIf = "efaInfo";
+const _eIn = "eniId";
 const _eIv = "eventInformation";
 const _eIve = "eventId";
 const _eIx = "exclusionId";
@@ -91231,6 +93060,7 @@ const _man = "manufacturer";
 const _mana = "managed";
 const _mar = "marketplace";
 const _me = "message";
+const _med = "med";
 const _mem = "member";
 const _met = "metric";
 const _mo = "monitoring";
@@ -91256,6 +93086,7 @@ const _nG = "natGateway";
 const _nGAS = "natGatewayAddressSet";
 const _nGI = "natGatewayId";
 const _nGS = "natGatewaySet";
+const _nHI = "nextHopIp";
 const _nI = "networkId";
 const _nIA = "networkInsightsAnalysis";
 const _nIAA = "networkInsightsAnalysisArn";
@@ -91424,6 +93255,7 @@ const _pK = "publicKey";
 const _pL = "prefixList";
 const _pLA = "prefixListArn";
 const _pLAS = "prefixListAssociationSet";
+const _pLD = "peerLivenessDetection";
 const _pLI = "prefixListId";
 const _pLIr = "prefixListIds";
 const _pLN = "prefixListName";
@@ -91438,9 +93270,11 @@ const _pO = "paymentOption";
 const _pOe = "peeringOptions";
 const _pP = "progressPercentage";
 const _pR = "ptrRecord";
+const _pRD = "persistRoutesDuration";
 const _pRN = "policyRuleNumber";
 const _pRNo = "policyReferenceName";
 const _pRS = "portRangeSet";
+const _pRSe = "persistRoutesState";
 const _pRU = "ptrRecordUpdate";
 const _pRa = "payerResponsibility";
 const _pRo = "portRange";
@@ -91517,6 +93351,7 @@ const _rGT = "ruleGroupType";
 const _rGTPS = "ruleGroupTypePairSet";
 const _rHS = "requireHibernateSupport";
 const _rI = "reportId";
+const _rIDS = "routeInstallationDetailSet";
 const _rII = "reservedInstancesId";
 const _rIIe = "reservedInstanceId";
 const _rILI = "reservedInstancesListingId";
@@ -91528,6 +93363,8 @@ const _rINCe = "remoteIpv6NetworkCidr";
 const _rIOI = "reservedInstancesOfferingId";
 const _rIOS = "reservedInstancesOfferingsSet";
 const _rIS = "reservedInstancesSet";
+const _rISR = "routeInstallationStatusReason";
+const _rISo = "routeInstallationStatus";
 const _rIVR = "reservedInstanceValueRollup";
 const _rIVS = "reservedInstanceValueSet";
 const _rIa = "ramdiskId";
@@ -91557,15 +93394,29 @@ const _rRVT = "replaceRootVolumeTask";
 const _rRVTI = "replaceRootVolumeTaskId";
 const _rRVTS = "replaceRootVolumeTaskSet";
 const _rS = "referenceSet";
+const _rSA = "routeServerAssociation";
+const _rSAS = "routeServerAssociationSet";
+const _rSE = "routeServerEndpoint";
+const _rSEI = "routeServerEndpointId";
+const _rSES = "routeServerEndpointSet";
 const _rSGRS = "revokedSecurityGroupRuleSet";
+const _rSI = "routeServerId";
+const _rSP = "routeServerPeer";
+const _rSPI = "routeServerPeerId";
+const _rSPS = "routeServerPeerSet";
+const _rSPSo = "routeServerPropagationSet";
+const _rSPo = "routeServerPropagation";
 const _rSS = "regionalSummarySet";
+const _rSSo = "routeServerSet";
 const _rST = "restoreStartTime";
 const _rSe = "reportSet";
 const _rSep = "replacementStrategy";
 const _rSes = "reservationSet";
 const _rSeso = "resourceStatement";
 const _rSesou = "resourceSet";
-const _rSo = "routeSet";
+const _rSo = "routeServer";
+const _rSou = "routeSet";
+const _rSout = "routeStatus";
 const _rT = "reservationType";
 const _rTAI = "routeTableAssociationId";
 const _rTI = "routeTableId";
@@ -91692,6 +93543,7 @@ const _sMt = "statusMessage";
 const _sMta = "stateMessage";
 const _sN = "serviceName";
 const _sNA = "serviceNetworkArn";
+const _sNE = "snsNotificationsEnabled";
 const _sNN = "serviceNetworkName";
 const _sNS = "serviceNameSet";
 const _sNSr = "sriovNetSupport";
@@ -91734,6 +93586,7 @@ const _sSub = "subnetSet";
 const _sSup = "supportedStrategies";
 const _sSy = "systemStatus";
 const _sT = "startTime";
+const _sTA = "snsTopicArn";
 const _sTC = "spotTargetCapacity";
 const _sTD = "snapshotTaskDetail";
 const _sTFR = "storeTaskFailureReason";
