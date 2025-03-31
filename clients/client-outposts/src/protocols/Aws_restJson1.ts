@@ -356,6 +356,7 @@ export const se_GetOutpostSupportedInstanceTypesCommand = async (
   b.p("OutpostIdentifier", () => input.OutpostIdentifier!, "{OutpostIdentifier}", false);
   const query: any = map({
     [_OI]: [, input[_OI]!],
+    [_AI]: [, input[_AI]!],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_NT]: [, input[_NT]!],
   });
@@ -605,6 +606,7 @@ export const se_StartCapacityTaskCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AssetId: [],
       DryRun: [],
       InstancePools: (_) => _json(_),
       InstancesToExclude: (_) => _json(_),
@@ -934,6 +936,7 @@ export const de_GetCapacityTaskCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AssetId: __expectString,
     CapacityTaskId: __expectString,
     CapacityTaskStatus: __expectString,
     CompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1338,6 +1341,7 @@ export const de_StartCapacityTaskCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AssetId: __expectString,
     CapacityTaskId: __expectString,
     CapacityTaskStatus: __expectString,
     CompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1741,6 +1745,7 @@ const de_CapacityTaskList = (output: any, context: __SerdeContext): CapacityTask
  */
 const de_CapacityTaskSummary = (output: any, context: __SerdeContext): CapacityTaskSummary => {
   return take(output, {
+    AssetId: __expectString,
     CapacityTaskId: __expectString,
     CapacityTaskStatus: __expectString,
     CompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1888,6 +1893,7 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _AI = "AssetId";
 const _AIF = "AssetIdFilter";
 const _AIFc = "AccountIdFilter";
 const _ASF = "AwsServiceFilter";

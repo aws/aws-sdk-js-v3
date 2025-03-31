@@ -45,6 +45,7 @@ export interface GetOutpostSupportedInstanceTypesCommandOutput
  * const input = { // GetOutpostSupportedInstanceTypesInput
  *   OutpostIdentifier: "STRING_VALUE", // required
  *   OrderId: "STRING_VALUE",
+ *   AssetId: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

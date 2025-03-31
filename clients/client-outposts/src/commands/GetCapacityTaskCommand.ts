@@ -45,6 +45,7 @@ export interface GetCapacityTaskCommandOutput extends GetCapacityTaskOutput, __M
  * //   CapacityTaskId: "STRING_VALUE",
  * //   OutpostId: "STRING_VALUE",
  * //   OrderId: "STRING_VALUE",
+ * //   AssetId: "STRING_VALUE",
  * //   RequestedInstancePools: [ // RequestedInstancePools
  * //     { // InstanceTypeCapacity
  * //       InstanceType: "STRING_VALUE", // required

@@ -228,7 +228,7 @@ export interface ComputeAttributes {
  */
 export interface AssetInfo {
   /**
-   * <p> The ID of the asset. </p>
+   * <p> The ID of the asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.</p>
    * @public
    */
   AssetId?: string | undefined;
@@ -294,7 +294,7 @@ export interface AssetInstance {
   InstanceType?: string | undefined;
 
   /**
-   * <p>The ID of the asset.</p>
+   * <p>The ID of the asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.</p>
    * @public
    */
   AssetId?: string | undefined;
@@ -583,6 +583,12 @@ export interface CapacityTaskSummary {
   OrderId?: string | undefined;
 
   /**
+   * <p>The ID of the asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.</p>
+   * @public
+   */
+  AssetId?: string | undefined;
+
+  /**
    * <p>The status of the capacity task.</p>
    * @public
    */
@@ -846,7 +852,7 @@ export interface CreateOrderInput {
  */
 export interface LineItemAssetInformation {
   /**
-   * <p> The ID of the asset. </p>
+   * <p> The ID of the asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.</p>
    * @public
    */
   AssetId?: string | undefined;
@@ -1775,6 +1781,12 @@ export interface GetCapacityTaskOutput {
   OrderId?: string | undefined;
 
   /**
+   * <p>The ID of the Outpost asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.</p>
+   * @public
+   */
+  AssetId?: string | undefined;
+
+  /**
    * <p>List of instance pools requested in the capacity task.</p>
    * @public
    */
@@ -1804,14 +1816,27 @@ export interface GetCapacityTaskOutput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IN_PROGRESS</code> - The capacity task is running and cannot be
-   *           cancelled.</p>
+   *                   <code>IN_PROGRESS</code> - The capacity task is running and cannot be cancelled.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>WAITING_FOR_EVACUATION</code> - The capacity task requires capacity to run. You
-   *           must stop the recommended EC2 running instances to free up capacity for the task to
-   *           run.</p>
+   *                   <code>FAILED</code> - The capacity task could not be completed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code> - The capacity task has completed successfully.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WAITING_FOR_EVACUATION</code> - The capacity task requires capacity to run. You must stop the recommended EC2 running instances to free up capacity for the task to run.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANCELLATION_IN_PROGRESS</code> - The capacity task has been cancelled and is in the process of cleaning up resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANCELLED</code> - The capacity task is cancelled.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2040,6 +2065,12 @@ export interface GetOutpostSupportedInstanceTypesInput {
    * @public
    */
   OrderId?: string | undefined;
+
+  /**
+   * <p>The ID of the Outpost asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.</p>
+   * @public
+   */
+  AssetId?: string | undefined;
 
   /**
    * <p>The maximum page size.</p>
@@ -2654,6 +2685,12 @@ export interface StartCapacityTaskInput {
   OrderId?: string | undefined;
 
   /**
+   * <p>The ID of the Outpost asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.</p>
+   * @public
+   */
+  AssetId?: string | undefined;
+
+  /**
    * <p>The instance pools specified in the capacity task.</p>
    * @public
    */
@@ -2714,6 +2751,12 @@ export interface StartCapacityTaskOutput {
    * @public
    */
   OrderId?: string | undefined;
+
+  /**
+   * <p>The ID of the asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.</p>
+   * @public
+   */
+  AssetId?: string | undefined;
 
   /**
    * <p>List of the instance pools requested in the specified capacity task.</p>
@@ -2795,7 +2838,7 @@ export interface StartConnectionRequest {
   DeviceSerialNumber?: string | undefined;
 
   /**
-   * <p> The ID of the Outpost server. </p>
+   * <p> The ID of the Outpost server.</p>
    * @public
    */
   AssetId: string | undefined;
@@ -3047,13 +3090,11 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three
-   *               phase</p>
+   *                         <b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three phase</p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three
-   *               phase</p>
+   *                         <b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three phase</p>
    *                   </li>
    *                   <li>
    *                      <p>
