@@ -62,6 +62,7 @@ export interface DescribeWebAppCommandOutput extends DescribeWebAppResponse, __M
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     WebAppEndpointPolicy: "FIPS" || "STANDARD",
  * //   },
  * // };
  *

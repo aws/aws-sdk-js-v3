@@ -3452,6 +3452,20 @@ export namespace WebAppIdentityProviderDetails {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const WebAppEndpointPolicy = {
+  FIPS: "FIPS",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type WebAppEndpointPolicy = (typeof WebAppEndpointPolicy)[keyof typeof WebAppEndpointPolicy];
+
+/**
  * <p>Contains an integer value that represents the value for number of concurrent connections or the user sessions on your web app.</p>
  * @public
  */
@@ -3496,12 +3510,15 @@ export namespace WebAppUnits {
 export interface CreateWebAppRequest {
   /**
    * <p>You can provide a structure that contains the details for the identity provider to use with your web app.</p>
+   *          <p>For more details about this parameter, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/webapp-identity-center.html">Configure your identity provider for Transfer Family web apps</a>.</p>
    * @public
    */
   IdentityProviderDetails: WebAppIdentityProviderDetails | undefined;
 
   /**
    * <p>The <code>AccessEndpoint</code> is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value.</p>
+   *          <p>Before you enter a custom URL for this parameter, follow the steps described in
+   *       <a href="https://docs.aws.amazon.com/transfer/latest/userguide/webapp-customize.html">Update your access endpoint with a custom URL</a>.</p>
    * @public
    */
   AccessEndpoint?: string | undefined;
@@ -3517,6 +3534,15 @@ export interface CreateWebAppRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>
+   *       Setting for the type of endpoint policy for the web app. The default value is <code>STANDARD</code>.
+   *     </p>
+   *          <p>If you are creating the web app in an Amazon Web Services GovCloud (US) Region, you can set this parameter to <code>FIPS</code>.</p>
+   * @public
+   */
+  WebAppEndpointPolicy?: WebAppEndpointPolicy | undefined;
 }
 
 /**
@@ -5248,6 +5274,12 @@ export interface DescribedUser {
   /**
    * <p>Specifies the public key portion of the Secure Shell (SSH) keys stored for the described
    *       user.</p>
+   *          <note>
+   *             <p>To delete the public key body, set its value to zero keys, as shown here:</p>
+   *             <p>
+   *                <code>SshPublicKeys: []</code>
+   *             </p>
+   *          </note>
    * @public
    */
   SshPublicKeys?: SshPublicKey[] | undefined;
@@ -5354,6 +5386,15 @@ export interface DescribedWebApp {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>
+   *       Setting for the type of endpoint policy for the web app. The default value is <code>STANDARD</code>.
+   *     </p>
+   *          <p>If your web app was created in an Amazon Web Services GovCloud (US) Region, the value of this parameter can be <code>FIPS</code>, which indicates the web app endpoint is FIPS-compliant.</p>
+   * @public
+   */
+  WebAppEndpointPolicy?: WebAppEndpointPolicy | undefined;
 }
 
 /**
@@ -5386,7 +5427,7 @@ export interface DescribedWebAppCustomization {
   LogoFile?: Uint8Array | undefined;
 
   /**
-   * <p>Returns a icon file data string (in base64 encoding).</p>
+   * <p>Returns an icon file data string (in base64 encoding).</p>
    * @public
    */
   FaviconFile?: Uint8Array | undefined;
@@ -7684,7 +7725,7 @@ export interface UpdateWebAppCustomizationRequest {
   LogoFile?: Uint8Array | undefined;
 
   /**
-   * <p>Specify icon file data string (in base64 encoding).</p>
+   * <p>Specify an icon file data string (in base64 encoding).</p>
    * @public
    */
   FaviconFile?: Uint8Array | undefined;

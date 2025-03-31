@@ -52,6 +52,7 @@ export interface CreateWebAppCommandOutput extends CreateWebAppResponse, __Metad
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   WebAppEndpointPolicy: "FIPS" || "STANDARD",
  * };
  * const command = new CreateWebAppCommand(input);
  * const response = await client.send(command);
