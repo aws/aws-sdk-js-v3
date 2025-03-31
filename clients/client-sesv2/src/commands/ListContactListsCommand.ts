@@ -29,6 +29,8 @@ export interface ListContactListsCommandOutput extends ListContactListsResponse,
 
 /**
  * <p>Lists all of the contact lists available.</p>
+ *          <p>If your output includes a "NextToken" field with a string value, this indicates there may be additional
+ *             contacts on the filtered list - regardless of the number of contacts returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
