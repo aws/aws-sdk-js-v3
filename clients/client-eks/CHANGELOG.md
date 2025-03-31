@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.779.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.778.0...v3.779.0) (2025-03-31)
+
+
+### Features
+
+* **client-eks:** Add support for updating RemoteNetworkConfig for hybrid nodes on EKS UpdateClusterConfig API ([fc7f772](https://github.com/aws/aws-sdk-js-v3/commit/fc7f772eb8ffe3fc7bf0c99e2ce19ac5f17c8286))
+
+
+
+
+
 # [3.777.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.776.0...v3.777.0) (2025-03-27)
 
 

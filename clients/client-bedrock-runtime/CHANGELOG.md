@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.779.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.778.0...v3.779.0) (2025-03-31)
+
+
+### Features
+
+* **client-bedrock-runtime:** Add Prompt Caching support to Converse and ConverseStream APIs ([e48bc08](https://github.com/aws/aws-sdk-js-v3/commit/e48bc0834f743c979152b7d16bd29cd211342136))
+
+
+
+
+
 # [3.778.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.777.0...v3.778.0) (2025-03-28)
 
 

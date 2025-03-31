@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.779.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.778.0...v3.779.0) (2025-03-31)
+
+
+### Features
+
+* **client-bedrock-runtime:** Add Prompt Caching support to Converse and ConverseStream APIs ([e48bc08](https://github.com/aws/aws-sdk-js-v3/commit/e48bc0834f743c979152b7d16bd29cd211342136))
+* **client-deadline:** With this release you can use a new field to specify the search term match type. Search term match types currently support fuzzy and contains matching. ([a73e632](https://github.com/aws/aws-sdk-js-v3/commit/a73e6324bbcc78897a58b408e511235d7defc128))
+* **client-ec2:** Release VPC Route Server, a new feature allowing dynamic routing in VPCs. ([3740252](https://github.com/aws/aws-sdk-js-v3/commit/374025226e8233ec427c4924946dd9c6a2bda634))
+* **client-eks:** Add support for updating RemoteNetworkConfig for hybrid nodes on EKS UpdateClusterConfig API ([fc7f772](https://github.com/aws/aws-sdk-js-v3/commit/fc7f772eb8ffe3fc7bf0c99e2ce19ac5f17c8286))
+* **client-marketplace-entitlement-service:** Add support for Marketplace Entitlement Service dual-stack endpoints. ([ce892a7](https://github.com/aws/aws-sdk-js-v3/commit/ce892a7fcc74ed6cb8bf6835402624b8a883ed53))
+* **client-outposts:** Enabling Asset Level Capacity Management feature, which allows customers to create a Capacity Task for a single Asset on their active Outpost. ([c6a9665](https://github.com/aws/aws-sdk-js-v3/commit/c6a9665c3bf16624429984e0f4672f73302b4a11))
+* **client-s3-control:** Amazon S3 adds support for S3 Access Points for directory buckets in AWS Dedicated Local Zones ([567956e](https://github.com/aws/aws-sdk-js-v3/commit/567956e1f1edd67e8a8c2dac062205bac1ecb9d7))
+* **client-s3:** Amazon S3 adds support for S3 Access Points for directory buckets in AWS Dedicated Local Zones ([7f2cfea](https://github.com/aws/aws-sdk-js-v3/commit/7f2cfea14ef7e980b331fa0413a479bd2913a3a9))
+* **client-sesv2:** Add dual-stack support to global endpoints. ([b9f2fe3](https://github.com/aws/aws-sdk-js-v3/commit/b9f2fe39ce3108f50c653ad0b1f9b0d5827e97f6))
+* **client-transfer:** Add WebAppEndpointPolicy support for WebApps ([fad0c2f](https://github.com/aws/aws-sdk-js-v3/commit/fad0c2fc9f30a9c6896f805cc6c9206b8e48fe20))
+* **clients:** update client endpoints as of 2025-03-31 ([fbabe1c](https://github.com/aws/aws-sdk-js-v3/commit/fbabe1c8902be5a8d75a6edf87a3483deed99ad9))
+
+
+
+
+
 # [3.778.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.777.0...v3.778.0) (2025-03-28)
 
 
