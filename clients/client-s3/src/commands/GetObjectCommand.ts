@@ -122,7 +122,7 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  *                      Objects</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                <p>
  *                   <b>Directory buckets </b> -
- *                   For directory buckets, only the S3 Express One Zone storage class is supported to store newly created objects.
+ *                   Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.
  * Unsupported storage class values won't write a destination object and will respond with the HTTP status code <code>400 Bad Request</code>.</p>
  *             </dd>
  *             <dt>Encryption</dt>
