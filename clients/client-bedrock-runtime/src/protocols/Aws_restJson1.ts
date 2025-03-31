@@ -54,6 +54,7 @@ import {
   AsyncInvokeS3OutputDataConfig,
   AsyncInvokeSummary,
   AutoToolChoice,
+  CachePointBlock,
   ConflictException,
   ContentBlock,
   ContentBlockDelta,
@@ -1036,11 +1037,14 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
 
 // se_AutoToolChoice omitted.
 
+// se_CachePointBlock omitted.
+
 /**
  * serializeAws_restJson1ContentBlock
  */
 const se_ContentBlock = (input: ContentBlock, context: __SerdeContext): any => {
   return ContentBlock.visit(input, {
+    cachePoint: (value) => ({ cachePoint: _json(value) }),
     document: (value) => ({ document: se_DocumentBlock(value, context) }),
     guardContent: (value) => ({ guardContent: se_GuardrailConverseContentBlock(value, context) }),
     image: (value) => ({ image: se_ImageBlock(value, context) }),
@@ -1262,6 +1266,7 @@ const se_ReasoningContentBlock = (input: ReasoningContentBlock, context: __Serde
  */
 const se_SystemContentBlock = (input: SystemContentBlock, context: __SerdeContext): any => {
   return SystemContentBlock.visit(input, {
+    cachePoint: (value) => ({ cachePoint: _json(value) }),
     guardContent: (value) => ({ guardContent: se_GuardrailConverseContentBlock(value, context) }),
     text: (value) => ({ text: value }),
     _: (name, value) => ({ [name]: value } as any),
@@ -1288,6 +1293,7 @@ const se_SystemContentBlocks = (input: SystemContentBlock[], context: __SerdeCon
  */
 const se_Tool = (input: Tool, context: __SerdeContext): any => {
   return Tool.visit(input, {
+    cachePoint: (value) => ({ cachePoint: _json(value) }),
     toolSpec: (value) => ({ toolSpec: se_ToolSpecification(value, context) }),
     _: (name, value) => ({ [name]: value } as any),
   });
@@ -1445,10 +1451,17 @@ const de_AsyncInvokeSummary = (output: any, context: __SerdeContext): AsyncInvok
   }) as any;
 };
 
+// de_CachePointBlock omitted.
+
 /**
  * deserializeAws_restJson1ContentBlock
  */
 const de_ContentBlock = (output: any, context: __SerdeContext): ContentBlock => {
+  if (output.cachePoint != null) {
+    return {
+      cachePoint: _json(output.cachePoint),
+    };
+  }
   if (output.document != null) {
     return {
       document: de_DocumentBlock(output.document, context),

@@ -146,6 +146,9 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *               },
  *             },
  *           },
+ *           cachePoint: { // CachePointBlock
+ *             type: "default", // required
+ *           },
  *           reasoningContent: { // ReasoningContentBlock Union: only one key present
  *             reasoningText: { // ReasoningTextBlock
  *               text: "STRING_VALUE", // required
@@ -174,6 +177,9 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *           },
  *         },
  *       },
+ *       cachePoint: {
+ *         type: "default", // required
+ *       },
  *     },
  *   ],
  *   inferenceConfig: { // InferenceConfiguration
@@ -194,6 +200,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *             json: "DOCUMENT_VALUE",
  *           },
  *         },
+ *         cachePoint: "<CachePointBlock>",
  *       },
  *     ],
  *     toolChoice: { // ToolChoice Union: only one key present
@@ -309,6 +316,9 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //               },
  * //             },
  * //           },
+ * //           cachePoint: { // CachePointBlock
+ * //             type: "default", // required
+ * //           },
  * //           reasoningContent: { // ReasoningContentBlock Union: only one key present
  * //             reasoningText: { // ReasoningTextBlock
  * //               text: "STRING_VALUE", // required
@@ -325,6 +335,8 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //     inputTokens: Number("int"), // required
  * //     outputTokens: Number("int"), // required
  * //     totalTokens: Number("int"), // required
+ * //     cacheReadInputTokens: Number("int"),
+ * //     cacheWriteInputTokens: Number("int"),
  * //   },
  * //   metrics: { // ConverseMetrics
  * //     latencyMs: Number("long"), // required

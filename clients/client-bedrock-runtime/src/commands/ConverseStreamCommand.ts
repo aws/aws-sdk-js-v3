@@ -152,6 +152,9 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *               },
  *             },
  *           },
+ *           cachePoint: { // CachePointBlock
+ *             type: "default", // required
+ *           },
  *           reasoningContent: { // ReasoningContentBlock Union: only one key present
  *             reasoningText: { // ReasoningTextBlock
  *               text: "STRING_VALUE", // required
@@ -180,6 +183,9 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *           },
  *         },
  *       },
+ *       cachePoint: {
+ *         type: "default", // required
+ *       },
  *     },
  *   ],
  *   inferenceConfig: { // InferenceConfiguration
@@ -200,6 +206,7 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *             json: "DOCUMENT_VALUE",
  *           },
  *         },
+ *         cachePoint: "<CachePointBlock>",
  *       },
  *     ],
  *     toolChoice: { // ToolChoice Union: only one key present
@@ -274,6 +281,8 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  * //         inputTokens: Number("int"), // required
  * //         outputTokens: Number("int"), // required
  * //         totalTokens: Number("int"), // required
+ * //         cacheReadInputTokens: Number("int"),
+ * //         cacheWriteInputTokens: Number("int"),
  * //       },
  * //       metrics: { // ConverseStreamMetrics
  * //         latencyMs: Number("long"), // required

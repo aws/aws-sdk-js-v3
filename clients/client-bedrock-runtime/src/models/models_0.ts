@@ -1513,6 +1513,31 @@ export interface InferenceConfiguration {
  * @public
  * @enum
  */
+export const CachePointType = {
+  DEFAULT: "default",
+} as const;
+
+/**
+ * @public
+ */
+export type CachePointType = (typeof CachePointType)[keyof typeof CachePointType];
+
+/**
+ * <p>Defines a section of content to be cached for reuse in subsequent API calls.</p>
+ * @public
+ */
+export interface CachePointBlock {
+  /**
+   * <p>Specifies the type of cache point within the CachePointBlock.</p>
+   * @public
+   */
+  type: CachePointType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const DocumentFormat = {
   CSV: "csv",
   DOC: "doc",
@@ -2219,6 +2244,7 @@ export interface ToolUseBlock {
  * @public
  */
 export type ContentBlock =
+  | ContentBlock.CachePointMember
   | ContentBlock.DocumentMember
   | ContentBlock.GuardContentMember
   | ContentBlock.ImageMember
@@ -2245,6 +2271,7 @@ export namespace ContentBlock {
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
+    cachePoint?: never;
     reasoningContent?: never;
     $unknown?: never;
   }
@@ -2264,6 +2291,7 @@ export namespace ContentBlock {
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
+    cachePoint?: never;
     reasoningContent?: never;
     $unknown?: never;
   }
@@ -2280,6 +2308,7 @@ export namespace ContentBlock {
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
+    cachePoint?: never;
     reasoningContent?: never;
     $unknown?: never;
   }
@@ -2296,6 +2325,7 @@ export namespace ContentBlock {
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
+    cachePoint?: never;
     reasoningContent?: never;
     $unknown?: never;
   }
@@ -2312,6 +2342,7 @@ export namespace ContentBlock {
     toolUse: ToolUseBlock;
     toolResult?: never;
     guardContent?: never;
+    cachePoint?: never;
     reasoningContent?: never;
     $unknown?: never;
   }
@@ -2328,6 +2359,7 @@ export namespace ContentBlock {
     toolUse?: never;
     toolResult: ToolResultBlock;
     guardContent?: never;
+    cachePoint?: never;
     reasoningContent?: never;
     $unknown?: never;
   }
@@ -2349,6 +2381,24 @@ export namespace ContentBlock {
     toolUse?: never;
     toolResult?: never;
     guardContent: GuardrailConverseContentBlock;
+    cachePoint?: never;
+    reasoningContent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>CachePoint to include in the message.</p>
+   * @public
+   */
+  export interface CachePointMember {
+    text?: never;
+    image?: never;
+    document?: never;
+    video?: never;
+    toolUse?: never;
+    toolResult?: never;
+    guardContent?: never;
+    cachePoint: CachePointBlock;
     reasoningContent?: never;
     $unknown?: never;
   }
@@ -2365,6 +2415,7 @@ export namespace ContentBlock {
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
+    cachePoint?: never;
     reasoningContent: ReasoningContentBlock;
     $unknown?: never;
   }
@@ -2380,6 +2431,7 @@ export namespace ContentBlock {
     toolUse?: never;
     toolResult?: never;
     guardContent?: never;
+    cachePoint?: never;
     reasoningContent?: never;
     $unknown: [string, any];
   }
@@ -2392,6 +2444,7 @@ export namespace ContentBlock {
     toolUse: (value: ToolUseBlock) => T;
     toolResult: (value: ToolResultBlock) => T;
     guardContent: (value: GuardrailConverseContentBlock) => T;
+    cachePoint: (value: CachePointBlock) => T;
     reasoningContent: (value: ReasoningContentBlock) => T;
     _: (name: string, value: any) => T;
   }
@@ -2404,6 +2457,7 @@ export namespace ContentBlock {
     if (value.toolUse !== undefined) return visitor.toolUse(value.toolUse);
     if (value.toolResult !== undefined) return visitor.toolResult(value.toolResult);
     if (value.guardContent !== undefined) return visitor.guardContent(value.guardContent);
+    if (value.cachePoint !== undefined) return visitor.cachePoint(value.cachePoint);
     if (value.reasoningContent !== undefined) return visitor.reasoningContent(value.reasoningContent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
@@ -2524,6 +2578,7 @@ export namespace PromptVariableValues {
  * @public
  */
 export type SystemContentBlock =
+  | SystemContentBlock.CachePointMember
   | SystemContentBlock.GuardContentMember
   | SystemContentBlock.TextMember
   | SystemContentBlock.$UnknownMember;
@@ -2539,6 +2594,7 @@ export namespace SystemContentBlock {
   export interface TextMember {
     text: string;
     guardContent?: never;
+    cachePoint?: never;
     $unknown?: never;
   }
 
@@ -2551,6 +2607,18 @@ export namespace SystemContentBlock {
   export interface GuardContentMember {
     text?: never;
     guardContent: GuardrailConverseContentBlock;
+    cachePoint?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>CachePoint to include in the system prompt.</p>
+   * @public
+   */
+  export interface CachePointMember {
+    text?: never;
+    guardContent?: never;
+    cachePoint: CachePointBlock;
     $unknown?: never;
   }
 
@@ -2560,18 +2628,21 @@ export namespace SystemContentBlock {
   export interface $UnknownMember {
     text?: never;
     guardContent?: never;
+    cachePoint?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     text: (value: string) => T;
     guardContent: (value: GuardrailConverseContentBlock) => T;
+    cachePoint: (value: CachePointBlock) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: SystemContentBlock, visitor: Visitor<T>): T => {
     if (value.text !== undefined) return visitor.text(value.text);
     if (value.guardContent !== undefined) return visitor.guardContent(value.guardContent);
+    if (value.cachePoint !== undefined) return visitor.cachePoint(value.cachePoint);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2744,7 +2815,7 @@ export interface ToolSpecification {
  * <p>Information about a tool that you can use with the Converse API. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html">Tool use (function calling)</a> in the Amazon Bedrock User Guide.</p>
  * @public
  */
-export type Tool = Tool.ToolSpecMember | Tool.$UnknownMember;
+export type Tool = Tool.CachePointMember | Tool.ToolSpecMember | Tool.$UnknownMember;
 
 /**
  * @public
@@ -2756,6 +2827,17 @@ export namespace Tool {
    */
   export interface ToolSpecMember {
     toolSpec: ToolSpecification;
+    cachePoint?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>CachePoint to include in the tool configuration.</p>
+   * @public
+   */
+  export interface CachePointMember {
+    toolSpec?: never;
+    cachePoint: CachePointBlock;
     $unknown?: never;
   }
 
@@ -2764,16 +2846,19 @@ export namespace Tool {
    */
   export interface $UnknownMember {
     toolSpec?: never;
+    cachePoint?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     toolSpec: (value: ToolSpecification) => T;
+    cachePoint: (value: CachePointBlock) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: Tool, visitor: Visitor<T>): T => {
     if (value.toolSpec !== undefined) return visitor.toolSpec(value.toolSpec);
+    if (value.cachePoint !== undefined) return visitor.cachePoint(value.cachePoint);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -3049,6 +3134,18 @@ export interface TokenUsage {
    * @public
    */
   totalTokens: number | undefined;
+
+  /**
+   * <p>The number of input tokens read from the cache for the request.</p>
+   * @public
+   */
+  cacheReadInputTokens?: number | undefined;
+
+  /**
+   * <p>The number of input tokens written to the cache for the request.</p>
+   * @public
+   */
+  cacheWriteInputTokens?: number | undefined;
 }
 
 /**
@@ -4543,6 +4640,7 @@ export const ContentBlockFilterSensitiveLog = (obj: ContentBlock): any => {
   if (obj.toolResult !== undefined) return { toolResult: obj.toolResult };
   if (obj.guardContent !== undefined)
     return { guardContent: GuardrailConverseContentBlockFilterSensitiveLog(obj.guardContent) };
+  if (obj.cachePoint !== undefined) return { cachePoint: obj.cachePoint };
   if (obj.reasoningContent !== undefined) return { reasoningContent: SENSITIVE_STRING };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
@@ -4562,6 +4660,7 @@ export const SystemContentBlockFilterSensitiveLog = (obj: SystemContentBlock): a
   if (obj.text !== undefined) return { text: obj.text };
   if (obj.guardContent !== undefined)
     return { guardContent: GuardrailConverseContentBlockFilterSensitiveLog(obj.guardContent) };
+  if (obj.cachePoint !== undefined) return { cachePoint: obj.cachePoint };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
