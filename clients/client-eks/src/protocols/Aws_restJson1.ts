@@ -1375,6 +1375,7 @@ export const se_UpdateClusterConfigCommand = async (
       computeConfig: (_) => _json(_),
       kubernetesNetworkConfig: (_) => _json(_),
       logging: (_) => _json(_),
+      remoteNetworkConfig: (_) => _json(_),
       resourcesVpcConfig: (_) => _json(_),
       storageConfig: (_) => _json(_),
       upgradePolicy: (_) => _json(_),

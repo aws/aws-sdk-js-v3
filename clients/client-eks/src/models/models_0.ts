@@ -1076,6 +1076,7 @@ export const UpdateParamType = {
   POD_IDENTITY_ASSOCIATIONS: "PodIdentityAssociations",
   PUBLIC_ACCESS_CIDRS: "PublicAccessCidrs",
   RELEASE_VERSION: "ReleaseVersion",
+  REMOTE_NETWORK_CONFIG: "RemoteNetworkConfig",
   RESOLVE_CONFLICTS: "ResolveConflicts",
   SECURITY_GROUPS: "SecurityGroups",
   SERVICE_ACCOUNT_ROLE_ARN: "ServiceAccountRoleArn",
@@ -1142,6 +1143,7 @@ export const UpdateType = {
   DISASSOCIATE_IDENTITY_PROVIDER_CONFIG: "DisassociateIdentityProviderConfig",
   ENDPOINT_ACCESS_UPDATE: "EndpointAccessUpdate",
   LOGGING_UPDATE: "LoggingUpdate",
+  REMOTE_NETWORK_CONFIG_UPDATE: "RemoteNetworkConfigUpdate",
   UPGRADE_POLICY_UPDATE: "UpgradePolicyUpdate",
   VERSION_UPDATE: "VersionUpdate",
   VPC_CONFIG_UPDATE: "VpcConfigUpdate",
@@ -2131,7 +2133,7 @@ export interface RemotePodNetwork {
 }
 
 /**
- * <p>The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this
+ * <p>The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this
  *             configuration after the cluster is created.</p>
  * @public
  */
@@ -2491,7 +2493,7 @@ export interface CreateClusterRequest {
   zonalShiftConfig?: ZonalShiftConfigRequest | undefined;
 
   /**
-   * <p>The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this
+   * <p>The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this
    *             configuration after the cluster is created.</p>
    * @public
    */
@@ -2779,7 +2781,7 @@ export interface OutpostConfigResponse {
 }
 
 /**
- * <p>The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this
+ * <p>The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this
  *             configuration after the cluster is created.</p>
  * @public
  */
@@ -3089,7 +3091,7 @@ export interface Cluster {
   zonalShiftConfig?: ZonalShiftConfigResponse | undefined;
 
   /**
-   * <p>The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this
+   * <p>The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this
    *             configuration after the cluster is created.</p>
    * @public
    */
@@ -7384,6 +7386,13 @@ export interface UpdateClusterConfigRequest {
    * @public
    */
   storageConfig?: StorageConfigRequest | undefined;
+
+  /**
+   * <p>The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this
+   *             configuration after the cluster is created.</p>
+   * @public
+   */
+  remoteNetworkConfig?: RemoteNetworkConfigRequest | undefined;
 }
 
 /**
