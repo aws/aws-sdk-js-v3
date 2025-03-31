@@ -29,10 +29,7 @@ export interface GetAccessPointCommandInput extends GetAccessPointRequest {}
 export interface GetAccessPointCommandOutput extends GetAccessPointResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
- *          </note>
- *          <p>Returns configuration information about the specified access point.</p>
+ * <p>Returns configuration information about the specified access point.</p>
  *          <p></p>
  *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html#API_control_GetAccessPoint_Examples">Examples</a> section.</p>
  *          <p>The following actions are related to <code>GetAccessPoint</code>:</p>

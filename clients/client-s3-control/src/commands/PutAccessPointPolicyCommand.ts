@@ -29,10 +29,7 @@ export interface PutAccessPointPolicyCommandInput extends PutAccessPointPolicyRe
 export interface PutAccessPointPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
- *          </note>
- *          <p>Associates an access policy with the specified access point. Each access point can have only one policy,
+ * <p>Associates an access policy with the specified access point. Each access point can have only one policy,
  *          so a request made to this API replaces any existing policy associated with the specified
  *          access point.</p>
  *          <p></p>

@@ -45,4 +45,5 @@ export interface EndpointParameters extends __EndpointParameters {
   Bucket?: string;
   AccessPointName?: string;
   UseArnRegion?: boolean;
+  UseS3ExpressControlEndpoint?: boolean;
 }

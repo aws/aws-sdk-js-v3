@@ -19,6 +19,7 @@ const cache = new EndpointCache({
     "UseArnRegion",
     "UseDualStack",
     "UseFIPS",
+    "UseS3ExpressControlEndpoint",
   ],
 });
 

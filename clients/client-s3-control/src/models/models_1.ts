@@ -3,14 +3,17 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 
 import {
   BucketVersioningStatus,
+  JobListDescriptor,
   JobStatus,
   LifecycleRule,
+  MultiRegionAccessPointReport,
   MultiRegionAccessPointRoute,
   ObjectLambdaConfiguration,
   PublicAccessBlockConfiguration,
   PutMultiRegionAccessPointPolicyInput,
   ReplicationConfiguration,
   S3Tag,
+  Scope,
   StorageLensConfiguration,
   StorageLensGroup,
   StorageLensTag,
@@ -18,6 +21,173 @@ import {
 } from "./models_0";
 
 import { S3ControlServiceException as __BaseException } from "./S3ControlServiceException";
+
+/**
+ * @public
+ */
+export interface ListJobsResult {
+  /**
+   * <p>If the <code>List Jobs</code> request produced more than the maximum number of results,
+   *          you can pass this value into a subsequent <code>List Jobs</code> request in order to
+   *          retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The list of current jobs and jobs that have ended within the last 30 days.</p>
+   * @public
+   */
+  Jobs?: JobListDescriptor[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMultiRegionAccessPointsRequest {
+  /**
+   * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>Not currently used. Do not use this parameter.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Not currently used. Do not use this parameter.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMultiRegionAccessPointsResult {
+  /**
+   * <p>The list of Multi-Region Access Points associated with the user.</p>
+   * @public
+   */
+  AccessPoints?: MultiRegionAccessPointReport[] | undefined;
+
+  /**
+   * <p>If the specified bucket has more Multi-Region Access Points than can be returned in one call to this
+   *          action, this field contains a continuation token. You can use this token tin subsequent
+   *          calls to this action to retrieve additional Multi-Region Access Points.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRegionalBucketsRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The ID of the Outposts resource.</p>
+   *          <note>
+   *             <p>This ID is required by Amazon S3 on Outposts buckets.</p>
+   *          </note>
+   * @public
+   */
+  OutpostId?: string | undefined;
+}
+
+/**
+ * <p>The container for the regional bucket.</p>
+ * @public
+ */
+export interface RegionalBucket {
+  /**
+   * <p></p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the regional bucket.</p>
+   * @public
+   */
+  BucketArn?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  PublicAccessBlockEnabled: boolean | undefined;
+
+  /**
+   * <p>The creation date of the regional bucket</p>
+   * @public
+   */
+  CreationDate: Date | undefined;
+
+  /**
+   * <p>The Outposts ID of the regional bucket.</p>
+   * @public
+   */
+  OutpostId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRegionalBucketsResult {
+  /**
+   * <p></p>
+   * @public
+   */
+  RegionalBucketList?: RegionalBucket[] | undefined;
+
+  /**
+   * <p>
+   *             <code>NextToken</code> is sent when <code>isTruncated</code> is true, which means there
+   *          are more buckets that can be listed. The next list requests to Amazon S3 can be continued with
+   *          this <code>NextToken</code>. <code>NextToken</code> is obfuscated and is not a real
+   *          key.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStorageLensConfigurationsRequest {
+  /**
+   * <p>The account ID of the requester.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>A pagination token to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * <p>Part of <code>ListStorageLensConfigurationResult</code>. Each entry includes the
@@ -271,8 +441,8 @@ export interface PutAccessPointPolicyRequest {
 
   /**
    * <p>The policy that you want to apply to the specified access point. For more information about access point
-   *          policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing data access with Amazon S3
-   *             access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing access to shared datasets in general purpose buckets with
+   *             access points</a> or <a href="AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing access to shared datasets in directory bucekts with access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
   Policy: string | undefined;
@@ -299,6 +469,31 @@ export interface PutAccessPointPolicyForObjectLambdaRequest {
    * @public
    */
   Policy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAccessPointScopeRequest {
+  /**
+   * <p>
+   *          The Amazon Web Services account ID that owns the access point with scope that you want to create or replace.
+   *       </p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The name of the access point with the scope that you want to create or replace.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Object prefixes, API operations, or a combination of both.</p>
+   * @public
+   */
+  Scope: Scope | undefined;
 }
 
 /**

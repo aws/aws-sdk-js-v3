@@ -3,6 +3,7 @@ export * from "./Interfaces";
 export * from "./ListAccessGrantsInstancesPaginator";
 export * from "./ListAccessGrantsLocationsPaginator";
 export * from "./ListAccessGrantsPaginator";
+export * from "./ListAccessPointsForDirectoryBucketsPaginator";
 export * from "./ListAccessPointsForObjectLambdaPaginator";
 export * from "./ListAccessPointsPaginator";
 export * from "./ListCallerAccessGrantsPaginator";

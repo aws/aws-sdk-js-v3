@@ -29,10 +29,7 @@ export interface GetAccessPointPolicyCommandInput extends GetAccessPointPolicyRe
 export interface GetAccessPointPolicyCommandOutput extends GetAccessPointPolicyResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
- *          </note>
- *          <p>Returns the access point policy associated with the specified access point.</p>
+ * <p>Returns the access point policy associated with the specified access point.</p>
  *          <p>The following actions are related to <code>GetAccessPointPolicy</code>:</p>
  *          <ul>
  *             <li>

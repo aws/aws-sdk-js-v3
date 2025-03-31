@@ -116,6 +116,10 @@ import {
   DeleteAccessPointPolicyForObjectLambdaCommandInput,
   DeleteAccessPointPolicyForObjectLambdaCommandOutput,
 } from "./commands/DeleteAccessPointPolicyForObjectLambdaCommand";
+import {
+  DeleteAccessPointScopeCommandInput,
+  DeleteAccessPointScopeCommandOutput,
+} from "./commands/DeleteAccessPointScopeCommand";
 import { DeleteBucketCommandInput, DeleteBucketCommandOutput } from "./commands/DeleteBucketCommand";
 import {
   DeleteBucketLifecycleConfigurationCommandInput,
@@ -202,6 +206,10 @@ import {
   GetAccessPointPolicyStatusForObjectLambdaCommandInput,
   GetAccessPointPolicyStatusForObjectLambdaCommandOutput,
 } from "./commands/GetAccessPointPolicyStatusForObjectLambdaCommand";
+import {
+  GetAccessPointScopeCommandInput,
+  GetAccessPointScopeCommandOutput,
+} from "./commands/GetAccessPointScopeCommand";
 import { GetBucketCommandInput, GetBucketCommandOutput } from "./commands/GetBucketCommand";
 import {
   GetBucketLifecycleConfigurationCommandInput,
@@ -262,6 +270,10 @@ import {
 } from "./commands/ListAccessGrantsLocationsCommand";
 import { ListAccessPointsCommandInput, ListAccessPointsCommandOutput } from "./commands/ListAccessPointsCommand";
 import {
+  ListAccessPointsForDirectoryBucketsCommandInput,
+  ListAccessPointsForDirectoryBucketsCommandOutput,
+} from "./commands/ListAccessPointsForDirectoryBucketsCommand";
+import {
   ListAccessPointsForObjectLambdaCommandInput,
   ListAccessPointsForObjectLambdaCommandOutput,
 } from "./commands/ListAccessPointsForObjectLambdaCommand";
@@ -306,6 +318,10 @@ import {
   PutAccessPointPolicyForObjectLambdaCommandInput,
   PutAccessPointPolicyForObjectLambdaCommandOutput,
 } from "./commands/PutAccessPointPolicyForObjectLambdaCommand";
+import {
+  PutAccessPointScopeCommandInput,
+  PutAccessPointScopeCommandOutput,
+} from "./commands/PutAccessPointScopeCommand";
 import {
   PutBucketLifecycleConfigurationCommandInput,
   PutBucketLifecycleConfigurationCommandOutput,
@@ -386,6 +402,7 @@ export type ServiceInputTypes =
   | DeleteAccessPointForObjectLambdaCommandInput
   | DeleteAccessPointPolicyCommandInput
   | DeleteAccessPointPolicyForObjectLambdaCommandInput
+  | DeleteAccessPointScopeCommandInput
   | DeleteBucketCommandInput
   | DeleteBucketLifecycleConfigurationCommandInput
   | DeleteBucketPolicyCommandInput
@@ -412,6 +429,7 @@ export type ServiceInputTypes =
   | GetAccessPointPolicyForObjectLambdaCommandInput
   | GetAccessPointPolicyStatusCommandInput
   | GetAccessPointPolicyStatusForObjectLambdaCommandInput
+  | GetAccessPointScopeCommandInput
   | GetBucketCommandInput
   | GetBucketLifecycleConfigurationCommandInput
   | GetBucketPolicyCommandInput
@@ -432,6 +450,7 @@ export type ServiceInputTypes =
   | ListAccessGrantsInstancesCommandInput
   | ListAccessGrantsLocationsCommandInput
   | ListAccessPointsCommandInput
+  | ListAccessPointsForDirectoryBucketsCommandInput
   | ListAccessPointsForObjectLambdaCommandInput
   | ListCallerAccessGrantsCommandInput
   | ListJobsCommandInput
@@ -444,6 +463,7 @@ export type ServiceInputTypes =
   | PutAccessPointConfigurationForObjectLambdaCommandInput
   | PutAccessPointPolicyCommandInput
   | PutAccessPointPolicyForObjectLambdaCommandInput
+  | PutAccessPointScopeCommandInput
   | PutBucketLifecycleConfigurationCommandInput
   | PutBucketPolicyCommandInput
   | PutBucketReplicationCommandInput
@@ -484,6 +504,7 @@ export type ServiceOutputTypes =
   | DeleteAccessPointForObjectLambdaCommandOutput
   | DeleteAccessPointPolicyCommandOutput
   | DeleteAccessPointPolicyForObjectLambdaCommandOutput
+  | DeleteAccessPointScopeCommandOutput
   | DeleteBucketCommandOutput
   | DeleteBucketLifecycleConfigurationCommandOutput
   | DeleteBucketPolicyCommandOutput
@@ -510,6 +531,7 @@ export type ServiceOutputTypes =
   | GetAccessPointPolicyForObjectLambdaCommandOutput
   | GetAccessPointPolicyStatusCommandOutput
   | GetAccessPointPolicyStatusForObjectLambdaCommandOutput
+  | GetAccessPointScopeCommandOutput
   | GetBucketCommandOutput
   | GetBucketLifecycleConfigurationCommandOutput
   | GetBucketPolicyCommandOutput
@@ -530,6 +552,7 @@ export type ServiceOutputTypes =
   | ListAccessGrantsInstancesCommandOutput
   | ListAccessGrantsLocationsCommandOutput
   | ListAccessPointsCommandOutput
+  | ListAccessPointsForDirectoryBucketsCommandOutput
   | ListAccessPointsForObjectLambdaCommandOutput
   | ListCallerAccessGrantsCommandOutput
   | ListJobsCommandOutput
@@ -542,6 +565,7 @@ export type ServiceOutputTypes =
   | PutAccessPointConfigurationForObjectLambdaCommandOutput
   | PutAccessPointPolicyCommandOutput
   | PutAccessPointPolicyForObjectLambdaCommandOutput
+  | PutAccessPointScopeCommandOutput
   | PutBucketLifecycleConfigurationCommandOutput
   | PutBucketPolicyCommandOutput
   | PutBucketReplicationCommandOutput
