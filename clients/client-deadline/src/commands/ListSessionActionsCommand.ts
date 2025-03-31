@@ -63,7 +63,7 @@ export interface ListSessionActionsCommandOutput extends ListSessionActionsRespo
  * //           environmentId: "STRING_VALUE", // required
  * //         },
  * //         taskRun: { // TaskRunSessionActionDefinitionSummary
- * //           taskId: "STRING_VALUE", // required
+ * //           taskId: "STRING_VALUE",
  * //           stepId: "STRING_VALUE", // required
  * //         },
  * //         syncInputJobAttachments: { // SyncInputJobAttachmentsSessionActionDefinitionSummary

@@ -370,7 +370,7 @@ export interface AssignedTaskRunSessionActionDefinition {
    * <p>The task ID.</p>
    * @public
    */
-  taskId: string | undefined;
+  taskId?: string | undefined;
 
   /**
    * <p>The step ID.</p>
@@ -3567,8 +3567,8 @@ export interface CreateJobRequest {
   templateType?: JobTemplateType | undefined;
 
   /**
-   * <p>The priority of the job on a scale of 0 to 100. The highest priority (first scheduled)
-   *          is 100. When two jobs have the same priority, the oldest job is scheduled first.</p>
+   * <p>The priority of the job. The highest priority (first scheduled) is 100. When two jobs
+   *          have the same priority, the oldest job is scheduled first.</p>
    * @public
    */
   priority: number | undefined;
@@ -3953,8 +3953,8 @@ export interface CreateQueueEnvironmentRequest {
 
   /**
    * <p>Sets the priority of the environments in the queue from 0 to 10,000, where 0 is the
-   *          highest priority. If two environments share the same priority value, the environment
-   *          created first takes higher priority.</p>
+   *          highest priority (activated first and deactivated last). If two environments share the same
+   *          priority value, the environment created first takes higher priority.</p>
    * @public
    */
   priority: number | undefined;
@@ -5459,7 +5459,8 @@ export interface UpdatedSessionActionInfo {
   completedStatus?: CompletedStatus | undefined;
 
   /**
-   * <p>The process exit code.</p>
+   * <p>The process exit code. The default Deadline Cloud worker agent converts unsigned
+   *          32-bit exit codes to signed 32-bit exit codes.</p>
    * @public
    */
   processExitCode?: number | undefined;
@@ -6987,7 +6988,7 @@ export interface TaskRunSessionActionDefinition {
    * <p>The task ID.</p>
    * @public
    */
-  taskId: string | undefined;
+  taskId?: string | undefined;
 
   /**
    * <p>The step ID.</p>
@@ -7164,7 +7165,8 @@ export interface GetSessionActionResponse {
   sessionId: string | undefined;
 
   /**
-   * <p>The exit code to exit the session.</p>
+   * <p>The process exit code. The default Deadline Cloud worker agent converts unsigned
+   *          32-bit exit codes to signed 32-bit exit codes.</p>
    * @public
    */
   processExitCode?: number | undefined;
@@ -8103,7 +8105,7 @@ export interface TaskRunSessionActionDefinitionSummary {
    * <p>The task ID.</p>
    * @public
    */
-  taskId: string | undefined;
+  taskId?: string | undefined;
 
   /**
    * <p>The step ID.</p>
@@ -8975,7 +8977,6 @@ export const AssumeQueueRoleForWorkerResponseFilterSensitiveLog = (obj: AssumeQu
  */
 export const ManifestPropertiesFilterSensitiveLog = (obj: ManifestProperties): any => ({
   ...obj,
-  ...(obj.fileSystemLocationName && { fileSystemLocationName: SENSITIVE_STRING }),
 });
 
 /**
@@ -9154,7 +9155,6 @@ export const CreateLimitRequestFilterSensitiveLog = (obj: CreateLimitRequest): a
 export const CreateQueueRequestFilterSensitiveLog = (obj: CreateQueueRequest): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.requiredFileSystemLocationNames && { requiredFileSystemLocationNames: SENSITIVE_STRING }),
 });
 
 /**
@@ -9170,7 +9170,6 @@ export const CreateQueueEnvironmentRequestFilterSensitiveLog = (obj: CreateQueue
  */
 export const FileSystemLocationFilterSensitiveLog = (obj: FileSystemLocation): any => ({
   ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
 });
 
 /**
@@ -9267,7 +9266,6 @@ export const GetStorageProfileResponseFilterSensitiveLog = (obj: GetStorageProfi
 export const GetQueueResponseFilterSensitiveLog = (obj: GetQueueResponse): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.requiredFileSystemLocationNames && { requiredFileSystemLocationNames: SENSITIVE_STRING }),
 });
 
 /**

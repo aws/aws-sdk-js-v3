@@ -65,7 +65,7 @@ export interface GetSessionActionCommandOutput extends GetSessionActionResponse,
  * //       environmentId: "STRING_VALUE", // required
  * //     },
  * //     taskRun: { // TaskRunSessionActionDefinition
- * //       taskId: "STRING_VALUE", // required
+ * //       taskId: "STRING_VALUE",
  * //       stepId: "STRING_VALUE", // required
  * //       parameters: { // TaskParameters // required
  * //         "<keys>": { // TaskParameterValue Union: only one key present

@@ -2135,6 +2135,20 @@ export interface ParameterFilterExpression {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const SearchTermMatchingType = {
+  CONTAINS: "CONTAINS",
+  FUZZY_MATCH: "FUZZY_MATCH",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchTermMatchingType = (typeof SearchTermMatchingType)[keyof typeof SearchTermMatchingType];
+
+/**
  * <p>Searches for a particular search term.</p>
  * @public
  */
@@ -2144,6 +2158,23 @@ export interface SearchTermFilterExpression {
    * @public
    */
   searchTerm: string | undefined;
+
+  /**
+   * <p>Specifies how Deadline Cloud matches your search term in the results. If you don't
+   *          specify a <code>matchType</code> the default is <code>FUZZY_MATCH</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FUZZY_MATCH</code> - Matches if a portion of the search term is found in the result.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONTAINS</code> - Matches if the exact search term is contained in the result.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  matchType?: SearchTermMatchingType | undefined;
 }
 
 /**
@@ -3466,8 +3497,6 @@ export interface SearchWorkersRequest {
 export const UpdateQueueRequestFilterSensitiveLog = (obj: UpdateQueueRequest): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.requiredFileSystemLocationNamesToAdd && { requiredFileSystemLocationNamesToAdd: SENSITIVE_STRING }),
-  ...(obj.requiredFileSystemLocationNamesToRemove && { requiredFileSystemLocationNamesToRemove: SENSITIVE_STRING }),
 });
 
 /**
