@@ -11,7 +11,7 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "yarn g:vitest run",
     "test:e2e": "vitest run --config vitest.config.e2e.js",
-    "test:browser": "vitest run --config vitest.config.browser.js"
+    "test:browser": "vitest run --config vitest.config.browser.js",
     "test:watch": "yarn g:vitest watch"
   },
   "main": "./dist-cjs/index.js",
