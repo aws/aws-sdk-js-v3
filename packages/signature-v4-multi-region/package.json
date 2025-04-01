@@ -9,9 +9,9 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest",
-    "test:e2e": "jest -c jest.config.e2e.js",
-    "test:browser": "karma start karma.conf.js"
+    "test": "vitest run",
+    "test:e2e": "vitest run --config vitest.config.e2e.js",
+    "test:browser": "vitest run --config vitest.config.browser.js"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -34,7 +34,12 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5"
+    "typescript": "~4.9.5",
+    "vitest": "^2.1.9",
+    "@vitest/browser": "^1.0.0",
+    "@vitest/coverage-v8": "^1.0.0",
+    "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1"
   },
   "engines": {
     "node": ">=16.0.0"

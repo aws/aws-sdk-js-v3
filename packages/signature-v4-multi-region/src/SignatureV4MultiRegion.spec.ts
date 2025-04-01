@@ -1,8 +1,9 @@
 import { HttpRequest } from "@smithy/protocol-http";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
-jest.mock("@smithy/signature-v4");
-jest.mock("@aws-sdk/signature-v4-crt");
-jest.mock("@smithy/signature-v4a");
+vi.mock("@smithy/signature-v4");
+vi.mock("@aws-sdk/signature-v4-crt");
+vi.mock("@smithy/signature-v4a");
 
 import { CrtSignerV4 } from "@aws-sdk/signature-v4-crt";
 import { SignatureV4 } from "@smithy/signature-v4";
@@ -31,49 +32,43 @@ describe("SignatureV4MultiRegion", () => {
   beforeEach(() => {
     signatureV4CrtContainer.CrtSignerV4 = CrtSignerV4 as any;
     signatureV4aContainer.SignatureV4a = SignatureV4a as any;
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should sign with SigV4 signer", async () => {
     const signer = new SignatureV4MultiRegion(params);
     await signer.sign(minimalRequest);
-    //@ts-ignore
-    expect(SignatureV4.mock.instances[0].sign).toBeCalledTimes(1);
+    expect(SignatureV4.prototype.sign).toBeCalledTimes(1);
   });
 
   it("should presign with SigV4 signer", async () => {
     const signer = new SignatureV4MultiRegion(params);
     await signer.presign(minimalRequest);
-    //@ts-ignore
-    expect(SignatureV4.mock.instances[0].presign).toBeCalledTimes(1);
+    expect(SignatureV4.prototype.presign).toBeCalledTimes(1);
   });
 
   it("should sign with SigV4a signer if mult_region option is set", async () => {
     const signer = new SignatureV4MultiRegion(params);
     await signer.presign(minimalRequest, { signingRegion: "*" });
-    //@ts-ignore
-    expect(CrtSignerV4.mock.instances[0].presign).toBeCalledTimes(1);
+    expect(CrtSignerV4.prototype.presign).toBeCalledTimes(1);
   });
 
   it("should presign with SigV4 signer", async () => {
     const signer = new SignatureV4MultiRegion(params);
     await signer.presign(minimalRequest, { signingRegion: "*" });
-    //@ts-ignore
-    expect(CrtSignerV4.mock.instances[0].presign).toBeCalledTimes(1);
+    expect(CrtSignerV4.prototype.presign).toBeCalledTimes(1);
   });
 
   it("should presign with SigV4a signer if signingRegion is '*'", async () => {
     const signer = new SignatureV4MultiRegion(params);
     await signer.presign(minimalRequest, { signingRegion: "*" });
-    //@ts-ignore
-    expect(SignatureV4a.mock.instances[0].presign).toBeCalledTimes(1);
+    expect(SignatureV4a.prototype.presign).toBeCalledTimes(1);
   });
 
   it("should sign with SigV4a signer if signingRegion is '*'", async () => {
     const signer = new SignatureV4MultiRegion(params);
     await signer.sign(minimalRequest, { signingRegion: "*" });
-    //@ts-ignore
-    expect(SignatureV4a.mock.instances[0].sign).toBeCalledTimes(1);
+    expect(SignatureV4a.prototype.sign).toBeCalledTimes(1);
   });
 
   it("should use CrtSignerV4 if available", async () => {

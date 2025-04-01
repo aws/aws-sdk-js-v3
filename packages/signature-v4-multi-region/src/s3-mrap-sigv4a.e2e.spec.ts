@@ -2,24 +2,26 @@ import "@smithy/signature-v4a";
 
 import { Sha256 } from "@aws-crypto/sha256-js";
 import {
-  S3Client,
   CreateBucketCommand,
   DeleteBucketCommand,
+  ListObjectsV2Command,
   PutObjectCommand,
-  ListObjectsV2Command
+  S3Client,
 } from "@aws-sdk/client-s3";
 import {
-  S3ControlClient,
   CreateMultiRegionAccessPointCommand,
   DeleteMultiRegionAccessPointCommand,
   DescribeMultiRegionAccessPointOperationCommand,
-  GetMultiRegionAccessPointCommand
+  GetMultiRegionAccessPointCommand,
+  S3ControlClient,
 } from "@aws-sdk/client-s3-control";
 import { GetCallerIdentityCommand, STSClient } from "@aws-sdk/client-sts";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { HttpRequest } from "@smithy/protocol-http";
+import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 
-jest.setTimeout(1800000); // 30 minutes (MRAP operations can take a while)
+// Setting timeout for long-running tests
+const LONG_TIMEOUT = 1800000; // 30 minutes
 
 describe("S3 Multi-Region Access Point with SignatureV4a (JS Implementation)", () => {
   let s3Client: S3Client;
@@ -32,6 +34,9 @@ describe("S3 Multi-Region Access Point with SignatureV4a (JS Implementation)", (
   let mrapArn: string;
 
   beforeAll(async () => {
+    // Set timeout for setup
+    vi.setConfig({ testTimeout: LONG_TIMEOUT });
+
     const stsClient = new STSClient({});
     const { Account } = await stsClient.send(new GetCallerIdentityCommand({}));
     accountId = Account!;
@@ -63,8 +68,12 @@ describe("S3 Multi-Region Access Point with SignatureV4a (JS Implementation)", (
     });
 
     // Create buckets
-    await s3Client.send(new CreateBucketCommand({ Bucket: bucketName1, CreateBucketConfiguration: { LocationConstraint: "us-west-2" } }));
-    await s3Client.send(new CreateBucketCommand({ Bucket: bucketName2, CreateBucketConfiguration: { LocationConstraint: "us-east-2" } }));
+    await s3Client.send(
+      new CreateBucketCommand({ Bucket: bucketName1, CreateBucketConfiguration: { LocationConstraint: "us-west-2" } })
+    );
+    await s3Client.send(
+      new CreateBucketCommand({ Bucket: bucketName2, CreateBucketConfiguration: { LocationConstraint: "us-east-2" } })
+    );
 
     // Create MRAP
     const createResponse = await s3ControlClient.send(
@@ -101,7 +110,7 @@ describe("S3 Multi-Region Access Point with SignatureV4a (JS Implementation)", (
       if (describeResponse.AsyncOperation?.RequestStatus === "SUCCESS") {
         mrapReady = true;
       } else {
-        await new Promise(resolve => setTimeout(resolve, 30000)); // Wait for 30 seconds before retrying
+        await new Promise((resolve) => setTimeout(resolve, 30000)); // Wait for 30 seconds before retrying
         retries++;
       }
     }
@@ -120,14 +129,19 @@ describe("S3 Multi-Region Access Point with SignatureV4a (JS Implementation)", (
     mrapArn = getResponse.AccessPoint!.Alias!;
 
     // Upload a small file to one of the buckets
-    await s3Client.send(new PutObjectCommand({
-      Bucket: bucketName1,
-      Key: "testfile",
-      Body: Buffer.from("test", "utf-8")
-    }));
+    await s3Client.send(
+      new PutObjectCommand({
+        Bucket: bucketName1,
+        Key: "testfile",
+        Body: Buffer.from("test", "utf-8"),
+      })
+    );
   });
 
   afterAll(async () => {
+    // Set timeout for teardown
+    vi.setConfig({ testTimeout: LONG_TIMEOUT });
+
     // Delete MRAP
     try {
       await s3ControlClient.send(
@@ -163,7 +177,7 @@ describe("S3 Multi-Region Access Point with SignatureV4a (JS Implementation)", (
       path: "/",
     });
 
-    const signSpy = jest.spyOn(signer, "sign");
+    const signSpy = vi.spyOn(signer, "sign");
 
     await signer.sign(mockRequest, { signingRegion: "*" });
 
@@ -188,6 +202,6 @@ describe("S3 Multi-Region Access Point with SignatureV4a (JS Implementation)", (
 
     expect(response.Contents).toBeDefined();
     expect(response.Contents?.length).toBeGreaterThan(0);
-    expect(response.Contents?.some(object => object.Key === "testfile")).toBe(true);
+    expect(response.Contents?.some((object) => object.Key === "testfile")).toBe(true);
   });
 });

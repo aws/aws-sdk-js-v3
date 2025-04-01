@@ -5,8 +5,10 @@ import { DeleteRuleCommand, DescribeRuleCommand, EventBridgeClient, PutRuleComma
 import { GetCallerIdentityCommand, STSClient } from "@aws-sdk/client-sts";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { HttpRequest } from "@smithy/protocol-http";
+import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 
-jest.setTimeout(300000);
+// Setting timeout for tests
+const TEST_TIMEOUT = 300000;
 
 describe("EventBridge with SignatureV4a (JS Implementation)", () => {
   let ebClient: EventBridgeClient;
@@ -14,6 +16,9 @@ describe("EventBridge with SignatureV4a (JS Implementation)", () => {
   let signer: SignatureV4MultiRegion;
 
   beforeAll(async () => {
+    // Set timeout for setup
+    vi.setConfig({ testTimeout: TEST_TIMEOUT });
+
     const stsClient = new STSClient({});
     const { Account } = await stsClient.send(new GetCallerIdentityCommand({}));
     const timestamp = Date.now();
@@ -37,6 +42,9 @@ describe("EventBridge with SignatureV4a (JS Implementation)", () => {
   });
 
   afterAll(async () => {
+    // Set timeout for teardown
+    vi.setConfig({ testTimeout: TEST_TIMEOUT });
+
     try {
       await ebClient.send(
         new DeleteRuleCommand({
@@ -59,7 +67,7 @@ describe("EventBridge with SignatureV4a (JS Implementation)", () => {
       path: "/",
     });
 
-    const signSpy = jest.spyOn(signer, "sign");
+    const signSpy = vi.spyOn(signer, "sign");
 
     await signer.sign(mockRequest, { signingRegion: "*" });
 

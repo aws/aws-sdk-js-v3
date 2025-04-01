@@ -6,9 +6,10 @@ import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { HttpRequest } from "@smithy/protocol-http";
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
+import { describe, expect, it } from "vitest";
 
 chai.use(chaiAsPromised);
-const { expect } = chai;
+const { expect: chaiExpect } = chai;
 
 const region = "*";
 const credentials = {
@@ -20,8 +21,9 @@ const credentials = {
 const s3MrapArn = (window as any).__env__.AWS_SMOKE_TEST_MRAP_ARN;
 const cfKvsArn = (window as any).__env__.AWS_SMOKE_TEST_CF_KVS_ARN;
 
-describe("SignatureV4a Browser Tests", function () {
-  this.timeout(30000); // Set timeout to 30 seconds
+describe("SignatureV4a Browser Tests", () => {
+  // Set timeout to 30 seconds
+  const TIMEOUT = 30000;
 
   const signer = new SignatureV4MultiRegion({
     credentials,
@@ -38,13 +40,16 @@ describe("SignatureV4a Browser Tests", function () {
     });
 
     it("should successfully list objects using MRAP", async () => {
+      // Using longer timeout for this test
+      vi.setConfig({ testTimeout: TIMEOUT });
+
       const command = new ListObjectsV2Command({
         Bucket: s3MrapArn,
       });
 
       const response = await s3Client.send(command);
-      expect(response.$metadata.httpStatusCode).to.equal(200);
-      expect(response.Contents).to.be.an("array");
+      chaiExpect(response.$metadata.httpStatusCode).to.equal(200);
+      chaiExpect(response.Contents).to.be.an("array");
     });
   });
 
@@ -56,11 +61,14 @@ describe("SignatureV4a Browser Tests", function () {
     });
 
     it("should successfully list rules using global endpoint", async () => {
+      // Using longer timeout for this test
+      vi.setConfig({ testTimeout: TIMEOUT });
+
       const command = new ListRulesCommand({});
 
       const response = await ebClient.send(command);
-      expect(response.$metadata.httpStatusCode).to.equal(200);
-      expect(response.Rules).to.be.an("array");
+      chaiExpect(response.$metadata.httpStatusCode).to.equal(200);
+      chaiExpect(response.Rules).to.be.an("array");
     });
   });
 
@@ -72,18 +80,24 @@ describe("SignatureV4a Browser Tests", function () {
     });
 
     it("should successfully describe a key-value store", async () => {
+      // Using longer timeout for this test
+      vi.setConfig({ testTimeout: TIMEOUT });
+
       const command = new DescribeKeyValueStoreCommand({
         KvsARN: cfKvsArn,
       });
 
       const response = await cfKvsClient.send(command);
-      expect(response.$metadata.httpStatusCode).to.equal(200);
-      expect(response.KvsARN).to.equal(cfKvsArn);
+      chaiExpect(response.$metadata.httpStatusCode).to.equal(200);
+      chaiExpect(response.KvsARN).to.equal(cfKvsArn);
     });
   });
 
   describe("SignatureV4MultiRegion", () => {
     it("should use SignatureV4a for '*' region", async () => {
+      // Using longer timeout for this test
+      vi.setConfig({ testTimeout: TIMEOUT });
+
       const mockRequest = new HttpRequest({
         method: "GET",
         protocol: "https:",
@@ -95,8 +109,8 @@ describe("SignatureV4a Browser Tests", function () {
       });
 
       const signedRequest = await signer.sign(mockRequest, { signingRegion: "*" });
-      expect(signedRequest.headers["x-amz-region-set"]).to.equal("*");
-      expect(signedRequest.headers["authorization"]).to.include("AWS4-ECDSA-P256-SHA256");
+      chaiExpect(signedRequest.headers["x-amz-region-set"]).to.equal("*");
+      chaiExpect(signedRequest.headers["authorization"]).to.include("AWS4-ECDSA-P256-SHA256");
     });
   });
 });
