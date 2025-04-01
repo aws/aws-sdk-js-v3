@@ -403,6 +403,14 @@ export interface CreateNotebookInstanceLifecycleConfigInput {
    * @public
    */
   OnStart?: NotebookInstanceLifecycleHook[] | undefined;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+   *             resources in different ways, for example, by purpose, owner, or environment. For more
+   *             information, see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**

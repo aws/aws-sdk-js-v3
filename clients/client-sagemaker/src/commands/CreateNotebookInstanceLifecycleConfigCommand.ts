@@ -68,6 +68,12 @@ export interface CreateNotebookInstanceLifecycleConfigCommandOutput
  *       Content: "STRING_VALUE",
  *     },
  *   ],
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateNotebookInstanceLifecycleConfigCommand(input);
  * const response = await client.send(command);
