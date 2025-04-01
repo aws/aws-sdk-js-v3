@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.780.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.779.0...v3.780.0) (2025-04-01)
+
+
+### Features
+
+* **client-cleanrooms:** This release adds support for updating the analytics engine of a collaboration. ([4228743](https://github.com/aws/aws-sdk-js-v3/commit/42287437fb91b8c33acebdb65f0f68f09816c5b2))
+* **client-sagemaker:** Added tagging support for SageMaker notebook instance lifecycle configurations ([b1ed2a7](https://github.com/aws/aws-sdk-js-v3/commit/b1ed2a7e68531d6ed47b3ad2895554ac08078622))
+* **clients:** update client endpoints as of 2025-04-01 ([b01944d](https://github.com/aws/aws-sdk-js-v3/commit/b01944dd4edd2c2724fc151079d6caa6655dccc0))
+
+
+
+
+
 # [3.779.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.778.0...v3.779.0) (2025-03-31)
 
 
